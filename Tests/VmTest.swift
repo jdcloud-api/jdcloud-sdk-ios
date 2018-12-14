@@ -13,12 +13,22 @@ class VmTests: XCTestCase{
     func testVmClient() throws{
        
         let semaphore = DispatchSemaphore(value: 0)
-        let credentials = Credential(accessKeyId: "636B856DCF14D467D313CCB0C0E2B21C", secretAccessKey: "6EA0C4C1FC1AD060568A1C117E5C0287");
-        let sdkEnvironment = SDKEnvironment(endPoint: "192.168.182.82:8000")
+        let credentials = Credential(accessKeyId: "ak for jdcloud user", secretAccessKey: "sk for jdcloud user");
+	
+	/// if use defalut endPoint not need create this 
+        let sdkEnvironment = SDKEnvironment(endPoint: "")
+	
+	/// if use default endPoint please use `VmJDCloudClient(credential:credentials)` to init 
         let vmClient = VmJDCloudClient(credential: credentials,sdkEnvironment: sdkEnvironment)
-        vmClient.httpRequestProtocol = "http"
-        let describeInstancesRequest = DescribeInstancesRequest(regionId: "cn-north-1");
-        GlobalConfig.debug = true 
+        
+	/// the http scheme default is https if use http set this param
+	vmClient.httpRequestProtocol = "http"
+       
+	/// the request param
+	let describeInstancesRequest = DescribeInstancesRequest(regionId: "cn-north-1");
+        
+	/// Global param setting like credentials and sdkEnvironment
+	GlobalConfig.debug = true 
         try vmClient.describeInstancesAsync(request: describeInstancesRequest) { (statusCode, requestResponse, error,data) in
              print(statusCode)
              print(requestResponse)
