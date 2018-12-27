@@ -17,7 +17,7 @@
 
 * 如果 使用 swift 进行 iOS 和 Mac OS X 应用开发， 直接编译要使用的模块的SDK和相关引用的模块引用到项目中。
 
-* 如果使用 Objective-c  进行 iOS 和 Mac OS X 应用开发，需要引用 framework 然后再引用 要使用的`{framework name}`-swift.h 的头文件，引用后能调用相关 framework 的方法。
+* 如果使用 Objective-c  进行 iOS 和 Mac OS X 应用开发，引用需要的 framework, 然后在头文件中引用`<{使用的framework名称}/{使用的framework名称}-swift.h>` 的头文件，引用后能调用相关 framework 的方法。
 
 * Api 调用方法请查看Tests文件夹下的 `VmTest.swift`.
 ```swift
