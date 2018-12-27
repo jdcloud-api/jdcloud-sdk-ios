@@ -21,5 +21,22 @@
 
 * Api 调用方法请查看Tests文件夹下的 `VmTest.swift`.
 ```swift
-
+        // 京东云官网 申请的 AccessKey 和 SecretAccessKey
+        let credentials = Credential(accessKeyId: "your jdcloud ak", secretAccessKey: "your jdcloud sk");
+        
+        // 初始化调用业务线的客户端
+        let vmClient = VmJDCloudClient(credential: credentials)
+       
+        // 创建请求参数，具体的请求参数查看 OPEN API 调用文档
+        let describeInstancesRequest = DescribeInstancesRequest(regionId: "cn-north-1");
+       
+        // 全局 debug 设定 打开后可以看到签名数据 方便调试
+        GlobalConfig.debug = true
+        
+        try vmClient.describeInstancesAsync(request: describeInstancesRequest) { (statusCode, requestResponse, error,resultString) in
+            // 回调方法执行自己的业务逻辑
+            print(statusCode)
+            print(requestResponse)
+            print(error) 
+}
 ```
