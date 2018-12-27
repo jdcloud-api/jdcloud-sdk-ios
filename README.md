@@ -1,7 +1,7 @@
 # JDCloudSDKSwift
 
 ## 说明
-这个是 swift 的京东云 OPEN API SDK，目前没有添加 pod 支持，需要自己编译 framework 引用 或者使用 `swift package manage` 引用，否则只能使用xcode编译好framework，然后引用framework,目前没有进行 Objective-c 测试。
+这个是 swift 的京东云 OPEN API SDK，目前没有添加 pod 支持，需要自己编译 framework 引用 或者使用 `swift package manage` 引用。
 
 * 目前已经有项目的解决方案文件和 `objc` 的头支持，如果要编写 Objective-c 的 framework 请使用 c++ 签名库，将代码放到项目中进行 C , OC 和 C++ 混合编译，后期会完善 OC 代码的支持
 
