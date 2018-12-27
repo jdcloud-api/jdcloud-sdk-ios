@@ -1,0 +1,930 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "StreamcomputerJDCloudClient"
+provides-nominal:
+- "24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC"
+provides-member:
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", ""]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "addOrUpdateJobAsync"
+- "addOrUpdateStorageAsync"
+- "createNamespaceAsync"
+- "deleteJobAsync"
+- "deleteNamespaceAsync"
+- "deleteStorageAsync"
+- "describeJobAsync"
+- "describeStorageAsync"
+- "getJobListAsync"
+- "getStorageListAsync"
+- "httpRequestProtocol"
+- "queryNamespaceDetailAsync"
+- "queryNamespacesAsync"
+- "startJobAsync"
+- "stopJobAsync"
+- "updateNamespaceAsync"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- !private "AddOrUpdateJobExecutor"
+- "AddOrUpdateJobRequest"
+- "AddOrUpdateJobResponse"
+- !private "AddOrUpdateStorageExecutor"
+- "AddOrUpdateStorageRequest"
+- "AddOrUpdateStorageResponse"
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- !private "CreateNamespaceExecutor"
+- "CreateNamespaceRequest"
+- "CreateNamespaceResponse"
+- "Credential"
+- !private "DeleteJobExecutor"
+- "DeleteJobRequest"
+- "DeleteJobResponse"
+- !private "DeleteNamespaceExecutor"
+- "DeleteNamespaceRequest"
+- "DeleteNamespaceResponse"
+- !private "DeleteStorageExecutor"
+- "DeleteStorageRequest"
+- "DeleteStorageResponse"
+- !private "DescribeJobExecutor"
+- "DescribeJobRequest"
+- "DescribeJobResponse"
+- !private "DescribeStorageExecutor"
+- "DescribeStorageRequest"
+- "DescribeStorageResponse"
+- !private "GetJobListExecutor"
+- "GetJobListRequest"
+- "GetJobListResponse"
+- !private "GetStorageListExecutor"
+- "GetStorageListRequest"
+- "GetStorageListResponse"
+- !private "GlobalConfig"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- !private "QueryNamespaceDetailExecutor"
+- "QueryNamespaceDetailRequest"
+- "QueryNamespaceDetailResponse"
+- !private "QueryNamespacesExecutor"
+- "QueryNamespacesRequest"
+- "QueryNamespacesResponse"
+- "SDKEnvironment"
+- !private "StartJobExecutor"
+- "StartJobRequest"
+- "StartJobResponse"
+- !private "StopJobExecutor"
+- "StopJobRequest"
+- "StopJobResponse"
+- "StreamcomputerJDCloudClient"
+- "String"
+- "StringLiteralType"
+- !private "UpdateNamespaceExecutor"
+- "UpdateNamespaceRequest"
+- "UpdateNamespaceResponse"
+depends-member:
+- !private ["24JDCloudSDKStreamcomputer22AddOrUpdateJobExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer22AddOrUpdateJobExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer22AddOrUpdateJobResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer26AddOrUpdateStorageExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer26AddOrUpdateStorageExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer26AddOrUpdateStorageResponseC", "deinit"]
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "AddOrUpdateJobExecutor"]
+- !private ["s7CVarArgP", "AddOrUpdateJobResponse"]
+- !private ["s7CVarArgP", "AddOrUpdateStorageExecutor"]
+- !private ["s7CVarArgP", "AddOrUpdateStorageResponse"]
+- !private ["s7CVarArgP", "CreateNamespaceExecutor"]
+- !private ["s7CVarArgP", "CreateNamespaceResponse"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "DeleteJobExecutor"]
+- !private ["s7CVarArgP", "DeleteJobResponse"]
+- !private ["s7CVarArgP", "DeleteNamespaceExecutor"]
+- !private ["s7CVarArgP", "DeleteNamespaceResponse"]
+- !private ["s7CVarArgP", "DeleteStorageExecutor"]
+- !private ["s7CVarArgP", "DeleteStorageResponse"]
+- !private ["s7CVarArgP", "DescribeJobExecutor"]
+- !private ["s7CVarArgP", "DescribeJobResponse"]
+- !private ["s7CVarArgP", "DescribeStorageExecutor"]
+- !private ["s7CVarArgP", "DescribeStorageResponse"]
+- !private ["s7CVarArgP", "GetJobListExecutor"]
+- !private ["s7CVarArgP", "GetJobListResponse"]
+- !private ["s7CVarArgP", "GetStorageListExecutor"]
+- !private ["s7CVarArgP", "GetStorageListResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "QueryNamespaceDetailExecutor"]
+- !private ["s7CVarArgP", "QueryNamespaceDetailResponse"]
+- !private ["s7CVarArgP", "QueryNamespacesExecutor"]
+- !private ["s7CVarArgP", "QueryNamespacesResponse"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- !private ["s7CVarArgP", "StartJobExecutor"]
+- !private ["s7CVarArgP", "StartJobResponse"]
+- !private ["s7CVarArgP", "StopJobExecutor"]
+- !private ["s7CVarArgP", "StopJobResponse"]
+- ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "UpdateNamespaceExecutor"]
+- !private ["s7CVarArgP", "UpdateNamespaceResponse"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "streamcomputerJDCloudClient"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["24JDCloudSDKStreamcomputer23CreateNamespaceExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer23CreateNamespaceExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer23CreateNamespaceResponseC", "deinit"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "AddOrUpdateJobExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "AddOrUpdateJobResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "AddOrUpdateStorageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "AddOrUpdateStorageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateNamespaceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateNamespaceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteJobExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteJobResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteNamespaceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteNamespaceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteStorageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteStorageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeJobExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeJobResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeStorageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeStorageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetJobListExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetJobListResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetStorageListExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetStorageListResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "QueryNamespaceDetailExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "QueryNamespaceDetailResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "QueryNamespacesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "QueryNamespacesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- !private ["s28CustomDebugStringConvertibleP", "StartJobExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "StartJobResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "StopJobExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "StopJobResponse"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "UpdateNamespaceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "UpdateNamespaceResponse"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "streamcomputerJDCloudClient"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "AddOrUpdateJobExecutor"]
+- !private ["s23CustomStringConvertibleP", "AddOrUpdateJobResponse"]
+- !private ["s23CustomStringConvertibleP", "AddOrUpdateStorageExecutor"]
+- !private ["s23CustomStringConvertibleP", "AddOrUpdateStorageResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateNamespaceExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateNamespaceResponse"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "DeleteJobExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteJobResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteNamespaceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteNamespaceResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteStorageExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteStorageResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeJobExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeJobResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeStorageExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeStorageResponse"]
+- !private ["s23CustomStringConvertibleP", "GetJobListExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetJobListResponse"]
+- !private ["s23CustomStringConvertibleP", "GetStorageListExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetStorageListResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "QueryNamespaceDetailExecutor"]
+- !private ["s23CustomStringConvertibleP", "QueryNamespaceDetailResponse"]
+- !private ["s23CustomStringConvertibleP", "QueryNamespacesExecutor"]
+- !private ["s23CustomStringConvertibleP", "QueryNamespacesResponse"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- !private ["s23CustomStringConvertibleP", "StartJobExecutor"]
+- !private ["s23CustomStringConvertibleP", "StartJobResponse"]
+- !private ["s23CustomStringConvertibleP", "StopJobExecutor"]
+- !private ["s23CustomStringConvertibleP", "StopJobResponse"]
+- ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "UpdateNamespaceExecutor"]
+- !private ["s23CustomStringConvertibleP", "UpdateNamespaceResponse"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "streamcomputerJDCloudClient"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["24JDCloudSDKStreamcomputer17DeleteJobExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer17DeleteJobExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer17DeleteJobResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer23DeleteNamespaceExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer23DeleteNamespaceExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer23DeleteNamespaceResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer21DeleteStorageExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer21DeleteStorageExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer21DeleteStorageResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer19DescribeJobExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer19DescribeJobExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer19DescribeJobResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer23DescribeStorageExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer23DescribeStorageExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer23DescribeStorageResponseC", "deinit"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "AddOrUpdateJobExecutor"]
+- !private ["SQ", "AddOrUpdateJobResponse"]
+- !private ["SQ", "AddOrUpdateStorageExecutor"]
+- !private ["SQ", "AddOrUpdateStorageResponse"]
+- !private ["SQ", "CreateNamespaceExecutor"]
+- !private ["SQ", "CreateNamespaceResponse"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "DeleteJobExecutor"]
+- !private ["SQ", "DeleteJobResponse"]
+- !private ["SQ", "DeleteNamespaceExecutor"]
+- !private ["SQ", "DeleteNamespaceResponse"]
+- !private ["SQ", "DeleteStorageExecutor"]
+- !private ["SQ", "DeleteStorageResponse"]
+- !private ["SQ", "DescribeJobExecutor"]
+- !private ["SQ", "DescribeJobResponse"]
+- !private ["SQ", "DescribeStorageExecutor"]
+- !private ["SQ", "DescribeStorageResponse"]
+- !private ["SQ", "GetJobListExecutor"]
+- !private ["SQ", "GetJobListResponse"]
+- !private ["SQ", "GetStorageListExecutor"]
+- !private ["SQ", "GetStorageListResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "QueryNamespaceDetailExecutor"]
+- !private ["SQ", "QueryNamespaceDetailResponse"]
+- !private ["SQ", "QueryNamespacesExecutor"]
+- !private ["SQ", "QueryNamespacesResponse"]
+- !private ["SQ", "SDKEnvironment"]
+- !private ["SQ", "StartJobExecutor"]
+- !private ["SQ", "StartJobResponse"]
+- !private ["SQ", "StopJobExecutor"]
+- !private ["SQ", "StopJobResponse"]
+- ["SQ", "String"]
+- !private ["SQ", "UpdateNamespaceExecutor"]
+- !private ["SQ", "UpdateNamespaceResponse"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "streamcomputerJDCloudClient"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["24JDCloudSDKStreamcomputer18GetJobListExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer18GetJobListExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer18GetJobListResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer22GetStorageListExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer22GetStorageListExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer22GetStorageListResponseC", "deinit"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "AddOrUpdateJobExecutor"]
+- !private ["SH", "AddOrUpdateJobResponse"]
+- !private ["SH", "AddOrUpdateStorageExecutor"]
+- !private ["SH", "AddOrUpdateStorageResponse"]
+- !private ["SH", "CreateNamespaceExecutor"]
+- !private ["SH", "CreateNamespaceResponse"]
+- !private ["SH", "Credential"]
+- !private ["SH", "DeleteJobExecutor"]
+- !private ["SH", "DeleteJobResponse"]
+- !private ["SH", "DeleteNamespaceExecutor"]
+- !private ["SH", "DeleteNamespaceResponse"]
+- !private ["SH", "DeleteStorageExecutor"]
+- !private ["SH", "DeleteStorageResponse"]
+- !private ["SH", "DescribeJobExecutor"]
+- !private ["SH", "DescribeJobResponse"]
+- !private ["SH", "DescribeStorageExecutor"]
+- !private ["SH", "DescribeStorageResponse"]
+- !private ["SH", "GetJobListExecutor"]
+- !private ["SH", "GetJobListResponse"]
+- !private ["SH", "GetStorageListExecutor"]
+- !private ["SH", "GetStorageListResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "QueryNamespaceDetailExecutor"]
+- !private ["SH", "QueryNamespaceDetailResponse"]
+- !private ["SH", "QueryNamespacesExecutor"]
+- !private ["SH", "QueryNamespacesResponse"]
+- !private ["SH", "SDKEnvironment"]
+- !private ["SH", "StartJobExecutor"]
+- !private ["SH", "StartJobResponse"]
+- !private ["SH", "StopJobExecutor"]
+- !private ["SH", "StopJobResponse"]
+- ["SH", "String"]
+- !private ["SH", "UpdateNamespaceExecutor"]
+- !private ["SH", "UpdateNamespaceResponse"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "streamcomputerJDCloudClient"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AddOrUpdateJobExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AddOrUpdateJobResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AddOrUpdateStorageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AddOrUpdateStorageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateNamespaceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateNamespaceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteJobExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteJobResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteNamespaceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteNamespaceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteStorageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteStorageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeJobExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeJobResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeStorageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeStorageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetJobListExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetJobListResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetStorageListExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetStorageListResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "QueryNamespaceDetailExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "QueryNamespaceDetailResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "QueryNamespacesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "QueryNamespacesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StartJobExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StartJobResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StopJobExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StopJobResponse"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UpdateNamespaceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UpdateNamespaceResponse"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- !private ["14JDCloudSDKCore0A6ClientP", "streamcomputerJDCloudClient"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- !private ["So8NSObjectC", "AddOrUpdateJobExecutor"]
+- ["So8NSObjectC", "AddOrUpdateJobRequest"]
+- ["So8NSObjectC", "AddOrUpdateJobResponse"]
+- !private ["So8NSObjectC", "AddOrUpdateStorageExecutor"]
+- ["So8NSObjectC", "AddOrUpdateStorageRequest"]
+- ["So8NSObjectC", "AddOrUpdateStorageResponse"]
+- !private ["So8NSObjectC", "CreateNamespaceExecutor"]
+- ["So8NSObjectC", "CreateNamespaceRequest"]
+- ["So8NSObjectC", "CreateNamespaceResponse"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "DeleteJobExecutor"]
+- ["So8NSObjectC", "DeleteJobRequest"]
+- ["So8NSObjectC", "DeleteJobResponse"]
+- !private ["So8NSObjectC", "DeleteNamespaceExecutor"]
+- ["So8NSObjectC", "DeleteNamespaceRequest"]
+- ["So8NSObjectC", "DeleteNamespaceResponse"]
+- !private ["So8NSObjectC", "DeleteStorageExecutor"]
+- ["So8NSObjectC", "DeleteStorageRequest"]
+- ["So8NSObjectC", "DeleteStorageResponse"]
+- !private ["So8NSObjectC", "DescribeJobExecutor"]
+- ["So8NSObjectC", "DescribeJobRequest"]
+- ["So8NSObjectC", "DescribeJobResponse"]
+- !private ["So8NSObjectC", "DescribeStorageExecutor"]
+- ["So8NSObjectC", "DescribeStorageRequest"]
+- ["So8NSObjectC", "DescribeStorageResponse"]
+- !private ["So8NSObjectC", "GetJobListExecutor"]
+- ["So8NSObjectC", "GetJobListRequest"]
+- ["So8NSObjectC", "GetJobListResponse"]
+- !private ["So8NSObjectC", "GetStorageListExecutor"]
+- ["So8NSObjectC", "GetStorageListRequest"]
+- ["So8NSObjectC", "GetStorageListResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- !private ["So8NSObjectC", "QueryNamespaceDetailExecutor"]
+- ["So8NSObjectC", "QueryNamespaceDetailRequest"]
+- ["So8NSObjectC", "QueryNamespaceDetailResponse"]
+- !private ["So8NSObjectC", "QueryNamespacesExecutor"]
+- ["So8NSObjectC", "QueryNamespacesRequest"]
+- ["So8NSObjectC", "QueryNamespacesResponse"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- !private ["So8NSObjectC", "StartJobExecutor"]
+- ["So8NSObjectC", "StartJobRequest"]
+- ["So8NSObjectC", "StartJobResponse"]
+- !private ["So8NSObjectC", "StopJobExecutor"]
+- ["So8NSObjectC", "StopJobRequest"]
+- ["So8NSObjectC", "StopJobResponse"]
+- ["So8NSObjectC", "StreamcomputerJDCloudClient"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "UpdateNamespaceExecutor"]
+- ["So8NSObjectC", "UpdateNamespaceRequest"]
+- ["So8NSObjectC", "UpdateNamespaceResponse"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "addOrUpdateJobAsync"]
+- ["So8NSObjectC", "addOrUpdateStorageAsync"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "createNamespaceAsync"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- ["So8NSObjectC", "deleteJobAsync"]
+- ["So8NSObjectC", "deleteNamespaceAsync"]
+- ["So8NSObjectC", "deleteStorageAsync"]
+- ["So8NSObjectC", "describeJobAsync"]
+- ["So8NSObjectC", "describeStorageAsync"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "getJobListAsync"]
+- ["So8NSObjectC", "getStorageListAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "queryNamespaceDetailAsync"]
+- ["So8NSObjectC", "queryNamespacesAsync"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "startJobAsync"]
+- ["So8NSObjectC", "stopJobAsync"]
+- ["So8NSObjectC", "streamcomputerJDCloudClient"]
+- ["So8NSObjectC", "updateNamespaceAsync"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- !private ["So8NSObjectP", "AddOrUpdateJobExecutor"]
+- !private ["So8NSObjectP", "AddOrUpdateJobResponse"]
+- !private ["So8NSObjectP", "AddOrUpdateStorageExecutor"]
+- !private ["So8NSObjectP", "AddOrUpdateStorageResponse"]
+- !private ["So8NSObjectP", "CreateNamespaceExecutor"]
+- !private ["So8NSObjectP", "CreateNamespaceResponse"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "DeleteJobExecutor"]
+- !private ["So8NSObjectP", "DeleteJobResponse"]
+- !private ["So8NSObjectP", "DeleteNamespaceExecutor"]
+- !private ["So8NSObjectP", "DeleteNamespaceResponse"]
+- !private ["So8NSObjectP", "DeleteStorageExecutor"]
+- !private ["So8NSObjectP", "DeleteStorageResponse"]
+- !private ["So8NSObjectP", "DescribeJobExecutor"]
+- !private ["So8NSObjectP", "DescribeJobResponse"]
+- !private ["So8NSObjectP", "DescribeStorageExecutor"]
+- !private ["So8NSObjectP", "DescribeStorageResponse"]
+- !private ["So8NSObjectP", "GetJobListExecutor"]
+- !private ["So8NSObjectP", "GetJobListResponse"]
+- !private ["So8NSObjectP", "GetStorageListExecutor"]
+- !private ["So8NSObjectP", "GetStorageListResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "QueryNamespaceDetailExecutor"]
+- !private ["So8NSObjectP", "QueryNamespaceDetailResponse"]
+- !private ["So8NSObjectP", "QueryNamespacesExecutor"]
+- !private ["So8NSObjectP", "QueryNamespacesResponse"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- !private ["So8NSObjectP", "StartJobExecutor"]
+- !private ["So8NSObjectP", "StartJobResponse"]
+- !private ["So8NSObjectP", "StopJobExecutor"]
+- !private ["So8NSObjectP", "StopJobResponse"]
+- ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "UpdateNamespaceExecutor"]
+- !private ["So8NSObjectP", "UpdateNamespaceResponse"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- !private ["So8NSObjectP", "streamcomputerJDCloudClient"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["24JDCloudSDKStreamcomputer28QueryNamespaceDetailExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer28QueryNamespaceDetailExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer28QueryNamespaceDetailResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer23QueryNamespacesExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer23QueryNamespacesExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer23QueryNamespacesResponseC", "deinit"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["24JDCloudSDKStreamcomputer16StartJobExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer16StartJobExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer16StartJobResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer15StopJobExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer15StopJobExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer15StopJobResponseC", "deinit"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "AddOrUpdateJobExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "AddOrUpdateJobRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "AddOrUpdateJobResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "AddOrUpdateStorageExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "AddOrUpdateStorageRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "AddOrUpdateStorageResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "CreateNamespaceExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "CreateNamespaceRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "CreateNamespaceResponse"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "Credential"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteJobExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteJobRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteJobResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteNamespaceExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteNamespaceRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteNamespaceResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteStorageExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteStorageRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DeleteStorageResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DescribeJobExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DescribeJobRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DescribeJobResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DescribeStorageExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DescribeStorageRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "DescribeStorageResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GetJobListExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GetJobListRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GetJobListResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GetStorageListExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GetStorageListRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GetStorageListResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "GlobalConfig"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "JSONDecoder"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "NSError"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "NSNumber"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "NSString"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "QueryNamespaceDetailExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "QueryNamespaceDetailRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "QueryNamespaceDetailResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "QueryNamespacesExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "QueryNamespacesRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "QueryNamespacesResponse"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "SDKEnvironment"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StartJobExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StartJobRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StartJobResponse"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StopJobExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StopJobRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StopJobResponse"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "StreamcomputerJDCloudClient"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "String"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "UpdateNamespaceExecutor"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "UpdateNamespaceRequest"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "UpdateNamespaceResponse"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "addCustomer"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "addOrUpdateJobAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "addOrUpdateStorageAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "contentType"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "createNamespaceAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "credential"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "customHeader"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "deinit"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "deleteJobAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "deleteNamespaceAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "deleteStorageAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "describeJobAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "describeStorageAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "getJobListAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "getStorageListAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "httpRequestProtocol"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "init"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "queryNamespaceDetailAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "queryNamespacesAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "sdkEnvironment"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "serviceName"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "startJobAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "stopJobAsync"]
+- !private ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "streamcomputerJDCloudClient"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "updateNamespaceAsync"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "userAgent"]
+- ["24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC", "version"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["24JDCloudSDKStreamcomputer23UpdateNamespaceExecutorC", "executeAsync"]
+- !private ["24JDCloudSDKStreamcomputer23UpdateNamespaceExecutorC", "init"]
+- !private ["24JDCloudSDKStreamcomputer23UpdateNamespaceResponseC", "deinit"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AddOrUpdateJobExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AddOrUpdateJobResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AddOrUpdateStorageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AddOrUpdateStorageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateNamespaceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateNamespaceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteJobExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteJobResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteNamespaceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteNamespaceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteStorageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteStorageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeJobExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeJobResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeStorageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeStorageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetJobListExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetJobListResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetStorageListExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetStorageListResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "QueryNamespaceDetailExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "QueryNamespaceDetailResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "QueryNamespacesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "QueryNamespacesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StartJobExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StartJobResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StopJobExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StopJobResponse"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UpdateNamespaceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UpdateNamespaceResponse"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "streamcomputerJDCloudClient"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "24JDCloudSDKStreamcomputer22AddOrUpdateJobExecutorC"
+- !private "24JDCloudSDKStreamcomputer22AddOrUpdateJobResponseC"
+- !private "24JDCloudSDKStreamcomputer26AddOrUpdateStorageExecutorC"
+- !private "24JDCloudSDKStreamcomputer26AddOrUpdateStorageResponseC"
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- !private "24JDCloudSDKStreamcomputer23CreateNamespaceExecutorC"
+- !private "24JDCloudSDKStreamcomputer23CreateNamespaceResponseC"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "24JDCloudSDKStreamcomputer17DeleteJobExecutorC"
+- !private "24JDCloudSDKStreamcomputer17DeleteJobResponseC"
+- !private "24JDCloudSDKStreamcomputer23DeleteNamespaceExecutorC"
+- !private "24JDCloudSDKStreamcomputer23DeleteNamespaceResponseC"
+- !private "24JDCloudSDKStreamcomputer21DeleteStorageExecutorC"
+- !private "24JDCloudSDKStreamcomputer21DeleteStorageResponseC"
+- !private "24JDCloudSDKStreamcomputer19DescribeJobExecutorC"
+- !private "24JDCloudSDKStreamcomputer19DescribeJobResponseC"
+- !private "24JDCloudSDKStreamcomputer23DescribeStorageExecutorC"
+- !private "24JDCloudSDKStreamcomputer23DescribeStorageResponseC"
+- "SD"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "24JDCloudSDKStreamcomputer18GetJobListExecutorC"
+- !private "24JDCloudSDKStreamcomputer18GetJobListResponseC"
+- !private "24JDCloudSDKStreamcomputer22GetStorageListExecutorC"
+- !private "24JDCloudSDKStreamcomputer22GetStorageListResponseC"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "24JDCloudSDKStreamcomputer28QueryNamespaceDetailExecutorC"
+- !private "24JDCloudSDKStreamcomputer28QueryNamespaceDetailResponseC"
+- !private "24JDCloudSDKStreamcomputer23QueryNamespacesExecutorC"
+- !private "24JDCloudSDKStreamcomputer23QueryNamespacesResponseC"
+- "Sm"
+- !private "SY"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- !private "24JDCloudSDKStreamcomputer16StartJobExecutorC"
+- !private "24JDCloudSDKStreamcomputer16StartJobResponseC"
+- !private "24JDCloudSDKStreamcomputer15StopJobExecutorC"
+- !private "24JDCloudSDKStreamcomputer15StopJobResponseC"
+- "24JDCloudSDKStreamcomputer014StreamcomputerA6ClientC"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "24JDCloudSDKStreamcomputer23UpdateNamespaceExecutorC"
+- !private "24JDCloudSDKStreamcomputer23UpdateNamespaceResponseC"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "39eae0bbb1de4b7835fbe62a1a3c9915"

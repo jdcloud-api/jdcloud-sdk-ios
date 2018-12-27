@@ -1,0 +1,501 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SopJDCloudClient"
+provides-nominal:
+- "13JDCloudSDKSop03SopA6ClientC"
+provides-member:
+- ["13JDCloudSDKSop03SopA6ClientC", ""]
+- ["13JDCloudSDKSop03SopA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "getSecurityTokenAsync"
+- "getSensitiveOpSettingAsync"
+- "httpRequestProtocol"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- "Credential"
+- !private "GetSecurityTokenExecutor"
+- "GetSecurityTokenRequest"
+- "GetSecurityTokenResponse"
+- !private "GetSensitiveOpSettingExecutor"
+- "GetSensitiveOpSettingRequest"
+- "GetSensitiveOpSettingResponse"
+- !private "GlobalConfig"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- "SDKEnvironment"
+- "SopJDCloudClient"
+- "String"
+- "StringLiteralType"
+depends-member:
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "GetSecurityTokenExecutor"]
+- !private ["s7CVarArgP", "GetSecurityTokenResponse"]
+- !private ["s7CVarArgP", "GetSensitiveOpSettingExecutor"]
+- !private ["s7CVarArgP", "GetSensitiveOpSettingResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "sopJDCloudClient"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "GetSecurityTokenExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetSecurityTokenResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetSensitiveOpSettingExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetSensitiveOpSettingResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "sopJDCloudClient"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "GetSecurityTokenExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetSecurityTokenResponse"]
+- !private ["s23CustomStringConvertibleP", "GetSensitiveOpSettingExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetSensitiveOpSettingResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "sopJDCloudClient"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "GetSecurityTokenExecutor"]
+- !private ["SQ", "GetSecurityTokenResponse"]
+- !private ["SQ", "GetSensitiveOpSettingExecutor"]
+- !private ["SQ", "GetSensitiveOpSettingResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "SDKEnvironment"]
+- ["SQ", "String"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "sopJDCloudClient"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["13JDCloudSDKSop24GetSecurityTokenExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKSop24GetSecurityTokenExecutorC", "init"]
+- !private ["13JDCloudSDKSop24GetSecurityTokenResponseC", "deinit"]
+- !private ["13JDCloudSDKSop29GetSensitiveOpSettingExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKSop29GetSensitiveOpSettingExecutorC", "init"]
+- !private ["13JDCloudSDKSop29GetSensitiveOpSettingResponseC", "deinit"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "Credential"]
+- !private ["SH", "GetSecurityTokenExecutor"]
+- !private ["SH", "GetSecurityTokenResponse"]
+- !private ["SH", "GetSensitiveOpSettingExecutor"]
+- !private ["SH", "GetSensitiveOpSettingResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "SDKEnvironment"]
+- ["SH", "String"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "sopJDCloudClient"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetSecurityTokenExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetSecurityTokenResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetSensitiveOpSettingExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetSensitiveOpSettingResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- !private ["14JDCloudSDKCore0A6ClientP", "sopJDCloudClient"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "GetSecurityTokenExecutor"]
+- ["So8NSObjectC", "GetSecurityTokenRequest"]
+- ["So8NSObjectC", "GetSecurityTokenResponse"]
+- !private ["So8NSObjectC", "GetSensitiveOpSettingExecutor"]
+- ["So8NSObjectC", "GetSensitiveOpSettingRequest"]
+- ["So8NSObjectC", "GetSensitiveOpSettingResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- ["So8NSObjectC", "SopJDCloudClient"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "getSecurityTokenAsync"]
+- ["So8NSObjectC", "getSensitiveOpSettingAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "sopJDCloudClient"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "GetSecurityTokenExecutor"]
+- !private ["So8NSObjectP", "GetSecurityTokenResponse"]
+- !private ["So8NSObjectP", "GetSensitiveOpSettingExecutor"]
+- !private ["So8NSObjectP", "GetSensitiveOpSettingResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- !private ["So8NSObjectP", "sopJDCloudClient"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- ["13JDCloudSDKSop03SopA6ClientC", "Credential"]
+- !private ["13JDCloudSDKSop03SopA6ClientC", "GetSecurityTokenExecutor"]
+- ["13JDCloudSDKSop03SopA6ClientC", "GetSecurityTokenRequest"]
+- ["13JDCloudSDKSop03SopA6ClientC", "GetSecurityTokenResponse"]
+- !private ["13JDCloudSDKSop03SopA6ClientC", "GetSensitiveOpSettingExecutor"]
+- ["13JDCloudSDKSop03SopA6ClientC", "GetSensitiveOpSettingRequest"]
+- ["13JDCloudSDKSop03SopA6ClientC", "GetSensitiveOpSettingResponse"]
+- !private ["13JDCloudSDKSop03SopA6ClientC", "GlobalConfig"]
+- !private ["13JDCloudSDKSop03SopA6ClientC", "JSONDecoder"]
+- ["13JDCloudSDKSop03SopA6ClientC", "NSError"]
+- ["13JDCloudSDKSop03SopA6ClientC", "NSNumber"]
+- ["13JDCloudSDKSop03SopA6ClientC", "NSString"]
+- ["13JDCloudSDKSop03SopA6ClientC", "SDKEnvironment"]
+- ["13JDCloudSDKSop03SopA6ClientC", "SopJDCloudClient"]
+- ["13JDCloudSDKSop03SopA6ClientC", "String"]
+- ["13JDCloudSDKSop03SopA6ClientC", "addCustomer"]
+- ["13JDCloudSDKSop03SopA6ClientC", "contentType"]
+- ["13JDCloudSDKSop03SopA6ClientC", "credential"]
+- ["13JDCloudSDKSop03SopA6ClientC", "customHeader"]
+- ["13JDCloudSDKSop03SopA6ClientC", "deinit"]
+- ["13JDCloudSDKSop03SopA6ClientC", "getSecurityTokenAsync"]
+- ["13JDCloudSDKSop03SopA6ClientC", "getSensitiveOpSettingAsync"]
+- ["13JDCloudSDKSop03SopA6ClientC", "httpRequestProtocol"]
+- ["13JDCloudSDKSop03SopA6ClientC", "init"]
+- ["13JDCloudSDKSop03SopA6ClientC", "sdkEnvironment"]
+- ["13JDCloudSDKSop03SopA6ClientC", "serviceName"]
+- !private ["13JDCloudSDKSop03SopA6ClientC", "sopJDCloudClient"]
+- ["13JDCloudSDKSop03SopA6ClientC", "userAgent"]
+- ["13JDCloudSDKSop03SopA6ClientC", "version"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetSecurityTokenExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetSecurityTokenResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetSensitiveOpSettingExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetSensitiveOpSettingResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "sopJDCloudClient"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SD"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "13JDCloudSDKSop24GetSecurityTokenExecutorC"
+- !private "13JDCloudSDKSop24GetSecurityTokenResponseC"
+- !private "13JDCloudSDKSop29GetSensitiveOpSettingExecutorC"
+- !private "13JDCloudSDKSop29GetSensitiveOpSettingResponseC"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "Sm"
+- !private "SY"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- "13JDCloudSDKSop03SopA6ClientC"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "8d065cc6bc486661b744d1fe8ddf5822"

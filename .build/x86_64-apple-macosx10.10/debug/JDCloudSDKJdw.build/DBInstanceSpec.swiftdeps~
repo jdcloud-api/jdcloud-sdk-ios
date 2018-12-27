@@ -1,0 +1,468 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DBInstanceSpec"
+provides-nominal:
+- "13JDCloudSDKJdw14DBInstanceSpecC"
+- "13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO"
+provides-member:
+- ["13JDCloudSDKJdw14DBInstanceSpecC", ""]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", ""]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "encode"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "ChargeSpec"
+- "Codable"
+- "CodingKey"
+- "DBInstanceSpec"
+- "Decoder"
+- "Encoder"
+- "Int"
+- "NSObject"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "ChargeSpec"]
+- !private ["s7CVarArgP", "DBInstanceSpecCodingKeys"]
+- !private ["s7CVarArgP", "Int"]
+- !private ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "accountName"]
+- !private ["s7CVarArgP", "accountPassword"]
+- !private ["s7CVarArgP", "azId"]
+- !private ["s7CVarArgP", "chargeSpec"]
+- ["s7CVarArgP", "encode"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "instanceName"]
+- !private ["s7CVarArgP", "nodeNumber"]
+- !private ["s7CVarArgP", "nodeType"]
+- !private ["s7CVarArgP", "subnetId"]
+- !private ["s7CVarArgP", "vpcId"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- !private ["s9CodingKeyP", "accountName"]
+- !private ["s9CodingKeyP", "accountPassword"]
+- !private ["s9CodingKeyP", "azId"]
+- !private ["s9CodingKeyP", "chargeSpec"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "instanceName"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "nodeNumber"]
+- !private ["s9CodingKeyP", "nodeType"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "subnetId"]
+- !private ["s9CodingKeyP", "vpcId"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "ChargeSpec"]
+- !private ["s28CustomDebugStringConvertibleP", "DBInstanceSpecCodingKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "Int"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s28CustomDebugStringConvertibleP", "accountName"]
+- !private ["s28CustomDebugStringConvertibleP", "accountPassword"]
+- !private ["s28CustomDebugStringConvertibleP", "azId"]
+- !private ["s28CustomDebugStringConvertibleP", "chargeSpec"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "instanceName"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "nodeNumber"]
+- !private ["s28CustomDebugStringConvertibleP", "nodeType"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "subnetId"]
+- !private ["s28CustomDebugStringConvertibleP", "vpcId"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "ChargeSpec"]
+- !private ["s23CustomStringConvertibleP", "DBInstanceSpecCodingKeys"]
+- !private ["s23CustomStringConvertibleP", "Int"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "accountName"]
+- !private ["s23CustomStringConvertibleP", "accountPassword"]
+- !private ["s23CustomStringConvertibleP", "azId"]
+- !private ["s23CustomStringConvertibleP", "chargeSpec"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "instanceName"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "nodeNumber"]
+- !private ["s23CustomStringConvertibleP", "nodeType"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "subnetId"]
+- !private ["s23CustomStringConvertibleP", "vpcId"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "ChargeSpec"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "CodingKey"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "DBInstanceSpecCodingKeys"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "Decoder"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "Encoder"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "Int"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "String"]
+- !private ["13JDCloudSDKJdw14DBInstanceSpecC", "_findStringSwitchCase"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "accountName"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "accountPassword"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "azId"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "chargeSpec"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "deinit"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "encode"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "init"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "instanceName"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "nodeNumber"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "nodeType"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "subnetId"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC", "vpcId"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "RawValue"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "_Default_RawValue"]
+- !private ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "_findStringSwitchCase"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "accountName"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "accountPassword"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "azId"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "chargeSpec"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "debugDescription"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "deinit"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "description"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "hash"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "hashValue"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "init"]
+- !private ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "init"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "instanceName"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "intValue"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "nodeNumber"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "nodeType"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "rawValue"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "stringValue"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "subnetId"]
+- ["13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO", "vpcId"]
+- !private ["Se", "ChargeSpec"]
+- !private ["Se", "DBInstanceSpecCodingKeys"]
+- !private ["Se", "Int"]
+- !private ["Se", "String"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "accountName"]
+- !private ["Se", "accountPassword"]
+- !private ["Se", "azId"]
+- !private ["Se", "chargeSpec"]
+- ["Se", "encode"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "instanceName"]
+- !private ["Se", "nodeNumber"]
+- !private ["Se", "nodeType"]
+- !private ["Se", "subnetId"]
+- !private ["Se", "vpcId"]
+- !private ["s7DecoderP", "container"]
+- !private ["SE", "ChargeSpec"]
+- !private ["SE", "DBInstanceSpecCodingKeys"]
+- !private ["SE", "Int"]
+- !private ["SE", "String"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "accountName"]
+- !private ["SE", "accountPassword"]
+- !private ["SE", "azId"]
+- !private ["SE", "chargeSpec"]
+- ["SE", "encode"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "instanceName"]
+- !private ["SE", "nodeNumber"]
+- !private ["SE", "nodeType"]
+- !private ["SE", "subnetId"]
+- !private ["SE", "vpcId"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "ChargeSpec"]
+- !private ["SQ", "DBInstanceSpecCodingKeys"]
+- !private ["SQ", "Int"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "String"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "accountName"]
+- !private ["SQ", "accountPassword"]
+- !private ["SQ", "azId"]
+- !private ["SQ", "chargeSpec"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- !private ["SQ", "instanceName"]
+- ["SQ", "intValue"]
+- !private ["SQ", "nodeNumber"]
+- !private ["SQ", "nodeType"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "subnetId"]
+- !private ["SQ", "vpcId"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "ChargeSpec"]
+- !private ["SH", "DBInstanceSpecCodingKeys"]
+- !private ["SH", "Int"]
+- ["SH", "RawValue"]
+- !private ["SH", "String"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "accountName"]
+- !private ["SH", "accountPassword"]
+- !private ["SH", "azId"]
+- !private ["SH", "chargeSpec"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- !private ["SH", "instanceName"]
+- ["SH", "intValue"]
+- !private ["SH", "nodeNumber"]
+- !private ["SH", "nodeType"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["SH", "subnetId"]
+- !private ["SH", "vpcId"]
+- !private ["s6HasherV", "combine"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "ChargeSpec"]
+- ["So8NSObjectC", "CodingKey"]
+- !private ["So8NSObjectC", "DBInstanceSpecCodingKeys"]
+- ["So8NSObjectC", "Decoder"]
+- ["So8NSObjectC", "Encoder"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "accountName"]
+- ["So8NSObjectC", "accountPassword"]
+- ["So8NSObjectC", "azId"]
+- ["So8NSObjectC", "chargeSpec"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "instanceName"]
+- ["So8NSObjectC", "nodeNumber"]
+- ["So8NSObjectC", "nodeType"]
+- ["So8NSObjectC", "subnetId"]
+- ["So8NSObjectC", "vpcId"]
+- !private ["So8NSObjectP", "ChargeSpec"]
+- !private ["So8NSObjectP", "DBInstanceSpecCodingKeys"]
+- !private ["So8NSObjectP", "Int"]
+- !private ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- !private ["So8NSObjectP", "accountName"]
+- !private ["So8NSObjectP", "accountPassword"]
+- !private ["So8NSObjectP", "azId"]
+- !private ["So8NSObjectP", "chargeSpec"]
+- ["So8NSObjectP", "encode"]
+- ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "instanceName"]
+- !private ["So8NSObjectP", "nodeNumber"]
+- !private ["So8NSObjectP", "nodeType"]
+- !private ["So8NSObjectP", "subnetId"]
+- !private ["So8NSObjectP", "vpcId"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- !private ["SY", "accountName"]
+- !private ["SY", "accountPassword"]
+- !private ["SY", "azId"]
+- !private ["SY", "chargeSpec"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- !private ["SY", "instanceName"]
+- ["SY", "intValue"]
+- !private ["SY", "nodeNumber"]
+- !private ["SY", "nodeType"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- !private ["SY", "subnetId"]
+- !private ["SY", "vpcId"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ChargeSpec"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DBInstanceSpecCodingKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "accountName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "accountPassword"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "azId"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "chargeSpec"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "instanceName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "nodeNumber"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "nodeType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "subnetId"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "vpcId"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "13JDCloudSDKJdw14DBInstanceSpecC"
+- "13JDCloudSDKJdw14DBInstanceSpecC0cD10CodingKeysO"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCharge.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "c4db85eb920ebdadab294f555bf3feed"

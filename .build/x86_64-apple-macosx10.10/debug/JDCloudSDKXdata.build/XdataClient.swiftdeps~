@@ -1,0 +1,1029 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "XdataJDCloudClient"
+provides-nominal:
+- "15JDCloudSDKXdata05XdataA6ClientC"
+provides-member:
+- ["15JDCloudSDKXdata05XdataA6ClientC", ""]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "cancelPySparkJobAsync"
+- "cancelRasQueryAsync"
+- "createDatabaseAsync"
+- "createTableAsync"
+- "deleteDatabaseAsync"
+- "deleteTableAsync"
+- "executePySparkQueryAsync"
+- "executeRasQueryAsync"
+- "getDatabaseInfoAsync"
+- "getPySparkExecuteResultAsync"
+- "getPySparkExecuteStateAsync"
+- "getRasQueryLogAsync"
+- "getRasQueryResultAsync"
+- "getRasQueryStateAsync"
+- "getTableInfoAsync"
+- "httpRequestProtocol"
+- "listDatabaseInfoAsync"
+- "listInstanceInfoAsync"
+- "listTableInfoAsync"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "CancelPySparkJobExecutor"
+- "CancelPySparkJobRequest"
+- "CancelPySparkJobResponse"
+- !private "CancelRasQueryExecutor"
+- "CancelRasQueryRequest"
+- "CancelRasQueryResponse"
+- !private "CastingPrecedence"
+- !private "CreateDatabaseExecutor"
+- "CreateDatabaseRequest"
+- "CreateDatabaseResponse"
+- !private "CreateTableExecutor"
+- "CreateTableRequest"
+- "CreateTableResponse"
+- "Credential"
+- !private "DeleteDatabaseExecutor"
+- "DeleteDatabaseRequest"
+- "DeleteDatabaseResponse"
+- !private "DeleteTableExecutor"
+- "DeleteTableRequest"
+- "DeleteTableResponse"
+- !private "ExecutePySparkQueryExecutor"
+- "ExecutePySparkQueryRequest"
+- "ExecutePySparkQueryResponse"
+- !private "ExecuteRasQueryExecutor"
+- "ExecuteRasQueryRequest"
+- "ExecuteRasQueryResponse"
+- !private "GetDatabaseInfoExecutor"
+- "GetDatabaseInfoRequest"
+- "GetDatabaseInfoResponse"
+- !private "GetPySparkExecuteResultExecutor"
+- "GetPySparkExecuteResultRequest"
+- "GetPySparkExecuteResultResponse"
+- !private "GetPySparkExecuteStateExecutor"
+- "GetPySparkExecuteStateRequest"
+- "GetPySparkExecuteStateResponse"
+- !private "GetRasQueryLogExecutor"
+- "GetRasQueryLogRequest"
+- "GetRasQueryLogResponse"
+- !private "GetRasQueryResultExecutor"
+- "GetRasQueryResultRequest"
+- "GetRasQueryResultResponse"
+- !private "GetRasQueryStateExecutor"
+- "GetRasQueryStateRequest"
+- "GetRasQueryStateResponse"
+- !private "GetTableInfoExecutor"
+- "GetTableInfoRequest"
+- "GetTableInfoResponse"
+- !private "GlobalConfig"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- !private "ListDatabaseInfoExecutor"
+- "ListDatabaseInfoRequest"
+- "ListDatabaseInfoResponse"
+- !private "ListInstanceInfoExecutor"
+- "ListInstanceInfoRequest"
+- "ListInstanceInfoResponse"
+- !private "ListTableInfoExecutor"
+- "ListTableInfoRequest"
+- "ListTableInfoResponse"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- "SDKEnvironment"
+- "String"
+- "StringLiteralType"
+- "XdataJDCloudClient"
+depends-member:
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "CancelPySparkJobExecutor"]
+- !private ["s7CVarArgP", "CancelPySparkJobResponse"]
+- !private ["s7CVarArgP", "CancelRasQueryExecutor"]
+- !private ["s7CVarArgP", "CancelRasQueryResponse"]
+- !private ["s7CVarArgP", "CreateDatabaseExecutor"]
+- !private ["s7CVarArgP", "CreateDatabaseResponse"]
+- !private ["s7CVarArgP", "CreateTableExecutor"]
+- !private ["s7CVarArgP", "CreateTableResponse"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "DeleteDatabaseExecutor"]
+- !private ["s7CVarArgP", "DeleteDatabaseResponse"]
+- !private ["s7CVarArgP", "DeleteTableExecutor"]
+- !private ["s7CVarArgP", "DeleteTableResponse"]
+- !private ["s7CVarArgP", "ExecutePySparkQueryExecutor"]
+- !private ["s7CVarArgP", "ExecutePySparkQueryResponse"]
+- !private ["s7CVarArgP", "ExecuteRasQueryExecutor"]
+- !private ["s7CVarArgP", "ExecuteRasQueryResponse"]
+- !private ["s7CVarArgP", "GetDatabaseInfoExecutor"]
+- !private ["s7CVarArgP", "GetDatabaseInfoResponse"]
+- !private ["s7CVarArgP", "GetPySparkExecuteResultExecutor"]
+- !private ["s7CVarArgP", "GetPySparkExecuteResultResponse"]
+- !private ["s7CVarArgP", "GetPySparkExecuteStateExecutor"]
+- !private ["s7CVarArgP", "GetPySparkExecuteStateResponse"]
+- !private ["s7CVarArgP", "GetRasQueryLogExecutor"]
+- !private ["s7CVarArgP", "GetRasQueryLogResponse"]
+- !private ["s7CVarArgP", "GetRasQueryResultExecutor"]
+- !private ["s7CVarArgP", "GetRasQueryResultResponse"]
+- !private ["s7CVarArgP", "GetRasQueryStateExecutor"]
+- !private ["s7CVarArgP", "GetRasQueryStateResponse"]
+- !private ["s7CVarArgP", "GetTableInfoExecutor"]
+- !private ["s7CVarArgP", "GetTableInfoResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "ListDatabaseInfoExecutor"]
+- !private ["s7CVarArgP", "ListDatabaseInfoResponse"]
+- !private ["s7CVarArgP", "ListInstanceInfoExecutor"]
+- !private ["s7CVarArgP", "ListInstanceInfoResponse"]
+- !private ["s7CVarArgP", "ListTableInfoExecutor"]
+- !private ["s7CVarArgP", "ListTableInfoResponse"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["s7CVarArgP", "xdataJDCloudClient"]
+- !private ["15JDCloudSDKXdata24CancelPySparkJobExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata24CancelPySparkJobExecutorC", "init"]
+- !private ["15JDCloudSDKXdata24CancelPySparkJobResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata22CancelRasQueryExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata22CancelRasQueryExecutorC", "init"]
+- !private ["15JDCloudSDKXdata22CancelRasQueryResponseC", "deinit"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["15JDCloudSDKXdata22CreateDatabaseExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata22CreateDatabaseExecutorC", "init"]
+- !private ["15JDCloudSDKXdata22CreateDatabaseResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata19CreateTableExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata19CreateTableExecutorC", "init"]
+- !private ["15JDCloudSDKXdata19CreateTableResponseC", "deinit"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "CancelPySparkJobExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CancelPySparkJobResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CancelRasQueryExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CancelRasQueryResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateDatabaseExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateDatabaseResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateTableExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateTableResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteDatabaseExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteDatabaseResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteTableExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteTableResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ExecutePySparkQueryExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ExecutePySparkQueryResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ExecuteRasQueryExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ExecuteRasQueryResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetDatabaseInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetDatabaseInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetPySparkExecuteResultExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetPySparkExecuteResultResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetPySparkExecuteStateExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetPySparkExecuteStateResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetRasQueryLogExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetRasQueryLogResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetRasQueryResultExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetRasQueryResultResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetRasQueryStateExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetRasQueryStateResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetTableInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetTableInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "ListDatabaseInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListDatabaseInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ListInstanceInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListInstanceInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ListTableInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListTableInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s28CustomDebugStringConvertibleP", "xdataJDCloudClient"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "CancelPySparkJobExecutor"]
+- !private ["s23CustomStringConvertibleP", "CancelPySparkJobResponse"]
+- !private ["s23CustomStringConvertibleP", "CancelRasQueryExecutor"]
+- !private ["s23CustomStringConvertibleP", "CancelRasQueryResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateDatabaseExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateDatabaseResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateTableExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateTableResponse"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "DeleteDatabaseExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteDatabaseResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteTableExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteTableResponse"]
+- !private ["s23CustomStringConvertibleP", "ExecutePySparkQueryExecutor"]
+- !private ["s23CustomStringConvertibleP", "ExecutePySparkQueryResponse"]
+- !private ["s23CustomStringConvertibleP", "ExecuteRasQueryExecutor"]
+- !private ["s23CustomStringConvertibleP", "ExecuteRasQueryResponse"]
+- !private ["s23CustomStringConvertibleP", "GetDatabaseInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetDatabaseInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "GetPySparkExecuteResultExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetPySparkExecuteResultResponse"]
+- !private ["s23CustomStringConvertibleP", "GetPySparkExecuteStateExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetPySparkExecuteStateResponse"]
+- !private ["s23CustomStringConvertibleP", "GetRasQueryLogExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetRasQueryLogResponse"]
+- !private ["s23CustomStringConvertibleP", "GetRasQueryResultExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetRasQueryResultResponse"]
+- !private ["s23CustomStringConvertibleP", "GetRasQueryStateExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetRasQueryStateResponse"]
+- !private ["s23CustomStringConvertibleP", "GetTableInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetTableInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "ListDatabaseInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListDatabaseInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "ListInstanceInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListInstanceInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "ListTableInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListTableInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["s23CustomStringConvertibleP", "xdataJDCloudClient"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["15JDCloudSDKXdata22DeleteDatabaseExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata22DeleteDatabaseExecutorC", "init"]
+- !private ["15JDCloudSDKXdata22DeleteDatabaseResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata19DeleteTableExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata19DeleteTableExecutorC", "init"]
+- !private ["15JDCloudSDKXdata19DeleteTableResponseC", "deinit"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "CancelPySparkJobExecutor"]
+- !private ["SQ", "CancelPySparkJobResponse"]
+- !private ["SQ", "CancelRasQueryExecutor"]
+- !private ["SQ", "CancelRasQueryResponse"]
+- !private ["SQ", "CreateDatabaseExecutor"]
+- !private ["SQ", "CreateDatabaseResponse"]
+- !private ["SQ", "CreateTableExecutor"]
+- !private ["SQ", "CreateTableResponse"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "DeleteDatabaseExecutor"]
+- !private ["SQ", "DeleteDatabaseResponse"]
+- !private ["SQ", "DeleteTableExecutor"]
+- !private ["SQ", "DeleteTableResponse"]
+- !private ["SQ", "ExecutePySparkQueryExecutor"]
+- !private ["SQ", "ExecutePySparkQueryResponse"]
+- !private ["SQ", "ExecuteRasQueryExecutor"]
+- !private ["SQ", "ExecuteRasQueryResponse"]
+- !private ["SQ", "GetDatabaseInfoExecutor"]
+- !private ["SQ", "GetDatabaseInfoResponse"]
+- !private ["SQ", "GetPySparkExecuteResultExecutor"]
+- !private ["SQ", "GetPySparkExecuteResultResponse"]
+- !private ["SQ", "GetPySparkExecuteStateExecutor"]
+- !private ["SQ", "GetPySparkExecuteStateResponse"]
+- !private ["SQ", "GetRasQueryLogExecutor"]
+- !private ["SQ", "GetRasQueryLogResponse"]
+- !private ["SQ", "GetRasQueryResultExecutor"]
+- !private ["SQ", "GetRasQueryResultResponse"]
+- !private ["SQ", "GetRasQueryStateExecutor"]
+- !private ["SQ", "GetRasQueryStateResponse"]
+- !private ["SQ", "GetTableInfoExecutor"]
+- !private ["SQ", "GetTableInfoResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "ListDatabaseInfoExecutor"]
+- !private ["SQ", "ListDatabaseInfoResponse"]
+- !private ["SQ", "ListInstanceInfoExecutor"]
+- !private ["SQ", "ListInstanceInfoResponse"]
+- !private ["SQ", "ListTableInfoExecutor"]
+- !private ["SQ", "ListTableInfoResponse"]
+- !private ["SQ", "SDKEnvironment"]
+- ["SQ", "String"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["SQ", "xdataJDCloudClient"]
+- !private ["15JDCloudSDKXdata27ExecutePySparkQueryExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata27ExecutePySparkQueryExecutorC", "init"]
+- !private ["15JDCloudSDKXdata27ExecutePySparkQueryResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata23ExecuteRasQueryExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata23ExecuteRasQueryExecutorC", "init"]
+- !private ["15JDCloudSDKXdata23ExecuteRasQueryResponseC", "deinit"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["15JDCloudSDKXdata23GetDatabaseInfoExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata23GetDatabaseInfoExecutorC", "init"]
+- !private ["15JDCloudSDKXdata23GetDatabaseInfoResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata31GetPySparkExecuteResultExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata31GetPySparkExecuteResultExecutorC", "init"]
+- !private ["15JDCloudSDKXdata31GetPySparkExecuteResultResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata30GetPySparkExecuteStateExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata30GetPySparkExecuteStateExecutorC", "init"]
+- !private ["15JDCloudSDKXdata30GetPySparkExecuteStateResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata22GetRasQueryLogExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata22GetRasQueryLogExecutorC", "init"]
+- !private ["15JDCloudSDKXdata22GetRasQueryLogResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata25GetRasQueryResultExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata25GetRasQueryResultExecutorC", "init"]
+- !private ["15JDCloudSDKXdata25GetRasQueryResultResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata24GetRasQueryStateExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata24GetRasQueryStateExecutorC", "init"]
+- !private ["15JDCloudSDKXdata24GetRasQueryStateResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata20GetTableInfoExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata20GetTableInfoExecutorC", "init"]
+- !private ["15JDCloudSDKXdata20GetTableInfoResponseC", "deinit"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "CancelPySparkJobExecutor"]
+- !private ["SH", "CancelPySparkJobResponse"]
+- !private ["SH", "CancelRasQueryExecutor"]
+- !private ["SH", "CancelRasQueryResponse"]
+- !private ["SH", "CreateDatabaseExecutor"]
+- !private ["SH", "CreateDatabaseResponse"]
+- !private ["SH", "CreateTableExecutor"]
+- !private ["SH", "CreateTableResponse"]
+- !private ["SH", "Credential"]
+- !private ["SH", "DeleteDatabaseExecutor"]
+- !private ["SH", "DeleteDatabaseResponse"]
+- !private ["SH", "DeleteTableExecutor"]
+- !private ["SH", "DeleteTableResponse"]
+- !private ["SH", "ExecutePySparkQueryExecutor"]
+- !private ["SH", "ExecutePySparkQueryResponse"]
+- !private ["SH", "ExecuteRasQueryExecutor"]
+- !private ["SH", "ExecuteRasQueryResponse"]
+- !private ["SH", "GetDatabaseInfoExecutor"]
+- !private ["SH", "GetDatabaseInfoResponse"]
+- !private ["SH", "GetPySparkExecuteResultExecutor"]
+- !private ["SH", "GetPySparkExecuteResultResponse"]
+- !private ["SH", "GetPySparkExecuteStateExecutor"]
+- !private ["SH", "GetPySparkExecuteStateResponse"]
+- !private ["SH", "GetRasQueryLogExecutor"]
+- !private ["SH", "GetRasQueryLogResponse"]
+- !private ["SH", "GetRasQueryResultExecutor"]
+- !private ["SH", "GetRasQueryResultResponse"]
+- !private ["SH", "GetRasQueryStateExecutor"]
+- !private ["SH", "GetRasQueryStateResponse"]
+- !private ["SH", "GetTableInfoExecutor"]
+- !private ["SH", "GetTableInfoResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "ListDatabaseInfoExecutor"]
+- !private ["SH", "ListDatabaseInfoResponse"]
+- !private ["SH", "ListInstanceInfoExecutor"]
+- !private ["SH", "ListInstanceInfoResponse"]
+- !private ["SH", "ListTableInfoExecutor"]
+- !private ["SH", "ListTableInfoResponse"]
+- !private ["SH", "SDKEnvironment"]
+- ["SH", "String"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["SH", "xdataJDCloudClient"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CancelPySparkJobExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CancelPySparkJobResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CancelRasQueryExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CancelRasQueryResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateDatabaseExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateDatabaseResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateTableExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateTableResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteDatabaseExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteDatabaseResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteTableExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteTableResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ExecutePySparkQueryExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ExecutePySparkQueryResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ExecuteRasQueryExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ExecuteRasQueryResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetDatabaseInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetDatabaseInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetPySparkExecuteResultExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetPySparkExecuteResultResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetPySparkExecuteStateExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetPySparkExecuteStateResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetRasQueryLogExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetRasQueryLogResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetRasQueryResultExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetRasQueryResultResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetRasQueryStateExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetRasQueryStateResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetTableInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetTableInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListDatabaseInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListDatabaseInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListInstanceInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListInstanceInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListTableInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListTableInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "xdataJDCloudClient"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["15JDCloudSDKXdata24ListDatabaseInfoExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata24ListDatabaseInfoExecutorC", "init"]
+- !private ["15JDCloudSDKXdata24ListDatabaseInfoResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata24ListInstanceInfoExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata24ListInstanceInfoExecutorC", "init"]
+- !private ["15JDCloudSDKXdata24ListInstanceInfoResponseC", "deinit"]
+- !private ["15JDCloudSDKXdata21ListTableInfoExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKXdata21ListTableInfoExecutorC", "init"]
+- !private ["15JDCloudSDKXdata21ListTableInfoResponseC", "deinit"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- !private ["So8NSObjectC", "CancelPySparkJobExecutor"]
+- ["So8NSObjectC", "CancelPySparkJobRequest"]
+- ["So8NSObjectC", "CancelPySparkJobResponse"]
+- !private ["So8NSObjectC", "CancelRasQueryExecutor"]
+- ["So8NSObjectC", "CancelRasQueryRequest"]
+- ["So8NSObjectC", "CancelRasQueryResponse"]
+- !private ["So8NSObjectC", "CreateDatabaseExecutor"]
+- ["So8NSObjectC", "CreateDatabaseRequest"]
+- ["So8NSObjectC", "CreateDatabaseResponse"]
+- !private ["So8NSObjectC", "CreateTableExecutor"]
+- ["So8NSObjectC", "CreateTableRequest"]
+- ["So8NSObjectC", "CreateTableResponse"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "DeleteDatabaseExecutor"]
+- ["So8NSObjectC", "DeleteDatabaseRequest"]
+- ["So8NSObjectC", "DeleteDatabaseResponse"]
+- !private ["So8NSObjectC", "DeleteTableExecutor"]
+- ["So8NSObjectC", "DeleteTableRequest"]
+- ["So8NSObjectC", "DeleteTableResponse"]
+- !private ["So8NSObjectC", "ExecutePySparkQueryExecutor"]
+- ["So8NSObjectC", "ExecutePySparkQueryRequest"]
+- ["So8NSObjectC", "ExecutePySparkQueryResponse"]
+- !private ["So8NSObjectC", "ExecuteRasQueryExecutor"]
+- ["So8NSObjectC", "ExecuteRasQueryRequest"]
+- ["So8NSObjectC", "ExecuteRasQueryResponse"]
+- !private ["So8NSObjectC", "GetDatabaseInfoExecutor"]
+- ["So8NSObjectC", "GetDatabaseInfoRequest"]
+- ["So8NSObjectC", "GetDatabaseInfoResponse"]
+- !private ["So8NSObjectC", "GetPySparkExecuteResultExecutor"]
+- ["So8NSObjectC", "GetPySparkExecuteResultRequest"]
+- ["So8NSObjectC", "GetPySparkExecuteResultResponse"]
+- !private ["So8NSObjectC", "GetPySparkExecuteStateExecutor"]
+- ["So8NSObjectC", "GetPySparkExecuteStateRequest"]
+- ["So8NSObjectC", "GetPySparkExecuteStateResponse"]
+- !private ["So8NSObjectC", "GetRasQueryLogExecutor"]
+- ["So8NSObjectC", "GetRasQueryLogRequest"]
+- ["So8NSObjectC", "GetRasQueryLogResponse"]
+- !private ["So8NSObjectC", "GetRasQueryResultExecutor"]
+- ["So8NSObjectC", "GetRasQueryResultRequest"]
+- ["So8NSObjectC", "GetRasQueryResultResponse"]
+- !private ["So8NSObjectC", "GetRasQueryStateExecutor"]
+- ["So8NSObjectC", "GetRasQueryStateRequest"]
+- ["So8NSObjectC", "GetRasQueryStateResponse"]
+- !private ["So8NSObjectC", "GetTableInfoExecutor"]
+- ["So8NSObjectC", "GetTableInfoRequest"]
+- ["So8NSObjectC", "GetTableInfoResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- !private ["So8NSObjectC", "ListDatabaseInfoExecutor"]
+- ["So8NSObjectC", "ListDatabaseInfoRequest"]
+- ["So8NSObjectC", "ListDatabaseInfoResponse"]
+- !private ["So8NSObjectC", "ListInstanceInfoExecutor"]
+- ["So8NSObjectC", "ListInstanceInfoRequest"]
+- ["So8NSObjectC", "ListInstanceInfoResponse"]
+- !private ["So8NSObjectC", "ListTableInfoExecutor"]
+- ["So8NSObjectC", "ListTableInfoRequest"]
+- ["So8NSObjectC", "ListTableInfoResponse"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "XdataJDCloudClient"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "cancelPySparkJobAsync"]
+- ["So8NSObjectC", "cancelRasQueryAsync"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "createDatabaseAsync"]
+- ["So8NSObjectC", "createTableAsync"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- ["So8NSObjectC", "deleteDatabaseAsync"]
+- ["So8NSObjectC", "deleteTableAsync"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "executePySparkQueryAsync"]
+- ["So8NSObjectC", "executeRasQueryAsync"]
+- ["So8NSObjectC", "getDatabaseInfoAsync"]
+- ["So8NSObjectC", "getPySparkExecuteResultAsync"]
+- ["So8NSObjectC", "getPySparkExecuteStateAsync"]
+- ["So8NSObjectC", "getRasQueryLogAsync"]
+- ["So8NSObjectC", "getRasQueryResultAsync"]
+- ["So8NSObjectC", "getRasQueryStateAsync"]
+- ["So8NSObjectC", "getTableInfoAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "listDatabaseInfoAsync"]
+- ["So8NSObjectC", "listInstanceInfoAsync"]
+- ["So8NSObjectC", "listTableInfoAsync"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- ["So8NSObjectC", "xdataJDCloudClient"]
+- !private ["So8NSObjectP", "CancelPySparkJobExecutor"]
+- !private ["So8NSObjectP", "CancelPySparkJobResponse"]
+- !private ["So8NSObjectP", "CancelRasQueryExecutor"]
+- !private ["So8NSObjectP", "CancelRasQueryResponse"]
+- !private ["So8NSObjectP", "CreateDatabaseExecutor"]
+- !private ["So8NSObjectP", "CreateDatabaseResponse"]
+- !private ["So8NSObjectP", "CreateTableExecutor"]
+- !private ["So8NSObjectP", "CreateTableResponse"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "DeleteDatabaseExecutor"]
+- !private ["So8NSObjectP", "DeleteDatabaseResponse"]
+- !private ["So8NSObjectP", "DeleteTableExecutor"]
+- !private ["So8NSObjectP", "DeleteTableResponse"]
+- !private ["So8NSObjectP", "ExecutePySparkQueryExecutor"]
+- !private ["So8NSObjectP", "ExecutePySparkQueryResponse"]
+- !private ["So8NSObjectP", "ExecuteRasQueryExecutor"]
+- !private ["So8NSObjectP", "ExecuteRasQueryResponse"]
+- !private ["So8NSObjectP", "GetDatabaseInfoExecutor"]
+- !private ["So8NSObjectP", "GetDatabaseInfoResponse"]
+- !private ["So8NSObjectP", "GetPySparkExecuteResultExecutor"]
+- !private ["So8NSObjectP", "GetPySparkExecuteResultResponse"]
+- !private ["So8NSObjectP", "GetPySparkExecuteStateExecutor"]
+- !private ["So8NSObjectP", "GetPySparkExecuteStateResponse"]
+- !private ["So8NSObjectP", "GetRasQueryLogExecutor"]
+- !private ["So8NSObjectP", "GetRasQueryLogResponse"]
+- !private ["So8NSObjectP", "GetRasQueryResultExecutor"]
+- !private ["So8NSObjectP", "GetRasQueryResultResponse"]
+- !private ["So8NSObjectP", "GetRasQueryStateExecutor"]
+- !private ["So8NSObjectP", "GetRasQueryStateResponse"]
+- !private ["So8NSObjectP", "GetTableInfoExecutor"]
+- !private ["So8NSObjectP", "GetTableInfoResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "ListDatabaseInfoExecutor"]
+- !private ["So8NSObjectP", "ListDatabaseInfoResponse"]
+- !private ["So8NSObjectP", "ListInstanceInfoExecutor"]
+- !private ["So8NSObjectP", "ListInstanceInfoResponse"]
+- !private ["So8NSObjectP", "ListTableInfoExecutor"]
+- !private ["So8NSObjectP", "ListTableInfoResponse"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So8NSObjectP", "xdataJDCloudClient"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "CancelPySparkJobExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CancelPySparkJobRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CancelPySparkJobResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "CancelRasQueryExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CancelRasQueryRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CancelRasQueryResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "CreateDatabaseExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CreateDatabaseRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CreateDatabaseResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "CreateTableExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CreateTableRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "CreateTableResponse"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "Credential"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "DeleteDatabaseExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "DeleteDatabaseRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "DeleteDatabaseResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "DeleteTableExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "DeleteTableRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "DeleteTableResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "ExecutePySparkQueryExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ExecutePySparkQueryRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ExecutePySparkQueryResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "ExecuteRasQueryExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ExecuteRasQueryRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ExecuteRasQueryResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetDatabaseInfoExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetDatabaseInfoRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetDatabaseInfoResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetPySparkExecuteResultExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetPySparkExecuteResultRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetPySparkExecuteResultResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetPySparkExecuteStateExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetPySparkExecuteStateRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetPySparkExecuteStateResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryLogExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryLogRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryLogResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryResultExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryResultRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryResultResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryStateExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryStateRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetRasQueryStateResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GetTableInfoExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetTableInfoRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "GetTableInfoResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "GlobalConfig"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "JSONDecoder"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "ListDatabaseInfoExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ListDatabaseInfoRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ListDatabaseInfoResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "ListInstanceInfoExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ListInstanceInfoRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ListInstanceInfoResponse"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "ListTableInfoExecutor"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ListTableInfoRequest"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "ListTableInfoResponse"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "NSError"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "NSNumber"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "NSString"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "SDKEnvironment"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "String"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "XdataJDCloudClient"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "addCustomer"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "cancelPySparkJobAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "cancelRasQueryAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "contentType"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "createDatabaseAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "createTableAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "credential"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "customHeader"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "deinit"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "deleteDatabaseAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "deleteTableAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "executePySparkQueryAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "executeRasQueryAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getDatabaseInfoAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getPySparkExecuteResultAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getPySparkExecuteStateAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getRasQueryLogAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getRasQueryResultAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getRasQueryStateAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "getTableInfoAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "httpRequestProtocol"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "init"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "listDatabaseInfoAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "listInstanceInfoAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "listTableInfoAsync"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "sdkEnvironment"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "serviceName"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "userAgent"]
+- ["15JDCloudSDKXdata05XdataA6ClientC", "version"]
+- !private ["15JDCloudSDKXdata05XdataA6ClientC", "xdataJDCloudClient"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CancelPySparkJobExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CancelPySparkJobResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CancelRasQueryExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CancelRasQueryResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateDatabaseExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateDatabaseResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateTableExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateTableResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteDatabaseExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteDatabaseResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteTableExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteTableResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ExecutePySparkQueryExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ExecutePySparkQueryResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ExecuteRasQueryExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ExecuteRasQueryResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetDatabaseInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetDatabaseInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetPySparkExecuteResultExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetPySparkExecuteResultResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetPySparkExecuteStateExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetPySparkExecuteStateResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetRasQueryLogExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetRasQueryLogResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetRasQueryResultExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetRasQueryResultResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetRasQueryStateExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetRasQueryStateResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetTableInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetTableInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListDatabaseInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListDatabaseInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListInstanceInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListInstanceInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListTableInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListTableInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "xdataJDCloudClient"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- !private "15JDCloudSDKXdata24CancelPySparkJobExecutorC"
+- !private "15JDCloudSDKXdata24CancelPySparkJobResponseC"
+- !private "15JDCloudSDKXdata22CancelRasQueryExecutorC"
+- !private "15JDCloudSDKXdata22CancelRasQueryResponseC"
+- "Sl"
+- "SL"
+- !private "15JDCloudSDKXdata22CreateDatabaseExecutorC"
+- !private "15JDCloudSDKXdata22CreateDatabaseResponseC"
+- !private "15JDCloudSDKXdata19CreateTableExecutorC"
+- !private "15JDCloudSDKXdata19CreateTableResponseC"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "15JDCloudSDKXdata22DeleteDatabaseExecutorC"
+- !private "15JDCloudSDKXdata22DeleteDatabaseResponseC"
+- !private "15JDCloudSDKXdata19DeleteTableExecutorC"
+- !private "15JDCloudSDKXdata19DeleteTableResponseC"
+- "SD"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "15JDCloudSDKXdata27ExecutePySparkQueryExecutorC"
+- !private "15JDCloudSDKXdata27ExecutePySparkQueryResponseC"
+- !private "15JDCloudSDKXdata23ExecuteRasQueryExecutorC"
+- !private "15JDCloudSDKXdata23ExecuteRasQueryResponseC"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "15JDCloudSDKXdata23GetDatabaseInfoExecutorC"
+- !private "15JDCloudSDKXdata23GetDatabaseInfoResponseC"
+- !private "15JDCloudSDKXdata31GetPySparkExecuteResultExecutorC"
+- !private "15JDCloudSDKXdata31GetPySparkExecuteResultResponseC"
+- !private "15JDCloudSDKXdata30GetPySparkExecuteStateExecutorC"
+- !private "15JDCloudSDKXdata30GetPySparkExecuteStateResponseC"
+- !private "15JDCloudSDKXdata22GetRasQueryLogExecutorC"
+- !private "15JDCloudSDKXdata22GetRasQueryLogResponseC"
+- !private "15JDCloudSDKXdata25GetRasQueryResultExecutorC"
+- !private "15JDCloudSDKXdata25GetRasQueryResultResponseC"
+- !private "15JDCloudSDKXdata24GetRasQueryStateExecutorC"
+- !private "15JDCloudSDKXdata24GetRasQueryStateResponseC"
+- !private "15JDCloudSDKXdata20GetTableInfoExecutorC"
+- !private "15JDCloudSDKXdata20GetTableInfoResponseC"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- !private "15JDCloudSDKXdata24ListDatabaseInfoExecutorC"
+- !private "15JDCloudSDKXdata24ListDatabaseInfoResponseC"
+- !private "15JDCloudSDKXdata24ListInstanceInfoExecutorC"
+- !private "15JDCloudSDKXdata24ListInstanceInfoResponseC"
+- !private "15JDCloudSDKXdata21ListTableInfoExecutorC"
+- !private "15JDCloudSDKXdata21ListTableInfoResponseC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "Sm"
+- !private "SY"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- "15JDCloudSDKXdata05XdataA6ClientC"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "b07d12aa9a2ff06b0363051f946fc898"

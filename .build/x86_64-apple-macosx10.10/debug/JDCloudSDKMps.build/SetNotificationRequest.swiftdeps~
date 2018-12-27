@@ -1,0 +1,369 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SetNotificationRequest"
+provides-nominal:
+- "13JDCloudSDKMps22SetNotificationRequestC"
+- "13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO"
+provides-member:
+- ["13JDCloudSDKMps22SetNotificationRequestC", ""]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "Bool"
+- "CodingKey"
+- "Encoder"
+- "JdCloudRequest"
+- "SetNotificationRequest"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "SetNotificationRequestRequestCodingKeys"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "enabled"]
+- !private ["s7CVarArgP", "endpoint"]
+- !private ["s7CVarArgP", "events"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "notifyContentFormat"]
+- !private ["s7CVarArgP", "notifyStrategy"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "enabled"]
+- !private ["s9CodingKeyP", "endpoint"]
+- !private ["s9CodingKeyP", "events"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "notifyContentFormat"]
+- !private ["s9CodingKeyP", "notifyStrategy"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "SetNotificationRequestRequestCodingKeys"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "enabled"]
+- !private ["s28CustomDebugStringConvertibleP", "endpoint"]
+- !private ["s28CustomDebugStringConvertibleP", "events"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "notifyContentFormat"]
+- !private ["s28CustomDebugStringConvertibleP", "notifyStrategy"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "SetNotificationRequestRequestCodingKeys"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "enabled"]
+- !private ["s23CustomStringConvertibleP", "endpoint"]
+- !private ["s23CustomStringConvertibleP", "events"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "notifyContentFormat"]
+- !private ["s23CustomStringConvertibleP", "notifyStrategy"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["SE", "SetNotificationRequestRequestCodingKeys"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "enabled"]
+- !private ["SE", "endpoint"]
+- !private ["SE", "events"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "notifyContentFormat"]
+- !private ["SE", "notifyStrategy"]
+- !private ["s7EncoderP", "container"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "SetNotificationRequestRequestCodingKeys"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- !private ["SQ", "enabled"]
+- !private ["SQ", "endpoint"]
+- !private ["SQ", "events"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "notifyContentFormat"]
+- !private ["SQ", "notifyStrategy"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["SH", "RawValue"]
+- !private ["SH", "SetNotificationRequestRequestCodingKeys"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- !private ["SH", "enabled"]
+- !private ["SH", "endpoint"]
+- !private ["SH", "events"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "notifyContentFormat"]
+- !private ["SH", "notifyStrategy"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Bool"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "CodingKey"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Encoder"]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "SetNotificationRequestRequestCodingKeys"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "String"]
+- ["14JDCloudSDKCore14JdCloudRequestC", ""]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "_findStringSwitchCase"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "enabled"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "encode"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "endpoint"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "events"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "init"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "notifyContentFormat"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "notifyStrategy"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "CodingKey"]
+- ["So8NSObjectC", "Encoder"]
+- !private ["So8NSObjectC", "SetNotificationRequestRequestCodingKeys"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "enabled"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "endpoint"]
+- ["So8NSObjectC", "events"]
+- ["So8NSObjectC", "notifyContentFormat"]
+- ["So8NSObjectC", "notifyStrategy"]
+- !private ["So8NSObjectP", "SetNotificationRequestRequestCodingKeys"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- !private ["So8NSObjectP", "enabled"]
+- !private ["So8NSObjectP", "endpoint"]
+- !private ["So8NSObjectP", "events"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "notifyContentFormat"]
+- !private ["So8NSObjectP", "notifyStrategy"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- !private ["SY", "enabled"]
+- !private ["SY", "endpoint"]
+- !private ["SY", "events"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- !private ["SY", "notifyContentFormat"]
+- !private ["SY", "notifyStrategy"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- ["ST", "init"]
+- ["ST", "init"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "Bool"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "CodingKey"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "Encoder"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "SetNotificationRequestRequestCodingKeys"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "String"]
+- !private ["13JDCloudSDKMps22SetNotificationRequestC", "_findStringSwitchCase"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "enabled"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "encode"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "endpoint"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "events"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "init"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "notifyContentFormat"]
+- ["13JDCloudSDKMps22SetNotificationRequestC", "notifyStrategy"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "RawValue"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "_Default_RawValue"]
+- !private ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "_findStringSwitchCase"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "debugDescription"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "deinit"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "description"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "enabled"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "endpoint"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "events"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "hash"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "hashValue"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "init"]
+- !private ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "init"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "intValue"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "notifyContentFormat"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "notifyStrategy"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "rawValue"]
+- ["13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO", "stringValue"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SetNotificationRequestRequestCodingKeys"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "enabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "endpoint"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "events"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "notifyContentFormat"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "notifyStrategy"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- "14JDCloudSDKCore14JdCloudRequestC"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- "13JDCloudSDKMps22SetNotificationRequestC"
+- "13JDCloudSDKMps22SetNotificationRequestC0cdeE10CodingKeysO"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "d0e877c0270bb717f46a0b4c262de9e8"
