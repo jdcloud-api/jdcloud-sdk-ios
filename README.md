@@ -7,11 +7,11 @@
 
 ## TODO
  
+* Objective-c 项目的添加，方便 framework 用户引用源码进行编译
+ 
 * 对 `linux（ubuntu 18.04 LTS and 16.04 LTS）`进行优化支持 
 
-* 使用文档说明 代码优化
-
-* 详细的测试
+* 使用文档说明 代码优化 
 
 ## 使用方法
 
