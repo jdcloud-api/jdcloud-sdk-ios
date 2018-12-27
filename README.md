@@ -1,20 +1,25 @@
 # JDCloudSDKSwift
 
 ## 说明
-这个是 swift 的京东云 sdk 暂时不支持 oc 引用，目前使用的是 `swift package manager` 进行编译，目标平台支持 iOS MacOS WatchOS TvOS,如果构建的项目使用`swift package manager`进行包管理，可以直接进行引用，否则只能使用xcode编译好framework，然后引用framework,目前没有进行 objective-c 测试。
+这个是 swift 的京东云 OPEN API SDK，目前没有添加 pod 支持，需要自己编译 framework 引用 或者使用 `swift package manage` 引用，否则只能使用xcode编译好framework，然后引用framework,目前没有进行 Objective-c 测试。
 
-* 目前已经有项目的解决方案文件和 `objc` 的头支持，如果要编写 Objective-c 的 framework目前没有研究，具体请使用 c++ 签名库进行编译支持
-
-* 目前只测试了部分的方法，后续还需要完整的测试，欢迎使用提出问题
+* 目前已经有项目的解决方案文件和 `objc` 的头支持，如果要编写 Objective-c 的 framework 请使用 c++ 签名库，将代码放到项目中进行 C , OC 和 C++ 混合编译，后期会完善 OC 代码的支持
 
 ## TODO
  
-
-* 对 `linux（ubuntu 18.04 LTS 16.04）`进行优化支持 
+* 对 `linux（ubuntu 18.04 LTS and 16.04 LTS）`进行优化支持 
 
 * 使用文档说明 代码优化
 
 * 详细的测试
+
 ## 使用方法
 
-* 大致的使用方法请查看Tests 文件夹下的 `VmTest.swift`
+* 如果 使用 swift 进行 iOS 和 Mac OS X 应用开发， 直接编译要使用的模块的SDK和相关引用的模块引用到项目中。
+
+* 如果使用 Objective-c  进行 iOS 和 Mac OS X 应用开发，需要引用 framework 然后再引用 要使用的`{framework name}`-swift.h 的头文件，引用后能调用相关 framework 的方法。
+
+* Api 调用方法请查看Tests文件夹下的 `VmTest.swift`.
+```swift
+
+```
