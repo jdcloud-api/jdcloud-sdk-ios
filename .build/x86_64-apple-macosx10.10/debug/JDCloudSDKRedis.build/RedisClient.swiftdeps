@@ -1,0 +1,734 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RedisJDCloudClient"
+provides-nominal:
+- "15JDCloudSDKRedis05RedisA6ClientC"
+provides-member:
+- ["15JDCloudSDKRedis05RedisA6ClientC", ""]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "createCacheInstanceAsync"
+- "deleteCacheInstanceAsync"
+- "describeCacheInstanceAsync"
+- "describeCacheInstancesAsync"
+- "describeInstanceClassAsync"
+- "describeUserQuotaAsync"
+- "httpRequestProtocol"
+- "modifyCacheInstanceAttributeAsync"
+- "modifyCacheInstanceClassAsync"
+- "resetCacheInstancePasswordAsync"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- !private "CreateCacheInstanceExecutor"
+- "CreateCacheInstanceRequest"
+- "CreateCacheInstanceResponse"
+- "Credential"
+- !private "DeleteCacheInstanceExecutor"
+- "DeleteCacheInstanceRequest"
+- "DeleteCacheInstanceResponse"
+- !private "DescribeCacheInstanceExecutor"
+- "DescribeCacheInstanceRequest"
+- "DescribeCacheInstanceResponse"
+- !private "DescribeCacheInstancesExecutor"
+- "DescribeCacheInstancesRequest"
+- "DescribeCacheInstancesResponse"
+- !private "DescribeInstanceClassExecutor"
+- "DescribeInstanceClassRequest"
+- "DescribeInstanceClassResponse"
+- !private "DescribeUserQuotaExecutor"
+- "DescribeUserQuotaRequest"
+- "DescribeUserQuotaResponse"
+- !private "GlobalConfig"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- !private "ModifyCacheInstanceAttributeExecutor"
+- "ModifyCacheInstanceAttributeRequest"
+- "ModifyCacheInstanceAttributeResponse"
+- !private "ModifyCacheInstanceClassExecutor"
+- "ModifyCacheInstanceClassRequest"
+- "ModifyCacheInstanceClassResponse"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- "RedisJDCloudClient"
+- !private "ResetCacheInstancePasswordExecutor"
+- "ResetCacheInstancePasswordRequest"
+- "ResetCacheInstancePasswordResponse"
+- "SDKEnvironment"
+- "String"
+- "StringLiteralType"
+depends-member:
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "CreateCacheInstanceExecutor"]
+- !private ["s7CVarArgP", "CreateCacheInstanceResponse"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "DeleteCacheInstanceExecutor"]
+- !private ["s7CVarArgP", "DeleteCacheInstanceResponse"]
+- !private ["s7CVarArgP", "DescribeCacheInstanceExecutor"]
+- !private ["s7CVarArgP", "DescribeCacheInstanceResponse"]
+- !private ["s7CVarArgP", "DescribeCacheInstancesExecutor"]
+- !private ["s7CVarArgP", "DescribeCacheInstancesResponse"]
+- !private ["s7CVarArgP", "DescribeInstanceClassExecutor"]
+- !private ["s7CVarArgP", "DescribeInstanceClassResponse"]
+- !private ["s7CVarArgP", "DescribeUserQuotaExecutor"]
+- !private ["s7CVarArgP", "DescribeUserQuotaResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["s7CVarArgP", "ModifyCacheInstanceAttributeResponse"]
+- !private ["s7CVarArgP", "ModifyCacheInstanceClassExecutor"]
+- !private ["s7CVarArgP", "ModifyCacheInstanceClassResponse"]
+- !private ["s7CVarArgP", "ResetCacheInstancePasswordExecutor"]
+- !private ["s7CVarArgP", "ResetCacheInstancePasswordResponse"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "redisJDCloudClient"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["15JDCloudSDKRedis27CreateCacheInstanceExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis27CreateCacheInstanceExecutorC", "init"]
+- !private ["15JDCloudSDKRedis27CreateCacheInstanceResponseC", "deinit"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateCacheInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateCacheInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteCacheInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteCacheInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeCacheInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeCacheInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeCacheInstancesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeCacheInstancesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceClassExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceClassResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeUserQuotaExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeUserQuotaResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyCacheInstanceAttributeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyCacheInstanceClassExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyCacheInstanceClassResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ResetCacheInstancePasswordExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ResetCacheInstancePasswordResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "redisJDCloudClient"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "CreateCacheInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateCacheInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "DeleteCacheInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteCacheInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeCacheInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeCacheInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeCacheInstancesExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeCacheInstancesResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceClassExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceClassResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeUserQuotaExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeUserQuotaResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyCacheInstanceAttributeResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyCacheInstanceClassExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyCacheInstanceClassResponse"]
+- !private ["s23CustomStringConvertibleP", "ResetCacheInstancePasswordExecutor"]
+- !private ["s23CustomStringConvertibleP", "ResetCacheInstancePasswordResponse"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "redisJDCloudClient"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["15JDCloudSDKRedis27DeleteCacheInstanceExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis27DeleteCacheInstanceExecutorC", "init"]
+- !private ["15JDCloudSDKRedis27DeleteCacheInstanceResponseC", "deinit"]
+- !private ["15JDCloudSDKRedis29DescribeCacheInstanceExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis29DescribeCacheInstanceExecutorC", "init"]
+- !private ["15JDCloudSDKRedis29DescribeCacheInstanceResponseC", "deinit"]
+- !private ["15JDCloudSDKRedis30DescribeCacheInstancesExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis30DescribeCacheInstancesExecutorC", "init"]
+- !private ["15JDCloudSDKRedis30DescribeCacheInstancesResponseC", "deinit"]
+- !private ["15JDCloudSDKRedis29DescribeInstanceClassExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis29DescribeInstanceClassExecutorC", "init"]
+- !private ["15JDCloudSDKRedis29DescribeInstanceClassResponseC", "deinit"]
+- !private ["15JDCloudSDKRedis25DescribeUserQuotaExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis25DescribeUserQuotaExecutorC", "init"]
+- !private ["15JDCloudSDKRedis25DescribeUserQuotaResponseC", "deinit"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "CreateCacheInstanceExecutor"]
+- !private ["SQ", "CreateCacheInstanceResponse"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "DeleteCacheInstanceExecutor"]
+- !private ["SQ", "DeleteCacheInstanceResponse"]
+- !private ["SQ", "DescribeCacheInstanceExecutor"]
+- !private ["SQ", "DescribeCacheInstanceResponse"]
+- !private ["SQ", "DescribeCacheInstancesExecutor"]
+- !private ["SQ", "DescribeCacheInstancesResponse"]
+- !private ["SQ", "DescribeInstanceClassExecutor"]
+- !private ["SQ", "DescribeInstanceClassResponse"]
+- !private ["SQ", "DescribeUserQuotaExecutor"]
+- !private ["SQ", "DescribeUserQuotaResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["SQ", "ModifyCacheInstanceAttributeResponse"]
+- !private ["SQ", "ModifyCacheInstanceClassExecutor"]
+- !private ["SQ", "ModifyCacheInstanceClassResponse"]
+- !private ["SQ", "ResetCacheInstancePasswordExecutor"]
+- !private ["SQ", "ResetCacheInstancePasswordResponse"]
+- !private ["SQ", "SDKEnvironment"]
+- ["SQ", "String"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- !private ["SQ", "redisJDCloudClient"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "CreateCacheInstanceExecutor"]
+- !private ["SH", "CreateCacheInstanceResponse"]
+- !private ["SH", "Credential"]
+- !private ["SH", "DeleteCacheInstanceExecutor"]
+- !private ["SH", "DeleteCacheInstanceResponse"]
+- !private ["SH", "DescribeCacheInstanceExecutor"]
+- !private ["SH", "DescribeCacheInstanceResponse"]
+- !private ["SH", "DescribeCacheInstancesExecutor"]
+- !private ["SH", "DescribeCacheInstancesResponse"]
+- !private ["SH", "DescribeInstanceClassExecutor"]
+- !private ["SH", "DescribeInstanceClassResponse"]
+- !private ["SH", "DescribeUserQuotaExecutor"]
+- !private ["SH", "DescribeUserQuotaResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["SH", "ModifyCacheInstanceAttributeResponse"]
+- !private ["SH", "ModifyCacheInstanceClassExecutor"]
+- !private ["SH", "ModifyCacheInstanceClassResponse"]
+- !private ["SH", "ResetCacheInstancePasswordExecutor"]
+- !private ["SH", "ResetCacheInstancePasswordResponse"]
+- !private ["SH", "SDKEnvironment"]
+- ["SH", "String"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- !private ["SH", "redisJDCloudClient"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateCacheInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateCacheInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteCacheInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteCacheInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeCacheInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeCacheInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeCacheInstancesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeCacheInstancesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceClassExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceClassResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeUserQuotaExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeUserQuotaResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyCacheInstanceAttributeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyCacheInstanceClassExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyCacheInstanceClassResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ResetCacheInstancePasswordExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ResetCacheInstancePasswordResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- !private ["14JDCloudSDKCore0A6ClientP", "redisJDCloudClient"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["15JDCloudSDKRedis36ModifyCacheInstanceAttributeExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis36ModifyCacheInstanceAttributeExecutorC", "init"]
+- !private ["15JDCloudSDKRedis36ModifyCacheInstanceAttributeResponseC", "deinit"]
+- !private ["15JDCloudSDKRedis32ModifyCacheInstanceClassExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis32ModifyCacheInstanceClassExecutorC", "init"]
+- !private ["15JDCloudSDKRedis32ModifyCacheInstanceClassResponseC", "deinit"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- !private ["So8NSObjectC", "CreateCacheInstanceExecutor"]
+- ["So8NSObjectC", "CreateCacheInstanceRequest"]
+- ["So8NSObjectC", "CreateCacheInstanceResponse"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "DeleteCacheInstanceExecutor"]
+- ["So8NSObjectC", "DeleteCacheInstanceRequest"]
+- ["So8NSObjectC", "DeleteCacheInstanceResponse"]
+- !private ["So8NSObjectC", "DescribeCacheInstanceExecutor"]
+- ["So8NSObjectC", "DescribeCacheInstanceRequest"]
+- ["So8NSObjectC", "DescribeCacheInstanceResponse"]
+- !private ["So8NSObjectC", "DescribeCacheInstancesExecutor"]
+- ["So8NSObjectC", "DescribeCacheInstancesRequest"]
+- ["So8NSObjectC", "DescribeCacheInstancesResponse"]
+- !private ["So8NSObjectC", "DescribeInstanceClassExecutor"]
+- ["So8NSObjectC", "DescribeInstanceClassRequest"]
+- ["So8NSObjectC", "DescribeInstanceClassResponse"]
+- !private ["So8NSObjectC", "DescribeUserQuotaExecutor"]
+- ["So8NSObjectC", "DescribeUserQuotaRequest"]
+- ["So8NSObjectC", "DescribeUserQuotaResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- !private ["So8NSObjectC", "ModifyCacheInstanceAttributeExecutor"]
+- ["So8NSObjectC", "ModifyCacheInstanceAttributeRequest"]
+- ["So8NSObjectC", "ModifyCacheInstanceAttributeResponse"]
+- !private ["So8NSObjectC", "ModifyCacheInstanceClassExecutor"]
+- ["So8NSObjectC", "ModifyCacheInstanceClassRequest"]
+- ["So8NSObjectC", "ModifyCacheInstanceClassResponse"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- ["So8NSObjectC", "RedisJDCloudClient"]
+- !private ["So8NSObjectC", "ResetCacheInstancePasswordExecutor"]
+- ["So8NSObjectC", "ResetCacheInstancePasswordRequest"]
+- ["So8NSObjectC", "ResetCacheInstancePasswordResponse"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "createCacheInstanceAsync"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- ["So8NSObjectC", "deleteCacheInstanceAsync"]
+- ["So8NSObjectC", "describeCacheInstanceAsync"]
+- ["So8NSObjectC", "describeCacheInstancesAsync"]
+- ["So8NSObjectC", "describeInstanceClassAsync"]
+- ["So8NSObjectC", "describeUserQuotaAsync"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "modifyCacheInstanceAttributeAsync"]
+- ["So8NSObjectC", "modifyCacheInstanceClassAsync"]
+- ["So8NSObjectC", "redisJDCloudClient"]
+- ["So8NSObjectC", "resetCacheInstancePasswordAsync"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- !private ["So8NSObjectP", "CreateCacheInstanceExecutor"]
+- !private ["So8NSObjectP", "CreateCacheInstanceResponse"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "DeleteCacheInstanceExecutor"]
+- !private ["So8NSObjectP", "DeleteCacheInstanceResponse"]
+- !private ["So8NSObjectP", "DescribeCacheInstanceExecutor"]
+- !private ["So8NSObjectP", "DescribeCacheInstanceResponse"]
+- !private ["So8NSObjectP", "DescribeCacheInstancesExecutor"]
+- !private ["So8NSObjectP", "DescribeCacheInstancesResponse"]
+- !private ["So8NSObjectP", "DescribeInstanceClassExecutor"]
+- !private ["So8NSObjectP", "DescribeInstanceClassResponse"]
+- !private ["So8NSObjectP", "DescribeUserQuotaExecutor"]
+- !private ["So8NSObjectP", "DescribeUserQuotaResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["So8NSObjectP", "ModifyCacheInstanceAttributeResponse"]
+- !private ["So8NSObjectP", "ModifyCacheInstanceClassExecutor"]
+- !private ["So8NSObjectP", "ModifyCacheInstanceClassResponse"]
+- !private ["So8NSObjectP", "ResetCacheInstancePasswordExecutor"]
+- !private ["So8NSObjectP", "ResetCacheInstancePasswordResponse"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "redisJDCloudClient"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "CreateCacheInstanceExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "CreateCacheInstanceRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "CreateCacheInstanceResponse"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "Credential"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "DeleteCacheInstanceExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DeleteCacheInstanceRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DeleteCacheInstanceResponse"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeCacheInstanceExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeCacheInstanceRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeCacheInstanceResponse"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeCacheInstancesExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeCacheInstancesRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeCacheInstancesResponse"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeInstanceClassExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeInstanceClassRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeInstanceClassResponse"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeUserQuotaExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeUserQuotaRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "DescribeUserQuotaResponse"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "GlobalConfig"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "JSONDecoder"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "ModifyCacheInstanceAttributeExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "ModifyCacheInstanceAttributeRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "ModifyCacheInstanceAttributeResponse"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "ModifyCacheInstanceClassExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "ModifyCacheInstanceClassRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "ModifyCacheInstanceClassResponse"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "NSError"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "NSNumber"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "NSString"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "RedisJDCloudClient"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "ResetCacheInstancePasswordExecutor"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "ResetCacheInstancePasswordRequest"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "ResetCacheInstancePasswordResponse"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "SDKEnvironment"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "String"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "addCustomer"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "contentType"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "createCacheInstanceAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "credential"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "customHeader"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "deinit"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "deleteCacheInstanceAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "describeCacheInstanceAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "describeCacheInstancesAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "describeInstanceClassAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "describeUserQuotaAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "httpRequestProtocol"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "init"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "modifyCacheInstanceAttributeAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "modifyCacheInstanceClassAsync"]
+- !private ["15JDCloudSDKRedis05RedisA6ClientC", "redisJDCloudClient"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "resetCacheInstancePasswordAsync"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "sdkEnvironment"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "serviceName"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "userAgent"]
+- ["15JDCloudSDKRedis05RedisA6ClientC", "version"]
+- !private ["15JDCloudSDKRedis34ResetCacheInstancePasswordExecutorC", "executeAsync"]
+- !private ["15JDCloudSDKRedis34ResetCacheInstancePasswordExecutorC", "init"]
+- !private ["15JDCloudSDKRedis34ResetCacheInstancePasswordResponseC", "deinit"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateCacheInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateCacheInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteCacheInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteCacheInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeCacheInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeCacheInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeCacheInstancesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeCacheInstancesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceClassExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceClassResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeUserQuotaExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeUserQuotaResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyCacheInstanceAttributeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyCacheInstanceAttributeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyCacheInstanceClassExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyCacheInstanceClassResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ResetCacheInstancePasswordExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ResetCacheInstancePasswordResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "redisJDCloudClient"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- !private "15JDCloudSDKRedis27CreateCacheInstanceExecutorC"
+- !private "15JDCloudSDKRedis27CreateCacheInstanceResponseC"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "15JDCloudSDKRedis27DeleteCacheInstanceExecutorC"
+- !private "15JDCloudSDKRedis27DeleteCacheInstanceResponseC"
+- !private "15JDCloudSDKRedis29DescribeCacheInstanceExecutorC"
+- !private "15JDCloudSDKRedis29DescribeCacheInstanceResponseC"
+- !private "15JDCloudSDKRedis30DescribeCacheInstancesExecutorC"
+- !private "15JDCloudSDKRedis30DescribeCacheInstancesResponseC"
+- !private "15JDCloudSDKRedis29DescribeInstanceClassExecutorC"
+- !private "15JDCloudSDKRedis29DescribeInstanceClassResponseC"
+- !private "15JDCloudSDKRedis25DescribeUserQuotaExecutorC"
+- !private "15JDCloudSDKRedis25DescribeUserQuotaResponseC"
+- "SD"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "15JDCloudSDKRedis36ModifyCacheInstanceAttributeExecutorC"
+- !private "15JDCloudSDKRedis36ModifyCacheInstanceAttributeResponseC"
+- !private "15JDCloudSDKRedis32ModifyCacheInstanceClassExecutorC"
+- !private "15JDCloudSDKRedis32ModifyCacheInstanceClassResponseC"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "Sm"
+- !private "SY"
+- "15JDCloudSDKRedis05RedisA6ClientC"
+- !private "15JDCloudSDKRedis34ResetCacheInstancePasswordExecutorC"
+- !private "15JDCloudSDKRedis34ResetCacheInstancePasswordResponseC"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCharge.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "bb905360ee5b5594de0ef4f35e236714"

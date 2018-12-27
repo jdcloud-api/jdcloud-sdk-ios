@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  查询一台云主机的详细信息
-        /// 
+      /// 
 public class DescribeInstanceExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

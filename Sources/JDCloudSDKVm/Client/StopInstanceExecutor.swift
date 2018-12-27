@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  停止单个云主机，只能停止&lt;b&gt;running&lt;/b&gt;状态的云主机，云主机没有正在进行中的任务才可停止
-        /// 
+      /// 
 public class StopInstanceExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

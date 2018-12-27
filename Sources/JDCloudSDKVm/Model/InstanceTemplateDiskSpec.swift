@@ -25,5 +25,40 @@
 import Foundation
 
 ///  instanceTemplateDiskSpec
-public class InstanceTemplateDiskSpec:Codable{
+@objc(InstanceTemplateDiskSpec)
+public class InstanceTemplateDiskSpec:NSObject,Codable{
+    /// 云硬盘类型，取值为 ssd 或 premium-hdd
+    var diskType:String?
+    /// 云硬盘大小，单位为 GiB；ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G
+    var diskSizeGB:Int?
+    /// 用于创建云硬盘的快照ID
+    var snapshotId:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceTemplateDiskSpecCodingKeys: String, CodingKey {
+        case diskType
+        case diskSizeGB
+        case snapshotId
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceTemplateDiskSpecCodingKeys.self)
+        self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
+        self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
+        self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+    }
+}
+public extension InstanceTemplateDiskSpec{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceTemplateDiskSpecCodingKeys.self)
+         try encoderContainer.encode(diskType, forKey: .diskType)
+         try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)
+         try encoderContainer.encode(snapshotId, forKey: .snapshotId)
+    }
 }

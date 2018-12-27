@@ -25,5 +25,35 @@
 import Foundation
 
 ///  instanceNetworkAttribute
-public class InstanceNetworkAttribute:Codable{
+@objc(InstanceNetworkAttribute)
+public class InstanceNetworkAttribute:NSObject,Codable{
+    /// 弹性网卡ID
+    var networkInterfaceId:String?
+    /// 随主机自动删除，默认为False
+    var autoDelete:Bool?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceNetworkAttributeCodingKeys: String, CodingKey {
+        case networkInterfaceId
+        case autoDelete
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceNetworkAttributeCodingKeys.self)
+        self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+    }
+}
+public extension InstanceNetworkAttribute{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceNetworkAttributeCodingKeys.self)
+         try encoderContainer.encode(networkInterfaceId, forKey: .networkInterfaceId)
+         try encoderContainer.encode(autoDelete, forKey: .autoDelete)
+    }
 }

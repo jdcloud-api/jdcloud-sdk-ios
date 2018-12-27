@@ -23,7 +23,64 @@
 
 
 import Foundation
+import JDCloudSDKDisk
 
 ///  instanceDiskAttachment
-public class InstanceDiskAttachment:Codable{
+@objc(InstanceDiskAttachment)
+public class InstanceDiskAttachment:NSObject,Codable{
+    /// 磁盘分类，取值为本地盘(local)或者数据盘(cloud)。
+      /// 系统盘支持本地盘(local)或者云硬盘(cloud)。系统盘选择local类型，必须使用localDisk类型的镜像；同理系统盘选择cloud类型，必须使用cloudDisk类型的镜像。
+      /// 数据盘仅支持云硬盘(cloud)。
+      /// 
+    var diskCategory:String?
+    /// 随云主机一起删除，删除主机时自动删除此磁盘，默认为true，本地盘(local)不能更改此值。
+      /// 如果云主机中的数据盘(cloud)是包年包月计费方式，此参数不生效。
+      /// 如果云主机中的数据盘(cloud)是共享型数据盘，此参数不生效。
+      /// 
+    var autoDelete:Bool?
+    /// 本地磁盘配置
+    var localDisk:LocalDisk?
+    /// 云硬盘配置
+    var cloudDisk:Disk?
+    /// 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi
+    var deviceName:String?
+    /// 数据盘挂载状态，取值范围：attaching,detaching,attached,detached,error_attach,error_detach
+    var status:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceDiskAttachmentCodingKeys: String, CodingKey {
+        case diskCategory
+        case autoDelete
+        case localDisk
+        case cloudDisk
+        case deviceName
+        case status
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceDiskAttachmentCodingKeys.self)
+        self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
+        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        self.localDisk = try decoderContainer.decode(LocalDisk?.self, forKey: .localDisk)
+        self.cloudDisk = try decoderContainer.decode(Disk?.self, forKey: .cloudDisk)
+        self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
+        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+    }
+}
+public extension InstanceDiskAttachment{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceDiskAttachmentCodingKeys.self)
+         try encoderContainer.encode(diskCategory, forKey: .diskCategory)
+         try encoderContainer.encode(autoDelete, forKey: .autoDelete)
+         try encoderContainer.encode(localDisk, forKey: .localDisk)
+         try encoderContainer.encode(cloudDisk, forKey: .cloudDisk)
+         try encoderContainer.encode(deviceName, forKey: .deviceName)
+         try encoderContainer.encode(status, forKey: .status)
+    }
 }

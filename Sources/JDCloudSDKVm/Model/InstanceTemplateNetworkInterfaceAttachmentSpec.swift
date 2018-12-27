@@ -25,5 +25,41 @@
 import Foundation
 
 ///  instanceTemplateNetworkInterfaceAttachmentSpec
-public class InstanceTemplateNetworkInterfaceAttachmentSpec:Codable{
+@objc(InstanceTemplateNetworkInterfaceAttachmentSpec)
+public class InstanceTemplateNetworkInterfaceAttachmentSpec:NSObject,Codable{
+    /// 设备Index；主网卡的index必须为1；当前仅支持主网卡
+    var deviceIndex:Int?
+    /// 指明删除实例时是否删除网卡，默认true；当前只能是true
+    var autoDelete:Bool?
+    /// 网卡接口规范；此字段当前必填
+    /// Required:true
+    var networkInterface:InstanceTemplateNetworkInterfaceSpec
+
+
+
+    public  init(networkInterface:InstanceTemplateNetworkInterfaceSpec){
+             self.networkInterface = networkInterface
+    }
+
+    enum InstanceTemplateNetworkInterfaceAttachmentSpecCodingKeys: String, CodingKey {
+        case deviceIndex
+        case autoDelete
+        case networkInterface
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceTemplateNetworkInterfaceAttachmentSpecCodingKeys.self)
+        self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
+        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        self.networkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceSpec.self, forKey: .networkInterface)
+    }
+}
+public extension InstanceTemplateNetworkInterfaceAttachmentSpec{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceTemplateNetworkInterfaceAttachmentSpecCodingKeys.self)
+         try encoderContainer.encode(deviceIndex, forKey: .deviceIndex)
+         try encoderContainer.encode(autoDelete, forKey: .autoDelete)
+         try encoderContainer.encode(networkInterface, forKey: .networkInterface)
+    }
 }

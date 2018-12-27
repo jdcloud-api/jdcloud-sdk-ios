@@ -25,5 +25,35 @@
 import Foundation
 
 ///  描述实例绑定的安全组
-public class SecurityGroupSimple:Codable{
+@objc(SecurityGroupSimple)
+public class SecurityGroupSimple:NSObject,Codable{
+    /// 安全组ID
+    var groupId:String?
+    /// 安全组名称
+    var groupName:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum SecurityGroupSimpleCodingKeys: String, CodingKey {
+        case groupId
+        case groupName
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: SecurityGroupSimpleCodingKeys.self)
+        self.groupId = try decoderContainer.decode(String?.self, forKey: .groupId)
+        self.groupName = try decoderContainer.decode(String?.self, forKey: .groupName)
+    }
+}
+public extension SecurityGroupSimple{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: SecurityGroupSimpleCodingKeys.self)
+         try encoderContainer.encode(groupId, forKey: .groupId)
+         try encoderContainer.encode(groupName, forKey: .groupName)
+    }
 }

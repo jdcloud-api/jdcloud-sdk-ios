@@ -25,5 +25,40 @@
 import Foundation
 
 ///  instanceNetworkInterfaceAttachment
-public class InstanceNetworkInterfaceAttachment:Codable{
+@objc(InstanceNetworkInterfaceAttachment)
+public class InstanceNetworkInterfaceAttachment:NSObject,Codable{
+    /// 设备Index
+    var deviceIndex:Int?
+    /// 指明删除实例时是否删除网卡，默认true；当前只能是true
+    var autoDelete:Bool?
+    /// 网卡接口规范
+    var networkInterface:InstanceNetworkInterface?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceNetworkInterfaceAttachmentCodingKeys: String, CodingKey {
+        case deviceIndex
+        case autoDelete
+        case networkInterface
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceNetworkInterfaceAttachmentCodingKeys.self)
+        self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
+        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        self.networkInterface = try decoderContainer.decode(InstanceNetworkInterface?.self, forKey: .networkInterface)
+    }
+}
+public extension InstanceNetworkInterfaceAttachment{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceNetworkInterfaceAttachmentCodingKeys.self)
+         try encoderContainer.encode(deviceIndex, forKey: .deviceIndex)
+         try encoderContainer.encode(autoDelete, forKey: .autoDelete)
+         try encoderContainer.encode(networkInterface, forKey: .networkInterface)
+    }
 }

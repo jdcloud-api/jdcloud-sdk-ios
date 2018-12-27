@@ -25,5 +25,35 @@
 import Foundation
 
 ///  描述实例的本地磁盘
-public class LocalDisk:Codable{
+@objc(LocalDisk)
+public class LocalDisk:NSObject,Codable{
+    /// 磁盘类型，取值范围{premium-hdd, ssd}
+    var diskType:String?
+    /// 磁盘大小
+    var diskSizeGB:Int?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum LocalDiskCodingKeys: String, CodingKey {
+        case diskType
+        case diskSizeGB
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: LocalDiskCodingKeys.self)
+        self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
+        self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
+    }
+}
+public extension LocalDisk{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: LocalDiskCodingKeys.self)
+         try encoderContainer.encode(diskType, forKey: .diskType)
+         try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)
+    }
 }

@@ -27,8 +27,8 @@ import JDCloudSDKCore
 
 
 ///  批量查询密钥对。&lt;br&gt;
-        /// 此接口支持分页查询，默认每页20条。
-        /// 
+      /// 此接口支持分页查询，默认每页20条。
+      /// 
 public class DescribeKeypairsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

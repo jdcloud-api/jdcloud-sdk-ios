@@ -27,8 +27,8 @@ import JDCloudSDKCore
 
 
 ///  查询镜像的实例规格限制。&lt;br&gt;
-        /// 通过此接口可以查看镜像不支持的实例规格。只有官方镜像、第三方镜像有实例规格的限制，个人的私有镜像没有此限制。
-        /// 
+      /// 通过此接口可以查看镜像不支持的实例规格。只有官方镜像、第三方镜像有实例规格的限制，个人的私有镜像没有此限制。
+      /// 
 public class DescribeImageConstraintsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

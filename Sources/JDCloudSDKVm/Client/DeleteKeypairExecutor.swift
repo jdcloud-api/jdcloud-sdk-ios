@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  删除ssh密钥对。
-        /// 
+      /// 
 public class DeleteKeypairExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

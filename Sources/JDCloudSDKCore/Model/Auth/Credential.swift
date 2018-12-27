@@ -7,11 +7,16 @@
 
 import Foundation
 
-public struct Credential{
+
+@objc(Credential)
+public class Credential:NSObject{
     
     var accessKeyId:String;
     
     var secretAccessKey:String;
     
- 
+    public init(accessKeyId:String,secretAccessKey:String) {
+        self.accessKeyId = accessKeyId
+        self.secretAccessKey = secretAccessKey
+    }
 }

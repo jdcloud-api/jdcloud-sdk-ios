@@ -1,0 +1,439 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Status"
+- "CryptorError"
+provides-nominal:
+- "14JDCloudSDKCore6StatusO"
+- "14JDCloudSDKCore12CryptorErrorO"
+provides-member:
+- ["14JDCloudSDKCore6StatusO", ""]
+- ["14JDCloudSDKCore12CryptorErrorO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- "=="
+- "CCCryptorStatus"
+- "CryptorError"
+- "CustomStringConvertible"
+- "Dictionary"
+- "FloatLiteralType"
+- !private "Int"
+- "Int32"
+- "IntegerLiteralType"
+- "Status"
+- "String"
+- "StringLiteralType"
+- "Swift"
+- "TernaryPrecedence"
+- !private "kCCAlignmentError"
+- !private "kCCBufferTooSmall"
+- !private "kCCDecodeError"
+- !private "kCCMemoryFailure"
+- !private "kCCOverflow"
+- !private "kCCParamError"
+- !private "kCCRNGFailure"
+- !private "kCCSuccess"
+- !private "kCCUnimplemented"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sz", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "subscript"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- ["SL", "init"]
+- ["SL", "init"]
+- ["14JDCloudSDKCore12CryptorErrorO", "Int32"]
+- ["14JDCloudSDKCore12CryptorErrorO", "String"]
+- ["14JDCloudSDKCore12CryptorErrorO", "_code"]
+- ["14JDCloudSDKCore12CryptorErrorO", "_domain"]
+- ["14JDCloudSDKCore12CryptorErrorO", "_getEmbeddedNSError"]
+- ["14JDCloudSDKCore12CryptorErrorO", "_userInfo"]
+- ["14JDCloudSDKCore12CryptorErrorO", "deinit"]
+- ["14JDCloudSDKCore12CryptorErrorO", "description"]
+- ["14JDCloudSDKCore12CryptorErrorO", "errCode"]
+- ["14JDCloudSDKCore12CryptorErrorO", "fail"]
+- ["14JDCloudSDKCore12CryptorErrorO", "invalidIVSizeOrLength"]
+- ["14JDCloudSDKCore12CryptorErrorO", "invalidKeySize"]
+- ["14JDCloudSDKCore12CryptorErrorO", "success"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "CCCryptorStatus"]
+- !private ["s23CustomStringConvertibleP", "Int"]
+- !private ["s23CustomStringConvertibleP", "Int32"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "Status"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- ["s23CustomStringConvertibleP", "_code"]
+- ["s23CustomStringConvertibleP", "_domain"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "_getEmbeddedNSError"]
+- ["s23CustomStringConvertibleP", "_userInfo"]
+- ["s23CustomStringConvertibleP", "alignmentError"]
+- ["s23CustomStringConvertibleP", "bufferTooSmall"]
+- ["s23CustomStringConvertibleP", "decodeError"]
+- ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "descriptions"]
+- ["s23CustomStringConvertibleP", "fail"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "invalidIVSizeOrLength"]
+- ["s23CustomStringConvertibleP", "invalidKeySize"]
+- !private ["s23CustomStringConvertibleP", "kCCAlignmentError"]
+- !private ["s23CustomStringConvertibleP", "kCCBufferTooSmall"]
+- !private ["s23CustomStringConvertibleP", "kCCDecodeError"]
+- !private ["s23CustomStringConvertibleP", "kCCMemoryFailure"]
+- !private ["s23CustomStringConvertibleP", "kCCOverflow"]
+- !private ["s23CustomStringConvertibleP", "kCCParamError"]
+- !private ["s23CustomStringConvertibleP", "kCCRNGFailure"]
+- !private ["s23CustomStringConvertibleP", "kCCSuccess"]
+- !private ["s23CustomStringConvertibleP", "kCCUnimplemented"]
+- ["s23CustomStringConvertibleP", "memoryFailure"]
+- ["s23CustomStringConvertibleP", "overflow"]
+- ["s23CustomStringConvertibleP", "paramError"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "rngFailure"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "success"]
+- ["s23CustomStringConvertibleP", "unimplemented"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SQ", "CCCryptorStatus"]
+- !private ["SQ", "Int"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "Status"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- ["SQ", "_code"]
+- ["SQ", "_domain"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "_getEmbeddedNSError"]
+- ["SQ", "_userInfo"]
+- ["SQ", "alignmentError"]
+- ["SQ", "bufferTooSmall"]
+- ["SQ", "decodeError"]
+- ["SQ", "description"]
+- !private ["SQ", "descriptions"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- !private ["SQ", "kCCAlignmentError"]
+- !private ["SQ", "kCCBufferTooSmall"]
+- !private ["SQ", "kCCDecodeError"]
+- !private ["SQ", "kCCMemoryFailure"]
+- !private ["SQ", "kCCOverflow"]
+- !private ["SQ", "kCCParamError"]
+- !private ["SQ", "kCCRNGFailure"]
+- !private ["SQ", "kCCSuccess"]
+- !private ["SQ", "kCCUnimplemented"]
+- ["SQ", "memoryFailure"]
+- ["SQ", "overflow"]
+- ["SQ", "paramError"]
+- ["SQ", "rawValue"]
+- ["SQ", "rngFailure"]
+- !private ["SQ", "subscript"]
+- ["SQ", "success"]
+- ["SQ", "unimplemented"]
+- !private ["s5ErrorP", "CCCryptorStatus"]
+- !private ["s5ErrorP", "Int"]
+- !private ["s5ErrorP", "Int32"]
+- ["s5ErrorP", "RawValue"]
+- !private ["s5ErrorP", "Status"]
+- ["s5ErrorP", ""]
+- ["s5ErrorP", "_Default_RawValue"]
+- ["s5ErrorP", "_code"]
+- ["s5ErrorP", "_domain"]
+- ["s5ErrorP", "_getEmbeddedNSError"]
+- ["s5ErrorP", "_userInfo"]
+- ["s5ErrorP", "alignmentError"]
+- ["s5ErrorP", "bufferTooSmall"]
+- ["s5ErrorP", "decodeError"]
+- ["s5ErrorP", "description"]
+- !private ["s5ErrorP", "descriptions"]
+- ["s5ErrorP", "fail"]
+- ["s5ErrorP", "hash"]
+- ["s5ErrorP", "hashValue"]
+- ["s5ErrorP", "init"]
+- ["s5ErrorP", "invalidIVSizeOrLength"]
+- ["s5ErrorP", "invalidKeySize"]
+- !private ["s5ErrorP", "kCCAlignmentError"]
+- !private ["s5ErrorP", "kCCBufferTooSmall"]
+- !private ["s5ErrorP", "kCCDecodeError"]
+- !private ["s5ErrorP", "kCCMemoryFailure"]
+- !private ["s5ErrorP", "kCCOverflow"]
+- !private ["s5ErrorP", "kCCParamError"]
+- !private ["s5ErrorP", "kCCRNGFailure"]
+- !private ["s5ErrorP", "kCCSuccess"]
+- !private ["s5ErrorP", "kCCUnimplemented"]
+- ["s5ErrorP", "memoryFailure"]
+- ["s5ErrorP", "overflow"]
+- ["s5ErrorP", "paramError"]
+- ["s5ErrorP", "rawValue"]
+- ["s5ErrorP", "rngFailure"]
+- ["s5ErrorP", "success"]
+- ["s5ErrorP", "unimplemented"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s17FixedWidthIntegerP", "init"]
+- !private ["SH", "CCCryptorStatus"]
+- !private ["SH", "Int"]
+- ["SH", "RawValue"]
+- !private ["SH", "Status"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- ["SH", "_code"]
+- ["SH", "_domain"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "_getEmbeddedNSError"]
+- ["SH", "_userInfo"]
+- ["SH", "alignmentError"]
+- ["SH", "bufferTooSmall"]
+- ["SH", "decodeError"]
+- ["SH", "description"]
+- !private ["SH", "descriptions"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- !private ["SH", "kCCAlignmentError"]
+- !private ["SH", "kCCBufferTooSmall"]
+- !private ["SH", "kCCDecodeError"]
+- !private ["SH", "kCCMemoryFailure"]
+- !private ["SH", "kCCOverflow"]
+- !private ["SH", "kCCParamError"]
+- !private ["SH", "kCCRNGFailure"]
+- !private ["SH", "kCCSuccess"]
+- !private ["SH", "kCCUnimplemented"]
+- ["SH", "memoryFailure"]
+- ["SH", "overflow"]
+- ["SH", "paramError"]
+- ["SH", "rawValue"]
+- ["SH", "rngFailure"]
+- !private ["SH", "subscript"]
+- ["SH", "success"]
+- ["SH", "unimplemented"]
+- !private ["s6HasherV", "combine"]
+- !private ["Si", "init"]
+- !private ["s5Int32V", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["Sj", "init"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "CCCryptorStatus"]
+- !private ["SY", "Int"]
+- ["SY", "RawValue"]
+- !private ["SY", "Status"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- ["SY", "_code"]
+- ["SY", "_domain"]
+- ["SY", "_getEmbeddedNSError"]
+- ["SY", "_userInfo"]
+- ["SY", "alignmentError"]
+- ["SY", "bufferTooSmall"]
+- ["SY", "decodeError"]
+- ["SY", "description"]
+- !private ["SY", "descriptions"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "kCCAlignmentError"]
+- !private ["SY", "kCCBufferTooSmall"]
+- !private ["SY", "kCCDecodeError"]
+- !private ["SY", "kCCMemoryFailure"]
+- !private ["SY", "kCCOverflow"]
+- !private ["SY", "kCCParamError"]
+- !private ["SY", "kCCRNGFailure"]
+- !private ["SY", "kCCSuccess"]
+- !private ["SY", "kCCUnimplemented"]
+- ["SY", "memoryFailure"]
+- ["SY", "overflow"]
+- ["SY", "paramError"]
+- ["SY", "rawValue"]
+- ["SY", "rngFailure"]
+- ["SY", "success"]
+- ["SY", "unimplemented"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["SZ", "init"]
+- !private ["s13SignedNumericP", "init"]
+- ["14JDCloudSDKCore6StatusO", "CCCryptorStatus"]
+- !private ["14JDCloudSDKCore6StatusO", "Int"]
+- ["14JDCloudSDKCore6StatusO", "RawValue"]
+- ["14JDCloudSDKCore6StatusO", "Status"]
+- ["14JDCloudSDKCore6StatusO", "String"]
+- ["14JDCloudSDKCore6StatusO", "_Default_RawValue"]
+- ["14JDCloudSDKCore6StatusO", "_code"]
+- ["14JDCloudSDKCore6StatusO", "_domain"]
+- ["14JDCloudSDKCore6StatusO", "_getEmbeddedNSError"]
+- ["14JDCloudSDKCore6StatusO", "_userInfo"]
+- ["14JDCloudSDKCore6StatusO", "alignmentError"]
+- ["14JDCloudSDKCore6StatusO", "bufferTooSmall"]
+- ["14JDCloudSDKCore6StatusO", "decodeError"]
+- ["14JDCloudSDKCore6StatusO", "deinit"]
+- ["14JDCloudSDKCore6StatusO", "description"]
+- ["14JDCloudSDKCore6StatusO", "descriptions"]
+- ["14JDCloudSDKCore6StatusO", "fromRaw"]
+- ["14JDCloudSDKCore6StatusO", "hash"]
+- ["14JDCloudSDKCore6StatusO", "hashValue"]
+- ["14JDCloudSDKCore6StatusO", "init"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCAlignmentError"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCBufferTooSmall"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCDecodeError"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCMemoryFailure"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCOverflow"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCParamError"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCRNGFailure"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCSuccess"]
+- !private ["14JDCloudSDKCore6StatusO", "kCCUnimplemented"]
+- ["14JDCloudSDKCore6StatusO", "memoryFailure"]
+- ["14JDCloudSDKCore6StatusO", "overflow"]
+- ["14JDCloudSDKCore6StatusO", "paramError"]
+- ["14JDCloudSDKCore6StatusO", "rawValue"]
+- ["14JDCloudSDKCore6StatusO", "rngFailure"]
+- ["14JDCloudSDKCore6StatusO", "success"]
+- ["14JDCloudSDKCore6StatusO", "toRaw"]
+- ["14JDCloudSDKCore6StatusO", "unimplemented"]
+- !private ["Sx", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s18_BitwiseOperationsP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sz"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- "14JDCloudSDKCore12CryptorErrorO"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "SD"
+- "SE"
+- "SQ"
+- "s5ErrorP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
+- "SH"
+- !private "s6HasherV"
+- !private "Si"
+- !private "s5Int32V"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "Sj"
+- "Sm"
+- "SY"
+- "ST"
+- !private "SZ"
+- !private "s13SignedNumericP"
+- "14JDCloudSDKCore6StatusO"
+- !private "Sx"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s18_BitwiseOperationsP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "2c0972944c1b0af7968e7a451782a7a9"

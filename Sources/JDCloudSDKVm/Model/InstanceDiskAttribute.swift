@@ -25,5 +25,38 @@
 import Foundation
 
 ///  instanceDiskAttribute
-public class InstanceDiskAttribute:Codable{
+@objc(InstanceDiskAttribute)
+public class InstanceDiskAttribute:NSObject,Codable{
+    /// 云硬盘ID
+    var diskId:String?
+    /// 随云主机一起删除，删除主机时自动删除此磁盘，默认为false，本地盘(local)不能更改此值。
+      /// 如果云主机中的数据盘(cloud)是包年包月计费方式，此参数不生效。
+      /// 如果云主机中的数据盘(cloud)是共享型数据盘，此参数不生效。
+      /// 
+    var autoDelete:Bool?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceDiskAttributeCodingKeys: String, CodingKey {
+        case diskId
+        case autoDelete
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceDiskAttributeCodingKeys.self)
+        self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+    }
+}
+public extension InstanceDiskAttribute{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceDiskAttributeCodingKeys.self)
+         try encoderContainer.encode(diskId, forKey: .diskId)
+         try encoderContainer.encode(autoDelete, forKey: .autoDelete)
+    }
 }

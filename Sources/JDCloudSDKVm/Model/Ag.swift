@@ -25,5 +25,35 @@
 import Foundation
 
 ///  ag
-public class Ag:Codable{
+@objc(Ag)
+public class Ag:NSObject,Codable{
+    /// 高可用组名称
+    var name:String?
+    /// 高可用组id
+    var id:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum AgCodingKeys: String, CodingKey {
+        case name
+        case id
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: AgCodingKeys.self)
+        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        self.id = try decoderContainer.decode(String?.self, forKey: .id)
+    }
+}
+public extension Ag{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: AgCodingKeys.self)
+         try encoderContainer.encode(name, forKey: .name)
+         try encoderContainer.encode(id, forKey: .id)
+    }
 }

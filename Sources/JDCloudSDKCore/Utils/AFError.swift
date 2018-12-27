@@ -45,7 +45,7 @@ public enum AFError: Error {
         case jsonEncodingFailed(error: Error)
         case propertyListEncodingFailed(error: Error)
     }
-
+    
     /// The underlying reason the multipart encoding error occurred.
     ///
     /// - bodyPartURLInvalid:                   The `fileURL` provided for reading an encodable body part isn't a
@@ -80,15 +80,15 @@ public enum AFError: Error {
         case bodyPartFileSizeNotAvailable(at: URL)
         case bodyPartFileSizeQueryFailedWithError(forURL: URL, error: Error)
         case bodyPartInputStreamCreationFailed(for: URL)
-
+        
         case outputStreamCreationFailed(for: URL)
         case outputStreamFileAlreadyExists(at: URL)
         case outputStreamURLInvalid(url: URL)
         case outputStreamWriteFailed(error: Error)
-
+        
         case inputStreamReadFailed(error: Error)
     }
-
+    
     /// The underlying reason the response validation error occurred.
     ///
     /// - dataFileNil:             The data file containing the server response did not exist.
@@ -105,7 +105,7 @@ public enum AFError: Error {
         case unacceptableContentType(acceptableContentTypes: [String], responseContentType: String)
         case unacceptableStatusCode(code: Int)
     }
-
+    
     /// The underlying reason the response serialization error occurred.
     ///
     /// - inputDataNil:                    The server response contained no data.
@@ -124,7 +124,7 @@ public enum AFError: Error {
         case jsonSerializationFailed(error: Error)
         case propertyListSerializationFailed(error: Error)
     }
-
+    
     case invalidURL(url: URLConvertible)
     case parameterEncodingFailed(reason: ParameterEncodingFailureReason)
     case multipartEncodingFailed(reason: MultipartEncodingFailureReason)
@@ -150,28 +150,28 @@ extension AFError {
         if case .invalidURL = self { return true }
         return false
     }
-
+    
     /// Returns whether the AFError is a parameter encoding error. When `true`, the `underlyingError` property will
     /// contain the associated value.
     public var isParameterEncodingError: Bool {
         if case .parameterEncodingFailed = self { return true }
         return false
     }
-
+    
     /// Returns whether the AFError is a multipart encoding error. When `true`, the `url` and `underlyingError` properties
     /// will contain the associated values.
     public var isMultipartEncodingError: Bool {
         if case .multipartEncodingFailed = self { return true }
         return false
     }
-
+    
     /// Returns whether the `AFError` is a response validation error. When `true`, the `acceptableContentTypes`,
     /// `responseContentType`, and `responseCode` properties will contain the associated values.
     public var isResponseValidationError: Bool {
         if case .responseValidationFailed = self { return true }
         return false
     }
-
+    
     /// Returns whether the `AFError` is a response serialization error. When `true`, the `failedStringEncoding` and
     /// `underlyingError` properties will contain the associated values.
     public var isResponseSerializationError: Bool {
@@ -192,7 +192,7 @@ extension AFError {
             return nil
         }
     }
-
+    
     /// The `URL` associated with the error.
     public var url: URL? {
         switch self {
@@ -202,7 +202,7 @@ extension AFError {
             return nil
         }
     }
-
+    
     /// The `Error` returned by a system framework associated with a `.parameterEncodingFailed`,
     /// `.multipartEncodingFailed` or `.responseSerializationFailed` error.
     public var underlyingError: Error? {
@@ -217,7 +217,7 @@ extension AFError {
             return nil
         }
     }
-
+    
     /// The acceptable `Content-Type`s of a `.responseValidationFailed` error.
     public var acceptableContentTypes: [String]? {
         switch self {
@@ -227,7 +227,7 @@ extension AFError {
             return nil
         }
     }
-
+    
     /// The response `Content-Type` of a `.responseValidationFailed` error.
     public var responseContentType: String? {
         switch self {
@@ -237,7 +237,7 @@ extension AFError {
             return nil
         }
     }
-
+    
     /// The response code of a `.responseValidationFailed` error.
     public var responseCode: Int? {
         switch self {
@@ -247,7 +247,7 @@ extension AFError {
             return nil
         }
     }
-
+    
     /// The `String.Encoding` associated with a failed `.stringResponse()` call.
     public var failedStringEncoding: String.Encoding? {
         switch self {
@@ -283,7 +283,7 @@ extension AFError.MultipartEncodingFailureReason {
             return nil
         }
     }
-
+    
     var underlyingError: Error? {
         switch self {
         case .bodyPartFileNotReachableWithError(_, let error), .bodyPartFileSizeQueryFailedWithError(_, let error),
@@ -304,7 +304,7 @@ extension AFError.ResponseValidationFailureReason {
             return nil
         }
     }
-
+    
     var responseContentType: String? {
         switch self {
         case .unacceptableContentType(_, let responseType):
@@ -313,7 +313,7 @@ extension AFError.ResponseValidationFailureReason {
             return nil
         }
     }
-
+    
     var responseCode: Int? {
         switch self {
         case .unacceptableStatusCode(let code):
@@ -333,7 +333,7 @@ extension AFError.ResponseSerializationFailureReason {
             return nil
         }
     }
-
+    
     var underlyingError: Error? {
         switch self {
         case .jsonSerializationFailed(let error), .propertyListSerializationFailed(let error):

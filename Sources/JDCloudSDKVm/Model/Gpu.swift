@@ -25,5 +25,35 @@
 import Foundation
 
 ///  描述实例类型Gpu信息
-public class Gpu:Codable{
+@objc(Gpu)
+public class Gpu:NSObject,Codable{
+    /// GPU型号
+    var model:String?
+    /// GPU数量
+    var number:Int?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum GpuCodingKeys: String, CodingKey {
+        case model
+        case number
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: GpuCodingKeys.self)
+        self.model = try decoderContainer.decode(String?.self, forKey: .model)
+        self.number = try decoderContainer.decode(Int?.self, forKey: .number)
+    }
+}
+public extension Gpu{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: GpuCodingKeys.self)
+         try encoderContainer.encode(model, forKey: .model)
+         try encoderContainer.encode(number, forKey: .number)
+    }
 }

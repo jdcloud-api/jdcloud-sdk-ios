@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  重启单个云主机，只能重启&lt;b&gt;running&lt;/b&gt;状态的云主机，云主机没有正在进行中的任务才可重启。
-        /// 
+      /// 
 public class RebootInstanceExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

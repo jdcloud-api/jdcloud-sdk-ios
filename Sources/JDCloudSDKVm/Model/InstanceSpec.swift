@@ -23,7 +23,104 @@
 
 
 import Foundation
+import JDCloudSDKVpc
+import JDCloudSDKCharge
 
 ///  instanceSpec
-public class InstanceSpec:Codable{
+@objc(InstanceSpec)
+public class InstanceSpec:NSObject,Codable{
+    /// 高可用组Id。指定了此参数后，只能通过高可用组关联的实例模板创建虚机，并且实例模板中的参数不可覆盖替换。实例模板以外的参数还可以指定。
+    var agId:String?
+    /// 实例模板id，如果没有使用高可用组，那么对于实例模板中没有的信息，需要使用创建虚机的参数进行补充，或者选择覆盖启动模板中的参数。
+    var instanceTemplateId:String?
+    /// 云主机所属的可用区。
+    var az:String?
+    /// 实例规格。可查询&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes&quot;&gt;DescribeInstanceTypes&lt;/a&gt;接口获得指定地域或可用区的规格信息。
+    var instanceType:String?
+    /// 镜像ID。可查询&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/describeimages&quot;&gt;DescribeImages&lt;/a&gt;接口获得指定地域的镜像信息。
+    var imageId:String?
+    /// 云主机名称，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/general_parameters&quot;&gt;参考公共参数规范&lt;/a&gt;。
+    /// Required:true
+    var name:String
+    /// 密码，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/general_parameters&quot;&gt;参考公共参数规范&lt;/a&gt;。
+    var password:String?
+    /// 密钥对名称，当前只支持传入一个。
+    var keyNames:[String?]?
+    /// 主网卡主IP关联的弹性IP规格
+    var elasticIp:ElasticIpSpec?
+    /// 主网卡配置信息
+    var primaryNetworkInterface:InstanceNetworkInterfaceAttachmentSpec?
+    /// 系统盘配置信息
+    var systemDisk:InstanceDiskAttachmentSpec?
+    /// 数据盘配置信息，本地盘(local类型)做系统盘的云主机可挂载8块数据盘，云硬盘(cloud类型)做系统盘的云主机可挂载7块数据盘。
+    var dataDisks:InstanceDiskAttachmentSpec?
+    /// 计费配置
+      /// 云主机不支持按用量方式计费，默认为按配置计费。
+      /// 打包创建数据盘的情况下，数据盘的计费方式只能与云主机保持一致。
+      /// 打包创建弹性公网IP的情况下，若公网IP的计费方式没有指定为按用量计费，那么公网IP计费方式只能与云主机保持一致。
+      /// 
+    var charge:ChargeSpec?
+    /// 主机描述，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/general_parameters&quot;&gt;参考公共参数规范&lt;/a&gt;。
+    var descriptionValue:String?
+
+
+
+    public  init(name:String){
+             self.name = name
+    }
+
+    enum InstanceSpecCodingKeys: String, CodingKey {
+        case agId
+        case instanceTemplateId
+        case az
+        case instanceType
+        case imageId
+        case name
+        case password
+        case keyNames
+        case elasticIp
+        case primaryNetworkInterface
+        case systemDisk
+        case dataDisks
+        case charge
+        case descriptionValue = "description"
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceSpecCodingKeys.self)
+        self.agId = try decoderContainer.decode(String?.self, forKey: .agId)
+        self.instanceTemplateId = try decoderContainer.decode(String?.self, forKey: .instanceTemplateId)
+        self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        self.name = try decoderContainer.decode(String.self, forKey: .name)
+        self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        self.elasticIp = try decoderContainer.decode(ElasticIpSpec?.self, forKey: .elasticIp)
+        self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachmentSpec?.self, forKey: .primaryNetworkInterface)
+        self.systemDisk = try decoderContainer.decode(InstanceDiskAttachmentSpec?.self, forKey: .systemDisk)
+        self.dataDisks = try decoderContainer.decode(InstanceDiskAttachmentSpec?.self, forKey: .dataDisks)
+        self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
+        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+    }
+}
+public extension InstanceSpec{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceSpecCodingKeys.self)
+         try encoderContainer.encode(agId, forKey: .agId)
+         try encoderContainer.encode(instanceTemplateId, forKey: .instanceTemplateId)
+         try encoderContainer.encode(az, forKey: .az)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
+         try encoderContainer.encode(imageId, forKey: .imageId)
+         try encoderContainer.encode(name, forKey: .name)
+         try encoderContainer.encode(password, forKey: .password)
+         try encoderContainer.encode(keyNames, forKey: .keyNames)
+         try encoderContainer.encode(elasticIp, forKey: .elasticIp)
+         try encoderContainer.encode(primaryNetworkInterface, forKey: .primaryNetworkInterface)
+         try encoderContainer.encode(systemDisk, forKey: .systemDisk)
+         try encoderContainer.encode(dataDisks, forKey: .dataDisks)
+         try encoderContainer.encode(charge, forKey: .charge)
+         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
+    }
 }

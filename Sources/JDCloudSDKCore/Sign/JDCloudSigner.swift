@@ -37,7 +37,7 @@ public class JDCloudSigner
         let scope = try generateScope(dateString: formattedSigningDate, serviceName: self.serviceName, regionId: self.regionId)
         
         var requestHeader = requestInfo.requestHeader;
-        requestHeader[X_JDCLOUD_DATE] = formattedSigningDateTime 
+        requestHeader[X_JDCLOUD_DATE] = formattedSigningDateTime
         requestHeader[X_JDCLOUD_NONCE] = nonceId
         requestHeader = processContentType(header: requestHeader,  requestInfo: requestInfo)
         let contentSHA256 = calculateContentHash(requestBody: requestInfo.requestBodyContent)
@@ -55,7 +55,7 @@ public class JDCloudSigner
         let credential = "Credential=" + signingCredentials;
         let signerHeaders = "SignedHeaders=" + getSignedHeaderString(requestHeader: requestHeader);
         let signatureHeader = "Signature=" + signature;
-        var authorizationHeader = JDCLOUD2_SIGNING_AKGORITHM 
+        var authorizationHeader = JDCLOUD2_SIGNING_AKGORITHM
         authorizationHeader.append(" ")
         authorizationHeader.append(credential)
         authorizationHeader.append(", ")
@@ -135,7 +135,7 @@ public class JDCloudSigner
             relativePath  = relativePath + path
         }else{
             relativePath = relativePath + "/"
-        } 
+        }
         
         let canonicalRequest = requestInfo.requestMethod.uppercased() +
             LINE_SEPARATOR +
@@ -147,7 +147,7 @@ public class JDCloudSigner
             LINE_SEPARATOR +
             getSignedHeaderString(requestHeader: requestHeader) +
             LINE_SEPARATOR +
-            contentSHA256
+        contentSHA256
         
         return canonicalRequest;
     }
@@ -179,10 +179,10 @@ public class JDCloudSigner
         {
             for key in header.keys.sorted(by: <)
             {
-               if(LIST_OF_HEADERS_TO_IGNORE_IN_LOWER_CASE.contains(key))
-               {
+                if(LIST_OF_HEADERS_TO_IGNORE_IN_LOWER_CASE.contains(key))
+                {
                     continue
-               }
+                }
                 result.append(key.lowercased().appendCompactedString())
                 result.append(":")
                 if(header[key] != nil)
@@ -207,12 +207,12 @@ public class JDCloudSigner
                 let encodePath = path.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
                 if(encodePath == nil)
                 {
-                     value = path
+                    value = path
                 }else{
                     value = encodePath!
                 }
             }else{
-               value = path
+                value = path
             }
             if(value.starts(with: "/"))
             {

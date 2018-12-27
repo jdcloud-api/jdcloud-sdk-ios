@@ -35,5 +35,5 @@ public protocol JDCloudClient {
     func addCustomer(key:String,value:String) ;
     
 }
-    
+
 

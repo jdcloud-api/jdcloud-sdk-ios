@@ -25,5 +25,35 @@
 import Foundation
 
 ///  instancePrivateIpAddress
-public class InstancePrivateIpAddress:Codable{
+@objc(InstancePrivateIpAddress)
+public class InstancePrivateIpAddress:NSObject,Codable{
+    /// 云主机ID
+    var instanceId:String?
+    /// 主网卡内网主IP地址
+    var privateIpAddress:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstancePrivateIpAddressCodingKeys: String, CodingKey {
+        case instanceId
+        case privateIpAddress
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstancePrivateIpAddressCodingKeys.self)
+        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+    }
+}
+public extension InstancePrivateIpAddress{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstancePrivateIpAddressCodingKeys.self)
+         try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(privateIpAddress, forKey: .privateIpAddress)
+    }
 }

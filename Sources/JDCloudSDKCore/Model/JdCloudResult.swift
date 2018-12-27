@@ -8,6 +8,6 @@
 import Foundation
 
 
-public protocol JdCloudResult:Codable{
+public protocol JdCloudResult:NSObjectProtocol,Codable{
     
 }

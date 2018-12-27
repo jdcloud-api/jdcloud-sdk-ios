@@ -27,8 +27,8 @@ import JDCloudSDKCore
 
 
 ///  修改云主机密码，主机没有正在进行中的任务时才可操作。&lt;br&gt;
-        /// 修改密码后，需要重启云主机后生效。
-        /// 
+      /// 修改密码后，需要重启云主机后生效。
+      /// 
 public class ModifyInstancePasswordExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

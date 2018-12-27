@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  查询镜像详情。
-        /// 
+      /// 
 public class DescribeImageExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

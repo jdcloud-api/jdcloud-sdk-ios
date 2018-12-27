@@ -8,7 +8,8 @@
 import Foundation
 
 
-public struct  GlobalConfig{
+@objc(GlobalConfig)
+public class  GlobalConfig:NSObject{
     
     public static var debug:Bool = false
     

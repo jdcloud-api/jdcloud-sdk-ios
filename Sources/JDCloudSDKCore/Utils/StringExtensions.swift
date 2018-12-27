@@ -4,9 +4,7 @@
 //
 //  Created by 李士军 on 2018/11/23.
 //
-#if SWIFT_PACKAGE
-import CommonCrypto
-#endif 
+
 import Foundation
 
 
@@ -34,7 +32,7 @@ extension String: URLConvertible {
         return url
     }
     
-   public func fromBase64() -> String? {
+    public func fromBase64() -> String? {
         guard let data = Data(base64Encoded: self) else {
             return nil
         }
@@ -42,28 +40,41 @@ extension String: URLConvertible {
         return String(data: data, encoding: .utf8)
     }
     
-   public func toBase64() -> String {
+    public func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
     }
     
-   public func hmac(algorithm: HmacAlgorithm, key: String) -> String {
-        let cKey = key.cString(using: String.Encoding.utf8)
-        let cData = self.cString(using: String.Encoding.utf8) 
-        var digest = [UInt8](repeating: 0, count: algorithm.digestLength)
-        CCHmac(algorithm.algorithm, cKey!, strlen(cKey!), cData!, strlen(cData!), &digest)
-        let data = Data(bytes: digest)
-        return data.map { String(format: "%02hhx", $0) }.joined()
+    public func hmac(algorithm: HMAC.Algorithm, key: String) -> String {
+        let hmac = HMAC(using: algorithm, key: key)
+        let stringHmacUpdate = hmac.update(string: self)
+        if(stringHmacUpdate != nil)
+        {
+            let bytes = stringHmacUpdate!.final()
+            if(bytes.count>0)
+            {
+                let data = Data(bytes: bytes)
+                return data.map { String(format: "%02hhx", $0) }.joined()
+            }
+        }
+        return "";
     }
     
-    public func hmacData(algorithm: HmacAlgorithm, hexStringKey:String ) ->String{
+    public func hmacData(algorithm: HMAC.Algorithm, hexStringKey:String ) ->String{
         let hexStringData = Data(hex: hexStringKey)
-        let cData = self.cString(using: String.Encoding.utf8)
-        var digest = [UInt8](repeating: 0, count: algorithm.digestLength)
-        CCHmac(algorithm.algorithm,  hexStringData.bytes, hexStringData.count, cData!, strlen(cData!), &digest)
-        let data = Data(bytes: digest)
-        return data.map { String(format: "%02hhx", $0) }.joined()
+        let hmac = HMAC(using: algorithm, key: hexStringData)
+        let stringHmacUpdate = hmac.update(string: self)
+        if(stringHmacUpdate != nil)
+        {
+            let bytes = stringHmacUpdate!.final()
+            if(bytes.count>0)
+            {
+                let data = Data(bytes: bytes)
+                return data.map { String(format: "%02hhx", $0) }.joined()
+            }
+        }
+        return  "";
     }
- 
+    
     public func appendCompactedString() -> String{
         var result = "";
         var previousIsWhiteSpace = false
@@ -115,56 +126,6 @@ extension String: URLConvertible {
     }
 }
 
-
-
-
-
-//    kCCHmacAlgSHA1,
-//    kCCHmacAlgMD5,
-//    kCCHmacAlgSHA256,
-//    kCCHmacAlgSHA384,
-//    kCCHmacAlgSHA512,
-//    kCCHmacAlgSHA224
-public enum HmacAlgorithm {
-    case sha1, md5, sha256, sha384, sha512, sha224
-    var algorithm: CCHmacAlgorithm {
-        var alg = 0
-        switch self {
-        case .sha1:
-            alg = kCCHmacAlgSHA1
-        case .md5:
-            alg = kCCHmacAlgMD5
-        case .sha256:
-            alg = kCCHmacAlgSHA256
-        case .sha384:
-            alg = kCCHmacAlgSHA384
-        case .sha512:
-            alg = kCCHmacAlgSHA512
-        case .sha224:
-            alg = kCCHmacAlgSHA224
-        }
-        return CCHmacAlgorithm(alg)
-    }
-    
-    var digestLength: Int {
-        var len: Int32 = 0
-        switch self {
-        case .sha1:
-            len = CC_SHA1_DIGEST_LENGTH
-        case .md5:
-            len = CC_MD5_DIGEST_LENGTH
-        case .sha256:
-            len = CC_SHA256_DIGEST_LENGTH
-        case .sha384:
-            len = CC_SHA384_DIGEST_LENGTH
-        case .sha512:
-            len = CC_SHA512_DIGEST_LENGTH
-        case .sha224:
-            len = CC_SHA224_DIGEST_LENGTH
-        }
-        return Int(len)
-    }
-}
 
 
 public extension Data {

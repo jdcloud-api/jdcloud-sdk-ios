@@ -24,12 +24,12 @@
 
 @import Foundation;
 
-//! Project version number for Core.
-FOUNDATION_EXPORT double JDCloudSDKVersionNumber;
+//! Project version number for JDCloudSDKVm.
+FOUNDATION_EXPORT double JDCloudSDKVmVersionNumber;
 
-//! Project version string for Core.
-FOUNDATION_EXPORT const unsigned char JDCloudSDKVersionString[];
+//! Project version string for JDCloudSDKVm.
+FOUNDATION_EXPORT const unsigned char JDCloudSDKVmVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <Core/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <JDCloudSDKVm/PublicHeader.h>
 
 

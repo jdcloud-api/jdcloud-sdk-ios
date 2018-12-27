@@ -1,0 +1,1726 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "VmJDCloudClient"
+provides-nominal:
+- "12JDCloudSDKVm02VmA6ClientC"
+provides-member:
+- ["12JDCloudSDKVm02VmA6ClientC", ""]
+- ["12JDCloudSDKVm02VmA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "associateElasticIpAsync"
+- "attachDiskAsync"
+- "attachNetworkInterfaceAsync"
+- "copyImagesAsync"
+- "createImageAsync"
+- "createInstancesAsync"
+- "createKeypairAsync"
+- "deleteImageAsync"
+- "deleteInstanceAsync"
+- "deleteKeypairAsync"
+- "describeImageAsync"
+- "describeImageConstraintsAsync"
+- "describeImageConstraintsBatchAsync"
+- "describeImageMembersAsync"
+- "describeImagesAsync"
+- "describeInstanceAsync"
+- "describeInstancePrivateIpAddressAsync"
+- "describeInstanceStatusAsync"
+- "describeInstanceTypesAsync"
+- "describeInstanceVncUrlAsync"
+- "describeInstancesAsync"
+- "describeKeypairsAsync"
+- "describeQuotasAsync"
+- "detachDiskAsync"
+- "detachNetworkInterfaceAsync"
+- "disassociateElasticIpAsync"
+- "httpRequestProtocol"
+- "importKeypairAsync"
+- "modifyImageAttributeAsync"
+- "modifyInstanceAttributeAsync"
+- "modifyInstanceDiskAttributeAsync"
+- "modifyInstanceNetworkAttributeAsync"
+- "modifyInstancePasswordAsync"
+- "rebootInstanceAsync"
+- "rebuildInstanceAsync"
+- "resizeInstanceAsync"
+- "shareImageAsync"
+- "startInstanceAsync"
+- "stopInstanceAsync"
+- "unShareImageAsync"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "AssociateElasticIpExecutor"
+- "AssociateElasticIpRequest"
+- "AssociateElasticIpResponse"
+- !private "AttachDiskExecutor"
+- "AttachDiskRequest"
+- "AttachDiskResponse"
+- !private "AttachNetworkInterfaceExecutor"
+- "AttachNetworkInterfaceRequest"
+- "AttachNetworkInterfaceResponse"
+- !private "CastingPrecedence"
+- !private "CopyImagesExecutor"
+- "CopyImagesRequest"
+- "CopyImagesResponse"
+- !private "CreateImageExecutor"
+- "CreateImageRequest"
+- "CreateImageResponse"
+- !private "CreateInstancesExecutor"
+- "CreateInstancesRequest"
+- "CreateInstancesResponse"
+- !private "CreateKeypairExecutor"
+- "CreateKeypairRequest"
+- "CreateKeypairResponse"
+- "Credential"
+- !private "DeleteImageExecutor"
+- "DeleteImageRequest"
+- "DeleteImageResponse"
+- !private "DeleteInstanceExecutor"
+- "DeleteInstanceRequest"
+- "DeleteInstanceResponse"
+- !private "DeleteKeypairExecutor"
+- "DeleteKeypairRequest"
+- "DeleteKeypairResponse"
+- !private "DescribeImageConstraintsBatchExecutor"
+- "DescribeImageConstraintsBatchRequest"
+- "DescribeImageConstraintsBatchResponse"
+- !private "DescribeImageConstraintsExecutor"
+- "DescribeImageConstraintsRequest"
+- "DescribeImageConstraintsResponse"
+- !private "DescribeImageExecutor"
+- !private "DescribeImageMembersExecutor"
+- "DescribeImageMembersRequest"
+- "DescribeImageMembersResponse"
+- "DescribeImageRequest"
+- "DescribeImageResponse"
+- !private "DescribeImagesExecutor"
+- "DescribeImagesRequest"
+- "DescribeImagesResponse"
+- !private "DescribeInstanceExecutor"
+- !private "DescribeInstancePrivateIpAddressExecutor"
+- "DescribeInstancePrivateIpAddressRequest"
+- "DescribeInstancePrivateIpAddressResponse"
+- "DescribeInstanceRequest"
+- "DescribeInstanceResponse"
+- !private "DescribeInstanceStatusExecutor"
+- "DescribeInstanceStatusRequest"
+- "DescribeInstanceStatusResponse"
+- !private "DescribeInstanceTypesExecutor"
+- "DescribeInstanceTypesRequest"
+- "DescribeInstanceTypesResponse"
+- !private "DescribeInstanceVncUrlExecutor"
+- "DescribeInstanceVncUrlRequest"
+- "DescribeInstanceVncUrlResponse"
+- !private "DescribeInstancesExecutor"
+- "DescribeInstancesRequest"
+- "DescribeInstancesResponse"
+- !private "DescribeKeypairsExecutor"
+- "DescribeKeypairsRequest"
+- "DescribeKeypairsResponse"
+- !private "DescribeQuotasExecutor"
+- "DescribeQuotasRequest"
+- "DescribeQuotasResponse"
+- !private "DetachDiskExecutor"
+- "DetachDiskRequest"
+- "DetachDiskResponse"
+- !private "DetachNetworkInterfaceExecutor"
+- "DetachNetworkInterfaceRequest"
+- "DetachNetworkInterfaceResponse"
+- !private "DisassociateElasticIpExecutor"
+- "DisassociateElasticIpRequest"
+- "DisassociateElasticIpResponse"
+- !private "GlobalConfig"
+- !private "ImportKeypairExecutor"
+- "ImportKeypairRequest"
+- "ImportKeypairResponse"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- !private "ModifyImageAttributeExecutor"
+- "ModifyImageAttributeRequest"
+- "ModifyImageAttributeResponse"
+- !private "ModifyInstanceAttributeExecutor"
+- "ModifyInstanceAttributeRequest"
+- "ModifyInstanceAttributeResponse"
+- !private "ModifyInstanceDiskAttributeExecutor"
+- "ModifyInstanceDiskAttributeRequest"
+- "ModifyInstanceDiskAttributeResponse"
+- !private "ModifyInstanceNetworkAttributeExecutor"
+- "ModifyInstanceNetworkAttributeRequest"
+- "ModifyInstanceNetworkAttributeResponse"
+- !private "ModifyInstancePasswordExecutor"
+- "ModifyInstancePasswordRequest"
+- "ModifyInstancePasswordResponse"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- !private "RebootInstanceExecutor"
+- "RebootInstanceRequest"
+- "RebootInstanceResponse"
+- !private "RebuildInstanceExecutor"
+- "RebuildInstanceRequest"
+- "RebuildInstanceResponse"
+- !private "ResizeInstanceExecutor"
+- "ResizeInstanceRequest"
+- "ResizeInstanceResponse"
+- "SDKEnvironment"
+- !private "ShareImageExecutor"
+- "ShareImageRequest"
+- "ShareImageResponse"
+- !private "StartInstanceExecutor"
+- "StartInstanceRequest"
+- "StartInstanceResponse"
+- !private "StopInstanceExecutor"
+- "StopInstanceRequest"
+- "StopInstanceResponse"
+- "String"
+- "StringLiteralType"
+- !private "UnShareImageExecutor"
+- "UnShareImageRequest"
+- "UnShareImageResponse"
+- "VmJDCloudClient"
+depends-member:
+- !private ["12JDCloudSDKVm26AssociateElasticIpExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm26AssociateElasticIpExecutorC", "init"]
+- !private ["12JDCloudSDKVm26AssociateElasticIpResponseC", "deinit"]
+- !private ["12JDCloudSDKVm18AttachDiskExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm18AttachDiskExecutorC", "init"]
+- !private ["12JDCloudSDKVm18AttachDiskResponseC", "deinit"]
+- !private ["12JDCloudSDKVm30AttachNetworkInterfaceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm30AttachNetworkInterfaceExecutorC", "init"]
+- !private ["12JDCloudSDKVm30AttachNetworkInterfaceResponseC", "deinit"]
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "AssociateElasticIpExecutor"]
+- !private ["s7CVarArgP", "AssociateElasticIpResponse"]
+- !private ["s7CVarArgP", "AttachDiskExecutor"]
+- !private ["s7CVarArgP", "AttachDiskResponse"]
+- !private ["s7CVarArgP", "AttachNetworkInterfaceExecutor"]
+- !private ["s7CVarArgP", "AttachNetworkInterfaceResponse"]
+- !private ["s7CVarArgP", "CopyImagesExecutor"]
+- !private ["s7CVarArgP", "CopyImagesResponse"]
+- !private ["s7CVarArgP", "CreateImageExecutor"]
+- !private ["s7CVarArgP", "CreateImageResponse"]
+- !private ["s7CVarArgP", "CreateInstancesExecutor"]
+- !private ["s7CVarArgP", "CreateInstancesResponse"]
+- !private ["s7CVarArgP", "CreateKeypairExecutor"]
+- !private ["s7CVarArgP", "CreateKeypairResponse"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "DeleteImageExecutor"]
+- !private ["s7CVarArgP", "DeleteImageResponse"]
+- !private ["s7CVarArgP", "DeleteInstanceExecutor"]
+- !private ["s7CVarArgP", "DeleteInstanceResponse"]
+- !private ["s7CVarArgP", "DeleteKeypairExecutor"]
+- !private ["s7CVarArgP", "DeleteKeypairResponse"]
+- !private ["s7CVarArgP", "DescribeImageConstraintsBatchExecutor"]
+- !private ["s7CVarArgP", "DescribeImageConstraintsBatchResponse"]
+- !private ["s7CVarArgP", "DescribeImageConstraintsExecutor"]
+- !private ["s7CVarArgP", "DescribeImageConstraintsResponse"]
+- !private ["s7CVarArgP", "DescribeImageExecutor"]
+- !private ["s7CVarArgP", "DescribeImageMembersExecutor"]
+- !private ["s7CVarArgP", "DescribeImageMembersResponse"]
+- !private ["s7CVarArgP", "DescribeImageResponse"]
+- !private ["s7CVarArgP", "DescribeImagesExecutor"]
+- !private ["s7CVarArgP", "DescribeImagesResponse"]
+- !private ["s7CVarArgP", "DescribeInstanceExecutor"]
+- !private ["s7CVarArgP", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["s7CVarArgP", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["s7CVarArgP", "DescribeInstanceResponse"]
+- !private ["s7CVarArgP", "DescribeInstanceStatusExecutor"]
+- !private ["s7CVarArgP", "DescribeInstanceStatusResponse"]
+- !private ["s7CVarArgP", "DescribeInstanceTypesExecutor"]
+- !private ["s7CVarArgP", "DescribeInstanceTypesResponse"]
+- !private ["s7CVarArgP", "DescribeInstanceVncUrlExecutor"]
+- !private ["s7CVarArgP", "DescribeInstanceVncUrlResponse"]
+- !private ["s7CVarArgP", "DescribeInstancesExecutor"]
+- !private ["s7CVarArgP", "DescribeInstancesResponse"]
+- !private ["s7CVarArgP", "DescribeKeypairsExecutor"]
+- !private ["s7CVarArgP", "DescribeKeypairsResponse"]
+- !private ["s7CVarArgP", "DescribeQuotasExecutor"]
+- !private ["s7CVarArgP", "DescribeQuotasResponse"]
+- !private ["s7CVarArgP", "DetachDiskExecutor"]
+- !private ["s7CVarArgP", "DetachDiskResponse"]
+- !private ["s7CVarArgP", "DetachNetworkInterfaceExecutor"]
+- !private ["s7CVarArgP", "DetachNetworkInterfaceResponse"]
+- !private ["s7CVarArgP", "DisassociateElasticIpExecutor"]
+- !private ["s7CVarArgP", "DisassociateElasticIpResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "ImportKeypairExecutor"]
+- !private ["s7CVarArgP", "ImportKeypairResponse"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "ModifyImageAttributeExecutor"]
+- !private ["s7CVarArgP", "ModifyImageAttributeResponse"]
+- !private ["s7CVarArgP", "ModifyInstanceAttributeExecutor"]
+- !private ["s7CVarArgP", "ModifyInstanceAttributeResponse"]
+- !private ["s7CVarArgP", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["s7CVarArgP", "ModifyInstanceDiskAttributeResponse"]
+- !private ["s7CVarArgP", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["s7CVarArgP", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["s7CVarArgP", "ModifyInstancePasswordExecutor"]
+- !private ["s7CVarArgP", "ModifyInstancePasswordResponse"]
+- !private ["s7CVarArgP", "RebootInstanceExecutor"]
+- !private ["s7CVarArgP", "RebootInstanceResponse"]
+- !private ["s7CVarArgP", "RebuildInstanceExecutor"]
+- !private ["s7CVarArgP", "RebuildInstanceResponse"]
+- !private ["s7CVarArgP", "ResizeInstanceExecutor"]
+- !private ["s7CVarArgP", "ResizeInstanceResponse"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- !private ["s7CVarArgP", "ShareImageExecutor"]
+- !private ["s7CVarArgP", "ShareImageResponse"]
+- !private ["s7CVarArgP", "StartInstanceExecutor"]
+- !private ["s7CVarArgP", "StartInstanceResponse"]
+- !private ["s7CVarArgP", "StopInstanceExecutor"]
+- !private ["s7CVarArgP", "StopInstanceResponse"]
+- ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "UnShareImageExecutor"]
+- !private ["s7CVarArgP", "UnShareImageResponse"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["s7CVarArgP", "vmJDCloudClient"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["12JDCloudSDKVm18CopyImagesExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm18CopyImagesExecutorC", "init"]
+- !private ["12JDCloudSDKVm18CopyImagesResponseC", "deinit"]
+- !private ["12JDCloudSDKVm19CreateImageExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm19CreateImageExecutorC", "init"]
+- !private ["12JDCloudSDKVm19CreateImageResponseC", "deinit"]
+- !private ["12JDCloudSDKVm23CreateInstancesExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm23CreateInstancesExecutorC", "init"]
+- !private ["12JDCloudSDKVm23CreateInstancesResponseC", "deinit"]
+- !private ["12JDCloudSDKVm21CreateKeypairExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm21CreateKeypairExecutorC", "init"]
+- !private ["12JDCloudSDKVm21CreateKeypairResponseC", "deinit"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "AssociateElasticIpExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "AssociateElasticIpResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "AttachDiskExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "AttachDiskResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "AttachNetworkInterfaceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "AttachNetworkInterfaceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CopyImagesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CopyImagesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateImageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateImageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateInstancesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateInstancesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateKeypairExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateKeypairResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteImageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteImageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteKeypairExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteKeypairResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageConstraintsBatchExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageConstraintsBatchResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageConstraintsExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageConstraintsResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageMembersExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageMembersResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImagesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImagesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceStatusExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceStatusResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceTypesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceTypesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceVncUrlExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceVncUrlResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstancesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeInstancesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeKeypairsExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeKeypairsResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeQuotasExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeQuotasResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DetachDiskExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DetachDiskResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DetachNetworkInterfaceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DetachNetworkInterfaceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DisassociateElasticIpExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DisassociateElasticIpResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "ImportKeypairExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ImportKeypairResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyImageAttributeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyImageAttributeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceAttributeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceAttributeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceDiskAttributeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstancePasswordExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyInstancePasswordResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "RebootInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "RebootInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "RebuildInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "RebuildInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ResizeInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ResizeInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- !private ["s28CustomDebugStringConvertibleP", "ShareImageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ShareImageResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "StartInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "StartInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "StopInstanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "StopInstanceResponse"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "UnShareImageExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "UnShareImageResponse"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s28CustomDebugStringConvertibleP", "vmJDCloudClient"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "AssociateElasticIpExecutor"]
+- !private ["s23CustomStringConvertibleP", "AssociateElasticIpResponse"]
+- !private ["s23CustomStringConvertibleP", "AttachDiskExecutor"]
+- !private ["s23CustomStringConvertibleP", "AttachDiskResponse"]
+- !private ["s23CustomStringConvertibleP", "AttachNetworkInterfaceExecutor"]
+- !private ["s23CustomStringConvertibleP", "AttachNetworkInterfaceResponse"]
+- !private ["s23CustomStringConvertibleP", "CopyImagesExecutor"]
+- !private ["s23CustomStringConvertibleP", "CopyImagesResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateImageExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateImageResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateInstancesExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateInstancesResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateKeypairExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateKeypairResponse"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "DeleteImageExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteImageResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteKeypairExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteKeypairResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageConstraintsBatchExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageConstraintsBatchResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageConstraintsExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageConstraintsResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageMembersExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageMembersResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeImageResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeImagesExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeImagesResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceStatusExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceStatusResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceTypesExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceTypesResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceVncUrlExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstanceVncUrlResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstancesExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeInstancesResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeKeypairsExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeKeypairsResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeQuotasExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeQuotasResponse"]
+- !private ["s23CustomStringConvertibleP", "DetachDiskExecutor"]
+- !private ["s23CustomStringConvertibleP", "DetachDiskResponse"]
+- !private ["s23CustomStringConvertibleP", "DetachNetworkInterfaceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DetachNetworkInterfaceResponse"]
+- !private ["s23CustomStringConvertibleP", "DisassociateElasticIpExecutor"]
+- !private ["s23CustomStringConvertibleP", "DisassociateElasticIpResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "ImportKeypairExecutor"]
+- !private ["s23CustomStringConvertibleP", "ImportKeypairResponse"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "ModifyImageAttributeExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyImageAttributeResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstanceAttributeExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstanceAttributeResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstanceDiskAttributeResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstancePasswordExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyInstancePasswordResponse"]
+- !private ["s23CustomStringConvertibleP", "RebootInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "RebootInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "RebuildInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "RebuildInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "ResizeInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "ResizeInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- !private ["s23CustomStringConvertibleP", "ShareImageExecutor"]
+- !private ["s23CustomStringConvertibleP", "ShareImageResponse"]
+- !private ["s23CustomStringConvertibleP", "StartInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "StartInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "StopInstanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "StopInstanceResponse"]
+- ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "UnShareImageExecutor"]
+- !private ["s23CustomStringConvertibleP", "UnShareImageResponse"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["s23CustomStringConvertibleP", "vmJDCloudClient"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["12JDCloudSDKVm19DeleteImageExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm19DeleteImageExecutorC", "init"]
+- !private ["12JDCloudSDKVm19DeleteImageResponseC", "deinit"]
+- !private ["12JDCloudSDKVm22DeleteInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm22DeleteInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm22DeleteInstanceResponseC", "deinit"]
+- !private ["12JDCloudSDKVm21DeleteKeypairExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm21DeleteKeypairExecutorC", "init"]
+- !private ["12JDCloudSDKVm21DeleteKeypairResponseC", "deinit"]
+- !private ["12JDCloudSDKVm37DescribeImageConstraintsBatchExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm37DescribeImageConstraintsBatchExecutorC", "init"]
+- !private ["12JDCloudSDKVm37DescribeImageConstraintsBatchResponseC", "deinit"]
+- !private ["12JDCloudSDKVm32DescribeImageConstraintsExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm32DescribeImageConstraintsExecutorC", "init"]
+- !private ["12JDCloudSDKVm32DescribeImageConstraintsResponseC", "deinit"]
+- !private ["12JDCloudSDKVm21DescribeImageExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm21DescribeImageExecutorC", "init"]
+- !private ["12JDCloudSDKVm28DescribeImageMembersExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm28DescribeImageMembersExecutorC", "init"]
+- !private ["12JDCloudSDKVm28DescribeImageMembersResponseC", "deinit"]
+- !private ["12JDCloudSDKVm21DescribeImageResponseC", "deinit"]
+- !private ["12JDCloudSDKVm22DescribeImagesExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm22DescribeImagesExecutorC", "init"]
+- !private ["12JDCloudSDKVm22DescribeImagesResponseC", "deinit"]
+- !private ["12JDCloudSDKVm24DescribeInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm24DescribeInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm40DescribeInstancePrivateIpAddressExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm40DescribeInstancePrivateIpAddressExecutorC", "init"]
+- !private ["12JDCloudSDKVm40DescribeInstancePrivateIpAddressResponseC", "deinit"]
+- !private ["12JDCloudSDKVm24DescribeInstanceResponseC", "deinit"]
+- !private ["12JDCloudSDKVm30DescribeInstanceStatusExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm30DescribeInstanceStatusExecutorC", "init"]
+- !private ["12JDCloudSDKVm30DescribeInstanceStatusResponseC", "deinit"]
+- !private ["12JDCloudSDKVm29DescribeInstanceTypesExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm29DescribeInstanceTypesExecutorC", "init"]
+- !private ["12JDCloudSDKVm29DescribeInstanceTypesResponseC", "deinit"]
+- !private ["12JDCloudSDKVm30DescribeInstanceVncUrlExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm30DescribeInstanceVncUrlExecutorC", "init"]
+- !private ["12JDCloudSDKVm30DescribeInstanceVncUrlResponseC", "deinit"]
+- !private ["12JDCloudSDKVm25DescribeInstancesExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm25DescribeInstancesExecutorC", "init"]
+- !private ["12JDCloudSDKVm25DescribeInstancesResponseC", "deinit"]
+- !private ["12JDCloudSDKVm24DescribeKeypairsExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm24DescribeKeypairsExecutorC", "init"]
+- !private ["12JDCloudSDKVm24DescribeKeypairsResponseC", "deinit"]
+- !private ["12JDCloudSDKVm22DescribeQuotasExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm22DescribeQuotasExecutorC", "init"]
+- !private ["12JDCloudSDKVm22DescribeQuotasResponseC", "deinit"]
+- !private ["12JDCloudSDKVm18DetachDiskExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm18DetachDiskExecutorC", "init"]
+- !private ["12JDCloudSDKVm18DetachDiskResponseC", "deinit"]
+- !private ["12JDCloudSDKVm30DetachNetworkInterfaceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm30DetachNetworkInterfaceExecutorC", "init"]
+- !private ["12JDCloudSDKVm30DetachNetworkInterfaceResponseC", "deinit"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["12JDCloudSDKVm29DisassociateElasticIpExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm29DisassociateElasticIpExecutorC", "init"]
+- !private ["12JDCloudSDKVm29DisassociateElasticIpResponseC", "deinit"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "AssociateElasticIpExecutor"]
+- !private ["SQ", "AssociateElasticIpResponse"]
+- !private ["SQ", "AttachDiskExecutor"]
+- !private ["SQ", "AttachDiskResponse"]
+- !private ["SQ", "AttachNetworkInterfaceExecutor"]
+- !private ["SQ", "AttachNetworkInterfaceResponse"]
+- !private ["SQ", "CopyImagesExecutor"]
+- !private ["SQ", "CopyImagesResponse"]
+- !private ["SQ", "CreateImageExecutor"]
+- !private ["SQ", "CreateImageResponse"]
+- !private ["SQ", "CreateInstancesExecutor"]
+- !private ["SQ", "CreateInstancesResponse"]
+- !private ["SQ", "CreateKeypairExecutor"]
+- !private ["SQ", "CreateKeypairResponse"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "DeleteImageExecutor"]
+- !private ["SQ", "DeleteImageResponse"]
+- !private ["SQ", "DeleteInstanceExecutor"]
+- !private ["SQ", "DeleteInstanceResponse"]
+- !private ["SQ", "DeleteKeypairExecutor"]
+- !private ["SQ", "DeleteKeypairResponse"]
+- !private ["SQ", "DescribeImageConstraintsBatchExecutor"]
+- !private ["SQ", "DescribeImageConstraintsBatchResponse"]
+- !private ["SQ", "DescribeImageConstraintsExecutor"]
+- !private ["SQ", "DescribeImageConstraintsResponse"]
+- !private ["SQ", "DescribeImageExecutor"]
+- !private ["SQ", "DescribeImageMembersExecutor"]
+- !private ["SQ", "DescribeImageMembersResponse"]
+- !private ["SQ", "DescribeImageResponse"]
+- !private ["SQ", "DescribeImagesExecutor"]
+- !private ["SQ", "DescribeImagesResponse"]
+- !private ["SQ", "DescribeInstanceExecutor"]
+- !private ["SQ", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["SQ", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["SQ", "DescribeInstanceResponse"]
+- !private ["SQ", "DescribeInstanceStatusExecutor"]
+- !private ["SQ", "DescribeInstanceStatusResponse"]
+- !private ["SQ", "DescribeInstanceTypesExecutor"]
+- !private ["SQ", "DescribeInstanceTypesResponse"]
+- !private ["SQ", "DescribeInstanceVncUrlExecutor"]
+- !private ["SQ", "DescribeInstanceVncUrlResponse"]
+- !private ["SQ", "DescribeInstancesExecutor"]
+- !private ["SQ", "DescribeInstancesResponse"]
+- !private ["SQ", "DescribeKeypairsExecutor"]
+- !private ["SQ", "DescribeKeypairsResponse"]
+- !private ["SQ", "DescribeQuotasExecutor"]
+- !private ["SQ", "DescribeQuotasResponse"]
+- !private ["SQ", "DetachDiskExecutor"]
+- !private ["SQ", "DetachDiskResponse"]
+- !private ["SQ", "DetachNetworkInterfaceExecutor"]
+- !private ["SQ", "DetachNetworkInterfaceResponse"]
+- !private ["SQ", "DisassociateElasticIpExecutor"]
+- !private ["SQ", "DisassociateElasticIpResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "ImportKeypairExecutor"]
+- !private ["SQ", "ImportKeypairResponse"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "ModifyImageAttributeExecutor"]
+- !private ["SQ", "ModifyImageAttributeResponse"]
+- !private ["SQ", "ModifyInstanceAttributeExecutor"]
+- !private ["SQ", "ModifyInstanceAttributeResponse"]
+- !private ["SQ", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["SQ", "ModifyInstanceDiskAttributeResponse"]
+- !private ["SQ", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["SQ", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["SQ", "ModifyInstancePasswordExecutor"]
+- !private ["SQ", "ModifyInstancePasswordResponse"]
+- !private ["SQ", "RebootInstanceExecutor"]
+- !private ["SQ", "RebootInstanceResponse"]
+- !private ["SQ", "RebuildInstanceExecutor"]
+- !private ["SQ", "RebuildInstanceResponse"]
+- !private ["SQ", "ResizeInstanceExecutor"]
+- !private ["SQ", "ResizeInstanceResponse"]
+- !private ["SQ", "SDKEnvironment"]
+- !private ["SQ", "ShareImageExecutor"]
+- !private ["SQ", "ShareImageResponse"]
+- !private ["SQ", "StartInstanceExecutor"]
+- !private ["SQ", "StartInstanceResponse"]
+- !private ["SQ", "StopInstanceExecutor"]
+- !private ["SQ", "StopInstanceResponse"]
+- ["SQ", "String"]
+- !private ["SQ", "UnShareImageExecutor"]
+- !private ["SQ", "UnShareImageResponse"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["SQ", "vmJDCloudClient"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "AssociateElasticIpExecutor"]
+- !private ["SH", "AssociateElasticIpResponse"]
+- !private ["SH", "AttachDiskExecutor"]
+- !private ["SH", "AttachDiskResponse"]
+- !private ["SH", "AttachNetworkInterfaceExecutor"]
+- !private ["SH", "AttachNetworkInterfaceResponse"]
+- !private ["SH", "CopyImagesExecutor"]
+- !private ["SH", "CopyImagesResponse"]
+- !private ["SH", "CreateImageExecutor"]
+- !private ["SH", "CreateImageResponse"]
+- !private ["SH", "CreateInstancesExecutor"]
+- !private ["SH", "CreateInstancesResponse"]
+- !private ["SH", "CreateKeypairExecutor"]
+- !private ["SH", "CreateKeypairResponse"]
+- !private ["SH", "Credential"]
+- !private ["SH", "DeleteImageExecutor"]
+- !private ["SH", "DeleteImageResponse"]
+- !private ["SH", "DeleteInstanceExecutor"]
+- !private ["SH", "DeleteInstanceResponse"]
+- !private ["SH", "DeleteKeypairExecutor"]
+- !private ["SH", "DeleteKeypairResponse"]
+- !private ["SH", "DescribeImageConstraintsBatchExecutor"]
+- !private ["SH", "DescribeImageConstraintsBatchResponse"]
+- !private ["SH", "DescribeImageConstraintsExecutor"]
+- !private ["SH", "DescribeImageConstraintsResponse"]
+- !private ["SH", "DescribeImageExecutor"]
+- !private ["SH", "DescribeImageMembersExecutor"]
+- !private ["SH", "DescribeImageMembersResponse"]
+- !private ["SH", "DescribeImageResponse"]
+- !private ["SH", "DescribeImagesExecutor"]
+- !private ["SH", "DescribeImagesResponse"]
+- !private ["SH", "DescribeInstanceExecutor"]
+- !private ["SH", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["SH", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["SH", "DescribeInstanceResponse"]
+- !private ["SH", "DescribeInstanceStatusExecutor"]
+- !private ["SH", "DescribeInstanceStatusResponse"]
+- !private ["SH", "DescribeInstanceTypesExecutor"]
+- !private ["SH", "DescribeInstanceTypesResponse"]
+- !private ["SH", "DescribeInstanceVncUrlExecutor"]
+- !private ["SH", "DescribeInstanceVncUrlResponse"]
+- !private ["SH", "DescribeInstancesExecutor"]
+- !private ["SH", "DescribeInstancesResponse"]
+- !private ["SH", "DescribeKeypairsExecutor"]
+- !private ["SH", "DescribeKeypairsResponse"]
+- !private ["SH", "DescribeQuotasExecutor"]
+- !private ["SH", "DescribeQuotasResponse"]
+- !private ["SH", "DetachDiskExecutor"]
+- !private ["SH", "DetachDiskResponse"]
+- !private ["SH", "DetachNetworkInterfaceExecutor"]
+- !private ["SH", "DetachNetworkInterfaceResponse"]
+- !private ["SH", "DisassociateElasticIpExecutor"]
+- !private ["SH", "DisassociateElasticIpResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "ImportKeypairExecutor"]
+- !private ["SH", "ImportKeypairResponse"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "ModifyImageAttributeExecutor"]
+- !private ["SH", "ModifyImageAttributeResponse"]
+- !private ["SH", "ModifyInstanceAttributeExecutor"]
+- !private ["SH", "ModifyInstanceAttributeResponse"]
+- !private ["SH", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["SH", "ModifyInstanceDiskAttributeResponse"]
+- !private ["SH", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["SH", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["SH", "ModifyInstancePasswordExecutor"]
+- !private ["SH", "ModifyInstancePasswordResponse"]
+- !private ["SH", "RebootInstanceExecutor"]
+- !private ["SH", "RebootInstanceResponse"]
+- !private ["SH", "RebuildInstanceExecutor"]
+- !private ["SH", "RebuildInstanceResponse"]
+- !private ["SH", "ResizeInstanceExecutor"]
+- !private ["SH", "ResizeInstanceResponse"]
+- !private ["SH", "SDKEnvironment"]
+- !private ["SH", "ShareImageExecutor"]
+- !private ["SH", "ShareImageResponse"]
+- !private ["SH", "StartInstanceExecutor"]
+- !private ["SH", "StartInstanceResponse"]
+- !private ["SH", "StopInstanceExecutor"]
+- !private ["SH", "StopInstanceResponse"]
+- ["SH", "String"]
+- !private ["SH", "UnShareImageExecutor"]
+- !private ["SH", "UnShareImageResponse"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["SH", "vmJDCloudClient"]
+- !private ["12JDCloudSDKVm21ImportKeypairExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm21ImportKeypairExecutorC", "init"]
+- !private ["12JDCloudSDKVm21ImportKeypairResponseC", "deinit"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AssociateElasticIpExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AssociateElasticIpResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AttachDiskExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AttachDiskResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AttachNetworkInterfaceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "AttachNetworkInterfaceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CopyImagesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CopyImagesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateImageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateImageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateInstancesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateInstancesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateKeypairExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateKeypairResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteImageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteImageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteKeypairExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteKeypairResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageConstraintsBatchExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageConstraintsBatchResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageConstraintsExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageConstraintsResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageMembersExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageMembersResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImagesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeImagesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceStatusExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceStatusResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceTypesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceTypesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceVncUrlExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceVncUrlResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstancesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstancesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeKeypairsExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeKeypairsResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeQuotasExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeQuotasResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DetachDiskExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DetachDiskResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DetachNetworkInterfaceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DetachNetworkInterfaceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DisassociateElasticIpExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DisassociateElasticIpResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ImportKeypairExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ImportKeypairResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyImageAttributeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyImageAttributeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceAttributeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceAttributeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceDiskAttributeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstancePasswordExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstancePasswordResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "RebootInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "RebootInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "RebuildInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "RebuildInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ResizeInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ResizeInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ShareImageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ShareImageResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StartInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StartInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StopInstanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "StopInstanceResponse"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UnShareImageExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UnShareImageResponse"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "vmJDCloudClient"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["12JDCloudSDKVm28ModifyImageAttributeExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm28ModifyImageAttributeExecutorC", "init"]
+- !private ["12JDCloudSDKVm28ModifyImageAttributeResponseC", "deinit"]
+- !private ["12JDCloudSDKVm31ModifyInstanceAttributeExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm31ModifyInstanceAttributeExecutorC", "init"]
+- !private ["12JDCloudSDKVm31ModifyInstanceAttributeResponseC", "deinit"]
+- !private ["12JDCloudSDKVm35ModifyInstanceDiskAttributeExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm35ModifyInstanceDiskAttributeExecutorC", "init"]
+- !private ["12JDCloudSDKVm35ModifyInstanceDiskAttributeResponseC", "deinit"]
+- !private ["12JDCloudSDKVm38ModifyInstanceNetworkAttributeExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm38ModifyInstanceNetworkAttributeExecutorC", "init"]
+- !private ["12JDCloudSDKVm38ModifyInstanceNetworkAttributeResponseC", "deinit"]
+- !private ["12JDCloudSDKVm30ModifyInstancePasswordExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm30ModifyInstancePasswordExecutorC", "init"]
+- !private ["12JDCloudSDKVm30ModifyInstancePasswordResponseC", "deinit"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- !private ["So8NSObjectC", "AssociateElasticIpExecutor"]
+- ["So8NSObjectC", "AssociateElasticIpRequest"]
+- ["So8NSObjectC", "AssociateElasticIpResponse"]
+- !private ["So8NSObjectC", "AttachDiskExecutor"]
+- ["So8NSObjectC", "AttachDiskRequest"]
+- ["So8NSObjectC", "AttachDiskResponse"]
+- !private ["So8NSObjectC", "AttachNetworkInterfaceExecutor"]
+- ["So8NSObjectC", "AttachNetworkInterfaceRequest"]
+- ["So8NSObjectC", "AttachNetworkInterfaceResponse"]
+- !private ["So8NSObjectC", "CopyImagesExecutor"]
+- ["So8NSObjectC", "CopyImagesRequest"]
+- ["So8NSObjectC", "CopyImagesResponse"]
+- !private ["So8NSObjectC", "CreateImageExecutor"]
+- ["So8NSObjectC", "CreateImageRequest"]
+- ["So8NSObjectC", "CreateImageResponse"]
+- !private ["So8NSObjectC", "CreateInstancesExecutor"]
+- ["So8NSObjectC", "CreateInstancesRequest"]
+- ["So8NSObjectC", "CreateInstancesResponse"]
+- !private ["So8NSObjectC", "CreateKeypairExecutor"]
+- ["So8NSObjectC", "CreateKeypairRequest"]
+- ["So8NSObjectC", "CreateKeypairResponse"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "DeleteImageExecutor"]
+- ["So8NSObjectC", "DeleteImageRequest"]
+- ["So8NSObjectC", "DeleteImageResponse"]
+- !private ["So8NSObjectC", "DeleteInstanceExecutor"]
+- ["So8NSObjectC", "DeleteInstanceRequest"]
+- ["So8NSObjectC", "DeleteInstanceResponse"]
+- !private ["So8NSObjectC", "DeleteKeypairExecutor"]
+- ["So8NSObjectC", "DeleteKeypairRequest"]
+- ["So8NSObjectC", "DeleteKeypairResponse"]
+- !private ["So8NSObjectC", "DescribeImageConstraintsBatchExecutor"]
+- ["So8NSObjectC", "DescribeImageConstraintsBatchRequest"]
+- ["So8NSObjectC", "DescribeImageConstraintsBatchResponse"]
+- !private ["So8NSObjectC", "DescribeImageConstraintsExecutor"]
+- ["So8NSObjectC", "DescribeImageConstraintsRequest"]
+- ["So8NSObjectC", "DescribeImageConstraintsResponse"]
+- !private ["So8NSObjectC", "DescribeImageExecutor"]
+- !private ["So8NSObjectC", "DescribeImageMembersExecutor"]
+- ["So8NSObjectC", "DescribeImageMembersRequest"]
+- ["So8NSObjectC", "DescribeImageMembersResponse"]
+- ["So8NSObjectC", "DescribeImageRequest"]
+- ["So8NSObjectC", "DescribeImageResponse"]
+- !private ["So8NSObjectC", "DescribeImagesExecutor"]
+- ["So8NSObjectC", "DescribeImagesRequest"]
+- ["So8NSObjectC", "DescribeImagesResponse"]
+- !private ["So8NSObjectC", "DescribeInstanceExecutor"]
+- !private ["So8NSObjectC", "DescribeInstancePrivateIpAddressExecutor"]
+- ["So8NSObjectC", "DescribeInstancePrivateIpAddressRequest"]
+- ["So8NSObjectC", "DescribeInstancePrivateIpAddressResponse"]
+- ["So8NSObjectC", "DescribeInstanceRequest"]
+- ["So8NSObjectC", "DescribeInstanceResponse"]
+- !private ["So8NSObjectC", "DescribeInstanceStatusExecutor"]
+- ["So8NSObjectC", "DescribeInstanceStatusRequest"]
+- ["So8NSObjectC", "DescribeInstanceStatusResponse"]
+- !private ["So8NSObjectC", "DescribeInstanceTypesExecutor"]
+- ["So8NSObjectC", "DescribeInstanceTypesRequest"]
+- ["So8NSObjectC", "DescribeInstanceTypesResponse"]
+- !private ["So8NSObjectC", "DescribeInstanceVncUrlExecutor"]
+- ["So8NSObjectC", "DescribeInstanceVncUrlRequest"]
+- ["So8NSObjectC", "DescribeInstanceVncUrlResponse"]
+- !private ["So8NSObjectC", "DescribeInstancesExecutor"]
+- ["So8NSObjectC", "DescribeInstancesRequest"]
+- ["So8NSObjectC", "DescribeInstancesResponse"]
+- !private ["So8NSObjectC", "DescribeKeypairsExecutor"]
+- ["So8NSObjectC", "DescribeKeypairsRequest"]
+- ["So8NSObjectC", "DescribeKeypairsResponse"]
+- !private ["So8NSObjectC", "DescribeQuotasExecutor"]
+- ["So8NSObjectC", "DescribeQuotasRequest"]
+- ["So8NSObjectC", "DescribeQuotasResponse"]
+- !private ["So8NSObjectC", "DetachDiskExecutor"]
+- ["So8NSObjectC", "DetachDiskRequest"]
+- ["So8NSObjectC", "DetachDiskResponse"]
+- !private ["So8NSObjectC", "DetachNetworkInterfaceExecutor"]
+- ["So8NSObjectC", "DetachNetworkInterfaceRequest"]
+- ["So8NSObjectC", "DetachNetworkInterfaceResponse"]
+- !private ["So8NSObjectC", "DisassociateElasticIpExecutor"]
+- ["So8NSObjectC", "DisassociateElasticIpRequest"]
+- ["So8NSObjectC", "DisassociateElasticIpResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "ImportKeypairExecutor"]
+- ["So8NSObjectC", "ImportKeypairRequest"]
+- ["So8NSObjectC", "ImportKeypairResponse"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- !private ["So8NSObjectC", "ModifyImageAttributeExecutor"]
+- ["So8NSObjectC", "ModifyImageAttributeRequest"]
+- ["So8NSObjectC", "ModifyImageAttributeResponse"]
+- !private ["So8NSObjectC", "ModifyInstanceAttributeExecutor"]
+- ["So8NSObjectC", "ModifyInstanceAttributeRequest"]
+- ["So8NSObjectC", "ModifyInstanceAttributeResponse"]
+- !private ["So8NSObjectC", "ModifyInstanceDiskAttributeExecutor"]
+- ["So8NSObjectC", "ModifyInstanceDiskAttributeRequest"]
+- ["So8NSObjectC", "ModifyInstanceDiskAttributeResponse"]
+- !private ["So8NSObjectC", "ModifyInstanceNetworkAttributeExecutor"]
+- ["So8NSObjectC", "ModifyInstanceNetworkAttributeRequest"]
+- ["So8NSObjectC", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["So8NSObjectC", "ModifyInstancePasswordExecutor"]
+- ["So8NSObjectC", "ModifyInstancePasswordRequest"]
+- ["So8NSObjectC", "ModifyInstancePasswordResponse"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- !private ["So8NSObjectC", "RebootInstanceExecutor"]
+- ["So8NSObjectC", "RebootInstanceRequest"]
+- ["So8NSObjectC", "RebootInstanceResponse"]
+- !private ["So8NSObjectC", "RebuildInstanceExecutor"]
+- ["So8NSObjectC", "RebuildInstanceRequest"]
+- ["So8NSObjectC", "RebuildInstanceResponse"]
+- !private ["So8NSObjectC", "ResizeInstanceExecutor"]
+- ["So8NSObjectC", "ResizeInstanceRequest"]
+- ["So8NSObjectC", "ResizeInstanceResponse"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- !private ["So8NSObjectC", "ShareImageExecutor"]
+- ["So8NSObjectC", "ShareImageRequest"]
+- ["So8NSObjectC", "ShareImageResponse"]
+- !private ["So8NSObjectC", "StartInstanceExecutor"]
+- ["So8NSObjectC", "StartInstanceRequest"]
+- ["So8NSObjectC", "StartInstanceResponse"]
+- !private ["So8NSObjectC", "StopInstanceExecutor"]
+- ["So8NSObjectC", "StopInstanceRequest"]
+- ["So8NSObjectC", "StopInstanceResponse"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "UnShareImageExecutor"]
+- ["So8NSObjectC", "UnShareImageRequest"]
+- ["So8NSObjectC", "UnShareImageResponse"]
+- ["So8NSObjectC", "VmJDCloudClient"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "associateElasticIpAsync"]
+- ["So8NSObjectC", "attachDiskAsync"]
+- ["So8NSObjectC", "attachNetworkInterfaceAsync"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "copyImagesAsync"]
+- ["So8NSObjectC", "createImageAsync"]
+- ["So8NSObjectC", "createInstancesAsync"]
+- ["So8NSObjectC", "createKeypairAsync"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- ["So8NSObjectC", "deleteImageAsync"]
+- ["So8NSObjectC", "deleteInstanceAsync"]
+- ["So8NSObjectC", "deleteKeypairAsync"]
+- ["So8NSObjectC", "describeImageAsync"]
+- ["So8NSObjectC", "describeImageConstraintsAsync"]
+- ["So8NSObjectC", "describeImageConstraintsBatchAsync"]
+- ["So8NSObjectC", "describeImageMembersAsync"]
+- ["So8NSObjectC", "describeImagesAsync"]
+- ["So8NSObjectC", "describeInstanceAsync"]
+- ["So8NSObjectC", "describeInstancePrivateIpAddressAsync"]
+- ["So8NSObjectC", "describeInstanceStatusAsync"]
+- ["So8NSObjectC", "describeInstanceTypesAsync"]
+- ["So8NSObjectC", "describeInstanceVncUrlAsync"]
+- ["So8NSObjectC", "describeInstancesAsync"]
+- ["So8NSObjectC", "describeKeypairsAsync"]
+- ["So8NSObjectC", "describeQuotasAsync"]
+- ["So8NSObjectC", "detachDiskAsync"]
+- ["So8NSObjectC", "detachNetworkInterfaceAsync"]
+- ["So8NSObjectC", "disassociateElasticIpAsync"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "importKeypairAsync"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "modifyImageAttributeAsync"]
+- ["So8NSObjectC", "modifyInstanceAttributeAsync"]
+- ["So8NSObjectC", "modifyInstanceDiskAttributeAsync"]
+- ["So8NSObjectC", "modifyInstanceNetworkAttributeAsync"]
+- ["So8NSObjectC", "modifyInstancePasswordAsync"]
+- ["So8NSObjectC", "rebootInstanceAsync"]
+- ["So8NSObjectC", "rebuildInstanceAsync"]
+- ["So8NSObjectC", "resizeInstanceAsync"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "shareImageAsync"]
+- ["So8NSObjectC", "startInstanceAsync"]
+- ["So8NSObjectC", "stopInstanceAsync"]
+- ["So8NSObjectC", "unShareImageAsync"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- ["So8NSObjectC", "vmJDCloudClient"]
+- !private ["So8NSObjectP", "AssociateElasticIpExecutor"]
+- !private ["So8NSObjectP", "AssociateElasticIpResponse"]
+- !private ["So8NSObjectP", "AttachDiskExecutor"]
+- !private ["So8NSObjectP", "AttachDiskResponse"]
+- !private ["So8NSObjectP", "AttachNetworkInterfaceExecutor"]
+- !private ["So8NSObjectP", "AttachNetworkInterfaceResponse"]
+- !private ["So8NSObjectP", "CopyImagesExecutor"]
+- !private ["So8NSObjectP", "CopyImagesResponse"]
+- !private ["So8NSObjectP", "CreateImageExecutor"]
+- !private ["So8NSObjectP", "CreateImageResponse"]
+- !private ["So8NSObjectP", "CreateInstancesExecutor"]
+- !private ["So8NSObjectP", "CreateInstancesResponse"]
+- !private ["So8NSObjectP", "CreateKeypairExecutor"]
+- !private ["So8NSObjectP", "CreateKeypairResponse"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "DeleteImageExecutor"]
+- !private ["So8NSObjectP", "DeleteImageResponse"]
+- !private ["So8NSObjectP", "DeleteInstanceExecutor"]
+- !private ["So8NSObjectP", "DeleteInstanceResponse"]
+- !private ["So8NSObjectP", "DeleteKeypairExecutor"]
+- !private ["So8NSObjectP", "DeleteKeypairResponse"]
+- !private ["So8NSObjectP", "DescribeImageConstraintsBatchExecutor"]
+- !private ["So8NSObjectP", "DescribeImageConstraintsBatchResponse"]
+- !private ["So8NSObjectP", "DescribeImageConstraintsExecutor"]
+- !private ["So8NSObjectP", "DescribeImageConstraintsResponse"]
+- !private ["So8NSObjectP", "DescribeImageExecutor"]
+- !private ["So8NSObjectP", "DescribeImageMembersExecutor"]
+- !private ["So8NSObjectP", "DescribeImageMembersResponse"]
+- !private ["So8NSObjectP", "DescribeImageResponse"]
+- !private ["So8NSObjectP", "DescribeImagesExecutor"]
+- !private ["So8NSObjectP", "DescribeImagesResponse"]
+- !private ["So8NSObjectP", "DescribeInstanceExecutor"]
+- !private ["So8NSObjectP", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["So8NSObjectP", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["So8NSObjectP", "DescribeInstanceResponse"]
+- !private ["So8NSObjectP", "DescribeInstanceStatusExecutor"]
+- !private ["So8NSObjectP", "DescribeInstanceStatusResponse"]
+- !private ["So8NSObjectP", "DescribeInstanceTypesExecutor"]
+- !private ["So8NSObjectP", "DescribeInstanceTypesResponse"]
+- !private ["So8NSObjectP", "DescribeInstanceVncUrlExecutor"]
+- !private ["So8NSObjectP", "DescribeInstanceVncUrlResponse"]
+- !private ["So8NSObjectP", "DescribeInstancesExecutor"]
+- !private ["So8NSObjectP", "DescribeInstancesResponse"]
+- !private ["So8NSObjectP", "DescribeKeypairsExecutor"]
+- !private ["So8NSObjectP", "DescribeKeypairsResponse"]
+- !private ["So8NSObjectP", "DescribeQuotasExecutor"]
+- !private ["So8NSObjectP", "DescribeQuotasResponse"]
+- !private ["So8NSObjectP", "DetachDiskExecutor"]
+- !private ["So8NSObjectP", "DetachDiskResponse"]
+- !private ["So8NSObjectP", "DetachNetworkInterfaceExecutor"]
+- !private ["So8NSObjectP", "DetachNetworkInterfaceResponse"]
+- !private ["So8NSObjectP", "DisassociateElasticIpExecutor"]
+- !private ["So8NSObjectP", "DisassociateElasticIpResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "ImportKeypairExecutor"]
+- !private ["So8NSObjectP", "ImportKeypairResponse"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "ModifyImageAttributeExecutor"]
+- !private ["So8NSObjectP", "ModifyImageAttributeResponse"]
+- !private ["So8NSObjectP", "ModifyInstanceAttributeExecutor"]
+- !private ["So8NSObjectP", "ModifyInstanceAttributeResponse"]
+- !private ["So8NSObjectP", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["So8NSObjectP", "ModifyInstanceDiskAttributeResponse"]
+- !private ["So8NSObjectP", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["So8NSObjectP", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["So8NSObjectP", "ModifyInstancePasswordExecutor"]
+- !private ["So8NSObjectP", "ModifyInstancePasswordResponse"]
+- !private ["So8NSObjectP", "RebootInstanceExecutor"]
+- !private ["So8NSObjectP", "RebootInstanceResponse"]
+- !private ["So8NSObjectP", "RebuildInstanceExecutor"]
+- !private ["So8NSObjectP", "RebuildInstanceResponse"]
+- !private ["So8NSObjectP", "ResizeInstanceExecutor"]
+- !private ["So8NSObjectP", "ResizeInstanceResponse"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- !private ["So8NSObjectP", "ShareImageExecutor"]
+- !private ["So8NSObjectP", "ShareImageResponse"]
+- !private ["So8NSObjectP", "StartInstanceExecutor"]
+- !private ["So8NSObjectP", "StartInstanceResponse"]
+- !private ["So8NSObjectP", "StopInstanceExecutor"]
+- !private ["So8NSObjectP", "StopInstanceResponse"]
+- ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "UnShareImageExecutor"]
+- !private ["So8NSObjectP", "UnShareImageResponse"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So8NSObjectP", "vmJDCloudClient"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["12JDCloudSDKVm22RebootInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm22RebootInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm22RebootInstanceResponseC", "deinit"]
+- !private ["12JDCloudSDKVm23RebuildInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm23RebuildInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm23RebuildInstanceResponseC", "deinit"]
+- !private ["12JDCloudSDKVm22ResizeInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm22ResizeInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm22ResizeInstanceResponseC", "deinit"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["12JDCloudSDKVm18ShareImageExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm18ShareImageExecutorC", "init"]
+- !private ["12JDCloudSDKVm18ShareImageResponseC", "deinit"]
+- !private ["12JDCloudSDKVm21StartInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm21StartInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm21StartInstanceResponseC", "deinit"]
+- !private ["12JDCloudSDKVm20StopInstanceExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm20StopInstanceExecutorC", "init"]
+- !private ["12JDCloudSDKVm20StopInstanceResponseC", "deinit"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["12JDCloudSDKVm20UnShareImageExecutorC", "executeAsync"]
+- !private ["12JDCloudSDKVm20UnShareImageExecutorC", "init"]
+- !private ["12JDCloudSDKVm20UnShareImageResponseC", "deinit"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "AssociateElasticIpExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "AssociateElasticIpRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "AssociateElasticIpResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "AttachDiskExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "AttachDiskRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "AttachDiskResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "AttachNetworkInterfaceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "AttachNetworkInterfaceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "AttachNetworkInterfaceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "CopyImagesExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CopyImagesRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CopyImagesResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "CreateImageExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CreateImageRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CreateImageResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "CreateInstancesExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CreateInstancesRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CreateInstancesResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "CreateKeypairExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CreateKeypairRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "CreateKeypairResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "Credential"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DeleteImageExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DeleteImageRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DeleteImageResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DeleteInstanceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DeleteInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DeleteInstanceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DeleteKeypairExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DeleteKeypairRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DeleteKeypairResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageConstraintsBatchExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageConstraintsBatchRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageConstraintsBatchResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageConstraintsExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageConstraintsRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageConstraintsResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageExecutor"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageMembersExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageMembersRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageMembersResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImageResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeImagesExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImagesRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeImagesResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceExecutor"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstancePrivateIpAddressExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstancePrivateIpAddressRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstancePrivateIpAddressResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceStatusExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceStatusRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceStatusResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceTypesExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceTypesRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceTypesResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceVncUrlExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceVncUrlRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstanceVncUrlResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstancesExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstancesRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeInstancesResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeKeypairsExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeKeypairsRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeKeypairsResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DescribeQuotasExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeQuotasRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DescribeQuotasResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DetachDiskExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DetachDiskRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DetachDiskResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DetachNetworkInterfaceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DetachNetworkInterfaceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DetachNetworkInterfaceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "DisassociateElasticIpExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DisassociateElasticIpRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "DisassociateElasticIpResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "GlobalConfig"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ImportKeypairExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ImportKeypairRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ImportKeypairResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "JSONDecoder"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ModifyImageAttributeExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyImageAttributeRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyImageAttributeResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceAttributeExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceAttributeRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceAttributeResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceDiskAttributeExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceDiskAttributeRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceDiskAttributeResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceNetworkAttributeExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceNetworkAttributeRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstancePasswordExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstancePasswordRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ModifyInstancePasswordResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "NSError"]
+- ["12JDCloudSDKVm02VmA6ClientC", "NSNumber"]
+- ["12JDCloudSDKVm02VmA6ClientC", "NSString"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "RebootInstanceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "RebootInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "RebootInstanceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "RebuildInstanceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "RebuildInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "RebuildInstanceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ResizeInstanceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ResizeInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ResizeInstanceResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "SDKEnvironment"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "ShareImageExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ShareImageRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "ShareImageResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "StartInstanceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "StartInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "StartInstanceResponse"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "StopInstanceExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "StopInstanceRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "StopInstanceResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "String"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "UnShareImageExecutor"]
+- ["12JDCloudSDKVm02VmA6ClientC", "UnShareImageRequest"]
+- ["12JDCloudSDKVm02VmA6ClientC", "UnShareImageResponse"]
+- ["12JDCloudSDKVm02VmA6ClientC", "VmJDCloudClient"]
+- ["12JDCloudSDKVm02VmA6ClientC", "addCustomer"]
+- ["12JDCloudSDKVm02VmA6ClientC", "associateElasticIpAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "attachDiskAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "attachNetworkInterfaceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "contentType"]
+- ["12JDCloudSDKVm02VmA6ClientC", "copyImagesAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "createImageAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "createInstancesAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "createKeypairAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "credential"]
+- ["12JDCloudSDKVm02VmA6ClientC", "customHeader"]
+- ["12JDCloudSDKVm02VmA6ClientC", "deinit"]
+- ["12JDCloudSDKVm02VmA6ClientC", "deleteImageAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "deleteInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "deleteKeypairAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeImageAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeImageConstraintsAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeImageConstraintsBatchAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeImageMembersAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeImagesAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeInstancePrivateIpAddressAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeInstanceStatusAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeInstanceTypesAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeInstanceVncUrlAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeInstancesAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeKeypairsAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "describeQuotasAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "detachDiskAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "detachNetworkInterfaceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "disassociateElasticIpAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "httpRequestProtocol"]
+- ["12JDCloudSDKVm02VmA6ClientC", "importKeypairAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "init"]
+- ["12JDCloudSDKVm02VmA6ClientC", "modifyImageAttributeAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "modifyInstanceAttributeAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "modifyInstanceDiskAttributeAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "modifyInstanceNetworkAttributeAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "modifyInstancePasswordAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "rebootInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "rebuildInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "resizeInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "sdkEnvironment"]
+- ["12JDCloudSDKVm02VmA6ClientC", "serviceName"]
+- ["12JDCloudSDKVm02VmA6ClientC", "shareImageAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "startInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "stopInstanceAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "unShareImageAsync"]
+- ["12JDCloudSDKVm02VmA6ClientC", "userAgent"]
+- ["12JDCloudSDKVm02VmA6ClientC", "version"]
+- !private ["12JDCloudSDKVm02VmA6ClientC", "vmJDCloudClient"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AssociateElasticIpExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AssociateElasticIpResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AttachDiskExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AttachDiskResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AttachNetworkInterfaceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "AttachNetworkInterfaceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CopyImagesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CopyImagesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateImageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateImageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateInstancesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateInstancesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateKeypairExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateKeypairResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteImageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteImageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteKeypairExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteKeypairResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageConstraintsBatchExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageConstraintsBatchResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageConstraintsExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageConstraintsResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageMembersExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageMembersResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImagesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImagesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstancePrivateIpAddressExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstancePrivateIpAddressResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceStatusExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceStatusResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceTypesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceTypesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceVncUrlExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceVncUrlResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstancesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstancesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeKeypairsExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeKeypairsResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeQuotasExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeQuotasResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DetachDiskExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DetachDiskResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DetachNetworkInterfaceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DetachNetworkInterfaceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DisassociateElasticIpExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DisassociateElasticIpResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ImportKeypairExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ImportKeypairResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyImageAttributeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyImageAttributeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceAttributeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceAttributeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceDiskAttributeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceDiskAttributeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceNetworkAttributeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceNetworkAttributeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstancePasswordExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstancePasswordResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RebootInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RebootInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RebuildInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RebuildInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ResizeInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ResizeInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ShareImageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ShareImageResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StartInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StartInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StopInstanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "StopInstanceResponse"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UnShareImageExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UnShareImageResponse"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "vmJDCloudClient"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "12JDCloudSDKVm26AssociateElasticIpExecutorC"
+- !private "12JDCloudSDKVm26AssociateElasticIpResponseC"
+- !private "12JDCloudSDKVm18AttachDiskExecutorC"
+- !private "12JDCloudSDKVm18AttachDiskResponseC"
+- !private "12JDCloudSDKVm30AttachNetworkInterfaceExecutorC"
+- !private "12JDCloudSDKVm30AttachNetworkInterfaceResponseC"
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- !private "12JDCloudSDKVm18CopyImagesExecutorC"
+- !private "12JDCloudSDKVm18CopyImagesResponseC"
+- !private "12JDCloudSDKVm19CreateImageExecutorC"
+- !private "12JDCloudSDKVm19CreateImageResponseC"
+- !private "12JDCloudSDKVm23CreateInstancesExecutorC"
+- !private "12JDCloudSDKVm23CreateInstancesResponseC"
+- !private "12JDCloudSDKVm21CreateKeypairExecutorC"
+- !private "12JDCloudSDKVm21CreateKeypairResponseC"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "12JDCloudSDKVm19DeleteImageExecutorC"
+- !private "12JDCloudSDKVm19DeleteImageResponseC"
+- !private "12JDCloudSDKVm22DeleteInstanceExecutorC"
+- !private "12JDCloudSDKVm22DeleteInstanceResponseC"
+- !private "12JDCloudSDKVm21DeleteKeypairExecutorC"
+- !private "12JDCloudSDKVm21DeleteKeypairResponseC"
+- !private "12JDCloudSDKVm37DescribeImageConstraintsBatchExecutorC"
+- !private "12JDCloudSDKVm37DescribeImageConstraintsBatchResponseC"
+- !private "12JDCloudSDKVm32DescribeImageConstraintsExecutorC"
+- !private "12JDCloudSDKVm32DescribeImageConstraintsResponseC"
+- !private "12JDCloudSDKVm21DescribeImageExecutorC"
+- !private "12JDCloudSDKVm28DescribeImageMembersExecutorC"
+- !private "12JDCloudSDKVm28DescribeImageMembersResponseC"
+- !private "12JDCloudSDKVm21DescribeImageResponseC"
+- !private "12JDCloudSDKVm22DescribeImagesExecutorC"
+- !private "12JDCloudSDKVm22DescribeImagesResponseC"
+- !private "12JDCloudSDKVm24DescribeInstanceExecutorC"
+- !private "12JDCloudSDKVm40DescribeInstancePrivateIpAddressExecutorC"
+- !private "12JDCloudSDKVm40DescribeInstancePrivateIpAddressResponseC"
+- !private "12JDCloudSDKVm24DescribeInstanceResponseC"
+- !private "12JDCloudSDKVm30DescribeInstanceStatusExecutorC"
+- !private "12JDCloudSDKVm30DescribeInstanceStatusResponseC"
+- !private "12JDCloudSDKVm29DescribeInstanceTypesExecutorC"
+- !private "12JDCloudSDKVm29DescribeInstanceTypesResponseC"
+- !private "12JDCloudSDKVm30DescribeInstanceVncUrlExecutorC"
+- !private "12JDCloudSDKVm30DescribeInstanceVncUrlResponseC"
+- !private "12JDCloudSDKVm25DescribeInstancesExecutorC"
+- !private "12JDCloudSDKVm25DescribeInstancesResponseC"
+- !private "12JDCloudSDKVm24DescribeKeypairsExecutorC"
+- !private "12JDCloudSDKVm24DescribeKeypairsResponseC"
+- !private "12JDCloudSDKVm22DescribeQuotasExecutorC"
+- !private "12JDCloudSDKVm22DescribeQuotasResponseC"
+- !private "12JDCloudSDKVm18DetachDiskExecutorC"
+- !private "12JDCloudSDKVm18DetachDiskResponseC"
+- !private "12JDCloudSDKVm30DetachNetworkInterfaceExecutorC"
+- !private "12JDCloudSDKVm30DetachNetworkInterfaceResponseC"
+- "SD"
+- !private "12JDCloudSDKVm29DisassociateElasticIpExecutorC"
+- !private "12JDCloudSDKVm29DisassociateElasticIpResponseC"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- !private "12JDCloudSDKVm21ImportKeypairExecutorC"
+- !private "12JDCloudSDKVm21ImportKeypairResponseC"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "12JDCloudSDKVm28ModifyImageAttributeExecutorC"
+- !private "12JDCloudSDKVm28ModifyImageAttributeResponseC"
+- !private "12JDCloudSDKVm31ModifyInstanceAttributeExecutorC"
+- !private "12JDCloudSDKVm31ModifyInstanceAttributeResponseC"
+- !private "12JDCloudSDKVm35ModifyInstanceDiskAttributeExecutorC"
+- !private "12JDCloudSDKVm35ModifyInstanceDiskAttributeResponseC"
+- !private "12JDCloudSDKVm38ModifyInstanceNetworkAttributeExecutorC"
+- !private "12JDCloudSDKVm38ModifyInstanceNetworkAttributeResponseC"
+- !private "12JDCloudSDKVm30ModifyInstancePasswordExecutorC"
+- !private "12JDCloudSDKVm30ModifyInstancePasswordResponseC"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "Sm"
+- !private "SY"
+- !private "12JDCloudSDKVm22RebootInstanceExecutorC"
+- !private "12JDCloudSDKVm22RebootInstanceResponseC"
+- !private "12JDCloudSDKVm23RebuildInstanceExecutorC"
+- !private "12JDCloudSDKVm23RebuildInstanceResponseC"
+- !private "12JDCloudSDKVm22ResizeInstanceExecutorC"
+- !private "12JDCloudSDKVm22ResizeInstanceResponseC"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- !private "12JDCloudSDKVm18ShareImageExecutorC"
+- !private "12JDCloudSDKVm18ShareImageResponseC"
+- !private "12JDCloudSDKVm21StartInstanceExecutorC"
+- !private "12JDCloudSDKVm21StartInstanceResponseC"
+- !private "12JDCloudSDKVm20StopInstanceExecutorC"
+- !private "12JDCloudSDKVm20StopInstanceResponseC"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "12JDCloudSDKVm20UnShareImageExecutorC"
+- !private "12JDCloudSDKVm20UnShareImageResponseC"
+- "12JDCloudSDKVm02VmA6ClientC"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKVpc.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCharge.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKDisk.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "82068d5b957c5dc8b379bdfbe208ef88"

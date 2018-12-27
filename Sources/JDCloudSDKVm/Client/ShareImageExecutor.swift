@@ -27,8 +27,8 @@ import JDCloudSDKCore
 
 
 ///  共享镜像，只允许操作您的个人私有镜像，单个镜像最多可共享给20个京东云帐户。&lt;br&gt;
-        /// 整机镜像目前不支持共享。
-        /// 
+      /// 整机镜像目前不支持共享。
+      /// 
 public class ShareImageExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

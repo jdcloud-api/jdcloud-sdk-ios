@@ -23,7 +23,38 @@
 
 
 import Foundation
+import JDCloudSDKVpc
 
 ///  instanceNetworkInterfaceAttachmentSpec
-public class InstanceNetworkInterfaceAttachmentSpec:Codable{
+@objc(InstanceNetworkInterfaceAttachmentSpec)
+public class InstanceNetworkInterfaceAttachmentSpec:NSObject,Codable{
+    /// 网卡设备Index，主网卡只能是1
+    var deviceIndex:Int?
+    /// 网卡接口规范
+    var networkInterface:NetworkInterfaceSpec?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceNetworkInterfaceAttachmentSpecCodingKeys: String, CodingKey {
+        case deviceIndex
+        case networkInterface
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceNetworkInterfaceAttachmentSpecCodingKeys.self)
+        self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
+        self.networkInterface = try decoderContainer.decode(NetworkInterfaceSpec?.self, forKey: .networkInterface)
+    }
+}
+public extension InstanceNetworkInterfaceAttachmentSpec{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceNetworkInterfaceAttachmentSpecCodingKeys.self)
+         try encoderContainer.encode(deviceIndex, forKey: .deviceIndex)
+         try encoderContainer.encode(networkInterface, forKey: .networkInterface)
+    }
 }

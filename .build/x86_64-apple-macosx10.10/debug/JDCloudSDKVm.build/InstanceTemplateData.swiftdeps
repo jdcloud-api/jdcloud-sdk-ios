@@ -1,0 +1,507 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "InstanceTemplateData"
+provides-nominal:
+- "12JDCloudSDKVm20InstanceTemplateDataC"
+- "12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO"
+provides-member:
+- ["12JDCloudSDKVm20InstanceTemplateDataC", ""]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", ""]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "encode"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "Bool"
+- "Codable"
+- "CodingKey"
+- "Decoder"
+- "Encoder"
+- !private "FloatLiteralType"
+- "InstanceTemplateData"
+- "InstanceTemplateDiskAttachment"
+- "InstanceTemplateElasticIp"
+- "InstanceTemplateNetworkInterfaceAttachmentSpec"
+- !private "IntegerLiteralType"
+- "NSObject"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Bool"]
+- !private ["s7CVarArgP", "InstanceTemplateDataCodingKeys"]
+- !private ["s7CVarArgP", "InstanceTemplateDiskAttachment"]
+- !private ["s7CVarArgP", "InstanceTemplateElasticIp"]
+- !private ["s7CVarArgP", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- !private ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "dataDisks"]
+- !private ["s7CVarArgP", "elasticIp"]
+- ["s7CVarArgP", "encode"]
+- !private ["s7CVarArgP", "imageId"]
+- !private ["s7CVarArgP", "includePassword"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "instanceType"]
+- !private ["s7CVarArgP", "keyNames"]
+- !private ["s7CVarArgP", "primaryNetworkInterface"]
+- !private ["s7CVarArgP", "systemDisk"]
+- !private ["s7CVarArgP", "vpcId"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- !private ["s9CodingKeyP", "dataDisks"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "elasticIp"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- !private ["s9CodingKeyP", "imageId"]
+- !private ["s9CodingKeyP", "includePassword"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "instanceType"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "keyNames"]
+- !private ["s9CodingKeyP", "primaryNetworkInterface"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "systemDisk"]
+- !private ["s9CodingKeyP", "vpcId"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Bool"]
+- !private ["s28CustomDebugStringConvertibleP", "InstanceTemplateDataCodingKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "InstanceTemplateDiskAttachment"]
+- !private ["s28CustomDebugStringConvertibleP", "InstanceTemplateElasticIp"]
+- !private ["s28CustomDebugStringConvertibleP", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s28CustomDebugStringConvertibleP", "dataDisks"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "elasticIp"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "imageId"]
+- !private ["s28CustomDebugStringConvertibleP", "includePassword"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "instanceType"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "keyNames"]
+- !private ["s28CustomDebugStringConvertibleP", "primaryNetworkInterface"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "systemDisk"]
+- !private ["s28CustomDebugStringConvertibleP", "vpcId"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "Bool"]
+- !private ["s23CustomStringConvertibleP", "InstanceTemplateDataCodingKeys"]
+- !private ["s23CustomStringConvertibleP", "InstanceTemplateDiskAttachment"]
+- !private ["s23CustomStringConvertibleP", "InstanceTemplateElasticIp"]
+- !private ["s23CustomStringConvertibleP", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "dataDisks"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "elasticIp"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- !private ["s23CustomStringConvertibleP", "imageId"]
+- !private ["s23CustomStringConvertibleP", "includePassword"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "instanceType"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "keyNames"]
+- !private ["s23CustomStringConvertibleP", "primaryNetworkInterface"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "systemDisk"]
+- !private ["s23CustomStringConvertibleP", "vpcId"]
+- !private ["Se", "Bool"]
+- !private ["Se", "InstanceTemplateDataCodingKeys"]
+- !private ["Se", "InstanceTemplateDiskAttachment"]
+- !private ["Se", "InstanceTemplateElasticIp"]
+- !private ["Se", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- !private ["Se", "String"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "dataDisks"]
+- !private ["Se", "elasticIp"]
+- ["Se", "encode"]
+- !private ["Se", "imageId"]
+- !private ["Se", "includePassword"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "instanceType"]
+- !private ["Se", "keyNames"]
+- !private ["Se", "primaryNetworkInterface"]
+- !private ["Se", "systemDisk"]
+- !private ["Se", "vpcId"]
+- !private ["s7DecoderP", "container"]
+- !private ["SE", "Bool"]
+- !private ["SE", "InstanceTemplateDataCodingKeys"]
+- !private ["SE", "InstanceTemplateDiskAttachment"]
+- !private ["SE", "InstanceTemplateElasticIp"]
+- !private ["SE", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- !private ["SE", "String"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "dataDisks"]
+- !private ["SE", "elasticIp"]
+- ["SE", "encode"]
+- !private ["SE", "imageId"]
+- !private ["SE", "includePassword"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "instanceType"]
+- !private ["SE", "keyNames"]
+- !private ["SE", "primaryNetworkInterface"]
+- !private ["SE", "systemDisk"]
+- !private ["SE", "vpcId"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "Bool"]
+- !private ["SQ", "InstanceTemplateDataCodingKeys"]
+- !private ["SQ", "InstanceTemplateDiskAttachment"]
+- !private ["SQ", "InstanceTemplateElasticIp"]
+- !private ["SQ", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "String"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "dataDisks"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- !private ["SQ", "elasticIp"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "imageId"]
+- !private ["SQ", "includePassword"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- !private ["SQ", "instanceType"]
+- ["SQ", "intValue"]
+- !private ["SQ", "keyNames"]
+- !private ["SQ", "primaryNetworkInterface"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "systemDisk"]
+- !private ["SQ", "vpcId"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "Bool"]
+- !private ["SH", "InstanceTemplateDataCodingKeys"]
+- !private ["SH", "InstanceTemplateDiskAttachment"]
+- !private ["SH", "InstanceTemplateElasticIp"]
+- !private ["SH", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- ["SH", "RawValue"]
+- !private ["SH", "String"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "dataDisks"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- !private ["SH", "elasticIp"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "imageId"]
+- !private ["SH", "includePassword"]
+- ["SH", "init"]
+- ["SH", "init"]
+- !private ["SH", "instanceType"]
+- ["SH", "intValue"]
+- !private ["SH", "keyNames"]
+- !private ["SH", "primaryNetworkInterface"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["SH", "systemDisk"]
+- !private ["SH", "vpcId"]
+- !private ["s6HasherV", "combine"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "Bool"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "CodingKey"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "Decoder"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "Encoder"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "InstanceTemplateDataCodingKeys"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "InstanceTemplateDiskAttachment"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "InstanceTemplateElasticIp"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "String"]
+- !private ["12JDCloudSDKVm20InstanceTemplateDataC", "_findStringSwitchCase"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "dataDisks"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "deinit"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "elasticIp"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "encode"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "imageId"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "includePassword"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "init"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "instanceType"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "keyNames"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "primaryNetworkInterface"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "systemDisk"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC", "vpcId"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "RawValue"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "_Default_RawValue"]
+- !private ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "_findStringSwitchCase"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "dataDisks"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "debugDescription"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "deinit"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "description"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "elasticIp"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "hash"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "hashValue"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "imageId"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "includePassword"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "init"]
+- !private ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "init"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "instanceType"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "intValue"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "keyNames"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "primaryNetworkInterface"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "rawValue"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "stringValue"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "systemDisk"]
+- ["12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO", "vpcId"]
+- !private ["12JDCloudSDKVm30InstanceTemplateDiskAttachmentC", "deinit"]
+- !private ["12JDCloudSDKVm25InstanceTemplateElasticIpC", "deinit"]
+- !private ["12JDCloudSDKVm46InstanceTemplateNetworkInterfaceAttachmentSpecC", "deinit"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "CodingKey"]
+- ["So8NSObjectC", "Decoder"]
+- ["So8NSObjectC", "Encoder"]
+- !private ["So8NSObjectC", "InstanceTemplateDataCodingKeys"]
+- ["So8NSObjectC", "InstanceTemplateDiskAttachment"]
+- ["So8NSObjectC", "InstanceTemplateElasticIp"]
+- ["So8NSObjectC", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "dataDisks"]
+- ["So8NSObjectC", "elasticIp"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "imageId"]
+- ["So8NSObjectC", "includePassword"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "instanceType"]
+- ["So8NSObjectC", "keyNames"]
+- ["So8NSObjectC", "primaryNetworkInterface"]
+- ["So8NSObjectC", "systemDisk"]
+- ["So8NSObjectC", "vpcId"]
+- !private ["So8NSObjectP", "Bool"]
+- !private ["So8NSObjectP", "InstanceTemplateDataCodingKeys"]
+- !private ["So8NSObjectP", "InstanceTemplateDiskAttachment"]
+- !private ["So8NSObjectP", "InstanceTemplateElasticIp"]
+- !private ["So8NSObjectP", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- !private ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- !private ["So8NSObjectP", "dataDisks"]
+- !private ["So8NSObjectP", "elasticIp"]
+- ["So8NSObjectP", "encode"]
+- !private ["So8NSObjectP", "imageId"]
+- !private ["So8NSObjectP", "includePassword"]
+- ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "instanceType"]
+- !private ["So8NSObjectP", "keyNames"]
+- !private ["So8NSObjectP", "primaryNetworkInterface"]
+- !private ["So8NSObjectP", "systemDisk"]
+- !private ["So8NSObjectP", "vpcId"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- !private ["SY", "dataDisks"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- !private ["SY", "elasticIp"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- !private ["SY", "imageId"]
+- !private ["SY", "includePassword"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- !private ["SY", "instanceType"]
+- ["SY", "intValue"]
+- !private ["SY", "keyNames"]
+- !private ["SY", "primaryNetworkInterface"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- !private ["SY", "systemDisk"]
+- !private ["SY", "vpcId"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Bool"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "InstanceTemplateDataCodingKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "InstanceTemplateDiskAttachment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "InstanceTemplateElasticIp"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "InstanceTemplateNetworkInterfaceAttachmentSpec"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dataDisks"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "elasticIp"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "imageId"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "includePassword"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "instanceType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "keyNames"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "primaryNetworkInterface"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "systemDisk"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "vpcId"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- "12JDCloudSDKVm20InstanceTemplateDataC"
+- "12JDCloudSDKVm20InstanceTemplateDataC0cdE10CodingKeysO"
+- !private "12JDCloudSDKVm30InstanceTemplateDiskAttachmentC"
+- !private "12JDCloudSDKVm25InstanceTemplateElasticIpC"
+- !private "12JDCloudSDKVm46InstanceTemplateNetworkInterfaceAttachmentSpecC"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKVpc.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCharge.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKDisk.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "221961574268ff0af65e7938e644006f"

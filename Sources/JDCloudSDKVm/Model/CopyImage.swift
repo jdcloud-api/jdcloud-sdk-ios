@@ -25,5 +25,35 @@
 import Foundation
 
 ///  copyImage
-public class CopyImage:Codable{
+@objc(CopyImage)
+public class CopyImage:NSObject,Codable{
+    /// 复制后的目标镜像ID
+    var destinationImageId:String?
+    /// 源镜像ID
+    var sourceImageId:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum CopyImageCodingKeys: String, CodingKey {
+        case destinationImageId
+        case sourceImageId
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: CopyImageCodingKeys.self)
+        self.destinationImageId = try decoderContainer.decode(String?.self, forKey: .destinationImageId)
+        self.sourceImageId = try decoderContainer.decode(String?.self, forKey: .sourceImageId)
+    }
+}
+public extension CopyImage{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: CopyImageCodingKeys.self)
+         try encoderContainer.encode(destinationImageId, forKey: .destinationImageId)
+         try encoderContainer.encode(sourceImageId, forKey: .sourceImageId)
+    }
 }

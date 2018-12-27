@@ -25,5 +25,72 @@
 import Foundation
 
 ///  instanceTemplateSpec
-public class InstanceTemplateSpec:Codable{
+@objc(InstanceTemplateSpec)
+public class InstanceTemplateSpec:NSObject,Codable{
+    /// 实例规格，可查询&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/describeinstancetypes&quot;&gt;DescribeInstanceTypes&lt;/a&gt;接口获得指定地域或可用区的规格信息。
+    /// Required:true
+    var instanceType:String
+    /// 镜像ID，可查询&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/describeimages&quot;&gt;DescribeImages&lt;/a&gt;接口获得指定地域的镜像信息。
+    /// Required:true
+    var imageId:String
+    /// 密码，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/general_parameters&quot;&gt;参考公共参数规范&lt;/a&gt;。
+    var password:String?
+    /// 密钥对名称；当前只支持一个
+    var keyNames:[String?]?
+    /// 主网卡主IP关联的弹性IP规格
+    var elasticIp:InstanceTemplateElasticIpSpec?
+    /// 主网卡配置信息
+    /// Required:true
+    var primaryNetworkInterface:InstanceTemplateNetworkInterfaceAttachmentSpec
+    /// 系统盘配置信息
+    /// Required:true
+    var systemDisk:InstanceTemplateDiskAttachmentSpec
+    /// 数据盘配置信息
+    var dataDisks:InstanceTemplateDiskAttachmentSpec?
+
+
+
+    public  init(instanceType:String,imageId:String,primaryNetworkInterface:InstanceTemplateNetworkInterfaceAttachmentSpec,systemDisk:InstanceTemplateDiskAttachmentSpec){
+             self.instanceType = instanceType
+             self.imageId = imageId
+             self.primaryNetworkInterface = primaryNetworkInterface
+             self.systemDisk = systemDisk
+    }
+
+    enum InstanceTemplateSpecCodingKeys: String, CodingKey {
+        case instanceType
+        case imageId
+        case password
+        case keyNames
+        case elasticIp
+        case primaryNetworkInterface
+        case systemDisk
+        case dataDisks
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceTemplateSpecCodingKeys.self)
+        self.instanceType = try decoderContainer.decode(String.self, forKey: .instanceType)
+        self.imageId = try decoderContainer.decode(String.self, forKey: .imageId)
+        self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        self.elasticIp = try decoderContainer.decode(InstanceTemplateElasticIpSpec?.self, forKey: .elasticIp)
+        self.primaryNetworkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceAttachmentSpec.self, forKey: .primaryNetworkInterface)
+        self.systemDisk = try decoderContainer.decode(InstanceTemplateDiskAttachmentSpec.self, forKey: .systemDisk)
+        self.dataDisks = try decoderContainer.decode(InstanceTemplateDiskAttachmentSpec?.self, forKey: .dataDisks)
+    }
+}
+public extension InstanceTemplateSpec{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceTemplateSpecCodingKeys.self)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
+         try encoderContainer.encode(imageId, forKey: .imageId)
+         try encoderContainer.encode(password, forKey: .password)
+         try encoderContainer.encode(keyNames, forKey: .keyNames)
+         try encoderContainer.encode(elasticIp, forKey: .elasticIp)
+         try encoderContainer.encode(primaryNetworkInterface, forKey: .primaryNetworkInterface)
+         try encoderContainer.encode(systemDisk, forKey: .systemDisk)
+         try encoderContainer.encode(dataDisks, forKey: .dataDisks)
+    }
 }

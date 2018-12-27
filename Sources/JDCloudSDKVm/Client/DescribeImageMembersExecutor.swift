@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  查询镜像共享帐户列表，只允许操作您的个人私有镜像。
-        /// 
+      /// 
 public class DescribeImageMembersExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

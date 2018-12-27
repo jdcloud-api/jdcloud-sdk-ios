@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  取消共享镜像，只允许操作您的个人私有镜像。
-        /// 
+      /// 
 public class UnShareImageExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

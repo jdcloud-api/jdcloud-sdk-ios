@@ -25,5 +25,35 @@
 import Foundation
 
 ///  instanceStatus
-public class InstanceStatus:Codable{
+@objc(InstanceStatus)
+public class InstanceStatus:NSObject,Codable{
+    /// 云主机ID
+    var instanceId:String?
+    /// &lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/vm_status&quot;&gt;参考云主机状态&lt;/a&gt;
+    var status:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceStatusCodingKeys: String, CodingKey {
+        case instanceId
+        case status
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceStatusCodingKeys.self)
+        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+    }
+}
+public extension InstanceStatus{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceStatusCodingKeys.self)
+         try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(status, forKey: .status)
+    }
 }

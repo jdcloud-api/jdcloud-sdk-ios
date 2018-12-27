@@ -23,7 +23,139 @@
 
 
 import Foundation
+import JDCloudSDKCharge
+import JDCloudSDKDisk
 
 ///  instance
-public class Instance:Codable{
+@objc(Instance)
+public class Instance:NSObject,Codable{
+    /// 云主机ID
+    var instanceId:String?
+    /// 云主机名称
+    var instanceName:String?
+    /// 实例规格
+    var instanceType:String?
+    /// 主网卡所属VPC的ID
+    var vpcId:String?
+    /// 主网卡所属子网的ID
+    var subnetId:String?
+    /// 主网卡主IP地址
+    var privateIpAddress:String?
+    /// 主网卡主IP绑定弹性IP的ID
+    var elasticIpId:String?
+    /// 主网卡主IP绑定弹性IP的地址
+    var elasticIpAddress:String?
+    /// 云主机状态，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/vm_status&quot;&gt;参考云主机状态&lt;/a&gt;
+    var status:String?
+    /// 云主机描述
+    var descriptionValue:String?
+    /// 镜像ID
+    var imageId:String?
+    /// 系统盘配置
+    var systemDisk:InstanceDiskAttachment?
+    /// 数据盘配置
+    var dataDisks:InstanceDiskAttachment?
+    /// 主网卡配置
+    var primaryNetworkInterface:InstanceNetworkInterfaceAttachment?
+    /// 辅助网卡配置
+    var secondaryNetworkInterfaces:InstanceNetworkInterfaceAttachment?
+    /// 创建时间
+    var launchTime:String?
+    /// 云主机所在可用区
+    var az:String?
+    /// 密钥对名称
+    var keyNames:[String?]?
+    /// 计费信息
+    var charge:Charge?
+    /// 高可用组，如果创建云主机使用了高可用组，此处可展示高可用组名称
+    var ag:Ag?
+    /// 高可用组中的错误域
+    var faultDomain:String?
+    /// Tag信息
+    var tags:Tag?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceCodingKeys: String, CodingKey {
+        case instanceId
+        case instanceName
+        case instanceType
+        case vpcId
+        case subnetId
+        case privateIpAddress
+        case elasticIpId
+        case elasticIpAddress
+        case status
+        case descriptionValue = "description"
+        case imageId
+        case systemDisk
+        case dataDisks
+        case primaryNetworkInterface
+        case secondaryNetworkInterfaces
+        case launchTime
+        case az
+        case keyNames
+        case charge
+        case ag
+        case faultDomain
+        case tags
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceCodingKeys.self)
+        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
+        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        self.systemDisk = try decoderContainer.decode(InstanceDiskAttachment?.self, forKey: .systemDisk)
+        self.dataDisks = try decoderContainer.decode(InstanceDiskAttachment?.self, forKey: .dataDisks)
+        self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
+        self.secondaryNetworkInterfaces = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .secondaryNetworkInterfaces)
+        self.launchTime = try decoderContainer.decode(String?.self, forKey: .launchTime)
+        self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        self.ag = try decoderContainer.decode(Ag?.self, forKey: .ag)
+        self.faultDomain = try decoderContainer.decode(String?.self, forKey: .faultDomain)
+        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+    }
+}
+public extension Instance{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceCodingKeys.self)
+         try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(instanceName, forKey: .instanceName)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
+         try encoderContainer.encode(vpcId, forKey: .vpcId)
+         try encoderContainer.encode(subnetId, forKey: .subnetId)
+         try encoderContainer.encode(privateIpAddress, forKey: .privateIpAddress)
+         try encoderContainer.encode(elasticIpId, forKey: .elasticIpId)
+         try encoderContainer.encode(elasticIpAddress, forKey: .elasticIpAddress)
+         try encoderContainer.encode(status, forKey: .status)
+         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
+         try encoderContainer.encode(imageId, forKey: .imageId)
+         try encoderContainer.encode(systemDisk, forKey: .systemDisk)
+         try encoderContainer.encode(dataDisks, forKey: .dataDisks)
+         try encoderContainer.encode(primaryNetworkInterface, forKey: .primaryNetworkInterface)
+         try encoderContainer.encode(secondaryNetworkInterfaces, forKey: .secondaryNetworkInterfaces)
+         try encoderContainer.encode(launchTime, forKey: .launchTime)
+         try encoderContainer.encode(az, forKey: .az)
+         try encoderContainer.encode(keyNames, forKey: .keyNames)
+         try encoderContainer.encode(charge, forKey: .charge)
+         try encoderContainer.encode(ag, forKey: .ag)
+         try encoderContainer.encode(faultDomain, forKey: .faultDomain)
+         try encoderContainer.encode(tags, forKey: .tags)
+    }
 }

@@ -27,9 +27,9 @@ import JDCloudSDKCore
 
 
 ///  云主机缷载一块弹性网卡。&lt;br&gt;
-        /// 云主机状态必须为&lt;b&gt;running&lt;/b&gt;或&lt;b&gt;stopped&lt;/b&gt;状态，并且没有正在进行中的任务才可操作。&lt;br&gt;
-        /// 不能缷载主网卡。
-        /// 
+      /// 云主机状态必须为&lt;b&gt;running&lt;/b&gt;或&lt;b&gt;stopped&lt;/b&gt;状态，并且没有正在进行中的任务才可操作。&lt;br&gt;
+      /// 不能缷载主网卡。
+      /// 
 public class DetachNetworkInterfaceExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

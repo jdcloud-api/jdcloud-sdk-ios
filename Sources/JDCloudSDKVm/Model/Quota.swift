@@ -25,5 +25,40 @@
 import Foundation
 
 ///  quota
-public class Quota:Codable{
+@objc(Quota)
+public class Quota:NSObject,Codable{
+    /// 资源类型[instance，keypair，image，instanceTemplate]
+    var resourceType:String?
+    /// 配额上限
+    var limit:Int?
+    /// 已用配额
+    var used:Int?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum QuotaCodingKeys: String, CodingKey {
+        case resourceType
+        case limit
+        case used
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: QuotaCodingKeys.self)
+        self.resourceType = try decoderContainer.decode(String?.self, forKey: .resourceType)
+        self.limit = try decoderContainer.decode(Int?.self, forKey: .limit)
+        self.used = try decoderContainer.decode(Int?.self, forKey: .used)
+    }
+}
+public extension Quota{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: QuotaCodingKeys.self)
+         try encoderContainer.encode(resourceType, forKey: .resourceType)
+         try encoderContainer.encode(limit, forKey: .limit)
+         try encoderContainer.encode(used, forKey: .used)
+    }
 }

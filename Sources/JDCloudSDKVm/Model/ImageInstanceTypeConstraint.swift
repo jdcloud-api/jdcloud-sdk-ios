@@ -25,5 +25,35 @@
 import Foundation
 
 ///  imageInstanceTypeConstraint
-public class ImageInstanceTypeConstraint:Codable{
+@objc(ImageInstanceTypeConstraint)
+public class ImageInstanceTypeConstraint:NSObject,Codable{
+    /// 限制类型。取值：excludes：不支持的实例类型；includes：支持的实例类型。
+    var constraintsType:String?
+    /// 实例规格列表
+    var instanceTypes:[String?]?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum ImageInstanceTypeConstraintCodingKeys: String, CodingKey {
+        case constraintsType
+        case instanceTypes
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: ImageInstanceTypeConstraintCodingKeys.self)
+        self.constraintsType = try decoderContainer.decode(String?.self, forKey: .constraintsType)
+        self.instanceTypes = try decoderContainer.decode([String?]?.self, forKey: .instanceTypes)
+    }
+}
+public extension ImageInstanceTypeConstraint{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: ImageInstanceTypeConstraintCodingKeys.self)
+         try encoderContainer.encode(constraintsType, forKey: .constraintsType)
+         try encoderContainer.encode(instanceTypes, forKey: .instanceTypes)
+    }
 }

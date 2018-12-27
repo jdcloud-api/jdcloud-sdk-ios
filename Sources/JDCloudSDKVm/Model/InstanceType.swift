@@ -25,5 +25,70 @@
 import Foundation
 
 ///  instanceType
-public class InstanceType:Codable{
+@objc(InstanceType)
+public class InstanceType:NSObject,Codable{
+    /// 实例规格类型
+    var family:String?
+    /// 实例规格，比如g.b1.2xlarge
+    var instanceTypeValue:String?
+    /// cpu个数
+    var cpu:Int?
+    /// 内存大小
+    var memoryMB:Int?
+    /// 支持弹性网卡的数量
+    var nicLimit:Int?
+    /// 描述
+    var desc:String?
+    /// 规格状态
+    var state:InstanceTypeState?
+    /// Gpu配置
+    var gpu:Gpu?
+    /// 本地缓存盘配置，目前只有Gpu规格上才有
+    var localDisks:LocalDisk?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceTypeCodingKeys: String, CodingKey {
+        case family
+        case instanceTypeValue = "instanceType"
+        case cpu
+        case memoryMB
+        case nicLimit
+        case desc
+        case state
+        case gpu
+        case localDisks
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceTypeCodingKeys.self)
+        self.family = try decoderContainer.decode(String?.self, forKey: .family)
+        self.instanceTypeValue = try decoderContainer.decode(String?.self, forKey: .instanceTypeValue)
+        self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
+        self.memoryMB = try decoderContainer.decode(Int?.self, forKey: .memoryMB)
+        self.nicLimit = try decoderContainer.decode(Int?.self, forKey: .nicLimit)
+        self.desc = try decoderContainer.decode(String?.self, forKey: .desc)
+        self.state = try decoderContainer.decode(InstanceTypeState?.self, forKey: .state)
+        self.gpu = try decoderContainer.decode(Gpu?.self, forKey: .gpu)
+        self.localDisks = try decoderContainer.decode(LocalDisk?.self, forKey: .localDisks)
+    }
+}
+public extension InstanceType{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceTypeCodingKeys.self)
+         try encoderContainer.encode(family, forKey: .family)
+         try encoderContainer.encode(instanceTypeValue, forKey: .instanceTypeValue)
+         try encoderContainer.encode(cpu, forKey: .cpu)
+         try encoderContainer.encode(memoryMB, forKey: .memoryMB)
+         try encoderContainer.encode(nicLimit, forKey: .nicLimit)
+         try encoderContainer.encode(desc, forKey: .desc)
+         try encoderContainer.encode(state, forKey: .state)
+         try encoderContainer.encode(gpu, forKey: .gpu)
+         try encoderContainer.encode(localDisks, forKey: .localDisks)
+    }
 }

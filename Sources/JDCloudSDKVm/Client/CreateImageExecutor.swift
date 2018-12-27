@@ -27,10 +27,10 @@ import JDCloudSDKCore
 
 
 ///  为云主机创建私有镜像。云主机状态必须为&lt;b&gt;stopped&lt;/b&gt;。&lt;br&gt;
-        /// 云主机没有正在进行中的任务才可制作镜像。&lt;br&gt;
-        /// 制作镜像以备份系统盘为基础，在此之上可选择全部或部分挂载数据盘制作整机镜像（如不做任何更改将默认制作整机镜像），制作镜像过程会为所挂载云硬盘创建快照并与镜像关联。&lt;br&gt;
-        /// 调用接口后，需要等待镜像状态变为&lt;b&gt;ready&lt;/b&gt;后，才能正常使用镜像。
-        /// 
+      /// 云主机没有正在进行中的任务才可制作镜像。&lt;br&gt;
+      /// 制作镜像以备份系统盘为基础，在此之上可选择全部或部分挂载数据盘制作整机镜像（如不做任何更改将默认制作整机镜像），制作镜像过程会为所挂载云硬盘创建快照并与镜像关联。&lt;br&gt;
+      /// 调用接口后，需要等待镜像状态变为&lt;b&gt;ready&lt;/b&gt;后，才能正常使用镜像。
+      /// 
 public class CreateImageExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

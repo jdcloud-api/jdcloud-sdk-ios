@@ -25,5 +25,35 @@
 import Foundation
 
 ///  instanceTypeState
-public class InstanceTypeState:Codable{
+@objc(InstanceTypeState)
+public class InstanceTypeState:NSObject,Codable{
+    /// 可用区
+    var az:String?
+    /// 可售卖情况，true:可售卖、false:已售罄不可用
+    var inStock:Bool?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceTypeStateCodingKeys: String, CodingKey {
+        case az
+        case inStock
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceTypeStateCodingKeys.self)
+        self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        self.inStock = try decoderContainer.decode(Bool?.self, forKey: .inStock)
+    }
+}
+public extension InstanceTypeState{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceTypeStateCodingKeys.self)
+         try encoderContainer.encode(az, forKey: .az)
+         try encoderContainer.encode(inStock, forKey: .inStock)
+    }
 }

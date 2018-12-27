@@ -29,7 +29,7 @@ public enum HTTPMethod: String {
 
 
 
-public typealias RequestCompletion = (String?,Int32?,Error?,Data?)->()
+public typealias RequestCompletion = (String?,Int32?,Error?)->()
 
 
 ///  async http request
@@ -84,14 +84,14 @@ public func httpRequestAsync(urlStr:String,content:String,header:[String:String]
             resultString = String(data: data!, encoding: .utf8)
             if(GlobalConfig.debug)
             {
-                 print(resultString ?? "response data is empty")
+                print(resultString ?? "response data is empty")
             }
         }
         if(httpResponse != nil)
         {
             statusCode = Int32(httpResponse!.statusCode)
         }
-        requestComplation(resultString,statusCode,error,data)
+        requestComplation(resultString,statusCode,error)
         
     }
     dataTask.resume()
@@ -107,7 +107,7 @@ public func httpRequestAsync(urlStr:String,content:String,header:[String:String]
 ///   - requestMethod: request method string like GET POST HEAD PUT OPTIONS DELETE etc.
 /// - Returns: response statusCode and response data
 /// - Throws: process error
-public func httpRequestSync(urlStr:String,content:String,header:[String:String]?,requestMethod:String) throws ->  (Int32,String?,Error?,Data?){
+public func httpRequestSync(urlStr:String,content:String,header:[String:String]?,requestMethod:String) throws ->  (Int32,String?,Error?){
     if(GlobalConfig.debug)
     {
         print("requestUrl is \(urlStr)")
@@ -150,7 +150,7 @@ public func httpRequestSync(urlStr:String,content:String,header:[String:String]?
         if(error == nil){
             responseData = data
         }
-         semaphore.signal()
+        semaphore.signal()
     }
     dataTask.resume()
     _ = semaphore.wait(timeout: DispatchTime.distantFuture)
@@ -168,7 +168,7 @@ public func httpRequestSync(urlStr:String,content:String,header:[String:String]?
             print(stringResult ?? "response data is empty")
         }
         
-        return (statusCode,stringResult,requestError,responseData)
+        return (statusCode,stringResult,requestError)
     }
-    return (statusCode,nil,requestError,responseData)
+    return (statusCode,nil,requestError)
 }

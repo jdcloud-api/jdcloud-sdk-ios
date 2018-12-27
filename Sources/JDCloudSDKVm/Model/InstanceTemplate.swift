@@ -25,5 +25,55 @@
 import Foundation
 
 ///  instanceTemplate
-public class InstanceTemplate:Codable{
+@objc(InstanceTemplate)
+public class InstanceTemplate:NSObject,Codable{
+    /// 启动模板ID
+    var id:String?
+    /// 启动模板名称
+    var name:String?
+    /// 启动模板描述
+    var descriptionValue:String?
+    /// 启动模板的数据
+    var instanceTemplateData:InstanceTemplateData?
+    /// 关联的高可用组(ag)信息
+    var ags:Ag?
+    /// 创建时间
+    var createdTime:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum InstanceTemplateCodingKeys: String, CodingKey {
+        case id
+        case name
+        case descriptionValue = "description"
+        case instanceTemplateData
+        case ags
+        case createdTime
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: InstanceTemplateCodingKeys.self)
+        self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        self.instanceTemplateData = try decoderContainer.decode(InstanceTemplateData?.self, forKey: .instanceTemplateData)
+        self.ags = try decoderContainer.decode(Ag?.self, forKey: .ags)
+        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+    }
+}
+public extension InstanceTemplate{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: InstanceTemplateCodingKeys.self)
+         try encoderContainer.encode(id, forKey: .id)
+         try encoderContainer.encode(name, forKey: .name)
+         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
+         try encoderContainer.encode(instanceTemplateData, forKey: .instanceTemplateData)
+         try encoderContainer.encode(ags, forKey: .ags)
+         try encoderContainer.encode(createdTime, forKey: .createdTime)
+    }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 
-public typealias ExecuteResult<T:JdCloudResult> = (Int32?,JdCloudResponse<T>?,Error?,Data?)->()
+ 
 
-open class JDCloudExecutor{
+open class JDCloudExecutor:NSObject{
     
     var jdCloudClient:JDCloudClient;
     
@@ -31,60 +31,28 @@ open class JDCloudExecutor{
     }
     
     
-    public func executeSync<T:JdCloudRequest,P:JdCloudResult>(request:T) throws -> (JdCloudResponse<P>?,Data?)
+    public func executeSync<T:JdCloudRequest>(request:T) throws -> (Int32?,Error?,String?)
     {
-        var result:JdCloudResponse<P>?
+        
         let (signedRequestInfo,requestInfo) = try executeSign(request: request)
         var requestHeader = signedRequestInfo.requestHead
         requestHeader["HEADER_USER_AGENT"] = jdCloudClient.userAgent
-       // requestHeader = processRequestHeader(requestHeader: requestHeader)
-        let (statusCode,data,error,responseData) = try httpRequestSync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method)
+        // requestHeader = processRequestHeader(requestHeader: requestHeader)
+        let (statusCode,data,error) = try httpRequestSync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method)
         if(error == nil)
-        {
-            if(statusCode == 200 && data != nil  )
-            {
-                let responseData = data!.data(using: .utf8)
-                if(responseData != nil)
-                {
-                    result = try JSONDecoder().decode(JdCloudResponse<P>.self, from: responseData!)
-                }
-            }
+        { 
+           return (statusCode,error,data)
         }else{
             throw error!
-        }
-        return (result,responseData);
+        } 
     }
     
-    public func executeAsync<T:JdCloudRequest,P:JdCloudResult>(request:T,executeComplation:@escaping ExecuteResult<P>) throws{
+    public func executeAsync<T:JdCloudRequest>(request:T,executeComplation:@escaping (Int32?,Error?,String?)->()) throws{
         let (signedRequestInfo,requestInfo) = try executeSign(request: request)
         var requestHeader = signedRequestInfo.requestHead
         requestHeader[HEADER_USER_AGENT] = jdCloudClient.userAgent
-        try httpRequestAsync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method, requestComplation: { (dataString, statusCode, requestError,responseDate) in
-            if(requestError == nil)
-            {
-                if(statusCode != nil)
-                {
-                    if(dataString != nil)
-                    {
-                        let responseData = dataString!.data(using: .utf8)
-                        if(responseData != nil)
-                        {
-                            do{
-                                let result = try JSONDecoder().decode(JdCloudResponse<P>.self, from: responseData!)
-                                executeComplation(statusCode,result,requestError,responseDate)
-                            }catch{
-                                 executeComplation(statusCode,nil,error,responseDate)
-                            }
-                        }
-                    }else{
-                          executeComplation(statusCode,nil,nil,responseDate)
-                    }
-                }else{
-                     executeComplation(statusCode,nil,requestError,responseDate)
-                }
-            }else{
-                 executeComplation(statusCode,nil,requestError,responseDate)
-            }
+        try httpRequestAsync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method, requestComplation: { (dataString, statusCode, requestError) in
+                executeComplation(statusCode,requestError,dataString)
         })
     }
     
@@ -108,7 +76,7 @@ open class JDCloudExecutor{
         let jdCloudSigner = JDCloudSigner(serviceName:jdCloudClient.serviceName , regionId: request.regionId, dateTime: Date(), credential: jdCloudClient.credential)
         
         let signResult:SignedRequestInfo = try jdCloudSigner.doSign(requestInfo: requestInfo)
-         
+        
         return (signResult,requestInfo);
     }
     
@@ -199,13 +167,13 @@ open class JDCloudExecutor{
                     if(!url.contains(key) && key != "version")
                     {
                         param = param + "&" + key + "=" + (requestParams[key] ?? "")
-                    } 
+                    }
                 }
             }
             if(!param.isEmpty)
             {
                 param.removeFirst();
-                param = "?" + param 
+                param = "?" + param
             }
             return param
         }else{
@@ -236,11 +204,11 @@ open class JDCloudExecutor{
         }
         else{
             if(value is String){
-              
+                
                 let stringValue = value as! String
                 if(!stringValue.isEmpty)
                 {
-                     paramDic[key!] = stringValue
+                    paramDic[key!] = stringValue
                 }
             }else if(value is Character)
             {
@@ -305,12 +273,6 @@ open class JDCloudExecutor{
                 {
                     paramDic[key!] = String(float64Value)
                 }
-            }else if(value is Float80 ){
-                let float80Value = value as! Double
-                if(!String(float80Value).isEmpty)
-                {
-                    paramDic[key!] = String(float80Value)
-                }
             }else if( value is Bool)
             {
                 let boolValue = value as! Bool
@@ -328,7 +290,6 @@ open class JDCloudExecutor{
                 value is Dictionary<Float,Any> ||
                 value is Dictionary<Float32,Any> ||
                 value is Dictionary<Float64,Any> ||
-                value is Dictionary<Float80,Any> ||
                 value is Dictionary<String?,Any> ||
                 value is Dictionary<Character?,Any> ||
                 value is Dictionary<Int?,Any> ||
@@ -337,8 +298,7 @@ open class JDCloudExecutor{
                 value is Dictionary<Double?,Any> ||
                 value is Dictionary<Float?,Any> ||
                 value is Dictionary<Float32?,Any> ||
-                value is Dictionary<Float64?,Any> ||
-                value is Dictionary<Float80?,Any>  )
+                value is Dictionary<Float64?,Any> )
             {
                 // TODO 这个地方暂时不做支持，需要注意
             }
@@ -434,22 +394,16 @@ open class JDCloudExecutor{
                 {
                     paramDic[superName!+"."+String(i+1)] = String(float64Value)
                 }
-            }else if(item is Float80 ){
-                let float80Value = item as! Double
-                if(!String(float80Value).isEmpty)
-                {
-                    paramDic[superName!+"."+String(i+1)] = String(float80Value)
-                }
-            }else if( item is Bool)
+            } else if( item is Bool)
             {
                 let boolValue = item as! Bool
                 if(!String(boolValue).isEmpty)
                 {
-                     paramDic[superName!+"."+String(i+1)] = String(boolValue)
+                    paramDic[superName!+"."+String(i+1)] = String(boolValue)
                 }
                 
             }
-             else if(item is Dictionary<String,Any> ||
+            else if(item is Dictionary<String,Any> ||
                 item is Dictionary<Character,Any> ||
                 item is Dictionary<Int,Any> ||
                 item is Dictionary<Int32,Any> ||
@@ -458,7 +412,6 @@ open class JDCloudExecutor{
                 item is Dictionary<Float,Any> ||
                 item is Dictionary<Float32,Any> ||
                 item is Dictionary<Float64,Any> ||
-                item is Dictionary<Float80,Any> ||
                 item is Dictionary<String?,Any> ||
                 item is Dictionary<Character?,Any> ||
                 item is Dictionary<Int?,Any> ||
@@ -467,8 +420,7 @@ open class JDCloudExecutor{
                 item is Dictionary<Double?,Any> ||
                 item is Dictionary<Float?,Any> ||
                 item is Dictionary<Float32?,Any> ||
-                item is Dictionary<Float64?,Any> ||
-                item is Dictionary<Float80?,Any>  )
+                item is Dictionary<Float64?,Any>  )
             {
                 // TODO 这个地方暂时不做支持，需要注意
             } else {
@@ -507,14 +459,14 @@ open class JDCloudExecutor{
                         let stringValue = value as! String
                         if(!stringValue.isEmpty)
                         {
-                             paramDic[paramName]  = stringValue
+                            paramDic[paramName]  = stringValue
                         }
                     }else if(value is Character)
                     {
                         let characterValue = value as! Character
                         if(!String(characterValue).isEmpty)
                         {
-                             paramDic[paramName]  = String(characterValue)
+                            paramDic[paramName]  = String(characterValue)
                         }
                         
                     }else if(value is Double)
@@ -522,43 +474,43 @@ open class JDCloudExecutor{
                         let doubleValue = value as! Double
                         if(!String(doubleValue).isEmpty)
                         {
-                             paramDic[paramName]  = String(doubleValue)
+                            paramDic[paramName]  = String(doubleValue)
                         }
                     }else if(value is Int ){
                         let intValue = value as! Int
                         if(!String(intValue).isEmpty)
                         {
-                             paramDic[paramName]  = String(intValue)
+                            paramDic[paramName]  = String(intValue)
                         }
                     }else if(value is Int8 ){
                         let int8Value = value as! Int8
                         if(!String(int8Value).isEmpty)
                         {
-                             paramDic[paramName]  = String(int8Value)
+                            paramDic[paramName]  = String(int8Value)
                         }
                     }else if(value is Int16 ){
                         let int16Value = value as! Int16
                         if(!String(int16Value).isEmpty)
                         {
-                             paramDic[paramName]  = String(int16Value)
+                            paramDic[paramName]  = String(int16Value)
                         }
                     }else if(value is Int32 ){
                         let int32Value = value as! Int32
                         if(!String(int32Value).isEmpty)
                         {
-                             paramDic[paramName]  = String(int32Value)
+                            paramDic[paramName]  = String(int32Value)
                         }
                     }else if(value is Int64 ){
                         let int64Value = value as! Int64
                         if(!String(int64Value).isEmpty)
                         {
-                             paramDic[paramName]  = String(int64Value)
+                            paramDic[paramName]  = String(int64Value)
                         }
                     }else if(value is Float ){
                         let floatValue = value as! Float
                         if(!String(floatValue).isEmpty)
                         {
-                             paramDic[paramName]  = String(floatValue)
+                            paramDic[paramName]  = String(floatValue)
                         }
                     }else if(value is Float32 ){
                         let float32Value = value as! Float32
@@ -570,20 +522,14 @@ open class JDCloudExecutor{
                         let float64Value = value as! Float64
                         if(!String(float64Value).isEmpty)
                         {
-                             paramDic[paramName]  = String(float64Value)
+                            paramDic[paramName]  = String(float64Value)
                         }
-                    }else if(value is Float80 ){
-                        let float80Value = value as! Double
-                        if(!String(float80Value).isEmpty)
-                        {
-                             paramDic[paramName]  = String(float80Value)
-                        }
-                    }else if( value is Bool)
+                    } else if( value is Bool)
                     {
                         let boolValue = value as! Bool
                         if(!String(boolValue).isEmpty)
                         {
-                             paramDic[paramName] = String(boolValue)
+                            paramDic[paramName] = String(boolValue)
                         }
                         
                     } else if(value is Dictionary<String,Any> ||
@@ -595,7 +541,6 @@ open class JDCloudExecutor{
                         value is Dictionary<Float,Any> ||
                         value is Dictionary<Float32,Any> ||
                         value is Dictionary<Float64,Any> ||
-                        value is Dictionary<Float80,Any> ||
                         value is Dictionary<String?,Any> ||
                         value is Dictionary<Character?,Any> ||
                         value is Dictionary<Int?,Any> ||
@@ -604,8 +549,7 @@ open class JDCloudExecutor{
                         value is Dictionary<Double?,Any> ||
                         value is Dictionary<Float?,Any> ||
                         value is Dictionary<Float32?,Any> ||
-                        value is Dictionary<Float64?,Any> ||
-                        value is Dictionary<Float80?,Any>  )
+                        value is Dictionary<Float64?,Any> )
                     {
                         // TODO 这个地方暂时不做支持，需要注意
                     }else
@@ -640,7 +584,7 @@ open class JDCloudExecutor{
     }
     
     //替换 url 内参数
-   public func repaceUrl(httpUrl:String,request:JdCloudRequest) -> String {
+    public func repaceUrl(httpUrl:String,request:JdCloudRequest) -> String {
         if(httpUrl.isEmpty)
         {
             return "";
@@ -654,7 +598,7 @@ open class JDCloudExecutor{
         var resultHttpUrl = httpUrl as NSString
         let regex = try! NSRegularExpression(pattern: PATTERN, options: NSRegularExpression.Options.caseInsensitive)
         let res = regex.matches(in: httpUrl, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, httpUrl.count))
-    
+        
         for  rst in res {
             var replaceNSString = requestHttpUrl.substring(with: rst.range)
             let regexString = replaceNSString as String
@@ -707,7 +651,7 @@ open class JDCloudExecutor{
                 return value as! String
             }
         }
-       
+        
         throw SDKError.paramRequestError("get path param error");
     }
     
@@ -728,6 +672,19 @@ open class JDCloudExecutor{
                 chlidrens.append(child);
             }
         }
+        if mirror.superclassMirror != nil && mirror.superclassMirror!.superclassMirror != nil && mirror.superclassMirror!.superclassMirror!.children.count > 0{
+            mirror.superclassMirror!.superclassMirror!.children.forEach { (child) in
+                chlidrens.append(child);
+            }
+        }
+        if mirror.superclassMirror != nil &&
+            mirror.superclassMirror!.superclassMirror != nil &&
+            mirror.superclassMirror!.superclassMirror!.superclassMirror != nil &&
+            mirror.superclassMirror!.superclassMirror!.superclassMirror!.children.count > 0{
+            mirror.superclassMirror!.superclassMirror!.superclassMirror!.children.forEach { (child) in
+                chlidrens.append(child);
+            }
+        }
         if(mirror.children.count>0)
         {
             mirror.children.forEach { (child) in
@@ -745,7 +702,7 @@ open class JDCloudExecutor{
             }
             return resultModel;
         }
-      return nil
+        return nil
     }
     
 }

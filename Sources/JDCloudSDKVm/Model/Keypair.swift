@@ -25,5 +25,40 @@
 import Foundation
 
 ///  keypair
-public class Keypair:Codable{
+@objc(Keypair)
+public class Keypair:NSObject,Codable{
+    /// 密钥对名称
+    var keyName:String?
+    /// 密钥对的指纹，根据 RFC4716 定义的公钥指纹格式，采用 MD5 信息摘要算法。
+    var keyFingerprint:String?
+    /// 创建时间
+    var createTime:String?
+
+
+
+    public override init(){
+            super.init()
+    }
+
+    enum KeypairCodingKeys: String, CodingKey {
+        case keyName
+        case keyFingerprint
+        case createTime
+    }
+
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: KeypairCodingKeys.self)
+        self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
+        self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+    }
+}
+public extension Keypair{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: KeypairCodingKeys.self)
+         try encoderContainer.encode(keyName, forKey: .keyName)
+         try encoderContainer.encode(keyFingerprint, forKey: .keyFingerprint)
+         try encoderContainer.encode(createTime, forKey: .createTime)
+    }
 }

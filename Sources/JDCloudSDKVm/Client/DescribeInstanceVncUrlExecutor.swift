@@ -27,8 +27,8 @@ import JDCloudSDKCore
 
 
 ///  获取云主机vnc，用于连接管理云主机。&lt;br&gt;
-        /// vnc地址的有效期为1个小时，调用接口获取vnc地址后如果1个小时内没有使用，vnc地址自动失效，再次使用需要重新获取。
-        /// 
+      /// vnc地址的有效期为1个小时，调用接口获取vnc地址后如果1个小时内没有使用，vnc地址自动失效，再次使用需要重新获取。
+      /// 
 public class DescribeInstanceVncUrlExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

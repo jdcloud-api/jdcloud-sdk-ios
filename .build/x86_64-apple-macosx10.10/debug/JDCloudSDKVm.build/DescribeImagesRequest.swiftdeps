@@ -1,0 +1,406 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DescribeImagesRequest"
+provides-nominal:
+- "12JDCloudSDKVm21DescribeImagesRequestC"
+- "12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO"
+provides-member:
+- ["12JDCloudSDKVm21DescribeImagesRequestC", ""]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "CodingKey"
+- "DescribeImagesRequest"
+- "Encoder"
+- !private "FloatLiteralType"
+- "Int"
+- !private "IntegerLiteralType"
+- "JdCloudRequest"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "DescribeImagesRequestRequestCodingKeys"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "ids"]
+- !private ["s7CVarArgP", "imageSource"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "pageNumber"]
+- !private ["s7CVarArgP", "pageSize"]
+- !private ["s7CVarArgP", "platform"]
+- !private ["s7CVarArgP", "rootDeviceType"]
+- !private ["s7CVarArgP", "status"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- !private ["s9CodingKeyP", "ids"]
+- !private ["s9CodingKeyP", "imageSource"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "pageNumber"]
+- !private ["s9CodingKeyP", "pageSize"]
+- !private ["s9CodingKeyP", "platform"]
+- ["s9CodingKeyP", "rawValue"]
+- !private ["s9CodingKeyP", "rootDeviceType"]
+- !private ["s9CodingKeyP", "status"]
+- ["s9CodingKeyP", "stringValue"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeImagesRequestRequestCodingKeys"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "ids"]
+- !private ["s28CustomDebugStringConvertibleP", "imageSource"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "pageNumber"]
+- !private ["s28CustomDebugStringConvertibleP", "pageSize"]
+- !private ["s28CustomDebugStringConvertibleP", "platform"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "rootDeviceType"]
+- !private ["s28CustomDebugStringConvertibleP", "status"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "DescribeImagesRequestRequestCodingKeys"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- !private ["s23CustomStringConvertibleP", "ids"]
+- !private ["s23CustomStringConvertibleP", "imageSource"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "pageNumber"]
+- !private ["s23CustomStringConvertibleP", "pageSize"]
+- !private ["s23CustomStringConvertibleP", "platform"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- !private ["s23CustomStringConvertibleP", "rootDeviceType"]
+- !private ["s23CustomStringConvertibleP", "status"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "init"]
+- ["Se", "init"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "CodingKey"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "DescribeImagesRequestRequestCodingKeys"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "Encoder"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "Int"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "String"]
+- !private ["12JDCloudSDKVm21DescribeImagesRequestC", "_findStringSwitchCase"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "encode"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "ids"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "imageSource"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "init"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "pageNumber"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "pageSize"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "platform"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "rootDeviceType"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC", "status"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "RawValue"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "_Default_RawValue"]
+- !private ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "_findStringSwitchCase"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "debugDescription"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "deinit"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "description"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "hash"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "hashValue"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "ids"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "imageSource"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "init"]
+- !private ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "init"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "intValue"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "pageNumber"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "pageSize"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "platform"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "rawValue"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "rootDeviceType"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "status"]
+- ["12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO", "stringValue"]
+- !private ["SE", "DescribeImagesRequestRequestCodingKeys"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "ids"]
+- !private ["SE", "imageSource"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "pageNumber"]
+- !private ["SE", "pageSize"]
+- !private ["SE", "platform"]
+- !private ["SE", "rootDeviceType"]
+- !private ["SE", "status"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "DescribeImagesRequestRequestCodingKeys"]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "ids"]
+- !private ["SQ", "imageSource"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "pageNumber"]
+- !private ["SQ", "pageSize"]
+- !private ["SQ", "platform"]
+- ["SQ", "rawValue"]
+- !private ["SQ", "rootDeviceType"]
+- !private ["SQ", "status"]
+- ["SQ", "stringValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "DescribeImagesRequestRequestCodingKeys"]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "ids"]
+- !private ["SH", "imageSource"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "pageNumber"]
+- !private ["SH", "pageSize"]
+- !private ["SH", "platform"]
+- ["SH", "rawValue"]
+- !private ["SH", "rootDeviceType"]
+- !private ["SH", "status"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "CodingKey"]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "DescribeImagesRequestRequestCodingKeys"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Encoder"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Int"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "String"]
+- ["14JDCloudSDKCore14JdCloudRequestC", ""]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "_findStringSwitchCase"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "encode"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "ids"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "imageSource"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "init"]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "init"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "pageNumber"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "pageSize"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "platform"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "rootDeviceType"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "status"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "CodingKey"]
+- !private ["So8NSObjectC", "DescribeImagesRequestRequestCodingKeys"]
+- ["So8NSObjectC", "Encoder"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "ids"]
+- ["So8NSObjectC", "imageSource"]
+- !private ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "pageNumber"]
+- ["So8NSObjectC", "pageSize"]
+- ["So8NSObjectC", "platform"]
+- ["So8NSObjectC", "rootDeviceType"]
+- ["So8NSObjectC", "status"]
+- !private ["So8NSObjectP", "DescribeImagesRequestRequestCodingKeys"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- !private ["So8NSObjectP", "ids"]
+- !private ["So8NSObjectP", "imageSource"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "pageNumber"]
+- !private ["So8NSObjectP", "pageSize"]
+- !private ["So8NSObjectP", "platform"]
+- !private ["So8NSObjectP", "rootDeviceType"]
+- !private ["So8NSObjectP", "status"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- !private ["SY", "ids"]
+- !private ["SY", "imageSource"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- !private ["SY", "pageNumber"]
+- !private ["SY", "pageSize"]
+- !private ["SY", "platform"]
+- ["SY", "rawValue"]
+- !private ["SY", "rootDeviceType"]
+- !private ["SY", "status"]
+- ["SY", "stringValue"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeImagesRequestRequestCodingKeys"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ids"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "imageSource"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageNumber"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "platform"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "rootDeviceType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "status"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "12JDCloudSDKVm21DescribeImagesRequestC"
+- "12JDCloudSDKVm21DescribeImagesRequestC0cdeE10CodingKeysO"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- "14JDCloudSDKCore14JdCloudRequestC"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKVpc.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCharge.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKDisk.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "6c8abff6f584938eff93dc9a43a461e9"

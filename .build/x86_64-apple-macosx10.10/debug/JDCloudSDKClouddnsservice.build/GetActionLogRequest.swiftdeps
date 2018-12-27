@@ -1,0 +1,403 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "GetActionLogRequest"
+provides-nominal:
+- "25JDCloudSDKClouddnsservice19GetActionLogRequestC"
+- "25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO"
+provides-member:
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", ""]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "Bool"
+- "CodingKey"
+- "Encoder"
+- !private "FloatLiteralType"
+- "GetActionLogRequest"
+- "Int"
+- !private "IntegerLiteralType"
+- "JdCloudRequest"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "GetActionLogRequestRequestCodingKeys"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "endTime"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "keyWord"]
+- !private ["s7CVarArgP", "pageNumber"]
+- !private ["s7CVarArgP", "pageSize"]
+- !private ["s7CVarArgP", "startTime"]
+- !private ["s7CVarArgP", "success"]
+- !private ["s7CVarArgP", "type"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "endTime"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "keyWord"]
+- !private ["s9CodingKeyP", "pageNumber"]
+- !private ["s9CodingKeyP", "pageSize"]
+- ["s9CodingKeyP", "rawValue"]
+- !private ["s9CodingKeyP", "startTime"]
+- ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "success"]
+- !private ["s9CodingKeyP", "type"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "GetActionLogRequestRequestCodingKeys"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "endTime"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "keyWord"]
+- !private ["s28CustomDebugStringConvertibleP", "pageNumber"]
+- !private ["s28CustomDebugStringConvertibleP", "pageSize"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "startTime"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "success"]
+- !private ["s28CustomDebugStringConvertibleP", "type"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "GetActionLogRequestRequestCodingKeys"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "endTime"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "keyWord"]
+- !private ["s23CustomStringConvertibleP", "pageNumber"]
+- !private ["s23CustomStringConvertibleP", "pageSize"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- !private ["s23CustomStringConvertibleP", "startTime"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "success"]
+- !private ["s23CustomStringConvertibleP", "type"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["SE", "GetActionLogRequestRequestCodingKeys"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "endTime"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "keyWord"]
+- !private ["SE", "pageNumber"]
+- !private ["SE", "pageSize"]
+- !private ["SE", "startTime"]
+- !private ["SE", "success"]
+- !private ["SE", "type"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "GetActionLogRequestRequestCodingKeys"]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- !private ["SQ", "endTime"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "keyWord"]
+- !private ["SQ", "pageNumber"]
+- !private ["SQ", "pageSize"]
+- ["SQ", "rawValue"]
+- !private ["SQ", "startTime"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "success"]
+- !private ["SQ", "type"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "Bool"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "CodingKey"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "Encoder"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "GetActionLogRequestRequestCodingKeys"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "Int"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "String"]
+- !private ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "_findStringSwitchCase"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "encode"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "endTime"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "init"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "keyWord"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "pageNumber"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "pageSize"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "startTime"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "success"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC", "type"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "RawValue"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "_Default_RawValue"]
+- !private ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "_findStringSwitchCase"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "debugDescription"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "deinit"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "description"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "endTime"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "hash"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "hashValue"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "init"]
+- !private ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "init"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "intValue"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "keyWord"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "pageNumber"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "pageSize"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "rawValue"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "startTime"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "stringValue"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "success"]
+- ["25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO", "type"]
+- !private ["SH", "GetActionLogRequestRequestCodingKeys"]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- !private ["SH", "endTime"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "keyWord"]
+- !private ["SH", "pageNumber"]
+- !private ["SH", "pageSize"]
+- ["SH", "rawValue"]
+- !private ["SH", "startTime"]
+- ["SH", "stringValue"]
+- !private ["SH", "success"]
+- !private ["SH", "type"]
+- !private ["s6HasherV", "combine"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Bool"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "CodingKey"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Encoder"]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "GetActionLogRequestRequestCodingKeys"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "Int"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "String"]
+- ["14JDCloudSDKCore14JdCloudRequestC", ""]
+- !private ["14JDCloudSDKCore14JdCloudRequestC", "_findStringSwitchCase"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "encode"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "endTime"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "init"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "keyWord"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "pageNumber"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "pageSize"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "startTime"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "success"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "type"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "CodingKey"]
+- ["So8NSObjectC", "Encoder"]
+- !private ["So8NSObjectC", "GetActionLogRequestRequestCodingKeys"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "endTime"]
+- ["So8NSObjectC", "keyWord"]
+- ["So8NSObjectC", "pageNumber"]
+- ["So8NSObjectC", "pageSize"]
+- ["So8NSObjectC", "startTime"]
+- ["So8NSObjectC", "success"]
+- ["So8NSObjectC", "type"]
+- !private ["So8NSObjectP", "GetActionLogRequestRequestCodingKeys"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- !private ["So8NSObjectP", "endTime"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "keyWord"]
+- !private ["So8NSObjectP", "pageNumber"]
+- !private ["So8NSObjectP", "pageSize"]
+- !private ["So8NSObjectP", "startTime"]
+- !private ["So8NSObjectP", "success"]
+- !private ["So8NSObjectP", "type"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- !private ["SY", "endTime"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- !private ["SY", "keyWord"]
+- !private ["SY", "pageNumber"]
+- !private ["SY", "pageSize"]
+- ["SY", "rawValue"]
+- !private ["SY", "startTime"]
+- ["SY", "stringValue"]
+- !private ["SY", "success"]
+- !private ["SY", "type"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetActionLogRequestRequestCodingKeys"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "endTime"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "keyWord"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageNumber"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "startTime"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "success"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "type"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "25JDCloudSDKClouddnsservice19GetActionLogRequestC"
+- "25JDCloudSDKClouddnsservice19GetActionLogRequestC0cdefF10CodingKeysO"
+- "SH"
+- !private "s6HasherV"
+- "14JDCloudSDKCore14JdCloudRequestC"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "1bcfdbe141a850b8728ea819ba8c02ee"

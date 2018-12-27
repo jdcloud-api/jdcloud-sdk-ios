@@ -1,0 +1,600 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "BaseantiJDCloudClient"
+provides-nominal:
+- "18JDCloudSDKBaseanti08BaseantiA6ClientC"
+provides-member:
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", ""]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "describeIpResourceFlowAsync"
+- "describeIpResourceInfoAsync"
+- "describeIpResourceProtectInfoAsync"
+- "describeIpResourcesAsync"
+- "httpRequestProtocol"
+- "setCleanThresholdAsync"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- "AssignmentPrecedence"
+- "BaseantiJDCloudClient"
+- !private "CastingPrecedence"
+- "Credential"
+- !private "DescribeIpResourceFlowExecutor"
+- "DescribeIpResourceFlowRequest"
+- "DescribeIpResourceFlowResponse"
+- !private "DescribeIpResourceInfoExecutor"
+- "DescribeIpResourceInfoRequest"
+- "DescribeIpResourceInfoResponse"
+- !private "DescribeIpResourceProtectInfoExecutor"
+- "DescribeIpResourceProtectInfoRequest"
+- "DescribeIpResourceProtectInfoResponse"
+- !private "DescribeIpResourcesExecutor"
+- "DescribeIpResourcesRequest"
+- "DescribeIpResourcesResponse"
+- !private "GlobalConfig"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- "SDKEnvironment"
+- !private "SetCleanThresholdExecutor"
+- "SetCleanThresholdRequest"
+- "SetCleanThresholdResponse"
+- "String"
+- "StringLiteralType"
+depends-member:
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "BaseantiJDCloudClient"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "Credential"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceFlowExecutor"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceFlowRequest"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceFlowResponse"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceInfoExecutor"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceInfoRequest"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceInfoResponse"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceProtectInfoExecutor"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceProtectInfoRequest"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourceProtectInfoResponse"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourcesExecutor"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourcesRequest"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "DescribeIpResourcesResponse"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "GlobalConfig"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "JSONDecoder"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "NSError"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "NSNumber"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "NSString"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "SDKEnvironment"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "SetCleanThresholdExecutor"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "SetCleanThresholdRequest"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "SetCleanThresholdResponse"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "String"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "addCustomer"]
+- !private ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "baseantiJDCloudClient"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "contentType"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "credential"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "customHeader"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "deinit"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "describeIpResourceFlowAsync"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "describeIpResourceInfoAsync"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "describeIpResourceProtectInfoAsync"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "describeIpResourcesAsync"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "httpRequestProtocol"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "init"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "sdkEnvironment"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "serviceName"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "setCleanThresholdAsync"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "userAgent"]
+- ["18JDCloudSDKBaseanti08BaseantiA6ClientC", "version"]
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "DescribeIpResourceFlowExecutor"]
+- !private ["s7CVarArgP", "DescribeIpResourceFlowResponse"]
+- !private ["s7CVarArgP", "DescribeIpResourceInfoExecutor"]
+- !private ["s7CVarArgP", "DescribeIpResourceInfoResponse"]
+- !private ["s7CVarArgP", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["s7CVarArgP", "DescribeIpResourceProtectInfoResponse"]
+- !private ["s7CVarArgP", "DescribeIpResourcesExecutor"]
+- !private ["s7CVarArgP", "DescribeIpResourcesResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- !private ["s7CVarArgP", "SetCleanThresholdExecutor"]
+- !private ["s7CVarArgP", "SetCleanThresholdResponse"]
+- ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- !private ["s7CVarArgP", "baseantiJDCloudClient"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourceFlowExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourceFlowResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourceInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourceInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourceProtectInfoResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourcesExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIpResourcesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- !private ["s28CustomDebugStringConvertibleP", "SetCleanThresholdExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "SetCleanThresholdResponse"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- !private ["s28CustomDebugStringConvertibleP", "baseantiJDCloudClient"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourceFlowExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourceFlowResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourceInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourceInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourceProtectInfoResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourcesExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeIpResourcesResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- !private ["s23CustomStringConvertibleP", "SetCleanThresholdExecutor"]
+- !private ["s23CustomStringConvertibleP", "SetCleanThresholdResponse"]
+- ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- !private ["s23CustomStringConvertibleP", "baseantiJDCloudClient"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["18JDCloudSDKBaseanti30DescribeIpResourceFlowExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKBaseanti30DescribeIpResourceFlowExecutorC", "init"]
+- !private ["18JDCloudSDKBaseanti30DescribeIpResourceFlowResponseC", "deinit"]
+- !private ["18JDCloudSDKBaseanti30DescribeIpResourceInfoExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKBaseanti30DescribeIpResourceInfoExecutorC", "init"]
+- !private ["18JDCloudSDKBaseanti30DescribeIpResourceInfoResponseC", "deinit"]
+- !private ["18JDCloudSDKBaseanti37DescribeIpResourceProtectInfoExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKBaseanti37DescribeIpResourceProtectInfoExecutorC", "init"]
+- !private ["18JDCloudSDKBaseanti37DescribeIpResourceProtectInfoResponseC", "deinit"]
+- !private ["18JDCloudSDKBaseanti27DescribeIpResourcesExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKBaseanti27DescribeIpResourcesExecutorC", "init"]
+- !private ["18JDCloudSDKBaseanti27DescribeIpResourcesResponseC", "deinit"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "DescribeIpResourceFlowExecutor"]
+- !private ["SQ", "DescribeIpResourceFlowResponse"]
+- !private ["SQ", "DescribeIpResourceInfoExecutor"]
+- !private ["SQ", "DescribeIpResourceInfoResponse"]
+- !private ["SQ", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["SQ", "DescribeIpResourceProtectInfoResponse"]
+- !private ["SQ", "DescribeIpResourcesExecutor"]
+- !private ["SQ", "DescribeIpResourcesResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "SDKEnvironment"]
+- !private ["SQ", "SetCleanThresholdExecutor"]
+- !private ["SQ", "SetCleanThresholdResponse"]
+- ["SQ", "String"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- !private ["SQ", "baseantiJDCloudClient"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "Credential"]
+- !private ["SH", "DescribeIpResourceFlowExecutor"]
+- !private ["SH", "DescribeIpResourceFlowResponse"]
+- !private ["SH", "DescribeIpResourceInfoExecutor"]
+- !private ["SH", "DescribeIpResourceInfoResponse"]
+- !private ["SH", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["SH", "DescribeIpResourceProtectInfoResponse"]
+- !private ["SH", "DescribeIpResourcesExecutor"]
+- !private ["SH", "DescribeIpResourcesResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "SDKEnvironment"]
+- !private ["SH", "SetCleanThresholdExecutor"]
+- !private ["SH", "SetCleanThresholdResponse"]
+- ["SH", "String"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- !private ["SH", "baseantiJDCloudClient"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourceFlowExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourceFlowResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourceInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourceInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourceProtectInfoResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourcesExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeIpResourcesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SetCleanThresholdExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SetCleanThresholdResponse"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- !private ["14JDCloudSDKCore0A6ClientP", "baseantiJDCloudClient"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- ["So8NSObjectC", "BaseantiJDCloudClient"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "DescribeIpResourceFlowExecutor"]
+- ["So8NSObjectC", "DescribeIpResourceFlowRequest"]
+- ["So8NSObjectC", "DescribeIpResourceFlowResponse"]
+- !private ["So8NSObjectC", "DescribeIpResourceInfoExecutor"]
+- ["So8NSObjectC", "DescribeIpResourceInfoRequest"]
+- ["So8NSObjectC", "DescribeIpResourceInfoResponse"]
+- !private ["So8NSObjectC", "DescribeIpResourceProtectInfoExecutor"]
+- ["So8NSObjectC", "DescribeIpResourceProtectInfoRequest"]
+- ["So8NSObjectC", "DescribeIpResourceProtectInfoResponse"]
+- !private ["So8NSObjectC", "DescribeIpResourcesExecutor"]
+- ["So8NSObjectC", "DescribeIpResourcesRequest"]
+- ["So8NSObjectC", "DescribeIpResourcesResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- !private ["So8NSObjectC", "SetCleanThresholdExecutor"]
+- ["So8NSObjectC", "SetCleanThresholdRequest"]
+- ["So8NSObjectC", "SetCleanThresholdResponse"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "baseantiJDCloudClient"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- ["So8NSObjectC", "describeIpResourceFlowAsync"]
+- ["So8NSObjectC", "describeIpResourceInfoAsync"]
+- ["So8NSObjectC", "describeIpResourceProtectInfoAsync"]
+- ["So8NSObjectC", "describeIpResourcesAsync"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "setCleanThresholdAsync"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "DescribeIpResourceFlowExecutor"]
+- !private ["So8NSObjectP", "DescribeIpResourceFlowResponse"]
+- !private ["So8NSObjectP", "DescribeIpResourceInfoExecutor"]
+- !private ["So8NSObjectP", "DescribeIpResourceInfoResponse"]
+- !private ["So8NSObjectP", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["So8NSObjectP", "DescribeIpResourceProtectInfoResponse"]
+- !private ["So8NSObjectP", "DescribeIpResourcesExecutor"]
+- !private ["So8NSObjectP", "DescribeIpResourcesResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- !private ["So8NSObjectP", "SetCleanThresholdExecutor"]
+- !private ["So8NSObjectP", "SetCleanThresholdResponse"]
+- ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- !private ["So8NSObjectP", "baseantiJDCloudClient"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["18JDCloudSDKBaseanti25SetCleanThresholdExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKBaseanti25SetCleanThresholdExecutorC", "init"]
+- !private ["18JDCloudSDKBaseanti25SetCleanThresholdResponseC", "deinit"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourceFlowExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourceFlowResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourceInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourceInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourceProtectInfoExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourceProtectInfoResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourcesExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIpResourcesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SetCleanThresholdExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SetCleanThresholdResponse"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "baseantiJDCloudClient"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "18JDCloudSDKBaseanti08BaseantiA6ClientC"
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "18JDCloudSDKBaseanti30DescribeIpResourceFlowExecutorC"
+- !private "18JDCloudSDKBaseanti30DescribeIpResourceFlowResponseC"
+- !private "18JDCloudSDKBaseanti30DescribeIpResourceInfoExecutorC"
+- !private "18JDCloudSDKBaseanti30DescribeIpResourceInfoResponseC"
+- !private "18JDCloudSDKBaseanti37DescribeIpResourceProtectInfoExecutorC"
+- !private "18JDCloudSDKBaseanti37DescribeIpResourceProtectInfoResponseC"
+- !private "18JDCloudSDKBaseanti27DescribeIpResourcesExecutorC"
+- !private "18JDCloudSDKBaseanti27DescribeIpResourcesResponseC"
+- "SD"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "Sm"
+- !private "SY"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- !private "18JDCloudSDKBaseanti25SetCleanThresholdExecutorC"
+- !private "18JDCloudSDKBaseanti25SetCleanThresholdResponseC"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "c49f460b17112ed09080e8b3e4e5142e"

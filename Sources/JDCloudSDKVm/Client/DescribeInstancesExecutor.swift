@@ -27,8 +27,8 @@ import JDCloudSDKCore
 
 
 ///  批量查询云主机的详细信息&lt;br&gt;
-        /// 此接口支持分页查询，默认每页20条。
-        /// 
+      /// 此接口支持分页查询，默认每页20条。
+      /// 
 public class DescribeInstancesExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

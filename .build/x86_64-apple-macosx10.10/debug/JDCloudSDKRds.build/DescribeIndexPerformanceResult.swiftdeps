@@ -1,0 +1,439 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DescribeIndexPerformanceResult"
+provides-nominal:
+- "13JDCloudSDKRds30DescribeIndexPerformanceResultC"
+- "13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO"
+provides-member:
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", ""]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", ""]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "encode"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "CodingKey"
+- "Decoder"
+- "DescribeIndexPerformanceResult"
+- "Encoder"
+- !private "FloatLiteralType"
+- "IndexPerformanceResult"
+- "Int"
+- !private "IntegerLiteralType"
+- "JdCloudResult"
+- "MissingIndexResult"
+- "NSObject"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["s7CVarArgP", "IndexPerformanceResult"]
+- !private ["s7CVarArgP", "Int"]
+- !private ["s7CVarArgP", "MissingIndexResult"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "encode"]
+- !private ["s7CVarArgP", "indexPerformanceResult"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "missingIndexResult"]
+- !private ["s7CVarArgP", "pageNumber"]
+- !private ["s7CVarArgP", "pageSize"]
+- !private ["s7CVarArgP", "totalCount"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- !private ["s9CodingKeyP", "indexPerformanceResult"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "missingIndexResult"]
+- !private ["s9CodingKeyP", "pageNumber"]
+- !private ["s9CodingKeyP", "pageSize"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "totalCount"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "IndexPerformanceResult"]
+- !private ["s28CustomDebugStringConvertibleP", "Int"]
+- !private ["s28CustomDebugStringConvertibleP", "MissingIndexResult"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "indexPerformanceResult"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "missingIndexResult"]
+- !private ["s28CustomDebugStringConvertibleP", "pageNumber"]
+- !private ["s28CustomDebugStringConvertibleP", "pageSize"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "totalCount"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["s23CustomStringConvertibleP", "IndexPerformanceResult"]
+- !private ["s23CustomStringConvertibleP", "Int"]
+- !private ["s23CustomStringConvertibleP", "MissingIndexResult"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- !private ["s23CustomStringConvertibleP", "indexPerformanceResult"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "missingIndexResult"]
+- !private ["s23CustomStringConvertibleP", "pageNumber"]
+- !private ["s23CustomStringConvertibleP", "pageSize"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "totalCount"]
+- !private ["Se", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["Se", "IndexPerformanceResult"]
+- !private ["Se", "Int"]
+- !private ["Se", "MissingIndexResult"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "encode"]
+- !private ["Se", "indexPerformanceResult"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "missingIndexResult"]
+- !private ["Se", "pageNumber"]
+- !private ["Se", "pageSize"]
+- !private ["Se", "totalCount"]
+- !private ["s7DecoderP", "container"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "CodingKey"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "Decoder"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "DescribeIndexPerformanceResultCodingKeys"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "Encoder"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "IndexPerformanceResult"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "Int"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "MissingIndexResult"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "String"]
+- !private ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "_findStringSwitchCase"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "deinit"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "encode"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "indexPerformanceResult"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "init"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "missingIndexResult"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "pageNumber"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "pageSize"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC", "totalCount"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "RawValue"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "_Default_RawValue"]
+- !private ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "_findStringSwitchCase"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "debugDescription"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "deinit"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "description"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "hash"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "hashValue"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "indexPerformanceResult"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "init"]
+- !private ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "init"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "intValue"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "missingIndexResult"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "pageNumber"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "pageSize"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "rawValue"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "stringValue"]
+- ["13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO", "totalCount"]
+- !private ["SE", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["SE", "IndexPerformanceResult"]
+- !private ["SE", "Int"]
+- !private ["SE", "MissingIndexResult"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- ["SE", "encode"]
+- !private ["SE", "indexPerformanceResult"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "missingIndexResult"]
+- !private ["SE", "pageNumber"]
+- !private ["SE", "pageSize"]
+- !private ["SE", "totalCount"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["SQ", "IndexPerformanceResult"]
+- !private ["SQ", "Int"]
+- !private ["SQ", "MissingIndexResult"]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "indexPerformanceResult"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "missingIndexResult"]
+- !private ["SQ", "pageNumber"]
+- !private ["SQ", "pageSize"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "totalCount"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["SH", "IndexPerformanceResult"]
+- !private ["SH", "Int"]
+- !private ["SH", "MissingIndexResult"]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "indexPerformanceResult"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "missingIndexResult"]
+- !private ["SH", "pageNumber"]
+- !private ["SH", "pageSize"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["SH", "totalCount"]
+- !private ["s6HasherV", "combine"]
+- !private ["13JDCloudSDKRds22IndexPerformanceResultC", "deinit"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "IndexPerformanceResult"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "Int"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "MissingIndexResult"]
+- ["14JDCloudSDKCore13JdCloudResultP", ""]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "_findStringSwitchCase"]
+- ["14JDCloudSDKCore13JdCloudResultP", "encode"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "indexPerformanceResult"]
+- ["14JDCloudSDKCore13JdCloudResultP", "init"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "missingIndexResult"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "pageNumber"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "pageSize"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "totalCount"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["13JDCloudSDKRds18MissingIndexResultC", "deinit"]
+- ["So8NSObjectC", "CodingKey"]
+- ["So8NSObjectC", "Decoder"]
+- !private ["So8NSObjectC", "DescribeIndexPerformanceResultCodingKeys"]
+- ["So8NSObjectC", "Encoder"]
+- ["So8NSObjectC", "IndexPerformanceResult"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "MissingIndexResult"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "indexPerformanceResult"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "missingIndexResult"]
+- ["So8NSObjectC", "pageNumber"]
+- ["So8NSObjectC", "pageSize"]
+- ["So8NSObjectC", "totalCount"]
+- !private ["So8NSObjectP", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["So8NSObjectP", "IndexPerformanceResult"]
+- !private ["So8NSObjectP", "Int"]
+- !private ["So8NSObjectP", "MissingIndexResult"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- ["So8NSObjectP", "encode"]
+- !private ["So8NSObjectP", "indexPerformanceResult"]
+- ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "missingIndexResult"]
+- !private ["So8NSObjectP", "pageNumber"]
+- !private ["So8NSObjectP", "pageSize"]
+- !private ["So8NSObjectP", "totalCount"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- !private ["SY", "indexPerformanceResult"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- !private ["SY", "missingIndexResult"]
+- !private ["SY", "pageNumber"]
+- !private ["SY", "pageSize"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- !private ["SY", "totalCount"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeIndexPerformanceResultCodingKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "IndexPerformanceResult"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "MissingIndexResult"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "indexPerformanceResult"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "missingIndexResult"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageNumber"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "totalCount"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "13JDCloudSDKRds30DescribeIndexPerformanceResultC"
+- "13JDCloudSDKRds30DescribeIndexPerformanceResultC0cdeF10CodingKeysO"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- !private "13JDCloudSDKRds22IndexPerformanceResultC"
+- "14JDCloudSDKCore13JdCloudResultP"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "13JDCloudSDKRds18MissingIndexResultC"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCharge.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "05d8230dcd058986aa0152a40c75a2cc"

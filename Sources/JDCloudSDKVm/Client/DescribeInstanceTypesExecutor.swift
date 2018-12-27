@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  查询实例规格信息列表
-        /// 
+      /// 
 public class DescribeInstanceTypesExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
