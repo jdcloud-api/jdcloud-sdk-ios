@@ -13,8 +13,8 @@ class VmTests: XCTestCase{
     func testVmClient() throws{
         
         let semaphore = DispatchSemaphore(value: 0)
-        let credentials = Credential(accessKeyId: "0E91C3765B78CBD71715F9BF24997AF3", secretAccessKey: "AF7B13C8010F50F03A52C01458714701");
-        let sdkEnvironment = SDKEnvironment(endPoint: "vm.jdcloud-api.com")
+        let credentials = Credential(accessKeyId: "TEST AK", secretAccessKey: "TEST SK");
+        let sdkEnvironment = SDKEnvironment(endPoint: "TEST END POINT ,IF NOT SET USE DEFALUT")
         let vmClient = VmJDCloudClient(credential: credentials,sdkEnvironment: sdkEnvironment)
         let describeInstancesRequest = DescribeInstancesRequest(regionId: "cn-north-1");
         GlobalConfig.debug = true
