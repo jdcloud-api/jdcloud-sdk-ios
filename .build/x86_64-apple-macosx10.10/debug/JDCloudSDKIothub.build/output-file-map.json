@@ -1,0 +1,191 @@
+{
+  "": {
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/master.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceActivateRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceActivateRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceActivateResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceActivateResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceActivateResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceActivateResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceCommandRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceCommandRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceCommandResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceCommandResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceCommandResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceCommandResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceStateRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceStateRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceStateResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceStateResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DeviceStateResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DeviceStateResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DevicesEnrollRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DevicesEnrollRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DevicesEnrollResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DevicesEnrollResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/DevicesEnrollResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/DevicesEnrollResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/ModuleEnrollRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/ModuleEnrollRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/ModuleEnrollResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/ModuleEnrollResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/ModuleEnrollResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/ModuleEnrollResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/ModuleStateRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/ModuleStateRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/ModuleStateResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/ModuleStateResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/ModuleStateResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/ModuleStateResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/OmEnrollRequest.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollRequest.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/OmEnrollRequest.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollRequest~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollRequest.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/OmEnrollResponse.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollResponse.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/OmEnrollResponse.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollResponse.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/API/OmEnrollResult.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollResult.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/API/OmEnrollResult.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollResult.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/DeviceActivateExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/DeviceActivateExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceActivateExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/DeviceCommandExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/DeviceCommandExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/DeviceStateExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/DeviceStateExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceStateExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/DevicesEnrollExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/DevicesEnrollExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DevicesEnrollExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/IothubClient.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/IothubClient.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/IothubClient.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/IothubClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/IothubClient.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/ModuleEnrollExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/ModuleEnrollExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleEnrollExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/ModuleStateExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/ModuleStateExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/ModuleStateExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Client/OmEnrollExecutor.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollExecutor.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Client/OmEnrollExecutor.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/OmEnrollExecutor.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Model/DeviceCommandVO.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandVO.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Model/DeviceCommandVO.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandVO~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceCommandVO.swiftdeps"
+  },
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKIothub/Model/DeviceEnrollVO.swift": {
+    "dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceEnrollVO.d",
+    "object": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/Model/DeviceEnrollVO.swift.o",
+    "swiftmodule": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceEnrollVO~partial.swiftmodule",
+    "swift-dependencies": "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKIothub.build/DeviceEnrollVO.swiftdeps"
+  }
+}

@@ -74,6 +74,8 @@ public class DBInstance:NSObject,Codable{
     var charge:Charge?
     /// 是否设置白名单，true：已设置，false：未设置
     var isSetSecurityIps:Bool?
+    /// 标签
+    var tags:Tag?
 
 
 
@@ -105,6 +107,7 @@ public class DBInstance:NSObject,Codable{
         case preferredmaintenanceWindow
         case charge
         case isSetSecurityIps
+        case tags
     }
 
 
@@ -133,6 +136,7 @@ public class DBInstance:NSObject,Codable{
         self.preferredmaintenanceWindow = try decoderContainer.decode(String?.self, forKey: .preferredmaintenanceWindow)
         self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
         self.isSetSecurityIps = try decoderContainer.decode(Bool?.self, forKey: .isSetSecurityIps)
+        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
     }
 }
 public extension DBInstance{
@@ -161,5 +165,6 @@ public extension DBInstance{
          try encoderContainer.encode(preferredmaintenanceWindow, forKey: .preferredmaintenanceWindow)
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(isSetSecurityIps, forKey: .isSetSecurityIps)
+         try encoderContainer.encode(tags, forKey: .tags)
     }
 }

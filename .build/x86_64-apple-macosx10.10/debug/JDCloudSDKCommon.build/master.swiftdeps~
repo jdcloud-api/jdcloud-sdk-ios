@@ -1,8 +1,8 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "80015189528e96483619587146d01f22"
-build_time: [1545913289, 713051000]
+build_time: [1545969475, 793656000]
 inputs:
-  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/Filter.swift": [1545913234, 0]
-  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/Quota.swift": [1545913234, 0]
-  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/SimpleResponses.swift": [1545913234, 0]
-  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/Sort.swift": [1545913234, 0]
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/Filter.swift": [1545969380, 0]
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/Quota.swift": [1545969380, 0]
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/SimpleResponses.swift": [1545969380, 0]
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCommon/Model/Sort.swift": [1545969380, 0]

@@ -1,0 +1,997 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "FunctionJDCloudClient"
+provides-nominal:
+- "18JDCloudSDKFunction08FunctionA6ClientC"
+provides-member:
+- ["18JDCloudSDKFunction08FunctionA6ClientC", ""]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "init"]
+provides-dynamic-lookup:
+- "addCustomer"
+- "createAliasAsync"
+- "createFunctionAsync"
+- "createVersionAsync"
+- "deleteAliasAsync"
+- "deleteFunctionAsync"
+- "deleteVersionAsync"
+- "getAliasAsync"
+- "getFunctionAsync"
+- "getTriggerAsync"
+- "getVersionAsync"
+- "httpRequestProtocol"
+- "listAliasAsync"
+- "listFunctionAsync"
+- "listTriggerAsync"
+- "listVersionAsync"
+- "testInvokeAsync"
+- "updateAliasAsync"
+- "updateFunctionAsync"
+depends-top-level:
+- !private "!="
+- "+"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "CastingPrecedence"
+- !private "CreateAliasExecutor"
+- "CreateAliasRequest"
+- "CreateAliasResponse"
+- !private "CreateFunctionExecutor"
+- "CreateFunctionRequest"
+- "CreateFunctionResponse"
+- !private "CreateVersionExecutor"
+- "CreateVersionRequest"
+- "CreateVersionResponse"
+- "Credential"
+- !private "DeleteAliasExecutor"
+- "DeleteAliasRequest"
+- "DeleteAliasResponse"
+- !private "DeleteFunctionExecutor"
+- "DeleteFunctionRequest"
+- "DeleteFunctionResponse"
+- !private "DeleteVersionExecutor"
+- "DeleteVersionRequest"
+- "DeleteVersionResponse"
+- "FunctionJDCloudClient"
+- !private "GetAliasExecutor"
+- "GetAliasRequest"
+- "GetAliasResponse"
+- !private "GetFunctionExecutor"
+- "GetFunctionRequest"
+- "GetFunctionResponse"
+- !private "GetTriggerExecutor"
+- "GetTriggerRequest"
+- "GetTriggerResponse"
+- !private "GetVersionExecutor"
+- "GetVersionRequest"
+- "GetVersionResponse"
+- !private "GlobalConfig"
+- "JDCloudClient"
+- !private "JSONDecoder"
+- !private "ListAliasExecutor"
+- "ListAliasRequest"
+- "ListAliasResponse"
+- !private "ListFunctionExecutor"
+- "ListFunctionRequest"
+- "ListFunctionResponse"
+- !private "ListTriggerExecutor"
+- "ListTriggerRequest"
+- "ListTriggerResponse"
+- !private "ListVersionExecutor"
+- "ListVersionRequest"
+- "ListVersionResponse"
+- "NSError"
+- "NSNumber"
+- "NSObject"
+- "NSString"
+- "SDKEnvironment"
+- "String"
+- "StringLiteralType"
+- !private "TestInvokeExecutor"
+- "TestInvokeRequest"
+- "TestInvokeResponse"
+- !private "UpdateAliasExecutor"
+- "UpdateAliasRequest"
+- "UpdateAliasResponse"
+- !private "UpdateFunctionExecutor"
+- "UpdateFunctionRequest"
+- "UpdateFunctionResponse"
+depends-member:
+- !private ["SK", "data"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "CreateAliasExecutor"]
+- !private ["s7CVarArgP", "CreateAliasResponse"]
+- !private ["s7CVarArgP", "CreateFunctionExecutor"]
+- !private ["s7CVarArgP", "CreateFunctionResponse"]
+- !private ["s7CVarArgP", "CreateVersionExecutor"]
+- !private ["s7CVarArgP", "CreateVersionResponse"]
+- !private ["s7CVarArgP", "Credential"]
+- !private ["s7CVarArgP", "DeleteAliasExecutor"]
+- !private ["s7CVarArgP", "DeleteAliasResponse"]
+- !private ["s7CVarArgP", "DeleteFunctionExecutor"]
+- !private ["s7CVarArgP", "DeleteFunctionResponse"]
+- !private ["s7CVarArgP", "DeleteVersionExecutor"]
+- !private ["s7CVarArgP", "DeleteVersionResponse"]
+- !private ["s7CVarArgP", "GetAliasExecutor"]
+- !private ["s7CVarArgP", "GetAliasResponse"]
+- !private ["s7CVarArgP", "GetFunctionExecutor"]
+- !private ["s7CVarArgP", "GetFunctionResponse"]
+- !private ["s7CVarArgP", "GetTriggerExecutor"]
+- !private ["s7CVarArgP", "GetTriggerResponse"]
+- !private ["s7CVarArgP", "GetVersionExecutor"]
+- !private ["s7CVarArgP", "GetVersionResponse"]
+- !private ["s7CVarArgP", "GlobalConfig"]
+- !private ["s7CVarArgP", "JSONDecoder"]
+- !private ["s7CVarArgP", "ListAliasExecutor"]
+- !private ["s7CVarArgP", "ListAliasResponse"]
+- !private ["s7CVarArgP", "ListFunctionExecutor"]
+- !private ["s7CVarArgP", "ListFunctionResponse"]
+- !private ["s7CVarArgP", "ListTriggerExecutor"]
+- !private ["s7CVarArgP", "ListTriggerResponse"]
+- !private ["s7CVarArgP", "ListVersionExecutor"]
+- !private ["s7CVarArgP", "ListVersionResponse"]
+- !private ["s7CVarArgP", "SDKEnvironment"]
+- ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "TestInvokeExecutor"]
+- !private ["s7CVarArgP", "TestInvokeResponse"]
+- !private ["s7CVarArgP", "UpdateAliasExecutor"]
+- !private ["s7CVarArgP", "UpdateAliasResponse"]
+- !private ["s7CVarArgP", "UpdateFunctionExecutor"]
+- !private ["s7CVarArgP", "UpdateFunctionResponse"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "addCustomer"]
+- ["s7CVarArgP", "contentType"]
+- ["s7CVarArgP", "credential"]
+- ["s7CVarArgP", "customHeader"]
+- !private ["s7CVarArgP", "data"]
+- !private ["s7CVarArgP", "executeAsync"]
+- !private ["s7CVarArgP", "functionJDCloudClient"]
+- ["s7CVarArgP", "httpRequestProtocol"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "sdkEnvironment"]
+- ["s7CVarArgP", "serviceName"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "userAgent"]
+- ["s7CVarArgP", "version"]
+- !private ["Sl", "data"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "data"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["18JDCloudSDKFunction19CreateAliasExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction19CreateAliasExecutorC", "init"]
+- !private ["18JDCloudSDKFunction19CreateAliasResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction22CreateFunctionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction22CreateFunctionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction22CreateFunctionResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction21CreateVersionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction21CreateVersionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction21CreateVersionResponseC", "deinit"]
+- !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateAliasExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateAliasResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateFunctionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateFunctionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateVersionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "CreateVersionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "Credential"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteAliasExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteAliasResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteFunctionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteFunctionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteVersionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteVersionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetAliasExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetAliasResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetFunctionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetFunctionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetTriggerExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetTriggerResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GetVersionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "GetVersionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "GlobalConfig"]
+- !private ["s28CustomDebugStringConvertibleP", "JSONDecoder"]
+- !private ["s28CustomDebugStringConvertibleP", "ListAliasExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListAliasResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ListFunctionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListFunctionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ListTriggerExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListTriggerResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ListVersionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ListVersionResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "SDKEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "TestInvokeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "TestInvokeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "UpdateAliasExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "UpdateAliasResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "UpdateFunctionExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "UpdateFunctionResponse"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "addCustomer"]
+- ["s28CustomDebugStringConvertibleP", "contentType"]
+- ["s28CustomDebugStringConvertibleP", "credential"]
+- ["s28CustomDebugStringConvertibleP", "customHeader"]
+- !private ["s28CustomDebugStringConvertibleP", "data"]
+- !private ["s28CustomDebugStringConvertibleP", "executeAsync"]
+- !private ["s28CustomDebugStringConvertibleP", "functionJDCloudClient"]
+- ["s28CustomDebugStringConvertibleP", "httpRequestProtocol"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "sdkEnvironment"]
+- ["s28CustomDebugStringConvertibleP", "serviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "userAgent"]
+- ["s28CustomDebugStringConvertibleP", "version"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "data"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "data"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "CreateAliasExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateAliasResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateFunctionExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateFunctionResponse"]
+- !private ["s23CustomStringConvertibleP", "CreateVersionExecutor"]
+- !private ["s23CustomStringConvertibleP", "CreateVersionResponse"]
+- !private ["s23CustomStringConvertibleP", "Credential"]
+- !private ["s23CustomStringConvertibleP", "DeleteAliasExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteAliasResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteFunctionExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteFunctionResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteVersionExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteVersionResponse"]
+- !private ["s23CustomStringConvertibleP", "GetAliasExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetAliasResponse"]
+- !private ["s23CustomStringConvertibleP", "GetFunctionExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetFunctionResponse"]
+- !private ["s23CustomStringConvertibleP", "GetTriggerExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetTriggerResponse"]
+- !private ["s23CustomStringConvertibleP", "GetVersionExecutor"]
+- !private ["s23CustomStringConvertibleP", "GetVersionResponse"]
+- !private ["s23CustomStringConvertibleP", "GlobalConfig"]
+- !private ["s23CustomStringConvertibleP", "JSONDecoder"]
+- !private ["s23CustomStringConvertibleP", "ListAliasExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListAliasResponse"]
+- !private ["s23CustomStringConvertibleP", "ListFunctionExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListFunctionResponse"]
+- !private ["s23CustomStringConvertibleP", "ListTriggerExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListTriggerResponse"]
+- !private ["s23CustomStringConvertibleP", "ListVersionExecutor"]
+- !private ["s23CustomStringConvertibleP", "ListVersionResponse"]
+- !private ["s23CustomStringConvertibleP", "SDKEnvironment"]
+- ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "TestInvokeExecutor"]
+- !private ["s23CustomStringConvertibleP", "TestInvokeResponse"]
+- !private ["s23CustomStringConvertibleP", "UpdateAliasExecutor"]
+- !private ["s23CustomStringConvertibleP", "UpdateAliasResponse"]
+- !private ["s23CustomStringConvertibleP", "UpdateFunctionExecutor"]
+- !private ["s23CustomStringConvertibleP", "UpdateFunctionResponse"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "addCustomer"]
+- ["s23CustomStringConvertibleP", "contentType"]
+- ["s23CustomStringConvertibleP", "credential"]
+- ["s23CustomStringConvertibleP", "customHeader"]
+- !private ["s23CustomStringConvertibleP", "data"]
+- !private ["s23CustomStringConvertibleP", "executeAsync"]
+- !private ["s23CustomStringConvertibleP", "functionJDCloudClient"]
+- ["s23CustomStringConvertibleP", "httpRequestProtocol"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "sdkEnvironment"]
+- ["s23CustomStringConvertibleP", "serviceName"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "userAgent"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
+- ["s23CustomStringConvertibleP", "version"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "data"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["18JDCloudSDKFunction19DeleteAliasExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction19DeleteAliasExecutorC", "init"]
+- !private ["18JDCloudSDKFunction19DeleteAliasResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction22DeleteFunctionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction22DeleteFunctionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction22DeleteFunctionResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction21DeleteVersionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction21DeleteVersionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction21DeleteVersionResponseC", "deinit"]
+- ["SD", "init"]
+- !private ["SD", "subscript"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "data"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "subscript"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "CreateAliasExecutor"]
+- !private ["SQ", "CreateAliasResponse"]
+- !private ["SQ", "CreateFunctionExecutor"]
+- !private ["SQ", "CreateFunctionResponse"]
+- !private ["SQ", "CreateVersionExecutor"]
+- !private ["SQ", "CreateVersionResponse"]
+- !private ["SQ", "Credential"]
+- !private ["SQ", "DeleteAliasExecutor"]
+- !private ["SQ", "DeleteAliasResponse"]
+- !private ["SQ", "DeleteFunctionExecutor"]
+- !private ["SQ", "DeleteFunctionResponse"]
+- !private ["SQ", "DeleteVersionExecutor"]
+- !private ["SQ", "DeleteVersionResponse"]
+- !private ["SQ", "GetAliasExecutor"]
+- !private ["SQ", "GetAliasResponse"]
+- !private ["SQ", "GetFunctionExecutor"]
+- !private ["SQ", "GetFunctionResponse"]
+- !private ["SQ", "GetTriggerExecutor"]
+- !private ["SQ", "GetTriggerResponse"]
+- !private ["SQ", "GetVersionExecutor"]
+- !private ["SQ", "GetVersionResponse"]
+- !private ["SQ", "GlobalConfig"]
+- !private ["SQ", "JSONDecoder"]
+- !private ["SQ", "ListAliasExecutor"]
+- !private ["SQ", "ListAliasResponse"]
+- !private ["SQ", "ListFunctionExecutor"]
+- !private ["SQ", "ListFunctionResponse"]
+- !private ["SQ", "ListTriggerExecutor"]
+- !private ["SQ", "ListTriggerResponse"]
+- !private ["SQ", "ListVersionExecutor"]
+- !private ["SQ", "ListVersionResponse"]
+- !private ["SQ", "SDKEnvironment"]
+- ["SQ", "String"]
+- !private ["SQ", "TestInvokeExecutor"]
+- !private ["SQ", "TestInvokeResponse"]
+- !private ["SQ", "UpdateAliasExecutor"]
+- !private ["SQ", "UpdateAliasResponse"]
+- !private ["SQ", "UpdateFunctionExecutor"]
+- !private ["SQ", "UpdateFunctionResponse"]
+- ["SQ", ""]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "addCustomer"]
+- ["SQ", "contentType"]
+- ["SQ", "credential"]
+- ["SQ", "customHeader"]
+- !private ["SQ", "data"]
+- !private ["SQ", "executeAsync"]
+- !private ["SQ", "functionJDCloudClient"]
+- ["SQ", "httpRequestProtocol"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "sdkEnvironment"]
+- ["SQ", "serviceName"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userAgent"]
+- !private ["SQ", "utf8"]
+- ["SQ", "version"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "data"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "data"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "data"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateAliasExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateAliasRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateAliasResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateFunctionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateFunctionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateFunctionResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateVersionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateVersionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "CreateVersionResponse"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "Credential"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteAliasExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteAliasRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteAliasResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteFunctionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteFunctionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteFunctionResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteVersionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteVersionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "DeleteVersionResponse"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "FunctionJDCloudClient"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "GetAliasExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetAliasRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetAliasResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "GetFunctionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetFunctionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetFunctionResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "GetTriggerExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetTriggerRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetTriggerResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "GetVersionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetVersionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "GetVersionResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "GlobalConfig"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "JSONDecoder"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "ListAliasExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListAliasRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListAliasResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "ListFunctionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListFunctionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListFunctionResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "ListTriggerExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListTriggerRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListTriggerResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "ListVersionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListVersionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "ListVersionResponse"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "NSError"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "NSNumber"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "NSString"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "SDKEnvironment"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "String"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "TestInvokeExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "TestInvokeRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "TestInvokeResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "UpdateAliasExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "UpdateAliasRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "UpdateAliasResponse"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "UpdateFunctionExecutor"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "UpdateFunctionRequest"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "UpdateFunctionResponse"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "addCustomer"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "contentType"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "createAliasAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "createFunctionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "createVersionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "credential"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "customHeader"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "deinit"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "deleteAliasAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "deleteFunctionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "deleteVersionAsync"]
+- !private ["18JDCloudSDKFunction08FunctionA6ClientC", "functionJDCloudClient"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "getAliasAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "getFunctionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "getTriggerAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "getVersionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "httpRequestProtocol"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "init"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "listAliasAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "listFunctionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "listTriggerAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "listVersionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "sdkEnvironment"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "serviceName"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "testInvokeAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "updateAliasAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "updateFunctionAsync"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "userAgent"]
+- ["18JDCloudSDKFunction08FunctionA6ClientC", "version"]
+- !private ["18JDCloudSDKFunction16GetAliasExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction16GetAliasExecutorC", "init"]
+- !private ["18JDCloudSDKFunction16GetAliasResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction19GetFunctionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction19GetFunctionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction19GetFunctionResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction18GetTriggerExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction18GetTriggerExecutorC", "init"]
+- !private ["18JDCloudSDKFunction18GetTriggerResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction18GetVersionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction18GetVersionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction18GetVersionResponseC", "deinit"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "credential"]
+- !private ["14JDCloudSDKCore12GlobalConfigC", "sdkEnvironment"]
+- !private ["SH", "CreateAliasExecutor"]
+- !private ["SH", "CreateAliasResponse"]
+- !private ["SH", "CreateFunctionExecutor"]
+- !private ["SH", "CreateFunctionResponse"]
+- !private ["SH", "CreateVersionExecutor"]
+- !private ["SH", "CreateVersionResponse"]
+- !private ["SH", "Credential"]
+- !private ["SH", "DeleteAliasExecutor"]
+- !private ["SH", "DeleteAliasResponse"]
+- !private ["SH", "DeleteFunctionExecutor"]
+- !private ["SH", "DeleteFunctionResponse"]
+- !private ["SH", "DeleteVersionExecutor"]
+- !private ["SH", "DeleteVersionResponse"]
+- !private ["SH", "GetAliasExecutor"]
+- !private ["SH", "GetAliasResponse"]
+- !private ["SH", "GetFunctionExecutor"]
+- !private ["SH", "GetFunctionResponse"]
+- !private ["SH", "GetTriggerExecutor"]
+- !private ["SH", "GetTriggerResponse"]
+- !private ["SH", "GetVersionExecutor"]
+- !private ["SH", "GetVersionResponse"]
+- !private ["SH", "GlobalConfig"]
+- !private ["SH", "JSONDecoder"]
+- !private ["SH", "ListAliasExecutor"]
+- !private ["SH", "ListAliasResponse"]
+- !private ["SH", "ListFunctionExecutor"]
+- !private ["SH", "ListFunctionResponse"]
+- !private ["SH", "ListTriggerExecutor"]
+- !private ["SH", "ListTriggerResponse"]
+- !private ["SH", "ListVersionExecutor"]
+- !private ["SH", "ListVersionResponse"]
+- !private ["SH", "SDKEnvironment"]
+- ["SH", "String"]
+- !private ["SH", "TestInvokeExecutor"]
+- !private ["SH", "TestInvokeResponse"]
+- !private ["SH", "UpdateAliasExecutor"]
+- !private ["SH", "UpdateAliasResponse"]
+- !private ["SH", "UpdateFunctionExecutor"]
+- !private ["SH", "UpdateFunctionResponse"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "addCustomer"]
+- ["SH", "contentType"]
+- ["SH", "credential"]
+- ["SH", "customHeader"]
+- !private ["SH", "data"]
+- !private ["SH", "executeAsync"]
+- !private ["SH", "functionJDCloudClient"]
+- ["SH", "httpRequestProtocol"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "sdkEnvironment"]
+- ["SH", "serviceName"]
+- !private ["SH", "subscript"]
+- ["SH", "userAgent"]
+- !private ["SH", "utf8"]
+- ["SH", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateAliasExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateAliasResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateFunctionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateFunctionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateVersionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "CreateVersionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "Credential"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteAliasExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteAliasResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteFunctionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteFunctionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteVersionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteVersionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetAliasExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetAliasResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetFunctionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetFunctionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetTriggerExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetTriggerResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetVersionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GetVersionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "GlobalConfig"]
+- !private ["14JDCloudSDKCore0A6ClientP", "JSONDecoder"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListAliasExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListAliasResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListFunctionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListFunctionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListTriggerExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListTriggerResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListVersionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ListVersionResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "SDKEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "String"]
+- !private ["14JDCloudSDKCore0A6ClientP", "TestInvokeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "TestInvokeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UpdateAliasExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UpdateAliasResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UpdateFunctionExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "UpdateFunctionResponse"]
+- ["14JDCloudSDKCore0A6ClientP", ""]
+- ["14JDCloudSDKCore0A6ClientP", "addCustomer"]
+- ["14JDCloudSDKCore0A6ClientP", "contentType"]
+- ["14JDCloudSDKCore0A6ClientP", "credential"]
+- ["14JDCloudSDKCore0A6ClientP", "customHeader"]
+- !private ["14JDCloudSDKCore0A6ClientP", "functionJDCloudClient"]
+- ["14JDCloudSDKCore0A6ClientP", "httpRequestProtocol"]
+- !private ["14JDCloudSDKCore0A6ClientP", "init"]
+- ["14JDCloudSDKCore0A6ClientP", "sdkEnvironment"]
+- ["14JDCloudSDKCore0A6ClientP", "serviceName"]
+- ["14JDCloudSDKCore0A6ClientP", "userAgent"]
+- ["14JDCloudSDKCore0A6ClientP", "version"]
+- !private ["14JDCloudSDKCore0A8ExecutorC", "executeAsync"]
+- !private ["10Foundation11JSONDecoderC", "decode"]
+- !private ["10Foundation11JSONDecoderC", "init"]
+- !private ["18JDCloudSDKFunction17ListAliasExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction17ListAliasExecutorC", "init"]
+- !private ["18JDCloudSDKFunction17ListAliasResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction20ListFunctionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction20ListFunctionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction20ListFunctionResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction19ListTriggerExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction19ListTriggerExecutorC", "init"]
+- !private ["18JDCloudSDKFunction19ListTriggerResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction19ListVersionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction19ListVersionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction19ListVersionResponseC", "deinit"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "data"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "data"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "data"]
+- !private ["So9NSCopyingP", "data"]
+- !private ["So21NSItemProviderReadingP", "data"]
+- !private ["So21NSItemProviderWritingP", "data"]
+- !private ["So16NSMutableCopyingP", "data"]
+- !private ["So8NSObjectC", "CreateAliasExecutor"]
+- ["So8NSObjectC", "CreateAliasRequest"]
+- ["So8NSObjectC", "CreateAliasResponse"]
+- !private ["So8NSObjectC", "CreateFunctionExecutor"]
+- ["So8NSObjectC", "CreateFunctionRequest"]
+- ["So8NSObjectC", "CreateFunctionResponse"]
+- !private ["So8NSObjectC", "CreateVersionExecutor"]
+- ["So8NSObjectC", "CreateVersionRequest"]
+- ["So8NSObjectC", "CreateVersionResponse"]
+- ["So8NSObjectC", "Credential"]
+- !private ["So8NSObjectC", "DeleteAliasExecutor"]
+- ["So8NSObjectC", "DeleteAliasRequest"]
+- ["So8NSObjectC", "DeleteAliasResponse"]
+- !private ["So8NSObjectC", "DeleteFunctionExecutor"]
+- ["So8NSObjectC", "DeleteFunctionRequest"]
+- ["So8NSObjectC", "DeleteFunctionResponse"]
+- !private ["So8NSObjectC", "DeleteVersionExecutor"]
+- ["So8NSObjectC", "DeleteVersionRequest"]
+- ["So8NSObjectC", "DeleteVersionResponse"]
+- ["So8NSObjectC", "FunctionJDCloudClient"]
+- !private ["So8NSObjectC", "GetAliasExecutor"]
+- ["So8NSObjectC", "GetAliasRequest"]
+- ["So8NSObjectC", "GetAliasResponse"]
+- !private ["So8NSObjectC", "GetFunctionExecutor"]
+- ["So8NSObjectC", "GetFunctionRequest"]
+- ["So8NSObjectC", "GetFunctionResponse"]
+- !private ["So8NSObjectC", "GetTriggerExecutor"]
+- ["So8NSObjectC", "GetTriggerRequest"]
+- ["So8NSObjectC", "GetTriggerResponse"]
+- !private ["So8NSObjectC", "GetVersionExecutor"]
+- ["So8NSObjectC", "GetVersionRequest"]
+- ["So8NSObjectC", "GetVersionResponse"]
+- !private ["So8NSObjectC", "GlobalConfig"]
+- !private ["So8NSObjectC", "JSONDecoder"]
+- !private ["So8NSObjectC", "ListAliasExecutor"]
+- ["So8NSObjectC", "ListAliasRequest"]
+- ["So8NSObjectC", "ListAliasResponse"]
+- !private ["So8NSObjectC", "ListFunctionExecutor"]
+- ["So8NSObjectC", "ListFunctionRequest"]
+- ["So8NSObjectC", "ListFunctionResponse"]
+- !private ["So8NSObjectC", "ListTriggerExecutor"]
+- ["So8NSObjectC", "ListTriggerRequest"]
+- ["So8NSObjectC", "ListTriggerResponse"]
+- !private ["So8NSObjectC", "ListVersionExecutor"]
+- ["So8NSObjectC", "ListVersionRequest"]
+- ["So8NSObjectC", "ListVersionResponse"]
+- ["So8NSObjectC", "NSError"]
+- ["So8NSObjectC", "NSNumber"]
+- ["So8NSObjectC", "NSString"]
+- ["So8NSObjectC", "SDKEnvironment"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "TestInvokeExecutor"]
+- ["So8NSObjectC", "TestInvokeRequest"]
+- ["So8NSObjectC", "TestInvokeResponse"]
+- !private ["So8NSObjectC", "UpdateAliasExecutor"]
+- ["So8NSObjectC", "UpdateAliasRequest"]
+- ["So8NSObjectC", "UpdateAliasResponse"]
+- !private ["So8NSObjectC", "UpdateFunctionExecutor"]
+- ["So8NSObjectC", "UpdateFunctionRequest"]
+- ["So8NSObjectC", "UpdateFunctionResponse"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "contentType"]
+- ["So8NSObjectC", "createAliasAsync"]
+- ["So8NSObjectC", "createFunctionAsync"]
+- ["So8NSObjectC", "createVersionAsync"]
+- ["So8NSObjectC", "credential"]
+- ["So8NSObjectC", "customHeader"]
+- !private ["So8NSObjectC", "data"]
+- ["So8NSObjectC", "deleteAliasAsync"]
+- ["So8NSObjectC", "deleteFunctionAsync"]
+- ["So8NSObjectC", "deleteVersionAsync"]
+- !private ["So8NSObjectC", "executeAsync"]
+- ["So8NSObjectC", "functionJDCloudClient"]
+- ["So8NSObjectC", "getAliasAsync"]
+- ["So8NSObjectC", "getFunctionAsync"]
+- ["So8NSObjectC", "getTriggerAsync"]
+- ["So8NSObjectC", "getVersionAsync"]
+- ["So8NSObjectC", "httpRequestProtocol"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "listAliasAsync"]
+- ["So8NSObjectC", "listFunctionAsync"]
+- ["So8NSObjectC", "listTriggerAsync"]
+- ["So8NSObjectC", "listVersionAsync"]
+- ["So8NSObjectC", "sdkEnvironment"]
+- ["So8NSObjectC", "serviceName"]
+- ["So8NSObjectC", "testInvokeAsync"]
+- ["So8NSObjectC", "updateAliasAsync"]
+- ["So8NSObjectC", "updateFunctionAsync"]
+- ["So8NSObjectC", "userAgent"]
+- ["So8NSObjectC", "version"]
+- !private ["So8NSObjectP", "CreateAliasExecutor"]
+- !private ["So8NSObjectP", "CreateAliasResponse"]
+- !private ["So8NSObjectP", "CreateFunctionExecutor"]
+- !private ["So8NSObjectP", "CreateFunctionResponse"]
+- !private ["So8NSObjectP", "CreateVersionExecutor"]
+- !private ["So8NSObjectP", "CreateVersionResponse"]
+- !private ["So8NSObjectP", "Credential"]
+- !private ["So8NSObjectP", "DeleteAliasExecutor"]
+- !private ["So8NSObjectP", "DeleteAliasResponse"]
+- !private ["So8NSObjectP", "DeleteFunctionExecutor"]
+- !private ["So8NSObjectP", "DeleteFunctionResponse"]
+- !private ["So8NSObjectP", "DeleteVersionExecutor"]
+- !private ["So8NSObjectP", "DeleteVersionResponse"]
+- !private ["So8NSObjectP", "GetAliasExecutor"]
+- !private ["So8NSObjectP", "GetAliasResponse"]
+- !private ["So8NSObjectP", "GetFunctionExecutor"]
+- !private ["So8NSObjectP", "GetFunctionResponse"]
+- !private ["So8NSObjectP", "GetTriggerExecutor"]
+- !private ["So8NSObjectP", "GetTriggerResponse"]
+- !private ["So8NSObjectP", "GetVersionExecutor"]
+- !private ["So8NSObjectP", "GetVersionResponse"]
+- !private ["So8NSObjectP", "GlobalConfig"]
+- !private ["So8NSObjectP", "JSONDecoder"]
+- !private ["So8NSObjectP", "ListAliasExecutor"]
+- !private ["So8NSObjectP", "ListAliasResponse"]
+- !private ["So8NSObjectP", "ListFunctionExecutor"]
+- !private ["So8NSObjectP", "ListFunctionResponse"]
+- !private ["So8NSObjectP", "ListTriggerExecutor"]
+- !private ["So8NSObjectP", "ListTriggerResponse"]
+- !private ["So8NSObjectP", "ListVersionExecutor"]
+- !private ["So8NSObjectP", "ListVersionResponse"]
+- !private ["So8NSObjectP", "SDKEnvironment"]
+- ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "TestInvokeExecutor"]
+- !private ["So8NSObjectP", "TestInvokeResponse"]
+- !private ["So8NSObjectP", "UpdateAliasExecutor"]
+- !private ["So8NSObjectP", "UpdateAliasResponse"]
+- !private ["So8NSObjectP", "UpdateFunctionExecutor"]
+- !private ["So8NSObjectP", "UpdateFunctionResponse"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "addCustomer"]
+- ["So8NSObjectP", "contentType"]
+- ["So8NSObjectP", "credential"]
+- ["So8NSObjectP", "customHeader"]
+- !private ["So8NSObjectP", "data"]
+- !private ["So8NSObjectP", "executeAsync"]
+- !private ["So8NSObjectP", "functionJDCloudClient"]
+- ["So8NSObjectP", "httpRequestProtocol"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "sdkEnvironment"]
+- ["So8NSObjectP", "serviceName"]
+- ["So8NSObjectP", "userAgent"]
+- ["So8NSObjectP", "version"]
+- !private ["So14NSSecureCodingP", "data"]
+- !private ["So8NSStringC", "data"]
+- !private ["Sm", "data"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["SY", "utf8"]
+- !private ["14JDCloudSDKCore14SDKEnvironmentC", "init"]
+- !private ["ST", "data"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- !private ["SS", "data"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "data"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["18JDCloudSDKFunction18TestInvokeExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction18TestInvokeExecutorC", "init"]
+- !private ["18JDCloudSDKFunction18TestInvokeResponseC", "deinit"]
+- !private ["s16TextOutputStreamP", "data"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "data"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["14JDCloudSDKCore14URLConvertibleP", "data"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["18JDCloudSDKFunction19UpdateAliasExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction19UpdateAliasExecutorC", "init"]
+- !private ["18JDCloudSDKFunction19UpdateAliasResponseC", "deinit"]
+- !private ["18JDCloudSDKFunction22UpdateFunctionExecutorC", "executeAsync"]
+- !private ["18JDCloudSDKFunction22UpdateFunctionExecutorC", "init"]
+- !private ["18JDCloudSDKFunction22UpdateFunctionResponseC", "deinit"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "data"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "data"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "data"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "data"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "data"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateAliasExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateAliasResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateFunctionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateFunctionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateVersionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateVersionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Credential"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteAliasExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteAliasResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteFunctionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteFunctionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteVersionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteVersionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetAliasExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetAliasResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetFunctionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetFunctionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetTriggerExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetTriggerResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetVersionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GetVersionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "GlobalConfig"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "JSONDecoder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListAliasExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListAliasResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListFunctionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListFunctionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListTriggerExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListTriggerResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListVersionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ListVersionResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SDKEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "TestInvokeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "TestInvokeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UpdateAliasExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UpdateAliasResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UpdateFunctionExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UpdateFunctionResponse"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["10Foundation27_KeyValueCodingAndObservingP", "addCustomer"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "contentType"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "credential"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "customHeader"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "executeAsync"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "functionJDCloudClient"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "httpRequestProtocol"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "sdkEnvironment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "serviceName"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "userAgent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "version"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "data"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "data"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- !private "18JDCloudSDKFunction19CreateAliasExecutorC"
+- !private "18JDCloudSDKFunction19CreateAliasResponseC"
+- !private "18JDCloudSDKFunction22CreateFunctionExecutorC"
+- !private "18JDCloudSDKFunction22CreateFunctionResponseC"
+- !private "18JDCloudSDKFunction21CreateVersionExecutorC"
+- !private "18JDCloudSDKFunction21CreateVersionResponseC"
+- !private "14JDCloudSDKCore10CredentialC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "18JDCloudSDKFunction19DeleteAliasExecutorC"
+- !private "18JDCloudSDKFunction19DeleteAliasResponseC"
+- !private "18JDCloudSDKFunction22DeleteFunctionExecutorC"
+- !private "18JDCloudSDKFunction22DeleteFunctionResponseC"
+- !private "18JDCloudSDKFunction21DeleteVersionExecutorC"
+- !private "18JDCloudSDKFunction21DeleteVersionResponseC"
+- "SD"
+- "SE"
+- !private "SS10FoundationE8EncodingV"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "18JDCloudSDKFunction08FunctionA6ClientC"
+- !private "18JDCloudSDKFunction16GetAliasExecutorC"
+- !private "18JDCloudSDKFunction16GetAliasResponseC"
+- !private "18JDCloudSDKFunction19GetFunctionExecutorC"
+- !private "18JDCloudSDKFunction19GetFunctionResponseC"
+- !private "18JDCloudSDKFunction18GetTriggerExecutorC"
+- !private "18JDCloudSDKFunction18GetTriggerResponseC"
+- !private "18JDCloudSDKFunction18GetVersionExecutorC"
+- !private "18JDCloudSDKFunction18GetVersionResponseC"
+- !private "14JDCloudSDKCore12GlobalConfigC"
+- "SH"
+- "14JDCloudSDKCore0A6ClientP"
+- !private "14JDCloudSDKCore0A8ExecutorC"
+- !private "10Foundation11JSONDecoderC"
+- !private "18JDCloudSDKFunction17ListAliasExecutorC"
+- !private "18JDCloudSDKFunction17ListAliasResponseC"
+- !private "18JDCloudSDKFunction20ListFunctionExecutorC"
+- !private "18JDCloudSDKFunction20ListFunctionResponseC"
+- !private "18JDCloudSDKFunction19ListTriggerExecutorC"
+- !private "18JDCloudSDKFunction19ListTriggerResponseC"
+- !private "18JDCloudSDKFunction19ListVersionExecutorC"
+- !private "18JDCloudSDKFunction19ListVersionResponseC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- "Sm"
+- !private "SY"
+- !private "14JDCloudSDKCore14SDKEnvironmentC"
+- "ST"
+- "SS"
+- "Sy"
+- !private "18JDCloudSDKFunction18TestInvokeExecutorC"
+- !private "18JDCloudSDKFunction18TestInvokeResponseC"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "18JDCloudSDKFunction19UpdateAliasExecutorC"
+- !private "18JDCloudSDKFunction19UpdateAliasResponseC"
+- !private "18JDCloudSDKFunction22UpdateFunctionExecutorC"
+- !private "18JDCloudSDKFunction22UpdateFunctionResponseC"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "fa4c0651393b91e4fe1ae57c20bd40dc"

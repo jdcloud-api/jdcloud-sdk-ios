@@ -29,6 +29,39 @@ import JDCloudSDKCore
 @objc(GetDomainDetailResult)
 public class GetDomainDetailResult:NSObject,JdCloudResult
 {
+    /// AllStatus
+    var allStatus:String?
+
+    /// AllowNoReferHeader
+    var allowNoReferHeader:String?
+
+    /// AllowNullReferHeader
+    var allowNullReferHeader:String?
+
+    /// DailyBandWidth
+    var dailyBandWidth:Int?
+
+    /// ForbiddenType
+    var forbiddenType:String?
+
+    /// MaxFileSize
+    var maxFileSize:Int64?
+
+    /// MinFileSize
+    var minFileSize:Int64?
+
+    /// SumFileSize
+    var sumFileSize:Int64?
+
+    /// AvgFileSize
+    var avgFileSize:Int64?
+
+    /// ReferList
+    var referList:String?
+
+    /// ReferType
+    var referType:String?
+
     /// Domain
     var domain:String?
 
@@ -54,10 +87,13 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
     var auditStatus:String?
 
     /// Source
-    var source:String?
+    var source:BackSourceInfo?
 
     /// SourceType
     var sourceType:String?
+
+    /// 默认的回源host
+    var defaultSourceHost:String?
 
     /// BackSourceType
     var backSourceType:String?
@@ -81,6 +117,17 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
     }
 
     enum GetDomainDetailResultCodingKeys: String, CodingKey {
+        case allStatus
+        case allowNoReferHeader
+        case allowNullReferHeader
+        case dailyBandWidth
+        case forbiddenType
+        case maxFileSize
+        case minFileSize
+        case sumFileSize
+        case avgFileSize
+        case referList
+        case referType
         case domain
         case cname
         case archiveNo
@@ -91,6 +138,7 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
         case auditStatus
         case source
         case sourceType
+        case defaultSourceHost
         case backSourceType
         case httpType
         case certificate
@@ -100,6 +148,17 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDomainDetailResultCodingKeys.self)
+        self.allStatus = try decoderContainer.decode(String?.self, forKey: .allStatus)
+        self.allowNoReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNoReferHeader)
+        self.allowNullReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNullReferHeader)
+        self.dailyBandWidth = try decoderContainer.decode(Int?.self, forKey: .dailyBandWidth)
+        self.forbiddenType = try decoderContainer.decode(String?.self, forKey: .forbiddenType)
+        self.maxFileSize = try decoderContainer.decode(Int64?.self, forKey: .maxFileSize)
+        self.minFileSize = try decoderContainer.decode(Int64?.self, forKey: .minFileSize)
+        self.sumFileSize = try decoderContainer.decode(Int64?.self, forKey: .sumFileSize)
+        self.avgFileSize = try decoderContainer.decode(Int64?.self, forKey: .avgFileSize)
+        self.referList = try decoderContainer.decode(String?.self, forKey: .referList)
+        self.referType = try decoderContainer.decode(String?.self, forKey: .referType)
         self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
         self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
         self.archiveNo = try decoderContainer.decode(String?.self, forKey: .archiveNo)
@@ -108,8 +167,9 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
         self.modified = try decoderContainer.decode(String?.self, forKey: .modified)
         self.status = try decoderContainer.decode(String?.self, forKey: .status)
         self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
-        self.source = try decoderContainer.decode(String?.self, forKey: .source)
+        self.source = try decoderContainer.decode(BackSourceInfo?.self, forKey: .source)
         self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
+        self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
         self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
         self.httpType = try decoderContainer.decode(String?.self, forKey: .httpType)
         self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
@@ -120,6 +180,17 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
 public extension GetDomainDetailResult{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainDetailResultCodingKeys.self)
+        try encoderContainer.encode(allStatus, forKey: .allStatus)
+        try encoderContainer.encode(allowNoReferHeader, forKey: .allowNoReferHeader)
+        try encoderContainer.encode(allowNullReferHeader, forKey: .allowNullReferHeader)
+        try encoderContainer.encode(dailyBandWidth, forKey: .dailyBandWidth)
+        try encoderContainer.encode(forbiddenType, forKey: .forbiddenType)
+        try encoderContainer.encode(maxFileSize, forKey: .maxFileSize)
+        try encoderContainer.encode(minFileSize, forKey: .minFileSize)
+        try encoderContainer.encode(sumFileSize, forKey: .sumFileSize)
+        try encoderContainer.encode(avgFileSize, forKey: .avgFileSize)
+        try encoderContainer.encode(referList, forKey: .referList)
+        try encoderContainer.encode(referType, forKey: .referType)
         try encoderContainer.encode(domain, forKey: .domain)
         try encoderContainer.encode(cname, forKey: .cname)
         try encoderContainer.encode(archiveNo, forKey: .archiveNo)
@@ -130,6 +201,7 @@ public extension GetDomainDetailResult{
         try encoderContainer.encode(auditStatus, forKey: .auditStatus)
         try encoderContainer.encode(source, forKey: .source)
         try encoderContainer.encode(sourceType, forKey: .sourceType)
+        try encoderContainer.encode(defaultSourceHost, forKey: .defaultSourceHost)
         try encoderContainer.encode(backSourceType, forKey: .backSourceType)
         try encoderContainer.encode(httpType, forKey: .httpType)
         try encoderContainer.encode(certificate, forKey: .certificate)

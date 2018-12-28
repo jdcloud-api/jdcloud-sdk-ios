@@ -44,6 +44,9 @@ public class DescribeInstancesRequest:JdCloudRequest
       /// 
     var filters:Filter?
 
+    /// Tag筛选条件
+    var tagFilters:TagFilter?
+
     /// createTime - 创建时间,asc（正序），desc（倒序）
       /// 
     var sorts:Sort?
@@ -55,6 +58,7 @@ public class DescribeInstancesRequest:JdCloudRequest
         case pageNumber
         case pageSize
         case filters
+        case tagFilters
         case sorts
     }
 
@@ -63,6 +67,7 @@ public class DescribeInstancesRequest:JdCloudRequest
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(filters, forKey: .filters)
+        try encoderContainer.encode(tagFilters, forKey: .tagFilters)
         try encoderContainer.encode(sorts, forKey: .sorts)
 
     }

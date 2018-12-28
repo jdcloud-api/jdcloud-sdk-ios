@@ -24,6 +24,7 @@
 
 import Foundation
 import JDCloudSDKCore
+import JDCloudSDKCommon
 
 
 ///  获取当前账号下所有RDS实例及MySQL只读实例的概要信息，例如实例类型，版本，计费信息等
@@ -36,18 +37,36 @@ public class DescribeInstancesRequest:JdCloudRequest
     /// 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
     var pageSize:Int?
 
+    /// 过滤参数，多个过滤参数之间的关系为“与”(and)
+      /// 支持以下属性的过滤：
+      /// instanceId, 支持operator选项：eq
+      /// instanceName, 支持operator选项：eq
+      /// engine, 支持operator选项：eq
+      /// engineVersion, 支持operator选项：eq
+      /// instanceStatus, 支持operator选项：eq
+      /// chargeMode, 支持operator选项：eq
+      /// 
+    var filters:Filter?
+
+    /// 资源标签
+    var tagFilters:TagFilter?
+
 
 
 
     enum DescribeInstancesRequestRequestCodingKeys: String, CodingKey {
         case pageNumber
         case pageSize
+        case filters
+        case tagFilters
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstancesRequestRequestCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(filters, forKey: .filters)
+        try encoderContainer.encode(tagFilters, forKey: .tagFilters)
 
     }
 }

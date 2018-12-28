@@ -32,6 +32,9 @@ public class DescribeAccountsResult:NSObject,JdCloudResult
     /// Accounts
     var accounts:Account?
 
+    /// TotalCount
+    var totalCount:Int?
+
 
 
     public override init(){
@@ -40,16 +43,19 @@ public class DescribeAccountsResult:NSObject,JdCloudResult
 
     enum DescribeAccountsResultCodingKeys: String, CodingKey {
         case accounts
+        case totalCount
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAccountsResultCodingKeys.self)
         self.accounts = try decoderContainer.decode(Account?.self, forKey: .accounts)
+        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
     }
 }
 public extension DescribeAccountsResult{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAccountsResultCodingKeys.self)
         try encoderContainer.encode(accounts, forKey: .accounts)
+        try encoderContainer.encode(totalCount, forKey: .totalCount)
     }
 }

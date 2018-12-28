@@ -1,0 +1,422 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DescribeCustomLiveStreamSnapshotConfigResult"
+provides-nominal:
+- "14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC"
+- "14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO"
+provides-member:
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", ""]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", ""]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "encode"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "CodingKey"
+- "Decoder"
+- "DescribeCustomLiveStreamSnapshotConfigResult"
+- "Double"
+- "Encoder"
+- !private "FloatLiteralType"
+- "Int"
+- !private "IntegerLiteralType"
+- "JdCloudResult"
+- "NSObject"
+- "SnapshotConfig"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["s7CVarArgP", "Double"]
+- !private ["s7CVarArgP", "Int"]
+- !private ["s7CVarArgP", "SnapshotConfig"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "encode"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "pageNumber"]
+- !private ["s7CVarArgP", "pageSize"]
+- !private ["s7CVarArgP", "snapshotConfigs"]
+- !private ["s7CVarArgP", "totalCount"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "pageNumber"]
+- !private ["s9CodingKeyP", "pageSize"]
+- ["s9CodingKeyP", "rawValue"]
+- !private ["s9CodingKeyP", "snapshotConfigs"]
+- ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "totalCount"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "Double"]
+- !private ["s28CustomDebugStringConvertibleP", "Int"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "SnapshotConfig"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- !private ["s28CustomDebugStringConvertibleP", "pageNumber"]
+- !private ["s28CustomDebugStringConvertibleP", "pageSize"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "snapshotConfigs"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "totalCount"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["s23CustomStringConvertibleP", "Double"]
+- !private ["s23CustomStringConvertibleP", "Int"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "SnapshotConfig"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- !private ["s23CustomStringConvertibleP", "pageNumber"]
+- !private ["s23CustomStringConvertibleP", "pageSize"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- !private ["s23CustomStringConvertibleP", "snapshotConfigs"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "totalCount"]
+- !private ["Se", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["Se", "Double"]
+- !private ["Se", "Int"]
+- !private ["Se", "SnapshotConfig"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "encode"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "pageNumber"]
+- !private ["Se", "pageSize"]
+- !private ["Se", "snapshotConfigs"]
+- !private ["Se", "totalCount"]
+- !private ["s7DecoderP", "container"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "CodingKey"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "Decoder"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "Double"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "Encoder"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "Int"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "SnapshotConfig"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "String"]
+- !private ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "_findStringSwitchCase"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "deinit"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "encode"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "init"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "pageNumber"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "pageSize"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "snapshotConfigs"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC", "totalCount"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "RawValue"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "_Default_RawValue"]
+- !private ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "_findStringSwitchCase"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "debugDescription"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "deinit"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "description"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "hash"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "hashValue"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "init"]
+- !private ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "init"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "intValue"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "pageNumber"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "pageSize"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "rawValue"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "snapshotConfigs"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "stringValue"]
+- ["14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO", "totalCount"]
+- !private ["SE", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["SE", "Double"]
+- !private ["SE", "Int"]
+- !private ["SE", "SnapshotConfig"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- ["SE", "encode"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "pageNumber"]
+- !private ["SE", "pageSize"]
+- !private ["SE", "snapshotConfigs"]
+- !private ["SE", "totalCount"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["SQ", "Double"]
+- !private ["SQ", "Int"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "SnapshotConfig"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "pageNumber"]
+- !private ["SQ", "pageSize"]
+- ["SQ", "rawValue"]
+- !private ["SQ", "snapshotConfigs"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "totalCount"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["SH", "Double"]
+- !private ["SH", "Int"]
+- ["SH", "RawValue"]
+- !private ["SH", "SnapshotConfig"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "pageNumber"]
+- !private ["SH", "pageSize"]
+- ["SH", "rawValue"]
+- !private ["SH", "snapshotConfigs"]
+- ["SH", "stringValue"]
+- !private ["SH", "totalCount"]
+- !private ["s6HasherV", "combine"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "Double"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "Int"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "SnapshotConfig"]
+- ["14JDCloudSDKCore13JdCloudResultP", ""]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "_findStringSwitchCase"]
+- ["14JDCloudSDKCore13JdCloudResultP", "encode"]
+- ["14JDCloudSDKCore13JdCloudResultP", "init"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "pageNumber"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "pageSize"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "snapshotConfigs"]
+- !private ["14JDCloudSDKCore13JdCloudResultP", "totalCount"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "CodingKey"]
+- ["So8NSObjectC", "Decoder"]
+- !private ["So8NSObjectC", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- ["So8NSObjectC", "Double"]
+- ["So8NSObjectC", "Encoder"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "SnapshotConfig"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "pageNumber"]
+- ["So8NSObjectC", "pageSize"]
+- ["So8NSObjectC", "snapshotConfigs"]
+- ["So8NSObjectC", "totalCount"]
+- !private ["So8NSObjectP", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["So8NSObjectP", "Double"]
+- !private ["So8NSObjectP", "Int"]
+- !private ["So8NSObjectP", "SnapshotConfig"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- ["So8NSObjectP", "encode"]
+- ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "pageNumber"]
+- !private ["So8NSObjectP", "pageSize"]
+- !private ["So8NSObjectP", "snapshotConfigs"]
+- !private ["So8NSObjectP", "totalCount"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- !private ["SY", "pageNumber"]
+- !private ["SY", "pageSize"]
+- ["SY", "rawValue"]
+- !private ["SY", "snapshotConfigs"]
+- ["SY", "stringValue"]
+- !private ["SY", "totalCount"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["14JDCloudSDKLive14SnapshotConfigC", "deinit"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeCustomLiveStreamSnapshotConfigResultCodingKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Double"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SnapshotConfig"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageNumber"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pageSize"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "snapshotConfigs"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "totalCount"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC"
+- "14JDCloudSDKLive44DescribeCustomLiveStreamSnapshotConfigResultC0cdefghI10CodingKeysO"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- "14JDCloudSDKCore13JdCloudResultP"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "14JDCloudSDKLive14SnapshotConfigC"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "534b60d05e6386a95b046147ac87868d"

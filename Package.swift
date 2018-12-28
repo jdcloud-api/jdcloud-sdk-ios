@@ -25,7 +25,7 @@ let package = Package(
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "JDCloudSDKSwift",
-            targets: ["JDCloudSDKCore", "JDCloudSDKRds","JDCloudSDKJke","JDCloudSDKStreamcomputer","JDCloudSDKDatastar","JDCloudSDKIpanti","JDCloudSDKRedis","JDCloudSDKOss","JDCloudSDKBilling","JDCloudSDKKms","JDCloudSDKCommon","JDCloudSDKIam","JDCloudSDKSop","JDCloudSDKIas","JDCloudSDKBaseanti","JDCloudSDKMongodb","JDCloudSDKCharge","JDCloudSDKClouddnsservice","JDCloudSDKCps","JDCloudSDKVpc","JDCloudSDKMonitor","JDCloudSDKXdata","JDCloudSDKCdn","JDCloudSDKCr","JDCloudSDKStreambus","JDCloudSDKHttpdns","JDCloudSDKMps","JDCloudSDKDisk","JDCloudSDKNc","JDCloudSDKVm","JDCloudSDKJdw",]),
+            targets: ["JDCloudSDKCore", "JDCloudSDKRds","JDCloudSDKJke","JDCloudSDKAms","JDCloudSDKVod","JDCloudSDKStreamcomputer","JDCloudSDKDatastar","JDCloudSDKIpanti","JDCloudSDKRedis","JDCloudSDKOss","JDCloudSDKBilling","JDCloudSDKKms","JDCloudSDKOssopenapi","JDCloudSDKCommon","JDCloudSDKIam","JDCloudSDKSop","JDCloudSDKFunction","JDCloudSDKIothub","JDCloudSDKIas","JDCloudSDKBaseanti","JDCloudSDKMongodb","JDCloudSDKLive","JDCloudSDKJdfusion","JDCloudSDKCharge","JDCloudSDKClouddnsservice","JDCloudSDKCps","JDCloudSDKVpc","JDCloudSDKMonitor","JDCloudSDKXdata","JDCloudSDKCdn","JDCloudSDKCr","JDCloudSDKStreambus","JDCloudSDKHttpdns","JDCloudSDKMps","JDCloudSDKDisk","JDCloudSDKContainerregistry","JDCloudSDKNc","JDCloudSDKVm","JDCloudSDKJdw",]),
     ],
     dependencies: dependencies,
     targets: [
@@ -38,7 +38,7 @@ let package = Package(
             exclude: ["Sources/JDCloudSDKCore/JDCloudSDKCore_Info.plist","Sources/JDCloudSDKCore/JDCloudSDKCore.h"]),
         .target(
             name: "JDCloudSDKRds",
-            dependencies: ["JDCloudSDKCore","JDCloudSDKCharge",],
+            dependencies: ["JDCloudSDKCore","JDCloudSDKCommon","JDCloudSDKCharge",],
             path: "Sources/JDCloudSDKRds",
             exclude: ["Sources/JDCloudSDKRds/JDCloudSDKRds_Info.plist","Sources/JDCloudSDKRds/JDCloudSDKRds.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .target(
@@ -46,6 +46,16 @@ let package = Package(
             dependencies: ["JDCloudSDKCore","JDCloudSDKCommon",],
             path: "Sources/JDCloudSDKJke",
             exclude: ["Sources/JDCloudSDKJke/JDCloudSDKJke_Info.plist","Sources/JDCloudSDKJke/JDCloudSDKJke.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
+            name: "JDCloudSDKAms",
+            dependencies: ["JDCloudSDKCore",],
+            path: "Sources/JDCloudSDKAms",
+            exclude: ["Sources/JDCloudSDKAms/JDCloudSDKAms_Info.plist","Sources/JDCloudSDKAms/JDCloudSDKAms.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
+            name: "JDCloudSDKVod",
+            dependencies: ["JDCloudSDKCore","JDCloudSDKCommon",],
+            path: "Sources/JDCloudSDKVod",
+            exclude: ["Sources/JDCloudSDKVod/JDCloudSDKVod_Info.plist","Sources/JDCloudSDKVod/JDCloudSDKVod.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .target(
             name: "JDCloudSDKStreamcomputer",
             dependencies: ["JDCloudSDKCore",],
@@ -82,6 +92,11 @@ let package = Package(
             path: "Sources/JDCloudSDKKms",
             exclude: ["Sources/JDCloudSDKKms/JDCloudSDKKms_Info.plist","Sources/JDCloudSDKKms/JDCloudSDKKms.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .target(
+            name: "JDCloudSDKOssopenapi",
+            dependencies: ["JDCloudSDKCore",],
+            path: "Sources/JDCloudSDKOssopenapi",
+            exclude: ["Sources/JDCloudSDKOssopenapi/JDCloudSDKOssopenapi_Info.plist","Sources/JDCloudSDKOssopenapi/JDCloudSDKOssopenapi.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
             name: "JDCloudSDKCommon",
             dependencies: ["JDCloudSDKCore",],
             path: "Sources/JDCloudSDKCommon",
@@ -97,6 +112,16 @@ let package = Package(
             path: "Sources/JDCloudSDKSop",
             exclude: ["Sources/JDCloudSDKSop/JDCloudSDKSop_Info.plist","Sources/JDCloudSDKSop/JDCloudSDKSop.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .target(
+            name: "JDCloudSDKFunction",
+            dependencies: ["JDCloudSDKCore","JDCloudSDKCommon",],
+            path: "Sources/JDCloudSDKFunction",
+            exclude: ["Sources/JDCloudSDKFunction/JDCloudSDKFunction_Info.plist","Sources/JDCloudSDKFunction/JDCloudSDKFunction.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
+            name: "JDCloudSDKIothub",
+            dependencies: ["JDCloudSDKCore",],
+            path: "Sources/JDCloudSDKIothub",
+            exclude: ["Sources/JDCloudSDKIothub/JDCloudSDKIothub_Info.plist","Sources/JDCloudSDKIothub/JDCloudSDKIothub.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
             name: "JDCloudSDKIas",
             dependencies: ["JDCloudSDKCore",],
             path: "Sources/JDCloudSDKIas",
@@ -111,6 +136,16 @@ let package = Package(
             dependencies: ["JDCloudSDKCore","JDCloudSDKCommon","JDCloudSDKCharge",],
             path: "Sources/JDCloudSDKMongodb",
             exclude: ["Sources/JDCloudSDKMongodb/JDCloudSDKMongodb_Info.plist","Sources/JDCloudSDKMongodb/JDCloudSDKMongodb.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
+            name: "JDCloudSDKLive",
+            dependencies: ["JDCloudSDKCore","JDCloudSDKCommon",],
+            path: "Sources/JDCloudSDKLive",
+            exclude: ["Sources/JDCloudSDKLive/JDCloudSDKLive_Info.plist","Sources/JDCloudSDKLive/JDCloudSDKLive.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
+            name: "JDCloudSDKJdfusion",
+            dependencies: ["JDCloudSDKCore",],
+            path: "Sources/JDCloudSDKJdfusion",
+            exclude: ["Sources/JDCloudSDKJdfusion/JDCloudSDKJdfusion_Info.plist","Sources/JDCloudSDKJdfusion/JDCloudSDKJdfusion.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .target(
             name: "JDCloudSDKCharge",
             dependencies: ["JDCloudSDKCore",],
@@ -171,6 +206,11 @@ let package = Package(
             dependencies: ["JDCloudSDKCore","JDCloudSDKCommon","JDCloudSDKCharge",],
             path: "Sources/JDCloudSDKDisk",
             exclude: ["Sources/JDCloudSDKDisk/JDCloudSDKDisk_Info.plist","Sources/JDCloudSDKDisk/JDCloudSDKDisk.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
+        .target(
+            name: "JDCloudSDKContainerregistry",
+            dependencies: ["JDCloudSDKCore","JDCloudSDKCommon",],
+            path: "Sources/JDCloudSDKContainerregistry",
+            exclude: ["Sources/JDCloudSDKContainerregistry/JDCloudSDKContainerregistry_Info.plist","Sources/JDCloudSDKContainerregistry/JDCloudSDKContainerregistry.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .target(
             name: "JDCloudSDKNc",
             dependencies: ["JDCloudSDKCore","JDCloudSDKCommon","JDCloudSDKCharge","JDCloudSDKDisk",],

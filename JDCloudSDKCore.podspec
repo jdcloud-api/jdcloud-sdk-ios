@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
  
  
 
-  s.license      = "Apache License, Version 2.0"
+  s.license = "Copyright (c) 2018年 JDCloud. All rights reserved."
   
   s.author             = { "JDCloud API GateWay Team" => "JDCloud API GateWay Team" }
   

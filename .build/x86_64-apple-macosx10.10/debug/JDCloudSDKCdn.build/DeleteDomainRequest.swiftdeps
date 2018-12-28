@@ -15,6 +15,8 @@ depends-top-level:
 - "CodingKey"
 - "DeleteDomainRequest"
 - "Encoder"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
 - "JdCloudRequest"
 - "String"
 - "StringLiteralType"

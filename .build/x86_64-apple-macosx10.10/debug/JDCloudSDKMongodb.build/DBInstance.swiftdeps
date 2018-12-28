@@ -26,6 +26,7 @@ depends-top-level:
 - "NSObject"
 - "String"
 - "StringLiteralType"
+- "Tag"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
@@ -37,6 +38,7 @@ depends-member:
 - !private ["s7CVarArgP", "DBInstanceCodingKeys"]
 - !private ["s7CVarArgP", "Int"]
 - !private ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "Tag"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "_findStringSwitchCase"]
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
@@ -65,6 +67,7 @@ depends-member:
 - !private ["s7CVarArgP", "preferredmaintenanceWindow"]
 - !private ["s7CVarArgP", "replicaSetName"]
 - !private ["s7CVarArgP", "subnetId"]
+- !private ["s7CVarArgP", "tags"]
 - !private ["s7CVarArgP", "vpcId"]
 - ["s9CodingKeyP", "RawValue"]
 - ["s9CodingKeyP", ""]
@@ -101,6 +104,7 @@ depends-member:
 - !private ["s9CodingKeyP", "replicaSetName"]
 - ["s9CodingKeyP", "stringValue"]
 - !private ["s9CodingKeyP", "subnetId"]
+- !private ["s9CodingKeyP", "tags"]
 - !private ["s9CodingKeyP", "vpcId"]
 - ["Sl", "init"]
 - ["Sl", "init"]
@@ -112,6 +116,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "Tag"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
@@ -147,6 +152,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "replicaSetName"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
 - !private ["s28CustomDebugStringConvertibleP", "subnetId"]
+- !private ["s28CustomDebugStringConvertibleP", "tags"]
 - !private ["s28CustomDebugStringConvertibleP", "vpcId"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -160,6 +166,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "Int"]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - !private ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "Tag"]
 - ["s23CustomStringConvertibleP", ""]
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
@@ -196,6 +203,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "replicaSetName"]
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["s23CustomStringConvertibleP", "subnetId"]
+- !private ["s23CustomStringConvertibleP", "tags"]
 - !private ["s23CustomStringConvertibleP", "vpcId"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "Bool"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "Charge"]
@@ -205,6 +213,7 @@ depends-member:
 - ["17JDCloudSDKMongodb10DBInstanceC", "Encoder"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "Int"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "String"]
+- ["17JDCloudSDKMongodb10DBInstanceC", "Tag"]
 - !private ["17JDCloudSDKMongodb10DBInstanceC", "_findStringSwitchCase"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "accountName"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "azId"]
@@ -231,6 +240,7 @@ depends-member:
 - ["17JDCloudSDKMongodb10DBInstanceC", "preferredmaintenanceWindow"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "replicaSetName"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "subnetId"]
+- ["17JDCloudSDKMongodb10DBInstanceC", "tags"]
 - ["17JDCloudSDKMongodb10DBInstanceC", "vpcId"]
 - ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "RawValue"]
 - ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "_Default_RawValue"]
@@ -267,12 +277,14 @@ depends-member:
 - ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "replicaSetName"]
 - ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "stringValue"]
 - ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "subnetId"]
+- ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "tags"]
 - ["17JDCloudSDKMongodb10DBInstanceC0C10CodingKeysO", "vpcId"]
 - !private ["Se", "Bool"]
 - !private ["Se", "Charge"]
 - !private ["Se", "DBInstanceCodingKeys"]
 - !private ["Se", "Int"]
 - !private ["Se", "String"]
+- !private ["Se", "Tag"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
 - !private ["Se", "_getBuiltinLogicValue"]
@@ -301,6 +313,7 @@ depends-member:
 - !private ["Se", "preferredmaintenanceWindow"]
 - !private ["Se", "replicaSetName"]
 - !private ["Se", "subnetId"]
+- !private ["Se", "tags"]
 - !private ["Se", "vpcId"]
 - !private ["s7DecoderP", "container"]
 - !private ["SE", "Bool"]
@@ -308,6 +321,7 @@ depends-member:
 - !private ["SE", "DBInstanceCodingKeys"]
 - !private ["SE", "Int"]
 - !private ["SE", "String"]
+- !private ["SE", "Tag"]
 - ["SE", ""]
 - !private ["SE", "_findStringSwitchCase"]
 - !private ["SE", "_getBuiltinLogicValue"]
@@ -336,6 +350,7 @@ depends-member:
 - !private ["SE", "preferredmaintenanceWindow"]
 - !private ["SE", "replicaSetName"]
 - !private ["SE", "subnetId"]
+- !private ["SE", "tags"]
 - !private ["SE", "vpcId"]
 - !private ["s7EncoderP", "container"]
 - !private ["SQ", "Bool"]
@@ -344,6 +359,7 @@ depends-member:
 - !private ["SQ", "Int"]
 - ["SQ", "RawValue"]
 - !private ["SQ", "String"]
+- !private ["SQ", "Tag"]
 - ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
@@ -380,6 +396,7 @@ depends-member:
 - !private ["SQ", "replicaSetName"]
 - ["SQ", "stringValue"]
 - !private ["SQ", "subnetId"]
+- !private ["SQ", "tags"]
 - !private ["SQ", "vpcId"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
@@ -394,6 +411,7 @@ depends-member:
 - !private ["SH", "Int"]
 - ["SH", "RawValue"]
 - !private ["SH", "String"]
+- !private ["SH", "Tag"]
 - ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
@@ -430,6 +448,7 @@ depends-member:
 - !private ["SH", "replicaSetName"]
 - ["SH", "stringValue"]
 - !private ["SH", "subnetId"]
+- !private ["SH", "tags"]
 - !private ["SH", "vpcId"]
 - !private ["s6HasherV", "combine"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
@@ -449,6 +468,7 @@ depends-member:
 - ["So8NSObjectC", "Encoder"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "Tag"]
 - ["So8NSObjectC", ""]
 - !private ["So8NSObjectC", "_findStringSwitchCase"]
 - ["So8NSObjectC", "accountName"]
@@ -475,12 +495,14 @@ depends-member:
 - ["So8NSObjectC", "preferredmaintenanceWindow"]
 - ["So8NSObjectC", "replicaSetName"]
 - ["So8NSObjectC", "subnetId"]
+- ["So8NSObjectC", "tags"]
 - ["So8NSObjectC", "vpcId"]
 - !private ["So8NSObjectP", "Bool"]
 - !private ["So8NSObjectP", "Charge"]
 - !private ["So8NSObjectP", "DBInstanceCodingKeys"]
 - !private ["So8NSObjectP", "Int"]
 - !private ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "Tag"]
 - ["So8NSObjectP", ""]
 - !private ["So8NSObjectP", "_findStringSwitchCase"]
 - !private ["So8NSObjectP", "accountName"]
@@ -507,6 +529,7 @@ depends-member:
 - !private ["So8NSObjectP", "preferredmaintenanceWindow"]
 - !private ["So8NSObjectP", "replicaSetName"]
 - !private ["So8NSObjectP", "subnetId"]
+- !private ["So8NSObjectP", "tags"]
 - !private ["So8NSObjectP", "vpcId"]
 - ["Sm", "init"]
 - ["Sm", "init"]
@@ -545,6 +568,7 @@ depends-member:
 - !private ["SY", "replicaSetName"]
 - ["SY", "stringValue"]
 - !private ["SY", "subnetId"]
+- !private ["SY", "tags"]
 - !private ["SY", "vpcId"]
 - ["ST", "init"]
 - ["ST", "init"]
@@ -554,6 +578,7 @@ depends-member:
 - ["SS", "init"]
 - ["Sy", "init"]
 - ["Sy", "init"]
+- !private ["17JDCloudSDKMongodb3TagC", "deinit"]
 - ["s16TextOutputStreamP", "init"]
 - ["s16TextOutputStreamP", "init"]
 - ["s20TextOutputStreamableP", "init"]
@@ -576,6 +601,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DBInstanceCodingKeys"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Tag"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "accountName"]
@@ -602,6 +628,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "preferredmaintenanceWindow"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "replicaSetName"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "subnetId"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tags"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "vpcId"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
@@ -646,6 +673,7 @@ depends-nominal:
 - !private "s12StaticStringV"
 - "SS"
 - "Sy"
+- !private "17JDCloudSDKMongodb3TagC"
 - "s16TextOutputStreamP"
 - "s20TextOutputStreamableP"
 - "14JDCloudSDKCore14URLConvertibleP"
@@ -680,4 +708,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "cd708fae7e6d5ae1e7f014bbf68d6bfd"
+interface-hash: "020d75b11f5b6af1d5ace20087848024"

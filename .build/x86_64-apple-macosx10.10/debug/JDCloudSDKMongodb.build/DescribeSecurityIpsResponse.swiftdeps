@@ -20,6 +20,8 @@ depends-top-level:
 - "DescribeSecurityIpsResponse"
 - "DescribeSecurityIpsResult"
 - "Encoder"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
 - "NSObject"
 - "ServiceError"
 - "String"

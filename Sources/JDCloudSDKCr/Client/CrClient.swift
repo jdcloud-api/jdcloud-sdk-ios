@@ -50,7 +50,7 @@ public class CrJDCloudClient:NSObject,JDCloudClient{
         {
             sdkEnvironment = GlobalConfig.sdkEnvironment!
         }else{
-            sdkEnvironment = SDKEnvironment(endPoint: "openapi.cr.jdcloud.com");
+            sdkEnvironment = SDKEnvironment(endPoint: "cr.jdcloud-api.com");
         }
         self.credential = GlobalConfig.credential!
         self.sdkEnvironment = sdkEnvironment
@@ -407,7 +407,7 @@ public extension CrJDCloudClient{
         {
             sdkEnvironment = GlobalConfig.sdkEnvironment!
         }else{
-            sdkEnvironment = SDKEnvironment(endPoint: "openapi.cr.jdcloud.com");
+            sdkEnvironment = SDKEnvironment(endPoint: "cr.jdcloud-api.com");
         }
         self.init(credential: credential,sdkEnvironment: sdkEnvironment)
     }

@@ -30,6 +30,12 @@ import JDCloudSDKCore
 @objc(DescribeAccountsRequest)
 public class DescribeAccountsRequest:JdCloudRequest
 {
+    /// 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页;
+    var pageNumber:Int?
+
+    /// 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
+    var pageSize:Int?
+
     /// RDS 实例ID，唯一标识一个RDS实例
     var instanceId:String
 
@@ -41,11 +47,15 @@ public class DescribeAccountsRequest:JdCloudRequest
 
 
     enum DescribeAccountsRequestRequestCodingKeys: String, CodingKey {
+        case pageNumber
+        case pageSize
         case instanceId
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAccountsRequestRequestCodingKeys.self)
+        try encoderContainer.encode(pageNumber, forKey: .pageNumber)
+        try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
 
     }

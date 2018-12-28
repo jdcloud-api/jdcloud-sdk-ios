@@ -1,0 +1,379 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "QueryHttpHeaderResp"
+provides-nominal:
+- "13JDCloudSDKCdn19QueryHttpHeaderRespC"
+- "13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO"
+provides-member:
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", ""]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", ""]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "encode"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "Codable"
+- "CodingKey"
+- "Decoder"
+- "Encoder"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "NSObject"
+- "QueryHttpHeaderResp"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "QueryHttpHeaderRespCodingKeys"]
+- !private ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "encode"]
+- !private ["s7CVarArgP", "headerName"]
+- !private ["s7CVarArgP", "headerOp"]
+- !private ["s7CVarArgP", "headerType"]
+- !private ["s7CVarArgP", "headerValue"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- !private ["s9CodingKeyP", "headerName"]
+- !private ["s9CodingKeyP", "headerOp"]
+- !private ["s9CodingKeyP", "headerType"]
+- !private ["s9CodingKeyP", "headerValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "QueryHttpHeaderRespCodingKeys"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "headerName"]
+- !private ["s28CustomDebugStringConvertibleP", "headerOp"]
+- !private ["s28CustomDebugStringConvertibleP", "headerType"]
+- !private ["s28CustomDebugStringConvertibleP", "headerValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "QueryHttpHeaderRespCodingKeys"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- !private ["s23CustomStringConvertibleP", "headerName"]
+- !private ["s23CustomStringConvertibleP", "headerOp"]
+- !private ["s23CustomStringConvertibleP", "headerType"]
+- !private ["s23CustomStringConvertibleP", "headerValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["Se", "QueryHttpHeaderRespCodingKeys"]
+- !private ["Se", "String"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["Se", "encode"]
+- !private ["Se", "headerName"]
+- !private ["Se", "headerOp"]
+- !private ["Se", "headerType"]
+- !private ["Se", "headerValue"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["s7DecoderP", "container"]
+- !private ["SE", "QueryHttpHeaderRespCodingKeys"]
+- !private ["SE", "String"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- ["SE", "encode"]
+- !private ["SE", "headerName"]
+- !private ["SE", "headerOp"]
+- !private ["SE", "headerType"]
+- !private ["SE", "headerValue"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "QueryHttpHeaderRespCodingKeys"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "String"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "headerName"]
+- !private ["SQ", "headerOp"]
+- !private ["SQ", "headerType"]
+- !private ["SQ", "headerValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "QueryHttpHeaderRespCodingKeys"]
+- ["SH", "RawValue"]
+- !private ["SH", "String"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "headerName"]
+- !private ["SH", "headerOp"]
+- !private ["SH", "headerType"]
+- !private ["SH", "headerValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "CodingKey"]
+- ["So8NSObjectC", "Decoder"]
+- ["So8NSObjectC", "Encoder"]
+- !private ["So8NSObjectC", "QueryHttpHeaderRespCodingKeys"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "headerName"]
+- ["So8NSObjectC", "headerOp"]
+- ["So8NSObjectC", "headerType"]
+- ["So8NSObjectC", "headerValue"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectP", "QueryHttpHeaderRespCodingKeys"]
+- !private ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- ["So8NSObjectP", "encode"]
+- !private ["So8NSObjectP", "headerName"]
+- !private ["So8NSObjectP", "headerOp"]
+- !private ["So8NSObjectP", "headerType"]
+- !private ["So8NSObjectP", "headerValue"]
+- ["So8NSObjectP", "init"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "CodingKey"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "Decoder"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "Encoder"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "QueryHttpHeaderRespCodingKeys"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "String"]
+- !private ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "_findStringSwitchCase"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "deinit"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "encode"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "headerName"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "headerOp"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "headerType"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "headerValue"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC", "init"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "RawValue"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "_Default_RawValue"]
+- !private ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "_findStringSwitchCase"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "debugDescription"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "deinit"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "description"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "hash"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "hashValue"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "headerName"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "headerOp"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "headerType"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "headerValue"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "init"]
+- !private ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "init"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "intValue"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "rawValue"]
+- ["13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO", "stringValue"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- !private ["SY", "headerName"]
+- !private ["SY", "headerOp"]
+- !private ["SY", "headerType"]
+- !private ["SY", "headerValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "QueryHttpHeaderRespCodingKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "headerName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "headerOp"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "headerType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "headerValue"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "13JDCloudSDKCdn19QueryHttpHeaderRespC"
+- "13JDCloudSDKCdn19QueryHttpHeaderRespC0cdeF10CodingKeysO"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "14ea6a0078c368d52a9d422ea231fb5e"

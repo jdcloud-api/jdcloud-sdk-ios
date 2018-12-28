@@ -74,6 +74,8 @@ public class DBInstanceAttribute:NSObject,Codable{
     var primaryNode:DBInstanceNode?
     /// 高可用集群中从节点的信息&lt;br&gt;- 仅支持SQL Server
     var secondaryNode:DBInstanceNode?
+    /// 标签信息
+    var tags:Tag?
 
 
 
@@ -105,6 +107,7 @@ public class DBInstanceAttribute:NSObject,Codable{
         case charge
         case primaryNode
         case secondaryNode
+        case tags
     }
 
 
@@ -133,6 +136,7 @@ public class DBInstanceAttribute:NSObject,Codable{
         self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
         self.primaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .primaryNode)
         self.secondaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .secondaryNode)
+        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
     }
 }
 public extension DBInstanceAttribute{
@@ -161,5 +165,6 @@ public extension DBInstanceAttribute{
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(primaryNode, forKey: .primaryNode)
          try encoderContainer.encode(secondaryNode, forKey: .secondaryNode)
+         try encoderContainer.encode(tags, forKey: .tags)
     }
 }

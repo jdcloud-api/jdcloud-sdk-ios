@@ -48,6 +48,8 @@ public class DBInstance:NSObject,Codable{
     var createTime:String?
     /// 计费配置
     var charge:Charge?
+    /// 标签信息
+    var tags:Tag?
 
 
 
@@ -66,6 +68,7 @@ public class DBInstance:NSObject,Codable{
         case instanceStatus
         case createTime
         case charge
+        case tags
     }
 
 
@@ -81,6 +84,7 @@ public class DBInstance:NSObject,Codable{
         self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
         self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
         self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
     }
 }
 public extension DBInstance{
@@ -96,5 +100,6 @@ public extension DBInstance{
          try encoderContainer.encode(instanceStatus, forKey: .instanceStatus)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(charge, forKey: .charge)
+         try encoderContainer.encode(tags, forKey: .tags)
     }
 }

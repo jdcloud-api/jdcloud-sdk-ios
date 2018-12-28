@@ -8,6 +8,7 @@ provides-member:
 - ["13JDCloudSDKRds03RdsA6ClientC", "init"]
 provides-dynamic-lookup:
 - "addCustomer"
+- "clearBinlogsAsync"
 - "createAccountAsync"
 - "createAuditAsync"
 - "createBackupAsync"
@@ -21,13 +22,17 @@ provides-dynamic-lookup:
 - "deleteBackupAsync"
 - "deleteBackupSynchronicityAsync"
 - "deleteDatabaseAsync"
+- "deleteImportFileAsync"
 - "deleteInstanceAsync"
+- "deleteParameterGroupAsync"
 - "describeAccountsAsync"
+- "describeActiveQueryPerformanceAsync"
 - "describeAuditAsync"
 - "describeAuditDownloadURLAsync"
 - "describeAuditFilesAsync"
 - "describeAuditOptionsAsync"
 - "describeAuditResultAsync"
+- "describeAzsAsync"
 - "describeBackupDownloadURLAsync"
 - "describeBackupPolicyAsync"
 - "describeBackupSynchronicitiesAsync"
@@ -40,13 +45,17 @@ provides-dynamic-lookup:
 - "describeIndexPerformanceAsync"
 - "describeInstanceAttributesAsync"
 - "describeInstancesAsync"
+- "describeLatestRestoreTimeAsync"
+- "describeParametersAsync"
 - "describeQueryPerformanceAsync"
 - "describeSlowLogAttributesAsync"
 - "describeSlowLogsAsync"
 - "describeWhiteListAsync"
 - "disableAuditAsync"
+- "disableInterceptAsync"
 - "disableInternetAccessAsync"
 - "enableAuditAsync"
+- "enableInterceptAsync"
 - "enableInternetAccessAsync"
 - "failoverInstanceAsync"
 - "getUploadKeyAsync"
@@ -57,6 +66,8 @@ provides-dynamic-lookup:
 - "modifyConnectionModeAsync"
 - "modifyInstanceNameAsync"
 - "modifyInstanceSpecAsync"
+- "modifyParameterGroupAttributeAsync"
+- "modifyParametersAsync"
 - "modifyWhiteListAsync"
 - "rebootInstanceAsync"
 - "resetPasswordAsync"
@@ -72,6 +83,9 @@ depends-top-level:
 - !private "=="
 - "AssignmentPrecedence"
 - !private "CastingPrecedence"
+- !private "ClearBinlogsExecutor"
+- "ClearBinlogsRequest"
+- "ClearBinlogsResponse"
 - !private "CreateAccountExecutor"
 - "CreateAccountRequest"
 - "CreateAccountResponse"
@@ -112,12 +126,21 @@ depends-top-level:
 - !private "DeleteDatabaseExecutor"
 - "DeleteDatabaseRequest"
 - "DeleteDatabaseResponse"
+- !private "DeleteImportFileExecutor"
+- "DeleteImportFileRequest"
+- "DeleteImportFileResponse"
 - !private "DeleteInstanceExecutor"
 - "DeleteInstanceRequest"
 - "DeleteInstanceResponse"
+- !private "DeleteParameterGroupExecutor"
+- "DeleteParameterGroupRequest"
+- "DeleteParameterGroupResponse"
 - !private "DescribeAccountsExecutor"
 - "DescribeAccountsRequest"
 - "DescribeAccountsResponse"
+- !private "DescribeActiveQueryPerformanceExecutor"
+- "DescribeActiveQueryPerformanceRequest"
+- "DescribeActiveQueryPerformanceResponse"
 - !private "DescribeAuditDownloadURLExecutor"
 - "DescribeAuditDownloadURLRequest"
 - "DescribeAuditDownloadURLResponse"
@@ -133,6 +156,9 @@ depends-top-level:
 - !private "DescribeAuditResultExecutor"
 - "DescribeAuditResultRequest"
 - "DescribeAuditResultResponse"
+- !private "DescribeAzsExecutor"
+- "DescribeAzsRequest"
+- "DescribeAzsResponse"
 - !private "DescribeBackupDownloadURLExecutor"
 - "DescribeBackupDownloadURLRequest"
 - "DescribeBackupDownloadURLResponse"
@@ -169,6 +195,12 @@ depends-top-level:
 - !private "DescribeInstancesExecutor"
 - "DescribeInstancesRequest"
 - "DescribeInstancesResponse"
+- !private "DescribeLatestRestoreTimeExecutor"
+- "DescribeLatestRestoreTimeRequest"
+- "DescribeLatestRestoreTimeResponse"
+- !private "DescribeParametersExecutor"
+- "DescribeParametersRequest"
+- "DescribeParametersResponse"
 - !private "DescribeQueryPerformanceExecutor"
 - "DescribeQueryPerformanceRequest"
 - "DescribeQueryPerformanceResponse"
@@ -184,12 +216,18 @@ depends-top-level:
 - !private "DisableAuditExecutor"
 - "DisableAuditRequest"
 - "DisableAuditResponse"
+- !private "DisableInterceptExecutor"
+- "DisableInterceptRequest"
+- "DisableInterceptResponse"
 - !private "DisableInternetAccessExecutor"
 - "DisableInternetAccessRequest"
 - "DisableInternetAccessResponse"
 - !private "EnableAuditExecutor"
 - "EnableAuditRequest"
 - "EnableAuditResponse"
+- !private "EnableInterceptExecutor"
+- "EnableInterceptRequest"
+- "EnableInterceptResponse"
 - !private "EnableInternetAccessExecutor"
 - "EnableInternetAccessRequest"
 - "EnableInternetAccessResponse"
@@ -220,6 +258,12 @@ depends-top-level:
 - !private "ModifyInstanceSpecExecutor"
 - "ModifyInstanceSpecRequest"
 - "ModifyInstanceSpecResponse"
+- !private "ModifyParameterGroupAttributeExecutor"
+- "ModifyParameterGroupAttributeRequest"
+- "ModifyParameterGroupAttributeResponse"
+- !private "ModifyParametersExecutor"
+- "ModifyParametersRequest"
+- "ModifyParametersResponse"
 - !private "ModifyWhiteListExecutor"
 - "ModifyWhiteListRequest"
 - "ModifyWhiteListResponse"
@@ -260,6 +304,8 @@ depends-member:
 - ["SK", "init"]
 - ["SK", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "ClearBinlogsExecutor"]
+- !private ["s7CVarArgP", "ClearBinlogsResponse"]
 - !private ["s7CVarArgP", "CreateAccountExecutor"]
 - !private ["s7CVarArgP", "CreateAccountResponse"]
 - !private ["s7CVarArgP", "CreateAuditExecutor"]
@@ -287,10 +333,16 @@ depends-member:
 - !private ["s7CVarArgP", "DeleteBackupSynchronicityResponse"]
 - !private ["s7CVarArgP", "DeleteDatabaseExecutor"]
 - !private ["s7CVarArgP", "DeleteDatabaseResponse"]
+- !private ["s7CVarArgP", "DeleteImportFileExecutor"]
+- !private ["s7CVarArgP", "DeleteImportFileResponse"]
 - !private ["s7CVarArgP", "DeleteInstanceExecutor"]
 - !private ["s7CVarArgP", "DeleteInstanceResponse"]
+- !private ["s7CVarArgP", "DeleteParameterGroupExecutor"]
+- !private ["s7CVarArgP", "DeleteParameterGroupResponse"]
 - !private ["s7CVarArgP", "DescribeAccountsExecutor"]
 - !private ["s7CVarArgP", "DescribeAccountsResponse"]
+- !private ["s7CVarArgP", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["s7CVarArgP", "DescribeActiveQueryPerformanceResponse"]
 - !private ["s7CVarArgP", "DescribeAuditDownloadURLExecutor"]
 - !private ["s7CVarArgP", "DescribeAuditDownloadURLResponse"]
 - !private ["s7CVarArgP", "DescribeAuditExecutor"]
@@ -301,6 +353,8 @@ depends-member:
 - !private ["s7CVarArgP", "DescribeAuditResponse"]
 - !private ["s7CVarArgP", "DescribeAuditResultExecutor"]
 - !private ["s7CVarArgP", "DescribeAuditResultResponse"]
+- !private ["s7CVarArgP", "DescribeAzsExecutor"]
+- !private ["s7CVarArgP", "DescribeAzsResponse"]
 - !private ["s7CVarArgP", "DescribeBackupDownloadURLExecutor"]
 - !private ["s7CVarArgP", "DescribeBackupDownloadURLResponse"]
 - !private ["s7CVarArgP", "DescribeBackupPolicyExecutor"]
@@ -325,6 +379,10 @@ depends-member:
 - !private ["s7CVarArgP", "DescribeInstanceAttributesResponse"]
 - !private ["s7CVarArgP", "DescribeInstancesExecutor"]
 - !private ["s7CVarArgP", "DescribeInstancesResponse"]
+- !private ["s7CVarArgP", "DescribeLatestRestoreTimeExecutor"]
+- !private ["s7CVarArgP", "DescribeLatestRestoreTimeResponse"]
+- !private ["s7CVarArgP", "DescribeParametersExecutor"]
+- !private ["s7CVarArgP", "DescribeParametersResponse"]
 - !private ["s7CVarArgP", "DescribeQueryPerformanceExecutor"]
 - !private ["s7CVarArgP", "DescribeQueryPerformanceResponse"]
 - !private ["s7CVarArgP", "DescribeSlowLogAttributesExecutor"]
@@ -335,10 +393,14 @@ depends-member:
 - !private ["s7CVarArgP", "DescribeWhiteListResponse"]
 - !private ["s7CVarArgP", "DisableAuditExecutor"]
 - !private ["s7CVarArgP", "DisableAuditResponse"]
+- !private ["s7CVarArgP", "DisableInterceptExecutor"]
+- !private ["s7CVarArgP", "DisableInterceptResponse"]
 - !private ["s7CVarArgP", "DisableInternetAccessExecutor"]
 - !private ["s7CVarArgP", "DisableInternetAccessResponse"]
 - !private ["s7CVarArgP", "EnableAuditExecutor"]
 - !private ["s7CVarArgP", "EnableAuditResponse"]
+- !private ["s7CVarArgP", "EnableInterceptExecutor"]
+- !private ["s7CVarArgP", "EnableInterceptResponse"]
 - !private ["s7CVarArgP", "EnableInternetAccessExecutor"]
 - !private ["s7CVarArgP", "EnableInternetAccessResponse"]
 - !private ["s7CVarArgP", "FailoverInstanceExecutor"]
@@ -359,6 +421,10 @@ depends-member:
 - !private ["s7CVarArgP", "ModifyInstanceNameResponse"]
 - !private ["s7CVarArgP", "ModifyInstanceSpecExecutor"]
 - !private ["s7CVarArgP", "ModifyInstanceSpecResponse"]
+- !private ["s7CVarArgP", "ModifyParameterGroupAttributeExecutor"]
+- !private ["s7CVarArgP", "ModifyParameterGroupAttributeResponse"]
+- !private ["s7CVarArgP", "ModifyParametersExecutor"]
+- !private ["s7CVarArgP", "ModifyParametersResponse"]
 - !private ["s7CVarArgP", "ModifyWhiteListExecutor"]
 - !private ["s7CVarArgP", "ModifyWhiteListResponse"]
 - !private ["s7CVarArgP", "RebootInstanceExecutor"]
@@ -396,6 +462,9 @@ depends-member:
 - !private ["s7CVarArgP", "subscript"]
 - ["s7CVarArgP", "userAgent"]
 - ["s7CVarArgP", "version"]
+- !private ["13JDCloudSDKRds20ClearBinlogsExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds20ClearBinlogsExecutorC", "init"]
+- !private ["13JDCloudSDKRds20ClearBinlogsResponseC", "deinit"]
 - !private ["Sl", "data"]
 - ["Sl", "init"]
 - ["Sl", "init"]
@@ -428,6 +497,8 @@ depends-member:
 - !private ["13JDCloudSDKRds32CreateInstanceFromBackupResponseC", "deinit"]
 - !private ["13JDCloudSDKRds22CreateInstanceResponseC", "deinit"]
 - !private ["14JDCloudSDKCore10CredentialC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "ClearBinlogsExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ClearBinlogsResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "CreateAccountExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "CreateAccountResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "CreateAuditExecutor"]
@@ -455,10 +526,16 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DeleteBackupSynchronicityResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DeleteDatabaseExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DeleteDatabaseResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteImportFileExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteImportFileResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DeleteInstanceExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DeleteInstanceResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteParameterGroupExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteParameterGroupResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAccountsExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAccountsResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeActiveQueryPerformanceResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAuditDownloadURLExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAuditDownloadURLResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAuditExecutor"]
@@ -469,6 +546,8 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAuditResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAuditResultExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeAuditResultResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeAzsExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeAzsResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeBackupDownloadURLExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeBackupDownloadURLResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeBackupPolicyExecutor"]
@@ -493,6 +572,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DescribeInstanceAttributesResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeInstancesExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeInstancesResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeLatestRestoreTimeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeLatestRestoreTimeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeParametersExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DescribeParametersResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeQueryPerformanceExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeQueryPerformanceResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DescribeSlowLogAttributesExecutor"]
@@ -503,10 +586,14 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DescribeWhiteListResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DisableAuditExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DisableAuditResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "DisableInterceptExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "DisableInterceptResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "DisableInternetAccessExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "DisableInternetAccessResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "EnableAuditExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "EnableAuditResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "EnableInterceptExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "EnableInterceptResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "EnableInternetAccessExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "EnableInternetAccessResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "FailoverInstanceExecutor"]
@@ -527,6 +614,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceNameResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceSpecExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "ModifyInstanceSpecResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyParameterGroupAttributeExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyParameterGroupAttributeResponse"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyParametersExecutor"]
+- !private ["s28CustomDebugStringConvertibleP", "ModifyParametersResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "ModifyWhiteListExecutor"]
 - !private ["s28CustomDebugStringConvertibleP", "ModifyWhiteListResponse"]
 - !private ["s28CustomDebugStringConvertibleP", "RebootInstanceExecutor"]
@@ -572,6 +663,8 @@ depends-member:
 - ["s17CustomReflectableP", "init"]
 - ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "ClearBinlogsExecutor"]
+- !private ["s23CustomStringConvertibleP", "ClearBinlogsResponse"]
 - !private ["s23CustomStringConvertibleP", "CreateAccountExecutor"]
 - !private ["s23CustomStringConvertibleP", "CreateAccountResponse"]
 - !private ["s23CustomStringConvertibleP", "CreateAuditExecutor"]
@@ -599,10 +692,16 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DeleteBackupSynchronicityResponse"]
 - !private ["s23CustomStringConvertibleP", "DeleteDatabaseExecutor"]
 - !private ["s23CustomStringConvertibleP", "DeleteDatabaseResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteImportFileExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteImportFileResponse"]
 - !private ["s23CustomStringConvertibleP", "DeleteInstanceExecutor"]
 - !private ["s23CustomStringConvertibleP", "DeleteInstanceResponse"]
+- !private ["s23CustomStringConvertibleP", "DeleteParameterGroupExecutor"]
+- !private ["s23CustomStringConvertibleP", "DeleteParameterGroupResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeAccountsExecutor"]
 - !private ["s23CustomStringConvertibleP", "DescribeAccountsResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeActiveQueryPerformanceResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeAuditDownloadURLExecutor"]
 - !private ["s23CustomStringConvertibleP", "DescribeAuditDownloadURLResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeAuditExecutor"]
@@ -613,6 +712,8 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DescribeAuditResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeAuditResultExecutor"]
 - !private ["s23CustomStringConvertibleP", "DescribeAuditResultResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeAzsExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeAzsResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeBackupDownloadURLExecutor"]
 - !private ["s23CustomStringConvertibleP", "DescribeBackupDownloadURLResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeBackupPolicyExecutor"]
@@ -637,6 +738,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DescribeInstanceAttributesResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeInstancesExecutor"]
 - !private ["s23CustomStringConvertibleP", "DescribeInstancesResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeLatestRestoreTimeExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeLatestRestoreTimeResponse"]
+- !private ["s23CustomStringConvertibleP", "DescribeParametersExecutor"]
+- !private ["s23CustomStringConvertibleP", "DescribeParametersResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeQueryPerformanceExecutor"]
 - !private ["s23CustomStringConvertibleP", "DescribeQueryPerformanceResponse"]
 - !private ["s23CustomStringConvertibleP", "DescribeSlowLogAttributesExecutor"]
@@ -647,10 +752,14 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DescribeWhiteListResponse"]
 - !private ["s23CustomStringConvertibleP", "DisableAuditExecutor"]
 - !private ["s23CustomStringConvertibleP", "DisableAuditResponse"]
+- !private ["s23CustomStringConvertibleP", "DisableInterceptExecutor"]
+- !private ["s23CustomStringConvertibleP", "DisableInterceptResponse"]
 - !private ["s23CustomStringConvertibleP", "DisableInternetAccessExecutor"]
 - !private ["s23CustomStringConvertibleP", "DisableInternetAccessResponse"]
 - !private ["s23CustomStringConvertibleP", "EnableAuditExecutor"]
 - !private ["s23CustomStringConvertibleP", "EnableAuditResponse"]
+- !private ["s23CustomStringConvertibleP", "EnableInterceptExecutor"]
+- !private ["s23CustomStringConvertibleP", "EnableInterceptResponse"]
 - !private ["s23CustomStringConvertibleP", "EnableInternetAccessExecutor"]
 - !private ["s23CustomStringConvertibleP", "EnableInternetAccessResponse"]
 - !private ["s23CustomStringConvertibleP", "FailoverInstanceExecutor"]
@@ -671,6 +780,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "ModifyInstanceNameResponse"]
 - !private ["s23CustomStringConvertibleP", "ModifyInstanceSpecExecutor"]
 - !private ["s23CustomStringConvertibleP", "ModifyInstanceSpecResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyParameterGroupAttributeExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyParameterGroupAttributeResponse"]
+- !private ["s23CustomStringConvertibleP", "ModifyParametersExecutor"]
+- !private ["s23CustomStringConvertibleP", "ModifyParametersResponse"]
 - !private ["s23CustomStringConvertibleP", "ModifyWhiteListExecutor"]
 - !private ["s23CustomStringConvertibleP", "ModifyWhiteListResponse"]
 - !private ["s23CustomStringConvertibleP", "RebootInstanceExecutor"]
@@ -729,12 +842,21 @@ depends-member:
 - !private ["13JDCloudSDKRds22DeleteDatabaseExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds22DeleteDatabaseExecutorC", "init"]
 - !private ["13JDCloudSDKRds22DeleteDatabaseResponseC", "deinit"]
+- !private ["13JDCloudSDKRds24DeleteImportFileExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds24DeleteImportFileExecutorC", "init"]
+- !private ["13JDCloudSDKRds24DeleteImportFileResponseC", "deinit"]
 - !private ["13JDCloudSDKRds22DeleteInstanceExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds22DeleteInstanceExecutorC", "init"]
 - !private ["13JDCloudSDKRds22DeleteInstanceResponseC", "deinit"]
+- !private ["13JDCloudSDKRds28DeleteParameterGroupExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds28DeleteParameterGroupExecutorC", "init"]
+- !private ["13JDCloudSDKRds28DeleteParameterGroupResponseC", "deinit"]
 - !private ["13JDCloudSDKRds24DescribeAccountsExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds24DescribeAccountsExecutorC", "init"]
 - !private ["13JDCloudSDKRds24DescribeAccountsResponseC", "deinit"]
+- !private ["13JDCloudSDKRds38DescribeActiveQueryPerformanceExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds38DescribeActiveQueryPerformanceExecutorC", "init"]
+- !private ["13JDCloudSDKRds38DescribeActiveQueryPerformanceResponseC", "deinit"]
 - !private ["13JDCloudSDKRds32DescribeAuditDownloadURLExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds32DescribeAuditDownloadURLExecutorC", "init"]
 - !private ["13JDCloudSDKRds32DescribeAuditDownloadURLResponseC", "deinit"]
@@ -750,6 +872,9 @@ depends-member:
 - !private ["13JDCloudSDKRds27DescribeAuditResultExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds27DescribeAuditResultExecutorC", "init"]
 - !private ["13JDCloudSDKRds27DescribeAuditResultResponseC", "deinit"]
+- !private ["13JDCloudSDKRds19DescribeAzsExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds19DescribeAzsExecutorC", "init"]
+- !private ["13JDCloudSDKRds19DescribeAzsResponseC", "deinit"]
 - !private ["13JDCloudSDKRds33DescribeBackupDownloadURLExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds33DescribeBackupDownloadURLExecutorC", "init"]
 - !private ["13JDCloudSDKRds33DescribeBackupDownloadURLResponseC", "deinit"]
@@ -786,6 +911,12 @@ depends-member:
 - !private ["13JDCloudSDKRds25DescribeInstancesExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds25DescribeInstancesExecutorC", "init"]
 - !private ["13JDCloudSDKRds25DescribeInstancesResponseC", "deinit"]
+- !private ["13JDCloudSDKRds33DescribeLatestRestoreTimeExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds33DescribeLatestRestoreTimeExecutorC", "init"]
+- !private ["13JDCloudSDKRds33DescribeLatestRestoreTimeResponseC", "deinit"]
+- !private ["13JDCloudSDKRds26DescribeParametersExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds26DescribeParametersExecutorC", "init"]
+- !private ["13JDCloudSDKRds26DescribeParametersResponseC", "deinit"]
 - !private ["13JDCloudSDKRds32DescribeQueryPerformanceExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds32DescribeQueryPerformanceExecutorC", "init"]
 - !private ["13JDCloudSDKRds32DescribeQueryPerformanceResponseC", "deinit"]
@@ -803,12 +934,18 @@ depends-member:
 - !private ["13JDCloudSDKRds20DisableAuditExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds20DisableAuditExecutorC", "init"]
 - !private ["13JDCloudSDKRds20DisableAuditResponseC", "deinit"]
+- !private ["13JDCloudSDKRds24DisableInterceptExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds24DisableInterceptExecutorC", "init"]
+- !private ["13JDCloudSDKRds24DisableInterceptResponseC", "deinit"]
 - !private ["13JDCloudSDKRds29DisableInternetAccessExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds29DisableInternetAccessExecutorC", "init"]
 - !private ["13JDCloudSDKRds29DisableInternetAccessResponseC", "deinit"]
 - !private ["13JDCloudSDKRds19EnableAuditExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds19EnableAuditExecutorC", "init"]
 - !private ["13JDCloudSDKRds19EnableAuditResponseC", "deinit"]
+- !private ["13JDCloudSDKRds23EnableInterceptExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds23EnableInterceptExecutorC", "init"]
+- !private ["13JDCloudSDKRds23EnableInterceptResponseC", "deinit"]
 - !private ["13JDCloudSDKRds28EnableInternetAccessExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds28EnableInternetAccessExecutorC", "init"]
 - !private ["13JDCloudSDKRds28EnableInternetAccessResponseC", "deinit"]
@@ -818,6 +955,8 @@ depends-member:
 - ["SE", "init"]
 - !private ["SE", "subscript"]
 - !private ["SS10FoundationE8EncodingV", "utf8"]
+- !private ["SQ", "ClearBinlogsExecutor"]
+- !private ["SQ", "ClearBinlogsResponse"]
 - !private ["SQ", "CreateAccountExecutor"]
 - !private ["SQ", "CreateAccountResponse"]
 - !private ["SQ", "CreateAuditExecutor"]
@@ -845,10 +984,16 @@ depends-member:
 - !private ["SQ", "DeleteBackupSynchronicityResponse"]
 - !private ["SQ", "DeleteDatabaseExecutor"]
 - !private ["SQ", "DeleteDatabaseResponse"]
+- !private ["SQ", "DeleteImportFileExecutor"]
+- !private ["SQ", "DeleteImportFileResponse"]
 - !private ["SQ", "DeleteInstanceExecutor"]
 - !private ["SQ", "DeleteInstanceResponse"]
+- !private ["SQ", "DeleteParameterGroupExecutor"]
+- !private ["SQ", "DeleteParameterGroupResponse"]
 - !private ["SQ", "DescribeAccountsExecutor"]
 - !private ["SQ", "DescribeAccountsResponse"]
+- !private ["SQ", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["SQ", "DescribeActiveQueryPerformanceResponse"]
 - !private ["SQ", "DescribeAuditDownloadURLExecutor"]
 - !private ["SQ", "DescribeAuditDownloadURLResponse"]
 - !private ["SQ", "DescribeAuditExecutor"]
@@ -859,6 +1004,8 @@ depends-member:
 - !private ["SQ", "DescribeAuditResponse"]
 - !private ["SQ", "DescribeAuditResultExecutor"]
 - !private ["SQ", "DescribeAuditResultResponse"]
+- !private ["SQ", "DescribeAzsExecutor"]
+- !private ["SQ", "DescribeAzsResponse"]
 - !private ["SQ", "DescribeBackupDownloadURLExecutor"]
 - !private ["SQ", "DescribeBackupDownloadURLResponse"]
 - !private ["SQ", "DescribeBackupPolicyExecutor"]
@@ -883,6 +1030,10 @@ depends-member:
 - !private ["SQ", "DescribeInstanceAttributesResponse"]
 - !private ["SQ", "DescribeInstancesExecutor"]
 - !private ["SQ", "DescribeInstancesResponse"]
+- !private ["SQ", "DescribeLatestRestoreTimeExecutor"]
+- !private ["SQ", "DescribeLatestRestoreTimeResponse"]
+- !private ["SQ", "DescribeParametersExecutor"]
+- !private ["SQ", "DescribeParametersResponse"]
 - !private ["SQ", "DescribeQueryPerformanceExecutor"]
 - !private ["SQ", "DescribeQueryPerformanceResponse"]
 - !private ["SQ", "DescribeSlowLogAttributesExecutor"]
@@ -893,10 +1044,14 @@ depends-member:
 - !private ["SQ", "DescribeWhiteListResponse"]
 - !private ["SQ", "DisableAuditExecutor"]
 - !private ["SQ", "DisableAuditResponse"]
+- !private ["SQ", "DisableInterceptExecutor"]
+- !private ["SQ", "DisableInterceptResponse"]
 - !private ["SQ", "DisableInternetAccessExecutor"]
 - !private ["SQ", "DisableInternetAccessResponse"]
 - !private ["SQ", "EnableAuditExecutor"]
 - !private ["SQ", "EnableAuditResponse"]
+- !private ["SQ", "EnableInterceptExecutor"]
+- !private ["SQ", "EnableInterceptResponse"]
 - !private ["SQ", "EnableInternetAccessExecutor"]
 - !private ["SQ", "EnableInternetAccessResponse"]
 - !private ["SQ", "FailoverInstanceExecutor"]
@@ -917,6 +1072,10 @@ depends-member:
 - !private ["SQ", "ModifyInstanceNameResponse"]
 - !private ["SQ", "ModifyInstanceSpecExecutor"]
 - !private ["SQ", "ModifyInstanceSpecResponse"]
+- !private ["SQ", "ModifyParameterGroupAttributeExecutor"]
+- !private ["SQ", "ModifyParameterGroupAttributeResponse"]
+- !private ["SQ", "ModifyParametersExecutor"]
+- !private ["SQ", "ModifyParametersResponse"]
 - !private ["SQ", "ModifyWhiteListExecutor"]
 - !private ["SQ", "ModifyWhiteListResponse"]
 - !private ["SQ", "RebootInstanceExecutor"]
@@ -978,6 +1137,8 @@ depends-member:
 - !private ["13JDCloudSDKRds22GrantPrivilegeExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds22GrantPrivilegeExecutorC", "init"]
 - !private ["13JDCloudSDKRds22GrantPrivilegeResponseC", "deinit"]
+- !private ["SH", "ClearBinlogsExecutor"]
+- !private ["SH", "ClearBinlogsResponse"]
 - !private ["SH", "CreateAccountExecutor"]
 - !private ["SH", "CreateAccountResponse"]
 - !private ["SH", "CreateAuditExecutor"]
@@ -1005,10 +1166,16 @@ depends-member:
 - !private ["SH", "DeleteBackupSynchronicityResponse"]
 - !private ["SH", "DeleteDatabaseExecutor"]
 - !private ["SH", "DeleteDatabaseResponse"]
+- !private ["SH", "DeleteImportFileExecutor"]
+- !private ["SH", "DeleteImportFileResponse"]
 - !private ["SH", "DeleteInstanceExecutor"]
 - !private ["SH", "DeleteInstanceResponse"]
+- !private ["SH", "DeleteParameterGroupExecutor"]
+- !private ["SH", "DeleteParameterGroupResponse"]
 - !private ["SH", "DescribeAccountsExecutor"]
 - !private ["SH", "DescribeAccountsResponse"]
+- !private ["SH", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["SH", "DescribeActiveQueryPerformanceResponse"]
 - !private ["SH", "DescribeAuditDownloadURLExecutor"]
 - !private ["SH", "DescribeAuditDownloadURLResponse"]
 - !private ["SH", "DescribeAuditExecutor"]
@@ -1019,6 +1186,8 @@ depends-member:
 - !private ["SH", "DescribeAuditResponse"]
 - !private ["SH", "DescribeAuditResultExecutor"]
 - !private ["SH", "DescribeAuditResultResponse"]
+- !private ["SH", "DescribeAzsExecutor"]
+- !private ["SH", "DescribeAzsResponse"]
 - !private ["SH", "DescribeBackupDownloadURLExecutor"]
 - !private ["SH", "DescribeBackupDownloadURLResponse"]
 - !private ["SH", "DescribeBackupPolicyExecutor"]
@@ -1043,6 +1212,10 @@ depends-member:
 - !private ["SH", "DescribeInstanceAttributesResponse"]
 - !private ["SH", "DescribeInstancesExecutor"]
 - !private ["SH", "DescribeInstancesResponse"]
+- !private ["SH", "DescribeLatestRestoreTimeExecutor"]
+- !private ["SH", "DescribeLatestRestoreTimeResponse"]
+- !private ["SH", "DescribeParametersExecutor"]
+- !private ["SH", "DescribeParametersResponse"]
 - !private ["SH", "DescribeQueryPerformanceExecutor"]
 - !private ["SH", "DescribeQueryPerformanceResponse"]
 - !private ["SH", "DescribeSlowLogAttributesExecutor"]
@@ -1053,10 +1226,14 @@ depends-member:
 - !private ["SH", "DescribeWhiteListResponse"]
 - !private ["SH", "DisableAuditExecutor"]
 - !private ["SH", "DisableAuditResponse"]
+- !private ["SH", "DisableInterceptExecutor"]
+- !private ["SH", "DisableInterceptResponse"]
 - !private ["SH", "DisableInternetAccessExecutor"]
 - !private ["SH", "DisableInternetAccessResponse"]
 - !private ["SH", "EnableAuditExecutor"]
 - !private ["SH", "EnableAuditResponse"]
+- !private ["SH", "EnableInterceptExecutor"]
+- !private ["SH", "EnableInterceptResponse"]
 - !private ["SH", "EnableInternetAccessExecutor"]
 - !private ["SH", "EnableInternetAccessResponse"]
 - !private ["SH", "FailoverInstanceExecutor"]
@@ -1077,6 +1254,10 @@ depends-member:
 - !private ["SH", "ModifyInstanceNameResponse"]
 - !private ["SH", "ModifyInstanceSpecExecutor"]
 - !private ["SH", "ModifyInstanceSpecResponse"]
+- !private ["SH", "ModifyParameterGroupAttributeExecutor"]
+- !private ["SH", "ModifyParameterGroupAttributeResponse"]
+- !private ["SH", "ModifyParametersExecutor"]
+- !private ["SH", "ModifyParametersResponse"]
 - !private ["SH", "ModifyWhiteListExecutor"]
 - !private ["SH", "ModifyWhiteListResponse"]
 - !private ["SH", "RebootInstanceExecutor"]
@@ -1115,6 +1296,8 @@ depends-member:
 - ["SH", "userAgent"]
 - !private ["SH", "utf8"]
 - ["SH", "version"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ClearBinlogsExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ClearBinlogsResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "CreateAccountExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "CreateAccountResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "CreateAuditExecutor"]
@@ -1142,10 +1325,16 @@ depends-member:
 - !private ["14JDCloudSDKCore0A6ClientP", "DeleteBackupSynchronicityResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DeleteDatabaseExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DeleteDatabaseResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteImportFileExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteImportFileResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DeleteInstanceExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DeleteInstanceResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteParameterGroupExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DeleteParameterGroupResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAccountsExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAccountsResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeActiveQueryPerformanceResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAuditDownloadURLExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAuditDownloadURLResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAuditExecutor"]
@@ -1156,6 +1345,8 @@ depends-member:
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAuditResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAuditResultExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeAuditResultResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeAzsExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeAzsResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeBackupDownloadURLExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeBackupDownloadURLResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeBackupPolicyExecutor"]
@@ -1180,6 +1371,10 @@ depends-member:
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstanceAttributesResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstancesExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeInstancesResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeLatestRestoreTimeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeLatestRestoreTimeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeParametersExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DescribeParametersResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeQueryPerformanceExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeQueryPerformanceResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeSlowLogAttributesExecutor"]
@@ -1190,10 +1385,14 @@ depends-member:
 - !private ["14JDCloudSDKCore0A6ClientP", "DescribeWhiteListResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DisableAuditExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DisableAuditResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DisableInterceptExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "DisableInterceptResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DisableInternetAccessExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "DisableInternetAccessResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "EnableAuditExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "EnableAuditResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "EnableInterceptExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "EnableInterceptResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "EnableInternetAccessExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "EnableInternetAccessResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "FailoverInstanceExecutor"]
@@ -1214,6 +1413,10 @@ depends-member:
 - !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceNameResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceSpecExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "ModifyInstanceSpecResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyParameterGroupAttributeExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyParameterGroupAttributeResponse"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyParametersExecutor"]
+- !private ["14JDCloudSDKCore0A6ClientP", "ModifyParametersResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "ModifyWhiteListExecutor"]
 - !private ["14JDCloudSDKCore0A6ClientP", "ModifyWhiteListResponse"]
 - !private ["14JDCloudSDKCore0A6ClientP", "RebootInstanceExecutor"]
@@ -1271,6 +1474,12 @@ depends-member:
 - !private ["13JDCloudSDKRds26ModifyInstanceSpecExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds26ModifyInstanceSpecExecutorC", "init"]
 - !private ["13JDCloudSDKRds26ModifyInstanceSpecResponseC", "deinit"]
+- !private ["13JDCloudSDKRds37ModifyParameterGroupAttributeExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds37ModifyParameterGroupAttributeExecutorC", "init"]
+- !private ["13JDCloudSDKRds37ModifyParameterGroupAttributeResponseC", "deinit"]
+- !private ["13JDCloudSDKRds24ModifyParametersExecutorC", "executeAsync"]
+- !private ["13JDCloudSDKRds24ModifyParametersExecutorC", "init"]
+- !private ["13JDCloudSDKRds24ModifyParametersResponseC", "deinit"]
 - !private ["13JDCloudSDKRds23ModifyWhiteListExecutorC", "executeAsync"]
 - !private ["13JDCloudSDKRds23ModifyWhiteListExecutorC", "init"]
 - !private ["13JDCloudSDKRds23ModifyWhiteListResponseC", "deinit"]
@@ -1279,6 +1488,9 @@ depends-member:
 - !private ["So21NSItemProviderReadingP", "data"]
 - !private ["So21NSItemProviderWritingP", "data"]
 - !private ["So16NSMutableCopyingP", "data"]
+- !private ["So8NSObjectC", "ClearBinlogsExecutor"]
+- ["So8NSObjectC", "ClearBinlogsRequest"]
+- ["So8NSObjectC", "ClearBinlogsResponse"]
 - !private ["So8NSObjectC", "CreateAccountExecutor"]
 - ["So8NSObjectC", "CreateAccountRequest"]
 - ["So8NSObjectC", "CreateAccountResponse"]
@@ -1319,12 +1531,21 @@ depends-member:
 - !private ["So8NSObjectC", "DeleteDatabaseExecutor"]
 - ["So8NSObjectC", "DeleteDatabaseRequest"]
 - ["So8NSObjectC", "DeleteDatabaseResponse"]
+- !private ["So8NSObjectC", "DeleteImportFileExecutor"]
+- ["So8NSObjectC", "DeleteImportFileRequest"]
+- ["So8NSObjectC", "DeleteImportFileResponse"]
 - !private ["So8NSObjectC", "DeleteInstanceExecutor"]
 - ["So8NSObjectC", "DeleteInstanceRequest"]
 - ["So8NSObjectC", "DeleteInstanceResponse"]
+- !private ["So8NSObjectC", "DeleteParameterGroupExecutor"]
+- ["So8NSObjectC", "DeleteParameterGroupRequest"]
+- ["So8NSObjectC", "DeleteParameterGroupResponse"]
 - !private ["So8NSObjectC", "DescribeAccountsExecutor"]
 - ["So8NSObjectC", "DescribeAccountsRequest"]
 - ["So8NSObjectC", "DescribeAccountsResponse"]
+- !private ["So8NSObjectC", "DescribeActiveQueryPerformanceExecutor"]
+- ["So8NSObjectC", "DescribeActiveQueryPerformanceRequest"]
+- ["So8NSObjectC", "DescribeActiveQueryPerformanceResponse"]
 - !private ["So8NSObjectC", "DescribeAuditDownloadURLExecutor"]
 - ["So8NSObjectC", "DescribeAuditDownloadURLRequest"]
 - ["So8NSObjectC", "DescribeAuditDownloadURLResponse"]
@@ -1340,6 +1561,9 @@ depends-member:
 - !private ["So8NSObjectC", "DescribeAuditResultExecutor"]
 - ["So8NSObjectC", "DescribeAuditResultRequest"]
 - ["So8NSObjectC", "DescribeAuditResultResponse"]
+- !private ["So8NSObjectC", "DescribeAzsExecutor"]
+- ["So8NSObjectC", "DescribeAzsRequest"]
+- ["So8NSObjectC", "DescribeAzsResponse"]
 - !private ["So8NSObjectC", "DescribeBackupDownloadURLExecutor"]
 - ["So8NSObjectC", "DescribeBackupDownloadURLRequest"]
 - ["So8NSObjectC", "DescribeBackupDownloadURLResponse"]
@@ -1376,6 +1600,12 @@ depends-member:
 - !private ["So8NSObjectC", "DescribeInstancesExecutor"]
 - ["So8NSObjectC", "DescribeInstancesRequest"]
 - ["So8NSObjectC", "DescribeInstancesResponse"]
+- !private ["So8NSObjectC", "DescribeLatestRestoreTimeExecutor"]
+- ["So8NSObjectC", "DescribeLatestRestoreTimeRequest"]
+- ["So8NSObjectC", "DescribeLatestRestoreTimeResponse"]
+- !private ["So8NSObjectC", "DescribeParametersExecutor"]
+- ["So8NSObjectC", "DescribeParametersRequest"]
+- ["So8NSObjectC", "DescribeParametersResponse"]
 - !private ["So8NSObjectC", "DescribeQueryPerformanceExecutor"]
 - ["So8NSObjectC", "DescribeQueryPerformanceRequest"]
 - ["So8NSObjectC", "DescribeQueryPerformanceResponse"]
@@ -1391,12 +1621,18 @@ depends-member:
 - !private ["So8NSObjectC", "DisableAuditExecutor"]
 - ["So8NSObjectC", "DisableAuditRequest"]
 - ["So8NSObjectC", "DisableAuditResponse"]
+- !private ["So8NSObjectC", "DisableInterceptExecutor"]
+- ["So8NSObjectC", "DisableInterceptRequest"]
+- ["So8NSObjectC", "DisableInterceptResponse"]
 - !private ["So8NSObjectC", "DisableInternetAccessExecutor"]
 - ["So8NSObjectC", "DisableInternetAccessRequest"]
 - ["So8NSObjectC", "DisableInternetAccessResponse"]
 - !private ["So8NSObjectC", "EnableAuditExecutor"]
 - ["So8NSObjectC", "EnableAuditRequest"]
 - ["So8NSObjectC", "EnableAuditResponse"]
+- !private ["So8NSObjectC", "EnableInterceptExecutor"]
+- ["So8NSObjectC", "EnableInterceptRequest"]
+- ["So8NSObjectC", "EnableInterceptResponse"]
 - !private ["So8NSObjectC", "EnableInternetAccessExecutor"]
 - ["So8NSObjectC", "EnableInternetAccessRequest"]
 - ["So8NSObjectC", "EnableInternetAccessResponse"]
@@ -1426,6 +1662,12 @@ depends-member:
 - !private ["So8NSObjectC", "ModifyInstanceSpecExecutor"]
 - ["So8NSObjectC", "ModifyInstanceSpecRequest"]
 - ["So8NSObjectC", "ModifyInstanceSpecResponse"]
+- !private ["So8NSObjectC", "ModifyParameterGroupAttributeExecutor"]
+- ["So8NSObjectC", "ModifyParameterGroupAttributeRequest"]
+- ["So8NSObjectC", "ModifyParameterGroupAttributeResponse"]
+- !private ["So8NSObjectC", "ModifyParametersExecutor"]
+- ["So8NSObjectC", "ModifyParametersRequest"]
+- ["So8NSObjectC", "ModifyParametersResponse"]
 - !private ["So8NSObjectC", "ModifyWhiteListExecutor"]
 - ["So8NSObjectC", "ModifyWhiteListRequest"]
 - ["So8NSObjectC", "ModifyWhiteListResponse"]
@@ -1461,6 +1703,7 @@ depends-member:
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", ""]
 - ["So8NSObjectC", "addCustomer"]
+- ["So8NSObjectC", "clearBinlogsAsync"]
 - ["So8NSObjectC", "contentType"]
 - ["So8NSObjectC", "createAccountAsync"]
 - ["So8NSObjectC", "createAuditAsync"]
@@ -1478,13 +1721,17 @@ depends-member:
 - ["So8NSObjectC", "deleteBackupAsync"]
 - ["So8NSObjectC", "deleteBackupSynchronicityAsync"]
 - ["So8NSObjectC", "deleteDatabaseAsync"]
+- ["So8NSObjectC", "deleteImportFileAsync"]
 - ["So8NSObjectC", "deleteInstanceAsync"]
+- ["So8NSObjectC", "deleteParameterGroupAsync"]
 - ["So8NSObjectC", "describeAccountsAsync"]
+- ["So8NSObjectC", "describeActiveQueryPerformanceAsync"]
 - ["So8NSObjectC", "describeAuditAsync"]
 - ["So8NSObjectC", "describeAuditDownloadURLAsync"]
 - ["So8NSObjectC", "describeAuditFilesAsync"]
 - ["So8NSObjectC", "describeAuditOptionsAsync"]
 - ["So8NSObjectC", "describeAuditResultAsync"]
+- ["So8NSObjectC", "describeAzsAsync"]
 - ["So8NSObjectC", "describeBackupDownloadURLAsync"]
 - ["So8NSObjectC", "describeBackupPolicyAsync"]
 - ["So8NSObjectC", "describeBackupSynchronicitiesAsync"]
@@ -1497,13 +1744,17 @@ depends-member:
 - ["So8NSObjectC", "describeIndexPerformanceAsync"]
 - ["So8NSObjectC", "describeInstanceAttributesAsync"]
 - ["So8NSObjectC", "describeInstancesAsync"]
+- ["So8NSObjectC", "describeLatestRestoreTimeAsync"]
+- ["So8NSObjectC", "describeParametersAsync"]
 - ["So8NSObjectC", "describeQueryPerformanceAsync"]
 - ["So8NSObjectC", "describeSlowLogAttributesAsync"]
 - ["So8NSObjectC", "describeSlowLogsAsync"]
 - ["So8NSObjectC", "describeWhiteListAsync"]
 - ["So8NSObjectC", "disableAuditAsync"]
+- ["So8NSObjectC", "disableInterceptAsync"]
 - ["So8NSObjectC", "disableInternetAccessAsync"]
 - ["So8NSObjectC", "enableAuditAsync"]
+- ["So8NSObjectC", "enableInterceptAsync"]
 - ["So8NSObjectC", "enableInternetAccessAsync"]
 - !private ["So8NSObjectC", "executeAsync"]
 - ["So8NSObjectC", "failoverInstanceAsync"]
@@ -1516,6 +1767,8 @@ depends-member:
 - ["So8NSObjectC", "modifyConnectionModeAsync"]
 - ["So8NSObjectC", "modifyInstanceNameAsync"]
 - ["So8NSObjectC", "modifyInstanceSpecAsync"]
+- ["So8NSObjectC", "modifyParameterGroupAttributeAsync"]
+- ["So8NSObjectC", "modifyParametersAsync"]
 - ["So8NSObjectC", "modifyWhiteListAsync"]
 - ["So8NSObjectC", "rdsJDCloudClient"]
 - ["So8NSObjectC", "rebootInstanceAsync"]
@@ -1530,6 +1783,8 @@ depends-member:
 - ["So8NSObjectC", "setImportFileSharedAsync"]
 - ["So8NSObjectC", "userAgent"]
 - ["So8NSObjectC", "version"]
+- !private ["So8NSObjectP", "ClearBinlogsExecutor"]
+- !private ["So8NSObjectP", "ClearBinlogsResponse"]
 - !private ["So8NSObjectP", "CreateAccountExecutor"]
 - !private ["So8NSObjectP", "CreateAccountResponse"]
 - !private ["So8NSObjectP", "CreateAuditExecutor"]
@@ -1557,10 +1812,16 @@ depends-member:
 - !private ["So8NSObjectP", "DeleteBackupSynchronicityResponse"]
 - !private ["So8NSObjectP", "DeleteDatabaseExecutor"]
 - !private ["So8NSObjectP", "DeleteDatabaseResponse"]
+- !private ["So8NSObjectP", "DeleteImportFileExecutor"]
+- !private ["So8NSObjectP", "DeleteImportFileResponse"]
 - !private ["So8NSObjectP", "DeleteInstanceExecutor"]
 - !private ["So8NSObjectP", "DeleteInstanceResponse"]
+- !private ["So8NSObjectP", "DeleteParameterGroupExecutor"]
+- !private ["So8NSObjectP", "DeleteParameterGroupResponse"]
 - !private ["So8NSObjectP", "DescribeAccountsExecutor"]
 - !private ["So8NSObjectP", "DescribeAccountsResponse"]
+- !private ["So8NSObjectP", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["So8NSObjectP", "DescribeActiveQueryPerformanceResponse"]
 - !private ["So8NSObjectP", "DescribeAuditDownloadURLExecutor"]
 - !private ["So8NSObjectP", "DescribeAuditDownloadURLResponse"]
 - !private ["So8NSObjectP", "DescribeAuditExecutor"]
@@ -1571,6 +1832,8 @@ depends-member:
 - !private ["So8NSObjectP", "DescribeAuditResponse"]
 - !private ["So8NSObjectP", "DescribeAuditResultExecutor"]
 - !private ["So8NSObjectP", "DescribeAuditResultResponse"]
+- !private ["So8NSObjectP", "DescribeAzsExecutor"]
+- !private ["So8NSObjectP", "DescribeAzsResponse"]
 - !private ["So8NSObjectP", "DescribeBackupDownloadURLExecutor"]
 - !private ["So8NSObjectP", "DescribeBackupDownloadURLResponse"]
 - !private ["So8NSObjectP", "DescribeBackupPolicyExecutor"]
@@ -1595,6 +1858,10 @@ depends-member:
 - !private ["So8NSObjectP", "DescribeInstanceAttributesResponse"]
 - !private ["So8NSObjectP", "DescribeInstancesExecutor"]
 - !private ["So8NSObjectP", "DescribeInstancesResponse"]
+- !private ["So8NSObjectP", "DescribeLatestRestoreTimeExecutor"]
+- !private ["So8NSObjectP", "DescribeLatestRestoreTimeResponse"]
+- !private ["So8NSObjectP", "DescribeParametersExecutor"]
+- !private ["So8NSObjectP", "DescribeParametersResponse"]
 - !private ["So8NSObjectP", "DescribeQueryPerformanceExecutor"]
 - !private ["So8NSObjectP", "DescribeQueryPerformanceResponse"]
 - !private ["So8NSObjectP", "DescribeSlowLogAttributesExecutor"]
@@ -1605,10 +1872,14 @@ depends-member:
 - !private ["So8NSObjectP", "DescribeWhiteListResponse"]
 - !private ["So8NSObjectP", "DisableAuditExecutor"]
 - !private ["So8NSObjectP", "DisableAuditResponse"]
+- !private ["So8NSObjectP", "DisableInterceptExecutor"]
+- !private ["So8NSObjectP", "DisableInterceptResponse"]
 - !private ["So8NSObjectP", "DisableInternetAccessExecutor"]
 - !private ["So8NSObjectP", "DisableInternetAccessResponse"]
 - !private ["So8NSObjectP", "EnableAuditExecutor"]
 - !private ["So8NSObjectP", "EnableAuditResponse"]
+- !private ["So8NSObjectP", "EnableInterceptExecutor"]
+- !private ["So8NSObjectP", "EnableInterceptResponse"]
 - !private ["So8NSObjectP", "EnableInternetAccessExecutor"]
 - !private ["So8NSObjectP", "EnableInternetAccessResponse"]
 - !private ["So8NSObjectP", "FailoverInstanceExecutor"]
@@ -1629,6 +1900,10 @@ depends-member:
 - !private ["So8NSObjectP", "ModifyInstanceNameResponse"]
 - !private ["So8NSObjectP", "ModifyInstanceSpecExecutor"]
 - !private ["So8NSObjectP", "ModifyInstanceSpecResponse"]
+- !private ["So8NSObjectP", "ModifyParameterGroupAttributeExecutor"]
+- !private ["So8NSObjectP", "ModifyParameterGroupAttributeResponse"]
+- !private ["So8NSObjectP", "ModifyParametersExecutor"]
+- !private ["So8NSObjectP", "ModifyParametersResponse"]
 - !private ["So8NSObjectP", "ModifyWhiteListExecutor"]
 - !private ["So8NSObjectP", "ModifyWhiteListResponse"]
 - !private ["So8NSObjectP", "RebootInstanceExecutor"]
@@ -1669,6 +1944,9 @@ depends-member:
 - ["Sm", "init"]
 - ["Sm", "init"]
 - !private ["SY", "utf8"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "ClearBinlogsExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "ClearBinlogsRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "ClearBinlogsResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "CreateAccountExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "CreateAccountRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "CreateAccountResponse"]
@@ -1709,12 +1987,21 @@ depends-member:
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DeleteDatabaseExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DeleteDatabaseRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DeleteDatabaseResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DeleteImportFileExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DeleteImportFileRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DeleteImportFileResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DeleteInstanceExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DeleteInstanceRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DeleteInstanceResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DeleteParameterGroupExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DeleteParameterGroupRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DeleteParameterGroupResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAccountsExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAccountsRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAccountsResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeActiveQueryPerformanceExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeActiveQueryPerformanceRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeActiveQueryPerformanceResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAuditDownloadURLExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAuditDownloadURLRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAuditDownloadURLResponse"]
@@ -1730,6 +2017,9 @@ depends-member:
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAuditResultExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAuditResultRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAuditResultResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAzsExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAzsRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeAzsResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeBackupDownloadURLExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeBackupDownloadURLRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeBackupDownloadURLResponse"]
@@ -1766,6 +2056,12 @@ depends-member:
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeInstancesExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeInstancesRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeInstancesResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeLatestRestoreTimeExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeLatestRestoreTimeRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeLatestRestoreTimeResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeParametersExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeParametersRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DescribeParametersResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DescribeQueryPerformanceExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeQueryPerformanceRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DescribeQueryPerformanceResponse"]
@@ -1781,12 +2077,18 @@ depends-member:
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DisableAuditExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DisableAuditRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DisableAuditResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "DisableInterceptExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DisableInterceptRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "DisableInterceptResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "DisableInternetAccessExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DisableInternetAccessRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "DisableInternetAccessResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "EnableAuditExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "EnableAuditRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "EnableAuditResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "EnableInterceptExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "EnableInterceptRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "EnableInterceptResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "EnableInternetAccessExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "EnableInternetAccessRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "EnableInternetAccessResponse"]
@@ -1816,6 +2118,12 @@ depends-member:
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "ModifyInstanceSpecExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "ModifyInstanceSpecRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "ModifyInstanceSpecResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "ModifyParameterGroupAttributeExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "ModifyParameterGroupAttributeRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "ModifyParameterGroupAttributeResponse"]
+- !private ["13JDCloudSDKRds03RdsA6ClientC", "ModifyParametersExecutor"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "ModifyParametersRequest"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "ModifyParametersResponse"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "ModifyWhiteListExecutor"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "ModifyWhiteListRequest"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "ModifyWhiteListResponse"]
@@ -1850,6 +2158,7 @@ depends-member:
 - ["13JDCloudSDKRds03RdsA6ClientC", "SetImportFileSharedResponse"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "String"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "addCustomer"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "clearBinlogsAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "contentType"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "createAccountAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "createAuditAsync"]
@@ -1867,13 +2176,17 @@ depends-member:
 - ["13JDCloudSDKRds03RdsA6ClientC", "deleteBackupAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "deleteBackupSynchronicityAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "deleteDatabaseAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "deleteImportFileAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "deleteInstanceAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "deleteParameterGroupAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeAccountsAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "describeActiveQueryPerformanceAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeAuditAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeAuditDownloadURLAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeAuditFilesAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeAuditOptionsAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeAuditResultAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "describeAzsAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeBackupDownloadURLAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeBackupPolicyAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeBackupSynchronicitiesAsync"]
@@ -1886,13 +2199,17 @@ depends-member:
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeIndexPerformanceAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeInstanceAttributesAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeInstancesAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "describeLatestRestoreTimeAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "describeParametersAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeQueryPerformanceAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeSlowLogAttributesAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeSlowLogsAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "describeWhiteListAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "disableAuditAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "disableInterceptAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "disableInternetAccessAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "enableAuditAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "enableInterceptAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "enableInternetAccessAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "failoverInstanceAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "getUploadKeyAsync"]
@@ -1904,6 +2221,8 @@ depends-member:
 - ["13JDCloudSDKRds03RdsA6ClientC", "modifyConnectionModeAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "modifyInstanceNameAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "modifyInstanceSpecAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "modifyParameterGroupAttributeAsync"]
+- ["13JDCloudSDKRds03RdsA6ClientC", "modifyParametersAsync"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "modifyWhiteListAsync"]
 - !private ["13JDCloudSDKRds03RdsA6ClientC", "rdsJDCloudClient"]
 - ["13JDCloudSDKRds03RdsA6ClientC", "rebootInstanceAsync"]
@@ -1981,6 +2300,8 @@ depends-member:
 - !private ["s35_HasCustomAnyHashableRepresentationP", "data"]
 - ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ClearBinlogsExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ClearBinlogsResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateAccountExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateAccountResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CreateAuditExecutor"]
@@ -2008,10 +2329,16 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteBackupSynchronicityResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteDatabaseExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteDatabaseResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteImportFileExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteImportFileResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteInstanceExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteInstanceResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteParameterGroupExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteParameterGroupResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAccountsExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAccountsResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeActiveQueryPerformanceExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeActiveQueryPerformanceResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAuditDownloadURLExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAuditDownloadURLResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAuditExecutor"]
@@ -2022,6 +2349,8 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAuditResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAuditResultExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAuditResultResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAzsExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeAzsResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeBackupDownloadURLExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeBackupDownloadURLResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeBackupPolicyExecutor"]
@@ -2046,6 +2375,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstanceAttributesResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstancesExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeInstancesResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeLatestRestoreTimeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeLatestRestoreTimeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeParametersExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeParametersResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeQueryPerformanceExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeQueryPerformanceResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeSlowLogAttributesExecutor"]
@@ -2056,10 +2389,14 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DescribeWhiteListResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DisableAuditExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DisableAuditResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DisableInterceptExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DisableInterceptResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DisableInternetAccessExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DisableInternetAccessResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "EnableAuditExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "EnableAuditResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "EnableInterceptExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "EnableInterceptResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "EnableInternetAccessExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "EnableInternetAccessResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "FailoverInstanceExecutor"]
@@ -2080,6 +2417,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceNameResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceSpecExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyInstanceSpecResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyParameterGroupAttributeExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyParameterGroupAttributeResponse"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyParametersExecutor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyParametersResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyWhiteListExecutor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ModifyWhiteListResponse"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RebootInstanceExecutor"]
@@ -2126,6 +2467,8 @@ depends-nominal:
 - "SK"
 - !private "Sb"
 - "s7CVarArgP"
+- !private "13JDCloudSDKRds20ClearBinlogsExecutorC"
+- !private "13JDCloudSDKRds20ClearBinlogsResponseC"
 - "Sl"
 - "SL"
 - !private "13JDCloudSDKRds21CreateAccountExecutorC"
@@ -2160,10 +2503,16 @@ depends-nominal:
 - !private "13JDCloudSDKRds33DeleteBackupSynchronicityResponseC"
 - !private "13JDCloudSDKRds22DeleteDatabaseExecutorC"
 - !private "13JDCloudSDKRds22DeleteDatabaseResponseC"
+- !private "13JDCloudSDKRds24DeleteImportFileExecutorC"
+- !private "13JDCloudSDKRds24DeleteImportFileResponseC"
 - !private "13JDCloudSDKRds22DeleteInstanceExecutorC"
 - !private "13JDCloudSDKRds22DeleteInstanceResponseC"
+- !private "13JDCloudSDKRds28DeleteParameterGroupExecutorC"
+- !private "13JDCloudSDKRds28DeleteParameterGroupResponseC"
 - !private "13JDCloudSDKRds24DescribeAccountsExecutorC"
 - !private "13JDCloudSDKRds24DescribeAccountsResponseC"
+- !private "13JDCloudSDKRds38DescribeActiveQueryPerformanceExecutorC"
+- !private "13JDCloudSDKRds38DescribeActiveQueryPerformanceResponseC"
 - !private "13JDCloudSDKRds32DescribeAuditDownloadURLExecutorC"
 - !private "13JDCloudSDKRds32DescribeAuditDownloadURLResponseC"
 - !private "13JDCloudSDKRds21DescribeAuditExecutorC"
@@ -2174,6 +2523,8 @@ depends-nominal:
 - !private "13JDCloudSDKRds21DescribeAuditResponseC"
 - !private "13JDCloudSDKRds27DescribeAuditResultExecutorC"
 - !private "13JDCloudSDKRds27DescribeAuditResultResponseC"
+- !private "13JDCloudSDKRds19DescribeAzsExecutorC"
+- !private "13JDCloudSDKRds19DescribeAzsResponseC"
 - !private "13JDCloudSDKRds33DescribeBackupDownloadURLExecutorC"
 - !private "13JDCloudSDKRds33DescribeBackupDownloadURLResponseC"
 - !private "13JDCloudSDKRds28DescribeBackupPolicyExecutorC"
@@ -2198,6 +2549,10 @@ depends-nominal:
 - !private "13JDCloudSDKRds34DescribeInstanceAttributesResponseC"
 - !private "13JDCloudSDKRds25DescribeInstancesExecutorC"
 - !private "13JDCloudSDKRds25DescribeInstancesResponseC"
+- !private "13JDCloudSDKRds33DescribeLatestRestoreTimeExecutorC"
+- !private "13JDCloudSDKRds33DescribeLatestRestoreTimeResponseC"
+- !private "13JDCloudSDKRds26DescribeParametersExecutorC"
+- !private "13JDCloudSDKRds26DescribeParametersResponseC"
 - !private "13JDCloudSDKRds32DescribeQueryPerformanceExecutorC"
 - !private "13JDCloudSDKRds32DescribeQueryPerformanceResponseC"
 - !private "13JDCloudSDKRds33DescribeSlowLogAttributesExecutorC"
@@ -2209,10 +2564,14 @@ depends-nominal:
 - "SD"
 - !private "13JDCloudSDKRds20DisableAuditExecutorC"
 - !private "13JDCloudSDKRds20DisableAuditResponseC"
+- !private "13JDCloudSDKRds24DisableInterceptExecutorC"
+- !private "13JDCloudSDKRds24DisableInterceptResponseC"
 - !private "13JDCloudSDKRds29DisableInternetAccessExecutorC"
 - !private "13JDCloudSDKRds29DisableInternetAccessResponseC"
 - !private "13JDCloudSDKRds19EnableAuditExecutorC"
 - !private "13JDCloudSDKRds19EnableAuditResponseC"
+- !private "13JDCloudSDKRds23EnableInterceptExecutorC"
+- !private "13JDCloudSDKRds23EnableInterceptResponseC"
 - !private "13JDCloudSDKRds28EnableInternetAccessExecutorC"
 - !private "13JDCloudSDKRds28EnableInternetAccessResponseC"
 - "SE"
@@ -2246,6 +2605,10 @@ depends-nominal:
 - !private "13JDCloudSDKRds26ModifyInstanceNameResponseC"
 - !private "13JDCloudSDKRds26ModifyInstanceSpecExecutorC"
 - !private "13JDCloudSDKRds26ModifyInstanceSpecResponseC"
+- !private "13JDCloudSDKRds37ModifyParameterGroupAttributeExecutorC"
+- !private "13JDCloudSDKRds37ModifyParameterGroupAttributeResponseC"
+- !private "13JDCloudSDKRds24ModifyParametersExecutorC"
+- !private "13JDCloudSDKRds24ModifyParametersResponseC"
 - !private "13JDCloudSDKRds23ModifyWhiteListExecutorC"
 - !private "13JDCloudSDKRds23ModifyWhiteListResponseC"
 - !private "So8NSCodingP"
@@ -2303,6 +2666,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
@@ -2314,4 +2678,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "eaa6a742ddfa8e6a1ad5cd7b39acbf9e"
+interface-hash: "c89a7ea9b214bed001c46f73ad6ff1bb"

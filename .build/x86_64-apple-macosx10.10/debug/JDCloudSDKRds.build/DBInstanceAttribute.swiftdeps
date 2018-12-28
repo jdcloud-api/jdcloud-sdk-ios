@@ -26,6 +26,7 @@ depends-top-level:
 - "NSObject"
 - "String"
 - "StringLiteralType"
+- "Tag"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
@@ -37,6 +38,7 @@ depends-member:
 - !private ["s7CVarArgP", "DBInstanceNode"]
 - !private ["s7CVarArgP", "Int"]
 - !private ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "Tag"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "_findStringSwitchCase"]
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
@@ -65,6 +67,7 @@ depends-member:
 - !private ["s7CVarArgP", "regionId"]
 - !private ["s7CVarArgP", "secondaryNode"]
 - !private ["s7CVarArgP", "subnetId"]
+- !private ["s7CVarArgP", "tags"]
 - !private ["s7CVarArgP", "vpcId"]
 - ["s9CodingKeyP", "RawValue"]
 - ["s9CodingKeyP", ""]
@@ -101,6 +104,7 @@ depends-member:
 - !private ["s9CodingKeyP", "secondaryNode"]
 - ["s9CodingKeyP", "stringValue"]
 - !private ["s9CodingKeyP", "subnetId"]
+- !private ["s9CodingKeyP", "tags"]
 - !private ["s9CodingKeyP", "vpcId"]
 - ["Sl", "init"]
 - ["Sl", "init"]
@@ -112,6 +116,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "Tag"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
@@ -147,6 +152,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "secondaryNode"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
 - !private ["s28CustomDebugStringConvertibleP", "subnetId"]
+- !private ["s28CustomDebugStringConvertibleP", "tags"]
 - !private ["s28CustomDebugStringConvertibleP", "vpcId"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -160,6 +166,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "Int"]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - !private ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "Tag"]
 - ["s23CustomStringConvertibleP", ""]
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
@@ -196,6 +203,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "secondaryNode"]
 - ["s23CustomStringConvertibleP", "stringValue"]
 - !private ["s23CustomStringConvertibleP", "subnetId"]
+- !private ["s23CustomStringConvertibleP", "tags"]
 - !private ["s23CustomStringConvertibleP", "vpcId"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "Charge"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "CodingKey"]
@@ -205,6 +213,7 @@ depends-member:
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "Encoder"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "Int"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "String"]
+- ["13JDCloudSDKRds19DBInstanceAttributeC", "Tag"]
 - !private ["13JDCloudSDKRds19DBInstanceAttributeC", "_findStringSwitchCase"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "auditStatus"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "azId"]
@@ -231,6 +240,7 @@ depends-member:
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "regionId"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "secondaryNode"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "subnetId"]
+- ["13JDCloudSDKRds19DBInstanceAttributeC", "tags"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC", "vpcId"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "RawValue"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "_Default_RawValue"]
@@ -267,6 +277,7 @@ depends-member:
 - ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "secondaryNode"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "stringValue"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "subnetId"]
+- ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "tags"]
 - ["13JDCloudSDKRds19DBInstanceAttributeC0cD10CodingKeysO", "vpcId"]
 - !private ["13JDCloudSDKRds14DBInstanceNodeC", "deinit"]
 - !private ["Se", "Charge"]
@@ -274,6 +285,7 @@ depends-member:
 - !private ["Se", "DBInstanceNode"]
 - !private ["Se", "Int"]
 - !private ["Se", "String"]
+- !private ["Se", "Tag"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
 - !private ["Se", "_getBuiltinLogicValue"]
@@ -302,6 +314,7 @@ depends-member:
 - !private ["Se", "regionId"]
 - !private ["Se", "secondaryNode"]
 - !private ["Se", "subnetId"]
+- !private ["Se", "tags"]
 - !private ["Se", "vpcId"]
 - !private ["s7DecoderP", "container"]
 - !private ["SE", "Charge"]
@@ -309,6 +322,7 @@ depends-member:
 - !private ["SE", "DBInstanceNode"]
 - !private ["SE", "Int"]
 - !private ["SE", "String"]
+- !private ["SE", "Tag"]
 - ["SE", ""]
 - !private ["SE", "_findStringSwitchCase"]
 - !private ["SE", "_getBuiltinLogicValue"]
@@ -337,6 +351,7 @@ depends-member:
 - !private ["SE", "regionId"]
 - !private ["SE", "secondaryNode"]
 - !private ["SE", "subnetId"]
+- !private ["SE", "tags"]
 - !private ["SE", "vpcId"]
 - !private ["s7EncoderP", "container"]
 - !private ["SQ", "Charge"]
@@ -345,6 +360,7 @@ depends-member:
 - !private ["SQ", "Int"]
 - ["SQ", "RawValue"]
 - !private ["SQ", "String"]
+- !private ["SQ", "Tag"]
 - ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
@@ -381,6 +397,7 @@ depends-member:
 - !private ["SQ", "secondaryNode"]
 - ["SQ", "stringValue"]
 - !private ["SQ", "subnetId"]
+- !private ["SQ", "tags"]
 - !private ["SQ", "vpcId"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
@@ -395,6 +412,7 @@ depends-member:
 - !private ["SH", "Int"]
 - ["SH", "RawValue"]
 - !private ["SH", "String"]
+- !private ["SH", "Tag"]
 - ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
@@ -431,6 +449,7 @@ depends-member:
 - !private ["SH", "secondaryNode"]
 - ["SH", "stringValue"]
 - !private ["SH", "subnetId"]
+- !private ["SH", "tags"]
 - !private ["SH", "vpcId"]
 - !private ["s6HasherV", "combine"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
@@ -450,6 +469,7 @@ depends-member:
 - ["So8NSObjectC", "Encoder"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "Tag"]
 - ["So8NSObjectC", ""]
 - !private ["So8NSObjectC", "_findStringSwitchCase"]
 - ["So8NSObjectC", "auditStatus"]
@@ -476,12 +496,14 @@ depends-member:
 - ["So8NSObjectC", "regionId"]
 - ["So8NSObjectC", "secondaryNode"]
 - ["So8NSObjectC", "subnetId"]
+- ["So8NSObjectC", "tags"]
 - ["So8NSObjectC", "vpcId"]
 - !private ["So8NSObjectP", "Charge"]
 - !private ["So8NSObjectP", "DBInstanceAttributeCodingKeys"]
 - !private ["So8NSObjectP", "DBInstanceNode"]
 - !private ["So8NSObjectP", "Int"]
 - !private ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "Tag"]
 - ["So8NSObjectP", ""]
 - !private ["So8NSObjectP", "_findStringSwitchCase"]
 - !private ["So8NSObjectP", "auditStatus"]
@@ -508,6 +530,7 @@ depends-member:
 - !private ["So8NSObjectP", "regionId"]
 - !private ["So8NSObjectP", "secondaryNode"]
 - !private ["So8NSObjectP", "subnetId"]
+- !private ["So8NSObjectP", "tags"]
 - !private ["So8NSObjectP", "vpcId"]
 - ["Sm", "init"]
 - ["Sm", "init"]
@@ -546,6 +569,7 @@ depends-member:
 - !private ["SY", "secondaryNode"]
 - ["SY", "stringValue"]
 - !private ["SY", "subnetId"]
+- !private ["SY", "tags"]
 - !private ["SY", "vpcId"]
 - ["ST", "init"]
 - ["ST", "init"]
@@ -555,6 +579,7 @@ depends-member:
 - ["SS", "init"]
 - ["Sy", "init"]
 - ["Sy", "init"]
+- !private ["13JDCloudSDKRds3TagC", "deinit"]
 - ["s16TextOutputStreamP", "init"]
 - ["s16TextOutputStreamP", "init"]
 - ["s20TextOutputStreamableP", "init"]
@@ -577,6 +602,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DBInstanceNode"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Tag"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "auditStatus"]
@@ -603,6 +629,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "regionId"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "secondaryNode"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "subnetId"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tags"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "vpcId"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
@@ -648,6 +675,7 @@ depends-nominal:
 - !private "s12StaticStringV"
 - "SS"
 - "Sy"
+- !private "13JDCloudSDKRds3TagC"
 - "s16TextOutputStreamP"
 - "s20TextOutputStreamableP"
 - "14JDCloudSDKCore14URLConvertibleP"
@@ -670,6 +698,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
@@ -681,4 +710,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "22c8f153b2f0cca4ff60b42041364e20"
+interface-hash: "81b8103ae2815dc42f01c7f491c1ce65"

@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "44168dd5e804b906ecd6860bed380aba"
-build_time: [1545913290, 496428000]
+build_time: [1545969484, 779051000]
 inputs:
-  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCharge/Model/Charge.swift": [1545913237, 0]
-  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCharge/Model/ChargeSpec.swift": [1545913237, 0]
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCharge/Model/Charge.swift": [1545969383, 0]
+  "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/Sources/JDCloudSDKCharge/Model/ChargeSpec.swift": [1545969383, 0]

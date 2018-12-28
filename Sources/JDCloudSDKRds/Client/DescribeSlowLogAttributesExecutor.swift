@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询MySQL实例的慢日志的详细信息。&lt;br&gt;- 仅支持SQL Server
+///  查询MySQL实例的慢日志的详细信息。&lt;br&gt;- 仅支持MySQL
 public class DescribeSlowLogAttributesExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

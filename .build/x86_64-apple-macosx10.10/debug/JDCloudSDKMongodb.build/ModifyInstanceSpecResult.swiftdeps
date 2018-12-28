@@ -16,6 +16,8 @@ depends-top-level:
 - "CodingKey"
 - "Decoder"
 - "Encoder"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
 - "JdCloudResult"
 - "ModifyInstanceSpecResult"
 - "NSObject"
