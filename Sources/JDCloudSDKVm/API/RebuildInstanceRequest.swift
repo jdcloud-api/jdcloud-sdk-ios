@@ -42,7 +42,7 @@ public class RebuildInstanceRequest:JdCloudRequest
     var imageId:String?
 
     /// 密钥对名称；当前只支持一个。仅Linux系统支持指定。
-    var keyNames:String?
+    var keyNames:[String?]?
 
     /// 云主机ID
     var instanceId:String

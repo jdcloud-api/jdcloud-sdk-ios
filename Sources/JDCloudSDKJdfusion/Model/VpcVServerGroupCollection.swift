@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcVServerGroupCollection)
 public class VpcVServerGroupCollection:NSObject,Codable{
     /// VserverGroups
-    var vserverGroups:VserverGroupInfo?
+    var vserverGroups:[VserverGroupInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcVServerGroupCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcVServerGroupCollectionCodingKeys.self)
-        self.vserverGroups = try decoderContainer.decode(VserverGroupInfo?.self, forKey: .vserverGroups)
+        if decoderContainer.contains(.vserverGroups)
+        {
+            self.vserverGroups = try decoderContainer.decode([VserverGroupInfo?]?.self, forKey: .vserverGroups)
+        }
     }
 }
 public extension VpcVServerGroupCollection{

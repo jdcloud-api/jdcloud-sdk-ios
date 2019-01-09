@@ -46,8 +46,14 @@ public class ProductDetailList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ProductDetailListCodingKeys.self)
-        self.key = try decoderContainer.decode(Int?.self, forKey: .key)
-        self.values = try decoderContainer.decode(Pagination?.self, forKey: .values)
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode(Int?.self, forKey: .key)
+        }
+        if decoderContainer.contains(.values)
+        {
+            self.values = try decoderContainer.decode(Pagination?.self, forKey: .values)
+        }
     }
 }
 public extension ProductDetailList{

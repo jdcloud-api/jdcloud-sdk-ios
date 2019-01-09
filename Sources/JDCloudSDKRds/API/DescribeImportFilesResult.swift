@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeImportFilesResult)
 public class DescribeImportFilesResult:NSObject,JdCloudResult
 {
-    /// ImportFiles
-    var importFiles:ImportFile?
+    /// 导入文件的集合
+    var importFiles:[ImportFile?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeImportFilesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeImportFilesResultCodingKeys.self)
-        self.importFiles = try decoderContainer.decode(ImportFile?.self, forKey: .importFiles)
+        if decoderContainer.contains(.importFiles)
+        {
+            self.importFiles = try decoderContainer.decode([ImportFile?]?.self, forKey: .importFiles)
+        }
     }
 }
 public extension DescribeImportFilesResult{

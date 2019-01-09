@@ -31,8 +31,8 @@ import JDCloudSDKCore
 @objc(SearchRRResult)
 public class SearchRRResult:NSObject,JdCloudResult
 {
-    /// DataList
-    var dataList:RR?
+    /// 解析记录列表
+    var dataList:[RR?]?
 
     /// 所有解析记录的个数
     var totalCount:Int?
@@ -58,10 +58,22 @@ public class SearchRRResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SearchRRResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(RR?.self, forKey: .dataList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([RR?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
     }
 }
 public extension SearchRRResult{

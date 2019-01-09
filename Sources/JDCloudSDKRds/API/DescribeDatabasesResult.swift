@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeDatabasesResult:NSObject,JdCloudResult
 {
     /// Databases
-    var databases:Database?
+    var databases:[Database?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeDatabasesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeDatabasesResultCodingKeys.self)
-        self.databases = try decoderContainer.decode(Database?.self, forKey: .databases)
+        if decoderContainer.contains(.databases)
+        {
+            self.databases = try decoderContainer.decode([Database?]?.self, forKey: .databases)
+        }
     }
 }
 public extension DescribeDatabasesResult{

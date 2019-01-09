@@ -48,8 +48,14 @@ public class DescribeBinlogDownloadURLResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeBinlogDownloadURLResultCodingKeys.self)
-        self.publicURL = try decoderContainer.decode(String?.self, forKey: .publicURL)
-        self.internalURL = try decoderContainer.decode(String?.self, forKey: .internalURL)
+        if decoderContainer.contains(.publicURL)
+        {
+            self.publicURL = try decoderContainer.decode(String?.self, forKey: .publicURL)
+        }
+        if decoderContainer.contains(.internalURL)
+        {
+            self.internalURL = try decoderContainer.decode(String?.self, forKey: .internalURL)
+        }
     }
 }
 public extension DescribeBinlogDownloadURLResult{

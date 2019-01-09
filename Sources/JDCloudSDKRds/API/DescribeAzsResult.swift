@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeAzsResult)
 public class DescribeAzsResult:NSObject,JdCloudResult
 {
-    /// Azs
-    var azs:String?
+    /// 可用区的ID的列表
+    var azs:[String?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeAzsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAzsResultCodingKeys.self)
-        self.azs = try decoderContainer.decode(String?.self, forKey: .azs)
+        if decoderContainer.contains(.azs)
+        {
+            self.azs = try decoderContainer.decode([String?]?.self, forKey: .azs)
+        }
     }
 }
 public extension DescribeAzsResult{

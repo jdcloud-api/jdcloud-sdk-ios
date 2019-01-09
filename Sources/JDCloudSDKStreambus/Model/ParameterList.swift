@@ -46,8 +46,14 @@ public class ParameterList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ParameterListCodingKeys.self)
-        self.pKey = try decoderContainer.decode(String?.self, forKey: .pKey)
-        self.pValue = try decoderContainer.decode(String?.self, forKey: .pValue)
+        if decoderContainer.contains(.pKey)
+        {
+            self.pKey = try decoderContainer.decode(String?.self, forKey: .pKey)
+        }
+        if decoderContainer.contains(.pValue)
+        {
+            self.pValue = try decoderContainer.decode(String?.self, forKey: .pValue)
+        }
     }
 }
 public extension ParameterList{

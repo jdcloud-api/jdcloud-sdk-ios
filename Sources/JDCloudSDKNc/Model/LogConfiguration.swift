@@ -46,8 +46,14 @@ public class LogConfiguration:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LogConfigurationCodingKeys.self)
-        self.logDriver = try decoderContainer.decode(String?.self, forKey: .logDriver)
-        self.options = try decoderContainer.decode(LogOption?.self, forKey: .options)
+        if decoderContainer.contains(.logDriver)
+        {
+            self.logDriver = try decoderContainer.decode(String?.self, forKey: .logDriver)
+        }
+        if decoderContainer.contains(.options)
+        {
+            self.options = try decoderContainer.decode(LogOption?.self, forKey: .options)
+        }
     }
 }
 public extension LogConfiguration{

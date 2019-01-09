@@ -47,7 +47,10 @@ public class ProbeTaskEnableSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ProbeTaskEnableSpecCodingKeys.self)
-        self.enabled = try decoderContainer.decode(Bool?.self, forKey: .enabled)
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(Bool?.self, forKey: .enabled)
+        }
         self.taskId = try decoderContainer.decode([String?].self, forKey: .taskId)
     }
 }

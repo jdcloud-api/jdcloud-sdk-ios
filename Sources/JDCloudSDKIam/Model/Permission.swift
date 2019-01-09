@@ -42,7 +42,7 @@ public class Permission:NSObject,Codable{
     /// 权限内容
     var content:String?
     /// 权限详细信息
-    var permissionDetailList:PermissionDetail?
+    var permissionDetailList:[PermissionDetail?]?
 
 
 
@@ -64,14 +64,38 @@ public class Permission:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PermissionCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.account = try decoderContainer.decode(String?.self, forKey: .account)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.permissionType = try decoderContainer.decode(String?.self, forKey: .permissionType)
-        self.version = try decoderContainer.decode(String?.self, forKey: .version)
-        self.content = try decoderContainer.decode(String?.self, forKey: .content)
-        self.permissionDetailList = try decoderContainer.decode(PermissionDetail?.self, forKey: .permissionDetailList)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.account)
+        {
+            self.account = try decoderContainer.decode(String?.self, forKey: .account)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.permissionType)
+        {
+            self.permissionType = try decoderContainer.decode(String?.self, forKey: .permissionType)
+        }
+        if decoderContainer.contains(.version)
+        {
+            self.version = try decoderContainer.decode(String?.self, forKey: .version)
+        }
+        if decoderContainer.contains(.content)
+        {
+            self.content = try decoderContainer.decode(String?.self, forKey: .content)
+        }
+        if decoderContainer.contains(.permissionDetailList)
+        {
+            self.permissionDetailList = try decoderContainer.decode([PermissionDetail?]?.self, forKey: .permissionDetailList)
+        }
     }
 }
 public extension Permission{

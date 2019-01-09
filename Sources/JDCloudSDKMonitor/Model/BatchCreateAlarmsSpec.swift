@@ -31,7 +31,7 @@ public class BatchCreateAlarmsSpec:NSObject,Codable{
     /// Required:true
     var clientToken:String
     /// 通知的联系人
-    var contacts:BaseContact?
+    var contacts:[BaseContact?]?
     /// 地域
     var datacenter:String?
     /// 是否启用, 1表示启用规则，0表示禁用规则，默认为1
@@ -43,7 +43,7 @@ public class BatchCreateAlarmsSpec:NSObject,Codable{
     var ruleType:Int64?
     /// 要批量创建的规则列表
     /// Required:true
-    var rules:BaseRule?
+    var rules:[BaseRule?]
     /// 是否保存为模板
     var saveTemplate:Bool?
     /// 产品线标识，规则对应的serviceCode
@@ -64,7 +64,7 @@ public class BatchCreateAlarmsSpec:NSObject,Codable{
 
 
 
-    public  init(clientToken:String,resourceIds:[String?],rules:BaseRule?,serviceCode:String){
+    public  init(clientToken:String,resourceIds:[String?],rules:[BaseRule?],serviceCode:String){
              self.clientToken = clientToken
              self.resourceIds = resourceIds
              self.rules = rules
@@ -93,20 +93,53 @@ public class BatchCreateAlarmsSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchCreateAlarmsSpecCodingKeys.self)
         self.clientToken = try decoderContainer.decode(String.self, forKey: .clientToken)
-        self.contacts = try decoderContainer.decode(BaseContact?.self, forKey: .contacts)
-        self.datacenter = try decoderContainer.decode(String?.self, forKey: .datacenter)
-        self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode([BaseContact?]?.self, forKey: .contacts)
+        }
+        if decoderContainer.contains(.datacenter)
+        {
+            self.datacenter = try decoderContainer.decode(String?.self, forKey: .datacenter)
+        }
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
+        }
         self.resourceIds = try decoderContainer.decode([String?].self, forKey: .resourceIds)
-        self.ruleType = try decoderContainer.decode(Int64?.self, forKey: .ruleType)
-        self.rules = try decoderContainer.decode(BaseRule?.self, forKey: .rules)
-        self.saveTemplate = try decoderContainer.decode(Bool?.self, forKey: .saveTemplate)
+        if decoderContainer.contains(.ruleType)
+        {
+            self.ruleType = try decoderContainer.decode(Int64?.self, forKey: .ruleType)
+        }
+        self.rules = try decoderContainer.decode([BaseRule?].self, forKey: .rules)
+        if decoderContainer.contains(.saveTemplate)
+        {
+            self.saveTemplate = try decoderContainer.decode(Bool?.self, forKey: .saveTemplate)
+        }
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        self.templateName = try decoderContainer.decode(String?.self, forKey: .templateName)
-        self.templateServiceCode = try decoderContainer.decode(String?.self, forKey: .templateServiceCode)
-        self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
-        self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
-        self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
-        self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        if decoderContainer.contains(.templateName)
+        {
+            self.templateName = try decoderContainer.decode(String?.self, forKey: .templateName)
+        }
+        if decoderContainer.contains(.templateServiceCode)
+        {
+            self.templateServiceCode = try decoderContainer.decode(String?.self, forKey: .templateServiceCode)
+        }
+        if decoderContainer.contains(.webHookContent)
+        {
+            self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
+        }
+        if decoderContainer.contains(.webHookProtocol)
+        {
+            self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
+        }
+        if decoderContainer.contains(.webHookSecret)
+        {
+            self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
+        }
+        if decoderContainer.contains(.webHookUrl)
+        {
+            self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        }
     }
 }
 public extension BatchCreateAlarmsSpec{

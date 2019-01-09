@@ -46,8 +46,14 @@ public class SiteMonitorEnableReqItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SiteMonitorEnableReqItemCodingKeys.self)
-        self.enabled = try decoderContainer.decode(String?.self, forKey: .enabled)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(String?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
     }
 }
 public extension SiteMonitorEnableReqItem{

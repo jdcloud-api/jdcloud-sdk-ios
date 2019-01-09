@@ -44,7 +44,10 @@ public class DescribeKeyResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeKeyResultCodingKeys.self)
-        self.keyInfo = try decoderContainer.decode(KeyInfo?.self, forKey: .keyInfo)
+        if decoderContainer.contains(.keyInfo)
+        {
+            self.keyInfo = try decoderContainer.decode(KeyInfo?.self, forKey: .keyInfo)
+        }
     }
 }
 public extension DescribeKeyResult{

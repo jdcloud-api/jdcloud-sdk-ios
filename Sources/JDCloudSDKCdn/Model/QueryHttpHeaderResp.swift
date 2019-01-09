@@ -52,10 +52,22 @@ public class QueryHttpHeaderResp:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryHttpHeaderRespCodingKeys.self)
-        self.headerType = try decoderContainer.decode(String?.self, forKey: .headerType)
-        self.headerName = try decoderContainer.decode(String?.self, forKey: .headerName)
-        self.headerValue = try decoderContainer.decode(String?.self, forKey: .headerValue)
-        self.headerOp = try decoderContainer.decode(String?.self, forKey: .headerOp)
+        if decoderContainer.contains(.headerType)
+        {
+            self.headerType = try decoderContainer.decode(String?.self, forKey: .headerType)
+        }
+        if decoderContainer.contains(.headerName)
+        {
+            self.headerName = try decoderContainer.decode(String?.self, forKey: .headerName)
+        }
+        if decoderContainer.contains(.headerValue)
+        {
+            self.headerValue = try decoderContainer.decode(String?.self, forKey: .headerValue)
+        }
+        if decoderContainer.contains(.headerOp)
+        {
+            self.headerOp = try decoderContainer.decode(String?.self, forKey: .headerOp)
+        }
     }
 }
 public extension QueryHttpHeaderResp{

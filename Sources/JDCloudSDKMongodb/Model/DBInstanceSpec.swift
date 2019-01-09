@@ -90,19 +90,40 @@ public class DBInstanceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceSpecCodingKeys.self)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
-        self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.engine)
+        {
+            self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
+        }
+        if decoderContainer.contains(.engineVersion)
+        {
+            self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
+        }
         self.instanceClass = try decoderContainer.decode(String.self, forKey: .instanceClass)
         self.instanceStorageGB = try decoderContainer.decode(Int.self, forKey: .instanceStorageGB)
         self.multiAZ = try decoderContainer.decode(Bool.self, forKey: .multiAZ)
         self.azId = try decoderContainer.decode([String?].self, forKey: .azId)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.password = try decoderContainer.decode(String?.self, forKey: .password)
-        self.backupId = try decoderContainer.decode(String?.self, forKey: .backupId)
-        self.originDBInstanceId = try decoderContainer.decode(String?.self, forKey: .originDBInstanceId)
-        self.restoreTime = try decoderContainer.decode(String?.self, forKey: .restoreTime)
+        if decoderContainer.contains(.password)
+        {
+            self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        }
+        if decoderContainer.contains(.backupId)
+        {
+            self.backupId = try decoderContainer.decode(String?.self, forKey: .backupId)
+        }
+        if decoderContainer.contains(.originDBInstanceId)
+        {
+            self.originDBInstanceId = try decoderContainer.decode(String?.self, forKey: .originDBInstanceId)
+        }
+        if decoderContainer.contains(.restoreTime)
+        {
+            self.restoreTime = try decoderContainer.decode(String?.self, forKey: .restoreTime)
+        }
     }
 }
 public extension DBInstanceSpec{

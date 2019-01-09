@@ -49,9 +49,18 @@ public class SiteMonitorUdpOption:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SiteMonitorUdpOptionCodingKeys.self)
-        self.reqContent = try decoderContainer.decode(String?.self, forKey: .reqContent)
-        self.resCheck = try decoderContainer.decode(String?.self, forKey: .resCheck)
-        self.timeout = try decoderContainer.decode(Int64?.self, forKey: .timeout)
+        if decoderContainer.contains(.reqContent)
+        {
+            self.reqContent = try decoderContainer.decode(String?.self, forKey: .reqContent)
+        }
+        if decoderContainer.contains(.resCheck)
+        {
+            self.resCheck = try decoderContainer.decode(String?.self, forKey: .resCheck)
+        }
+        if decoderContainer.contains(.timeout)
+        {
+            self.timeout = try decoderContainer.decode(Int64?.self, forKey: .timeout)
+        }
     }
 }
 public extension SiteMonitorUdpOption{

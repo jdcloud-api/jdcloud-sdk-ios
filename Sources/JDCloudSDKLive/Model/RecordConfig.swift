@@ -43,7 +43,10 @@ public class RecordConfig:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RecordConfigCodingKeys.self)
-        self.mytemplate1 = try decoderContainer.decode(String?.self, forKey: .mytemplate1)
+        if decoderContainer.contains(.mytemplate1)
+        {
+            self.mytemplate1 = try decoderContainer.decode(String?.self, forKey: .mytemplate1)
+        }
     }
 }
 public extension RecordConfig{

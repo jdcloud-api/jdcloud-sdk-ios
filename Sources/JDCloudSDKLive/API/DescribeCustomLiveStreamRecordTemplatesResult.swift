@@ -38,8 +38,8 @@ public class DescribeCustomLiveStreamRecordTemplatesResult:NSObject,JdCloudResul
     /// 查询总数
     var totalCount:Double?
 
-    /// RecordTemplates
-    var recordTemplates:RecordTemplate?
+    /// 录制模板信息
+    var recordTemplates:[RecordTemplate?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeCustomLiveStreamRecordTemplatesResult:NSObject,JdCloudResul
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamRecordTemplatesResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.recordTemplates = try decoderContainer.decode(RecordTemplate?.self, forKey: .recordTemplates)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.recordTemplates)
+        {
+            self.recordTemplates = try decoderContainer.decode([RecordTemplate?]?.self, forKey: .recordTemplates)
+        }
     }
 }
 public extension DescribeCustomLiveStreamRecordTemplatesResult{

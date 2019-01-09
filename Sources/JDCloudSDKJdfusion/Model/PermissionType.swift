@@ -82,20 +82,62 @@ public class PermissionType:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PermissionTypeCodingKeys.self)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.ipProtocol = try decoderContainer.decode(String?.self, forKey: .ipProtocol)
-        self.portRange = try decoderContainer.decode(String?.self, forKey: .portRange)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.sourceCidrIp = try decoderContainer.decode(String?.self, forKey: .sourceCidrIp)
-        self.sourceGroupId = try decoderContainer.decode(String?.self, forKey: .sourceGroupId)
-        self.sourceGroupOwnerAccount = try decoderContainer.decode(String?.self, forKey: .sourceGroupOwnerAccount)
-        self.destCidrIp = try decoderContainer.decode(String?.self, forKey: .destCidrIp)
-        self.destGroupId = try decoderContainer.decode(String?.self, forKey: .destGroupId)
-        self.destGroupOwnerAccount = try decoderContainer.decode(String?.self, forKey: .destGroupOwnerAccount)
-        self.policy = try decoderContainer.decode(String?.self, forKey: .policy)
-        self.nicType = try decoderContainer.decode(String?.self, forKey: .nicType)
-        self.priority = try decoderContainer.decode(String?.self, forKey: .priority)
-        self.direction = try decoderContainer.decode(String?.self, forKey: .direction)
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.ipProtocol)
+        {
+            self.ipProtocol = try decoderContainer.decode(String?.self, forKey: .ipProtocol)
+        }
+        if decoderContainer.contains(.portRange)
+        {
+            self.portRange = try decoderContainer.decode(String?.self, forKey: .portRange)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.sourceCidrIp)
+        {
+            self.sourceCidrIp = try decoderContainer.decode(String?.self, forKey: .sourceCidrIp)
+        }
+        if decoderContainer.contains(.sourceGroupId)
+        {
+            self.sourceGroupId = try decoderContainer.decode(String?.self, forKey: .sourceGroupId)
+        }
+        if decoderContainer.contains(.sourceGroupOwnerAccount)
+        {
+            self.sourceGroupOwnerAccount = try decoderContainer.decode(String?.self, forKey: .sourceGroupOwnerAccount)
+        }
+        if decoderContainer.contains(.destCidrIp)
+        {
+            self.destCidrIp = try decoderContainer.decode(String?.self, forKey: .destCidrIp)
+        }
+        if decoderContainer.contains(.destGroupId)
+        {
+            self.destGroupId = try decoderContainer.decode(String?.self, forKey: .destGroupId)
+        }
+        if decoderContainer.contains(.destGroupOwnerAccount)
+        {
+            self.destGroupOwnerAccount = try decoderContainer.decode(String?.self, forKey: .destGroupOwnerAccount)
+        }
+        if decoderContainer.contains(.policy)
+        {
+            self.policy = try decoderContainer.decode(String?.self, forKey: .policy)
+        }
+        if decoderContainer.contains(.nicType)
+        {
+            self.nicType = try decoderContainer.decode(String?.self, forKey: .nicType)
+        }
+        if decoderContainer.contains(.priority)
+        {
+            self.priority = try decoderContainer.decode(String?.self, forKey: .priority)
+        }
+        if decoderContainer.contains(.direction)
+        {
+            self.direction = try decoderContainer.decode(String?.self, forKey: .direction)
+        }
     }
 }
 public extension PermissionType{

@@ -44,7 +44,10 @@ public class DescribeSecretVersionInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSecretVersionInfoResultCodingKeys.self)
-        self.secretVersionItem = try decoderContainer.decode(SecretVersionItem?.self, forKey: .secretVersionItem)
+        if decoderContainer.contains(.secretVersionItem)
+        {
+            self.secretVersionItem = try decoderContainer.decode(SecretVersionItem?.self, forKey: .secretVersionItem)
+        }
     }
 }
 public extension DescribeSecretVersionInfoResult{

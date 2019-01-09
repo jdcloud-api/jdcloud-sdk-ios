@@ -186,7 +186,9 @@ depends-member:
 - ["14JDCloudSDKCore13JdCloudResultP", "encode"]
 - !private ["14JDCloudSDKCore13JdCloudResultP", "headers"]
 - ["14JDCloudSDKCore13JdCloudResultP", "init"]
+- !private ["s22KeyedDecodingContainerV", "contains"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "contains"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
 - !private ["s22KeyedEncodingContainerV", "encode"]
 - !private ["s30KeyedEncodingContainerProtocolP", "encode"]
@@ -372,4 +374,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "39fcc6623e20cbf900b17ea9cd0f4f77"
+interface-hash: "4b7e6464d0a537fa2469b690f42a9f32"

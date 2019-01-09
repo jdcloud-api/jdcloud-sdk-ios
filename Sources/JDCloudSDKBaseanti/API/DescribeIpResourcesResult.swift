@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeIpResourcesResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:IpResource?
+    var dataList:[IpResource?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeIpResourcesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeIpResourcesResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(IpResource?.self, forKey: .dataList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([IpResource?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeIpResourcesResult{

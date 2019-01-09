@@ -33,7 +33,7 @@ public class DescribeQuotasRequest:JdCloudRequest
 {
     /// resourceTypes - 资源类型，暂时只支持 [registry, repository]，支持同时查询两种配额。
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

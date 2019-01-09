@@ -55,11 +55,26 @@ public class Img:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImgCodingKeys.self)
-        self.imgId = try decoderContainer.decode(Double?.self, forKey: .imgId)
-        self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.imgId)
+        {
+            self.imgId = try decoderContainer.decode(Double?.self, forKey: .imgId)
+        }
+        if decoderContainer.contains(.imgUrl)
+        {
+            self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension Img{

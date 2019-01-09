@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(QueryNamespacesResult)
 public class QueryNamespacesResult:NSObject,JdCloudResult
 {
-    /// Namespaces
-    var namespaces:Namespace?
+    /// namespaces信息
+    var namespaces:[Namespace?]?
 
 
 
@@ -44,7 +44,10 @@ public class QueryNamespacesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryNamespacesResultCodingKeys.self)
-        self.namespaces = try decoderContainer.decode(Namespace?.self, forKey: .namespaces)
+        if decoderContainer.contains(.namespaces)
+        {
+            self.namespaces = try decoderContainer.decode([Namespace?]?.self, forKey: .namespaces)
+        }
     }
 }
 public extension QueryNamespacesResult{

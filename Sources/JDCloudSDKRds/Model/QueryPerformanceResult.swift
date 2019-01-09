@@ -67,15 +67,42 @@ public class QueryPerformanceResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryPerformanceResultCodingKeys.self)
-        self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
-        self.lastExecutionTime = try decoderContainer.decode(String?.self, forKey: .lastExecutionTime)
-        self.elapsedTime = try decoderContainer.decode(Int?.self, forKey: .elapsedTime)
-        self.executionCount = try decoderContainer.decode(Int?.self, forKey: .executionCount)
-        self.workerTime = try decoderContainer.decode(Int?.self, forKey: .workerTime)
-        self.logicalReads = try decoderContainer.decode(Int?.self, forKey: .logicalReads)
-        self.logicalWrites = try decoderContainer.decode(Int?.self, forKey: .logicalWrites)
-        self.physicalReads = try decoderContainer.decode(Int?.self, forKey: .physicalReads)
-        self.lastRows = try decoderContainer.decode(Int?.self, forKey: .lastRows)
+        if decoderContainer.contains(.sql)
+        {
+            self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
+        }
+        if decoderContainer.contains(.lastExecutionTime)
+        {
+            self.lastExecutionTime = try decoderContainer.decode(String?.self, forKey: .lastExecutionTime)
+        }
+        if decoderContainer.contains(.elapsedTime)
+        {
+            self.elapsedTime = try decoderContainer.decode(Int?.self, forKey: .elapsedTime)
+        }
+        if decoderContainer.contains(.executionCount)
+        {
+            self.executionCount = try decoderContainer.decode(Int?.self, forKey: .executionCount)
+        }
+        if decoderContainer.contains(.workerTime)
+        {
+            self.workerTime = try decoderContainer.decode(Int?.self, forKey: .workerTime)
+        }
+        if decoderContainer.contains(.logicalReads)
+        {
+            self.logicalReads = try decoderContainer.decode(Int?.self, forKey: .logicalReads)
+        }
+        if decoderContainer.contains(.logicalWrites)
+        {
+            self.logicalWrites = try decoderContainer.decode(Int?.self, forKey: .logicalWrites)
+        }
+        if decoderContainer.contains(.physicalReads)
+        {
+            self.physicalReads = try decoderContainer.decode(Int?.self, forKey: .physicalReads)
+        }
+        if decoderContainer.contains(.lastRows)
+        {
+            self.lastRows = try decoderContainer.decode(Int?.self, forKey: .lastRows)
+        }
     }
 }
 public extension QueryPerformanceResult{

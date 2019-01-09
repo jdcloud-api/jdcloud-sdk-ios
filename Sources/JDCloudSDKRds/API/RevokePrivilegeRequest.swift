@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class RevokePrivilegeRequest:JdCloudRequest
 {
     /// 需要取消授权的数据库的名称。权限取消后，该账号将不能访问此数据库
-    var dbNames:String?
+    var dbNames:[String?]?
 
     /// RDS 实例ID，唯一标识一个RDS实例
     var instanceId:String

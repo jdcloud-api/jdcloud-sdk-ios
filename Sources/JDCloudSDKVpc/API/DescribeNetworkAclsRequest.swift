@@ -41,7 +41,7 @@ public class DescribeNetworkAclsRequest:JdCloudRequest
       /// networkAclNames - 弹性网卡名称列表，支持多个
       /// vpcId - 弹性网卡所属vpc Id，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

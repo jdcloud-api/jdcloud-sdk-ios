@@ -52,10 +52,22 @@ public class AppList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AppListCodingKeys.self)
-        self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        self.appStatus = try decoderContainer.decode(String?.self, forKey: .appStatus)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.appStatus)
+        {
+            self.appStatus = try decoderContainer.decode(String?.self, forKey: .appStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension AppList{

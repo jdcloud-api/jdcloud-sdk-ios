@@ -55,11 +55,26 @@ public class RouteTableRule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RouteTableRuleCodingKeys.self)
-        self.ruleId = try decoderContainer.decode(String?.self, forKey: .ruleId)
-        self.priority = try decoderContainer.decode(Double?.self, forKey: .priority)
-        self.nextHopType = try decoderContainer.decode(String?.self, forKey: .nextHopType)
-        self.nextHopId = try decoderContainer.decode(String?.self, forKey: .nextHopId)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        if decoderContainer.contains(.ruleId)
+        {
+            self.ruleId = try decoderContainer.decode(String?.self, forKey: .ruleId)
+        }
+        if decoderContainer.contains(.priority)
+        {
+            self.priority = try decoderContainer.decode(Double?.self, forKey: .priority)
+        }
+        if decoderContainer.contains(.nextHopType)
+        {
+            self.nextHopType = try decoderContainer.decode(String?.self, forKey: .nextHopType)
+        }
+        if decoderContainer.contains(.nextHopId)
+        {
+            self.nextHopId = try decoderContainer.decode(String?.self, forKey: .nextHopId)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
     }
 }
 public extension RouteTableRule{

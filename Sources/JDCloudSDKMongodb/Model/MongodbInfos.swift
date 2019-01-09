@@ -46,8 +46,14 @@ public class MongodbInfos:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MongodbInfosCodingKeys.self)
-        self.spaceId = try decoderContainer.decode(String?.self, forKey: .spaceId)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        if decoderContainer.contains(.spaceId)
+        {
+            self.spaceId = try decoderContainer.decode(String?.self, forKey: .spaceId)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
     }
 }
 public extension MongodbInfos{

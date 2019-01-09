@@ -43,7 +43,7 @@ public class Disk:NSObject,Codable{
     /// 云硬盘状态，取值为 creating、available、in-use、extending、restoring、deleting、deleted、error_create、error_delete、error_restore、error_extend 之一
     var status:String?
     /// 挂载信息
-    var attachments:DiskAttachment?
+    var attachments:[DiskAttachment?]?
     /// 创建该云硬盘的快照ID
     var snapshotId:String?
     /// 创建云硬盘时间
@@ -51,7 +51,7 @@ public class Disk:NSObject,Codable{
     /// 云硬盘计费配置信息
     var charge:Charge?
     /// Tag信息
-    var tags:Tag?
+    var tags:[Tag?]?
 
 
 
@@ -77,18 +77,54 @@ public class Disk:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DiskCodingKeys.self)
-        self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
-        self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.attachments = try decoderContainer.decode(DiskAttachment?.self, forKey: .attachments)
-        self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+        if decoderContainer.contains(.diskId)
+        {
+            self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.diskType)
+        {
+            self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
+        }
+        if decoderContainer.contains(.diskSizeGB)
+        {
+            self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.attachments)
+        {
+            self.attachments = try decoderContainer.decode([DiskAttachment?]?.self, forKey: .attachments)
+        }
+        if decoderContainer.contains(.snapshotId)
+        {
+            self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
     }
 }
 public extension Disk{

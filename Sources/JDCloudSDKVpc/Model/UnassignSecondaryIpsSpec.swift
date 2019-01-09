@@ -43,7 +43,10 @@ public class UnassignSecondaryIpsSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UnassignSecondaryIpsSpecCodingKeys.self)
-        self.secondaryIps = try decoderContainer.decode([String?]?.self, forKey: .secondaryIps)
+        if decoderContainer.contains(.secondaryIps)
+        {
+            self.secondaryIps = try decoderContainer.decode([String?]?.self, forKey: .secondaryIps)
+        }
     }
 }
 public extension UnassignSecondaryIpsSpec{

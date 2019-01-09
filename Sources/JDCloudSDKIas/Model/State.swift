@@ -46,8 +46,14 @@ public class State:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StateCodingKeys.self)
-        self.label = try decoderContainer.decode(String?.self, forKey: .label)
-        self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        if decoderContainer.contains(.label)
+        {
+            self.label = try decoderContainer.decode(String?.self, forKey: .label)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        }
     }
 }
 public extension State{

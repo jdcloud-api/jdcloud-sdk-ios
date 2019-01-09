@@ -49,9 +49,18 @@ public class SystemDisk:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SystemDiskCodingKeys.self)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.diskSize = try decoderContainer.decode(Int32?.self, forKey: .diskSize)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.diskSize)
+        {
+            self.diskSize = try decoderContainer.decode(Int32?.self, forKey: .diskSize)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension SystemDisk{

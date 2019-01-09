@@ -41,7 +41,7 @@ public class DescribeSecretsRequest:JdCloudRequest
 
     /// name - secret名称，支持模糊搜索
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

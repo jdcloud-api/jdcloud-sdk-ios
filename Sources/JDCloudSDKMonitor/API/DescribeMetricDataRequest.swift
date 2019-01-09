@@ -49,7 +49,7 @@ public class DescribeMetricDataRequest:JdCloudRequest
     var timeInterval:String?
 
     /// 自定义标签
-    var tags:TagFilter?
+    var tags:[TagFilter?]?
 
     /// 是否对查询的tags分组
     var groupBy:Bool?

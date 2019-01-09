@@ -31,8 +31,8 @@ import JDCloudSDKCore
 @objc(CopyImagesResult)
 public class CopyImagesResult:NSObject,JdCloudResult
 {
-    /// CopyImages
-    var copyImages:CopyImage?
+    /// 源镜像与目标镜像映射关系
+    var copyImages:[CopyImage?]?
 
 
 
@@ -46,7 +46,10 @@ public class CopyImagesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CopyImagesResultCodingKeys.self)
-        self.copyImages = try decoderContainer.decode(CopyImage?.self, forKey: .copyImages)
+        if decoderContainer.contains(.copyImages)
+        {
+            self.copyImages = try decoderContainer.decode([CopyImage?]?.self, forKey: .copyImages)
+        }
     }
 }
 public extension CopyImagesResult{

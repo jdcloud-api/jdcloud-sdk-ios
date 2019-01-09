@@ -28,9 +28,9 @@ import Foundation
 @objc(BackSourceInfo)
 public class BackSourceInfo:NSObject,Codable{
     /// Ips
-    var ips:IpSourceInfo?
+    var ips:[IpSourceInfo?]?
     /// Domain
-    var domain:DomainSourceInfo?
+    var domain:[DomainSourceInfo?]?
     /// OssSource
     var ossSource:String?
 
@@ -49,9 +49,18 @@ public class BackSourceInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackSourceInfoCodingKeys.self)
-        self.ips = try decoderContainer.decode(IpSourceInfo?.self, forKey: .ips)
-        self.domain = try decoderContainer.decode(DomainSourceInfo?.self, forKey: .domain)
-        self.ossSource = try decoderContainer.decode(String?.self, forKey: .ossSource)
+        if decoderContainer.contains(.ips)
+        {
+            self.ips = try decoderContainer.decode([IpSourceInfo?]?.self, forKey: .ips)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode([DomainSourceInfo?]?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.ossSource)
+        {
+            self.ossSource = try decoderContainer.decode(String?.self, forKey: .ossSource)
+        }
     }
 }
 public extension BackSourceInfo{

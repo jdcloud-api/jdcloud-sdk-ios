@@ -28,7 +28,7 @@ import Foundation
 @objc(BucketBackSourceConfiguration)
 public class BucketBackSourceConfiguration:NSObject,Codable{
     /// 回源配置规则
-    var backSourceRules:BackSourceRule?
+    var backSourceRules:[BackSourceRule?]?
 
 
 
@@ -43,7 +43,10 @@ public class BucketBackSourceConfiguration:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BucketBackSourceConfigurationCodingKeys.self)
-        self.backSourceRules = try decoderContainer.decode(BackSourceRule?.self, forKey: .backSourceRules)
+        if decoderContainer.contains(.backSourceRules)
+        {
+            self.backSourceRules = try decoderContainer.decode([BackSourceRule?]?.self, forKey: .backSourceRules)
+        }
     }
 }
 public extension BucketBackSourceConfiguration{

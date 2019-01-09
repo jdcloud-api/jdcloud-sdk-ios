@@ -55,11 +55,26 @@ public class Binlog:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BinlogCodingKeys.self)
-        self.binlogBackupId = try decoderContainer.decode(String?.self, forKey: .binlogBackupId)
-        self.binlogName = try decoderContainer.decode(String?.self, forKey: .binlogName)
-        self.binlogSizeKB = try decoderContainer.decode(Int64?.self, forKey: .binlogSizeKB)
-        self.binlogStartTime = try decoderContainer.decode(String?.self, forKey: .binlogStartTime)
-        self.binlogEndTime = try decoderContainer.decode(String?.self, forKey: .binlogEndTime)
+        if decoderContainer.contains(.binlogBackupId)
+        {
+            self.binlogBackupId = try decoderContainer.decode(String?.self, forKey: .binlogBackupId)
+        }
+        if decoderContainer.contains(.binlogName)
+        {
+            self.binlogName = try decoderContainer.decode(String?.self, forKey: .binlogName)
+        }
+        if decoderContainer.contains(.binlogSizeKB)
+        {
+            self.binlogSizeKB = try decoderContainer.decode(Int64?.self, forKey: .binlogSizeKB)
+        }
+        if decoderContainer.contains(.binlogStartTime)
+        {
+            self.binlogStartTime = try decoderContainer.decode(String?.self, forKey: .binlogStartTime)
+        }
+        if decoderContainer.contains(.binlogEndTime)
+        {
+            self.binlogEndTime = try decoderContainer.decode(String?.self, forKey: .binlogEndTime)
+        }
     }
 }
 public extension Binlog{

@@ -39,7 +39,7 @@ public class QueryStatisticsDataResult:NSObject,JdCloudResult
     var domain:String?
 
     /// Statistics
-    var statistics:StatisticsDataItem?
+    var statistics:[StatisticsDataItem?]?
 
 
 
@@ -56,10 +56,22 @@ public class QueryStatisticsDataResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryStatisticsDataResultCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.statistics = try decoderContainer.decode(StatisticsDataItem?.self, forKey: .statistics)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.statistics)
+        {
+            self.statistics = try decoderContainer.decode([StatisticsDataItem?]?.self, forKey: .statistics)
+        }
     }
 }
 public extension QueryStatisticsDataResult{

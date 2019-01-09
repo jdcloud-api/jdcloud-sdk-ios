@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeAvailableZonesResult:NSObject,JdCloudResult
 {
     /// AvailableZones
-    var availableZones:AvailableZones?
+    var availableZones:[AvailableZones?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeAvailableZonesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAvailableZonesResultCodingKeys.self)
-        self.availableZones = try decoderContainer.decode(AvailableZones?.self, forKey: .availableZones)
+        if decoderContainer.contains(.availableZones)
+        {
+            self.availableZones = try decoderContainer.decode([AvailableZones?]?.self, forKey: .availableZones)
+        }
     }
 }
 public extension DescribeAvailableZonesResult{

@@ -28,7 +28,7 @@ import Foundation
 @objc(TotalcountData)
 public class TotalcountData:NSObject,Codable{
     /// 域名查询次数数组
-    var dataList:Totalcount?
+    var dataList:[Totalcount?]?
     /// 当前页的个数
     var currentCount:Int?
     /// 总数
@@ -52,10 +52,22 @@ public class TotalcountData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TotalcountDataCodingKeys.self)
-        self.dataList = try decoderContainer.decode(Totalcount?.self, forKey: .dataList)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([Totalcount?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
 public extension TotalcountData{

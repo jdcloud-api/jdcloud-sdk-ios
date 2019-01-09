@@ -44,7 +44,10 @@ public class GetAliasResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetAliasResultCodingKeys.self)
-        self.data = try decoderContainer.decode(Alias?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(Alias?.self, forKey: .data)
+        }
     }
 }
 public extension GetAliasResult{

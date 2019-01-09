@@ -46,8 +46,14 @@ public class DataplanInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataplanInfoCodingKeys.self)
-        self.usedNumber = try decoderContainer.decode(Int64?.self, forKey: .usedNumber)
-        self.excessNumber = try decoderContainer.decode(Int64?.self, forKey: .excessNumber)
+        if decoderContainer.contains(.usedNumber)
+        {
+            self.usedNumber = try decoderContainer.decode(Int64?.self, forKey: .usedNumber)
+        }
+        if decoderContainer.contains(.excessNumber)
+        {
+            self.excessNumber = try decoderContainer.decode(Int64?.self, forKey: .excessNumber)
+        }
     }
 }
 public extension DataplanInfo{

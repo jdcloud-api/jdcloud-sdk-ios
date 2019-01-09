@@ -28,7 +28,7 @@ import Foundation
 @objc(AlarmHistoryWithDetail)
 public class AlarmHistoryWithDetail:NSObject,Codable{
     /// 告警联系人
-    var contacts:DescribedNoticeContacts?
+    var contacts:[DescribedNoticeContacts?]?
     /// 用于前端显示的‘触发告警级别’。从低到高分别为‘普通’, ‘紧急’, ‘严重’
     var noticeLevel:String?
     /// noticeTime
@@ -55,11 +55,26 @@ public class AlarmHistoryWithDetail:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AlarmHistoryWithDetailCodingKeys.self)
-        self.contacts = try decoderContainer.decode(DescribedNoticeContacts?.self, forKey: .contacts)
-        self.noticeLevel = try decoderContainer.decode(String?.self, forKey: .noticeLevel)
-        self.noticeTime = try decoderContainer.decode(Int64?.self, forKey: .noticeTime)
-        self.rule = try decoderContainer.decode(Rule?.self, forKey: .rule)
-        self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode([DescribedNoticeContacts?]?.self, forKey: .contacts)
+        }
+        if decoderContainer.contains(.noticeLevel)
+        {
+            self.noticeLevel = try decoderContainer.decode(String?.self, forKey: .noticeLevel)
+        }
+        if decoderContainer.contains(.noticeTime)
+        {
+            self.noticeTime = try decoderContainer.decode(Int64?.self, forKey: .noticeTime)
+        }
+        if decoderContainer.contains(.rule)
+        {
+            self.rule = try decoderContainer.decode(Rule?.self, forKey: .rule)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        }
     }
 }
 public extension AlarmHistoryWithDetail{

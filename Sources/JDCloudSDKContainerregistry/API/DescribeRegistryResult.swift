@@ -45,7 +45,10 @@ public class DescribeRegistryResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRegistryResultCodingKeys.self)
-        self.registry = try decoderContainer.decode(Registry?.self, forKey: .registry)
+        if decoderContainer.contains(.registry)
+        {
+            self.registry = try decoderContainer.decode(Registry?.self, forKey: .registry)
+        }
     }
 }
 public extension DescribeRegistryResult{

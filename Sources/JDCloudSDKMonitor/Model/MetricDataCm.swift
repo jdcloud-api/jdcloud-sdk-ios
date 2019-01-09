@@ -78,7 +78,10 @@ public class MetricDataCm:NSObject,Codable{
         self.timestamp = try decoderContainer.decode(Int64.self, forKey: .timestamp)
         self.type = try decoderContainer.decode(Int.self, forKey: .type)
         self.values = try decoderContainer.decode([String:String?].self, forKey: .values)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
     }
 }
 public extension MetricDataCm{

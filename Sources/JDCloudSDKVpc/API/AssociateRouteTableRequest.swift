@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class AssociateRouteTableRequest:JdCloudRequest
 {
     /// 路由表要绑定的子网ID列表, subnet已被其他路由表绑定时，自动解绑。
-    var subnetIds:String?
+    var subnetIds:[String?]?
 
     /// RouteTable ID
     var routeTableId:String

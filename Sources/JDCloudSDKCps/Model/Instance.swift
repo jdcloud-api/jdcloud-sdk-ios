@@ -113,30 +113,102 @@ public class Instance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.deviceType = try decoderContainer.decode(String?.self, forKey: .deviceType)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.enableInternet = try decoderContainer.decode(String?.self, forKey: .enableInternet)
-        self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
-        self.imageType = try decoderContainer.decode(String?.self, forKey: .imageType)
-        self.osTypeId = try decoderContainer.decode(String?.self, forKey: .osTypeId)
-        self.osName = try decoderContainer.decode(String?.self, forKey: .osName)
-        self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
-        self.osVersion = try decoderContainer.decode(String?.self, forKey: .osVersion)
-        self.sysRaidTypeId = try decoderContainer.decode(String?.self, forKey: .sysRaidTypeId)
-        self.sysRaidType = try decoderContainer.decode(String?.self, forKey: .sysRaidType)
-        self.dataRaidTypeId = try decoderContainer.decode(String?.self, forKey: .dataRaidTypeId)
-        self.dataRaidType = try decoderContainer.decode(String?.self, forKey: .dataRaidType)
-        self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
-        self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.privateIp = try decoderContainer.decode(String?.self, forKey: .privateIp)
-        self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.deviceType)
+        {
+            self.deviceType = try decoderContainer.decode(String?.self, forKey: .deviceType)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.enableInternet)
+        {
+            self.enableInternet = try decoderContainer.decode(String?.self, forKey: .enableInternet)
+        }
+        if decoderContainer.contains(.bandwidth)
+        {
+            self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
+        }
+        if decoderContainer.contains(.imageType)
+        {
+            self.imageType = try decoderContainer.decode(String?.self, forKey: .imageType)
+        }
+        if decoderContainer.contains(.osTypeId)
+        {
+            self.osTypeId = try decoderContainer.decode(String?.self, forKey: .osTypeId)
+        }
+        if decoderContainer.contains(.osName)
+        {
+            self.osName = try decoderContainer.decode(String?.self, forKey: .osName)
+        }
+        if decoderContainer.contains(.osType)
+        {
+            self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
+        }
+        if decoderContainer.contains(.osVersion)
+        {
+            self.osVersion = try decoderContainer.decode(String?.self, forKey: .osVersion)
+        }
+        if decoderContainer.contains(.sysRaidTypeId)
+        {
+            self.sysRaidTypeId = try decoderContainer.decode(String?.self, forKey: .sysRaidTypeId)
+        }
+        if decoderContainer.contains(.sysRaidType)
+        {
+            self.sysRaidType = try decoderContainer.decode(String?.self, forKey: .sysRaidType)
+        }
+        if decoderContainer.contains(.dataRaidTypeId)
+        {
+            self.dataRaidTypeId = try decoderContainer.decode(String?.self, forKey: .dataRaidTypeId)
+        }
+        if decoderContainer.contains(.dataRaidType)
+        {
+            self.dataRaidType = try decoderContainer.decode(String?.self, forKey: .dataRaidType)
+        }
+        if decoderContainer.contains(.networkType)
+        {
+            self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
+        }
+        if decoderContainer.contains(.lineType)
+        {
+            self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.privateIp)
+        {
+            self.privateIp = try decoderContainer.decode(String?.self, forKey: .privateIp)
+        }
+        if decoderContainer.contains(.publicIp)
+        {
+            self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
     }
 }
 public extension Instance{

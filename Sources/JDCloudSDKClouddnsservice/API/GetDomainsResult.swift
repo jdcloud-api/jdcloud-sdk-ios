@@ -31,8 +31,8 @@ import JDCloudSDKCore
 @objc(GetDomainsResult)
 public class GetDomainsResult:NSObject,JdCloudResult
 {
-    /// DataList
-    var dataList:Domain?
+    /// 域名列表
+    var dataList:[Domain?]?
 
     /// 当前页的域名列表里域名的个数
     var currentCount:Int?
@@ -58,10 +58,22 @@ public class GetDomainsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDomainsResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(Domain?.self, forKey: .dataList)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([Domain?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
 public extension GetDomainsResult{

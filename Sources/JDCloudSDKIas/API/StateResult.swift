@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class StateResult:NSObject,JdCloudResult
 {
     /// States
-    var states:State?
+    var states:[State?]?
 
 
 
@@ -44,7 +44,10 @@ public class StateResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StateResultCodingKeys.self)
-        self.states = try decoderContainer.decode(State?.self, forKey: .states)
+        if decoderContainer.contains(.states)
+        {
+            self.states = try decoderContainer.decode([State?]?.self, forKey: .states)
+        }
     }
 }
 public extension StateResult{

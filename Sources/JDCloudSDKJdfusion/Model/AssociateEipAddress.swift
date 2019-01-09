@@ -46,8 +46,14 @@ public class AssociateEipAddress:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AssociateEipAddressCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
     }
 }
 public extension AssociateEipAddress{

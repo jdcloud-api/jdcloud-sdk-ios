@@ -43,7 +43,10 @@ public class VpcSlbItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcSlbItemCodingKeys.self)
-        self.slb = try decoderContainer.decode(SlbInfoDetail?.self, forKey: .slb)
+        if decoderContainer.contains(.slb)
+        {
+            self.slb = try decoderContainer.decode(SlbInfoDetail?.self, forKey: .slb)
+        }
     }
 }
 public extension VpcSlbItem{

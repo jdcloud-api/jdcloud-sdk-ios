@@ -63,7 +63,7 @@ public class DescribeAlarmHistoryRequest:JdCloudRequest
     /// 服务码或资源Id列表
       /// filter name 为serviceCodes表示查询多个产品线的规则
       /// filter name 为resourceIds表示查询多个资源的规则
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

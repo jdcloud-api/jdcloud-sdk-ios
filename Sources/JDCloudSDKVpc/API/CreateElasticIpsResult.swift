@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(CreateElasticIpsResult)
 public class CreateElasticIpsResult:NSObject,JdCloudResult
 {
-    /// 弹性IP ID
-    var elasticIpIds:String?
+    /// 弹性IP ID列表
+    var elasticIpIds:[String?]?
 
     /// 请求ID
     var requestId:String?
@@ -48,8 +48,14 @@ public class CreateElasticIpsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateElasticIpsResultCodingKeys.self)
-        self.elasticIpIds = try decoderContainer.decode(String?.self, forKey: .elasticIpIds)
-        self.requestId = try decoderContainer.decode(String?.self, forKey: .requestId)
+        if decoderContainer.contains(.elasticIpIds)
+        {
+            self.elasticIpIds = try decoderContainer.decode([String?]?.self, forKey: .elasticIpIds)
+        }
+        if decoderContainer.contains(.requestId)
+        {
+            self.requestId = try decoderContainer.decode(String?.self, forKey: .requestId)
+        }
     }
 }
 public extension CreateElasticIpsResult{

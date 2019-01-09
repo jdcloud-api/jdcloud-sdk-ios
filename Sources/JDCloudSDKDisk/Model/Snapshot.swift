@@ -61,13 +61,34 @@ public class Snapshot:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SnapshotCodingKeys.self)
-        self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
-        self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
-        self.snapshotSizeGB = try decoderContainer.decode(Int?.self, forKey: .snapshotSizeGB)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.snapshotId)
+        {
+            self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        }
+        if decoderContainer.contains(.diskId)
+        {
+            self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        }
+        if decoderContainer.contains(.snapshotSizeGB)
+        {
+            self.snapshotSizeGB = try decoderContainer.decode(Int?.self, forKey: .snapshotSizeGB)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension Snapshot{

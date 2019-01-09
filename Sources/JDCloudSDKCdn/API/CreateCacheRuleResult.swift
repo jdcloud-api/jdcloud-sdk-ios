@@ -44,7 +44,10 @@ public class CreateCacheRuleResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateCacheRuleResultCodingKeys.self)
-        self.configId = try decoderContainer.decode(Int64?.self, forKey: .configId)
+        if decoderContainer.contains(.configId)
+        {
+            self.configId = try decoderContainer.decode(Int64?.self, forKey: .configId)
+        }
     }
 }
 public extension CreateCacheRuleResult{

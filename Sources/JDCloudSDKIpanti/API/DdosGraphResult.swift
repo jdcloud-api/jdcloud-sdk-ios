@@ -30,13 +30,13 @@ import JDCloudSDKCore
 public class DdosGraphResult:NSObject,JdCloudResult
 {
     /// PostProtect
-    var postProtect:Double?
+    var postProtect:[Double?]?
 
     /// PreProtect
-    var preProtect:Double?
+    var preProtect:[Double?]?
 
     /// Time
-    var time:Int64?
+    var time:[Int64?]?
 
     /// 单位
     var unit:String?
@@ -56,10 +56,22 @@ public class DdosGraphResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DdosGraphResultCodingKeys.self)
-        self.postProtect = try decoderContainer.decode(Double?.self, forKey: .postProtect)
-        self.preProtect = try decoderContainer.decode(Double?.self, forKey: .preProtect)
-        self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        if decoderContainer.contains(.postProtect)
+        {
+            self.postProtect = try decoderContainer.decode([Double?]?.self, forKey: .postProtect)
+        }
+        if decoderContainer.contains(.preProtect)
+        {
+            self.preProtect = try decoderContainer.decode([Double?]?.self, forKey: .preProtect)
+        }
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode([Int64?]?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
     }
 }
 public extension DdosGraphResult{

@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class RemoveNetworkSecurityGroupRulesRequest:JdCloudRequest
 {
     /// 安全组规则Id列表
-    var ruleIds:String?
+    var ruleIds:[String?]?
 
     /// NetworkSecurityGroup ID
     var networkSecurityGroupId:String

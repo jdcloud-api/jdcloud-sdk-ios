@@ -35,11 +35,11 @@ public class SecretDetail:NSObject,Codable{
     var secretVersionCount:Int
     /// Secret版本详情的列表
     /// Required:true
-    var secretVersionList:SecretVersionItem?
+    var secretVersionList:[SecretVersionItem?]
 
 
 
-    public  init(secretInfo:SecretInfo,secretVersionCount:Int,secretVersionList:SecretVersionItem?){
+    public  init(secretInfo:SecretInfo,secretVersionCount:Int,secretVersionList:[SecretVersionItem?]){
              self.secretInfo = secretInfo
              self.secretVersionCount = secretVersionCount
              self.secretVersionList = secretVersionList
@@ -56,7 +56,7 @@ public class SecretDetail:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: SecretDetailCodingKeys.self)
         self.secretInfo = try decoderContainer.decode(SecretInfo.self, forKey: .secretInfo)
         self.secretVersionCount = try decoderContainer.decode(Int.self, forKey: .secretVersionCount)
-        self.secretVersionList = try decoderContainer.decode(SecretVersionItem?.self, forKey: .secretVersionList)
+        self.secretVersionList = try decoderContainer.decode([SecretVersionItem?].self, forKey: .secretVersionList)
     }
 }
 public extension SecretDetail{

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetBackSourceConfigurationResult:NSObject,JdCloudResult
 {
     /// 回源配置规则
-    var backSourceRules:BackSourceRule?
+    var backSourceRules:[BackSourceRule?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetBackSourceConfigurationResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetBackSourceConfigurationResultCodingKeys.self)
-        self.backSourceRules = try decoderContainer.decode(BackSourceRule?.self, forKey: .backSourceRules)
+        if decoderContainer.contains(.backSourceRules)
+        {
+            self.backSourceRules = try decoderContainer.decode([BackSourceRule?]?.self, forKey: .backSourceRules)
+        }
     }
 }
 public extension GetBackSourceConfigurationResult{

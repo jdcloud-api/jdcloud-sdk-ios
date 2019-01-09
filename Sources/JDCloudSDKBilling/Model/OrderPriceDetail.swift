@@ -56,7 +56,7 @@ public class OrderPriceDetail:NSObject,Codable{
     /// 网络类型 0:non1:非BGP2:BGP
     var networkOperator:Int?
     /// 配置信息
-    var formula:Formula?
+    var formula:[Formula?]?
     /// FavorableInfo转成json后的字符串
     var favorableInfo:String?
     /// 价格快照
@@ -109,29 +109,98 @@ public class OrderPriceDetail:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: OrderPriceDetailCodingKeys.self)
-        self.price = try decoderContainer.decode(Double?.self, forKey: .price)
-        self.priceScale4 = try decoderContainer.decode(Double?.self, forKey: .priceScale4)
-        self.discount = try decoderContainer.decode(Double?.self, forKey: .discount)
-        self.discountedPrice = try decoderContainer.decode(Double?.self, forKey: .discountedPrice)
-        self.originalPrice = try decoderContainer.decode(Double?.self, forKey: .originalPrice)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.site = try decoderContainer.decode(Int?.self, forKey: .site)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
-        self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
-        self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
-        self.formula = try decoderContainer.decode(Formula?.self, forKey: .formula)
-        self.favorableInfo = try decoderContainer.decode(String?.self, forKey: .favorableInfo)
-        self.priceSnapShot = try decoderContainer.decode(String?.self, forKey: .priceSnapShot)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.processType = try decoderContainer.decode(Int?.self, forKey: .processType)
-        self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
+        if decoderContainer.contains(.price)
+        {
+            self.price = try decoderContainer.decode(Double?.self, forKey: .price)
+        }
+        if decoderContainer.contains(.priceScale4)
+        {
+            self.priceScale4 = try decoderContainer.decode(Double?.self, forKey: .priceScale4)
+        }
+        if decoderContainer.contains(.discount)
+        {
+            self.discount = try decoderContainer.decode(Double?.self, forKey: .discount)
+        }
+        if decoderContainer.contains(.discountedPrice)
+        {
+            self.discountedPrice = try decoderContainer.decode(Double?.self, forKey: .discountedPrice)
+        }
+        if decoderContainer.contains(.originalPrice)
+        {
+            self.originalPrice = try decoderContainer.decode(Double?.self, forKey: .originalPrice)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.site)
+        {
+            self.site = try decoderContainer.decode(Int?.self, forKey: .site)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.timeSpan)
+        {
+            self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
+        }
+        if decoderContainer.contains(.timeUnit)
+        {
+            self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
+        }
+        if decoderContainer.contains(.networkOperator)
+        {
+            self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
+        }
+        if decoderContainer.contains(.formula)
+        {
+            self.formula = try decoderContainer.decode([Formula?]?.self, forKey: .formula)
+        }
+        if decoderContainer.contains(.favorableInfo)
+        {
+            self.favorableInfo = try decoderContainer.decode(String?.self, forKey: .favorableInfo)
+        }
+        if decoderContainer.contains(.priceSnapShot)
+        {
+            self.priceSnapShot = try decoderContainer.decode(String?.self, forKey: .priceSnapShot)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.taskId)
+        {
+            self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.processType)
+        {
+            self.processType = try decoderContainer.decode(Int?.self, forKey: .processType)
+        }
+        if decoderContainer.contains(.sourceId)
+        {
+            self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
+        }
     }
 }
 public extension OrderPriceDetail{

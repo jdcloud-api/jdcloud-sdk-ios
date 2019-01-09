@@ -78,12 +78,24 @@ public class AddRR:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: AddRRCodingKeys.self)
         self.hostRecord = try decoderContainer.decode(String.self, forKey: .hostRecord)
         self.hostValue = try decoderContainer.decode(String.self, forKey: .hostValue)
-        self.jcloudRes = try decoderContainer.decode(Bool?.self, forKey: .jcloudRes)
-        self.mxPriority = try decoderContainer.decode(Int?.self, forKey: .mxPriority)
-        self.port = try decoderContainer.decode(Int?.self, forKey: .port)
+        if decoderContainer.contains(.jcloudRes)
+        {
+            self.jcloudRes = try decoderContainer.decode(Bool?.self, forKey: .jcloudRes)
+        }
+        if decoderContainer.contains(.mxPriority)
+        {
+            self.mxPriority = try decoderContainer.decode(Int?.self, forKey: .mxPriority)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(Int?.self, forKey: .port)
+        }
         self.ttl = try decoderContainer.decode(Int.self, forKey: .ttl)
         self.type = try decoderContainer.decode(String.self, forKey: .type)
-        self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        }
         self.viewValue = try decoderContainer.decode(Int.self, forKey: .viewValue)
     }
 }

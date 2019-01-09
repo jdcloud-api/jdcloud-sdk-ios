@@ -32,7 +32,7 @@ public class AlarmVo:NSObject,Codable{
     /// 统计方法：平均值&#x3D;avg、最大值&#x3D;max、最小值&#x3D;min
     var calculation:String?
     /// 联系人列表
-    var contacts:BaseContact?
+    var contacts:[BaseContact?]?
     /// CreateTime
     var createTime:String?
     /// 是否删除 1正常，0删除
@@ -97,25 +97,82 @@ public class AlarmVo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AlarmVoCodingKeys.self)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
-        self.contacts = try decoderContainer.decode(BaseContact?.self, forKey: .contacts)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.deleted = try decoderContainer.decode(Int64?.self, forKey: .deleted)
-        self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
-        self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
-        self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
-        self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
-        self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
-        self.ruleType = try decoderContainer.decode(Int64?.self, forKey: .ruleType)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.tag = try decoderContainer.decode(String?.self, forKey: .tag)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
-        self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
-        self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.calculation)
+        {
+            self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
+        }
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode([BaseContact?]?.self, forKey: .contacts)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(Int64?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.metricId)
+        {
+            self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.noticeLevel)
+        {
+            self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
+        }
+        if decoderContainer.contains(.noticePeriod)
+        {
+            self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        }
+        if decoderContainer.contains(.operation)
+        {
+            self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
+        }
+        if decoderContainer.contains(.period)
+        {
+            self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
+        }
+        if decoderContainer.contains(.ruleType)
+        {
+            self.ruleType = try decoderContainer.decode(Int64?.self, forKey: .ruleType)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.tag)
+        {
+            self.tag = try decoderContainer.decode(String?.self, forKey: .tag)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.threshold)
+        {
+            self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
+        }
+        if decoderContainer.contains(.times)
+        {
+            self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension AlarmVo{

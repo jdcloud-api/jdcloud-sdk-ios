@@ -51,8 +51,14 @@ public class InstanceTemplateNetworkInterfaceSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTemplateNetworkInterfaceSpecCodingKeys.self)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.securityGroups = try decoderContainer.decode([String?]?.self, forKey: .securityGroups)
-        self.sanityCheck = try decoderContainer.decode(Int?.self, forKey: .sanityCheck)
+        if decoderContainer.contains(.securityGroups)
+        {
+            self.securityGroups = try decoderContainer.decode([String?]?.self, forKey: .securityGroups)
+        }
+        if decoderContainer.contains(.sanityCheck)
+        {
+            self.sanityCheck = try decoderContainer.decode(Int?.self, forKey: .sanityCheck)
+        }
     }
 }
 public extension InstanceTemplateNetworkInterfaceSpec{

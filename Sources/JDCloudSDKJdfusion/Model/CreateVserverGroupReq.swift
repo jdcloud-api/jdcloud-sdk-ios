@@ -43,7 +43,10 @@ public class CreateVserverGroupReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateVserverGroupReqCodingKeys.self)
-        self.vserverGroup = try decoderContainer.decode(CreateVserverGroup?.self, forKey: .vserverGroup)
+        if decoderContainer.contains(.vserverGroup)
+        {
+            self.vserverGroup = try decoderContainer.decode(CreateVserverGroup?.self, forKey: .vserverGroup)
+        }
     }
 }
 public extension CreateVserverGroupReq{

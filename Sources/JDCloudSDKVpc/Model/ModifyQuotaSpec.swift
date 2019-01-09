@@ -53,7 +53,10 @@ public class ModifyQuotaSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyQuotaSpecCodingKeys.self)
         self.type = try decoderContainer.decode(String.self, forKey: .type)
-        self.parentResourceId = try decoderContainer.decode(String?.self, forKey: .parentResourceId)
+        if decoderContainer.contains(.parentResourceId)
+        {
+            self.parentResourceId = try decoderContainer.decode(String?.self, forKey: .parentResourceId)
+        }
         self.maxLimit = try decoderContainer.decode(Int.self, forKey: .maxLimit)
     }
 }

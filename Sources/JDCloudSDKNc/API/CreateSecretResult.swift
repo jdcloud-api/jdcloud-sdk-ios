@@ -45,7 +45,10 @@ public class CreateSecretResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSecretResultCodingKeys.self)
-        self.secretName = try decoderContainer.decode(String?.self, forKey: .secretName)
+        if decoderContainer.contains(.secretName)
+        {
+            self.secretName = try decoderContainer.decode(String?.self, forKey: .secretName)
+        }
     }
 }
 public extension CreateSecretResult{

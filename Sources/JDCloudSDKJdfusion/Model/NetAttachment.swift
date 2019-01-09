@@ -49,9 +49,18 @@ public class NetAttachment:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NetAttachmentCodingKeys.self)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
-        self.deviceIndex = try decoderContainer.decode(Int32?.self, forKey: .deviceIndex)
-        self.networkInterface = try decoderContainer.decode(NetworkInterface?.self, forKey: .networkInterface)
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.deviceIndex)
+        {
+            self.deviceIndex = try decoderContainer.decode(Int32?.self, forKey: .deviceIndex)
+        }
+        if decoderContainer.contains(.networkInterface)
+        {
+            self.networkInterface = try decoderContainer.decode(NetworkInterface?.self, forKey: .networkInterface)
+        }
     }
 }
 public extension NetAttachment{

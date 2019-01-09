@@ -46,8 +46,14 @@ public class Gpu:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GpuCodingKeys.self)
-        self.model = try decoderContainer.decode(String?.self, forKey: .model)
-        self.number = try decoderContainer.decode(Int?.self, forKey: .number)
+        if decoderContainer.contains(.model)
+        {
+            self.model = try decoderContainer.decode(String?.self, forKey: .model)
+        }
+        if decoderContainer.contains(.number)
+        {
+            self.number = try decoderContainer.decode(Int?.self, forKey: .number)
+        }
     }
 }
 public extension Gpu{

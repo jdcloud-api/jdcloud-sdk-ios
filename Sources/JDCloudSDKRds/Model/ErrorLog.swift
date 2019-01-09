@@ -58,12 +58,30 @@ public class ErrorLog:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ErrorLogCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.sizeByte = try decoderContainer.decode(Int64?.self, forKey: .sizeByte)
-        self.lastUpdateTime = try decoderContainer.decode(String?.self, forKey: .lastUpdateTime)
-        self.uploadTime = try decoderContainer.decode(String?.self, forKey: .uploadTime)
-        self.publicURL = try decoderContainer.decode(String?.self, forKey: .publicURL)
-        self.internalURL = try decoderContainer.decode(String?.self, forKey: .internalURL)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.sizeByte)
+        {
+            self.sizeByte = try decoderContainer.decode(Int64?.self, forKey: .sizeByte)
+        }
+        if decoderContainer.contains(.lastUpdateTime)
+        {
+            self.lastUpdateTime = try decoderContainer.decode(String?.self, forKey: .lastUpdateTime)
+        }
+        if decoderContainer.contains(.uploadTime)
+        {
+            self.uploadTime = try decoderContainer.decode(String?.self, forKey: .uploadTime)
+        }
+        if decoderContainer.contains(.publicURL)
+        {
+            self.publicURL = try decoderContainer.decode(String?.self, forKey: .publicURL)
+        }
+        if decoderContainer.contains(.internalURL)
+        {
+            self.internalURL = try decoderContainer.decode(String?.self, forKey: .internalURL)
+        }
     }
 }
 public extension ErrorLog{

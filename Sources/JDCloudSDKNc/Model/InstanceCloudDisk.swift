@@ -64,14 +64,38 @@ public class InstanceCloudDisk:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceCloudDiskCodingKeys.self)
-        self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
-        self.diskSize = try decoderContainer.decode(Int?.self, forKey: .diskSize)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.diskId)
+        {
+            self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.diskType)
+        {
+            self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
+        }
+        if decoderContainer.contains(.diskSize)
+        {
+            self.diskSize = try decoderContainer.decode(Int?.self, forKey: .diskSize)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension InstanceCloudDisk{

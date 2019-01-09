@@ -38,7 +38,7 @@ public class DescribeCustomLiveStreamRecordConfigRequest:JdCloudRequest
     var pageSize:Int?
 
     /// 转码模板查询过滤条件, 不传递分页参数时默认返回10条
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

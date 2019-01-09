@@ -42,7 +42,7 @@ public class DescribeSnapshotsRequest:JdCloudRequest
       /// status - 快照状态，精确匹配，支持多个,取值为 creating、available、in-use、deleting、error_create、error_delete
       /// name - 快照名称，模糊匹配，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class SetLBRequest:JdCloudRequest
 {
     /// 要设置解析记录的权重参数列表
-    var idWeights:Setlb?
+    var idWeights:[Setlb?]?
 
     /// 这几条解析记录的类型。可以设置权重的类型有：A、AAAA、CNAME、JNAME
     var type:String
@@ -40,7 +40,7 @@ public class SetLBRequest:JdCloudRequest
     var domainId:String
 
 
-    public init(regionId: String,idWeights:Setlb?,type:String,domainId:String){
+    public init(regionId: String,idWeights:[Setlb?]?,type:String,domainId:String){
         self.idWeights = idWeights
         self.type = type
         self.domainId = domainId

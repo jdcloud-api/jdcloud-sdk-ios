@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class DescribeRepositoriesResult:NSObject,JdCloudResult
 {
     /// Repositories
-    var repositories:Repository?
+    var repositories:[Repository?]?
 
     /// TotalCount
     var totalCount:Double?
@@ -49,8 +49,14 @@ public class DescribeRepositoriesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRepositoriesResultCodingKeys.self)
-        self.repositories = try decoderContainer.decode(Repository?.self, forKey: .repositories)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.repositories)
+        {
+            self.repositories = try decoderContainer.decode([Repository?]?.self, forKey: .repositories)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeRepositoriesResult{

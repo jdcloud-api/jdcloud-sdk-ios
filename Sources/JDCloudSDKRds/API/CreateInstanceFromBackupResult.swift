@@ -44,7 +44,10 @@ public class CreateInstanceFromBackupResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateInstanceFromBackupResultCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
     }
 }
 public extension CreateInstanceFromBackupResult{

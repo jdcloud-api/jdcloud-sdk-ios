@@ -28,7 +28,7 @@ import Foundation
 @objc(DomainData)
 public class DomainData:NSObject,Codable{
     /// 域名数组
-    var dataList:Domain?
+    var dataList:[Domain?]?
     /// 当前页的个数
     var currentCount:Int?
     /// 域名的总数
@@ -52,10 +52,22 @@ public class DomainData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainDataCodingKeys.self)
-        self.dataList = try decoderContainer.decode(Domain?.self, forKey: .dataList)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([Domain?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
 public extension DomainData{

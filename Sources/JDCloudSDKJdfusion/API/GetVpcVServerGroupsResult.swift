@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcVServerGroupsResult:NSObject,JdCloudResult
 {
     /// VserverGroups
-    var vserverGroups:VserverGroupInfo?
+    var vserverGroups:[VserverGroupInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVpcVServerGroupsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcVServerGroupsResultCodingKeys.self)
-        self.vserverGroups = try decoderContainer.decode(VserverGroupInfo?.self, forKey: .vserverGroups)
+        if decoderContainer.contains(.vserverGroups)
+        {
+            self.vserverGroups = try decoderContainer.decode([VserverGroupInfo?]?.self, forKey: .vserverGroups)
+        }
     }
 }
 public extension GetVpcVServerGroupsResult{

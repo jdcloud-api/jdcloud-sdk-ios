@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class PutBackSourceConfigurationRequest:JdCloudRequest
 {
     /// 回源配置规则
-    var backSourceRules:BackSourceRule?
+    var backSourceRules:[BackSourceRule?]?
 
     /// Bucket名称
     var bucketName:String

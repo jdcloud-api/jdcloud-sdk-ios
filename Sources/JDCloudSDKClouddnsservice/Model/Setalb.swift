@@ -46,8 +46,14 @@ public class Setalb:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SetalbCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        }
     }
 }
 public extension Setalb{

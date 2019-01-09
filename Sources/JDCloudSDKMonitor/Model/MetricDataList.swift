@@ -46,8 +46,14 @@ public class MetricDataList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MetricDataListCodingKeys.self)
-        self.errMetricData = try decoderContainer.decode(String?.self, forKey: .errMetricData)
-        self.errDetail = try decoderContainer.decode(String?.self, forKey: .errDetail)
+        if decoderContainer.contains(.errMetricData)
+        {
+            self.errMetricData = try decoderContainer.decode(String?.self, forKey: .errMetricData)
+        }
+        if decoderContainer.contains(.errDetail)
+        {
+            self.errDetail = try decoderContainer.decode(String?.self, forKey: .errDetail)
+        }
     }
 }
 public extension MetricDataList{

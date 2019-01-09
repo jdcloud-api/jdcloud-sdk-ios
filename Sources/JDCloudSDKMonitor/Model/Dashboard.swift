@@ -61,13 +61,34 @@ public class Dashboard:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DashboardCodingKeys.self)
-        self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
-        self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
-        self.focused = try decoderContainer.decode(String?.self, forKey: .focused)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
-        self.widgetCount = try decoderContainer.decode(Int64?.self, forKey: .widgetCount)
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.dashboardId)
+        {
+            self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
+        }
+        if decoderContainer.contains(.focused)
+        {
+            self.focused = try decoderContainer.decode(String?.self, forKey: .focused)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.updatedTime)
+        {
+            self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
+        }
+        if decoderContainer.contains(.widgetCount)
+        {
+            self.widgetCount = try decoderContainer.decode(Int64?.self, forKey: .widgetCount)
+        }
     }
 }
 public extension Dashboard{

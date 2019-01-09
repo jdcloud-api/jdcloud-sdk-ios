@@ -43,7 +43,10 @@ public class DiskItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DiskItemCodingKeys.self)
-        self.disk = try decoderContainer.decode(CloudDataDisk?.self, forKey: .disk)
+        if decoderContainer.contains(.disk)
+        {
+            self.disk = try decoderContainer.decode(CloudDataDisk?.self, forKey: .disk)
+        }
     }
 }
 public extension DiskItem{

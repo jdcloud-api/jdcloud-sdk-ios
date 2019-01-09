@@ -35,8 +35,8 @@ import JDCloudSDKCore
 @objc(DescribeAlarmHistoryResult)
 public class DescribeAlarmHistoryResult:NSObject,JdCloudResult
 {
-    /// AlarmHistoryList
-    var alarmHistoryList:DescribedAlarmHistory?
+    /// 告警历史列表
+    var alarmHistoryList:[DescribedAlarmHistory?]?
 
     /// 总数
     var total:Int64?
@@ -54,8 +54,14 @@ public class DescribeAlarmHistoryResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAlarmHistoryResultCodingKeys.self)
-        self.alarmHistoryList = try decoderContainer.decode(DescribedAlarmHistory?.self, forKey: .alarmHistoryList)
-        self.total = try decoderContainer.decode(Int64?.self, forKey: .total)
+        if decoderContainer.contains(.alarmHistoryList)
+        {
+            self.alarmHistoryList = try decoderContainer.decode([DescribedAlarmHistory?]?.self, forKey: .alarmHistoryList)
+        }
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Int64?.self, forKey: .total)
+        }
     }
 }
 public extension DescribeAlarmHistoryResult{

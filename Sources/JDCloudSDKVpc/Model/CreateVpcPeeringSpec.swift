@@ -60,7 +60,10 @@ public class CreateVpcPeeringSpec:NSObject,Codable{
         self.vpcPeeringName = try decoderContainer.decode(String.self, forKey: .vpcPeeringName)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.remoteVpcId = try decoderContainer.decode(String.self, forKey: .remoteVpcId)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension CreateVpcPeeringSpec{

@@ -61,13 +61,34 @@ public class AuditResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AuditResultCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
-        self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
-        self.threadId = try decoderContainer.decode(String?.self, forKey: .threadId)
-        self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
-        self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.accountName)
+        {
+            self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
+        }
+        if decoderContainer.contains(.operation)
+        {
+            self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
+        }
+        if decoderContainer.contains(.threadId)
+        {
+            self.threadId = try decoderContainer.decode(String?.self, forKey: .threadId)
+        }
+        if decoderContainer.contains(.dbName)
+        {
+            self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
+        }
+        if decoderContainer.contains(.sql)
+        {
+            self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
+        }
     }
 }
 public extension AuditResult{

@@ -42,7 +42,7 @@ public class ThumbnailQuery:NSObject,Codable{
     /// 指明返回数据是否被截断. true表示本页后面还有数据, 即数据未全部返回; false表示已是最后一页, 即数据已全部返回 (readonly)
     var truncated:Bool?
     /// 返回的task列表 (readonly)
-    var taskList:ThumbnailTask?
+    var taskList:[ThumbnailTask?]?
 
 
 
@@ -64,14 +64,38 @@ public class ThumbnailQuery:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ThumbnailQueryCodingKeys.self)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.begin = try decoderContainer.decode(String?.self, forKey: .begin)
-        self.end = try decoderContainer.decode(String?.self, forKey: .end)
-        self.marker = try decoderContainer.decode(String?.self, forKey: .marker)
-        self.limit = try decoderContainer.decode(Int?.self, forKey: .limit)
-        self.nextMarker = try decoderContainer.decode(String?.self, forKey: .nextMarker)
-        self.truncated = try decoderContainer.decode(Bool?.self, forKey: .truncated)
-        self.taskList = try decoderContainer.decode(ThumbnailTask?.self, forKey: .taskList)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.begin)
+        {
+            self.begin = try decoderContainer.decode(String?.self, forKey: .begin)
+        }
+        if decoderContainer.contains(.end)
+        {
+            self.end = try decoderContainer.decode(String?.self, forKey: .end)
+        }
+        if decoderContainer.contains(.marker)
+        {
+            self.marker = try decoderContainer.decode(String?.self, forKey: .marker)
+        }
+        if decoderContainer.contains(.limit)
+        {
+            self.limit = try decoderContainer.decode(Int?.self, forKey: .limit)
+        }
+        if decoderContainer.contains(.nextMarker)
+        {
+            self.nextMarker = try decoderContainer.decode(String?.self, forKey: .nextMarker)
+        }
+        if decoderContainer.contains(.truncated)
+        {
+            self.truncated = try decoderContainer.decode(Bool?.self, forKey: .truncated)
+        }
+        if decoderContainer.contains(.taskList)
+        {
+            self.taskList = try decoderContainer.decode([ThumbnailTask?]?.self, forKey: .taskList)
+        }
     }
 }
 public extension ThumbnailQuery{

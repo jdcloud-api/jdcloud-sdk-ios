@@ -55,11 +55,26 @@ public class Os:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: OsCodingKeys.self)
-        self.osTypeId = try decoderContainer.decode(String?.self, forKey: .osTypeId)
-        self.osName = try decoderContainer.decode(String?.self, forKey: .osName)
-        self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
-        self.osVersion = try decoderContainer.decode(String?.self, forKey: .osVersion)
-        self.deviceType = try decoderContainer.decode(String?.self, forKey: .deviceType)
+        if decoderContainer.contains(.osTypeId)
+        {
+            self.osTypeId = try decoderContainer.decode(String?.self, forKey: .osTypeId)
+        }
+        if decoderContainer.contains(.osName)
+        {
+            self.osName = try decoderContainer.decode(String?.self, forKey: .osName)
+        }
+        if decoderContainer.contains(.osType)
+        {
+            self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
+        }
+        if decoderContainer.contains(.osVersion)
+        {
+            self.osVersion = try decoderContainer.decode(String?.self, forKey: .osVersion)
+        }
+        if decoderContainer.contains(.deviceType)
+        {
+            self.deviceType = try decoderContainer.decode(String?.self, forKey: .deviceType)
+        }
     }
 }
 public extension Os{

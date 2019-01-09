@@ -44,7 +44,10 @@ public class CreateVpcResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateVpcResultCodingKeys.self)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
     }
 }
 public extension CreateVpcResult{

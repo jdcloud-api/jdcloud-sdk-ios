@@ -49,9 +49,18 @@ public class RepositoryShort:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RepositoryShortCodingKeys.self)
-        self.createdAt = try decoderContainer.decode(String?.self, forKey: .createdAt)
-        self.repositoryName = try decoderContainer.decode(String?.self, forKey: .repositoryName)
-        self.repositoryUri = try decoderContainer.decode(String?.self, forKey: .repositoryUri)
+        if decoderContainer.contains(.createdAt)
+        {
+            self.createdAt = try decoderContainer.decode(String?.self, forKey: .createdAt)
+        }
+        if decoderContainer.contains(.repositoryName)
+        {
+            self.repositoryName = try decoderContainer.decode(String?.self, forKey: .repositoryName)
+        }
+        if decoderContainer.contains(.repositoryUri)
+        {
+            self.repositoryUri = try decoderContainer.decode(String?.self, forKey: .repositoryUri)
+        }
     }
 }
 public extension RepositoryShort{

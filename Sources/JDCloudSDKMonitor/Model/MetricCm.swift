@@ -52,10 +52,22 @@ public class MetricCm:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MetricCmCodingKeys.self)
-        self.aggrPeriod = try decoderContainer.decode(Int64?.self, forKey: .aggrPeriod)
-        self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.metricUID = try decoderContainer.decode(String?.self, forKey: .metricUID)
+        if decoderContainer.contains(.aggrPeriod)
+        {
+            self.aggrPeriod = try decoderContainer.decode(Int64?.self, forKey: .aggrPeriod)
+        }
+        if decoderContainer.contains(.aggrType)
+        {
+            self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.metricUID)
+        {
+            self.metricUID = try decoderContainer.decode(String?.self, forKey: .metricUID)
+        }
     }
 }
 public extension MetricCm{

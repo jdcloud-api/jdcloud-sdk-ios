@@ -46,8 +46,14 @@ public class AzId:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AzIdCodingKeys.self)
-        self.master = try decoderContainer.decode(String?.self, forKey: .master)
-        self.slave = try decoderContainer.decode(String?.self, forKey: .slave)
+        if decoderContainer.contains(.master)
+        {
+            self.master = try decoderContainer.decode(String?.self, forKey: .master)
+        }
+        if decoderContainer.contains(.slave)
+        {
+            self.slave = try decoderContainer.decode(String?.self, forKey: .slave)
+        }
     }
 }
 public extension AzId{

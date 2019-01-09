@@ -28,7 +28,7 @@ import Foundation
 @objc(RegionIndustryDataList)
 public class RegionIndustryDataList:NSObject,Codable{
     /// 查询结果的数组类型
-    var dataList:RegionIndustryData?
+    var dataList:[RegionIndustryData?]?
 
 
 
@@ -43,7 +43,10 @@ public class RegionIndustryDataList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RegionIndustryDataListCodingKeys.self)
-        self.dataList = try decoderContainer.decode(RegionIndustryData?.self, forKey: .dataList)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([RegionIndustryData?]?.self, forKey: .dataList)
+        }
     }
 }
 public extension RegionIndustryDataList{

@@ -44,7 +44,10 @@ public class DescribeWebRuleResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeWebRuleResultCodingKeys.self)
-        self.data = try decoderContainer.decode(WebRule?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(WebRule?.self, forKey: .data)
+        }
     }
 }
 public extension DescribeWebRuleResult{

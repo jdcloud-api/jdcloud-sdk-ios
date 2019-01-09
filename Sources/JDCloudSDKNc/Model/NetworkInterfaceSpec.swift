@@ -69,12 +69,30 @@ public class NetworkInterfaceSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: NetworkInterfaceSpecCodingKeys.self)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
         self.az = try decoderContainer.decode(String.self, forKey: .az)
-        self.primaryIpAddress = try decoderContainer.decode(String?.self, forKey: .primaryIpAddress)
-        self.secondaryIpAddresses = try decoderContainer.decode([String?]?.self, forKey: .secondaryIpAddresses)
-        self.secondaryIpCount = try decoderContainer.decode(Int?.self, forKey: .secondaryIpCount)
-        self.securityGroups = try decoderContainer.decode([String?]?.self, forKey: .securityGroups)
-        self.sanityCheck = try decoderContainer.decode(Bool?.self, forKey: .sanityCheck)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.primaryIpAddress)
+        {
+            self.primaryIpAddress = try decoderContainer.decode(String?.self, forKey: .primaryIpAddress)
+        }
+        if decoderContainer.contains(.secondaryIpAddresses)
+        {
+            self.secondaryIpAddresses = try decoderContainer.decode([String?]?.self, forKey: .secondaryIpAddresses)
+        }
+        if decoderContainer.contains(.secondaryIpCount)
+        {
+            self.secondaryIpCount = try decoderContainer.decode(Int?.self, forKey: .secondaryIpCount)
+        }
+        if decoderContainer.contains(.securityGroups)
+        {
+            self.securityGroups = try decoderContainer.decode([String?]?.self, forKey: .securityGroups)
+        }
+        if decoderContainer.contains(.sanityCheck)
+        {
+            self.sanityCheck = try decoderContainer.decode(Bool?.self, forKey: .sanityCheck)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension NetworkInterfaceSpec{

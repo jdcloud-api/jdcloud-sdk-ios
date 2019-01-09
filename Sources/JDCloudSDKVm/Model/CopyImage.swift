@@ -46,8 +46,14 @@ public class CopyImage:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CopyImageCodingKeys.self)
-        self.destinationImageId = try decoderContainer.decode(String?.self, forKey: .destinationImageId)
-        self.sourceImageId = try decoderContainer.decode(String?.self, forKey: .sourceImageId)
+        if decoderContainer.contains(.destinationImageId)
+        {
+            self.destinationImageId = try decoderContainer.decode(String?.self, forKey: .destinationImageId)
+        }
+        if decoderContainer.contains(.sourceImageId)
+        {
+            self.sourceImageId = try decoderContainer.decode(String?.self, forKey: .sourceImageId)
+        }
     }
 }
 public extension CopyImage{

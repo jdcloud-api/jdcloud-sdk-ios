@@ -55,11 +55,26 @@ public class SiteMonitorHttpOption:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SiteMonitorHttpOptionCodingKeys.self)
-        self.cookie = try decoderContainer.decode([String:String?]?.self, forKey: .cookie)
-        self.header = try decoderContainer.decode([String:String?]?.self, forKey: .header)
-        self.method = try decoderContainer.decode(String?.self, forKey: .method)
-        self.reqContent = try decoderContainer.decode(String?.self, forKey: .reqContent)
-        self.resCheck = try decoderContainer.decode(String?.self, forKey: .resCheck)
+        if decoderContainer.contains(.cookie)
+        {
+            self.cookie = try decoderContainer.decode([String:String?]?.self, forKey: .cookie)
+        }
+        if decoderContainer.contains(.header)
+        {
+            self.header = try decoderContainer.decode([String:String?]?.self, forKey: .header)
+        }
+        if decoderContainer.contains(.method)
+        {
+            self.method = try decoderContainer.decode(String?.self, forKey: .method)
+        }
+        if decoderContainer.contains(.reqContent)
+        {
+            self.reqContent = try decoderContainer.decode(String?.self, forKey: .reqContent)
+        }
+        if decoderContainer.contains(.resCheck)
+        {
+            self.resCheck = try decoderContainer.decode(String?.self, forKey: .resCheck)
+        }
     }
 }
 public extension SiteMonitorHttpOption{

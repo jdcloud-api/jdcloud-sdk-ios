@@ -55,11 +55,26 @@ public class Node:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NodeCodingKeys.self)
-        self.nodeRole = try decoderContainer.decode(String?.self, forKey: .nodeRole)
-        self.nodeStatus = try decoderContainer.decode(String?.self, forKey: .nodeStatus)
-        self.cpuUtilization = try decoderContainer.decode(String?.self, forKey: .cpuUtilization)
-        self.memoryUtilization = try decoderContainer.decode(String?.self, forKey: .memoryUtilization)
-        self.diskUtilization = try decoderContainer.decode(String?.self, forKey: .diskUtilization)
+        if decoderContainer.contains(.nodeRole)
+        {
+            self.nodeRole = try decoderContainer.decode(String?.self, forKey: .nodeRole)
+        }
+        if decoderContainer.contains(.nodeStatus)
+        {
+            self.nodeStatus = try decoderContainer.decode(String?.self, forKey: .nodeStatus)
+        }
+        if decoderContainer.contains(.cpuUtilization)
+        {
+            self.cpuUtilization = try decoderContainer.decode(String?.self, forKey: .cpuUtilization)
+        }
+        if decoderContainer.contains(.memoryUtilization)
+        {
+            self.memoryUtilization = try decoderContainer.decode(String?.self, forKey: .memoryUtilization)
+        }
+        if decoderContainer.contains(.diskUtilization)
+        {
+            self.diskUtilization = try decoderContainer.decode(String?.self, forKey: .diskUtilization)
+        }
     }
 }
 public extension Node{

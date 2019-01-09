@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVmImagesResult:NSObject,JdCloudResult
 {
     /// Images
-    var images:ImageInfo?
+    var images:[ImageInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVmImagesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVmImagesResultCodingKeys.self)
-        self.images = try decoderContainer.decode(ImageInfo?.self, forKey: .images)
+        if decoderContainer.contains(.images)
+        {
+            self.images = try decoderContainer.decode([ImageInfo?]?.self, forKey: .images)
+        }
     }
 }
 public extension GetVmImagesResult{

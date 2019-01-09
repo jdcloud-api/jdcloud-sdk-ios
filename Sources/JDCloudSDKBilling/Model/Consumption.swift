@@ -61,13 +61,34 @@ public class Consumption:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ConsumptionCodingKeys.self)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.payType = try decoderContainer.decode(Int?.self, forKey: .payType)
-        self.actualFee = try decoderContainer.decode(Double?.self, forKey: .actualFee)
-        self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
-        self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
-        self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
-        self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.payType)
+        {
+            self.payType = try decoderContainer.decode(Int?.self, forKey: .payType)
+        }
+        if decoderContainer.contains(.actualFee)
+        {
+            self.actualFee = try decoderContainer.decode(Double?.self, forKey: .actualFee)
+        }
+        if decoderContainer.contains(.cashPayFee)
+        {
+            self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
+        }
+        if decoderContainer.contains(.balancePayFee)
+        {
+            self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
+        }
+        if decoderContainer.contains(.cashCouponPayFee)
+        {
+            self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
+        }
+        if decoderContainer.contains(.arrearFee)
+        {
+            self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
+        }
     }
 }
 public extension Consumption{

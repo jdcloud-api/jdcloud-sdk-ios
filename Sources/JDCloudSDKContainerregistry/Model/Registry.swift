@@ -55,11 +55,26 @@ public class Registry:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RegistryCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.registryUri = try decoderContainer.decode(String?.self, forKey: .registryUri)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.totalSpaceUsedMB = try decoderContainer.decode(Double?.self, forKey: .totalSpaceUsedMB)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.registryUri)
+        {
+            self.registryUri = try decoderContainer.decode(String?.self, forKey: .registryUri)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.totalSpaceUsedMB)
+        {
+            self.totalSpaceUsedMB = try decoderContainer.decode(Double?.self, forKey: .totalSpaceUsedMB)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension Registry{

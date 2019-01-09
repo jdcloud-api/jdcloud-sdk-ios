@@ -64,14 +64,38 @@ public class ListDomainItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListDomainItemCodingKeys.self)
-        self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.created = try decoderContainer.decode(String?.self, forKey: .created)
-        self.modified = try decoderContainer.decode(String?.self, forKey: .modified)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
+        if decoderContainer.contains(.cname)
+        {
+            self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.created)
+        {
+            self.created = try decoderContainer.decode(String?.self, forKey: .created)
+        }
+        if decoderContainer.contains(.modified)
+        {
+            self.modified = try decoderContainer.decode(String?.self, forKey: .modified)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.auditStatus)
+        {
+            self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
+        }
     }
 }
 public extension ListDomainItem{

@@ -83,7 +83,7 @@ import JDCloudSDKCore
 public class CreateContainersResult:NSObject,JdCloudResult
 {
     /// ContainerIds
-    var containerIds:String?
+    var containerIds:[String?]?
 
 
 
@@ -97,7 +97,10 @@ public class CreateContainersResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateContainersResultCodingKeys.self)
-        self.containerIds = try decoderContainer.decode(String?.self, forKey: .containerIds)
+        if decoderContainer.contains(.containerIds)
+        {
+            self.containerIds = try decoderContainer.decode([String?]?.self, forKey: .containerIds)
+        }
     }
 }
 public extension CreateContainersResult{

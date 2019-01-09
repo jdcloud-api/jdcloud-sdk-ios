@@ -91,23 +91,74 @@ public class DeviceType:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DeviceTypeCodingKeys.self)
-        self.nameEN = try decoderContainer.decode(String?.self, forKey: .nameEN)
-        self.nameZH = try decoderContainer.decode(String?.self, forKey: .nameZH)
-        self.useTypeEN = try decoderContainer.decode(String?.self, forKey: .useTypeEN)
-        self.useTypeZH = try decoderContainer.decode(String?.self, forKey: .useTypeZH)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.cpuConcise = try decoderContainer.decode(String?.self, forKey: .cpuConcise)
-        self.cpuDetail = try decoderContainer.decode(String?.self, forKey: .cpuDetail)
-        self.memConcise = try decoderContainer.decode(String?.self, forKey: .memConcise)
-        self.memDetail = try decoderContainer.decode(String?.self, forKey: .memDetail)
-        self.ifConcise = try decoderContainer.decode(String?.self, forKey: .ifConcise)
-        self.ifDetail = try decoderContainer.decode(String?.self, forKey: .ifDetail)
-        self.systemDiskConcise = try decoderContainer.decode(String?.self, forKey: .systemDiskConcise)
-        self.systemDiskDetail = try decoderContainer.decode(String?.self, forKey: .systemDiskDetail)
-        self.dataDiskConcise = try decoderContainer.decode(String?.self, forKey: .dataDiskConcise)
-        self.dataDiskDetail = try decoderContainer.decode(String?.self, forKey: .dataDiskDetail)
-        self.gpuConcise = try decoderContainer.decode(String?.self, forKey: .gpuConcise)
-        self.gpuDetail = try decoderContainer.decode(String?.self, forKey: .gpuDetail)
+        if decoderContainer.contains(.nameEN)
+        {
+            self.nameEN = try decoderContainer.decode(String?.self, forKey: .nameEN)
+        }
+        if decoderContainer.contains(.nameZH)
+        {
+            self.nameZH = try decoderContainer.decode(String?.self, forKey: .nameZH)
+        }
+        if decoderContainer.contains(.useTypeEN)
+        {
+            self.useTypeEN = try decoderContainer.decode(String?.self, forKey: .useTypeEN)
+        }
+        if decoderContainer.contains(.useTypeZH)
+        {
+            self.useTypeZH = try decoderContainer.decode(String?.self, forKey: .useTypeZH)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.cpuConcise)
+        {
+            self.cpuConcise = try decoderContainer.decode(String?.self, forKey: .cpuConcise)
+        }
+        if decoderContainer.contains(.cpuDetail)
+        {
+            self.cpuDetail = try decoderContainer.decode(String?.self, forKey: .cpuDetail)
+        }
+        if decoderContainer.contains(.memConcise)
+        {
+            self.memConcise = try decoderContainer.decode(String?.self, forKey: .memConcise)
+        }
+        if decoderContainer.contains(.memDetail)
+        {
+            self.memDetail = try decoderContainer.decode(String?.self, forKey: .memDetail)
+        }
+        if decoderContainer.contains(.ifConcise)
+        {
+            self.ifConcise = try decoderContainer.decode(String?.self, forKey: .ifConcise)
+        }
+        if decoderContainer.contains(.ifDetail)
+        {
+            self.ifDetail = try decoderContainer.decode(String?.self, forKey: .ifDetail)
+        }
+        if decoderContainer.contains(.systemDiskConcise)
+        {
+            self.systemDiskConcise = try decoderContainer.decode(String?.self, forKey: .systemDiskConcise)
+        }
+        if decoderContainer.contains(.systemDiskDetail)
+        {
+            self.systemDiskDetail = try decoderContainer.decode(String?.self, forKey: .systemDiskDetail)
+        }
+        if decoderContainer.contains(.dataDiskConcise)
+        {
+            self.dataDiskConcise = try decoderContainer.decode(String?.self, forKey: .dataDiskConcise)
+        }
+        if decoderContainer.contains(.dataDiskDetail)
+        {
+            self.dataDiskDetail = try decoderContainer.decode(String?.self, forKey: .dataDiskDetail)
+        }
+        if decoderContainer.contains(.gpuConcise)
+        {
+            self.gpuConcise = try decoderContainer.decode(String?.self, forKey: .gpuConcise)
+        }
+        if decoderContainer.contains(.gpuDetail)
+        {
+            self.gpuDetail = try decoderContainer.decode(String?.self, forKey: .gpuDetail)
+        }
     }
 }
 public extension DeviceType{

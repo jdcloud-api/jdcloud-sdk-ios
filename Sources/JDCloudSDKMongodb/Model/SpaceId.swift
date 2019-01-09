@@ -46,8 +46,14 @@ public class SpaceId:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SpaceIdCodingKeys.self)
-        self.spaceIdValue = try decoderContainer.decode(String?.self, forKey: .spaceIdValue)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        if decoderContainer.contains(.spaceIdValue)
+        {
+            self.spaceIdValue = try decoderContainer.decode(String?.self, forKey: .spaceIdValue)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
     }
 }
 public extension SpaceId{

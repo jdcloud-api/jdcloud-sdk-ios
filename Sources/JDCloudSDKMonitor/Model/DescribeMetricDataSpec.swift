@@ -46,7 +46,7 @@ public class DescribeMetricDataSpec:NSObject,Codable{
     var startTime:String?
     /// 自定义标签
       /// in: query
-    var tags:TagFilter?
+    var tags:[TagFilter?]?
     /// 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
       /// in: query
     var timeInterval:String?
@@ -72,14 +72,32 @@ public class DescribeMetricDataSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeMetricDataSpecCodingKeys.self)
-        self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.groupBy = try decoderContainer.decode(Bool?.self, forKey: .groupBy)
+        if decoderContainer.contains(.aggrType)
+        {
+            self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.groupBy)
+        {
+            self.groupBy = try decoderContainer.decode(Bool?.self, forKey: .groupBy)
+        }
         self.resourceId = try decoderContainer.decode(String.self, forKey: .resourceId)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.tags = try decoderContainer.decode(TagFilter?.self, forKey: .tags)
-        self.timeInterval = try decoderContainer.decode(String?.self, forKey: .timeInterval)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([TagFilter?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.timeInterval)
+        {
+            self.timeInterval = try decoderContainer.decode(String?.self, forKey: .timeInterval)
+        }
     }
 }
 public extension DescribeMetricDataSpec{

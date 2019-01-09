@@ -48,7 +48,10 @@ public class EnvVar:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: EnvVarCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        }
     }
 }
 public extension EnvVar{

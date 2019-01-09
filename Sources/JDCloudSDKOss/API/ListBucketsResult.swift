@@ -34,7 +34,7 @@ public class ListBucketsResult:NSObject,JdCloudResult
     var owner:User?
 
     /// Buckets
-    var buckets:Bucket?
+    var buckets:[Bucket?]?
 
 
 
@@ -49,8 +49,14 @@ public class ListBucketsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListBucketsResultCodingKeys.self)
-        self.owner = try decoderContainer.decode(User?.self, forKey: .owner)
-        self.buckets = try decoderContainer.decode(Bucket?.self, forKey: .buckets)
+        if decoderContainer.contains(.owner)
+        {
+            self.owner = try decoderContainer.decode(User?.self, forKey: .owner)
+        }
+        if decoderContainer.contains(.buckets)
+        {
+            self.buckets = try decoderContainer.decode([Bucket?]?.self, forKey: .buckets)
+        }
     }
 }
 public extension ListBucketsResult{

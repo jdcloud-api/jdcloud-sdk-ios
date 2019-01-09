@@ -40,7 +40,7 @@ public class Vpc:NSObject,Codable{
     /// RouteTableIds
     var routeTableIds:[String?]?
     /// 私有网络包含的子网列表
-    var subnets:Subnet?
+    var subnets:[Subnet?]?
     /// vpc创建时间
     var createdTime:String?
 
@@ -64,14 +64,38 @@ public class Vpc:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcCodingKeys.self)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
-        self.aclIds = try decoderContainer.decode([String?]?.self, forKey: .aclIds)
-        self.routeTableIds = try decoderContainer.decode([String?]?.self, forKey: .routeTableIds)
-        self.subnets = try decoderContainer.decode(Subnet?.self, forKey: .subnets)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.vpcName)
+        {
+            self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
+        }
+        if decoderContainer.contains(.aclIds)
+        {
+            self.aclIds = try decoderContainer.decode([String?]?.self, forKey: .aclIds)
+        }
+        if decoderContainer.contains(.routeTableIds)
+        {
+            self.routeTableIds = try decoderContainer.decode([String?]?.self, forKey: .routeTableIds)
+        }
+        if decoderContainer.contains(.subnets)
+        {
+            self.subnets = try decoderContainer.decode([Subnet?]?.self, forKey: .subnets)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension Vpc{

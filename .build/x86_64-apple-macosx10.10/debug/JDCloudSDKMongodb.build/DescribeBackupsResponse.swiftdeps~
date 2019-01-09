@@ -20,8 +20,6 @@ depends-top-level:
 - "DescribeBackupsResponse"
 - "DescribeBackupsResult"
 - "Encoder"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "NSObject"
 - "ServiceError"
 - "String"

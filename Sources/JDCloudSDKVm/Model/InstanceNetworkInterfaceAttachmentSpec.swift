@@ -47,8 +47,14 @@ public class InstanceNetworkInterfaceAttachmentSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceNetworkInterfaceAttachmentSpecCodingKeys.self)
-        self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
-        self.networkInterface = try decoderContainer.decode(NetworkInterfaceSpec?.self, forKey: .networkInterface)
+        if decoderContainer.contains(.deviceIndex)
+        {
+            self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
+        }
+        if decoderContainer.contains(.networkInterface)
+        {
+            self.networkInterface = try decoderContainer.decode(NetworkInterfaceSpec?.self, forKey: .networkInterface)
+        }
     }
 }
 public extension InstanceNetworkInterfaceAttachmentSpec{

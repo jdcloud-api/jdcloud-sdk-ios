@@ -54,7 +54,7 @@ public class UpdateSiteMonitorSpec:NSObject,Codable{
     /// Port
     var port:String?
     /// Source
-    var source:SiteMonitorSource?
+    var source:[SiteMonitorSource?]?
     /// Stats
     var stats:[String:AnyObject?]?
     /// TcpOption
@@ -97,24 +97,78 @@ public class UpdateSiteMonitorSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UpdateSiteMonitorSpecCodingKeys.self)
-        self.address = try decoderContainer.decode(String?.self, forKey: .address)
-        self.advanceChecked = try decoderContainer.decode(String?.self, forKey: .advanceChecked)
-        self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
-        self.cycle = try decoderContainer.decode(Int64?.self, forKey: .cycle)
-        self.defaultSource = try decoderContainer.decode(String?.self, forKey: .defaultSource)
-        self.enabled = try decoderContainer.decode(String?.self, forKey: .enabled)
-        self.hawkeyeId = try decoderContainer.decode(Int64?.self, forKey: .hawkeyeId)
-        self.httpOption = try decoderContainer.decode(SiteMonitorHttpOption?.self, forKey: .httpOption)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.isDeleted = try decoderContainer.decode(String?.self, forKey: .isDeleted)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.port = try decoderContainer.decode(String?.self, forKey: .port)
-        self.source = try decoderContainer.decode(SiteMonitorSource?.self, forKey: .source)
-        self.tcpOption = try decoderContainer.decode(SiteMonitorTcpOption?.self, forKey: .tcpOption)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.udpOption = try decoderContainer.decode(SiteMonitorUdpOption?.self, forKey: .udpOption)
-        self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
+        if decoderContainer.contains(.address)
+        {
+            self.address = try decoderContainer.decode(String?.self, forKey: .address)
+        }
+        if decoderContainer.contains(.advanceChecked)
+        {
+            self.advanceChecked = try decoderContainer.decode(String?.self, forKey: .advanceChecked)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.cycle)
+        {
+            self.cycle = try decoderContainer.decode(Int64?.self, forKey: .cycle)
+        }
+        if decoderContainer.contains(.defaultSource)
+        {
+            self.defaultSource = try decoderContainer.decode(String?.self, forKey: .defaultSource)
+        }
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(String?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.hawkeyeId)
+        {
+            self.hawkeyeId = try decoderContainer.decode(Int64?.self, forKey: .hawkeyeId)
+        }
+        if decoderContainer.contains(.httpOption)
+        {
+            self.httpOption = try decoderContainer.decode(SiteMonitorHttpOption?.self, forKey: .httpOption)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.isDeleted)
+        {
+            self.isDeleted = try decoderContainer.decode(String?.self, forKey: .isDeleted)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(String?.self, forKey: .port)
+        }
+        if decoderContainer.contains(.source)
+        {
+            self.source = try decoderContainer.decode([SiteMonitorSource?]?.self, forKey: .source)
+        }
+        if decoderContainer.contains(.tcpOption)
+        {
+            self.tcpOption = try decoderContainer.decode(SiteMonitorTcpOption?.self, forKey: .tcpOption)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.udpOption)
+        {
+            self.udpOption = try decoderContainer.decode(SiteMonitorUdpOption?.self, forKey: .udpOption)
+        }
+        if decoderContainer.contains(.updatedTime)
+        {
+            self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
+        }
     }
 }
 public extension UpdateSiteMonitorSpec{

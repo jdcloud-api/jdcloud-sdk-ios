@@ -49,9 +49,18 @@ public class CategoryInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CategoryInfoCodingKeys.self)
-        self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.levelId = try decoderContainer.decode(Int?.self, forKey: .levelId)
+        if decoderContainer.contains(.categoryId)
+        {
+            self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
+        }
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.levelId)
+        {
+            self.levelId = try decoderContainer.decode(Int?.self, forKey: .levelId)
+        }
     }
 }
 public extension CategoryInfo{

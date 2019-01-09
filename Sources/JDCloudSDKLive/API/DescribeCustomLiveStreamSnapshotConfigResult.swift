@@ -38,8 +38,8 @@ public class DescribeCustomLiveStreamSnapshotConfigResult:NSObject,JdCloudResult
     /// 查询总数
     var totalCount:Double?
 
-    /// SnapshotConfigs
-    var snapshotConfigs:SnapshotConfig?
+    /// 码率信息
+    var snapshotConfigs:[SnapshotConfig?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeCustomLiveStreamSnapshotConfigResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamSnapshotConfigResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.snapshotConfigs = try decoderContainer.decode(SnapshotConfig?.self, forKey: .snapshotConfigs)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.snapshotConfigs)
+        {
+            self.snapshotConfigs = try decoderContainer.decode([SnapshotConfig?]?.self, forKey: .snapshotConfigs)
+        }
     }
 }
 public extension DescribeCustomLiveStreamSnapshotConfigResult{

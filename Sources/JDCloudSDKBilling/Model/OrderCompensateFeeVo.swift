@@ -67,15 +67,42 @@ public class OrderCompensateFeeVo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: OrderCompensateFeeVoCodingKeys.self)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.totalFee = try decoderContainer.decode(Double?.self, forKey: .totalFee)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.totalFee)
+        {
+            self.totalFee = try decoderContainer.decode(Double?.self, forKey: .totalFee)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
     }
 }
 public extension OrderCompensateFeeVo{

@@ -44,7 +44,10 @@ public class TestInvokeResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TestInvokeResultCodingKeys.self)
-        self.data = try decoderContainer.decode(FunctionInvokeResult?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(FunctionInvokeResult?.self, forKey: .data)
+        }
     }
 }
 public extension TestInvokeResult{

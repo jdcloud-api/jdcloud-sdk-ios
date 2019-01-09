@@ -49,9 +49,18 @@ public class WidgetMetric:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WidgetMetricCodingKeys.self)
-        self.aggregate = try decoderContainer.decode(String?.self, forKey: .aggregate)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        if decoderContainer.contains(.aggregate)
+        {
+            self.aggregate = try decoderContainer.decode(String?.self, forKey: .aggregate)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
     }
 }
 public extension WidgetMetric{

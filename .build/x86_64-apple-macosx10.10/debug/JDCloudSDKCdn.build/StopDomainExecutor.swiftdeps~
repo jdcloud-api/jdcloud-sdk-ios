@@ -7,6 +7,8 @@ provides-member:
 - ["13JDCloudSDKCdn18StopDomainExecutorC", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
 - "JDCloudClient"
 - "JDCloudExecutor"
 - "StopDomainExecutor"

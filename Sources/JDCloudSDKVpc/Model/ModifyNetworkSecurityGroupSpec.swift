@@ -46,8 +46,14 @@ public class ModifyNetworkSecurityGroupSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyNetworkSecurityGroupSpecCodingKeys.self)
-        self.networkSecurityGroupName = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.networkSecurityGroupName)
+        {
+            self.networkSecurityGroupName = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifyNetworkSecurityGroupSpec{

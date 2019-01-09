@@ -44,7 +44,10 @@ public class DescribeNetworkAclResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeNetworkAclResultCodingKeys.self)
-        self.networkAcl = try decoderContainer.decode(NetworkAcl?.self, forKey: .networkAcl)
+        if decoderContainer.contains(.networkAcl)
+        {
+            self.networkAcl = try decoderContainer.decode(NetworkAcl?.self, forKey: .networkAcl)
+        }
     }
 }
 public extension DescribeNetworkAclResult{

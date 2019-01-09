@@ -85,21 +85,66 @@ public class DescribeTranscode:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeTranscodeCodingKeys.self)
-        self.coderateId = try decoderContainer.decode(Double?.self, forKey: .coderateId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.format = try decoderContainer.decode(String?.self, forKey: .format)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.videoCodec = try decoderContainer.decode(String?.self, forKey: .videoCodec)
-        self.videoCoderate = try decoderContainer.decode(Int?.self, forKey: .videoCoderate)
-        self.videoFramerate = try decoderContainer.decode(String?.self, forKey: .videoFramerate)
-        self.audioId = try decoderContainer.decode(Double?.self, forKey: .audioId)
-        self.audioCodec = try decoderContainer.decode(String?.self, forKey: .audioCodec)
-        self.audioCoderate = try decoderContainer.decode(Int?.self, forKey: .audioCoderate)
-        self.sampleRate = try decoderContainer.decode(Int?.self, forKey: .sampleRate)
-        self.channel = try decoderContainer.decode(Int?.self, forKey: .channel)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.coderateId)
+        {
+            self.coderateId = try decoderContainer.decode(Double?.self, forKey: .coderateId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.format)
+        {
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.videoCodec)
+        {
+            self.videoCodec = try decoderContainer.decode(String?.self, forKey: .videoCodec)
+        }
+        if decoderContainer.contains(.videoCoderate)
+        {
+            self.videoCoderate = try decoderContainer.decode(Int?.self, forKey: .videoCoderate)
+        }
+        if decoderContainer.contains(.videoFramerate)
+        {
+            self.videoFramerate = try decoderContainer.decode(String?.self, forKey: .videoFramerate)
+        }
+        if decoderContainer.contains(.audioId)
+        {
+            self.audioId = try decoderContainer.decode(Double?.self, forKey: .audioId)
+        }
+        if decoderContainer.contains(.audioCodec)
+        {
+            self.audioCodec = try decoderContainer.decode(String?.self, forKey: .audioCodec)
+        }
+        if decoderContainer.contains(.audioCoderate)
+        {
+            self.audioCoderate = try decoderContainer.decode(Int?.self, forKey: .audioCoderate)
+        }
+        if decoderContainer.contains(.sampleRate)
+        {
+            self.sampleRate = try decoderContainer.decode(Int?.self, forKey: .sampleRate)
+        }
+        if decoderContainer.contains(.channel)
+        {
+            self.channel = try decoderContainer.decode(Int?.self, forKey: .channel)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension DescribeTranscode{

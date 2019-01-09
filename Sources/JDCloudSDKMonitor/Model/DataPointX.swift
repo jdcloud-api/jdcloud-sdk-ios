@@ -58,7 +58,10 @@ public class DataPointX:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataPointXCodingKeys.self)
         self.metric = try decoderContainer.decode(String.self, forKey: .metric)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
         self.timestamp = try decoderContainer.decode(Int64.self, forKey: .timestamp)
     }
 }

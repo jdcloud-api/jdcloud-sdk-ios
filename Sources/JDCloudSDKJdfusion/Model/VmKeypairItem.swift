@@ -43,7 +43,10 @@ public class VmKeypairItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmKeypairItemCodingKeys.self)
-        self.keypair = try decoderContainer.decode(KeypairInfo?.self, forKey: .keypair)
+        if decoderContainer.contains(.keypair)
+        {
+            self.keypair = try decoderContainer.decode(KeypairInfo?.self, forKey: .keypair)
+        }
     }
 }
 public extension VmKeypairItem{

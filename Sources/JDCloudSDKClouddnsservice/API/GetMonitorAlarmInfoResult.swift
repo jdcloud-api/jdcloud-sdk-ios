@@ -38,8 +38,8 @@ public class GetMonitorAlarmInfoResult:NSObject,JdCloudResult
     /// 所有报警信息的页数
     var totalPage:Int?
 
-    /// DataList
-    var dataList:MonitorAlarmInfo?
+    /// 当前页面的报警信息的数组
+    var dataList:[MonitorAlarmInfo?]?
 
 
 
@@ -56,10 +56,22 @@ public class GetMonitorAlarmInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetMonitorAlarmInfoResultCodingKeys.self)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
-        self.dataList = try decoderContainer.decode(MonitorAlarmInfo?.self, forKey: .dataList)
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([MonitorAlarmInfo?]?.self, forKey: .dataList)
+        }
     }
 }
 public extension GetMonitorAlarmInfoResult{

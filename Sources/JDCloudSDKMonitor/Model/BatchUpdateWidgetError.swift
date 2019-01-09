@@ -49,9 +49,18 @@ public class BatchUpdateWidgetError:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchUpdateWidgetErrorCodingKeys.self)
-        self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
-        self.error = try decoderContainer.decode(String?.self, forKey: .error)
-        self.widgetId = try decoderContainer.decode(String?.self, forKey: .widgetId)
+        if decoderContainer.contains(.dashboardId)
+        {
+            self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
+        }
+        if decoderContainer.contains(.error)
+        {
+            self.error = try decoderContainer.decode(String?.self, forKey: .error)
+        }
+        if decoderContainer.contains(.widgetId)
+        {
+            self.widgetId = try decoderContainer.decode(String?.self, forKey: .widgetId)
+        }
     }
 }
 public extension BatchUpdateWidgetError{

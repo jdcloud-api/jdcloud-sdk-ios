@@ -58,7 +58,10 @@ public class Probe:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ProbeCodingKeys.self)
         self.privateIp = try decoderContainer.decode(String.self, forKey: .privateIp)
-        self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
+        if decoderContainer.contains(.publicIp)
+        {
+            self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
+        }
         self.region = try decoderContainer.decode(String.self, forKey: .region)
         self.uuid = try decoderContainer.decode(String.self, forKey: .uuid)
     }

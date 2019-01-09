@@ -68,13 +68,34 @@ public class QueryBillStatisticsInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryBillStatisticsInfoResultCodingKeys.self)
-        self.totalFee = try decoderContainer.decode(Double?.self, forKey: .totalFee)
-        self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
-        self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
-        self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
-        self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
-        self.billFee = try decoderContainer.decode(Double?.self, forKey: .billFee)
-        self.discountFee = try decoderContainer.decode(Double?.self, forKey: .discountFee)
+        if decoderContainer.contains(.totalFee)
+        {
+            self.totalFee = try decoderContainer.decode(Double?.self, forKey: .totalFee)
+        }
+        if decoderContainer.contains(.cashPayFee)
+        {
+            self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
+        }
+        if decoderContainer.contains(.cashCouponPayFee)
+        {
+            self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
+        }
+        if decoderContainer.contains(.balancePayFee)
+        {
+            self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
+        }
+        if decoderContainer.contains(.arrearFee)
+        {
+            self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
+        }
+        if decoderContainer.contains(.billFee)
+        {
+            self.billFee = try decoderContainer.decode(Double?.self, forKey: .billFee)
+        }
+        if decoderContainer.contains(.discountFee)
+        {
+            self.discountFee = try decoderContainer.decode(Double?.self, forKey: .discountFee)
+        }
     }
 }
 public extension QueryBillStatisticsInfoResult{

@@ -44,7 +44,10 @@ public class DescribeNetworkInterfaceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeNetworkInterfaceResultCodingKeys.self)
-        self.networkInterface = try decoderContainer.decode(NetworkInterface?.self, forKey: .networkInterface)
+        if decoderContainer.contains(.networkInterface)
+        {
+            self.networkInterface = try decoderContainer.decode(NetworkInterface?.self, forKey: .networkInterface)
+        }
     }
 }
 public extension DescribeNetworkInterfaceResult{

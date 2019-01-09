@@ -49,9 +49,18 @@ public class DomainSourceInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainSourceInfoCodingKeys.self)
-        self.priority = try decoderContainer.decode(Int?.self, forKey: .priority)
-        self.sourceHost = try decoderContainer.decode(String?.self, forKey: .sourceHost)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        if decoderContainer.contains(.priority)
+        {
+            self.priority = try decoderContainer.decode(Int?.self, forKey: .priority)
+        }
+        if decoderContainer.contains(.sourceHost)
+        {
+            self.sourceHost = try decoderContainer.decode(String?.self, forKey: .sourceHost)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
     }
 }
 public extension DomainSourceInfo{

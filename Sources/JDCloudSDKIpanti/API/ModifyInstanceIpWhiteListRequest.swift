@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class ModifyInstanceIpWhiteListRequest:JdCloudRequest
 {
     /// ip白名单列表
-    var ipWhiteList:String?
+    var ipWhiteList:[String?]?
 
     /// 实例id
     var instanceId:String

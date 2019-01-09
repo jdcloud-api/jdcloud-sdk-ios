@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class ModifyInstanceIpBlackListRequest:JdCloudRequest
 {
     /// ip黑名单列表
-    var ipBlackList:String?
+    var ipBlackList:[String?]?
 
     /// 实例id
     var instanceId:String

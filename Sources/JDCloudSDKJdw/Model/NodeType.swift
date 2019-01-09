@@ -58,12 +58,30 @@ public class NodeType:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NodeTypeCodingKeys.self)
-        self.nodeTypeValue = try decoderContainer.decode(String?.self, forKey: .nodeTypeValue)
-        self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
-        self.memory = try decoderContainer.decode(Int?.self, forKey: .memory)
-        self.storage = try decoderContainer.decode(Int?.self, forKey: .storage)
-        self.miniNodeNumber = try decoderContainer.decode(Int?.self, forKey: .miniNodeNumber)
-        self.maxNodeNumber = try decoderContainer.decode(Int?.self, forKey: .maxNodeNumber)
+        if decoderContainer.contains(.nodeTypeValue)
+        {
+            self.nodeTypeValue = try decoderContainer.decode(String?.self, forKey: .nodeTypeValue)
+        }
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memory)
+        {
+            self.memory = try decoderContainer.decode(Int?.self, forKey: .memory)
+        }
+        if decoderContainer.contains(.storage)
+        {
+            self.storage = try decoderContainer.decode(Int?.self, forKey: .storage)
+        }
+        if decoderContainer.contains(.miniNodeNumber)
+        {
+            self.miniNodeNumber = try decoderContainer.decode(Int?.self, forKey: .miniNodeNumber)
+        }
+        if decoderContainer.contains(.maxNodeNumber)
+        {
+            self.maxNodeNumber = try decoderContainer.decode(Int?.self, forKey: .maxNodeNumber)
+        }
     }
 }
 public extension NodeType{

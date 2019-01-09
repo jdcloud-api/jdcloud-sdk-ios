@@ -60,7 +60,10 @@ public class AddRouteTableRules:NSObject,Codable{
         self.nextHopType = try decoderContainer.decode(String.self, forKey: .nextHopType)
         self.nextHopId = try decoderContainer.decode(String.self, forKey: .nextHopId)
         self.addressPrefix = try decoderContainer.decode(String.self, forKey: .addressPrefix)
-        self.priority = try decoderContainer.decode(Double?.self, forKey: .priority)
+        if decoderContainer.contains(.priority)
+        {
+            self.priority = try decoderContainer.decode(Double?.self, forKey: .priority)
+        }
     }
 }
 public extension AddRouteTableRules{

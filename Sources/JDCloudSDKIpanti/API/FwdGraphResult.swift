@@ -30,10 +30,10 @@ import JDCloudSDKCore
 public class FwdGraphResult:NSObject,JdCloudResult
 {
     /// ForwardRecord
-    var forwardRecord:Double?
+    var forwardRecord:[Double?]?
 
     /// Time
-    var time:Int64?
+    var time:[Int64?]?
 
     /// 单位
     var unit:String?
@@ -52,9 +52,18 @@ public class FwdGraphResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FwdGraphResultCodingKeys.self)
-        self.forwardRecord = try decoderContainer.decode(Double?.self, forKey: .forwardRecord)
-        self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        if decoderContainer.contains(.forwardRecord)
+        {
+            self.forwardRecord = try decoderContainer.decode([Double?]?.self, forKey: .forwardRecord)
+        }
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode([Int64?]?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
     }
 }
 public extension FwdGraphResult{

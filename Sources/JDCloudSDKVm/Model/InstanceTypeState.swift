@@ -46,8 +46,14 @@ public class InstanceTypeState:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTypeStateCodingKeys.self)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.inStock = try decoderContainer.decode(Bool?.self, forKey: .inStock)
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.inStock)
+        {
+            self.inStock = try decoderContainer.decode(Bool?.self, forKey: .inStock)
+        }
     }
 }
 public extension InstanceTypeState{

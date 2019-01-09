@@ -50,7 +50,7 @@ public class DwTableDesc:NSObject,Codable{
     /// 参数
     var parameters:AnyObject?
     /// 列信息
-    var rows:DwTableRow?
+    var rows:[DwTableRow?]?
 
 
 
@@ -76,16 +76,46 @@ public class DwTableDesc:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DwTableDescCodingKeys.self)
-        self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
-        self.tableName = try decoderContainer.decode(String?.self, forKey: .tableName)
-        self.hiveFileFormat = try decoderContainer.decode(String?.self, forKey: .hiveFileFormat)
-        self.fieldsDelimit = try decoderContainer.decode(String?.self, forKey: .fieldsDelimit)
-        self.linesDelimit = try decoderContainer.decode(String?.self, forKey: .linesDelimit)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.owner = try decoderContainer.decode(String?.self, forKey: .owner)
-        self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
-        self.externalLocation = try decoderContainer.decode(String?.self, forKey: .externalLocation)
-        self.rows = try decoderContainer.decode(DwTableRow?.self, forKey: .rows)
+        if decoderContainer.contains(.dbName)
+        {
+            self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
+        }
+        if decoderContainer.contains(.tableName)
+        {
+            self.tableName = try decoderContainer.decode(String?.self, forKey: .tableName)
+        }
+        if decoderContainer.contains(.hiveFileFormat)
+        {
+            self.hiveFileFormat = try decoderContainer.decode(String?.self, forKey: .hiveFileFormat)
+        }
+        if decoderContainer.contains(.fieldsDelimit)
+        {
+            self.fieldsDelimit = try decoderContainer.decode(String?.self, forKey: .fieldsDelimit)
+        }
+        if decoderContainer.contains(.linesDelimit)
+        {
+            self.linesDelimit = try decoderContainer.decode(String?.self, forKey: .linesDelimit)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.owner)
+        {
+            self.owner = try decoderContainer.decode(String?.self, forKey: .owner)
+        }
+        if decoderContainer.contains(.comments)
+        {
+            self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
+        }
+        if decoderContainer.contains(.externalLocation)
+        {
+            self.externalLocation = try decoderContainer.decode(String?.self, forKey: .externalLocation)
+        }
+        if decoderContainer.contains(.rows)
+        {
+            self.rows = try decoderContainer.decode([DwTableRow?]?.self, forKey: .rows)
+        }
     }
 }
 public extension DwTableDesc{

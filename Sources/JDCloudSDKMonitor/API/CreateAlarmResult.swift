@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(CreateAlarmResult)
 public class CreateAlarmResult:NSObject,JdCloudResult
 {
-    /// AlarmIdList
-    var alarmIdList:String?
+    /// 创建成功的规则id列表
+    var alarmIdList:[String?]?
 
 
 
@@ -44,7 +44,10 @@ public class CreateAlarmResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateAlarmResultCodingKeys.self)
-        self.alarmIdList = try decoderContainer.decode(String?.self, forKey: .alarmIdList)
+        if decoderContainer.contains(.alarmIdList)
+        {
+            self.alarmIdList = try decoderContainer.decode([String?]?.self, forKey: .alarmIdList)
+        }
     }
 }
 public extension CreateAlarmResult{

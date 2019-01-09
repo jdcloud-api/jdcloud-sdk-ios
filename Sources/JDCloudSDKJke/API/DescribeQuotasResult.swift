@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeQuotasResult)
 public class DescribeQuotasResult:NSObject,JdCloudResult
 {
-    /// Quotas
-    var quotas:Quota?
+    /// 配额列表
+    var quotas:[Quota?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeQuotasResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeQuotasResultCodingKeys.self)
-        self.quotas = try decoderContainer.decode(Quota?.self, forKey: .quotas)
+        if decoderContainer.contains(.quotas)
+        {
+            self.quotas = try decoderContainer.decode([Quota?]?.self, forKey: .quotas)
+        }
     }
 }
 public extension DescribeQuotasResult{

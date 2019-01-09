@@ -64,14 +64,38 @@ public class Backup:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackupCodingKeys.self)
-        self.backupId = try decoderContainer.decode(String?.self, forKey: .backupId)
-        self.backupName = try decoderContainer.decode(String?.self, forKey: .backupName)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.backupStatus = try decoderContainer.decode(String?.self, forKey: .backupStatus)
-        self.backupStartTime = try decoderContainer.decode(String?.self, forKey: .backupStartTime)
-        self.backupEndTime = try decoderContainer.decode(String?.self, forKey: .backupEndTime)
-        self.backupMode = try decoderContainer.decode(String?.self, forKey: .backupMode)
-        self.backupSizeByte = try decoderContainer.decode(Int?.self, forKey: .backupSizeByte)
+        if decoderContainer.contains(.backupId)
+        {
+            self.backupId = try decoderContainer.decode(String?.self, forKey: .backupId)
+        }
+        if decoderContainer.contains(.backupName)
+        {
+            self.backupName = try decoderContainer.decode(String?.self, forKey: .backupName)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.backupStatus)
+        {
+            self.backupStatus = try decoderContainer.decode(String?.self, forKey: .backupStatus)
+        }
+        if decoderContainer.contains(.backupStartTime)
+        {
+            self.backupStartTime = try decoderContainer.decode(String?.self, forKey: .backupStartTime)
+        }
+        if decoderContainer.contains(.backupEndTime)
+        {
+            self.backupEndTime = try decoderContainer.decode(String?.self, forKey: .backupEndTime)
+        }
+        if decoderContainer.contains(.backupMode)
+        {
+            self.backupMode = try decoderContainer.decode(String?.self, forKey: .backupMode)
+        }
+        if decoderContainer.contains(.backupSizeByte)
+        {
+            self.backupSizeByte = try decoderContainer.decode(Int?.self, forKey: .backupSizeByte)
+        }
     }
 }
 public extension Backup{

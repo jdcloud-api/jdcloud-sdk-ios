@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeKeyListResult)
 public class DescribeKeyListResult:NSObject,JdCloudResult
 {
-    /// KeyList
-    var keyList:KeyInfo?
+    /// Key列表
+    var keyList:[KeyInfo?]?
 
     /// Key的数量
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeKeyListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeKeyListResultCodingKeys.self)
-        self.keyList = try decoderContainer.decode(KeyInfo?.self, forKey: .keyList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.keyList)
+        {
+            self.keyList = try decoderContainer.decode([KeyInfo?]?.self, forKey: .keyList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeKeyListResult{

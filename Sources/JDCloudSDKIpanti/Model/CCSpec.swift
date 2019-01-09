@@ -58,12 +58,30 @@ public class CCSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CCSpecCodingKeys.self)
-        self.ccProtectMode = try decoderContainer.decode(Int?.self, forKey: .ccProtectMode)
-        self.ccThreshold = try decoderContainer.decode(Int?.self, forKey: .ccThreshold)
-        self.hostQps = try decoderContainer.decode(Int?.self, forKey: .hostQps)
-        self.hostUrlQps = try decoderContainer.decode(Int?.self, forKey: .hostUrlQps)
-        self.ipHostQps = try decoderContainer.decode(Int?.self, forKey: .ipHostQps)
-        self.ipHostUrlQps = try decoderContainer.decode(Int?.self, forKey: .ipHostUrlQps)
+        if decoderContainer.contains(.ccProtectMode)
+        {
+            self.ccProtectMode = try decoderContainer.decode(Int?.self, forKey: .ccProtectMode)
+        }
+        if decoderContainer.contains(.ccThreshold)
+        {
+            self.ccThreshold = try decoderContainer.decode(Int?.self, forKey: .ccThreshold)
+        }
+        if decoderContainer.contains(.hostQps)
+        {
+            self.hostQps = try decoderContainer.decode(Int?.self, forKey: .hostQps)
+        }
+        if decoderContainer.contains(.hostUrlQps)
+        {
+            self.hostUrlQps = try decoderContainer.decode(Int?.self, forKey: .hostUrlQps)
+        }
+        if decoderContainer.contains(.ipHostQps)
+        {
+            self.ipHostQps = try decoderContainer.decode(Int?.self, forKey: .ipHostQps)
+        }
+        if decoderContainer.contains(.ipHostUrlQps)
+        {
+            self.ipHostUrlQps = try decoderContainer.decode(Int?.self, forKey: .ipHostUrlQps)
+        }
     }
 }
 public extension CCSpec{

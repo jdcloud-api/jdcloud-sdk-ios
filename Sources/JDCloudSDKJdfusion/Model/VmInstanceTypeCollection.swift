@@ -28,7 +28,7 @@ import Foundation
 @objc(VmInstanceTypeCollection)
 public class VmInstanceTypeCollection:NSObject,Codable{
     /// InstanceTypes
-    var instanceTypes:InstanceTypeInfo?
+    var instanceTypes:[InstanceTypeInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VmInstanceTypeCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmInstanceTypeCollectionCodingKeys.self)
-        self.instanceTypes = try decoderContainer.decode(InstanceTypeInfo?.self, forKey: .instanceTypes)
+        if decoderContainer.contains(.instanceTypes)
+        {
+            self.instanceTypes = try decoderContainer.decode([InstanceTypeInfo?]?.self, forKey: .instanceTypes)
+        }
     }
 }
 public extension VmInstanceTypeCollection{

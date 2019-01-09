@@ -39,7 +39,7 @@ public class Container:NSObject,Codable{
     /// 容器名称
     var name:String?
     /// 域名和IP映射的信息
-    var hostAliases:HostAlias?
+    var hostAliases:[HostAlias?]?
     /// 主机名
     var hostname:String?
     /// 容器执行命令
@@ -47,7 +47,7 @@ public class Container:NSObject,Codable{
     /// 容器执行命令的参数
     var args:[String?]?
     /// 动态指定的容器执行的环境变量
-    var envs:EnvVar?
+    var envs:[EnvVar?]?
     /// 镜像名称
     var image:String?
     /// secret引用的名称
@@ -59,7 +59,7 @@ public class Container:NSObject,Codable{
     /// 根Volume信息
     var rootVolume:VolumeMount?
     /// 挂载的数据Volume信息
-    var dataVolumes:VolumeMount?
+    var dataVolumes:[VolumeMount?]?
     /// 主网卡所属VPC的ID
     var vpcId:String?
     /// 主网卡所属子网的ID
@@ -73,7 +73,7 @@ public class Container:NSObject,Codable{
     /// 主网卡信息
     var primaryNetworkInterface:InstanceNetworkInterfaceAttachment?
     /// 弹性网卡信息
-    var secondaryNetworkInterfaces:InstanceNetworkInterfaceAttachment?
+    var secondaryNetworkInterfaces:[InstanceNetworkInterfaceAttachment?]?
     /// 容器日志配置信息
     var logConfiguration:LogConfiguration?
     /// 计费配置信息
@@ -125,34 +125,118 @@ public class Container:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ContainerCodingKeys.self)
-        self.containerId = try decoderContainer.decode(String?.self, forKey: .containerId)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.hostAliases = try decoderContainer.decode(HostAlias?.self, forKey: .hostAliases)
-        self.hostname = try decoderContainer.decode(String?.self, forKey: .hostname)
-        self.command = try decoderContainer.decode([String?]?.self, forKey: .command)
-        self.args = try decoderContainer.decode([String?]?.self, forKey: .args)
-        self.envs = try decoderContainer.decode(EnvVar?.self, forKey: .envs)
-        self.image = try decoderContainer.decode(String?.self, forKey: .image)
-        self.secret = try decoderContainer.decode(String?.self, forKey: .secret)
-        self.tty = try decoderContainer.decode(Bool?.self, forKey: .tty)
-        self.workingDir = try decoderContainer.decode(String?.self, forKey: .workingDir)
-        self.rootVolume = try decoderContainer.decode(VolumeMount?.self, forKey: .rootVolume)
-        self.dataVolumes = try decoderContainer.decode(VolumeMount?.self, forKey: .dataVolumes)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
-        self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
-        self.secondaryNetworkInterfaces = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .secondaryNetworkInterfaces)
-        self.logConfiguration = try decoderContainer.decode(LogConfiguration?.self, forKey: .logConfiguration)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.launchTime = try decoderContainer.decode(String?.self, forKey: .launchTime)
-        self.reason = try decoderContainer.decode(String?.self, forKey: .reason)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.containerId)
+        {
+            self.containerId = try decoderContainer.decode(String?.self, forKey: .containerId)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.hostAliases)
+        {
+            self.hostAliases = try decoderContainer.decode([HostAlias?]?.self, forKey: .hostAliases)
+        }
+        if decoderContainer.contains(.hostname)
+        {
+            self.hostname = try decoderContainer.decode(String?.self, forKey: .hostname)
+        }
+        if decoderContainer.contains(.command)
+        {
+            self.command = try decoderContainer.decode([String?]?.self, forKey: .command)
+        }
+        if decoderContainer.contains(.args)
+        {
+            self.args = try decoderContainer.decode([String?]?.self, forKey: .args)
+        }
+        if decoderContainer.contains(.envs)
+        {
+            self.envs = try decoderContainer.decode([EnvVar?]?.self, forKey: .envs)
+        }
+        if decoderContainer.contains(.image)
+        {
+            self.image = try decoderContainer.decode(String?.self, forKey: .image)
+        }
+        if decoderContainer.contains(.secret)
+        {
+            self.secret = try decoderContainer.decode(String?.self, forKey: .secret)
+        }
+        if decoderContainer.contains(.tty)
+        {
+            self.tty = try decoderContainer.decode(Bool?.self, forKey: .tty)
+        }
+        if decoderContainer.contains(.workingDir)
+        {
+            self.workingDir = try decoderContainer.decode(String?.self, forKey: .workingDir)
+        }
+        if decoderContainer.contains(.rootVolume)
+        {
+            self.rootVolume = try decoderContainer.decode(VolumeMount?.self, forKey: .rootVolume)
+        }
+        if decoderContainer.contains(.dataVolumes)
+        {
+            self.dataVolumes = try decoderContainer.decode([VolumeMount?]?.self, forKey: .dataVolumes)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.elasticIpId)
+        {
+            self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
+        if decoderContainer.contains(.primaryNetworkInterface)
+        {
+            self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
+        }
+        if decoderContainer.contains(.secondaryNetworkInterfaces)
+        {
+            self.secondaryNetworkInterfaces = try decoderContainer.decode([InstanceNetworkInterfaceAttachment?]?.self, forKey: .secondaryNetworkInterfaces)
+        }
+        if decoderContainer.contains(.logConfiguration)
+        {
+            self.logConfiguration = try decoderContainer.decode(LogConfiguration?.self, forKey: .logConfiguration)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.launchTime)
+        {
+            self.launchTime = try decoderContainer.decode(String?.self, forKey: .launchTime)
+        }
+        if decoderContainer.contains(.reason)
+        {
+            self.reason = try decoderContainer.decode(String?.self, forKey: .reason)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension Container{

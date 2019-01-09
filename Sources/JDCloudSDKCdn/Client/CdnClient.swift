@@ -62,7 +62,7 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
     
     public let serviceName: String = "cdn"
     
-    public let version: String = "0.0.1"
+    public let version: String = "v1"
     
     public let contentType:String = "application/json"
     

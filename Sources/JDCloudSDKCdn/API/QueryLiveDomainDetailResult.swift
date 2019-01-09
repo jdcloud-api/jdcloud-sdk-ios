@@ -98,17 +98,17 @@ public class QueryLiveDomainDetailResult:NSObject,JdCloudResult
     /// forwardCustomVhost
     var forwardCustomVhost:String?
 
-    /// FlvUrls
-    var flvUrls:String?
+    /// flvUrls
+    var flvUrls:[String?]?
 
-    /// HlsUrls
-    var hlsUrls:String?
+    /// hlsUrls
+    var hlsUrls:[String?]?
 
-    /// RtmpUrls
-    var rtmpUrls:String?
+    /// rtmpUrls
+    var rtmpUrls:[String?]?
 
-    /// ProtocolConverts
-    var protocolConverts:ProtocolConvert?
+    /// 转协议
+    var protocolConverts:[ProtocolConvert?]?
 
     /// https证书
     var certificate:String?
@@ -140,11 +140,11 @@ public class QueryLiveDomainDetailResult:NSObject,JdCloudResult
     /// 回源鉴权key
     var originPrivateKey:String?
 
-    /// AllowApps
-    var allowApps:String?
+    /// app列表
+    var allowApps:[String?]?
 
-    /// Ips
-    var ips:String?
+    /// ip黑名单列表
+    var ips:[String?]?
 
     /// 是否开启ip黑名单
     var blackIpsEnable:String?
@@ -158,8 +158,8 @@ public class QueryLiveDomainDetailResult:NSObject,JdCloudResult
     /// referType
     var referType:String?
 
-    /// ReferList
-    var referList:String?
+    /// referList
+    var referList:[String?]?
 
     /// 允许无refer
     var allowNoReferHeader:String?
@@ -236,55 +236,202 @@ public class QueryLiveDomainDetailResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryLiveDomainDetailResultCodingKeys.self)
-        self.domainType = try decoderContainer.decode(String?.self, forKey: .domainType)
-        self.playDomain = try decoderContainer.decode(String?.self, forKey: .playDomain)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
-        self.siteType = try decoderContainer.decode(String?.self, forKey: .siteType)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.source = try decoderContainer.decode(BackSourceInfo?.self, forKey: .source)
-        self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
-        self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
-        self.videoType = try decoderContainer.decode(String?.self, forKey: .videoType)
-        self.audioType = try decoderContainer.decode(String?.self, forKey: .audioType)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
-        self.archiveNo = try decoderContainer.decode(String?.self, forKey: .archiveNo)
-        self.rtmpDomain = try decoderContainer.decode(String?.self, forKey: .rtmpDomain)
-        self.rtmpCname = try decoderContainer.decode(String?.self, forKey: .rtmpCname)
-        self.hdlDomain = try decoderContainer.decode(String?.self, forKey: .hdlDomain)
-        self.hdlCname = try decoderContainer.decode(String?.self, forKey: .hdlCname)
-        self.hlsDomain = try decoderContainer.decode(String?.self, forKey: .hlsDomain)
-        self.hlsCname = try decoderContainer.decode(String?.self, forKey: .hlsCname)
-        self.forwardCustomVhost = try decoderContainer.decode(String?.self, forKey: .forwardCustomVhost)
-        self.flvUrls = try decoderContainer.decode(String?.self, forKey: .flvUrls)
-        self.hlsUrls = try decoderContainer.decode(String?.self, forKey: .hlsUrls)
-        self.rtmpUrls = try decoderContainer.decode(String?.self, forKey: .rtmpUrls)
-        self.protocolConverts = try decoderContainer.decode(ProtocolConvert?.self, forKey: .protocolConverts)
-        self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
-        self.rsaKey = try decoderContainer.decode(String?.self, forKey: .rsaKey)
-        self.accesskeyType = try decoderContainer.decode(Int?.self, forKey: .accesskeyType)
-        self.accesskeyKey = try decoderContainer.decode(String?.self, forKey: .accesskeyKey)
-        self.playAuthLifeTime = try decoderContainer.decode(Int?.self, forKey: .playAuthLifeTime)
-        self.authLifeTime = try decoderContainer.decode(Int?.self, forKey: .authLifeTime)
-        self.forwardAccessKeyType = try decoderContainer.decode(Int?.self, forKey: .forwardAccessKeyType)
-        self.forwardPrivateKey = try decoderContainer.decode(String?.self, forKey: .forwardPrivateKey)
-        self.originAccessKeyType = try decoderContainer.decode(Int?.self, forKey: .originAccessKeyType)
-        self.originPrivateKey = try decoderContainer.decode(String?.self, forKey: .originPrivateKey)
-        self.allowApps = try decoderContainer.decode(String?.self, forKey: .allowApps)
-        self.ips = try decoderContainer.decode(String?.self, forKey: .ips)
-        self.blackIpsEnable = try decoderContainer.decode(String?.self, forKey: .blackIpsEnable)
-        self.externId = try decoderContainer.decode(String?.self, forKey: .externId)
-        self.ignoreQueryString = try decoderContainer.decode(String?.self, forKey: .ignoreQueryString)
-        self.referType = try decoderContainer.decode(String?.self, forKey: .referType)
-        self.referList = try decoderContainer.decode(String?.self, forKey: .referList)
-        self.allowNoReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNoReferHeader)
-        self.allowNullReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNullReferHeader)
-        self.publishNormalTimeout = try decoderContainer.decode(String?.self, forKey: .publishNormalTimeout)
-        self.notifyCustomUrl = try decoderContainer.decode(String?.self, forKey: .notifyCustomUrl)
-        self.notifyCustomAuthKey = try decoderContainer.decode(String?.self, forKey: .notifyCustomAuthKey)
+        if decoderContainer.contains(.domainType)
+        {
+            self.domainType = try decoderContainer.decode(String?.self, forKey: .domainType)
+        }
+        if decoderContainer.contains(.playDomain)
+        {
+            self.playDomain = try decoderContainer.decode(String?.self, forKey: .playDomain)
+        }
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.originDomain)
+        {
+            self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.cname)
+        {
+            self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.siteType)
+        {
+            self.siteType = try decoderContainer.decode(String?.self, forKey: .siteType)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.source)
+        {
+            self.source = try decoderContainer.decode(BackSourceInfo?.self, forKey: .source)
+        }
+        if decoderContainer.contains(.sourceType)
+        {
+            self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
+        }
+        if decoderContainer.contains(.backSourceType)
+        {
+            self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
+        }
+        if decoderContainer.contains(.videoType)
+        {
+            self.videoType = try decoderContainer.decode(String?.self, forKey: .videoType)
+        }
+        if decoderContainer.contains(.audioType)
+        {
+            self.audioType = try decoderContainer.decode(String?.self, forKey: .audioType)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.defaultSourceHost)
+        {
+            self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
+        }
+        if decoderContainer.contains(.archiveNo)
+        {
+            self.archiveNo = try decoderContainer.decode(String?.self, forKey: .archiveNo)
+        }
+        if decoderContainer.contains(.rtmpDomain)
+        {
+            self.rtmpDomain = try decoderContainer.decode(String?.self, forKey: .rtmpDomain)
+        }
+        if decoderContainer.contains(.rtmpCname)
+        {
+            self.rtmpCname = try decoderContainer.decode(String?.self, forKey: .rtmpCname)
+        }
+        if decoderContainer.contains(.hdlDomain)
+        {
+            self.hdlDomain = try decoderContainer.decode(String?.self, forKey: .hdlDomain)
+        }
+        if decoderContainer.contains(.hdlCname)
+        {
+            self.hdlCname = try decoderContainer.decode(String?.self, forKey: .hdlCname)
+        }
+        if decoderContainer.contains(.hlsDomain)
+        {
+            self.hlsDomain = try decoderContainer.decode(String?.self, forKey: .hlsDomain)
+        }
+        if decoderContainer.contains(.hlsCname)
+        {
+            self.hlsCname = try decoderContainer.decode(String?.self, forKey: .hlsCname)
+        }
+        if decoderContainer.contains(.forwardCustomVhost)
+        {
+            self.forwardCustomVhost = try decoderContainer.decode(String?.self, forKey: .forwardCustomVhost)
+        }
+        if decoderContainer.contains(.flvUrls)
+        {
+            self.flvUrls = try decoderContainer.decode([String?]?.self, forKey: .flvUrls)
+        }
+        if decoderContainer.contains(.hlsUrls)
+        {
+            self.hlsUrls = try decoderContainer.decode([String?]?.self, forKey: .hlsUrls)
+        }
+        if decoderContainer.contains(.rtmpUrls)
+        {
+            self.rtmpUrls = try decoderContainer.decode([String?]?.self, forKey: .rtmpUrls)
+        }
+        if decoderContainer.contains(.protocolConverts)
+        {
+            self.protocolConverts = try decoderContainer.decode([ProtocolConvert?]?.self, forKey: .protocolConverts)
+        }
+        if decoderContainer.contains(.certificate)
+        {
+            self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
+        }
+        if decoderContainer.contains(.rsaKey)
+        {
+            self.rsaKey = try decoderContainer.decode(String?.self, forKey: .rsaKey)
+        }
+        if decoderContainer.contains(.accesskeyType)
+        {
+            self.accesskeyType = try decoderContainer.decode(Int?.self, forKey: .accesskeyType)
+        }
+        if decoderContainer.contains(.accesskeyKey)
+        {
+            self.accesskeyKey = try decoderContainer.decode(String?.self, forKey: .accesskeyKey)
+        }
+        if decoderContainer.contains(.playAuthLifeTime)
+        {
+            self.playAuthLifeTime = try decoderContainer.decode(Int?.self, forKey: .playAuthLifeTime)
+        }
+        if decoderContainer.contains(.authLifeTime)
+        {
+            self.authLifeTime = try decoderContainer.decode(Int?.self, forKey: .authLifeTime)
+        }
+        if decoderContainer.contains(.forwardAccessKeyType)
+        {
+            self.forwardAccessKeyType = try decoderContainer.decode(Int?.self, forKey: .forwardAccessKeyType)
+        }
+        if decoderContainer.contains(.forwardPrivateKey)
+        {
+            self.forwardPrivateKey = try decoderContainer.decode(String?.self, forKey: .forwardPrivateKey)
+        }
+        if decoderContainer.contains(.originAccessKeyType)
+        {
+            self.originAccessKeyType = try decoderContainer.decode(Int?.self, forKey: .originAccessKeyType)
+        }
+        if decoderContainer.contains(.originPrivateKey)
+        {
+            self.originPrivateKey = try decoderContainer.decode(String?.self, forKey: .originPrivateKey)
+        }
+        if decoderContainer.contains(.allowApps)
+        {
+            self.allowApps = try decoderContainer.decode([String?]?.self, forKey: .allowApps)
+        }
+        if decoderContainer.contains(.ips)
+        {
+            self.ips = try decoderContainer.decode([String?]?.self, forKey: .ips)
+        }
+        if decoderContainer.contains(.blackIpsEnable)
+        {
+            self.blackIpsEnable = try decoderContainer.decode(String?.self, forKey: .blackIpsEnable)
+        }
+        if decoderContainer.contains(.externId)
+        {
+            self.externId = try decoderContainer.decode(String?.self, forKey: .externId)
+        }
+        if decoderContainer.contains(.ignoreQueryString)
+        {
+            self.ignoreQueryString = try decoderContainer.decode(String?.self, forKey: .ignoreQueryString)
+        }
+        if decoderContainer.contains(.referType)
+        {
+            self.referType = try decoderContainer.decode(String?.self, forKey: .referType)
+        }
+        if decoderContainer.contains(.referList)
+        {
+            self.referList = try decoderContainer.decode([String?]?.self, forKey: .referList)
+        }
+        if decoderContainer.contains(.allowNoReferHeader)
+        {
+            self.allowNoReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNoReferHeader)
+        }
+        if decoderContainer.contains(.allowNullReferHeader)
+        {
+            self.allowNullReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNullReferHeader)
+        }
+        if decoderContainer.contains(.publishNormalTimeout)
+        {
+            self.publishNormalTimeout = try decoderContainer.decode(String?.self, forKey: .publishNormalTimeout)
+        }
+        if decoderContainer.contains(.notifyCustomUrl)
+        {
+            self.notifyCustomUrl = try decoderContainer.decode(String?.self, forKey: .notifyCustomUrl)
+        }
+        if decoderContainer.contains(.notifyCustomAuthKey)
+        {
+            self.notifyCustomAuthKey = try decoderContainer.decode(String?.self, forKey: .notifyCustomAuthKey)
+        }
     }
 }
 public extension QueryLiveDomainDetailResult{

@@ -40,7 +40,7 @@ public class DescribeImagesRequest:JdCloudRequest
     var platform:String?
 
     /// 镜像ID列表，如果指定了此参数，其它参数可为空
-    var ids:String?
+    var ids:[String?]?
 
     /// 镜像支持的系统盘类型，[localDisk,cloudDisk]
     var rootDeviceType:String?

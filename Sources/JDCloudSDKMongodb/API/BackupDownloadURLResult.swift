@@ -44,7 +44,10 @@ public class BackupDownloadURLResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackupDownloadURLResultCodingKeys.self)
-        self.backupDownloadURL = try decoderContainer.decode(BackupDownloadURL?.self, forKey: .backupDownloadURL)
+        if decoderContainer.contains(.backupDownloadURL)
+        {
+            self.backupDownloadURL = try decoderContainer.decode(BackupDownloadURL?.self, forKey: .backupDownloadURL)
+        }
     }
 }
 public extension BackupDownloadURLResult{

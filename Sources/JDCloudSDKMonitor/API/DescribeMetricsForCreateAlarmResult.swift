@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeMetricsForCreateAlarmResult:NSObject,JdCloudResult
 {
     /// ServiceCodeList
-    var serviceCodeList:ServiceCodeMetrics?
+    var serviceCodeList:[ServiceCodeMetrics?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeMetricsForCreateAlarmResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeMetricsForCreateAlarmResultCodingKeys.self)
-        self.serviceCodeList = try decoderContainer.decode(ServiceCodeMetrics?.self, forKey: .serviceCodeList)
+        if decoderContainer.contains(.serviceCodeList)
+        {
+            self.serviceCodeList = try decoderContainer.decode([ServiceCodeMetrics?]?.self, forKey: .serviceCodeList)
+        }
     }
 }
 public extension DescribeMetricsForCreateAlarmResult{

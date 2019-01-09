@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class RemoveRouteTableRulesRequest:JdCloudRequest
 {
     /// 路由表规则Id列表
-    var ruleIds:String?
+    var ruleIds:[String?]?
 
     /// RouteTable ID
     var routeTableId:String

@@ -67,15 +67,42 @@ public class Actionlog:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ActionlogCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.type = try decoderContainer.decode(Int?.self, forKey: .type)
-        self.detail = try decoderContainer.decode(String?.self, forKey: .detail)
-        self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
-        self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
-        self.failReason = try decoderContainer.decode(String?.self, forKey: .failReason)
-        self.clientIp = try decoderContainer.decode(String?.self, forKey: .clientIp)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.userPin)
+        {
+            self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(Int?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.detail)
+        {
+            self.detail = try decoderContainer.decode(String?.self, forKey: .detail)
+        }
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.success)
+        {
+            self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        }
+        if decoderContainer.contains(.failReason)
+        {
+            self.failReason = try decoderContainer.decode(String?.self, forKey: .failReason)
+        }
+        if decoderContainer.contains(.clientIp)
+        {
+            self.clientIp = try decoderContainer.decode(String?.self, forKey: .clientIp)
+        }
     }
 }
 public extension Actionlog{

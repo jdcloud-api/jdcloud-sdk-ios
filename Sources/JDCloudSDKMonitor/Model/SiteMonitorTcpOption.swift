@@ -55,11 +55,26 @@ public class SiteMonitorTcpOption:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SiteMonitorTcpOptionCodingKeys.self)
-        self.reqContent = try decoderContainer.decode(String?.self, forKey: .reqContent)
-        self.reqContentType = try decoderContainer.decode(String?.self, forKey: .reqContentType)
-        self.resCheck = try decoderContainer.decode(String?.self, forKey: .resCheck)
-        self.resCheckType = try decoderContainer.decode(String?.self, forKey: .resCheckType)
-        self.timeout = try decoderContainer.decode(Int64?.self, forKey: .timeout)
+        if decoderContainer.contains(.reqContent)
+        {
+            self.reqContent = try decoderContainer.decode(String?.self, forKey: .reqContent)
+        }
+        if decoderContainer.contains(.reqContentType)
+        {
+            self.reqContentType = try decoderContainer.decode(String?.self, forKey: .reqContentType)
+        }
+        if decoderContainer.contains(.resCheck)
+        {
+            self.resCheck = try decoderContainer.decode(String?.self, forKey: .resCheck)
+        }
+        if decoderContainer.contains(.resCheckType)
+        {
+            self.resCheckType = try decoderContainer.decode(String?.self, forKey: .resCheckType)
+        }
+        if decoderContainer.contains(.timeout)
+        {
+            self.timeout = try decoderContainer.decode(Int64?.self, forKey: .timeout)
+        }
     }
 }
 public extension SiteMonitorTcpOption{

@@ -34,8 +34,8 @@ import JDCloudSDKCore
 @objc(DescribeAlarmsResult)
 public class DescribeAlarmsResult:NSObject,JdCloudResult
 {
-    /// AlarmList
-    var alarmList:DescribedAlarm?
+    /// 规则列表
+    var alarmList:[DescribedAlarm?]?
 
     /// 规则总数
     var total:Int64?
@@ -53,8 +53,14 @@ public class DescribeAlarmsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAlarmsResultCodingKeys.self)
-        self.alarmList = try decoderContainer.decode(DescribedAlarm?.self, forKey: .alarmList)
-        self.total = try decoderContainer.decode(Int64?.self, forKey: .total)
+        if decoderContainer.contains(.alarmList)
+        {
+            self.alarmList = try decoderContainer.decode([DescribedAlarm?]?.self, forKey: .alarmList)
+        }
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Int64?.self, forKey: .total)
+        }
     }
 }
 public extension DescribeAlarmsResult{

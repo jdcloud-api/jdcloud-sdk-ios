@@ -67,15 +67,42 @@ public class SnapshotTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SnapshotTemplateCodingKeys.self)
-        self.format = try decoderContainer.decode(String?.self, forKey: .format)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.fillType = try decoderContainer.decode(Int?.self, forKey: .fillType)
-        self.snapshotInterval = try decoderContainer.decode(Int?.self, forKey: .snapshotInterval)
-        self.saveMode = try decoderContainer.decode(Int?.self, forKey: .saveMode)
-        self.saveBucket = try decoderContainer.decode(String?.self, forKey: .saveBucket)
-        self.saveEndpoint = try decoderContainer.decode(String?.self, forKey: .saveEndpoint)
-        self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        if decoderContainer.contains(.format)
+        {
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.fillType)
+        {
+            self.fillType = try decoderContainer.decode(Int?.self, forKey: .fillType)
+        }
+        if decoderContainer.contains(.snapshotInterval)
+        {
+            self.snapshotInterval = try decoderContainer.decode(Int?.self, forKey: .snapshotInterval)
+        }
+        if decoderContainer.contains(.saveMode)
+        {
+            self.saveMode = try decoderContainer.decode(Int?.self, forKey: .saveMode)
+        }
+        if decoderContainer.contains(.saveBucket)
+        {
+            self.saveBucket = try decoderContainer.decode(String?.self, forKey: .saveBucket)
+        }
+        if decoderContainer.contains(.saveEndpoint)
+        {
+            self.saveEndpoint = try decoderContainer.decode(String?.self, forKey: .saveEndpoint)
+        }
+        if decoderContainer.contains(.template)
+        {
+            self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        }
     }
 }
 public extension SnapshotTemplate{

@@ -70,16 +70,46 @@ public class DwHiveObjectPrivileges:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DwHiveObjectPrivilegesCodingKeys.self)
-        self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
-        self.select = try decoderContainer.decode(Bool?.self, forKey: .select)
-        self.insert = try decoderContainer.decode(Bool?.self, forKey: .insert)
-        self.update = try decoderContainer.decode(Bool?.self, forKey: .update)
-        self.delete = try decoderContainer.decode(Bool?.self, forKey: .delete)
-        self.drop = try decoderContainer.decode(Bool?.self, forKey: .drop)
-        self.create = try decoderContainer.decode(Bool?.self, forKey: .create)
-        self.alter = try decoderContainer.decode(Bool?.self, forKey: .alter)
-        self.owner = try decoderContainer.decode(Bool?.self, forKey: .owner)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+        if decoderContainer.contains(.select)
+        {
+            self.select = try decoderContainer.decode(Bool?.self, forKey: .select)
+        }
+        if decoderContainer.contains(.insert)
+        {
+            self.insert = try decoderContainer.decode(Bool?.self, forKey: .insert)
+        }
+        if decoderContainer.contains(.update)
+        {
+            self.update = try decoderContainer.decode(Bool?.self, forKey: .update)
+        }
+        if decoderContainer.contains(.delete)
+        {
+            self.delete = try decoderContainer.decode(Bool?.self, forKey: .delete)
+        }
+        if decoderContainer.contains(.drop)
+        {
+            self.drop = try decoderContainer.decode(Bool?.self, forKey: .drop)
+        }
+        if decoderContainer.contains(.create)
+        {
+            self.create = try decoderContainer.decode(Bool?.self, forKey: .create)
+        }
+        if decoderContainer.contains(.alter)
+        {
+            self.alter = try decoderContainer.decode(Bool?.self, forKey: .alter)
+        }
+        if decoderContainer.contains(.owner)
+        {
+            self.owner = try decoderContainer.decode(Bool?.self, forKey: .owner)
+        }
     }
 }
 public extension DwHiveObjectPrivileges{

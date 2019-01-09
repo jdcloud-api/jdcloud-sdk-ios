@@ -49,9 +49,18 @@ public class IpResource:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpResourceCodingKeys.self)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
-        self.safeStatus = try decoderContainer.decode(Int?.self, forKey: .safeStatus)
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.bandwidth)
+        {
+            self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
+        }
+        if decoderContainer.contains(.safeStatus)
+        {
+            self.safeStatus = try decoderContainer.decode(Int?.self, forKey: .safeStatus)
+        }
     }
 }
 public extension IpResource{

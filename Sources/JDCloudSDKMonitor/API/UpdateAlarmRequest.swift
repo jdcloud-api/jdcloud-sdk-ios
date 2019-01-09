@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class UpdateAlarmRequest:JdCloudRequest
 {
     /// 通知联系人
-    var contacts:BaseContact?
+    var contacts:[BaseContact?]?
 
     /// Rule
     var rule:BaseRule

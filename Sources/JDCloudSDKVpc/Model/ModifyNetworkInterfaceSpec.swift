@@ -49,9 +49,18 @@ public class ModifyNetworkInterfaceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyNetworkInterfaceSpecCodingKeys.self)
-        self.networkInterfaceName = try decoderContainer.decode(String?.self, forKey: .networkInterfaceName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.securityGroups = try decoderContainer.decode([String?]?.self, forKey: .securityGroups)
+        if decoderContainer.contains(.networkInterfaceName)
+        {
+            self.networkInterfaceName = try decoderContainer.decode(String?.self, forKey: .networkInterfaceName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.securityGroups)
+        {
+            self.securityGroups = try decoderContainer.decode([String?]?.self, forKey: .securityGroups)
+        }
     }
 }
 public extension ModifyNetworkInterfaceSpec{

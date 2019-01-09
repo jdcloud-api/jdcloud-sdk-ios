@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeVpcPeeringsResult)
 public class DescribeVpcPeeringsResult:NSObject,JdCloudResult
 {
-    /// VpcPeerings
-    var vpcPeerings:VpcPeering?
+    /// VpcPeering资源信息列表
+    var vpcPeerings:[VpcPeering?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeVpcPeeringsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeVpcPeeringsResultCodingKeys.self)
-        self.vpcPeerings = try decoderContainer.decode(VpcPeering?.self, forKey: .vpcPeerings)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.vpcPeerings)
+        {
+            self.vpcPeerings = try decoderContainer.decode([VpcPeering?]?.self, forKey: .vpcPeerings)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeVpcPeeringsResult{

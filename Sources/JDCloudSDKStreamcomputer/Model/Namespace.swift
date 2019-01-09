@@ -79,19 +79,58 @@ public class Namespace:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NamespaceCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.pods = try decoderContainer.decode(String?.self, forKey: .pods)
-        self.type = try decoderContainer.decode(UInt8?.self, forKey: .type)
-        self.typeValue = try decoderContainer.decode(String?.self, forKey: .typeValue)
-        self.deleted = try decoderContainer.decode(Int?.self, forKey: .deleted)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.podsUpdateTime = try decoderContainer.decode(String?.self, forKey: .podsUpdateTime)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.pods)
+        {
+            self.pods = try decoderContainer.decode(String?.self, forKey: .pods)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(UInt8?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.typeValue)
+        {
+            self.typeValue = try decoderContainer.decode(String?.self, forKey: .typeValue)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(Int?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.userName)
+        {
+            self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.sourceId)
+        {
+            self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.podsUpdateTime)
+        {
+            self.podsUpdateTime = try decoderContainer.decode(String?.self, forKey: .podsUpdateTime)
+        }
     }
 }
 public extension Namespace{

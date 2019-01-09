@@ -28,9 +28,9 @@ import Foundation
 @objc(WidgetResources)
 public class WidgetResources:NSObject,Codable{
     /// Raw
-    var raw:WidgetRawResource?
+    var raw:[WidgetRawResource?]?
     /// Tag
-    var tag:WidgetTagResource?
+    var tag:[WidgetTagResource?]?
 
 
 
@@ -46,8 +46,14 @@ public class WidgetResources:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WidgetResourcesCodingKeys.self)
-        self.raw = try decoderContainer.decode(WidgetRawResource?.self, forKey: .raw)
-        self.tag = try decoderContainer.decode(WidgetTagResource?.self, forKey: .tag)
+        if decoderContainer.contains(.raw)
+        {
+            self.raw = try decoderContainer.decode([WidgetRawResource?]?.self, forKey: .raw)
+        }
+        if decoderContainer.contains(.tag)
+        {
+            self.tag = try decoderContainer.decode([WidgetTagResource?]?.self, forKey: .tag)
+        }
     }
 }
 public extension WidgetResources{

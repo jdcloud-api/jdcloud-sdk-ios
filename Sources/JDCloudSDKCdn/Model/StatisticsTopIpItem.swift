@@ -52,10 +52,22 @@ public class StatisticsTopIpItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsTopIpItemCodingKeys.self)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.rank = try decoderContainer.decode(Int?.self, forKey: .rank)
-        self.value = try decoderContainer.decode(Int?.self, forKey: .value)
-        self.fullValue = try decoderContainer.decode([String:String?]?.self, forKey: .fullValue)
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.rank)
+        {
+            self.rank = try decoderContainer.decode(Int?.self, forKey: .rank)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Int?.self, forKey: .value)
+        }
+        if decoderContainer.contains(.fullValue)
+        {
+            self.fullValue = try decoderContainer.decode([String:String?]?.self, forKey: .fullValue)
+        }
     }
 }
 public extension StatisticsTopIpItem{

@@ -39,7 +39,7 @@ public class GetDomainListResult:NSObject,JdCloudResult
     var pageNumber:Int32?
 
     /// Domains
-    var domains:ListDomainItem?
+    var domains:[ListDomainItem?]?
 
 
 
@@ -56,10 +56,22 @@ public class GetDomainListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDomainListResultCodingKeys.self)
-        self.totalCount = try decoderContainer.decode(Int32?.self, forKey: .totalCount)
-        self.pageSize = try decoderContainer.decode(Int32?.self, forKey: .pageSize)
-        self.pageNumber = try decoderContainer.decode(Int32?.self, forKey: .pageNumber)
-        self.domains = try decoderContainer.decode(ListDomainItem?.self, forKey: .domains)
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int32?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int32?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int32?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.domains)
+        {
+            self.domains = try decoderContainer.decode([ListDomainItem?]?.self, forKey: .domains)
+        }
     }
 }
 public extension GetDomainListResult{

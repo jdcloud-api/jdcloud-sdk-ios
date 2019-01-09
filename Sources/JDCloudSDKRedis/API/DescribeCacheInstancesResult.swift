@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeCacheInstancesResult)
 public class DescribeCacheInstancesResult:NSObject,JdCloudResult
 {
-    /// CacheInstances
-    var cacheInstances:CacheInstance?
+    /// 要查询目标缓存实例的信息。
+    var cacheInstances:[CacheInstance?]?
 
     /// 查询到的缓存实例总个数。
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeCacheInstancesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCacheInstancesResultCodingKeys.self)
-        self.cacheInstances = try decoderContainer.decode(CacheInstance?.self, forKey: .cacheInstances)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.cacheInstances)
+        {
+            self.cacheInstances = try decoderContainer.decode([CacheInstance?]?.self, forKey: .cacheInstances)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeCacheInstancesResult{

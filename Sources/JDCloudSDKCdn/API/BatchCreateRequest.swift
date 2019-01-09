@@ -67,10 +67,10 @@ public class BatchCreateRequest:JdCloudRequest
     var httpType:String?
 
     /// IpSource
-    var ipSource:IpSourceInfo?
+    var ipSource:[IpSourceInfo?]?
 
     /// DomainSource
-    var domainSource:DomainSourceInfo?
+    var domainSource:[DomainSourceInfo?]?
 
     /// OssSource
     var ossSource:String?

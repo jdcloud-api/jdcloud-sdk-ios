@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetStorageListResult:NSObject,JdCloudResult
 {
     /// StorageList
-    var storageList:Storage?
+    var storageList:[Storage?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetStorageListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetStorageListResultCodingKeys.self)
-        self.storageList = try decoderContainer.decode(Storage?.self, forKey: .storageList)
+        if decoderContainer.contains(.storageList)
+        {
+            self.storageList = try decoderContainer.decode([Storage?]?.self, forKey: .storageList)
+        }
     }
 }
 public extension GetStorageListResult{

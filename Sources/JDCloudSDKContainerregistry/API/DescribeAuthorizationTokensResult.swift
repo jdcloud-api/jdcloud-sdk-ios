@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class DescribeAuthorizationTokensResult:NSObject,JdCloudResult
 {
     /// AuthorizationTokens
-    var authorizationTokens:AuthorizationData?
+    var authorizationTokens:[AuthorizationData?]?
 
     /// TotalCount
     var totalCount:Double?
@@ -50,8 +50,14 @@ public class DescribeAuthorizationTokensResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAuthorizationTokensResultCodingKeys.self)
-        self.authorizationTokens = try decoderContainer.decode(AuthorizationData?.self, forKey: .authorizationTokens)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.authorizationTokens)
+        {
+            self.authorizationTokens = try decoderContainer.decode([AuthorizationData?]?.self, forKey: .authorizationTokens)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeAuthorizationTokensResult{

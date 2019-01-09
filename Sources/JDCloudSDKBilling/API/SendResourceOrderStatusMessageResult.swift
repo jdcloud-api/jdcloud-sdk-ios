@@ -44,7 +44,10 @@ public class SendResourceOrderStatusMessageResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SendResourceOrderStatusMessageResultCodingKeys.self)
-        self.result = try decoderContainer.decode(Bool?.self, forKey: .result)
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode(Bool?.self, forKey: .result)
+        }
     }
 }
 public extension SendResourceOrderStatusMessageResult{

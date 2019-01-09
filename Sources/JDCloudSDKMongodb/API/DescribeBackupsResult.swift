@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeBackupsResult:NSObject,JdCloudResult
 {
     /// Backups
-    var backups:Backup?
+    var backups:[Backup?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -52,9 +52,18 @@ public class DescribeBackupsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeBackupsResultCodingKeys.self)
-        self.backups = try decoderContainer.decode(Backup?.self, forKey: .backups)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        if decoderContainer.contains(.backups)
+        {
+            self.backups = try decoderContainer.decode([Backup?]?.self, forKey: .backups)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
     }
 }
 public extension DescribeBackupsResult{

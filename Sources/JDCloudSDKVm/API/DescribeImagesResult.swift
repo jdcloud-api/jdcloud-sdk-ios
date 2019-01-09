@@ -32,8 +32,8 @@ import JDCloudSDKCore
 @objc(DescribeImagesResult)
 public class DescribeImagesResult:NSObject,JdCloudResult
 {
-    /// Images
-    var images:Image?
+    /// 镜像详情
+    var images:[Image?]?
 
     /// 总数量
     var totalCount:Int?
@@ -51,8 +51,14 @@ public class DescribeImagesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeImagesResultCodingKeys.self)
-        self.images = try decoderContainer.decode(Image?.self, forKey: .images)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.images)
+        {
+            self.images = try decoderContainer.decode([Image?]?.self, forKey: .images)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeImagesResult{

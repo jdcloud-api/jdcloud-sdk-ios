@@ -30,10 +30,10 @@ import JDCloudSDKCore
 public class QueryDefaultHttpHeaderKeyResult:NSObject,JdCloudResult
 {
     /// ReqDefaultHttpHeaderKey
-    var reqDefaultHttpHeaderKey:String?
+    var reqDefaultHttpHeaderKey:[String?]?
 
     /// RespDefaultHttpHeaderKey
-    var respDefaultHttpHeaderKey:String?
+    var respDefaultHttpHeaderKey:[String?]?
 
 
 
@@ -48,8 +48,14 @@ public class QueryDefaultHttpHeaderKeyResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryDefaultHttpHeaderKeyResultCodingKeys.self)
-        self.reqDefaultHttpHeaderKey = try decoderContainer.decode(String?.self, forKey: .reqDefaultHttpHeaderKey)
-        self.respDefaultHttpHeaderKey = try decoderContainer.decode(String?.self, forKey: .respDefaultHttpHeaderKey)
+        if decoderContainer.contains(.reqDefaultHttpHeaderKey)
+        {
+            self.reqDefaultHttpHeaderKey = try decoderContainer.decode([String?]?.self, forKey: .reqDefaultHttpHeaderKey)
+        }
+        if decoderContainer.contains(.respDefaultHttpHeaderKey)
+        {
+            self.respDefaultHttpHeaderKey = try decoderContainer.decode([String?]?.self, forKey: .respDefaultHttpHeaderKey)
+        }
     }
 }
 public extension QueryDefaultHttpHeaderKeyResult{

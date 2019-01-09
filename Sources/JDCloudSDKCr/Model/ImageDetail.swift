@@ -69,15 +69,42 @@ public class ImageDetail:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImageDetailCodingKeys.self)
-        self.registryName = try decoderContainer.decode(String?.self, forKey: .registryName)
-        self.repositoryName = try decoderContainer.decode(String?.self, forKey: .repositoryName)
-        self.imageDigest = try decoderContainer.decode(String?.self, forKey: .imageDigest)
-        self.imageManifest = try decoderContainer.decode(String?.self, forKey: .imageManifest)
-        self.imagePushedAt = try decoderContainer.decode(String?.self, forKey: .imagePushedAt)
-        self.imageSizeMB = try decoderContainer.decode(Double?.self, forKey: .imageSizeMB)
-        self.imageTags = try decoderContainer.decode([String?]?.self, forKey: .imageTags)
-        self.lastPullAt = try decoderContainer.decode(String?.self, forKey: .lastPullAt)
-        self.totalPullTimes = try decoderContainer.decode(Int?.self, forKey: .totalPullTimes)
+        if decoderContainer.contains(.registryName)
+        {
+            self.registryName = try decoderContainer.decode(String?.self, forKey: .registryName)
+        }
+        if decoderContainer.contains(.repositoryName)
+        {
+            self.repositoryName = try decoderContainer.decode(String?.self, forKey: .repositoryName)
+        }
+        if decoderContainer.contains(.imageDigest)
+        {
+            self.imageDigest = try decoderContainer.decode(String?.self, forKey: .imageDigest)
+        }
+        if decoderContainer.contains(.imageManifest)
+        {
+            self.imageManifest = try decoderContainer.decode(String?.self, forKey: .imageManifest)
+        }
+        if decoderContainer.contains(.imagePushedAt)
+        {
+            self.imagePushedAt = try decoderContainer.decode(String?.self, forKey: .imagePushedAt)
+        }
+        if decoderContainer.contains(.imageSizeMB)
+        {
+            self.imageSizeMB = try decoderContainer.decode(Double?.self, forKey: .imageSizeMB)
+        }
+        if decoderContainer.contains(.imageTags)
+        {
+            self.imageTags = try decoderContainer.decode([String?]?.self, forKey: .imageTags)
+        }
+        if decoderContainer.contains(.lastPullAt)
+        {
+            self.lastPullAt = try decoderContainer.decode(String?.self, forKey: .lastPullAt)
+        }
+        if decoderContainer.contains(.totalPullTimes)
+        {
+            self.totalPullTimes = try decoderContainer.decode(Int?.self, forKey: .totalPullTimes)
+        }
     }
 }
 public extension ImageDetail{

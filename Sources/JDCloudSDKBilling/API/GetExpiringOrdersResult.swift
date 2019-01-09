@@ -33,7 +33,7 @@ public class GetExpiringOrdersResult:NSObject,JdCloudResult
     var pagination:Pagination?
 
     /// Result
-    var result:ResourceOrderVo?
+    var result:[ResourceOrderVo?]?
 
 
 
@@ -48,8 +48,14 @@ public class GetExpiringOrdersResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetExpiringOrdersResultCodingKeys.self)
-        self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
-        self.result = try decoderContainer.decode(ResourceOrderVo?.self, forKey: .result)
+        if decoderContainer.contains(.pagination)
+        {
+            self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
+        }
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode([ResourceOrderVo?]?.self, forKey: .result)
+        }
     }
 }
 public extension GetExpiringOrdersResult{

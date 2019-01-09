@@ -39,7 +39,7 @@ public class QueryDomainGroupListResult:NSObject,JdCloudResult
     var pageNumber:Int32?
 
     /// DomainGroups
-    var domainGroups:DomainGroupItem?
+    var domainGroups:[DomainGroupItem?]?
 
 
 
@@ -56,10 +56,22 @@ public class QueryDomainGroupListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryDomainGroupListResultCodingKeys.self)
-        self.totalCount = try decoderContainer.decode(Int32?.self, forKey: .totalCount)
-        self.pageSize = try decoderContainer.decode(Int32?.self, forKey: .pageSize)
-        self.pageNumber = try decoderContainer.decode(Int32?.self, forKey: .pageNumber)
-        self.domainGroups = try decoderContainer.decode(DomainGroupItem?.self, forKey: .domainGroups)
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int32?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int32?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int32?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.domainGroups)
+        {
+            self.domainGroups = try decoderContainer.decode([DomainGroupItem?]?.self, forKey: .domainGroups)
+        }
     }
 }
 public extension QueryDomainGroupListResult{

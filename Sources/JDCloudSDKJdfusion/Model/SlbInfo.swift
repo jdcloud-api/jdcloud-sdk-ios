@@ -76,18 +76,54 @@ public class SlbInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SlbInfoCodingKeys.self)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.ipAddress = try decoderContainer.decode(String?.self, forKey: .ipAddress)
-        self.addressType = try decoderContainer.decode(String?.self, forKey: .addressType)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.vpc = try decoderContainer.decode(String?.self, forKey: .vpc)
-        self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
-        self.masterAz = try decoderContainer.decode(String?.self, forKey: .masterAz)
-        self.slaveAz = try decoderContainer.decode(String?.self, forKey: .slaveAz)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.ipAddress)
+        {
+            self.ipAddress = try decoderContainer.decode(String?.self, forKey: .ipAddress)
+        }
+        if decoderContainer.contains(.addressType)
+        {
+            self.addressType = try decoderContainer.decode(String?.self, forKey: .addressType)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.vpc)
+        {
+            self.vpc = try decoderContainer.decode(String?.self, forKey: .vpc)
+        }
+        if decoderContainer.contains(.networkType)
+        {
+            self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
+        }
+        if decoderContainer.contains(.masterAz)
+        {
+            self.masterAz = try decoderContainer.decode(String?.self, forKey: .masterAz)
+        }
+        if decoderContainer.contains(.slaveAz)
+        {
+            self.slaveAz = try decoderContainer.decode(String?.self, forKey: .slaveAz)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension SlbInfo{

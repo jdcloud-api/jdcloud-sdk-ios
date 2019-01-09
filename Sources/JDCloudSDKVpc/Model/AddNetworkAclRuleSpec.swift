@@ -74,13 +74,22 @@ public class AddNetworkAclRuleSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddNetworkAclRuleSpecCodingKeys.self)
         self.protocolValue = try decoderContainer.decode(String.self, forKey: .protocolValue)
-        self.fromPort = try decoderContainer.decode(Int?.self, forKey: .fromPort)
-        self.toPort = try decoderContainer.decode(Int?.self, forKey: .toPort)
+        if decoderContainer.contains(.fromPort)
+        {
+            self.fromPort = try decoderContainer.decode(Int?.self, forKey: .fromPort)
+        }
+        if decoderContainer.contains(.toPort)
+        {
+            self.toPort = try decoderContainer.decode(Int?.self, forKey: .toPort)
+        }
         self.direction = try decoderContainer.decode(String.self, forKey: .direction)
         self.addressPrefix = try decoderContainer.decode(String.self, forKey: .addressPrefix)
         self.ruleAction = try decoderContainer.decode(String.self, forKey: .ruleAction)
         self.priority = try decoderContainer.decode(Int.self, forKey: .priority)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension AddNetworkAclRuleSpec{

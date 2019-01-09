@@ -44,7 +44,10 @@ public class CreateSubnetResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSubnetResultCodingKeys.self)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
     }
 }
 public extension CreateSubnetResult{

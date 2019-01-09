@@ -54,9 +54,18 @@ public class CreateKeypair:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateKeypairCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.publicKey = try decoderContainer.decode(String?.self, forKey: .publicKey)
+        if decoderContainer.contains(.keyFingerprint)
+        {
+            self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.publicKey)
+        {
+            self.publicKey = try decoderContainer.decode(String?.self, forKey: .publicKey)
+        }
     }
 }
 public extension CreateKeypair{

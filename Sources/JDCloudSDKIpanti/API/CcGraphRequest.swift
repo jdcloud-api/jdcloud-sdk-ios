@@ -37,10 +37,10 @@ public class CcGraphRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例id，可以传0个或多个
-    var instanceId:String?
+    var instanceId:[String?]?
 
     /// 规则域名，可以传0个或多个
-    var subDomain:String?
+    var subDomain:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){

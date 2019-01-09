@@ -41,7 +41,7 @@ public class Getalb:NSObject,Codable{
     /// 解析线路的ID
     var viewValue:Int?
     /// 负载均衡的解析记录的列表
-    var items:HostRRlb?
+    var items:[HostRRlb?]?
 
 
 
@@ -61,12 +61,30 @@ public class Getalb:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetalbCodingKeys.self)
-        self.isBalance = try decoderContainer.decode(Bool?.self, forKey: .isBalance)
-        self.record = try decoderContainer.decode(String?.self, forKey: .record)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.viewName = try decoderContainer.decode(String?.self, forKey: .viewName)
-        self.viewValue = try decoderContainer.decode(Int?.self, forKey: .viewValue)
-        self.items = try decoderContainer.decode(HostRRlb?.self, forKey: .items)
+        if decoderContainer.contains(.isBalance)
+        {
+            self.isBalance = try decoderContainer.decode(Bool?.self, forKey: .isBalance)
+        }
+        if decoderContainer.contains(.record)
+        {
+            self.record = try decoderContainer.decode(String?.self, forKey: .record)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.viewName)
+        {
+            self.viewName = try decoderContainer.decode(String?.self, forKey: .viewName)
+        }
+        if decoderContainer.contains(.viewValue)
+        {
+            self.viewValue = try decoderContainer.decode(Int?.self, forKey: .viewValue)
+        }
+        if decoderContainer.contains(.items)
+        {
+            self.items = try decoderContainer.decode([HostRRlb?]?.self, forKey: .items)
+        }
     }
 }
 public extension Getalb{

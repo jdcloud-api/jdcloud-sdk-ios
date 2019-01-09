@@ -53,7 +53,10 @@ public class SnapshotSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SnapshotSpecCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.diskId = try decoderContainer.decode(String.self, forKey: .diskId)
     }
 }

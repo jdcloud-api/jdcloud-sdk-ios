@@ -73,7 +73,10 @@ public class CreateSubUserInfo:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSubUserInfoCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.password = try decoderContainer.decode(String.self, forKey: .password)
         self.phone = try decoderContainer.decode(String.self, forKey: .phone)
         self.email = try decoderContainer.decode(String.self, forKey: .email)

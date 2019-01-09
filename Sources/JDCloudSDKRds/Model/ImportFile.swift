@@ -61,13 +61,34 @@ public class ImportFile:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImportFileCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.sharedFileGid = try decoderContainer.decode(String?.self, forKey: .sharedFileGid)
-        self.sizeByte = try decoderContainer.decode(Int?.self, forKey: .sizeByte)
-        self.uploadTime = try decoderContainer.decode(String?.self, forKey: .uploadTime)
-        self.isLocal = try decoderContainer.decode(String?.self, forKey: .isLocal)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.importTime = try decoderContainer.decode(String?.self, forKey: .importTime)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.sharedFileGid)
+        {
+            self.sharedFileGid = try decoderContainer.decode(String?.self, forKey: .sharedFileGid)
+        }
+        if decoderContainer.contains(.sizeByte)
+        {
+            self.sizeByte = try decoderContainer.decode(Int?.self, forKey: .sizeByte)
+        }
+        if decoderContainer.contains(.uploadTime)
+        {
+            self.uploadTime = try decoderContainer.decode(String?.self, forKey: .uploadTime)
+        }
+        if decoderContainer.contains(.isLocal)
+        {
+            self.isLocal = try decoderContainer.decode(String?.self, forKey: .isLocal)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.importTime)
+        {
+            self.importTime = try decoderContainer.decode(String?.self, forKey: .importTime)
+        }
     }
 }
 public extension ImportFile{

@@ -32,7 +32,7 @@ public class StatsItem:NSObject,Codable{
     /// 单位
     var calculateUnit:String?
     /// 数据点
-    var dps:DataPoint?
+    var dps:[DataPoint?]?
     /// metric
     var metric:String?
     /// metric名称
@@ -58,12 +58,30 @@ public class StatsItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatsItemCodingKeys.self)
-        self.aggregateFunc = try decoderContainer.decode(String?.self, forKey: .aggregateFunc)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.dps = try decoderContainer.decode(DataPoint?.self, forKey: .dps)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        if decoderContainer.contains(.aggregateFunc)
+        {
+            self.aggregateFunc = try decoderContainer.decode(String?.self, forKey: .aggregateFunc)
+        }
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.dps)
+        {
+            self.dps = try decoderContainer.decode([DataPoint?]?.self, forKey: .dps)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
     }
 }
 public extension StatsItem{

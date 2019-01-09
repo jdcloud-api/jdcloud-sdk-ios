@@ -31,13 +31,13 @@ import JDCloudSDKCore
 public class ModifyNetworkSecurityGroupRulesRequest:JdCloudRequest
 {
     /// 安全组规则信息
-    var modifySecurityGroupRuleSpecs:ModifySecurityGroupRules?
+    var modifySecurityGroupRuleSpecs:[ModifySecurityGroupRules?]?
 
     /// NetworkSecurityGroup ID
     var networkSecurityGroupId:String
 
 
-    public init(regionId: String,modifySecurityGroupRuleSpecs:ModifySecurityGroupRules?,networkSecurityGroupId:String){
+    public init(regionId: String,modifySecurityGroupRuleSpecs:[ModifySecurityGroupRules?]?,networkSecurityGroupId:String){
         self.modifySecurityGroupRuleSpecs = modifySecurityGroupRuleSpecs
         self.networkSecurityGroupId = networkSecurityGroupId
         super.init(regionId: regionId)

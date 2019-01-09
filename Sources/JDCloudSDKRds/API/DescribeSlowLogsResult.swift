@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeSlowLogsResult)
 public class DescribeSlowLogsResult:NSObject,JdCloudResult
 {
-    /// SlowLogs
-    var slowLogs:SlowLogDigest?
+    /// 慢日志信息
+    var slowLogs:[SlowLogDigest?]?
 
     /// 总记录条数
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeSlowLogsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSlowLogsResultCodingKeys.self)
-        self.slowLogs = try decoderContainer.decode(SlowLogDigest?.self, forKey: .slowLogs)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.slowLogs)
+        {
+            self.slowLogs = try decoderContainer.decode([SlowLogDigest?]?.self, forKey: .slowLogs)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeSlowLogsResult{

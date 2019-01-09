@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class QueryDomainsNotInGroupResult:NSObject,JdCloudResult
 {
     /// Domains
-    var domains:String?
+    var domains:[String?]?
 
 
 
@@ -44,7 +44,10 @@ public class QueryDomainsNotInGroupResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryDomainsNotInGroupResultCodingKeys.self)
-        self.domains = try decoderContainer.decode(String?.self, forKey: .domains)
+        if decoderContainer.contains(.domains)
+        {
+            self.domains = try decoderContainer.decode([String?]?.self, forKey: .domains)
+        }
     }
 }
 public extension QueryDomainsNotInGroupResult{

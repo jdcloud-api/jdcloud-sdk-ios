@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetUserViewResult)
 public class GetUserViewResult:NSObject,JdCloudResult
 {
-    /// DataList
-    var dataList:UserViewInput?
+    /// 自定义线路列表
+    var dataList:[UserViewInput?]?
 
     /// 当前页的自定义线路列表里的个数
     var currentCount:Int?
@@ -56,10 +56,22 @@ public class GetUserViewResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetUserViewResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(UserViewInput?.self, forKey: .dataList)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([UserViewInput?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
 public extension GetUserViewResult{

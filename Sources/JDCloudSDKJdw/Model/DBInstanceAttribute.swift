@@ -53,7 +53,7 @@ public class DBInstanceAttribute:NSObject,Codable{
     /// 创建时间
     var createTime:String?
     /// 节点信息
-    var nodes:Node?
+    var nodes:[Node?]?
     /// 计费配置
     var charge:Charge?
 
@@ -83,20 +83,62 @@ public class DBInstanceAttribute:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceAttributeCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.nodeType = try decoderContainer.decode(String?.self, forKey: .nodeType)
-        self.nodeNumber = try decoderContainer.decode(Int?.self, forKey: .nodeNumber)
-        self.azId = try decoderContainer.decode(String?.self, forKey: .azId)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.instanceDomain = try decoderContainer.decode(String?.self, forKey: .instanceDomain)
-        self.instancePort = try decoderContainer.decode(String?.self, forKey: .instancePort)
-        self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
-        self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.nodes = try decoderContainer.decode(Node?.self, forKey: .nodes)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.nodeType)
+        {
+            self.nodeType = try decoderContainer.decode(String?.self, forKey: .nodeType)
+        }
+        if decoderContainer.contains(.nodeNumber)
+        {
+            self.nodeNumber = try decoderContainer.decode(Int?.self, forKey: .nodeNumber)
+        }
+        if decoderContainer.contains(.azId)
+        {
+            self.azId = try decoderContainer.decode(String?.self, forKey: .azId)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.instanceDomain)
+        {
+            self.instanceDomain = try decoderContainer.decode(String?.self, forKey: .instanceDomain)
+        }
+        if decoderContainer.contains(.instancePort)
+        {
+            self.instancePort = try decoderContainer.decode(String?.self, forKey: .instancePort)
+        }
+        if decoderContainer.contains(.accountName)
+        {
+            self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
+        }
+        if decoderContainer.contains(.instanceStatus)
+        {
+            self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.nodes)
+        {
+            self.nodes = try decoderContainer.decode([Node?]?.self, forKey: .nodes)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
     }
 }
 public extension DBInstanceAttribute{

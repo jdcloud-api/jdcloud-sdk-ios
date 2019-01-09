@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeAuditResult)
 public class DescribeAuditResult:NSObject,JdCloudResult
 {
-    /// 当前已开启的审计选项。如当前实例未开启审计，则返回空数组
-    var enabled:String?
+    /// Enabled
+    var enabled:[String?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeAuditResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAuditResultCodingKeys.self)
-        self.enabled = try decoderContainer.decode(String?.self, forKey: .enabled)
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode([String?]?.self, forKey: .enabled)
+        }
     }
 }
 public extension DescribeAuditResult{

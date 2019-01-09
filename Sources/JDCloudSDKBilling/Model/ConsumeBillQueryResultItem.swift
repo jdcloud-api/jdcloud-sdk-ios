@@ -118,32 +118,110 @@ public class ConsumeBillQueryResultItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ConsumeBillQueryResultItemCodingKeys.self)
-        self.billId = try decoderContainer.decode(Double?.self, forKey: .billId)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.appCodeName = try decoderContainer.decode(String?.self, forKey: .appCodeName)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.serviceCodeName = try decoderContainer.decode(String?.self, forKey: .serviceCodeName)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.billingTypeName = try decoderContainer.decode(String?.self, forKey: .billingTypeName)
-        self.billStart = try decoderContainer.decode(String?.self, forKey: .billStart)
-        self.billEnd = try decoderContainer.decode(String?.self, forKey: .billEnd)
-        self.settleTime = try decoderContainer.decode(String?.self, forKey: .settleTime)
-        self.billTime = try decoderContainer.decode(String?.self, forKey: .billTime)
-        self.billFee = try decoderContainer.decode(Double?.self, forKey: .billFee)
-        self.totalFee = try decoderContainer.decode(Double?.self, forKey: .totalFee)
-        self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
-        self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
-        self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
-        self.discountFee = try decoderContainer.decode(Double?.self, forKey: .discountFee)
-        self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
-        self.payState = try decoderContainer.decode(Int?.self, forKey: .payState)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.systemType = try decoderContainer.decode(Int?.self, forKey: .systemType)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.formula = try decoderContainer.decode(String?.self, forKey: .formula)
-        self.formulaStr = try decoderContainer.decode(String?.self, forKey: .formulaStr)
+        if decoderContainer.contains(.billId)
+        {
+            self.billId = try decoderContainer.decode(Double?.self, forKey: .billId)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.appCodeName)
+        {
+            self.appCodeName = try decoderContainer.decode(String?.self, forKey: .appCodeName)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.serviceCodeName)
+        {
+            self.serviceCodeName = try decoderContainer.decode(String?.self, forKey: .serviceCodeName)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.billingTypeName)
+        {
+            self.billingTypeName = try decoderContainer.decode(String?.self, forKey: .billingTypeName)
+        }
+        if decoderContainer.contains(.billStart)
+        {
+            self.billStart = try decoderContainer.decode(String?.self, forKey: .billStart)
+        }
+        if decoderContainer.contains(.billEnd)
+        {
+            self.billEnd = try decoderContainer.decode(String?.self, forKey: .billEnd)
+        }
+        if decoderContainer.contains(.settleTime)
+        {
+            self.settleTime = try decoderContainer.decode(String?.self, forKey: .settleTime)
+        }
+        if decoderContainer.contains(.billTime)
+        {
+            self.billTime = try decoderContainer.decode(String?.self, forKey: .billTime)
+        }
+        if decoderContainer.contains(.billFee)
+        {
+            self.billFee = try decoderContainer.decode(Double?.self, forKey: .billFee)
+        }
+        if decoderContainer.contains(.totalFee)
+        {
+            self.totalFee = try decoderContainer.decode(Double?.self, forKey: .totalFee)
+        }
+        if decoderContainer.contains(.cashPayFee)
+        {
+            self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
+        }
+        if decoderContainer.contains(.cashCouponPayFee)
+        {
+            self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
+        }
+        if decoderContainer.contains(.balancePayFee)
+        {
+            self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
+        }
+        if decoderContainer.contains(.discountFee)
+        {
+            self.discountFee = try decoderContainer.decode(Double?.self, forKey: .discountFee)
+        }
+        if decoderContainer.contains(.arrearFee)
+        {
+            self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
+        }
+        if decoderContainer.contains(.payState)
+        {
+            self.payState = try decoderContainer.decode(Int?.self, forKey: .payState)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.systemType)
+        {
+            self.systemType = try decoderContainer.decode(Int?.self, forKey: .systemType)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.formula)
+        {
+            self.formula = try decoderContainer.decode(String?.self, forKey: .formula)
+        }
+        if decoderContainer.contains(.formulaStr)
+        {
+            self.formulaStr = try decoderContainer.decode(String?.self, forKey: .formulaStr)
+        }
     }
 }
 public extension ConsumeBillQueryResultItem{

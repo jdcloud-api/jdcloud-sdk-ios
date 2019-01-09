@@ -55,11 +55,26 @@ public class DigestData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DigestDataCodingKeys.self)
-        self.pct95 = try decoderContainer.decode(Double?.self, forKey: .pct95)
-        self.max = try decoderContainer.decode(Double?.self, forKey: .max)
-        self.avg = try decoderContainer.decode(Double?.self, forKey: .avg)
-        self.min = try decoderContainer.decode(Double?.self, forKey: .min)
-        self.total = try decoderContainer.decode(Double?.self, forKey: .total)
+        if decoderContainer.contains(.pct95)
+        {
+            self.pct95 = try decoderContainer.decode(Double?.self, forKey: .pct95)
+        }
+        if decoderContainer.contains(.max)
+        {
+            self.max = try decoderContainer.decode(Double?.self, forKey: .max)
+        }
+        if decoderContainer.contains(.avg)
+        {
+            self.avg = try decoderContainer.decode(Double?.self, forKey: .avg)
+        }
+        if decoderContainer.contains(.min)
+        {
+            self.min = try decoderContainer.decode(Double?.self, forKey: .min)
+        }
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Double?.self, forKey: .total)
+        }
     }
 }
 public extension DigestData{

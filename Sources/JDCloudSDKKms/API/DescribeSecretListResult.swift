@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeSecretListResult)
 public class DescribeSecretListResult:NSObject,JdCloudResult
 {
-    /// SecretList
-    var secretList:SecretInfo?
+    /// Secret列表
+    var secretList:[SecretInfo?]?
 
     /// Secret的数量
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeSecretListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSecretListResultCodingKeys.self)
-        self.secretList = try decoderContainer.decode(SecretInfo?.self, forKey: .secretList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.secretList)
+        {
+            self.secretList = try decoderContainer.decode([SecretInfo?]?.self, forKey: .secretList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeSecretListResult{

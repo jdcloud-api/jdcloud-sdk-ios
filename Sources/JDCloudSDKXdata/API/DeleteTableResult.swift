@@ -52,8 +52,14 @@ public class DeleteTableResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DeleteTableResultCodingKeys.self)
-        self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
     }
 }
 public extension DeleteTableResult{

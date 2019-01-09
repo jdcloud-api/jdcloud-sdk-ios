@@ -44,7 +44,10 @@ public class StopJobResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StopJobResultCodingKeys.self)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
     }
 }
 public extension StopJobResult{

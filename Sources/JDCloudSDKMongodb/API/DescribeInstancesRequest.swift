@@ -42,14 +42,14 @@ public class DescribeInstancesRequest:JdCloudRequest
       /// instanceStatus - mongodb状态，精确匹配，支持多个.RUNNING：运行, ERROR：错误 ,BUILDING：创建中, DELETING：删除中, RESTORING：恢复中, RESIZING：变配中
       /// chargeMode - 计费类型，精确匹配
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// Tag筛选条件
-    var tagFilters:TagFilter?
+    var tagFilters:[TagFilter?]?
 
     /// createTime - 创建时间,asc（正序），desc（倒序）
       /// 
-    var sorts:Sort?
+    var sorts:[Sort?]?
 
 
 

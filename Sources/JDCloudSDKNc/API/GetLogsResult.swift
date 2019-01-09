@@ -45,7 +45,10 @@ public class GetLogsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetLogsResultCodingKeys.self)
-        self.logs = try decoderContainer.decode(Logs?.self, forKey: .logs)
+        if decoderContainer.contains(.logs)
+        {
+            self.logs = try decoderContainer.decode(Logs?.self, forKey: .logs)
+        }
     }
 }
 public extension GetLogsResult{

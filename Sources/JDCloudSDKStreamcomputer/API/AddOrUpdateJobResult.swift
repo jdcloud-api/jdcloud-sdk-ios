@@ -44,7 +44,10 @@ public class AddOrUpdateJobResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddOrUpdateJobResultCodingKeys.self)
-        self.okInfo = try decoderContainer.decode(OkInfo?.self, forKey: .okInfo)
+        if decoderContainer.contains(.okInfo)
+        {
+            self.okInfo = try decoderContainer.decode(OkInfo?.self, forKey: .okInfo)
+        }
     }
 }
 public extension AddOrUpdateJobResult{

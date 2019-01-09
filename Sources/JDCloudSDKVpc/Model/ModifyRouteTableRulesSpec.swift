@@ -29,11 +29,11 @@ import Foundation
 public class ModifyRouteTableRulesSpec:NSObject,Codable{
     /// 路由表规则信息
     /// Required:true
-    var modifyRouteTableRuleSpecs:ModifyRouteTableRules?
+    var modifyRouteTableRuleSpecs:[ModifyRouteTableRules?]
 
 
 
-    public  init(modifyRouteTableRuleSpecs:ModifyRouteTableRules?){
+    public  init(modifyRouteTableRuleSpecs:[ModifyRouteTableRules?]){
              self.modifyRouteTableRuleSpecs = modifyRouteTableRuleSpecs
     }
 
@@ -44,7 +44,7 @@ public class ModifyRouteTableRulesSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyRouteTableRulesSpecCodingKeys.self)
-        self.modifyRouteTableRuleSpecs = try decoderContainer.decode(ModifyRouteTableRules?.self, forKey: .modifyRouteTableRuleSpecs)
+        self.modifyRouteTableRuleSpecs = try decoderContainer.decode([ModifyRouteTableRules?].self, forKey: .modifyRouteTableRuleSpecs)
     }
 }
 public extension ModifyRouteTableRulesSpec{

@@ -53,7 +53,10 @@ public class CreateElasticIpSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateElasticIpSpecCodingKeys.self)
         self.maxCount = try decoderContainer.decode(Int.self, forKey: .maxCount)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
         self.elasticIpSpec = try decoderContainer.decode(ElasticIpSpec.self, forKey: .elasticIpSpec)
     }
 }

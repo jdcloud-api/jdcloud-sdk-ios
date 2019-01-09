@@ -44,7 +44,10 @@ public class AddRRResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddRRResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(RR?.self, forKey: .dataList)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode(RR?.self, forKey: .dataList)
+        }
     }
 }
 public extension AddRRResult{

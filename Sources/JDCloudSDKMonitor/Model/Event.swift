@@ -49,9 +49,18 @@ public class Event:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: EventCodingKeys.self)
-        self.probeResult = try decoderContainer.decode(Int64?.self, forKey: .probeResult)
-        self.probeStatus = try decoderContainer.decode(Int64?.self, forKey: .probeStatus)
-        self.timestamp = try decoderContainer.decode(Int64?.self, forKey: .timestamp)
+        if decoderContainer.contains(.probeResult)
+        {
+            self.probeResult = try decoderContainer.decode(Int64?.self, forKey: .probeResult)
+        }
+        if decoderContainer.contains(.probeStatus)
+        {
+            self.probeStatus = try decoderContainer.decode(Int64?.self, forKey: .probeStatus)
+        }
+        if decoderContainer.contains(.timestamp)
+        {
+            self.timestamp = try decoderContainer.decode(Int64?.self, forKey: .timestamp)
+        }
     }
 }
 public extension Event{

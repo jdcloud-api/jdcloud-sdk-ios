@@ -44,7 +44,10 @@ public class DescribeIpResourceInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeIpResourceInfoResultCodingKeys.self)
-        self.data = try decoderContainer.decode(IpResourceInfo?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(IpResourceInfo?.self, forKey: .data)
+        }
     }
 }
 public extension DescribeIpResourceInfoResult{

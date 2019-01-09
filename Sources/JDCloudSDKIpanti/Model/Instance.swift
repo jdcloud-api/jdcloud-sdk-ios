@@ -133,37 +133,130 @@ public class Instance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.carrier = try decoderContainer.decode(String?.self, forKey: .carrier)
-        self.elasticTriggerCount = try decoderContainer.decode(Int?.self, forKey: .elasticTriggerCount)
-        self.abovePeakCount = try decoderContainer.decode(Int?.self, forKey: .abovePeakCount)
-        self.inBitslimit = try decoderContainer.decode(Int?.self, forKey: .inBitslimit)
-        self.resilientBitslimit = try decoderContainer.decode(Int?.self, forKey: .resilientBitslimit)
-        self.businessBitslimit = try decoderContainer.decode(Int?.self, forKey: .businessBitslimit)
-        self.ccThreshold = try decoderContainer.decode(Int?.self, forKey: .ccThreshold)
-        self.ruleCount = try decoderContainer.decode(Int?.self, forKey: .ruleCount)
-        self.webRuleCount = try decoderContainer.decode(Int?.self, forKey: .webRuleCount)
-        self.chargeStatus = try decoderContainer.decode(String?.self, forKey: .chargeStatus)
-        self.securityStatus = try decoderContainer.decode(String?.self, forKey: .securityStatus)
-        self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
-        self.expireTime = try decoderContainer.decode(Int64?.self, forKey: .expireTime)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.ccProtectMode = try decoderContainer.decode(Int?.self, forKey: .ccProtectMode)
-        self.ccProtectStatus = try decoderContainer.decode(Int?.self, forKey: .ccProtectStatus)
-        self.ccSpeedLimit = try decoderContainer.decode(Int?.self, forKey: .ccSpeedLimit)
-        self.ccSpeedPeriod = try decoderContainer.decode(Int?.self, forKey: .ccSpeedPeriod)
-        self.ipBlackList = try decoderContainer.decode([String?]?.self, forKey: .ipBlackList)
-        self.ipBlackStatus = try decoderContainer.decode(Int?.self, forKey: .ipBlackStatus)
-        self.ipWhiteList = try decoderContainer.decode([String?]?.self, forKey: .ipWhiteList)
-        self.ipWhiteStatus = try decoderContainer.decode(Int?.self, forKey: .ipWhiteStatus)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.urlWhitelist = try decoderContainer.decode([String?]?.self, forKey: .urlWhitelist)
-        self.urlWhitelistStatus = try decoderContainer.decode(Int?.self, forKey: .urlWhitelistStatus)
-        self.hostQps = try decoderContainer.decode(Int?.self, forKey: .hostQps)
-        self.hostUrlQps = try decoderContainer.decode(Int?.self, forKey: .hostUrlQps)
-        self.ipHostQps = try decoderContainer.decode(Int?.self, forKey: .ipHostQps)
-        self.ipHostUrlQps = try decoderContainer.decode(Int?.self, forKey: .ipHostUrlQps)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.carrier)
+        {
+            self.carrier = try decoderContainer.decode(String?.self, forKey: .carrier)
+        }
+        if decoderContainer.contains(.elasticTriggerCount)
+        {
+            self.elasticTriggerCount = try decoderContainer.decode(Int?.self, forKey: .elasticTriggerCount)
+        }
+        if decoderContainer.contains(.abovePeakCount)
+        {
+            self.abovePeakCount = try decoderContainer.decode(Int?.self, forKey: .abovePeakCount)
+        }
+        if decoderContainer.contains(.inBitslimit)
+        {
+            self.inBitslimit = try decoderContainer.decode(Int?.self, forKey: .inBitslimit)
+        }
+        if decoderContainer.contains(.resilientBitslimit)
+        {
+            self.resilientBitslimit = try decoderContainer.decode(Int?.self, forKey: .resilientBitslimit)
+        }
+        if decoderContainer.contains(.businessBitslimit)
+        {
+            self.businessBitslimit = try decoderContainer.decode(Int?.self, forKey: .businessBitslimit)
+        }
+        if decoderContainer.contains(.ccThreshold)
+        {
+            self.ccThreshold = try decoderContainer.decode(Int?.self, forKey: .ccThreshold)
+        }
+        if decoderContainer.contains(.ruleCount)
+        {
+            self.ruleCount = try decoderContainer.decode(Int?.self, forKey: .ruleCount)
+        }
+        if decoderContainer.contains(.webRuleCount)
+        {
+            self.webRuleCount = try decoderContainer.decode(Int?.self, forKey: .webRuleCount)
+        }
+        if decoderContainer.contains(.chargeStatus)
+        {
+            self.chargeStatus = try decoderContainer.decode(String?.self, forKey: .chargeStatus)
+        }
+        if decoderContainer.contains(.securityStatus)
+        {
+            self.securityStatus = try decoderContainer.decode(String?.self, forKey: .securityStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.expireTime)
+        {
+            self.expireTime = try decoderContainer.decode(Int64?.self, forKey: .expireTime)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.ccProtectMode)
+        {
+            self.ccProtectMode = try decoderContainer.decode(Int?.self, forKey: .ccProtectMode)
+        }
+        if decoderContainer.contains(.ccProtectStatus)
+        {
+            self.ccProtectStatus = try decoderContainer.decode(Int?.self, forKey: .ccProtectStatus)
+        }
+        if decoderContainer.contains(.ccSpeedLimit)
+        {
+            self.ccSpeedLimit = try decoderContainer.decode(Int?.self, forKey: .ccSpeedLimit)
+        }
+        if decoderContainer.contains(.ccSpeedPeriod)
+        {
+            self.ccSpeedPeriod = try decoderContainer.decode(Int?.self, forKey: .ccSpeedPeriod)
+        }
+        if decoderContainer.contains(.ipBlackList)
+        {
+            self.ipBlackList = try decoderContainer.decode([String?]?.self, forKey: .ipBlackList)
+        }
+        if decoderContainer.contains(.ipBlackStatus)
+        {
+            self.ipBlackStatus = try decoderContainer.decode(Int?.self, forKey: .ipBlackStatus)
+        }
+        if decoderContainer.contains(.ipWhiteList)
+        {
+            self.ipWhiteList = try decoderContainer.decode([String?]?.self, forKey: .ipWhiteList)
+        }
+        if decoderContainer.contains(.ipWhiteStatus)
+        {
+            self.ipWhiteStatus = try decoderContainer.decode(Int?.self, forKey: .ipWhiteStatus)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.urlWhitelist)
+        {
+            self.urlWhitelist = try decoderContainer.decode([String?]?.self, forKey: .urlWhitelist)
+        }
+        if decoderContainer.contains(.urlWhitelistStatus)
+        {
+            self.urlWhitelistStatus = try decoderContainer.decode(Int?.self, forKey: .urlWhitelistStatus)
+        }
+        if decoderContainer.contains(.hostQps)
+        {
+            self.hostQps = try decoderContainer.decode(Int?.self, forKey: .hostQps)
+        }
+        if decoderContainer.contains(.hostUrlQps)
+        {
+            self.hostUrlQps = try decoderContainer.decode(Int?.self, forKey: .hostUrlQps)
+        }
+        if decoderContainer.contains(.ipHostQps)
+        {
+            self.ipHostQps = try decoderContainer.decode(Int?.self, forKey: .ipHostQps)
+        }
+        if decoderContainer.contains(.ipHostUrlQps)
+        {
+            self.ipHostUrlQps = try decoderContainer.decode(Int?.self, forKey: .ipHostUrlQps)
+        }
     }
 }
 public extension Instance{

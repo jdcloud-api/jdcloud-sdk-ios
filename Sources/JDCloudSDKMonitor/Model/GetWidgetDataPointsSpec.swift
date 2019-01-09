@@ -36,9 +36,9 @@ public class GetWidgetDataPointsSpec:NSObject,Codable{
     /// EndTime
     var endTime:String?
     /// name为widgetId - 多个图表的id
-    var filters:Filter?
+    var filters:[Filter?]?
     /// Metrics
-    var metrics:WidgetMetric?
+    var metrics:[WidgetMetric?]?
     /// Name
     var name:String?
     /// Position
@@ -85,21 +85,66 @@ public class GetWidgetDataPointsSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetWidgetDataPointsSpecCodingKeys.self)
-        self.aggregated = try decoderContainer.decode(String?.self, forKey: .aggregated)
-        self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
-        self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.filters = try decoderContainer.decode(Filter?.self, forKey: .filters)
-        self.metrics = try decoderContainer.decode(WidgetMetric?.self, forKey: .metrics)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.position = try decoderContainer.decode(WidgetPosition?.self, forKey: .position)
-        self.resources = try decoderContainer.decode(WidgetResources?.self, forKey: .resources)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.topN = try decoderContainer.decode(Int?.self, forKey: .topN)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
-        self.widgetId = try decoderContainer.decode([String?]?.self, forKey: .widgetId)
+        if decoderContainer.contains(.aggregated)
+        {
+            self.aggregated = try decoderContainer.decode(String?.self, forKey: .aggregated)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.dashboardId)
+        {
+            self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.filters)
+        {
+            self.filters = try decoderContainer.decode([Filter?]?.self, forKey: .filters)
+        }
+        if decoderContainer.contains(.metrics)
+        {
+            self.metrics = try decoderContainer.decode([WidgetMetric?]?.self, forKey: .metrics)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.position)
+        {
+            self.position = try decoderContainer.decode(WidgetPosition?.self, forKey: .position)
+        }
+        if decoderContainer.contains(.resources)
+        {
+            self.resources = try decoderContainer.decode(WidgetResources?.self, forKey: .resources)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.topN)
+        {
+            self.topN = try decoderContainer.decode(Int?.self, forKey: .topN)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.updatedTime)
+        {
+            self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
+        }
+        if decoderContainer.contains(.widgetId)
+        {
+            self.widgetId = try decoderContainer.decode([String?]?.self, forKey: .widgetId)
+        }
     }
 }
 public extension GetWidgetDataPointsSpec{

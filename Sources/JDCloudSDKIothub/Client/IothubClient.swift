@@ -62,7 +62,7 @@ public class IothubJDCloudClient:NSObject,JDCloudClient{
     
     public let serviceName: String = "iothub"
     
-    public let version: String = "0.0.1"
+    public let version: String = "v1"
     
     public let contentType:String = "application/json"
     

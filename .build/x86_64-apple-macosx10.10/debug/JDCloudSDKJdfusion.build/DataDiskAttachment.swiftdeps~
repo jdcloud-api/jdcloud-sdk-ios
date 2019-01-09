@@ -1,0 +1,405 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DataDiskAttachment"
+provides-nominal:
+- "18JDCloudSDKJdfusion18DataDiskAttachmentC"
+- "18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO"
+provides-member:
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", ""]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", ""]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "encode"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "Array"
+- "AssignmentPrecedence"
+- "Bool"
+- "Codable"
+- "CodingKey"
+- "DataDiskAttachment"
+- "DataDiskInfo"
+- "Decoder"
+- "Encoder"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "NSObject"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Bool"]
+- !private ["s7CVarArgP", "DataDiskAttachmentCodingKeys"]
+- !private ["s7CVarArgP", "DataDiskInfo"]
+- !private ["s7CVarArgP", "String"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_findStringSwitchCase"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "autoDelete"]
+- !private ["s7CVarArgP", "dataDisk"]
+- !private ["s7CVarArgP", "deviceName"]
+- !private ["s7CVarArgP", "diskCategory"]
+- ["s7CVarArgP", "encode"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- ["s9CodingKeyP", "RawValue"]
+- ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_Default_RawValue"]
+- !private ["s9CodingKeyP", "_findStringSwitchCase"]
+- !private ["s9CodingKeyP", "autoDelete"]
+- !private ["s9CodingKeyP", "dataDisk"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- !private ["s9CodingKeyP", "deviceName"]
+- !private ["s9CodingKeyP", "diskCategory"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "rawValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Bool"]
+- !private ["s28CustomDebugStringConvertibleP", "DataDiskAttachmentCodingKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "DataDiskInfo"]
+- ["s28CustomDebugStringConvertibleP", "RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "String"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
+- !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s28CustomDebugStringConvertibleP", "autoDelete"]
+- !private ["s28CustomDebugStringConvertibleP", "dataDisk"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- !private ["s28CustomDebugStringConvertibleP", "deviceName"]
+- !private ["s28CustomDebugStringConvertibleP", "diskCategory"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- ["s28CustomDebugStringConvertibleP", "rawValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "Bool"]
+- !private ["s23CustomStringConvertibleP", "DataDiskAttachmentCodingKeys"]
+- !private ["s23CustomStringConvertibleP", "DataDiskInfo"]
+- ["s23CustomStringConvertibleP", "RawValue"]
+- !private ["s23CustomStringConvertibleP", "String"]
+- ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_Default_RawValue"]
+- !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "autoDelete"]
+- !private ["s23CustomStringConvertibleP", "dataDisk"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- !private ["s23CustomStringConvertibleP", "deviceName"]
+- !private ["s23CustomStringConvertibleP", "diskCategory"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- ["s23CustomStringConvertibleP", "rawValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "Bool"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "CodingKey"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "DataDiskAttachmentCodingKeys"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "DataDiskInfo"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "Decoder"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "Encoder"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "String"]
+- !private ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "_findStringSwitchCase"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "autoDelete"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "dataDisk"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "deinit"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "deviceName"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "diskCategory"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "encode"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC", "init"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "RawValue"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "_Default_RawValue"]
+- !private ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "_findStringSwitchCase"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "autoDelete"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "dataDisk"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "debugDescription"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "deinit"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "description"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "deviceName"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "diskCategory"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "hash"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "hashValue"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "init"]
+- !private ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "init"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "intValue"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "rawValue"]
+- ["18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO", "stringValue"]
+- !private ["18JDCloudSDKJdfusion12DataDiskInfoC", "deinit"]
+- !private ["Se", "Bool"]
+- !private ["Se", "DataDiskAttachmentCodingKeys"]
+- !private ["Se", "DataDiskInfo"]
+- !private ["Se", "String"]
+- ["Se", ""]
+- !private ["Se", "_findStringSwitchCase"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "autoDelete"]
+- !private ["Se", "dataDisk"]
+- !private ["Se", "deviceName"]
+- !private ["Se", "diskCategory"]
+- ["Se", "encode"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["s7DecoderP", "container"]
+- !private ["SE", "Bool"]
+- !private ["SE", "DataDiskAttachmentCodingKeys"]
+- !private ["SE", "DataDiskInfo"]
+- !private ["SE", "String"]
+- ["SE", ""]
+- !private ["SE", "_findStringSwitchCase"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "autoDelete"]
+- !private ["SE", "dataDisk"]
+- !private ["SE", "deviceName"]
+- !private ["SE", "diskCategory"]
+- ["SE", "encode"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["s7EncoderP", "container"]
+- !private ["SQ", "Bool"]
+- !private ["SQ", "DataDiskAttachmentCodingKeys"]
+- !private ["SQ", "DataDiskInfo"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "String"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "autoDelete"]
+- !private ["SQ", "dataDisk"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- !private ["SQ", "deviceName"]
+- !private ["SQ", "diskCategory"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "Bool"]
+- !private ["SH", "DataDiskAttachmentCodingKeys"]
+- !private ["SH", "DataDiskInfo"]
+- ["SH", "RawValue"]
+- !private ["SH", "String"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "autoDelete"]
+- !private ["SH", "dataDisk"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- !private ["SH", "deviceName"]
+- !private ["SH", "diskCategory"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "CodingKey"]
+- !private ["So8NSObjectC", "DataDiskAttachmentCodingKeys"]
+- ["So8NSObjectC", "DataDiskInfo"]
+- ["So8NSObjectC", "Decoder"]
+- ["So8NSObjectC", "Encoder"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "_findStringSwitchCase"]
+- ["So8NSObjectC", "autoDelete"]
+- ["So8NSObjectC", "dataDisk"]
+- ["So8NSObjectC", "deviceName"]
+- ["So8NSObjectC", "diskCategory"]
+- ["So8NSObjectC", "encode"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectP", "Bool"]
+- !private ["So8NSObjectP", "DataDiskAttachmentCodingKeys"]
+- !private ["So8NSObjectP", "DataDiskInfo"]
+- !private ["So8NSObjectP", "String"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_findStringSwitchCase"]
+- !private ["So8NSObjectP", "autoDelete"]
+- !private ["So8NSObjectP", "dataDisk"]
+- !private ["So8NSObjectP", "deviceName"]
+- !private ["So8NSObjectP", "diskCategory"]
+- ["So8NSObjectP", "encode"]
+- ["So8NSObjectP", "init"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- !private ["SY", "autoDelete"]
+- !private ["SY", "dataDisk"]
+- ["SY", "debugDescription"]
+- ["SY", "description"]
+- !private ["SY", "deviceName"]
+- !private ["SY", "diskCategory"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- !private ["SY", "init"]
+- ["SY", "intValue"]
+- ["SY", "rawValue"]
+- ["SY", "stringValue"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "init"]
+- ["SS", "init"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- ["14JDCloudSDKCore14URLConvertibleP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Bool"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DataDiskAttachmentCodingKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DataDiskInfo"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "autoDelete"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dataDisk"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "deviceName"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "diskCategory"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "s9CodingKeyP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "18JDCloudSDKJdfusion18DataDiskAttachmentC"
+- "18JDCloudSDKJdfusion18DataDiskAttachmentC0cdE10CodingKeysO"
+- !private "18JDCloudSDKJdfusion12DataDiskInfoC"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- !private "s6HasherV"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "Sm"
+- "SY"
+- "ST"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "14JDCloudSDKCore14URLConvertibleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "3d1776998666a311355d27f75d04324b"

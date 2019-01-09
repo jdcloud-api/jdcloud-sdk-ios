@@ -55,11 +55,26 @@ public class MetricInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MetricInfoCodingKeys.self)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricId)
+        {
+            self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
     }
 }
 public extension MetricInfo{

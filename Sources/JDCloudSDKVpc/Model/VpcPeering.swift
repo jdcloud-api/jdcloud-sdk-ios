@@ -61,13 +61,34 @@ public class VpcPeering:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcPeeringCodingKeys.self)
-        self.vpcPeeringId = try decoderContainer.decode(String?.self, forKey: .vpcPeeringId)
-        self.vpcPeeringName = try decoderContainer.decode(String?.self, forKey: .vpcPeeringName)
-        self.vpcPeeringState = try decoderContainer.decode(String?.self, forKey: .vpcPeeringState)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.vpcInfo = try decoderContainer.decode(VpcPeeringVpcInfo?.self, forKey: .vpcInfo)
-        self.remoteVpcInfo = try decoderContainer.decode(VpcPeeringVpcInfo?.self, forKey: .remoteVpcInfo)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.vpcPeeringId)
+        {
+            self.vpcPeeringId = try decoderContainer.decode(String?.self, forKey: .vpcPeeringId)
+        }
+        if decoderContainer.contains(.vpcPeeringName)
+        {
+            self.vpcPeeringName = try decoderContainer.decode(String?.self, forKey: .vpcPeeringName)
+        }
+        if decoderContainer.contains(.vpcPeeringState)
+        {
+            self.vpcPeeringState = try decoderContainer.decode(String?.self, forKey: .vpcPeeringState)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.vpcInfo)
+        {
+            self.vpcInfo = try decoderContainer.decode(VpcPeeringVpcInfo?.self, forKey: .vpcInfo)
+        }
+        if decoderContainer.contains(.remoteVpcInfo)
+        {
+            self.remoteVpcInfo = try decoderContainer.decode(VpcPeeringVpcInfo?.self, forKey: .remoteVpcInfo)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension VpcPeering{

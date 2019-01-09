@@ -67,15 +67,42 @@ public class SecurityGroupRule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SecurityGroupRuleCodingKeys.self)
-        self.ruleId = try decoderContainer.decode(String?.self, forKey: .ruleId)
-        self.direction = try decoderContainer.decode(Double?.self, forKey: .direction)
-        self.protocolValue = try decoderContainer.decode(Double?.self, forKey: .protocolValue)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.ipVersion = try decoderContainer.decode(Double?.self, forKey: .ipVersion)
-        self.fromPort = try decoderContainer.decode(Double?.self, forKey: .fromPort)
-        self.toPort = try decoderContainer.decode(Double?.self, forKey: .toPort)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.ruleId)
+        {
+            self.ruleId = try decoderContainer.decode(String?.self, forKey: .ruleId)
+        }
+        if decoderContainer.contains(.direction)
+        {
+            self.direction = try decoderContainer.decode(Double?.self, forKey: .direction)
+        }
+        if decoderContainer.contains(.protocolValue)
+        {
+            self.protocolValue = try decoderContainer.decode(Double?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.ipVersion)
+        {
+            self.ipVersion = try decoderContainer.decode(Double?.self, forKey: .ipVersion)
+        }
+        if decoderContainer.contains(.fromPort)
+        {
+            self.fromPort = try decoderContainer.decode(Double?.self, forKey: .fromPort)
+        }
+        if decoderContainer.contains(.toPort)
+        {
+            self.toPort = try decoderContainer.decode(Double?.self, forKey: .toPort)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension SecurityGroupRule{

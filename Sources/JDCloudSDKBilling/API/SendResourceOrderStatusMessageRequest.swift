@@ -34,7 +34,7 @@ public class SendResourceOrderStatusMessageRequest:JdCloudRequest
     var cmd:Int
 
     /// 资源单信息
-    var orderList:ResourceOrderStatusVo?
+    var orderList:[ResourceOrderStatusVo?]?
 
     /// 操作者类型 0：用户 1：管理员（运营）
     var operatorType:Int

@@ -42,7 +42,7 @@ public class DescribeVpcPeeringsRequest:JdCloudRequest
       /// vpcId	- vpcPeering本端Vpc Id，支持单个
       /// remoteVpcId - vpcPeering对端Vpc Id，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

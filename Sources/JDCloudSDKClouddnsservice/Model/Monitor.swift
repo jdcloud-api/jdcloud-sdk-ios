@@ -139,39 +139,138 @@ public class Monitor:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MonitorCodingKeys.self)
-        self.alarmLimit = try decoderContainer.decode(Int?.self, forKey: .alarmLimit)
-        self.canRecover = try decoderContainer.decode(Bool?.self, forKey: .canRecover)
-        self.canSwitch = try decoderContainer.decode(Bool?.self, forKey: .canSwitch)
-        self.clusters = try decoderContainer.decode(String?.self, forKey: .clusters)
-        self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
-        self.hostStatus = try decoderContainer.decode(Int?.self, forKey: .hostStatus)
-        self.hostValue = try decoderContainer.decode(String?.self, forKey: .hostValue)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.ipBackup01 = try decoderContainer.decode(String?.self, forKey: .ipBackup01)
-        self.ipBackup01Status = try decoderContainer.decode(Int?.self, forKey: .ipBackup01Status)
-        self.ipBackup01Type = try decoderContainer.decode(Int?.self, forKey: .ipBackup01Type)
-        self.ipBackup02 = try decoderContainer.decode(String?.self, forKey: .ipBackup02)
-        self.ipBackup02Status = try decoderContainer.decode(Int?.self, forKey: .ipBackup02Status)
-        self.ipBackup02Type = try decoderContainer.decode(Int?.self, forKey: .ipBackup02Type)
-        self.manualBackup = try decoderContainer.decode(String?.self, forKey: .manualBackup)
-        self.manualBackupStatus = try decoderContainer.decode(Int?.self, forKey: .manualBackupStatus)
-        self.manualBackupType = try decoderContainer.decode(Int?.self, forKey: .manualBackupType)
-        self.monitorEnable = try decoderContainer.decode(Int?.self, forKey: .monitorEnable)
-        self.monitorFreq = try decoderContainer.decode(Int?.self, forKey: .monitorFreq)
-        self.monitorPort = try decoderContainer.decode(Int?.self, forKey: .monitorPort)
-        self.monitorRule = try decoderContainer.decode(Int?.self, forKey: .monitorRule)
-        self.monitorUri = try decoderContainer.decode(String?.self, forKey: .monitorUri)
-        self.notifyEmail = try decoderContainer.decode(String?.self, forKey: .notifyEmail)
-        self.notifyEmailEnable = try decoderContainer.decode(Int?.self, forKey: .notifyEmailEnable)
-        self.notifyMsgBarEnable = try decoderContainer.decode(Int?.self, forKey: .notifyMsgBarEnable)
-        self.notifySms = try decoderContainer.decode(String?.self, forKey: .notifySms)
-        self.notifySmsEnable = try decoderContainer.decode(Int?.self, forKey: .notifySmsEnable)
-        self.protocolValue = try decoderContainer.decode(Int?.self, forKey: .protocolValue)
-        self.stopRecoverRule = try decoderContainer.decode(Int?.self, forKey: .stopRecoverRule)
-        self.subDomainName = try decoderContainer.decode(String?.self, forKey: .subDomainName)
-        self.switchRecoverRule = try decoderContainer.decode(Int?.self, forKey: .switchRecoverRule)
-        self.type = try decoderContainer.decode(Int?.self, forKey: .type)
-        self.usedType = try decoderContainer.decode(Int?.self, forKey: .usedType)
+        if decoderContainer.contains(.alarmLimit)
+        {
+            self.alarmLimit = try decoderContainer.decode(Int?.self, forKey: .alarmLimit)
+        }
+        if decoderContainer.contains(.canRecover)
+        {
+            self.canRecover = try decoderContainer.decode(Bool?.self, forKey: .canRecover)
+        }
+        if decoderContainer.contains(.canSwitch)
+        {
+            self.canSwitch = try decoderContainer.decode(Bool?.self, forKey: .canSwitch)
+        }
+        if decoderContainer.contains(.clusters)
+        {
+            self.clusters = try decoderContainer.decode(String?.self, forKey: .clusters)
+        }
+        if decoderContainer.contains(.domainName)
+        {
+            self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
+        }
+        if decoderContainer.contains(.hostStatus)
+        {
+            self.hostStatus = try decoderContainer.decode(Int?.self, forKey: .hostStatus)
+        }
+        if decoderContainer.contains(.hostValue)
+        {
+            self.hostValue = try decoderContainer.decode(String?.self, forKey: .hostValue)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.ipBackup01)
+        {
+            self.ipBackup01 = try decoderContainer.decode(String?.self, forKey: .ipBackup01)
+        }
+        if decoderContainer.contains(.ipBackup01Status)
+        {
+            self.ipBackup01Status = try decoderContainer.decode(Int?.self, forKey: .ipBackup01Status)
+        }
+        if decoderContainer.contains(.ipBackup01Type)
+        {
+            self.ipBackup01Type = try decoderContainer.decode(Int?.self, forKey: .ipBackup01Type)
+        }
+        if decoderContainer.contains(.ipBackup02)
+        {
+            self.ipBackup02 = try decoderContainer.decode(String?.self, forKey: .ipBackup02)
+        }
+        if decoderContainer.contains(.ipBackup02Status)
+        {
+            self.ipBackup02Status = try decoderContainer.decode(Int?.self, forKey: .ipBackup02Status)
+        }
+        if decoderContainer.contains(.ipBackup02Type)
+        {
+            self.ipBackup02Type = try decoderContainer.decode(Int?.self, forKey: .ipBackup02Type)
+        }
+        if decoderContainer.contains(.manualBackup)
+        {
+            self.manualBackup = try decoderContainer.decode(String?.self, forKey: .manualBackup)
+        }
+        if decoderContainer.contains(.manualBackupStatus)
+        {
+            self.manualBackupStatus = try decoderContainer.decode(Int?.self, forKey: .manualBackupStatus)
+        }
+        if decoderContainer.contains(.manualBackupType)
+        {
+            self.manualBackupType = try decoderContainer.decode(Int?.self, forKey: .manualBackupType)
+        }
+        if decoderContainer.contains(.monitorEnable)
+        {
+            self.monitorEnable = try decoderContainer.decode(Int?.self, forKey: .monitorEnable)
+        }
+        if decoderContainer.contains(.monitorFreq)
+        {
+            self.monitorFreq = try decoderContainer.decode(Int?.self, forKey: .monitorFreq)
+        }
+        if decoderContainer.contains(.monitorPort)
+        {
+            self.monitorPort = try decoderContainer.decode(Int?.self, forKey: .monitorPort)
+        }
+        if decoderContainer.contains(.monitorRule)
+        {
+            self.monitorRule = try decoderContainer.decode(Int?.self, forKey: .monitorRule)
+        }
+        if decoderContainer.contains(.monitorUri)
+        {
+            self.monitorUri = try decoderContainer.decode(String?.self, forKey: .monitorUri)
+        }
+        if decoderContainer.contains(.notifyEmail)
+        {
+            self.notifyEmail = try decoderContainer.decode(String?.self, forKey: .notifyEmail)
+        }
+        if decoderContainer.contains(.notifyEmailEnable)
+        {
+            self.notifyEmailEnable = try decoderContainer.decode(Int?.self, forKey: .notifyEmailEnable)
+        }
+        if decoderContainer.contains(.notifyMsgBarEnable)
+        {
+            self.notifyMsgBarEnable = try decoderContainer.decode(Int?.self, forKey: .notifyMsgBarEnable)
+        }
+        if decoderContainer.contains(.notifySms)
+        {
+            self.notifySms = try decoderContainer.decode(String?.self, forKey: .notifySms)
+        }
+        if decoderContainer.contains(.notifySmsEnable)
+        {
+            self.notifySmsEnable = try decoderContainer.decode(Int?.self, forKey: .notifySmsEnable)
+        }
+        if decoderContainer.contains(.protocolValue)
+        {
+            self.protocolValue = try decoderContainer.decode(Int?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.stopRecoverRule)
+        {
+            self.stopRecoverRule = try decoderContainer.decode(Int?.self, forKey: .stopRecoverRule)
+        }
+        if decoderContainer.contains(.subDomainName)
+        {
+            self.subDomainName = try decoderContainer.decode(String?.self, forKey: .subDomainName)
+        }
+        if decoderContainer.contains(.switchRecoverRule)
+        {
+            self.switchRecoverRule = try decoderContainer.decode(Int?.self, forKey: .switchRecoverRule)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(Int?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.usedType)
+        {
+            self.usedType = try decoderContainer.decode(Int?.self, forKey: .usedType)
+        }
     }
 }
 public extension Monitor{

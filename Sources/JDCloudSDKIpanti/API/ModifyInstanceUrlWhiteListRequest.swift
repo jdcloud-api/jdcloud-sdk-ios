@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class ModifyInstanceUrlWhiteListRequest:JdCloudRequest
 {
     /// 网站类规则参数
-    var urlWhiteList:String?
+    var urlWhiteList:[String?]?
 
     /// 实例id
     var instanceId:String

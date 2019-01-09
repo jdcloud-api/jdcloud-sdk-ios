@@ -55,9 +55,18 @@ public class GetAuthorizationTokenResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetAuthorizationTokenResultCodingKeys.self)
-        self.authorizationToken = try decoderContainer.decode(String?.self, forKey: .authorizationToken)
-        self.loginCmdLine = try decoderContainer.decode(String?.self, forKey: .loginCmdLine)
-        self.expiresAt = try decoderContainer.decode(String?.self, forKey: .expiresAt)
+        if decoderContainer.contains(.authorizationToken)
+        {
+            self.authorizationToken = try decoderContainer.decode(String?.self, forKey: .authorizationToken)
+        }
+        if decoderContainer.contains(.loginCmdLine)
+        {
+            self.loginCmdLine = try decoderContainer.decode(String?.self, forKey: .loginCmdLine)
+        }
+        if decoderContainer.contains(.expiresAt)
+        {
+            self.expiresAt = try decoderContainer.decode(String?.self, forKey: .expiresAt)
+        }
     }
 }
 public extension GetAuthorizationTokenResult{

@@ -97,25 +97,82 @@ public class DescribedAlarm:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribedAlarmCodingKeys.self)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
-        self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
-        self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
-        self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
-        self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.status = try decoderContainer.decode(Int64?.self, forKey: .status)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
-        self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
-        self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.calculation)
+        {
+            self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.downSample)
+        {
+            self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        }
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.noticeLevel)
+        {
+            self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
+        }
+        if decoderContainer.contains(.noticePeriod)
+        {
+            self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        }
+        if decoderContainer.contains(.operation)
+        {
+            self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
+        }
+        if decoderContainer.contains(.period)
+        {
+            self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int64?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.threshold)
+        {
+            self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
+        }
+        if decoderContainer.contains(.times)
+        {
+            self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
+        }
     }
 }
 public extension DescribedAlarm{

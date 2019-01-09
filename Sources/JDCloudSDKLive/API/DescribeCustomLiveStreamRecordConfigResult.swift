@@ -38,8 +38,8 @@ public class DescribeCustomLiveStreamRecordConfigResult:NSObject,JdCloudResult
     /// 查询总数
     var totalCount:Double?
 
-    /// RecordConfigs
-    var recordConfigs:LiveRecordConfig?
+    /// 码率信息
+    var recordConfigs:[LiveRecordConfig?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeCustomLiveStreamRecordConfigResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamRecordConfigResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.recordConfigs = try decoderContainer.decode(LiveRecordConfig?.self, forKey: .recordConfigs)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.recordConfigs)
+        {
+            self.recordConfigs = try decoderContainer.decode([LiveRecordConfig?]?.self, forKey: .recordConfigs)
+        }
     }
 }
 public extension DescribeCustomLiveStreamRecordConfigResult{

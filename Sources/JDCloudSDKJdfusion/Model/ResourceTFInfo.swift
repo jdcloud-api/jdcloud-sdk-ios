@@ -67,15 +67,42 @@ public class ResourceTFInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ResourceTFInfoCodingKeys.self)
-        self.uuid = try decoderContainer.decode(String?.self, forKey: .uuid)
-        self.body = try decoderContainer.decode(String?.self, forKey: .body)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.result = try decoderContainer.decode(String?.self, forKey: .result)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
-        self.cloudId = try decoderContainer.decode(String?.self, forKey: .cloudId)
-        self.userId = try decoderContainer.decode(String?.self, forKey: .userId)
+        if decoderContainer.contains(.uuid)
+        {
+            self.uuid = try decoderContainer.decode(String?.self, forKey: .uuid)
+        }
+        if decoderContainer.contains(.body)
+        {
+            self.body = try decoderContainer.decode(String?.self, forKey: .body)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode(String?.self, forKey: .result)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.provider)
+        {
+            self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
+        }
+        if decoderContainer.contains(.cloudId)
+        {
+            self.cloudId = try decoderContainer.decode(String?.self, forKey: .cloudId)
+        }
+        if decoderContainer.contains(.userId)
+        {
+            self.userId = try decoderContainer.decode(String?.self, forKey: .userId)
+        }
     }
 }
 public extension ResourceTFInfo{

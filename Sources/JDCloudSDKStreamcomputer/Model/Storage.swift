@@ -48,7 +48,7 @@ public class Storage:NSObject,Codable{
     /// Deleted
     var deleted:UInt8?
     /// Storage的具体参数。&lt;br&gt;1、创建源类型为流式数据输入时，则需要传输source，topicName，duration，format，delimiter，schema 。&lt;br&gt; 2、创建输出如果输出位置为流数据总线，需要传topicName，format，delimiter，ossFlag，bucketName，directory，objectName。&lt;br&gt;3、创建输出如果输出位置为数据计算服务，则需要传输database，table，ossFlag，bucketName，directory，objectName。
-    var storageParameterList:StorageParameter?
+    var storageParameterList:[StorageParameter?]?
 
 
 
@@ -73,17 +73,50 @@ public class Storage:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StorageCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.storageType = try decoderContainer.decode(String?.self, forKey: .storageType)
-        self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.namespaceId = try decoderContainer.decode(String?.self, forKey: .namespaceId)
-        self.deleted = try decoderContainer.decode(UInt8?.self, forKey: .deleted)
-        self.storageParameterList = try decoderContainer.decode(StorageParameter?.self, forKey: .storageParameterList)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.uid)
+        {
+            self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.storageType)
+        {
+            self.storageType = try decoderContainer.decode(String?.self, forKey: .storageType)
+        }
+        if decoderContainer.contains(.userName)
+        {
+            self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.namespaceId)
+        {
+            self.namespaceId = try decoderContainer.decode(String?.self, forKey: .namespaceId)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(UInt8?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.storageParameterList)
+        {
+            self.storageParameterList = try decoderContainer.decode([StorageParameter?]?.self, forKey: .storageParameterList)
+        }
     }
 }
 public extension Storage{

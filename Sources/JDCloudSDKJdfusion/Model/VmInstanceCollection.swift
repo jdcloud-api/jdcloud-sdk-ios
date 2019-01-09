@@ -28,7 +28,7 @@ import Foundation
 @objc(VmInstanceCollection)
 public class VmInstanceCollection:NSObject,Codable{
     /// Vms
-    var vms:VmInfo?
+    var vms:[VmInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VmInstanceCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmInstanceCollectionCodingKeys.self)
-        self.vms = try decoderContainer.decode(VmInfo?.self, forKey: .vms)
+        if decoderContainer.contains(.vms)
+        {
+            self.vms = try decoderContainer.decode([VmInfo?]?.self, forKey: .vms)
+        }
     }
 }
 public extension VmInstanceCollection{

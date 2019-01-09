@@ -34,7 +34,7 @@ public class CalculateCompensateFeeAndSendCouponsRequest:JdCloudRequest
     var pin:String
 
     /// 资源ID
-    var resourceIds:String?
+    var resourceIds:[String?]?
 
 
     public init(regionId: String,pin:String){

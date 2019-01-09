@@ -55,11 +55,26 @@ public class BackSourceAddress:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackSourceAddressCodingKeys.self)
-        self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
-        self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
-        self.replaceKeyPrefixWith = try decoderContainer.decode(String?.self, forKey: .replaceKeyPrefixWith)
-        self.replaceKeyWith = try decoderContainer.decode(String?.self, forKey: .replaceKeyWith)
-        self.replaceKeySuffixWith = try decoderContainer.decode(String?.self, forKey: .replaceKeySuffixWith)
+        if decoderContainer.contains(.protocolValue)
+        {
+            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.hostName)
+        {
+            self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
+        }
+        if decoderContainer.contains(.replaceKeyPrefixWith)
+        {
+            self.replaceKeyPrefixWith = try decoderContainer.decode(String?.self, forKey: .replaceKeyPrefixWith)
+        }
+        if decoderContainer.contains(.replaceKeyWith)
+        {
+            self.replaceKeyWith = try decoderContainer.decode(String?.self, forKey: .replaceKeyWith)
+        }
+        if decoderContainer.contains(.replaceKeySuffixWith)
+        {
+            self.replaceKeySuffixWith = try decoderContainer.decode(String?.self, forKey: .replaceKeySuffixWith)
+        }
     }
 }
 public extension BackSourceAddress{

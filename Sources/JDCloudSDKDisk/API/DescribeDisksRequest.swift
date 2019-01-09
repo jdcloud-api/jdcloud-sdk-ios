@@ -38,7 +38,7 @@ public class DescribeDisksRequest:JdCloudRequest
     var pageSize:Int?
 
     /// Tag筛选条件
-    var tags:TagFilter?
+    var tags:[TagFilter?]?
 
     /// diskId - 云硬盘ID，精确匹配，支持多个
       /// diskType - 云硬盘类型，精确匹配，支持多个，取值为 ssd 或 premium-hdd
@@ -48,7 +48,7 @@ public class DescribeDisksRequest:JdCloudRequest
       /// az - 云硬盘状态，精确匹配，支持多个
       /// name - 云硬盘名称，模糊匹配，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

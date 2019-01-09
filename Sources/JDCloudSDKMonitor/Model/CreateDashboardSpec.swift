@@ -43,7 +43,10 @@ public class CreateDashboardSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateDashboardSpecCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
     }
 }
 public extension CreateDashboardSpec{

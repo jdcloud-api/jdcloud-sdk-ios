@@ -44,7 +44,10 @@ public class DescribeLatestRestoreTimeResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeLatestRestoreTimeResultCodingKeys.self)
-        self.latestRestoreTime = try decoderContainer.decode(String?.self, forKey: .latestRestoreTime)
+        if decoderContainer.contains(.latestRestoreTime)
+        {
+            self.latestRestoreTime = try decoderContainer.decode(String?.self, forKey: .latestRestoreTime)
+        }
     }
 }
 public extension DescribeLatestRestoreTimeResult{

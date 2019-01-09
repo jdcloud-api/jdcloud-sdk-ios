@@ -44,7 +44,10 @@ public class CreateSnapshotResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSnapshotResultCodingKeys.self)
-        self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        if decoderContainer.contains(.snapshotId)
+        {
+            self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        }
     }
 }
 public extension CreateSnapshotResult{

@@ -50,8 +50,14 @@ public class ImportKeypairResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImportKeypairResultCodingKeys.self)
-        self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
-        self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        if decoderContainer.contains(.keyName)
+        {
+            self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
+        }
+        if decoderContainer.contains(.keyFingerprint)
+        {
+            self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        }
     }
 }
 public extension ImportKeypairResult{

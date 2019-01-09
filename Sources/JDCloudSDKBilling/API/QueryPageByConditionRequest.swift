@@ -43,7 +43,7 @@ public class QueryPageByConditionRequest:JdCloudRequest
     var appCode:String?
 
     /// 产品码列表
-    var serviceCodeList:String?
+    var serviceCodeList:[String?]?
 
     /// 地域
     var region:String?
@@ -55,7 +55,7 @@ public class QueryPageByConditionRequest:JdCloudRequest
     var billingType:Int?
 
     /// resourceIdList
-    var resourceIdList:String?
+    var resourceIdList:[String?]?
 
     /// &gt;0: 订单还有几天到期; &#x3D;&#x3D;0: 订单已经到期; &lt;0: 不管是否到期
     var expireInDays:Int?
@@ -76,13 +76,13 @@ public class QueryPageByConditionRequest:JdCloudRequest
     var expiringInDays:Int?
 
     /// billingTypeList
-    var billingTypeList:Double?
+    var billingTypeList:[Double?]?
 
     /// 交易单号列表
-    var transactionNos:String?
+    var transactionNos:[String?]?
 
     /// OpTypes
-    var opTypes:Double?
+    var opTypes:[Double?]?
 
     /// 开始时间
     var startTime:String?
@@ -94,10 +94,10 @@ public class QueryPageByConditionRequest:JdCloudRequest
     var serviceCode:String?
 
     /// statusList
-    var statusList:Double?
+    var statusList:[Double?]?
 
     /// excludeResources
-    var excludeResources:String?
+    var excludeResources:[String?]?
 
     /// orderByClaus
     var orderByClaus:String?
@@ -109,7 +109,7 @@ public class QueryPageByConditionRequest:JdCloudRequest
     var departmentId:Int?
 
     /// PinList
-    var pinList:String?
+    var pinList:[String?]?
 
     /// 是否是专有云 1:是  其他不是
     var isSpecial:Int?

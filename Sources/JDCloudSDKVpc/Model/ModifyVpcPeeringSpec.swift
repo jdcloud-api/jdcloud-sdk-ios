@@ -46,8 +46,14 @@ public class ModifyVpcPeeringSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyVpcPeeringSpecCodingKeys.self)
-        self.vpcPeeringName = try decoderContainer.decode(String?.self, forKey: .vpcPeeringName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.vpcPeeringName)
+        {
+            self.vpcPeeringName = try decoderContainer.decode(String?.self, forKey: .vpcPeeringName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifyVpcPeeringSpec{

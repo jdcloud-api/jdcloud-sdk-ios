@@ -39,7 +39,7 @@ public class CreateDataDisk:NSObject,Codable{
     /// Required:true
     var diskSizeGB:Int32
     /// 挂载信息
-    var attachments:ArrayDiskAttachment?
+    var attachments:[ArrayDiskAttachment?]?
     /// 云硬盘所属AZ
     /// Required:true
     var az:String
@@ -50,7 +50,7 @@ public class CreateDataDisk:NSObject,Codable{
     /// 云硬盘状态
     var status:String?
     /// Tags
-    var tags:Tag?
+    var tags:[Tag?]?
     /// 创建时间
     var createdTime:String?
 
@@ -79,18 +79,48 @@ public class CreateDataDisk:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateDataDiskCodingKeys.self)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.diskSizeGB = try decoderContainer.decode(Int32.self, forKey: .diskSizeGB)
-        self.attachments = try decoderContainer.decode(ArrayDiskAttachment?.self, forKey: .attachments)
+        if decoderContainer.contains(.attachments)
+        {
+            self.attachments = try decoderContainer.decode([ArrayDiskAttachment?]?.self, forKey: .attachments)
+        }
         self.az = try decoderContainer.decode(String.self, forKey: .az)
-        self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
-        self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.diskType)
+        {
+            self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
+        }
+        if decoderContainer.contains(.snapshotId)
+        {
+            self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension CreateDataDisk{

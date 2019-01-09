@@ -49,9 +49,18 @@ public class Az:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AzCodingKeys.self)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.azValue = try decoderContainer.decode(String?.self, forKey: .azValue)
-        self.azName = try decoderContainer.decode(String?.self, forKey: .azName)
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.azValue)
+        {
+            self.azValue = try decoderContainer.decode(String?.self, forKey: .azValue)
+        }
+        if decoderContainer.contains(.azName)
+        {
+            self.azName = try decoderContainer.decode(String?.self, forKey: .azName)
+        }
     }
 }
 public extension Az{

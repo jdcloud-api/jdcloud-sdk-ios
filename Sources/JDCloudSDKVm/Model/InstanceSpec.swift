@@ -53,7 +53,7 @@ public class InstanceSpec:NSObject,Codable{
     /// 系统盘配置信息
     var systemDisk:InstanceDiskAttachmentSpec?
     /// 数据盘配置信息，本地盘(local类型)做系统盘的云主机可挂载8块数据盘，云硬盘(cloud类型)做系统盘的云主机可挂载7块数据盘。
-    var dataDisks:InstanceDiskAttachmentSpec?
+    var dataDisks:[InstanceDiskAttachmentSpec?]?
     /// 计费配置
       /// 云主机不支持按用量方式计费，默认为按配置计费。
       /// 打包创建数据盘的情况下，数据盘的计费方式只能与云主机保持一致。
@@ -89,20 +89,59 @@ public class InstanceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceSpecCodingKeys.self)
-        self.agId = try decoderContainer.decode(String?.self, forKey: .agId)
-        self.instanceTemplateId = try decoderContainer.decode(String?.self, forKey: .instanceTemplateId)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        if decoderContainer.contains(.agId)
+        {
+            self.agId = try decoderContainer.decode(String?.self, forKey: .agId)
+        }
+        if decoderContainer.contains(.instanceTemplateId)
+        {
+            self.instanceTemplateId = try decoderContainer.decode(String?.self, forKey: .instanceTemplateId)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.imageId)
+        {
+            self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        }
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.password = try decoderContainer.decode(String?.self, forKey: .password)
-        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
-        self.elasticIp = try decoderContainer.decode(ElasticIpSpec?.self, forKey: .elasticIp)
-        self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachmentSpec?.self, forKey: .primaryNetworkInterface)
-        self.systemDisk = try decoderContainer.decode(InstanceDiskAttachmentSpec?.self, forKey: .systemDisk)
-        self.dataDisks = try decoderContainer.decode(InstanceDiskAttachmentSpec?.self, forKey: .dataDisks)
-        self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.password)
+        {
+            self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        }
+        if decoderContainer.contains(.keyNames)
+        {
+            self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        }
+        if decoderContainer.contains(.elasticIp)
+        {
+            self.elasticIp = try decoderContainer.decode(ElasticIpSpec?.self, forKey: .elasticIp)
+        }
+        if decoderContainer.contains(.primaryNetworkInterface)
+        {
+            self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachmentSpec?.self, forKey: .primaryNetworkInterface)
+        }
+        if decoderContainer.contains(.systemDisk)
+        {
+            self.systemDisk = try decoderContainer.decode(InstanceDiskAttachmentSpec?.self, forKey: .systemDisk)
+        }
+        if decoderContainer.contains(.dataDisks)
+        {
+            self.dataDisks = try decoderContainer.decode([InstanceDiskAttachmentSpec?]?.self, forKey: .dataDisks)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension InstanceSpec{

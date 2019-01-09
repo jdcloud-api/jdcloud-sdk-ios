@@ -32,7 +32,7 @@ public class CreateVserverGroup:NSObject,Codable{
     /// 服务器组名称
     var vserverGroupName:String?
     /// 安全组权限规则集合
-    var backendServers:BackendServer?
+    var backendServers:[BackendServer?]?
 
 
 
@@ -49,9 +49,18 @@ public class CreateVserverGroup:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateVserverGroupCodingKeys.self)
-        self.loadBalancerId = try decoderContainer.decode(String?.self, forKey: .loadBalancerId)
-        self.vserverGroupName = try decoderContainer.decode(String?.self, forKey: .vserverGroupName)
-        self.backendServers = try decoderContainer.decode(BackendServer?.self, forKey: .backendServers)
+        if decoderContainer.contains(.loadBalancerId)
+        {
+            self.loadBalancerId = try decoderContainer.decode(String?.self, forKey: .loadBalancerId)
+        }
+        if decoderContainer.contains(.vserverGroupName)
+        {
+            self.vserverGroupName = try decoderContainer.decode(String?.self, forKey: .vserverGroupName)
+        }
+        if decoderContainer.contains(.backendServers)
+        {
+            self.backendServers = try decoderContainer.decode([BackendServer?]?.self, forKey: .backendServers)
+        }
     }
 }
 public extension CreateVserverGroup{

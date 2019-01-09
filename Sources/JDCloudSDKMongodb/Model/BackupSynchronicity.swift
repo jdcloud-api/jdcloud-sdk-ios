@@ -70,16 +70,46 @@ public class BackupSynchronicity:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackupSynchronicityCodingKeys.self)
-        self.serviceId = try decoderContainer.decode(String?.self, forKey: .serviceId)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.serviceStatus = try decoderContainer.decode(String?.self, forKey: .serviceStatus)
-        self.srcRegion = try decoderContainer.decode(String?.self, forKey: .srcRegion)
-        self.dstRegion = try decoderContainer.decode(String?.self, forKey: .dstRegion)
-        self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
-        self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.newestDataTime = try decoderContainer.decode(String?.self, forKey: .newestDataTime)
+        if decoderContainer.contains(.serviceId)
+        {
+            self.serviceId = try decoderContainer.decode(String?.self, forKey: .serviceId)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.serviceStatus)
+        {
+            self.serviceStatus = try decoderContainer.decode(String?.self, forKey: .serviceStatus)
+        }
+        if decoderContainer.contains(.srcRegion)
+        {
+            self.srcRegion = try decoderContainer.decode(String?.self, forKey: .srcRegion)
+        }
+        if decoderContainer.contains(.dstRegion)
+        {
+            self.dstRegion = try decoderContainer.decode(String?.self, forKey: .dstRegion)
+        }
+        if decoderContainer.contains(.engine)
+        {
+            self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
+        }
+        if decoderContainer.contains(.engineVersion)
+        {
+            self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.newestDataTime)
+        {
+            self.newestDataTime = try decoderContainer.decode(String?.self, forKey: .newestDataTime)
+        }
     }
 }
 public extension BackupSynchronicity{

@@ -28,7 +28,7 @@ import Foundation
 @objc(VmKeypairCollection)
 public class VmKeypairCollection:NSObject,Codable{
     /// Keypairs
-    var keypairs:KeypairInfo?
+    var keypairs:[KeypairInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VmKeypairCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmKeypairCollectionCodingKeys.self)
-        self.keypairs = try decoderContainer.decode(KeypairInfo?.self, forKey: .keypairs)
+        if decoderContainer.contains(.keypairs)
+        {
+            self.keypairs = try decoderContainer.decode([KeypairInfo?]?.self, forKey: .keypairs)
+        }
     }
 }
 public extension VmKeypairCollection{

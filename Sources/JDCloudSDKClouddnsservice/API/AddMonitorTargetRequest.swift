@@ -34,7 +34,7 @@ public class AddMonitorTargetRequest:JdCloudRequest
     var subDomainName:String
 
     /// 子域名可用监控对象的数组
-    var targets:String?
+    var targets:[String?]?
 
     /// 域名ID，请使用getDomains接口获取。
     var domainId:String

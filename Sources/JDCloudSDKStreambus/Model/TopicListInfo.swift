@@ -85,21 +85,66 @@ public class TopicListInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TopicListInfoCodingKeys.self)
-        self.archived = try decoderContainer.decode(Int?.self, forKey: .archived)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.deleted = try decoderContainer.decode(Int?.self, forKey: .deleted)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.lifecycle = try decoderContainer.decode(Int?.self, forKey: .lifecycle)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.partitionNum = try decoderContainer.decode(String?.self, forKey: .partitionNum)
-        self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
-        self.shardNum = try decoderContainer.decode(String?.self, forKey: .shardNum)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.topicName = try decoderContainer.decode(String?.self, forKey: .topicName)
-        self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
-        self.updatedTime = try decoderContainer.decode(String?.self, forKey: .updatedTime)
-        self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
-        self.dataSize = try decoderContainer.decode(String?.self, forKey: .dataSize)
+        if decoderContainer.contains(.archived)
+        {
+            self.archived = try decoderContainer.decode(Int?.self, forKey: .archived)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(Int?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.lifecycle)
+        {
+            self.lifecycle = try decoderContainer.decode(Int?.self, forKey: .lifecycle)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.partitionNum)
+        {
+            self.partitionNum = try decoderContainer.decode(String?.self, forKey: .partitionNum)
+        }
+        if decoderContainer.contains(.remark)
+        {
+            self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
+        }
+        if decoderContainer.contains(.shardNum)
+        {
+            self.shardNum = try decoderContainer.decode(String?.self, forKey: .shardNum)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.topicName)
+        {
+            self.topicName = try decoderContainer.decode(String?.self, forKey: .topicName)
+        }
+        if decoderContainer.contains(.uid)
+        {
+            self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
+        }
+        if decoderContainer.contains(.updatedTime)
+        {
+            self.updatedTime = try decoderContainer.decode(String?.self, forKey: .updatedTime)
+        }
+        if decoderContainer.contains(.userPin)
+        {
+            self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
+        }
+        if decoderContainer.contains(.dataSize)
+        {
+            self.dataSize = try decoderContainer.decode(String?.self, forKey: .dataSize)
+        }
     }
 }
 public extension TopicListInfo{

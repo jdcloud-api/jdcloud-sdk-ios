@@ -35,8 +35,8 @@ public class CalculateCompensateFeeAndSendCouponsResult:NSObject,JdCloudResult
     /// 计算总价
     var totalCompensateFee:Double?
 
-    /// ResourceList
-    var resourceList:OrderCompensateFeeVo?
+    /// 订单信息
+    var resourceList:[OrderCompensateFeeVo?]?
 
 
 
@@ -52,9 +52,18 @@ public class CalculateCompensateFeeAndSendCouponsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CalculateCompensateFeeAndSendCouponsResultCodingKeys.self)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.totalCompensateFee = try decoderContainer.decode(Double?.self, forKey: .totalCompensateFee)
-        self.resourceList = try decoderContainer.decode(OrderCompensateFeeVo?.self, forKey: .resourceList)
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.totalCompensateFee)
+        {
+            self.totalCompensateFee = try decoderContainer.decode(Double?.self, forKey: .totalCompensateFee)
+        }
+        if decoderContainer.contains(.resourceList)
+        {
+            self.resourceList = try decoderContainer.decode([OrderCompensateFeeVo?]?.self, forKey: .resourceList)
+        }
     }
 }
 public extension CalculateCompensateFeeAndSendCouponsResult{

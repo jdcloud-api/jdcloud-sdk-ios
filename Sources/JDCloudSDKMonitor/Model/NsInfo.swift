@@ -52,10 +52,22 @@ public class NsInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NsInfoCodingKeys.self)
-        self.metricCount = try decoderContainer.decode(Int64?.self, forKey: .metricCount)
-        self.nsName = try decoderContainer.decode(String?.self, forKey: .nsName)
-        self.nsUid = try decoderContainer.decode(String?.self, forKey: .nsUid)
-        self.objCount = try decoderContainer.decode(Int64?.self, forKey: .objCount)
+        if decoderContainer.contains(.metricCount)
+        {
+            self.metricCount = try decoderContainer.decode(Int64?.self, forKey: .metricCount)
+        }
+        if decoderContainer.contains(.nsName)
+        {
+            self.nsName = try decoderContainer.decode(String?.self, forKey: .nsName)
+        }
+        if decoderContainer.contains(.nsUid)
+        {
+            self.nsUid = try decoderContainer.decode(String?.self, forKey: .nsUid)
+        }
+        if decoderContainer.contains(.objCount)
+        {
+            self.objCount = try decoderContainer.decode(Int64?.self, forKey: .objCount)
+        }
     }
 }
 public extension NsInfo{

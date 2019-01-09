@@ -28,7 +28,7 @@ import Foundation
 @objc(DiskCollection)
 public class DiskCollection:NSObject,Codable{
     /// Disks
-    var disks:CloudDataDisk?
+    var disks:[CloudDataDisk?]?
 
 
 
@@ -43,7 +43,10 @@ public class DiskCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DiskCollectionCodingKeys.self)
-        self.disks = try decoderContainer.decode(CloudDataDisk?.self, forKey: .disks)
+        if decoderContainer.contains(.disks)
+        {
+            self.disks = try decoderContainer.decode([CloudDataDisk?]?.self, forKey: .disks)
+        }
     }
 }
 public extension DiskCollection{

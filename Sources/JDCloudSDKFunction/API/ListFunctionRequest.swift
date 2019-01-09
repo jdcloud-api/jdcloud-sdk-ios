@@ -33,7 +33,7 @@ public class ListFunctionRequest:JdCloudRequest
 {
     /// functionId -函数ID，精确匹配，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

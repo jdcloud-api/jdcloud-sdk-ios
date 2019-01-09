@@ -118,32 +118,110 @@ public class CmAlarm:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CmAlarmCodingKeys.self)
-        self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
-        self.contactGroups = try decoderContainer.decode([String?]?.self, forKey: .contactGroups)
-        self.contactPersons = try decoderContainer.decode([String?]?.self, forKey: .contactPersons)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.namespace = try decoderContainer.decode(String?.self, forKey: .namespace)
-        self.namespaceUID = try decoderContainer.decode(String?.self, forKey: .namespaceUID)
-        self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
-        self.noticeTime = try decoderContainer.decode(String?.self, forKey: .noticeTime)
-        self.obj = try decoderContainer.decode(String?.self, forKey: .obj)
-        self.objUID = try decoderContainer.decode(String?.self, forKey: .objUID)
-        self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
-        self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.rootRuleId = try decoderContainer.decode(Int64?.self, forKey: .rootRuleId)
-        self.ruleId = try decoderContainer.decode(Int64?.self, forKey: .ruleId)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.status = try decoderContainer.decode(Int64?.self, forKey: .status)
-        self.tag = try decoderContainer.decode(String?.self, forKey: .tag)
-        self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
-        self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
-        self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        if decoderContainer.contains(.calculation)
+        {
+            self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
+        }
+        if decoderContainer.contains(.contactGroups)
+        {
+            self.contactGroups = try decoderContainer.decode([String?]?.self, forKey: .contactGroups)
+        }
+        if decoderContainer.contains(.contactPersons)
+        {
+            self.contactPersons = try decoderContainer.decode([String?]?.self, forKey: .contactPersons)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.namespace)
+        {
+            self.namespace = try decoderContainer.decode(String?.self, forKey: .namespace)
+        }
+        if decoderContainer.contains(.namespaceUID)
+        {
+            self.namespaceUID = try decoderContainer.decode(String?.self, forKey: .namespaceUID)
+        }
+        if decoderContainer.contains(.noticePeriod)
+        {
+            self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        }
+        if decoderContainer.contains(.noticeTime)
+        {
+            self.noticeTime = try decoderContainer.decode(String?.self, forKey: .noticeTime)
+        }
+        if decoderContainer.contains(.obj)
+        {
+            self.obj = try decoderContainer.decode(String?.self, forKey: .obj)
+        }
+        if decoderContainer.contains(.objUID)
+        {
+            self.objUID = try decoderContainer.decode(String?.self, forKey: .objUID)
+        }
+        if decoderContainer.contains(.operation)
+        {
+            self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
+        }
+        if decoderContainer.contains(.period)
+        {
+            self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.rootRuleId)
+        {
+            self.rootRuleId = try decoderContainer.decode(Int64?.self, forKey: .rootRuleId)
+        }
+        if decoderContainer.contains(.ruleId)
+        {
+            self.ruleId = try decoderContainer.decode(Int64?.self, forKey: .ruleId)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int64?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.tag)
+        {
+            self.tag = try decoderContainer.decode(String?.self, forKey: .tag)
+        }
+        if decoderContainer.contains(.threshold)
+        {
+            self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
+        }
+        if decoderContainer.contains(.times)
+        {
+            self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        }
     }
 }
 public extension CmAlarm{

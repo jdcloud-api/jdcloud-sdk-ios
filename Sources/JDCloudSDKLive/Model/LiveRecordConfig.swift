@@ -32,7 +32,7 @@ public class LiveRecordConfig:NSObject,Codable{
     /// 录制模板配置
     var recordConfig:String?
     /// 推流域名
-    var app:RecordApp?
+    var app:[RecordApp?]?
 
 
 
@@ -49,9 +49,18 @@ public class LiveRecordConfig:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LiveRecordConfigCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.recordConfig = try decoderContainer.decode(String?.self, forKey: .recordConfig)
-        self.app = try decoderContainer.decode(RecordApp?.self, forKey: .app)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.recordConfig)
+        {
+            self.recordConfig = try decoderContainer.decode(String?.self, forKey: .recordConfig)
+        }
+        if decoderContainer.contains(.app)
+        {
+            self.app = try decoderContainer.decode([RecordApp?]?.self, forKey: .app)
+        }
     }
 }
 public extension LiveRecordConfig{

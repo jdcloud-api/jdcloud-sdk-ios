@@ -38,7 +38,7 @@ public class WebRuleSpec:NSObject,Codable{
     /// 回源类型：A或者CNAME
     var originType:String?
     /// OriginAddr
-    var originAddr:OriginAddrItem?
+    var originAddr:[OriginAddrItem?]?
     /// OnlineAddr
     var onlineAddr:[String?]?
     /// 回源域名,originType为CNAME时需要指定该字段
@@ -82,20 +82,62 @@ public class WebRuleSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WebRuleSpecCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
-        self.port = try decoderContainer.decode(String?.self, forKey: .port)
-        self.httpsPort = try decoderContainer.decode(String?.self, forKey: .httpsPort)
-        self.originType = try decoderContainer.decode(String?.self, forKey: .originType)
-        self.originAddr = try decoderContainer.decode(OriginAddrItem?.self, forKey: .originAddr)
-        self.onlineAddr = try decoderContainer.decode([String?]?.self, forKey: .onlineAddr)
-        self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
-        self.httpsCertContent = try decoderContainer.decode(String?.self, forKey: .httpsCertContent)
-        self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
-        self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
-        self.forceJump = try decoderContainer.decode(Int?.self, forKey: .forceJump)
-        self.customPortStatus = try decoderContainer.decode(Int?.self, forKey: .customPortStatus)
-        self.httpOrigin = try decoderContainer.decode(Int?.self, forKey: .httpOrigin)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.protocolValue)
+        {
+            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(String?.self, forKey: .port)
+        }
+        if decoderContainer.contains(.httpsPort)
+        {
+            self.httpsPort = try decoderContainer.decode(String?.self, forKey: .httpsPort)
+        }
+        if decoderContainer.contains(.originType)
+        {
+            self.originType = try decoderContainer.decode(String?.self, forKey: .originType)
+        }
+        if decoderContainer.contains(.originAddr)
+        {
+            self.originAddr = try decoderContainer.decode([OriginAddrItem?]?.self, forKey: .originAddr)
+        }
+        if decoderContainer.contains(.onlineAddr)
+        {
+            self.onlineAddr = try decoderContainer.decode([String?]?.self, forKey: .onlineAddr)
+        }
+        if decoderContainer.contains(.originDomain)
+        {
+            self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
+        }
+        if decoderContainer.contains(.httpsCertContent)
+        {
+            self.httpsCertContent = try decoderContainer.decode(String?.self, forKey: .httpsCertContent)
+        }
+        if decoderContainer.contains(.httpsRsaKey)
+        {
+            self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
+        }
+        if decoderContainer.contains(.algorithm)
+        {
+            self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
+        }
+        if decoderContainer.contains(.forceJump)
+        {
+            self.forceJump = try decoderContainer.decode(Int?.self, forKey: .forceJump)
+        }
+        if decoderContainer.contains(.customPortStatus)
+        {
+            self.customPortStatus = try decoderContainer.decode(Int?.self, forKey: .customPortStatus)
+        }
+        if decoderContainer.contains(.httpOrigin)
+        {
+            self.httpOrigin = try decoderContainer.decode(Int?.self, forKey: .httpOrigin)
+        }
     }
 }
 public extension WebRuleSpec{

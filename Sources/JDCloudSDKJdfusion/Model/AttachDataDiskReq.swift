@@ -43,7 +43,10 @@ public class AttachDataDiskReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AttachDataDiskReqCodingKeys.self)
-        self.attach = try decoderContainer.decode(AttachDataDisk?.self, forKey: .attach)
+        if decoderContainer.contains(.attach)
+        {
+            self.attach = try decoderContainer.decode(AttachDataDisk?.self, forKey: .attach)
+        }
     }
 }
 public extension AttachDataDiskReq{

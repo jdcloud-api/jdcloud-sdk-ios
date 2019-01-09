@@ -49,9 +49,18 @@ public class Target:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TargetCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.recordSize = try decoderContainer.decode(Int?.self, forKey: .recordSize)
-        self.cycle = try decoderContainer.decode(Int?.self, forKey: .cycle)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.recordSize)
+        {
+            self.recordSize = try decoderContainer.decode(Int?.self, forKey: .recordSize)
+        }
+        if decoderContainer.contains(.cycle)
+        {
+            self.cycle = try decoderContainer.decode(Int?.self, forKey: .cycle)
+        }
     }
 }
 public extension Target{

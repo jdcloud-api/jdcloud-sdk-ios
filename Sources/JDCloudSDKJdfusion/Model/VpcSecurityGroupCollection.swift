@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcSecurityGroupCollection)
 public class VpcSecurityGroupCollection:NSObject,Codable{
     /// SecurityGroups
-    var securityGroups:SecurityGroupInfo?
+    var securityGroups:[SecurityGroupInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcSecurityGroupCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcSecurityGroupCollectionCodingKeys.self)
-        self.securityGroups = try decoderContainer.decode(SecurityGroupInfo?.self, forKey: .securityGroups)
+        if decoderContainer.contains(.securityGroups)
+        {
+            self.securityGroups = try decoderContainer.decode([SecurityGroupInfo?]?.self, forKey: .securityGroups)
+        }
     }
 }
 public extension VpcSecurityGroupCollection{

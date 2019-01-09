@@ -44,7 +44,10 @@ public class AdminQueryBillStatisticsInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AdminQueryBillStatisticsInfoResultCodingKeys.self)
-        self.billStatisticsInfoVo = try decoderContainer.decode(BillStatisticsInfoVo?.self, forKey: .billStatisticsInfoVo)
+        if decoderContainer.contains(.billStatisticsInfoVo)
+        {
+            self.billStatisticsInfoVo = try decoderContainer.decode(BillStatisticsInfoVo?.self, forKey: .billStatisticsInfoVo)
+        }
     }
 }
 public extension AdminQueryBillStatisticsInfoResult{

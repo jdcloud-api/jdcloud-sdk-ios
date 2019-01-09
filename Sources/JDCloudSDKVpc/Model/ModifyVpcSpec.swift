@@ -46,8 +46,14 @@ public class ModifyVpcSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyVpcSpecCodingKeys.self)
-        self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.vpcName)
+        {
+            self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifyVpcSpec{

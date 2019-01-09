@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeStreamsInputResult)
 public class DescribeStreamsInputResult:NSObject,JdCloudResult
 {
-    /// StreamInputDatas
-    var streamInputDatas:StreamInputData?
+    /// Input数据集合
+    var streamInputDatas:[StreamInputData?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeStreamsInputResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeStreamsInputResultCodingKeys.self)
-        self.streamInputDatas = try decoderContainer.decode(StreamInputData?.self, forKey: .streamInputDatas)
+        if decoderContainer.contains(.streamInputDatas)
+        {
+            self.streamInputDatas = try decoderContainer.decode([StreamInputData?]?.self, forKey: .streamInputDatas)
+        }
     }
 }
 public extension DescribeStreamsInputResult{

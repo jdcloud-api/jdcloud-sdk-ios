@@ -32,7 +32,7 @@ public class StatisticsWithAreaGroupDetail:NSObject,Codable{
     /// UTC时间，格式为:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;，示例:2018-10-21T10:00:00Z
     var endTime:String?
     /// null
-    var data:StatisticsWithAreaGroupDetailItem?
+    var data:[StatisticsWithAreaGroupDetailItem?]?
 
 
 
@@ -49,9 +49,18 @@ public class StatisticsWithAreaGroupDetail:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsWithAreaGroupDetailCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.data = try decoderContainer.decode(StatisticsWithAreaGroupDetailItem?.self, forKey: .data)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([StatisticsWithAreaGroupDetailItem?]?.self, forKey: .data)
+        }
     }
 }
 public extension StatisticsWithAreaGroupDetail{

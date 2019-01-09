@@ -52,10 +52,22 @@ public class ListenerPortsAndProtocol:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListenerPortsAndProtocolCodingKeys.self)
-        self.listenerPort = try decoderContainer.decode(Int32?.self, forKey: .listenerPort)
-        self.listenerProtocol = try decoderContainer.decode(String?.self, forKey: .listenerProtocol)
-        self.listenerForward = try decoderContainer.decode(String?.self, forKey: .listenerForward)
-        self.forwardPort = try decoderContainer.decode(Int32?.self, forKey: .forwardPort)
+        if decoderContainer.contains(.listenerPort)
+        {
+            self.listenerPort = try decoderContainer.decode(Int32?.self, forKey: .listenerPort)
+        }
+        if decoderContainer.contains(.listenerProtocol)
+        {
+            self.listenerProtocol = try decoderContainer.decode(String?.self, forKey: .listenerProtocol)
+        }
+        if decoderContainer.contains(.listenerForward)
+        {
+            self.listenerForward = try decoderContainer.decode(String?.self, forKey: .listenerForward)
+        }
+        if decoderContainer.contains(.forwardPort)
+        {
+            self.forwardPort = try decoderContainer.decode(Int32?.self, forKey: .forwardPort)
+        }
     }
 }
 public extension ListenerPortsAndProtocol{

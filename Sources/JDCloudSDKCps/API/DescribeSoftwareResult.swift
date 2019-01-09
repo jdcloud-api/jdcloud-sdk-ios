@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class DescribeSoftwareResult:NSObject,JdCloudResult
 {
     /// Softwares
-    var softwares:Software?
+    var softwares:[Software?]?
 
 
 
@@ -46,7 +46,10 @@ public class DescribeSoftwareResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSoftwareResultCodingKeys.self)
-        self.softwares = try decoderContainer.decode(Software?.self, forKey: .softwares)
+        if decoderContainer.contains(.softwares)
+        {
+            self.softwares = try decoderContainer.decode([Software?]?.self, forKey: .softwares)
+        }
     }
 }
 public extension DescribeSoftwareResult{

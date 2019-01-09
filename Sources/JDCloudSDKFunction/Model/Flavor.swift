@@ -52,10 +52,22 @@ public class Flavor:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FlavorCodingKeys.self)
-        self.flavorKey = try decoderContainer.decode(String?.self, forKey: .flavorKey)
-        self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
-        self.memory = try decoderContainer.decode(Int?.self, forKey: .memory)
-        self.disk = try decoderContainer.decode(Int?.self, forKey: .disk)
+        if decoderContainer.contains(.flavorKey)
+        {
+            self.flavorKey = try decoderContainer.decode(String?.self, forKey: .flavorKey)
+        }
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memory)
+        {
+            self.memory = try decoderContainer.decode(Int?.self, forKey: .memory)
+        }
+        if decoderContainer.contains(.disk)
+        {
+            self.disk = try decoderContainer.decode(Int?.self, forKey: .disk)
+        }
     }
 }
 public extension Flavor{

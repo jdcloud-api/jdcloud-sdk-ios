@@ -46,8 +46,14 @@ public class ModifyRouteTableSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyRouteTableSpecCodingKeys.self)
-        self.routeTableName = try decoderContainer.decode(String?.self, forKey: .routeTableName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.routeTableName)
+        {
+            self.routeTableName = try decoderContainer.decode(String?.self, forKey: .routeTableName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifyRouteTableSpec{

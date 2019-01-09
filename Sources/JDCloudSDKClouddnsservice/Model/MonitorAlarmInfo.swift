@@ -58,12 +58,30 @@ public class MonitorAlarmInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MonitorAlarmInfoCodingKeys.self)
-        self.domainId = try decoderContainer.decode(Int?.self, forKey: .domainId)
-        self.subDomainName = try decoderContainer.decode(String?.self, forKey: .subDomainName)
-        self.host = try decoderContainer.decode(String?.self, forKey: .host)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.startTime = try decoderContainer.decode(Int64?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(Int64?.self, forKey: .endTime)
+        if decoderContainer.contains(.domainId)
+        {
+            self.domainId = try decoderContainer.decode(Int?.self, forKey: .domainId)
+        }
+        if decoderContainer.contains(.subDomainName)
+        {
+            self.subDomainName = try decoderContainer.decode(String?.self, forKey: .subDomainName)
+        }
+        if decoderContainer.contains(.host)
+        {
+            self.host = try decoderContainer.decode(String?.self, forKey: .host)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(Int64?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(Int64?.self, forKey: .endTime)
+        }
     }
 }
 public extension MonitorAlarmInfo{

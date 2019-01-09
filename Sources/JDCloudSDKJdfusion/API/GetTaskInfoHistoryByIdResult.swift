@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetTaskInfoHistoryByIdResult:NSObject,JdCloudResult
 {
     /// Tasks
-    var tasks:TaskInfo?
+    var tasks:[TaskInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetTaskInfoHistoryByIdResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetTaskInfoHistoryByIdResultCodingKeys.self)
-        self.tasks = try decoderContainer.decode(TaskInfo?.self, forKey: .tasks)
+        if decoderContainer.contains(.tasks)
+        {
+            self.tasks = try decoderContainer.decode([TaskInfo?]?.self, forKey: .tasks)
+        }
     }
 }
 public extension GetTaskInfoHistoryByIdResult{

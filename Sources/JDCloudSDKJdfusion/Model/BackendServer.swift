@@ -58,12 +58,30 @@ public class BackendServer:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackendServerCodingKeys.self)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.serverId = try decoderContainer.decode(String?.self, forKey: .serverId)
-        self.serverHealthStatus = try decoderContainer.decode(String?.self, forKey: .serverHealthStatus)
-        self.port = try decoderContainer.decode(Int32?.self, forKey: .port)
-        self.weight = try decoderContainer.decode(Int32?.self, forKey: .weight)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.serverId)
+        {
+            self.serverId = try decoderContainer.decode(String?.self, forKey: .serverId)
+        }
+        if decoderContainer.contains(.serverHealthStatus)
+        {
+            self.serverHealthStatus = try decoderContainer.decode(String?.self, forKey: .serverHealthStatus)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(Int32?.self, forKey: .port)
+        }
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int32?.self, forKey: .weight)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
     }
 }
 public extension BackendServer{

@@ -73,17 +73,50 @@ public class Account:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AccountCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
-        self.accountId = try decoderContainer.decode(String?.self, forKey: .accountId)
-        self.serviceIp = try decoderContainer.decode([String?]?.self, forKey: .serviceIp)
-        self.key = try decoderContainer.decode([String?]?.self, forKey: .key)
-        self.keyStatus = try decoderContainer.decode([Int?]?.self, forKey: .keyStatus)
-        self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(Int64?.self, forKey: .updateTime)
-        self.noauthAccess = try decoderContainer.decode(Int?.self, forKey: .noauthAccess)
-        self.domainLimit = try decoderContainer.decode(Int?.self, forKey: .domainLimit)
-        self.accountStatus = try decoderContainer.decode(Int?.self, forKey: .accountStatus)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.userPin)
+        {
+            self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
+        }
+        if decoderContainer.contains(.accountId)
+        {
+            self.accountId = try decoderContainer.decode(String?.self, forKey: .accountId)
+        }
+        if decoderContainer.contains(.serviceIp)
+        {
+            self.serviceIp = try decoderContainer.decode([String?]?.self, forKey: .serviceIp)
+        }
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode([String?]?.self, forKey: .key)
+        }
+        if decoderContainer.contains(.keyStatus)
+        {
+            self.keyStatus = try decoderContainer.decode([Int?]?.self, forKey: .keyStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(Int64?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.noauthAccess)
+        {
+            self.noauthAccess = try decoderContainer.decode(Int?.self, forKey: .noauthAccess)
+        }
+        if decoderContainer.contains(.domainLimit)
+        {
+            self.domainLimit = try decoderContainer.decode(Int?.self, forKey: .domainLimit)
+        }
+        if decoderContainer.contains(.accountStatus)
+        {
+            self.accountStatus = try decoderContainer.decode(Int?.self, forKey: .accountStatus)
+        }
     }
 }
 public extension Account{

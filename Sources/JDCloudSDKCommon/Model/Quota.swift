@@ -49,9 +49,18 @@ public class Quota:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QuotaCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.max = try decoderContainer.decode(Int?.self, forKey: .max)
-        self.used = try decoderContainer.decode(Int?.self, forKey: .used)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.max)
+        {
+            self.max = try decoderContainer.decode(Int?.self, forKey: .max)
+        }
+        if decoderContainer.contains(.used)
+        {
+            self.used = try decoderContainer.decode(Int?.self, forKey: .used)
+        }
     }
 }
 public extension Quota{

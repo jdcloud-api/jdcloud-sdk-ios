@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class RemoveNetworkAclRulesRequest:JdCloudRequest
 {
     /// networkAcl规则ID列表
-    var ruleIds:String?
+    var ruleIds:[String?]?
 
     /// networkAclId ID
     var networkAclId:String

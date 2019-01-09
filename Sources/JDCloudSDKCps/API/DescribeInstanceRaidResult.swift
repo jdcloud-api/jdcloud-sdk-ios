@@ -56,10 +56,22 @@ public class DescribeInstanceRaidResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstanceRaidResultCodingKeys.self)
-        self.sysRaidTypeId = try decoderContainer.decode(String?.self, forKey: .sysRaidTypeId)
-        self.sysRaidType = try decoderContainer.decode(String?.self, forKey: .sysRaidType)
-        self.dataRaidTypeId = try decoderContainer.decode(String?.self, forKey: .dataRaidTypeId)
-        self.dataRaidType = try decoderContainer.decode(String?.self, forKey: .dataRaidType)
+        if decoderContainer.contains(.sysRaidTypeId)
+        {
+            self.sysRaidTypeId = try decoderContainer.decode(String?.self, forKey: .sysRaidTypeId)
+        }
+        if decoderContainer.contains(.sysRaidType)
+        {
+            self.sysRaidType = try decoderContainer.decode(String?.self, forKey: .sysRaidType)
+        }
+        if decoderContainer.contains(.dataRaidTypeId)
+        {
+            self.dataRaidTypeId = try decoderContainer.decode(String?.self, forKey: .dataRaidTypeId)
+        }
+        if decoderContainer.contains(.dataRaidType)
+        {
+            self.dataRaidType = try decoderContainer.decode(String?.self, forKey: .dataRaidType)
+        }
     }
 }
 public extension DescribeInstanceRaidResult{

@@ -61,13 +61,34 @@ public class Tasks:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TasksCodingKeys.self)
-        self.taskId = try decoderContainer.decode(Double?.self, forKey: .taskId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.format = try decoderContainer.decode(String?.self, forKey: .format)
-        self.size = try decoderContainer.decode(Double?.self, forKey: .size)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        if decoderContainer.contains(.taskId)
+        {
+            self.taskId = try decoderContainer.decode(Double?.self, forKey: .taskId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.categoryId)
+        {
+            self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
+        }
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.format)
+        {
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
+        }
+        if decoderContainer.contains(.size)
+        {
+            self.size = try decoderContainer.decode(Double?.self, forKey: .size)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
     }
 }
 public extension Tasks{

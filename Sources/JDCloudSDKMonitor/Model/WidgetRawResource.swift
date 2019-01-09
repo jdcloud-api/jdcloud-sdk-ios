@@ -52,10 +52,22 @@ public class WidgetRawResource:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WidgetRawResourceCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.tag = try decoderContainer.decode([String:String?]?.self, forKey: .tag)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.regionId)
+        {
+            self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.tag)
+        {
+            self.tag = try decoderContainer.decode([String:String?]?.self, forKey: .tag)
+        }
     }
 }
 public extension WidgetRawResource{

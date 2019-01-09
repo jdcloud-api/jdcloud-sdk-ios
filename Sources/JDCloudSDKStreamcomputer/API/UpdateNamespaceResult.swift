@@ -44,7 +44,10 @@ public class UpdateNamespaceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UpdateNamespaceResultCodingKeys.self)
-        self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
+        }
     }
 }
 public extension UpdateNamespaceResult{

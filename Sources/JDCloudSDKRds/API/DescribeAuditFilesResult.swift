@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeAuditFilesResult:NSObject,JdCloudResult
 {
     /// AuditFiles
-    var auditFiles:AuditFile?
+    var auditFiles:[AuditFile?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeAuditFilesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAuditFilesResultCodingKeys.self)
-        self.auditFiles = try decoderContainer.decode(AuditFile?.self, forKey: .auditFiles)
+        if decoderContainer.contains(.auditFiles)
+        {
+            self.auditFiles = try decoderContainer.decode([AuditFile?]?.self, forKey: .auditFiles)
+        }
     }
 }
 public extension DescribeAuditFilesResult{

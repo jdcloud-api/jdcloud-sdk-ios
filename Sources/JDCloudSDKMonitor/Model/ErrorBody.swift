@@ -49,9 +49,18 @@ public class ErrorBody:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ErrorBodyCodingKeys.self)
-        self.code = try decoderContainer.decode(Int?.self, forKey: .code)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
     }
 }
 public extension ErrorBody{

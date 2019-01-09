@@ -35,7 +35,7 @@ public class DescribeAuthorizationTokensRequest:JdCloudRequest
 {
     /// token - 令牌 ID，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// 页码；默认为1
     var pageNumber:Int?

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcNetworkInterfacesResult:NSObject,JdCloudResult
 {
     /// NetInterfaces
-    var netInterfaces:NetInterfaceInfo?
+    var netInterfaces:[NetInterfaceInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVpcNetworkInterfacesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcNetworkInterfacesResultCodingKeys.self)
-        self.netInterfaces = try decoderContainer.decode(NetInterfaceInfo?.self, forKey: .netInterfaces)
+        if decoderContainer.contains(.netInterfaces)
+        {
+            self.netInterfaces = try decoderContainer.decode([NetInterfaceInfo?]?.self, forKey: .netInterfaces)
+        }
     }
 }
 public extension GetVpcNetworkInterfacesResult{

@@ -28,7 +28,7 @@ import Foundation
 @objc(VmImageCollection)
 public class VmImageCollection:NSObject,Codable{
     /// Images
-    var images:ImageInfo?
+    var images:[ImageInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VmImageCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmImageCollectionCodingKeys.self)
-        self.images = try decoderContainer.decode(ImageInfo?.self, forKey: .images)
+        if decoderContainer.contains(.images)
+        {
+            self.images = try decoderContainer.decode([ImageInfo?]?.self, forKey: .images)
+        }
     }
 }
 public extension VmImageCollection{

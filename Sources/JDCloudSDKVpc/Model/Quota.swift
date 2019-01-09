@@ -52,10 +52,22 @@ public class Quota:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QuotaCodingKeys.self)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.parentResourceId = try decoderContainer.decode(String?.self, forKey: .parentResourceId)
-        self.maxLimit = try decoderContainer.decode(Double?.self, forKey: .maxLimit)
-        self.count = try decoderContainer.decode(Double?.self, forKey: .count)
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.parentResourceId)
+        {
+            self.parentResourceId = try decoderContainer.decode(String?.self, forKey: .parentResourceId)
+        }
+        if decoderContainer.contains(.maxLimit)
+        {
+            self.maxLimit = try decoderContainer.decode(Double?.self, forKey: .maxLimit)
+        }
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Double?.self, forKey: .count)
+        }
     }
 }
 public extension Quota{

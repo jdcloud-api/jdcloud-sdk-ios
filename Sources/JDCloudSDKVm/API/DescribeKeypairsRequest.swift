@@ -41,7 +41,7 @@ public class DescribeKeypairsRequest:JdCloudRequest
 
     /// keyNames - 密钥对名称，精确匹配，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

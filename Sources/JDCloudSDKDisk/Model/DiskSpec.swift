@@ -71,11 +71,20 @@ public class DiskSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: DiskSpecCodingKeys.self)
         self.az = try decoderContainer.decode(String.self, forKey: .az)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.diskType = try decoderContainer.decode(String.self, forKey: .diskType)
         self.diskSizeGB = try decoderContainer.decode(Int.self, forKey: .diskSizeGB)
-        self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
-        self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
+        if decoderContainer.contains(.snapshotId)
+        {
+            self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
+        }
     }
 }
 public extension DiskSpec{

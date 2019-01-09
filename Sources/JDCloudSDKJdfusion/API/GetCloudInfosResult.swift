@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetCloudInfosResult:NSObject,JdCloudResult
 {
     /// Clouds
-    var clouds:CloudInfo?
+    var clouds:[CloudInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetCloudInfosResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetCloudInfosResultCodingKeys.self)
-        self.clouds = try decoderContainer.decode(CloudInfo?.self, forKey: .clouds)
+        if decoderContainer.contains(.clouds)
+        {
+            self.clouds = try decoderContainer.decode([CloudInfo?]?.self, forKey: .clouds)
+        }
     }
 }
 public extension GetCloudInfosResult{

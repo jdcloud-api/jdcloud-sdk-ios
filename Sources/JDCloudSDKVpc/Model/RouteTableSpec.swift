@@ -54,7 +54,10 @@ public class RouteTableSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: RouteTableSpecCodingKeys.self)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.routeTableName = try decoderContainer.decode(String.self, forKey: .routeTableName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension RouteTableSpec{

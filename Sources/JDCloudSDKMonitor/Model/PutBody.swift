@@ -41,11 +41,11 @@ public class PutBody:NSObject,Codable{
     var resourceId:String
     /// 监控数据点
     /// Required:true
-    var dataPoints:DataPointX?
+    var dataPoints:[DataPointX?]
 
 
 
-    public  init(appCode:String,serviceCode:String,region:String,resourceId:String,dataPoints:DataPointX?){
+    public  init(appCode:String,serviceCode:String,region:String,resourceId:String,dataPoints:[DataPointX?]){
              self.appCode = appCode
              self.serviceCode = serviceCode
              self.region = region
@@ -68,7 +68,7 @@ public class PutBody:NSObject,Codable{
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
         self.region = try decoderContainer.decode(String.self, forKey: .region)
         self.resourceId = try decoderContainer.decode(String.self, forKey: .resourceId)
-        self.dataPoints = try decoderContainer.decode(DataPointX?.self, forKey: .dataPoints)
+        self.dataPoints = try decoderContainer.decode([DataPointX?].self, forKey: .dataPoints)
     }
 }
 public extension PutBody{

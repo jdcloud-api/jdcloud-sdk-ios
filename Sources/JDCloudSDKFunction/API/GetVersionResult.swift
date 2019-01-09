@@ -44,7 +44,10 @@ public class GetVersionResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVersionResultCodingKeys.self)
-        self.data = try decoderContainer.decode(Function?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(Function?.self, forKey: .data)
+        }
     }
 }
 public extension GetVersionResult{

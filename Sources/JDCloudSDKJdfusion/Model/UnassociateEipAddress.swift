@@ -49,9 +49,18 @@ public class UnassociateEipAddress:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UnassociateEipAddressCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.force = try decoderContainer.decode(Bool?.self, forKey: .force)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.force)
+        {
+            self.force = try decoderContainer.decode(Bool?.self, forKey: .force)
+        }
     }
 }
 public extension UnassociateEipAddress{

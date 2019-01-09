@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcSlbCollection)
 public class VpcSlbCollection:NSObject,Codable{
     /// Slbs
-    var slbs:SlbInfo?
+    var slbs:[SlbInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcSlbCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcSlbCollectionCodingKeys.self)
-        self.slbs = try decoderContainer.decode(SlbInfo?.self, forKey: .slbs)
+        if decoderContainer.contains(.slbs)
+        {
+            self.slbs = try decoderContainer.decode([SlbInfo?]?.self, forKey: .slbs)
+        }
     }
 }
 public extension VpcSlbCollection{

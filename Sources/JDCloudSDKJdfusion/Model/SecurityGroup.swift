@@ -46,8 +46,14 @@ public class SecurityGroup:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SecurityGroupCodingKeys.self)
-        self.groupId = try decoderContainer.decode(String?.self, forKey: .groupId)
-        self.groupName = try decoderContainer.decode(String?.self, forKey: .groupName)
+        if decoderContainer.contains(.groupId)
+        {
+            self.groupId = try decoderContainer.decode(String?.self, forKey: .groupId)
+        }
+        if decoderContainer.contains(.groupName)
+        {
+            self.groupName = try decoderContainer.decode(String?.self, forKey: .groupName)
+        }
     }
 }
 public extension SecurityGroup{

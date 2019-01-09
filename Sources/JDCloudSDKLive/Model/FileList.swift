@@ -73,17 +73,50 @@ public class FileList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FileListCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.ossBucket = try decoderContainer.decode(String?.self, forKey: .ossBucket)
-        self.ossEndpoint = try decoderContainer.decode(String?.self, forKey: .ossEndpoint)
-        self.ossObject = try decoderContainer.decode(String?.self, forKey: .ossObject)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.streamName)
+        {
+            self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.duration)
+        {
+            self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.ossBucket)
+        {
+            self.ossBucket = try decoderContainer.decode(String?.self, forKey: .ossBucket)
+        }
+        if decoderContainer.contains(.ossEndpoint)
+        {
+            self.ossEndpoint = try decoderContainer.decode(String?.self, forKey: .ossEndpoint)
+        }
+        if decoderContainer.contains(.ossObject)
+        {
+            self.ossObject = try decoderContainer.decode(String?.self, forKey: .ossObject)
+        }
     }
 }
 public extension FileList{

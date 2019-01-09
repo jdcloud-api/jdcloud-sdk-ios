@@ -64,14 +64,38 @@ public class StorageParameter:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StorageParameterCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
-        self.pKey = try decoderContainer.decode(String?.self, forKey: .pKey)
-        self.pValue = try decoderContainer.decode(String?.self, forKey: .pValue)
-        self.storageId = try decoderContainer.decode(Int?.self, forKey: .storageId)
-        self.deleted = try decoderContainer.decode(UInt8?.self, forKey: .deleted)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.uid)
+        {
+            self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
+        }
+        if decoderContainer.contains(.pKey)
+        {
+            self.pKey = try decoderContainer.decode(String?.self, forKey: .pKey)
+        }
+        if decoderContainer.contains(.pValue)
+        {
+            self.pValue = try decoderContainer.decode(String?.self, forKey: .pValue)
+        }
+        if decoderContainer.contains(.storageId)
+        {
+            self.storageId = try decoderContainer.decode(Int?.self, forKey: .storageId)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(UInt8?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension StorageParameter{

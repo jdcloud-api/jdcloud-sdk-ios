@@ -48,7 +48,7 @@ public class CreateVm:NSObject,Codable{
     /// Required:true
     var subnetId:String
     /// Tags
-    var tags:Tag?
+    var tags:[Tag?]?
     /// 所属云提供商ID
     var cloudID:String?
     /// 密钥对名称,jd当前只支持传入一个
@@ -125,32 +125,98 @@ public class CreateVm:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateVmCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
-        self.imageType = try decoderContainer.decode(ImageType?.self, forKey: .imageType)
-        self.instanceType = try decoderContainer.decode(InstanceType?.self, forKey: .instanceType)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.hostName)
+        {
+            self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
+        }
+        if decoderContainer.contains(.imageType)
+        {
+            self.imageType = try decoderContainer.decode(ImageType?.self, forKey: .imageType)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(InstanceType?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.keyNames)
+        {
+            self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
         self.imageId = try decoderContainer.decode(String.self, forKey: .imageId)
         self.instanceFlavorType = try decoderContainer.decode(String.self, forKey: .instanceFlavorType)
-        self.securityGroupId = try decoderContainer.decode(String?.self, forKey: .securityGroupId)
-        self.internetMaxBandwidthIn = try decoderContainer.decode(Int32?.self, forKey: .internetMaxBandwidthIn)
-        self.internetMaxBandwidthOut = try decoderContainer.decode(Int32?.self, forKey: .internetMaxBandwidthOut)
-        self.password = try decoderContainer.decode(String?.self, forKey: .password)
-        self.passwordInherit = try decoderContainer.decode(Bool?.self, forKey: .passwordInherit)
-        self.userData = try decoderContainer.decode(String?.self, forKey: .userData)
-        self.keyPairName = try decoderContainer.decode(String?.self, forKey: .keyPairName)
-        self.systemDisk = try decoderContainer.decode(SystemDisk?.self, forKey: .systemDisk)
+        if decoderContainer.contains(.securityGroupId)
+        {
+            self.securityGroupId = try decoderContainer.decode(String?.self, forKey: .securityGroupId)
+        }
+        if decoderContainer.contains(.internetMaxBandwidthIn)
+        {
+            self.internetMaxBandwidthIn = try decoderContainer.decode(Int32?.self, forKey: .internetMaxBandwidthIn)
+        }
+        if decoderContainer.contains(.internetMaxBandwidthOut)
+        {
+            self.internetMaxBandwidthOut = try decoderContainer.decode(Int32?.self, forKey: .internetMaxBandwidthOut)
+        }
+        if decoderContainer.contains(.password)
+        {
+            self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        }
+        if decoderContainer.contains(.passwordInherit)
+        {
+            self.passwordInherit = try decoderContainer.decode(Bool?.self, forKey: .passwordInherit)
+        }
+        if decoderContainer.contains(.userData)
+        {
+            self.userData = try decoderContainer.decode(String?.self, forKey: .userData)
+        }
+        if decoderContainer.contains(.keyPairName)
+        {
+            self.keyPairName = try decoderContainer.decode(String?.self, forKey: .keyPairName)
+        }
+        if decoderContainer.contains(.systemDisk)
+        {
+            self.systemDisk = try decoderContainer.decode(SystemDisk?.self, forKey: .systemDisk)
+        }
     }
 }
 public extension CreateVm{

@@ -65,11 +65,26 @@ public class InstanceTemplateDiskAttachment:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTemplateDiskAttachmentCodingKeys.self)
-        self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
-        self.instanceTemplateDisk = try decoderContainer.decode(InstanceTemplateDisk?.self, forKey: .instanceTemplateDisk)
-        self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
-        self.noDevice = try decoderContainer.decode(Bool?.self, forKey: .noDevice)
+        if decoderContainer.contains(.diskCategory)
+        {
+            self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
+        }
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.instanceTemplateDisk)
+        {
+            self.instanceTemplateDisk = try decoderContainer.decode(InstanceTemplateDisk?.self, forKey: .instanceTemplateDisk)
+        }
+        if decoderContainer.contains(.deviceName)
+        {
+            self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
+        }
+        if decoderContainer.contains(.noDevice)
+        {
+            self.noDevice = try decoderContainer.decode(Bool?.self, forKey: .noDevice)
+        }
     }
 }
 public extension InstanceTemplateDiskAttachment{

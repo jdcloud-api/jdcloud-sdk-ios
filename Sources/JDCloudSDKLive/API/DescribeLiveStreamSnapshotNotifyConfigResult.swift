@@ -48,8 +48,14 @@ public class DescribeLiveStreamSnapshotNotifyConfigResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeLiveStreamSnapshotNotifyConfigResultCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.notifyUrl = try decoderContainer.decode(String?.self, forKey: .notifyUrl)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.notifyUrl)
+        {
+            self.notifyUrl = try decoderContainer.decode(String?.self, forKey: .notifyUrl)
+        }
     }
 }
 public extension DescribeLiveStreamSnapshotNotifyConfigResult{

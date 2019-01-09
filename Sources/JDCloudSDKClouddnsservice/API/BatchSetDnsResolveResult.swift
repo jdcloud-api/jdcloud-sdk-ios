@@ -31,8 +31,8 @@ import JDCloudSDKCore
 @objc(BatchSetDnsResolveResult)
 public class BatchSetDnsResolveResult:NSObject,JdCloudResult
 {
-    /// Data
-    var data:String?
+    /// 对应每条设置的解析列表的结果
+    var data:[String?]?
 
 
 
@@ -46,7 +46,10 @@ public class BatchSetDnsResolveResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchSetDnsResolveResultCodingKeys.self)
-        self.data = try decoderContainer.decode(String?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([String?]?.self, forKey: .data)
+        }
     }
 }
 public extension BatchSetDnsResolveResult{

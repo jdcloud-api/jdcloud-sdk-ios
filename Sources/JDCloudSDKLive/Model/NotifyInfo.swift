@@ -46,8 +46,14 @@ public class NotifyInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NotifyInfoCodingKeys.self)
-        self.publishDoamin = try decoderContainer.decode(String?.self, forKey: .publishDoamin)
-        self.notifyUrl = try decoderContainer.decode(String?.self, forKey: .notifyUrl)
+        if decoderContainer.contains(.publishDoamin)
+        {
+            self.publishDoamin = try decoderContainer.decode(String?.self, forKey: .publishDoamin)
+        }
+        if decoderContainer.contains(.notifyUrl)
+        {
+            self.notifyUrl = try decoderContainer.decode(String?.self, forKey: .notifyUrl)
+        }
     }
 }
 public extension NotifyInfo{

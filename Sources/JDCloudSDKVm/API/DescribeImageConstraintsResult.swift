@@ -46,7 +46,10 @@ public class DescribeImageConstraintsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeImageConstraintsResultCodingKeys.self)
-        self.imageConstraints = try decoderContainer.decode(ImageConstraint?.self, forKey: .imageConstraints)
+        if decoderContainer.contains(.imageConstraints)
+        {
+            self.imageConstraints = try decoderContainer.decode(ImageConstraint?.self, forKey: .imageConstraints)
+        }
     }
 }
 public extension DescribeImageConstraintsResult{

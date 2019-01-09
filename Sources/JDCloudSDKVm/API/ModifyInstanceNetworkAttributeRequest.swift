@@ -33,7 +33,7 @@ import JDCloudSDKCore
 public class ModifyInstanceNetworkAttributeRequest:JdCloudRequest
 {
     /// 弹性网卡列表
-    var networks:InstanceNetworkAttribute?
+    var networks:[InstanceNetworkAttribute?]?
 
     /// 云主机ID
     var instanceId:String

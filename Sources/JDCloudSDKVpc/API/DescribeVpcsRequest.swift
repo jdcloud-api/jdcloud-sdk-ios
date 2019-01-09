@@ -40,7 +40,7 @@ public class DescribeVpcsRequest:JdCloudRequest
     /// vpcIds - vpc ID列表，支持多个
       /// vpcNames - vpc名称列表,支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

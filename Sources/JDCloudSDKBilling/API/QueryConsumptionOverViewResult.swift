@@ -54,7 +54,7 @@ public class QueryConsumptionOverViewResult:NSObject,JdCloudResult
     var arrearFee:Double?
 
     /// ConsumptionProductVoList
-    var consumptionProductVoList:ConsumptionProduct?
+    var consumptionProductVoList:[ConsumptionProduct?]?
 
     /// ConsumptionList
     var consumptionList:ConsumptionList?
@@ -80,16 +80,46 @@ public class QueryConsumptionOverViewResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryConsumptionOverViewResultCodingKeys.self)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.actualFee = try decoderContainer.decode(Double?.self, forKey: .actualFee)
-        self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
-        self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
-        self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
-        self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
-        self.consumptionProductVoList = try decoderContainer.decode(ConsumptionProduct?.self, forKey: .consumptionProductVoList)
-        self.consumptionList = try decoderContainer.decode(ConsumptionList?.self, forKey: .consumptionList)
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.actualFee)
+        {
+            self.actualFee = try decoderContainer.decode(Double?.self, forKey: .actualFee)
+        }
+        if decoderContainer.contains(.cashPayFee)
+        {
+            self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
+        }
+        if decoderContainer.contains(.balancePayFee)
+        {
+            self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
+        }
+        if decoderContainer.contains(.cashCouponPayFee)
+        {
+            self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
+        }
+        if decoderContainer.contains(.arrearFee)
+        {
+            self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
+        }
+        if decoderContainer.contains(.consumptionProductVoList)
+        {
+            self.consumptionProductVoList = try decoderContainer.decode([ConsumptionProduct?]?.self, forKey: .consumptionProductVoList)
+        }
+        if decoderContainer.contains(.consumptionList)
+        {
+            self.consumptionList = try decoderContainer.decode(ConsumptionList?.self, forKey: .consumptionList)
+        }
     }
 }
 public extension QueryConsumptionOverViewResult{

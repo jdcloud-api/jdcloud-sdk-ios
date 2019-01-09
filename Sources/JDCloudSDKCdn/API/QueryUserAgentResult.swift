@@ -36,7 +36,7 @@ public class QueryUserAgentResult:NSObject,JdCloudResult
     var userAgentType:String?
 
     /// UserAgentList
-    var userAgentList:String?
+    var userAgentList:[String?]?
 
     /// AllowNoUserAgentHeader
     var allowNoUserAgentHeader:String?
@@ -56,10 +56,22 @@ public class QueryUserAgentResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryUserAgentResultCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.userAgentType = try decoderContainer.decode(String?.self, forKey: .userAgentType)
-        self.userAgentList = try decoderContainer.decode(String?.self, forKey: .userAgentList)
-        self.allowNoUserAgentHeader = try decoderContainer.decode(String?.self, forKey: .allowNoUserAgentHeader)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.userAgentType)
+        {
+            self.userAgentType = try decoderContainer.decode(String?.self, forKey: .userAgentType)
+        }
+        if decoderContainer.contains(.userAgentList)
+        {
+            self.userAgentList = try decoderContainer.decode([String?]?.self, forKey: .userAgentList)
+        }
+        if decoderContainer.contains(.allowNoUserAgentHeader)
+        {
+            self.allowNoUserAgentHeader = try decoderContainer.decode(String?.self, forKey: .allowNoUserAgentHeader)
+        }
     }
 }
 public extension QueryUserAgentResult{

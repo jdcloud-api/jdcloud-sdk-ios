@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class PutMetricDataRequest:JdCloudRequest
 {
     /// 数据参数
-    var metricDataList:MetricDataCm?
+    var metricDataList:[MetricDataCm?]?
 
 
 

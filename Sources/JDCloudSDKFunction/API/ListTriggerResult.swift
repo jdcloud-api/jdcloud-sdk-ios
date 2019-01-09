@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class ListTriggerResult:NSObject,JdCloudResult
 {
     /// Data
-    var data:Trigger?
+    var data:[Trigger?]?
 
 
 
@@ -44,7 +44,10 @@ public class ListTriggerResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListTriggerResultCodingKeys.self)
-        self.data = try decoderContainer.decode(Trigger?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([Trigger?]?.self, forKey: .data)
+        }
     }
 }
 public extension ListTriggerResult{

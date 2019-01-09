@@ -64,14 +64,38 @@ public class SubnetDesInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SubnetDesInfoCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.cidrBlock = try decoderContainer.decode(String?.self, forKey: .cidrBlock)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.cidrBlock)
+        {
+            self.cidrBlock = try decoderContainer.decode(String?.self, forKey: .cidrBlock)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
     }
 }
 public extension SubnetDesInfo{

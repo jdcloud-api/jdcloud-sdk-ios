@@ -31,13 +31,13 @@ import JDCloudSDKCore
 public class ModifyParametersRequest:JdCloudRequest
 {
     /// 修改的实例参数
-    var parameters:Parameter?
+    var parameters:[Parameter?]?
 
     /// Instance ID
     var instanceId:String
 
 
-    public init(regionId: String,parameters:Parameter?,instanceId:String){
+    public init(regionId: String,parameters:[Parameter?]?,instanceId:String){
         self.parameters = parameters
         self.instanceId = instanceId
         super.init(regionId: regionId)

@@ -82,20 +82,62 @@ public class RRInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RRInfoCodingKeys.self)
-        self.creator = try decoderContainer.decode(String?.self, forKey: .creator)
-        self.viewName = try decoderContainer.decode(String?.self, forKey: .viewName)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.hostRecord = try decoderContainer.decode(String?.self, forKey: .hostRecord)
-        self.hostValue = try decoderContainer.decode(String?.self, forKey: .hostValue)
-        self.jcloudRes = try decoderContainer.decode(Bool?.self, forKey: .jcloudRes)
-        self.mxPriority = try decoderContainer.decode(Int?.self, forKey: .mxPriority)
-        self.port = try decoderContainer.decode(Int?.self, forKey: .port)
-        self.ttl = try decoderContainer.decode(Int?.self, forKey: .ttl)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
-        self.viewValue = try decoderContainer.decode([Int?]?.self, forKey: .viewValue)
-        self.resolvingStatus = try decoderContainer.decode(String?.self, forKey: .resolvingStatus)
-        self.updateTime = try decoderContainer.decode(Int64?.self, forKey: .updateTime)
+        if decoderContainer.contains(.creator)
+        {
+            self.creator = try decoderContainer.decode(String?.self, forKey: .creator)
+        }
+        if decoderContainer.contains(.viewName)
+        {
+            self.viewName = try decoderContainer.decode(String?.self, forKey: .viewName)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.hostRecord)
+        {
+            self.hostRecord = try decoderContainer.decode(String?.self, forKey: .hostRecord)
+        }
+        if decoderContainer.contains(.hostValue)
+        {
+            self.hostValue = try decoderContainer.decode(String?.self, forKey: .hostValue)
+        }
+        if decoderContainer.contains(.jcloudRes)
+        {
+            self.jcloudRes = try decoderContainer.decode(Bool?.self, forKey: .jcloudRes)
+        }
+        if decoderContainer.contains(.mxPriority)
+        {
+            self.mxPriority = try decoderContainer.decode(Int?.self, forKey: .mxPriority)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(Int?.self, forKey: .port)
+        }
+        if decoderContainer.contains(.ttl)
+        {
+            self.ttl = try decoderContainer.decode(Int?.self, forKey: .ttl)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        }
+        if decoderContainer.contains(.viewValue)
+        {
+            self.viewValue = try decoderContainer.decode([Int?]?.self, forKey: .viewValue)
+        }
+        if decoderContainer.contains(.resolvingStatus)
+        {
+            self.resolvingStatus = try decoderContainer.decode(String?.self, forKey: .resolvingStatus)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(Int64?.self, forKey: .updateTime)
+        }
     }
 }
 public extension RRInfo{

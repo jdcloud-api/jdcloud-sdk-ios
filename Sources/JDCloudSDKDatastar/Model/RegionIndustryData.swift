@@ -73,17 +73,50 @@ public class RegionIndustryData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RegionIndustryDataCodingKeys.self)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.industry = try decoderContainer.decode(String?.self, forKey: .industry)
-        self.firstIndex = try decoderContainer.decode(String?.self, forKey: .firstIndex)
-        self.secondIndex = try decoderContainer.decode(String?.self, forKey: .secondIndex)
-        self.dateTime = try decoderContainer.decode(String?.self, forKey: .dateTime)
-        self.dateType = try decoderContainer.decode(String?.self, forKey: .dateType)
-        self.indexValue = try decoderContainer.decode(String?.self, forKey: .indexValue)
-        self.valueUnit = try decoderContainer.decode(String?.self, forKey: .valueUnit)
-        self.attrType = try decoderContainer.decode(String?.self, forKey: .attrType)
-        self.attrValue = try decoderContainer.decode(String?.self, forKey: .attrValue)
-        self.attrValueExt = try decoderContainer.decode(String?.self, forKey: .attrValueExt)
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.industry)
+        {
+            self.industry = try decoderContainer.decode(String?.self, forKey: .industry)
+        }
+        if decoderContainer.contains(.firstIndex)
+        {
+            self.firstIndex = try decoderContainer.decode(String?.self, forKey: .firstIndex)
+        }
+        if decoderContainer.contains(.secondIndex)
+        {
+            self.secondIndex = try decoderContainer.decode(String?.self, forKey: .secondIndex)
+        }
+        if decoderContainer.contains(.dateTime)
+        {
+            self.dateTime = try decoderContainer.decode(String?.self, forKey: .dateTime)
+        }
+        if decoderContainer.contains(.dateType)
+        {
+            self.dateType = try decoderContainer.decode(String?.self, forKey: .dateType)
+        }
+        if decoderContainer.contains(.indexValue)
+        {
+            self.indexValue = try decoderContainer.decode(String?.self, forKey: .indexValue)
+        }
+        if decoderContainer.contains(.valueUnit)
+        {
+            self.valueUnit = try decoderContainer.decode(String?.self, forKey: .valueUnit)
+        }
+        if decoderContainer.contains(.attrType)
+        {
+            self.attrType = try decoderContainer.decode(String?.self, forKey: .attrType)
+        }
+        if decoderContainer.contains(.attrValue)
+        {
+            self.attrValue = try decoderContainer.decode(String?.self, forKey: .attrValue)
+        }
+        if decoderContainer.contains(.attrValueExt)
+        {
+            self.attrValueExt = try decoderContainer.decode(String?.self, forKey: .attrValueExt)
+        }
     }
 }
 public extension RegionIndustryData{

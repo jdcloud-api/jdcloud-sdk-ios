@@ -39,7 +39,7 @@ public class QueryStatisticsTopUrlResult:NSObject,JdCloudResult
     var domain:String?
 
     /// UrlData
-    var urlData:StatisticsTopUrlData?
+    var urlData:[StatisticsTopUrlData?]?
 
 
 
@@ -56,10 +56,22 @@ public class QueryStatisticsTopUrlResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryStatisticsTopUrlResultCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.urlData = try decoderContainer.decode(StatisticsTopUrlData?.self, forKey: .urlData)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.urlData)
+        {
+            self.urlData = try decoderContainer.decode([StatisticsTopUrlData?]?.self, forKey: .urlData)
+        }
     }
 }
 public extension QueryStatisticsTopUrlResult{

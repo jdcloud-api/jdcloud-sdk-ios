@@ -31,8 +31,8 @@ import JDCloudSDKCore
 @objc(DescribeImageConstraintsBatchResult)
 public class DescribeImageConstraintsBatchResult:NSObject,JdCloudResult
 {
-    /// ImageConstraints
-    var imageConstraints:ImageConstraint?
+    /// 镜像限制
+    var imageConstraints:[ImageConstraint?]?
 
 
 
@@ -46,7 +46,10 @@ public class DescribeImageConstraintsBatchResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeImageConstraintsBatchResultCodingKeys.self)
-        self.imageConstraints = try decoderContainer.decode(ImageConstraint?.self, forKey: .imageConstraints)
+        if decoderContainer.contains(.imageConstraints)
+        {
+            self.imageConstraints = try decoderContainer.decode([ImageConstraint?]?.self, forKey: .imageConstraints)
+        }
     }
 }
 public extension DescribeImageConstraintsBatchResult{

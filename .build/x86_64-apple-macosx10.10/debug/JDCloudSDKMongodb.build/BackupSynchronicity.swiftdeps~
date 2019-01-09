@@ -18,8 +18,6 @@ depends-top-level:
 - "CodingKey"
 - "Decoder"
 - "Encoder"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "NSObject"
 - "String"
 - "StringLiteralType"

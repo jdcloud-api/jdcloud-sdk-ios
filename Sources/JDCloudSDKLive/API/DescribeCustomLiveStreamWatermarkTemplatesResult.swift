@@ -38,8 +38,8 @@ public class DescribeCustomLiveStreamWatermarkTemplatesResult:NSObject,JdCloudRe
     /// 查询总数
     var totalCount:Double?
 
-    /// WatermarkTemplates
-    var watermarkTemplates:WatermarkTemplate?
+    /// 水印模板
+    var watermarkTemplates:[WatermarkTemplate?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeCustomLiveStreamWatermarkTemplatesResult:NSObject,JdCloudRe
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamWatermarkTemplatesResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.watermarkTemplates = try decoderContainer.decode(WatermarkTemplate?.self, forKey: .watermarkTemplates)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.watermarkTemplates)
+        {
+            self.watermarkTemplates = try decoderContainer.decode([WatermarkTemplate?]?.self, forKey: .watermarkTemplates)
+        }
     }
 }
 public extension DescribeCustomLiveStreamWatermarkTemplatesResult{

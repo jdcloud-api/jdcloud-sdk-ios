@@ -33,7 +33,7 @@ public class QueryHttpHeaderResult:NSObject,JdCloudResult
     var domain:String?
 
     /// Headers
-    var headers:QueryHttpHeaderResp?
+    var headers:[QueryHttpHeaderResp?]?
 
 
 
@@ -48,8 +48,14 @@ public class QueryHttpHeaderResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryHttpHeaderResultCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.headers = try decoderContainer.decode(QueryHttpHeaderResp?.self, forKey: .headers)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.headers)
+        {
+            self.headers = try decoderContainer.decode([QueryHttpHeaderResp?]?.self, forKey: .headers)
+        }
     }
 }
 public extension QueryHttpHeaderResult{

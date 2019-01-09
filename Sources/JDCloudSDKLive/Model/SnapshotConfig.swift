@@ -52,10 +52,22 @@ public class SnapshotConfig:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SnapshotConfigCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
-        self.snapshotConfigValue = try decoderContainer.decode([String?]?.self, forKey: .snapshotConfigValue)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.streamName)
+        {
+            self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
+        }
+        if decoderContainer.contains(.snapshotConfigValue)
+        {
+            self.snapshotConfigValue = try decoderContainer.decode([String?]?.self, forKey: .snapshotConfigValue)
+        }
     }
 }
 public extension SnapshotConfig{

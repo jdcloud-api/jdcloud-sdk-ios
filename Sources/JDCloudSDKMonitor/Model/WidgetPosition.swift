@@ -61,13 +61,34 @@ public class WidgetPosition:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WidgetPositionCodingKeys.self)
-        self.col = try decoderContainer.decode(Int?.self, forKey: .col)
-        self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
-        self.order = try decoderContainer.decode(Int?.self, forKey: .order)
-        self.row = try decoderContainer.decode(Int?.self, forKey: .row)
-        self.sizeX = try decoderContainer.decode(Int?.self, forKey: .sizeX)
-        self.sizeY = try decoderContainer.decode(Int?.self, forKey: .sizeY)
-        self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
+        if decoderContainer.contains(.col)
+        {
+            self.col = try decoderContainer.decode(Int?.self, forKey: .col)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(Int64?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.order)
+        {
+            self.order = try decoderContainer.decode(Int?.self, forKey: .order)
+        }
+        if decoderContainer.contains(.row)
+        {
+            self.row = try decoderContainer.decode(Int?.self, forKey: .row)
+        }
+        if decoderContainer.contains(.sizeX)
+        {
+            self.sizeX = try decoderContainer.decode(Int?.self, forKey: .sizeX)
+        }
+        if decoderContainer.contains(.sizeY)
+        {
+            self.sizeY = try decoderContainer.decode(Int?.self, forKey: .sizeY)
+        }
+        if decoderContainer.contains(.updatedTime)
+        {
+            self.updatedTime = try decoderContainer.decode(Int64?.self, forKey: .updatedTime)
+        }
     }
 }
 public extension WidgetPosition{

@@ -44,7 +44,10 @@ public class CreateBackupResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateBackupResultCodingKeys.self)
-        self.backupId = try decoderContainer.decode(String?.self, forKey: .backupId)
+        if decoderContainer.contains(.backupId)
+        {
+            self.backupId = try decoderContainer.decode(String?.self, forKey: .backupId)
+        }
     }
 }
 public extension CreateBackupResult{

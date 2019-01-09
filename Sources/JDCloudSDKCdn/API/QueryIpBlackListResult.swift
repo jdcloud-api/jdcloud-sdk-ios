@@ -33,7 +33,7 @@ public class QueryIpBlackListResult:NSObject,JdCloudResult
     var domain:String?
 
     /// Ips
-    var ips:AnyObject?
+    var ips:[AnyObject?]?
 
     /// Status
     var status:String?
@@ -52,8 +52,14 @@ public class QueryIpBlackListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryIpBlackListResultCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
     }
 }
 public extension QueryIpBlackListResult{

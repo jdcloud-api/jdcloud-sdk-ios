@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetActionLogResult)
 public class GetActionLogResult:NSObject,JdCloudResult
 {
-    /// DataList
-    var dataList:Actionlog?
+    /// 操作记录列表
+    var dataList:[Actionlog?]?
 
     /// 当前页的操作记录列表里的个数
     var currentCount:Int?
@@ -56,10 +56,22 @@ public class GetActionLogResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetActionLogResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(Actionlog?.self, forKey: .dataList)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([Actionlog?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
 public extension GetActionLogResult{

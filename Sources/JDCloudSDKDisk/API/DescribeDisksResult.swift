@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeDisksResult)
 public class DescribeDisksResult:NSObject,JdCloudResult
 {
-    /// Disks
-    var disks:Disk?
+    /// 查询的云硬盘信息详情列表
+    var disks:[Disk?]?
 
     /// 查询的云硬盘数目
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeDisksResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeDisksResultCodingKeys.self)
-        self.disks = try decoderContainer.decode(Disk?.self, forKey: .disks)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.disks)
+        {
+            self.disks = try decoderContainer.decode([Disk?]?.self, forKey: .disks)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeDisksResult{

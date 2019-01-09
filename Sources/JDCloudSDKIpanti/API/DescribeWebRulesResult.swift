@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeWebRulesResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:WebRule?
+    var dataList:[WebRule?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeWebRulesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeWebRulesResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(WebRule?.self, forKey: .dataList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([WebRule?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeWebRulesResult{

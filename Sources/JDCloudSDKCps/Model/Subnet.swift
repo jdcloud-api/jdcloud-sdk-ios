@@ -55,11 +55,26 @@ public class Subnet:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SubnetCodingKeys.self)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.cidr)
+        {
+            self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.networkType)
+        {
+            self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
+        }
     }
 }
 public extension Subnet{

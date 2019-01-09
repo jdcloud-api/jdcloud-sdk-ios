@@ -41,7 +41,7 @@ public class DescribeNetworkSecurityGroupsRequest:JdCloudRequest
       /// networkSecurityGroupNames - 安全组名称列表，支持多个
       /// vpcId	- 安全组所属vpc Id，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

@@ -46,8 +46,14 @@ public class DeviceCommandVO:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DeviceCommandVOCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.inputData = try decoderContainer.decode(String?.self, forKey: .inputData)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.inputData)
+        {
+            self.inputData = try decoderContainer.decode(String?.self, forKey: .inputData)
+        }
     }
 }
 public extension DeviceCommandVO{

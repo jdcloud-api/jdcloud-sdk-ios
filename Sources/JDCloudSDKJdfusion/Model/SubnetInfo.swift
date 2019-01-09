@@ -70,16 +70,46 @@ public class SubnetInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SubnetInfoCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.availableIpCount = try decoderContainer.decode(Int32?.self, forKey: .availableIpCount)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.endIp = try decoderContainer.decode(String?.self, forKey: .endIp)
-        self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
-        self.startIp = try decoderContainer.decode(String?.self, forKey: .startIp)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetName)
+        {
+            self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.availableIpCount)
+        {
+            self.availableIpCount = try decoderContainer.decode(Int32?.self, forKey: .availableIpCount)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.endIp)
+        {
+            self.endIp = try decoderContainer.decode(String?.self, forKey: .endIp)
+        }
+        if decoderContainer.contains(.routeTableId)
+        {
+            self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
+        }
+        if decoderContainer.contains(.startIp)
+        {
+            self.startIp = try decoderContainer.decode(String?.self, forKey: .startIp)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
     }
 }
 public extension SubnetInfo{

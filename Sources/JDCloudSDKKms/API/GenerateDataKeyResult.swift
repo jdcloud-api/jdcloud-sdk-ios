@@ -48,8 +48,14 @@ public class GenerateDataKeyResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GenerateDataKeyResultCodingKeys.self)
-        self.plaintext = try decoderContainer.decode(String?.self, forKey: .plaintext)
-        self.ciphertextBlob = try decoderContainer.decode(String?.self, forKey: .ciphertextBlob)
+        if decoderContainer.contains(.plaintext)
+        {
+            self.plaintext = try decoderContainer.decode(String?.self, forKey: .plaintext)
+        }
+        if decoderContainer.contains(.ciphertextBlob)
+        {
+            self.ciphertextBlob = try decoderContainer.decode(String?.self, forKey: .ciphertextBlob)
+        }
     }
 }
 public extension GenerateDataKeyResult{

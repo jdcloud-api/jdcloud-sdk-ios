@@ -46,8 +46,14 @@ public class CleanThresholdSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CleanThresholdSpecCodingKeys.self)
-        self.cleanThresholdBps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdBps)
-        self.cleanThresholdPps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdPps)
+        if decoderContainer.contains(.cleanThresholdBps)
+        {
+            self.cleanThresholdBps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdBps)
+        }
+        if decoderContainer.contains(.cleanThresholdPps)
+        {
+            self.cleanThresholdPps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdPps)
+        }
     }
 }
 public extension CleanThresholdSpec{

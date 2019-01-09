@@ -28,7 +28,7 @@ import Foundation
 @objc(ServiceMetricItem)
 public class ServiceMetricItem:NSObject,Codable{
     /// Aggregates
-    var aggregates:ServiceMetricAggregateItem?
+    var aggregates:[ServiceMetricAggregateItem?]?
     /// CalculateUnit
     var calculateUnit:String?
     /// Metric
@@ -52,10 +52,22 @@ public class ServiceMetricItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ServiceMetricItemCodingKeys.self)
-        self.aggregates = try decoderContainer.decode(ServiceMetricAggregateItem?.self, forKey: .aggregates)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        if decoderContainer.contains(.aggregates)
+        {
+            self.aggregates = try decoderContainer.decode([ServiceMetricAggregateItem?]?.self, forKey: .aggregates)
+        }
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
     }
 }
 public extension ServiceMetricItem{

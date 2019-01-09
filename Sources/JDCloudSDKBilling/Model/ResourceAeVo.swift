@@ -94,24 +94,78 @@ public class ResourceAeVo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ResourceAeVoCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.site = try decoderContainer.decode(Int?.self, forKey: .site)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.formula = try decoderContainer.decode(String?.self, forKey: .formula)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.subBillId = try decoderContainer.decode(Int?.self, forKey: .subBillId)
-        self.state = try decoderContainer.decode(Int?.self, forKey: .state)
-        self.stateTime = try decoderContainer.decode(String?.self, forKey: .stateTime)
-        self.op = try decoderContainer.decode(Int?.self, forKey: .op)
-        self.isLastRecord = try decoderContainer.decode(Int?.self, forKey: .isLastRecord)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.toDeleteTime = try decoderContainer.decode(String?.self, forKey: .toDeleteTime)
-        self.capState = try decoderContainer.decode(Int?.self, forKey: .capState)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.site)
+        {
+            self.site = try decoderContainer.decode(Int?.self, forKey: .site)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.formula)
+        {
+            self.formula = try decoderContainer.decode(String?.self, forKey: .formula)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.subBillId)
+        {
+            self.subBillId = try decoderContainer.decode(Int?.self, forKey: .subBillId)
+        }
+        if decoderContainer.contains(.state)
+        {
+            self.state = try decoderContainer.decode(Int?.self, forKey: .state)
+        }
+        if decoderContainer.contains(.stateTime)
+        {
+            self.stateTime = try decoderContainer.decode(String?.self, forKey: .stateTime)
+        }
+        if decoderContainer.contains(.op)
+        {
+            self.op = try decoderContainer.decode(Int?.self, forKey: .op)
+        }
+        if decoderContainer.contains(.isLastRecord)
+        {
+            self.isLastRecord = try decoderContainer.decode(Int?.self, forKey: .isLastRecord)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.toDeleteTime)
+        {
+            self.toDeleteTime = try decoderContainer.decode(String?.self, forKey: .toDeleteTime)
+        }
+        if decoderContainer.contains(.capState)
+        {
+            self.capState = try decoderContainer.decode(Int?.self, forKey: .capState)
+        }
     }
 }
 public extension ResourceAeVo{

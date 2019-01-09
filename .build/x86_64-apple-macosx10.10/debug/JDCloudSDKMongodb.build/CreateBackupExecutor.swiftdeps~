@@ -8,8 +8,6 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "CreateBackupExecutor"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "JDCloudClient"
 - "JDCloudExecutor"
 - !private "StringLiteralType"

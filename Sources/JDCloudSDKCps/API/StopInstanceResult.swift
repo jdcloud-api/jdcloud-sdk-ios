@@ -44,7 +44,10 @@ public class StopInstanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StopInstanceResultCodingKeys.self)
-        self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        if decoderContainer.contains(.success)
+        {
+            self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        }
     }
 }
 public extension StopInstanceResult{

@@ -43,7 +43,7 @@ public class DescribeSubnetsRequest:JdCloudRequest
       /// aclId - 子网关联acl Id，支持单个
       /// vpcId - 子网所属VPC Id，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

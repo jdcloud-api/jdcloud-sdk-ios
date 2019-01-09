@@ -85,21 +85,66 @@ public class SqlInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SqlInfoCodingKeys.self)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.client_net_address = try decoderContainer.decode(String?.self, forKey: .client_net_address)
-        self.database = try decoderContainer.decode(String?.self, forKey: .database)
-        self.execution_time = try decoderContainer.decode(Int64?.self, forKey: .execution_time)
-        self.loginname = try decoderContainer.decode(String?.self, forKey: .loginname)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.session_id = try decoderContainer.decode(String?.self, forKey: .session_id)
-        self.sqlstr = try decoderContainer.decode(String?.self, forKey: .sqlstr)
-        self.start_time = try decoderContainer.decode(String?.self, forKey: .start_time)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
-        self.value = try decoderContainer.decode(Int64?.self, forKey: .value)
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.client_net_address)
+        {
+            self.client_net_address = try decoderContainer.decode(String?.self, forKey: .client_net_address)
+        }
+        if decoderContainer.contains(.database)
+        {
+            self.database = try decoderContainer.decode(String?.self, forKey: .database)
+        }
+        if decoderContainer.contains(.execution_time)
+        {
+            self.execution_time = try decoderContainer.decode(Int64?.self, forKey: .execution_time)
+        }
+        if decoderContainer.contains(.loginname)
+        {
+            self.loginname = try decoderContainer.decode(String?.self, forKey: .loginname)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.session_id)
+        {
+            self.session_id = try decoderContainer.decode(String?.self, forKey: .session_id)
+        }
+        if decoderContainer.contains(.sqlstr)
+        {
+            self.sqlstr = try decoderContainer.decode(String?.self, forKey: .sqlstr)
+        }
+        if decoderContainer.contains(.start_time)
+        {
+            self.start_time = try decoderContainer.decode(String?.self, forKey: .start_time)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Int64?.self, forKey: .value)
+        }
     }
 }
 public extension SqlInfo{

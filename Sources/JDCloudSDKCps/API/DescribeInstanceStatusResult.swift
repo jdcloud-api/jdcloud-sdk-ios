@@ -56,10 +56,22 @@ public class DescribeInstanceStatusResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstanceStatusResultCodingKeys.self)
-        self.cpus = try decoderContainer.decode(Bool?.self, forKey: .cpus)
-        self.mems = try decoderContainer.decode(Bool?.self, forKey: .mems)
-        self.disks = try decoderContainer.decode(Bool?.self, forKey: .disks)
-        self.nics = try decoderContainer.decode(Bool?.self, forKey: .nics)
+        if decoderContainer.contains(.cpus)
+        {
+            self.cpus = try decoderContainer.decode(Bool?.self, forKey: .cpus)
+        }
+        if decoderContainer.contains(.mems)
+        {
+            self.mems = try decoderContainer.decode(Bool?.self, forKey: .mems)
+        }
+        if decoderContainer.contains(.disks)
+        {
+            self.disks = try decoderContainer.decode(Bool?.self, forKey: .disks)
+        }
+        if decoderContainer.contains(.nics)
+        {
+            self.nics = try decoderContainer.decode(Bool?.self, forKey: .nics)
+        }
     }
 }
 public extension DescribeInstanceStatusResult{

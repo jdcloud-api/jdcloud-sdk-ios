@@ -44,7 +44,10 @@ public class GetAccountInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetAccountInfoResultCodingKeys.self)
-        self.data = try decoderContainer.decode(Account?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(Account?.self, forKey: .data)
+        }
     }
 }
 public extension GetAccountInfoResult{

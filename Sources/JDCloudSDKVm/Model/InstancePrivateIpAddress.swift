@@ -46,8 +46,14 @@ public class InstancePrivateIpAddress:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstancePrivateIpAddressCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
     }
 }
 public extension InstancePrivateIpAddress{

@@ -46,8 +46,14 @@ public class ModifySubnetSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifySubnetSpecCodingKeys.self)
-        self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.subnetName)
+        {
+            self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifySubnetSpec{

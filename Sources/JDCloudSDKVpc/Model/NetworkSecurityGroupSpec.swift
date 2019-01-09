@@ -54,7 +54,10 @@ public class NetworkSecurityGroupSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: NetworkSecurityGroupSpecCodingKeys.self)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.networkSecurityGroupName = try decoderContainer.decode(String.self, forKey: .networkSecurityGroupName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension NetworkSecurityGroupSpec{

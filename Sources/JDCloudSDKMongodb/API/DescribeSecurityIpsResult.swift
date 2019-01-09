@@ -44,7 +44,10 @@ public class DescribeSecurityIpsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSecurityIpsResultCodingKeys.self)
-        self.securityIps = try decoderContainer.decode(String?.self, forKey: .securityIps)
+        if decoderContainer.contains(.securityIps)
+        {
+            self.securityIps = try decoderContainer.decode(String?.self, forKey: .securityIps)
+        }
     }
 }
 public extension DescribeSecurityIpsResult{

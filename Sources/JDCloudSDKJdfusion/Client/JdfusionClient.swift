@@ -62,7 +62,7 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
     
     public let serviceName: String = "jdfusion"
     
-    public let version: String = "0.0.1"
+    public let version: String = "v1"
     
     public let contentType:String = "application/json"
     

@@ -44,7 +44,10 @@ public class GetResourceNameResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetResourceNameResultCodingKeys.self)
-        self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
+        if decoderContainer.contains(.resourceName)
+        {
+            self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
+        }
     }
 }
 public extension GetResourceNameResult{

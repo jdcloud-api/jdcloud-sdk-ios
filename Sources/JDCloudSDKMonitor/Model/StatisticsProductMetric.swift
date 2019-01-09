@@ -52,10 +52,22 @@ public class StatisticsProductMetric:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsProductMetricCodingKeys.self)
-        self.aggregate = try decoderContainer.decode(String?.self, forKey: .aggregate)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricShow = try decoderContainer.decode(String?.self, forKey: .metricShow)
+        if decoderContainer.contains(.aggregate)
+        {
+            self.aggregate = try decoderContainer.decode(String?.self, forKey: .aggregate)
+        }
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricShow)
+        {
+            self.metricShow = try decoderContainer.decode(String?.self, forKey: .metricShow)
+        }
     }
 }
 public extension StatisticsProductMetric{

@@ -34,7 +34,7 @@ public class DescribeQuotasRequest:JdCloudRequest
 {
     /// resourceTypes - 资源类型，支持多个[instance，keypair，image，instanceTemplate，imageShare]
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// 私有镜像Id，查询镜像共享(imageShare)配额时，此参数必传
     var imageId:String?

@@ -43,7 +43,10 @@ public class CreateLoadBalancerHTTPListenerReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateLoadBalancerHTTPListenerReqCodingKeys.self)
-        self.httpListener = try decoderContainer.decode(CreateLoadBalancerHTTPListener?.self, forKey: .httpListener)
+        if decoderContainer.contains(.httpListener)
+        {
+            self.httpListener = try decoderContainer.decode(CreateLoadBalancerHTTPListener?.self, forKey: .httpListener)
+        }
     }
 }
 public extension CreateLoadBalancerHTTPListenerReq{

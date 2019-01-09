@@ -28,7 +28,7 @@ import Foundation
 @objc(MetricDataItemCm)
 public class MetricDataItemCm:NSObject,Codable{
     /// Data
-    var data:DataPoint?
+    var data:[DataPoint?]?
     /// Metric
     var metric:MetricCm?
 
@@ -46,8 +46,14 @@ public class MetricDataItemCm:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MetricDataItemCmCodingKeys.self)
-        self.data = try decoderContainer.decode(DataPoint?.self, forKey: .data)
-        self.metric = try decoderContainer.decode(MetricCm?.self, forKey: .metric)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([DataPoint?]?.self, forKey: .data)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(MetricCm?.self, forKey: .metric)
+        }
     }
 }
 public extension MetricDataItemCm{

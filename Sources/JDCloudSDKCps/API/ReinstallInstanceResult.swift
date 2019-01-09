@@ -47,7 +47,10 @@ public class ReinstallInstanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ReinstallInstanceResultCodingKeys.self)
-        self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        if decoderContainer.contains(.success)
+        {
+            self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        }
     }
 }
 public extension ReinstallInstanceResult{

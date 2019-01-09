@@ -55,11 +55,26 @@ public class StreamInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StreamInfoCodingKeys.self)
-        self.audioFrameRate = try decoderContainer.decode(Double?.self, forKey: .audioFrameRate)
-        self.streamUrl = try decoderContainer.decode(String?.self, forKey: .streamUrl)
-        self.bitRate = try decoderContainer.decode(Double?.self, forKey: .bitRate)
-        self.videoFrameRate = try decoderContainer.decode(Double?.self, forKey: .videoFrameRate)
-        self.time = try decoderContainer.decode(String?.self, forKey: .time)
+        if decoderContainer.contains(.audioFrameRate)
+        {
+            self.audioFrameRate = try decoderContainer.decode(Double?.self, forKey: .audioFrameRate)
+        }
+        if decoderContainer.contains(.streamUrl)
+        {
+            self.streamUrl = try decoderContainer.decode(String?.self, forKey: .streamUrl)
+        }
+        if decoderContainer.contains(.bitRate)
+        {
+            self.bitRate = try decoderContainer.decode(Double?.self, forKey: .bitRate)
+        }
+        if decoderContainer.contains(.videoFrameRate)
+        {
+            self.videoFrameRate = try decoderContainer.decode(Double?.self, forKey: .videoFrameRate)
+        }
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode(String?.self, forKey: .time)
+        }
     }
 }
 public extension StreamInfo{

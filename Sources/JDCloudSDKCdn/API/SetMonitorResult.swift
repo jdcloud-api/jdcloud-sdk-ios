@@ -44,7 +44,10 @@ public class SetMonitorResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SetMonitorResultCodingKeys.self)
-        self.monitorId = try decoderContainer.decode(Int64?.self, forKey: .monitorId)
+        if decoderContainer.contains(.monitorId)
+        {
+            self.monitorId = try decoderContainer.decode(Int64?.self, forKey: .monitorId)
+        }
     }
 }
 public extension SetMonitorResult{

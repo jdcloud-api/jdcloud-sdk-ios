@@ -46,7 +46,7 @@ public class DescribeInstancePrivateIpAddressRequest:JdCloudRequest
       /// networkInterfaceId - 弹性网卡ID，精确匹配，支持多个
       /// subnetId - 子网ID，精确匹配，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

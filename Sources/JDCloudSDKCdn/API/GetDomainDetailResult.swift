@@ -57,7 +57,7 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
     var avgFileSize:Int64?
 
     /// ReferList
-    var referList:String?
+    var referList:[String?]?
 
     /// ReferType
     var referType:String?
@@ -148,33 +148,114 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDomainDetailResultCodingKeys.self)
-        self.allStatus = try decoderContainer.decode(String?.self, forKey: .allStatus)
-        self.allowNoReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNoReferHeader)
-        self.allowNullReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNullReferHeader)
-        self.dailyBandWidth = try decoderContainer.decode(Int?.self, forKey: .dailyBandWidth)
-        self.forbiddenType = try decoderContainer.decode(String?.self, forKey: .forbiddenType)
-        self.maxFileSize = try decoderContainer.decode(Int64?.self, forKey: .maxFileSize)
-        self.minFileSize = try decoderContainer.decode(Int64?.self, forKey: .minFileSize)
-        self.sumFileSize = try decoderContainer.decode(Int64?.self, forKey: .sumFileSize)
-        self.avgFileSize = try decoderContainer.decode(Int64?.self, forKey: .avgFileSize)
-        self.referList = try decoderContainer.decode(String?.self, forKey: .referList)
-        self.referType = try decoderContainer.decode(String?.self, forKey: .referType)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
-        self.archiveNo = try decoderContainer.decode(String?.self, forKey: .archiveNo)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.created = try decoderContainer.decode(String?.self, forKey: .created)
-        self.modified = try decoderContainer.decode(String?.self, forKey: .modified)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
-        self.source = try decoderContainer.decode(BackSourceInfo?.self, forKey: .source)
-        self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
-        self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
-        self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
-        self.httpType = try decoderContainer.decode(String?.self, forKey: .httpType)
-        self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
-        self.rsaKey = try decoderContainer.decode(String?.self, forKey: .rsaKey)
-        self.jumpType = try decoderContainer.decode(String?.self, forKey: .jumpType)
+        if decoderContainer.contains(.allStatus)
+        {
+            self.allStatus = try decoderContainer.decode(String?.self, forKey: .allStatus)
+        }
+        if decoderContainer.contains(.allowNoReferHeader)
+        {
+            self.allowNoReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNoReferHeader)
+        }
+        if decoderContainer.contains(.allowNullReferHeader)
+        {
+            self.allowNullReferHeader = try decoderContainer.decode(String?.self, forKey: .allowNullReferHeader)
+        }
+        if decoderContainer.contains(.dailyBandWidth)
+        {
+            self.dailyBandWidth = try decoderContainer.decode(Int?.self, forKey: .dailyBandWidth)
+        }
+        if decoderContainer.contains(.forbiddenType)
+        {
+            self.forbiddenType = try decoderContainer.decode(String?.self, forKey: .forbiddenType)
+        }
+        if decoderContainer.contains(.maxFileSize)
+        {
+            self.maxFileSize = try decoderContainer.decode(Int64?.self, forKey: .maxFileSize)
+        }
+        if decoderContainer.contains(.minFileSize)
+        {
+            self.minFileSize = try decoderContainer.decode(Int64?.self, forKey: .minFileSize)
+        }
+        if decoderContainer.contains(.sumFileSize)
+        {
+            self.sumFileSize = try decoderContainer.decode(Int64?.self, forKey: .sumFileSize)
+        }
+        if decoderContainer.contains(.avgFileSize)
+        {
+            self.avgFileSize = try decoderContainer.decode(Int64?.self, forKey: .avgFileSize)
+        }
+        if decoderContainer.contains(.referList)
+        {
+            self.referList = try decoderContainer.decode([String?]?.self, forKey: .referList)
+        }
+        if decoderContainer.contains(.referType)
+        {
+            self.referType = try decoderContainer.decode(String?.self, forKey: .referType)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.cname)
+        {
+            self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.archiveNo)
+        {
+            self.archiveNo = try decoderContainer.decode(String?.self, forKey: .archiveNo)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.created)
+        {
+            self.created = try decoderContainer.decode(String?.self, forKey: .created)
+        }
+        if decoderContainer.contains(.modified)
+        {
+            self.modified = try decoderContainer.decode(String?.self, forKey: .modified)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.auditStatus)
+        {
+            self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
+        }
+        if decoderContainer.contains(.source)
+        {
+            self.source = try decoderContainer.decode(BackSourceInfo?.self, forKey: .source)
+        }
+        if decoderContainer.contains(.sourceType)
+        {
+            self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
+        }
+        if decoderContainer.contains(.defaultSourceHost)
+        {
+            self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
+        }
+        if decoderContainer.contains(.backSourceType)
+        {
+            self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
+        }
+        if decoderContainer.contains(.httpType)
+        {
+            self.httpType = try decoderContainer.decode(String?.self, forKey: .httpType)
+        }
+        if decoderContainer.contains(.certificate)
+        {
+            self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
+        }
+        if decoderContainer.contains(.rsaKey)
+        {
+            self.rsaKey = try decoderContainer.decode(String?.self, forKey: .rsaKey)
+        }
+        if decoderContainer.contains(.jumpType)
+        {
+            self.jumpType = try decoderContainer.decode(String?.self, forKey: .jumpType)
+        }
     }
 }
 public extension GetDomainDetailResult{

@@ -32,11 +32,11 @@ public class PermissionDetail:NSObject,Codable{
     var permission:String
     /// 资源信息
     /// Required:true
-    var resource:Resource?
+    var resource:[Resource?]
 
 
 
-    public  init(permission:String,resource:Resource?){
+    public  init(permission:String,resource:[Resource?]){
              self.permission = permission
              self.resource = resource
     }
@@ -50,7 +50,7 @@ public class PermissionDetail:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PermissionDetailCodingKeys.self)
         self.permission = try decoderContainer.decode(String.self, forKey: .permission)
-        self.resource = try decoderContainer.decode(Resource?.self, forKey: .resource)
+        self.resource = try decoderContainer.decode([Resource?].self, forKey: .resource)
     }
 }
 public extension PermissionDetail{

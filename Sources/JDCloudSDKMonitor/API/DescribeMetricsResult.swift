@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeMetricsResult:NSObject,JdCloudResult
 {
     /// Metrics
-    var metrics:MetricDetail?
+    var metrics:[MetricDetail?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeMetricsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeMetricsResultCodingKeys.self)
-        self.metrics = try decoderContainer.decode(MetricDetail?.self, forKey: .metrics)
+        if decoderContainer.contains(.metrics)
+        {
+            self.metrics = try decoderContainer.decode([MetricDetail?]?.self, forKey: .metrics)
+        }
     }
 }
 public extension DescribeMetricsResult{

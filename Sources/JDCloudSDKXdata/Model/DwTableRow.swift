@@ -52,10 +52,22 @@ public class DwTableRow:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DwTableRowCodingKeys.self)
-        self.columnName = try decoderContainer.decode(String?.self, forKey: .columnName)
-        self.columnType = try decoderContainer.decode(String?.self, forKey: .columnType)
-        self.isPartition = try decoderContainer.decode(Bool?.self, forKey: .isPartition)
-        self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
+        if decoderContainer.contains(.columnName)
+        {
+            self.columnName = try decoderContainer.decode(String?.self, forKey: .columnName)
+        }
+        if decoderContainer.contains(.columnType)
+        {
+            self.columnType = try decoderContainer.decode(String?.self, forKey: .columnType)
+        }
+        if decoderContainer.contains(.isPartition)
+        {
+            self.isPartition = try decoderContainer.decode(Bool?.self, forKey: .isPartition)
+        }
+        if decoderContainer.contains(.comments)
+        {
+            self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
+        }
     }
 }
 public extension DwTableRow{

@@ -28,7 +28,7 @@ import Foundation
 @objc(EnableSiteMonitorSpec)
 public class EnableSiteMonitorSpec:NSObject,Codable{
     /// List
-    var list:EnableSiteMonitorReqItem?
+    var list:[EnableSiteMonitorReqItem?]?
 
 
 
@@ -43,7 +43,10 @@ public class EnableSiteMonitorSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: EnableSiteMonitorSpecCodingKeys.self)
-        self.list = try decoderContainer.decode(EnableSiteMonitorReqItem?.self, forKey: .list)
+        if decoderContainer.contains(.list)
+        {
+            self.list = try decoderContainer.decode([EnableSiteMonitorReqItem?]?.self, forKey: .list)
+        }
     }
 }
 public extension EnableSiteMonitorSpec{

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeCcAttackLogDetailsResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:CCAttackLogDetail?
+    var dataList:[CCAttackLogDetail?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeCcAttackLogDetailsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCcAttackLogDetailsResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(CCAttackLogDetail?.self, forKey: .dataList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([CCAttackLogDetail?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeCcAttackLogDetailsResult{

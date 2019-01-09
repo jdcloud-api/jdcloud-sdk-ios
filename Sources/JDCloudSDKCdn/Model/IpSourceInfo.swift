@@ -49,9 +49,18 @@ public class IpSourceInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpSourceInfoCodingKeys.self)
-        self.master = try decoderContainer.decode(Int?.self, forKey: .master)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.ratio = try decoderContainer.decode(Double?.self, forKey: .ratio)
+        if decoderContainer.contains(.master)
+        {
+            self.master = try decoderContainer.decode(Int?.self, forKey: .master)
+        }
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.ratio)
+        {
+            self.ratio = try decoderContainer.decode(Double?.self, forKey: .ratio)
+        }
     }
 }
 public extension IpSourceInfo{

@@ -52,10 +52,22 @@ public class IpResourceProtectInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpResourceProtectInfoCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.cause = try decoderContainer.decode(Int?.self, forKey: .cause)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.cause)
+        {
+            self.cause = try decoderContainer.decode(Int?.self, forKey: .cause)
+        }
     }
 }
 public extension IpResourceProtectInfo{

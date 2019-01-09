@@ -78,15 +78,42 @@ public class ResourceOrderStatusVo:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: ResourceOrderStatusVoCodingKeys.self)
         self.resourceId = try decoderContainer.decode(String.self, forKey: .resourceId)
         self.pin = try decoderContainer.decode(String.self, forKey: .pin)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.billingStatus = try decoderContainer.decode(Int?.self, forKey: .billingStatus)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.chargeMode = try decoderContainer.decode(Int?.self, forKey: .chargeMode)
-        self.chargeDuration = try decoderContainer.decode(Int?.self, forKey: .chargeDuration)
-        self.chargeUnit = try decoderContainer.decode(Int?.self, forKey: .chargeUnit)
-        self.site = try decoderContainer.decode(Int?.self, forKey: .site)
-        self.operateTime = try decoderContainer.decode(String?.self, forKey: .operateTime)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.billingStatus)
+        {
+            self.billingStatus = try decoderContainer.decode(Int?.self, forKey: .billingStatus)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.chargeMode)
+        {
+            self.chargeMode = try decoderContainer.decode(Int?.self, forKey: .chargeMode)
+        }
+        if decoderContainer.contains(.chargeDuration)
+        {
+            self.chargeDuration = try decoderContainer.decode(Int?.self, forKey: .chargeDuration)
+        }
+        if decoderContainer.contains(.chargeUnit)
+        {
+            self.chargeUnit = try decoderContainer.decode(Int?.self, forKey: .chargeUnit)
+        }
+        if decoderContainer.contains(.site)
+        {
+            self.site = try decoderContainer.decode(Int?.self, forKey: .site)
+        }
+        if decoderContainer.contains(.operateTime)
+        {
+            self.operateTime = try decoderContainer.decode(String?.self, forKey: .operateTime)
+        }
     }
 }
 public extension ResourceOrderStatusVo{

@@ -30,11 +30,11 @@ import JDCloudSDKCore
 @objc(DescribeInstanceTypesResult)
 public class DescribeInstanceTypesResult:NSObject,JdCloudResult
 {
-    /// InstanceTypes
-    var instanceTypes:InstanceType?
+    /// 通用的实例规格
+    var instanceTypes:[InstanceType?]?
 
-    /// SpecificInstanceTypes
-    var specificInstanceTypes:InstanceType?
+    /// 用户特有的实例规格；需要工单申请
+    var specificInstanceTypes:[InstanceType?]?
 
     /// 总数量
     var totalCount:Int?
@@ -53,9 +53,18 @@ public class DescribeInstanceTypesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstanceTypesResultCodingKeys.self)
-        self.instanceTypes = try decoderContainer.decode(InstanceType?.self, forKey: .instanceTypes)
-        self.specificInstanceTypes = try decoderContainer.decode(InstanceType?.self, forKey: .specificInstanceTypes)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.instanceTypes)
+        {
+            self.instanceTypes = try decoderContainer.decode([InstanceType?]?.self, forKey: .instanceTypes)
+        }
+        if decoderContainer.contains(.specificInstanceTypes)
+        {
+            self.specificInstanceTypes = try decoderContainer.decode([InstanceType?]?.self, forKey: .specificInstanceTypes)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeInstanceTypesResult{

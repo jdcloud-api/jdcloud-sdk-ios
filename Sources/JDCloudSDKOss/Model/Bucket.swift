@@ -48,7 +48,10 @@ public class Bucket:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BucketCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.creationDate = try decoderContainer.decode(String?.self, forKey: .creationDate)
+        if decoderContainer.contains(.creationDate)
+        {
+            self.creationDate = try decoderContainer.decode(String?.self, forKey: .creationDate)
+        }
     }
 }
 public extension Bucket{

@@ -55,11 +55,26 @@ public class UserAccessKey:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UserAccessKeyCodingKeys.self)
-        self.accessKey = try decoderContainer.decode(String?.self, forKey: .accessKey)
-        self.accessKeySecret = try decoderContainer.decode(String?.self, forKey: .accessKeySecret)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.state = try decoderContainer.decode(Int?.self, forKey: .state)
-        self.yn = try decoderContainer.decode(Int?.self, forKey: .yn)
+        if decoderContainer.contains(.accessKey)
+        {
+            self.accessKey = try decoderContainer.decode(String?.self, forKey: .accessKey)
+        }
+        if decoderContainer.contains(.accessKeySecret)
+        {
+            self.accessKeySecret = try decoderContainer.decode(String?.self, forKey: .accessKeySecret)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.state)
+        {
+            self.state = try decoderContainer.decode(Int?.self, forKey: .state)
+        }
+        if decoderContainer.contains(.yn)
+        {
+            self.yn = try decoderContainer.decode(Int?.self, forKey: .yn)
+        }
     }
 }
 public extension UserAccessKey{

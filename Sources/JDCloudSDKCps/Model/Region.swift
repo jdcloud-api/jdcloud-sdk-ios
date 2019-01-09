@@ -32,7 +32,7 @@ public class Region:NSObject,Codable{
     /// 地域名称，如 华东一区
     var regionName:String?
     /// 可用区列表
-    var azs:Az?
+    var azs:[Az?]?
 
 
 
@@ -49,9 +49,18 @@ public class Region:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RegionCodingKeys.self)
-        self.regionValue = try decoderContainer.decode(String?.self, forKey: .regionValue)
-        self.regionName = try decoderContainer.decode(String?.self, forKey: .regionName)
-        self.azs = try decoderContainer.decode(Az?.self, forKey: .azs)
+        if decoderContainer.contains(.regionValue)
+        {
+            self.regionValue = try decoderContainer.decode(String?.self, forKey: .regionValue)
+        }
+        if decoderContainer.contains(.regionName)
+        {
+            self.regionName = try decoderContainer.decode(String?.self, forKey: .regionName)
+        }
+        if decoderContainer.contains(.azs)
+        {
+            self.azs = try decoderContainer.decode([Az?]?.self, forKey: .azs)
+        }
     }
 }
 public extension Region{

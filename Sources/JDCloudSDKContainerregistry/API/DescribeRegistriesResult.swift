@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class DescribeRegistriesResult:NSObject,JdCloudResult
 {
     /// Registries
-    var registries:Registry?
+    var registries:[Registry?]?
 
 
 
@@ -46,7 +46,10 @@ public class DescribeRegistriesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRegistriesResultCodingKeys.self)
-        self.registries = try decoderContainer.decode(Registry?.self, forKey: .registries)
+        if decoderContainer.contains(.registries)
+        {
+            self.registries = try decoderContainer.decode([Registry?]?.self, forKey: .registries)
+        }
     }
 }
 public extension DescribeRegistriesResult{

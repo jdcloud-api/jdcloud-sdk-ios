@@ -48,7 +48,7 @@ import JDCloudSDKCore
 public class CreateInstancesResult:NSObject,JdCloudResult
 {
     /// InstanceIds
-    var instanceIds:String?
+    var instanceIds:[String?]?
 
 
 
@@ -62,7 +62,10 @@ public class CreateInstancesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateInstancesResultCodingKeys.self)
-        self.instanceIds = try decoderContainer.decode(String?.self, forKey: .instanceIds)
+        if decoderContainer.contains(.instanceIds)
+        {
+            self.instanceIds = try decoderContainer.decode([String?]?.self, forKey: .instanceIds)
+        }
     }
 }
 public extension CreateInstancesResult{

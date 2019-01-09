@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcCollection)
 public class VpcCollection:NSObject,Codable{
     /// Vpcs
-    var vpcs:VpcInfo?
+    var vpcs:[VpcInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcCollectionCodingKeys.self)
-        self.vpcs = try decoderContainer.decode(VpcInfo?.self, forKey: .vpcs)
+        if decoderContainer.contains(.vpcs)
+        {
+            self.vpcs = try decoderContainer.decode([VpcInfo?]?.self, forKey: .vpcs)
+        }
     }
 }
 public extension VpcCollection{

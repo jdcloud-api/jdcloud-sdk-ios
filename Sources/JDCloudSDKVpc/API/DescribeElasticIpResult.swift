@@ -44,7 +44,10 @@ public class DescribeElasticIpResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeElasticIpResultCodingKeys.self)
-        self.elasticIp = try decoderContainer.decode(ElasticIp?.self, forKey: .elasticIp)
+        if decoderContainer.contains(.elasticIp)
+        {
+            self.elasticIp = try decoderContainer.decode(ElasticIp?.self, forKey: .elasticIp)
+        }
     }
 }
 public extension DescribeElasticIpResult{

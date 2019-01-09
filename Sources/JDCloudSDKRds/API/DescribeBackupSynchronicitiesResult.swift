@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeBackupSynchronicitiesResult:NSObject,JdCloudResult
 {
     /// BackupSynchronicities
-    var backupSynchronicities:BackupSynchronicity?
+    var backupSynchronicities:[BackupSynchronicity?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeBackupSynchronicitiesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeBackupSynchronicitiesResultCodingKeys.self)
-        self.backupSynchronicities = try decoderContainer.decode(BackupSynchronicity?.self, forKey: .backupSynchronicities)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.backupSynchronicities)
+        {
+            self.backupSynchronicities = try decoderContainer.decode([BackupSynchronicity?]?.self, forKey: .backupSynchronicities)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeBackupSynchronicitiesResult{

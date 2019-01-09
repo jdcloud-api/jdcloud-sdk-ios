@@ -34,11 +34,11 @@ public class CreatePermissionInfo:NSObject,Codable{
     var descriptionValue:String?
     /// 权限详细信息
     /// Required:true
-    var content:PermissionDetail?
+    var content:[PermissionDetail?]
 
 
 
-    public  init(name:String,content:PermissionDetail?){
+    public  init(name:String,content:[PermissionDetail?]){
              self.name = name
              self.content = content
     }
@@ -53,8 +53,11 @@ public class CreatePermissionInfo:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreatePermissionInfoCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.content = try decoderContainer.decode(PermissionDetail?.self, forKey: .content)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        self.content = try decoderContainer.decode([PermissionDetail?].self, forKey: .content)
     }
 }
 public extension CreatePermissionInfo{

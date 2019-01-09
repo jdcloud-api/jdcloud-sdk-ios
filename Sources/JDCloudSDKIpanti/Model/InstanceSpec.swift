@@ -67,15 +67,42 @@ public class InstanceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceSpecCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.buyType = try decoderContainer.decode(Int?.self, forKey: .buyType)
-        self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
-        self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
-        self.carrier = try decoderContainer.decode(String?.self, forKey: .carrier)
-        self.bp = try decoderContainer.decode(Int?.self, forKey: .bp)
-        self.ep = try decoderContainer.decode(Int?.self, forKey: .ep)
-        self.bw = try decoderContainer.decode(Int?.self, forKey: .bw)
-        self.returnUrl = try decoderContainer.decode(String?.self, forKey: .returnUrl)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.buyType)
+        {
+            self.buyType = try decoderContainer.decode(Int?.self, forKey: .buyType)
+        }
+        if decoderContainer.contains(.timeUnit)
+        {
+            self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
+        }
+        if decoderContainer.contains(.timeSpan)
+        {
+            self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
+        }
+        if decoderContainer.contains(.carrier)
+        {
+            self.carrier = try decoderContainer.decode(String?.self, forKey: .carrier)
+        }
+        if decoderContainer.contains(.bp)
+        {
+            self.bp = try decoderContainer.decode(Int?.self, forKey: .bp)
+        }
+        if decoderContainer.contains(.ep)
+        {
+            self.ep = try decoderContainer.decode(Int?.self, forKey: .ep)
+        }
+        if decoderContainer.contains(.bw)
+        {
+            self.bw = try decoderContainer.decode(Int?.self, forKey: .bw)
+        }
+        if decoderContainer.contains(.returnUrl)
+        {
+            self.returnUrl = try decoderContainer.decode(String?.self, forKey: .returnUrl)
+        }
     }
 }
 public extension InstanceSpec{

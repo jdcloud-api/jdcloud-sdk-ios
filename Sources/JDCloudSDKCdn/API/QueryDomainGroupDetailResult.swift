@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(QueryDomainGroupDetailResult)
 public class QueryDomainGroupDetailResult:NSObject,JdCloudResult
 {
-    /// Domains
-    var domains:String?
+    /// 域名组成员
+    var domains:[String?]?
 
     /// 主域名
     var primaryDomain:String?
@@ -56,10 +56,22 @@ public class QueryDomainGroupDetailResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryDomainGroupDetailResultCodingKeys.self)
-        self.domains = try decoderContainer.decode(String?.self, forKey: .domains)
-        self.primaryDomain = try decoderContainer.decode(String?.self, forKey: .primaryDomain)
-        self.shareCache = try decoderContainer.decode(String?.self, forKey: .shareCache)
-        self.domainGroupName = try decoderContainer.decode(String?.self, forKey: .domainGroupName)
+        if decoderContainer.contains(.domains)
+        {
+            self.domains = try decoderContainer.decode([String?]?.self, forKey: .domains)
+        }
+        if decoderContainer.contains(.primaryDomain)
+        {
+            self.primaryDomain = try decoderContainer.decode(String?.self, forKey: .primaryDomain)
+        }
+        if decoderContainer.contains(.shareCache)
+        {
+            self.shareCache = try decoderContainer.decode(String?.self, forKey: .shareCache)
+        }
+        if decoderContainer.contains(.domainGroupName)
+        {
+            self.domainGroupName = try decoderContainer.decode(String?.self, forKey: .domainGroupName)
+        }
     }
 }
 public extension QueryDomainGroupDetailResult{

@@ -38,8 +38,8 @@ public class DescribeCustomLiveStreamWatermarkConfigResult:NSObject,JdCloudResul
     /// 查询总数
     var totalCount:Double?
 
-    /// WatermarkConfigs
-    var watermarkConfigs:LiveStreamRecordConfig?
+    /// 录制模板配置列表
+    var watermarkConfigs:[LiveStreamRecordConfig?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeCustomLiveStreamWatermarkConfigResult:NSObject,JdCloudResul
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamWatermarkConfigResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.watermarkConfigs = try decoderContainer.decode(LiveStreamRecordConfig?.self, forKey: .watermarkConfigs)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.watermarkConfigs)
+        {
+            self.watermarkConfigs = try decoderContainer.decode([LiveStreamRecordConfig?]?.self, forKey: .watermarkConfigs)
+        }
     }
 }
 public extension DescribeCustomLiveStreamWatermarkConfigResult{

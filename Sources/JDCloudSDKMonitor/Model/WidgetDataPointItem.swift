@@ -28,9 +28,9 @@ import Foundation
 @objc(WidgetDataPointItem)
 public class WidgetDataPointItem:NSObject,Codable{
     /// Aggregate
-    var aggregate:StatsItem?
+    var aggregate:[StatsItem?]?
     /// Detail
-    var detail:StatsItem?
+    var detail:[StatsItem?]?
     /// WidgetId
     var widgetId:String?
 
@@ -49,9 +49,18 @@ public class WidgetDataPointItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WidgetDataPointItemCodingKeys.self)
-        self.aggregate = try decoderContainer.decode(StatsItem?.self, forKey: .aggregate)
-        self.detail = try decoderContainer.decode(StatsItem?.self, forKey: .detail)
-        self.widgetId = try decoderContainer.decode(String?.self, forKey: .widgetId)
+        if decoderContainer.contains(.aggregate)
+        {
+            self.aggregate = try decoderContainer.decode([StatsItem?]?.self, forKey: .aggregate)
+        }
+        if decoderContainer.contains(.detail)
+        {
+            self.detail = try decoderContainer.decode([StatsItem?]?.self, forKey: .detail)
+        }
+        if decoderContainer.contains(.widgetId)
+        {
+            self.widgetId = try decoderContainer.decode(String?.self, forKey: .widgetId)
+        }
     }
 }
 public extension WidgetDataPointItem{

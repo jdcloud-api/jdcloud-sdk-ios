@@ -49,8 +49,14 @@ public class InstanceDiskAttribute:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceDiskAttributeCodingKeys.self)
-        self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        if decoderContainer.contains(.diskId)
+        {
+            self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        }
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
     }
 }
 public extension InstanceDiskAttribute{

@@ -70,16 +70,46 @@ public class IndexPerformanceResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IndexPerformanceResultCodingKeys.self)
-        self.db = try decoderContainer.decode(String?.self, forKey: .db)
-        self.table = try decoderContainer.decode(String?.self, forKey: .table)
-        self.index = try decoderContainer.decode(String?.self, forKey: .index)
-        self.sizeKB = try decoderContainer.decode(Int?.self, forKey: .sizeKB)
-        self.userSeeks = try decoderContainer.decode(Int?.self, forKey: .userSeeks)
-        self.userScans = try decoderContainer.decode(Int?.self, forKey: .userScans)
-        self.userUpdates = try decoderContainer.decode(Int?.self, forKey: .userUpdates)
-        self.lastUserSeek = try decoderContainer.decode(String?.self, forKey: .lastUserSeek)
-        self.lastUserScan = try decoderContainer.decode(String?.self, forKey: .lastUserScan)
-        self.lastUserUpdate = try decoderContainer.decode(String?.self, forKey: .lastUserUpdate)
+        if decoderContainer.contains(.db)
+        {
+            self.db = try decoderContainer.decode(String?.self, forKey: .db)
+        }
+        if decoderContainer.contains(.table)
+        {
+            self.table = try decoderContainer.decode(String?.self, forKey: .table)
+        }
+        if decoderContainer.contains(.index)
+        {
+            self.index = try decoderContainer.decode(String?.self, forKey: .index)
+        }
+        if decoderContainer.contains(.sizeKB)
+        {
+            self.sizeKB = try decoderContainer.decode(Int?.self, forKey: .sizeKB)
+        }
+        if decoderContainer.contains(.userSeeks)
+        {
+            self.userSeeks = try decoderContainer.decode(Int?.self, forKey: .userSeeks)
+        }
+        if decoderContainer.contains(.userScans)
+        {
+            self.userScans = try decoderContainer.decode(Int?.self, forKey: .userScans)
+        }
+        if decoderContainer.contains(.userUpdates)
+        {
+            self.userUpdates = try decoderContainer.decode(Int?.self, forKey: .userUpdates)
+        }
+        if decoderContainer.contains(.lastUserSeek)
+        {
+            self.lastUserSeek = try decoderContainer.decode(String?.self, forKey: .lastUserSeek)
+        }
+        if decoderContainer.contains(.lastUserScan)
+        {
+            self.lastUserScan = try decoderContainer.decode(String?.self, forKey: .lastUserScan)
+        }
+        if decoderContainer.contains(.lastUserUpdate)
+        {
+            self.lastUserUpdate = try decoderContainer.decode(String?.self, forKey: .lastUserUpdate)
+        }
     }
 }
 public extension IndexPerformanceResult{

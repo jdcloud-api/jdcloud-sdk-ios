@@ -73,17 +73,50 @@ public class Subnet:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SubnetCodingKeys.self)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.availableIpCount = try decoderContainer.decode(Double?.self, forKey: .availableIpCount)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
-        self.aclId = try decoderContainer.decode(String?.self, forKey: .aclId)
-        self.startIp = try decoderContainer.decode(String?.self, forKey: .startIp)
-        self.endIp = try decoderContainer.decode(String?.self, forKey: .endIp)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.subnetName)
+        {
+            self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.availableIpCount)
+        {
+            self.availableIpCount = try decoderContainer.decode(Double?.self, forKey: .availableIpCount)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.routeTableId)
+        {
+            self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
+        }
+        if decoderContainer.contains(.aclId)
+        {
+            self.aclId = try decoderContainer.decode(String?.self, forKey: .aclId)
+        }
+        if decoderContainer.contains(.startIp)
+        {
+            self.startIp = try decoderContainer.decode(String?.self, forKey: .startIp)
+        }
+        if decoderContainer.contains(.endIp)
+        {
+            self.endIp = try decoderContainer.decode(String?.self, forKey: .endIp)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension Subnet{

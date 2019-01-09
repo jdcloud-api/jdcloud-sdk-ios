@@ -49,9 +49,18 @@ public class ObjInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ObjInfoCodingKeys.self)
-        self.metrics = try decoderContainer.decode([String?]?.self, forKey: .metrics)
-        self.objName = try decoderContainer.decode(String?.self, forKey: .objName)
-        self.objUid = try decoderContainer.decode(String?.self, forKey: .objUid)
+        if decoderContainer.contains(.metrics)
+        {
+            self.metrics = try decoderContainer.decode([String?]?.self, forKey: .metrics)
+        }
+        if decoderContainer.contains(.objName)
+        {
+            self.objName = try decoderContainer.decode(String?.self, forKey: .objName)
+        }
+        if decoderContainer.contains(.objUid)
+        {
+            self.objUid = try decoderContainer.decode(String?.self, forKey: .objUid)
+        }
     }
 }
 public extension ObjInfo{

@@ -38,7 +38,7 @@ public class RouteTable:NSObject,Codable{
     /// 私有网络ID
     var vpcId:String?
     /// 路由表规则信息
-    var routeTableRules:RouteTableRule?
+    var routeTableRules:[RouteTableRule?]?
     /// 路由表绑定的子网列表
     var subnetIds:[String?]?
     /// 路由表创建时间
@@ -64,14 +64,38 @@ public class RouteTable:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RouteTableCodingKeys.self)
-        self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
-        self.routeTableName = try decoderContainer.decode(String?.self, forKey: .routeTableName)
-        self.routeTableType = try decoderContainer.decode(String?.self, forKey: .routeTableType)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.routeTableRules = try decoderContainer.decode(RouteTableRule?.self, forKey: .routeTableRules)
-        self.subnetIds = try decoderContainer.decode([String?]?.self, forKey: .subnetIds)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.routeTableId)
+        {
+            self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
+        }
+        if decoderContainer.contains(.routeTableName)
+        {
+            self.routeTableName = try decoderContainer.decode(String?.self, forKey: .routeTableName)
+        }
+        if decoderContainer.contains(.routeTableType)
+        {
+            self.routeTableType = try decoderContainer.decode(String?.self, forKey: .routeTableType)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.routeTableRules)
+        {
+            self.routeTableRules = try decoderContainer.decode([RouteTableRule?]?.self, forKey: .routeTableRules)
+        }
+        if decoderContainer.contains(.subnetIds)
+        {
+            self.subnetIds = try decoderContainer.decode([String?]?.self, forKey: .subnetIds)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension RouteTable{

@@ -44,7 +44,10 @@ public class AddUserViewResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddUserViewResultCodingKeys.self)
-        self.data = try decoderContainer.decode(Userview?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(Userview?.self, forKey: .data)
+        }
     }
 }
 public extension AddUserViewResult{

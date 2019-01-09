@@ -49,9 +49,18 @@ public class ChargeSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ChargeSpecCodingKeys.self)
-        self.chargeMode = try decoderContainer.decode(String?.self, forKey: .chargeMode)
-        self.chargeUnit = try decoderContainer.decode(String?.self, forKey: .chargeUnit)
-        self.chargeDuration = try decoderContainer.decode(Int?.self, forKey: .chargeDuration)
+        if decoderContainer.contains(.chargeMode)
+        {
+            self.chargeMode = try decoderContainer.decode(String?.self, forKey: .chargeMode)
+        }
+        if decoderContainer.contains(.chargeUnit)
+        {
+            self.chargeUnit = try decoderContainer.decode(String?.self, forKey: .chargeUnit)
+        }
+        if decoderContainer.contains(.chargeDuration)
+        {
+            self.chargeDuration = try decoderContainer.decode(Int?.self, forKey: .chargeDuration)
+        }
     }
 }
 public extension ChargeSpec{

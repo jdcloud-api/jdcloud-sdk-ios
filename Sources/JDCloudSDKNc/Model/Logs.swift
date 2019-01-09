@@ -43,7 +43,10 @@ public class Logs:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LogsCodingKeys.self)
-        self.content = try decoderContainer.decode(String?.self, forKey: .content)
+        if decoderContainer.contains(.content)
+        {
+            self.content = try decoderContainer.decode(String?.self, forKey: .content)
+        }
     }
 }
 public extension Logs{

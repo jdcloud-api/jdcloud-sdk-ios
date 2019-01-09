@@ -49,9 +49,18 @@ public class OriginAddrItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: OriginAddrItemCodingKeys.self)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
-        self.inJdCloud = try decoderContainer.decode(Bool?.self, forKey: .inJdCloud)
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        }
+        if decoderContainer.contains(.inJdCloud)
+        {
+            self.inJdCloud = try decoderContainer.decode(Bool?.self, forKey: .inJdCloud)
+        }
     }
 }
 public extension OriginAddrItem{

@@ -44,7 +44,10 @@ public class GetVpcNetworkInterfaceByIdResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcNetworkInterfaceByIdResultCodingKeys.self)
-        self.netInterface = try decoderContainer.decode(NetInterfaceInfo?.self, forKey: .netInterface)
+        if decoderContainer.contains(.netInterface)
+        {
+            self.netInterface = try decoderContainer.decode(NetInterfaceInfo?.self, forKey: .netInterface)
+        }
     }
 }
 public extension GetVpcNetworkInterfaceByIdResult{

@@ -46,7 +46,7 @@ public class ConsumptionProduct:NSObject,Codable{
     /// 欠费金额
     var arrearFee:Double?
     /// ProductDetails
-    var productDetails:Consumption?
+    var productDetails:[Consumption?]?
     /// ProductDetailList
     var productDetailList:ProductDetailList?
 
@@ -73,17 +73,50 @@ public class ConsumptionProduct:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ConsumptionProductCodingKeys.self)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.appCodeName = try decoderContainer.decode(String?.self, forKey: .appCodeName)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.serviceCodeName = try decoderContainer.decode(String?.self, forKey: .serviceCodeName)
-        self.actualFee = try decoderContainer.decode(Double?.self, forKey: .actualFee)
-        self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
-        self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
-        self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
-        self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
-        self.productDetails = try decoderContainer.decode(Consumption?.self, forKey: .productDetails)
-        self.productDetailList = try decoderContainer.decode(ProductDetailList?.self, forKey: .productDetailList)
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.appCodeName)
+        {
+            self.appCodeName = try decoderContainer.decode(String?.self, forKey: .appCodeName)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.serviceCodeName)
+        {
+            self.serviceCodeName = try decoderContainer.decode(String?.self, forKey: .serviceCodeName)
+        }
+        if decoderContainer.contains(.actualFee)
+        {
+            self.actualFee = try decoderContainer.decode(Double?.self, forKey: .actualFee)
+        }
+        if decoderContainer.contains(.cashPayFee)
+        {
+            self.cashPayFee = try decoderContainer.decode(Double?.self, forKey: .cashPayFee)
+        }
+        if decoderContainer.contains(.balancePayFee)
+        {
+            self.balancePayFee = try decoderContainer.decode(Double?.self, forKey: .balancePayFee)
+        }
+        if decoderContainer.contains(.cashCouponPayFee)
+        {
+            self.cashCouponPayFee = try decoderContainer.decode(Double?.self, forKey: .cashCouponPayFee)
+        }
+        if decoderContainer.contains(.arrearFee)
+        {
+            self.arrearFee = try decoderContainer.decode(Double?.self, forKey: .arrearFee)
+        }
+        if decoderContainer.contains(.productDetails)
+        {
+            self.productDetails = try decoderContainer.decode([Consumption?]?.self, forKey: .productDetails)
+        }
+        if decoderContainer.contains(.productDetailList)
+        {
+            self.productDetailList = try decoderContainer.decode(ProductDetailList?.self, forKey: .productDetailList)
+        }
     }
 }
 public extension ConsumptionProduct{

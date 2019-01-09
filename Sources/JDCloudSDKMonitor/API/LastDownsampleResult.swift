@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class LastDownsampleResult:NSObject,JdCloudResult
 {
     /// Items
-    var items:LastDownsampleRespItem?
+    var items:[LastDownsampleRespItem?]?
 
 
 
@@ -44,7 +44,10 @@ public class LastDownsampleResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LastDownsampleResultCodingKeys.self)
-        self.items = try decoderContainer.decode(LastDownsampleRespItem?.self, forKey: .items)
+        if decoderContainer.contains(.items)
+        {
+            self.items = try decoderContainer.decode([LastDownsampleRespItem?]?.self, forKey: .items)
+        }
     }
 }
 public extension LastDownsampleResult{

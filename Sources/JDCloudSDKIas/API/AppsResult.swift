@@ -33,7 +33,7 @@ public class AppsResult:NSObject,JdCloudResult
     var pagination:Pagination?
 
     /// Result
-    var result:AppQueryResultItem?
+    var result:[AppQueryResultItem?]?
 
 
 
@@ -48,8 +48,14 @@ public class AppsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AppsResultCodingKeys.self)
-        self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
-        self.result = try decoderContainer.decode(AppQueryResultItem?.self, forKey: .result)
+        if decoderContainer.contains(.pagination)
+        {
+            self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
+        }
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode([AppQueryResultItem?]?.self, forKey: .result)
+        }
     }
 }
 public extension AppsResult{

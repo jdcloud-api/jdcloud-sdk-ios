@@ -33,7 +33,7 @@ public class QueryPageByConditionResult:NSObject,JdCloudResult
     var pagination:Pagination?
 
     /// Result
-    var result:ResourceOrderVo?
+    var result:[ResourceOrderVo?]?
 
 
 
@@ -48,8 +48,14 @@ public class QueryPageByConditionResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryPageByConditionResultCodingKeys.self)
-        self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
-        self.result = try decoderContainer.decode(ResourceOrderVo?.self, forKey: .result)
+        if decoderContainer.contains(.pagination)
+        {
+            self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
+        }
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode([ResourceOrderVo?]?.self, forKey: .result)
+        }
     }
 }
 public extension QueryPageByConditionResult{

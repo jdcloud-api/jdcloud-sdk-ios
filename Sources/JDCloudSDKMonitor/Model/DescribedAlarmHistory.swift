@@ -30,7 +30,7 @@ public class DescribedAlarmHistory:NSObject,Codable{
     /// Alarm
     var alarm:DescribedAlarm?
     /// 告警联系人
-    var contacts:DescribedNoticeContacts?
+    var contacts:[DescribedNoticeContacts?]?
     /// 触发的告警级别。从低到高分别为‘common’, ‘critical’, ‘fatal’
     var noticeLevelTriggered:String?
     /// 告警时间
@@ -55,11 +55,26 @@ public class DescribedAlarmHistory:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribedAlarmHistoryCodingKeys.self)
-        self.alarm = try decoderContainer.decode(DescribedAlarm?.self, forKey: .alarm)
-        self.contacts = try decoderContainer.decode(DescribedNoticeContacts?.self, forKey: .contacts)
-        self.noticeLevelTriggered = try decoderContainer.decode(String?.self, forKey: .noticeLevelTriggered)
-        self.noticeTime = try decoderContainer.decode(String?.self, forKey: .noticeTime)
-        self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        if decoderContainer.contains(.alarm)
+        {
+            self.alarm = try decoderContainer.decode(DescribedAlarm?.self, forKey: .alarm)
+        }
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode([DescribedNoticeContacts?]?.self, forKey: .contacts)
+        }
+        if decoderContainer.contains(.noticeLevelTriggered)
+        {
+            self.noticeLevelTriggered = try decoderContainer.decode(String?.self, forKey: .noticeLevelTriggered)
+        }
+        if decoderContainer.contains(.noticeTime)
+        {
+            self.noticeTime = try decoderContainer.decode(String?.self, forKey: .noticeTime)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        }
     }
 }
 public extension DescribedAlarmHistory{

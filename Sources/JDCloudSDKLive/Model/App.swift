@@ -30,7 +30,7 @@ public class App:NSObject,Codable{
     /// 推流域名
     var publishDomain:String?
     /// config
-    var transcodeConfig:Config?
+    var transcodeConfig:[Config?]?
 
 
 
@@ -46,8 +46,14 @@ public class App:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AppCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.transcodeConfig = try decoderContainer.decode(Config?.self, forKey: .transcodeConfig)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.transcodeConfig)
+        {
+            self.transcodeConfig = try decoderContainer.decode([Config?]?.self, forKey: .transcodeConfig)
+        }
     }
 }
 public extension App{

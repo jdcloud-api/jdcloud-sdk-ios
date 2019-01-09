@@ -33,7 +33,7 @@ import JDCloudSDKCore
 public class DescribeImageConstraintsBatchRequest:JdCloudRequest
 {
     /// 镜像ID列表
-    var ids:String?
+    var ids:[String?]?
 
 
 

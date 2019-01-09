@@ -32,8 +32,8 @@ public class DescribeSubUserPermissionsResult:NSObject,JdCloudResult
     /// 总数
     var total:Int?
 
-    /// Permissions
-    var permissions:Permission?
+    /// 权限列表信息
+    var permissions:[Permission?]?
 
 
 
@@ -48,8 +48,14 @@ public class DescribeSubUserPermissionsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSubUserPermissionsResultCodingKeys.self)
-        self.total = try decoderContainer.decode(Int?.self, forKey: .total)
-        self.permissions = try decoderContainer.decode(Permission?.self, forKey: .permissions)
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Int?.self, forKey: .total)
+        }
+        if decoderContainer.contains(.permissions)
+        {
+            self.permissions = try decoderContainer.decode([Permission?]?.self, forKey: .permissions)
+        }
     }
 }
 public extension DescribeSubUserPermissionsResult{

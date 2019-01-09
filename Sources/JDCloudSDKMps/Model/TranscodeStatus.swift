@@ -51,8 +51,14 @@ public class TranscodeStatus:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TranscodeStatusCodingKeys.self)
         self.status = try decoderContainer.decode(String.self, forKey: .status)
-        self.errorCode = try decoderContainer.decode(Int?.self, forKey: .errorCode)
-        self.notifyMessage = try decoderContainer.decode(String?.self, forKey: .notifyMessage)
+        if decoderContainer.contains(.errorCode)
+        {
+            self.errorCode = try decoderContainer.decode(Int?.self, forKey: .errorCode)
+        }
+        if decoderContainer.contains(.notifyMessage)
+        {
+            self.notifyMessage = try decoderContainer.decode(String?.self, forKey: .notifyMessage)
+        }
     }
 }
 public extension TranscodeStatus{

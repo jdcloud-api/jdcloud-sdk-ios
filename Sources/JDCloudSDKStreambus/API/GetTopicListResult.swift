@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetTopicListResult:NSObject,JdCloudResult
 {
     /// Topic
-    var topic:TopicListInfo?
+    var topic:[TopicListInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetTopicListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetTopicListResultCodingKeys.self)
-        self.topic = try decoderContainer.decode(TopicListInfo?.self, forKey: .topic)
+        if decoderContainer.contains(.topic)
+        {
+            self.topic = try decoderContainer.decode([TopicListInfo?]?.self, forKey: .topic)
+        }
     }
 }
 public extension GetTopicListResult{

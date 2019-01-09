@@ -67,15 +67,42 @@ public class TaskInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TaskInfoCodingKeys.self)
-        self.abnormalCount = try decoderContainer.decode(Int64?.self, forKey: .abnormalCount)
-        self.address = try decoderContainer.decode(String?.self, forKey: .address)
-        self.enabled = try decoderContainer.decode(Bool?.self, forKey: .enabled)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.probeAvailability = try decoderContainer.decode(Double?.self, forKey: .probeAvailability)
-        self.probeCount = try decoderContainer.decode(Int64?.self, forKey: .probeCount)
-        self.probeType = try decoderContainer.decode(Int64?.self, forKey: .probeType)
-        self.responseTime = try decoderContainer.decode(Double?.self, forKey: .responseTime)
-        self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
+        if decoderContainer.contains(.abnormalCount)
+        {
+            self.abnormalCount = try decoderContainer.decode(Int64?.self, forKey: .abnormalCount)
+        }
+        if decoderContainer.contains(.address)
+        {
+            self.address = try decoderContainer.decode(String?.self, forKey: .address)
+        }
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(Bool?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.probeAvailability)
+        {
+            self.probeAvailability = try decoderContainer.decode(Double?.self, forKey: .probeAvailability)
+        }
+        if decoderContainer.contains(.probeCount)
+        {
+            self.probeCount = try decoderContainer.decode(Int64?.self, forKey: .probeCount)
+        }
+        if decoderContainer.contains(.probeType)
+        {
+            self.probeType = try decoderContainer.decode(Int64?.self, forKey: .probeType)
+        }
+        if decoderContainer.contains(.responseTime)
+        {
+            self.responseTime = try decoderContainer.decode(Double?.self, forKey: .responseTime)
+        }
+        if decoderContainer.contains(.taskId)
+        {
+            self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
+        }
     }
 }
 public extension TaskInfo{

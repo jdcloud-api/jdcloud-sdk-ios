@@ -145,41 +145,146 @@ public class Rule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RuleCodingKeys.self)
-        self.autoScalingPolicyId = try decoderContainer.decode(String?.self, forKey: .autoScalingPolicyId)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
-        self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.dataMeaning = try decoderContainer.decode(Int64?.self, forKey: .dataMeaning)
-        self.datacenter = try decoderContainer.decode(String?.self, forKey: .datacenter)
-        self.deleted = try decoderContainer.decode(Int64?.self, forKey: .deleted)
-        self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
-        self.enableTime = try decoderContainer.decode(String?.self, forKey: .enableTime)
-        self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.idpk = try decoderContainer.decode(Int64?.self, forKey: .idpk)
-        self.isLatest = try decoderContainer.decode(Int64?.self, forKey: .isLatest)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
-        self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
-        self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
-        self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
-        self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
-        self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.preVersionId = try decoderContainer.decode(Int64?.self, forKey: .preVersionId)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.rootRuleId = try decoderContainer.decode(Int64?.self, forKey: .rootRuleId)
-        self.ruleType = try decoderContainer.decode(Int64?.self, forKey: .ruleType)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.status = try decoderContainer.decode(Int64?.self, forKey: .status)
-        self.statusTime = try decoderContainer.decode(String?.self, forKey: .statusTime)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
-        self.tagsNonGrouping = try decoderContainer.decode(String?.self, forKey: .tagsNonGrouping)
-        self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
-        self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.version = try decoderContainer.decode(Int64?.self, forKey: .version)
+        if decoderContainer.contains(.autoScalingPolicyId)
+        {
+            self.autoScalingPolicyId = try decoderContainer.decode(String?.self, forKey: .autoScalingPolicyId)
+        }
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.calculation)
+        {
+            self.calculation = try decoderContainer.decode(String?.self, forKey: .calculation)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.dataMeaning)
+        {
+            self.dataMeaning = try decoderContainer.decode(Int64?.self, forKey: .dataMeaning)
+        }
+        if decoderContainer.contains(.datacenter)
+        {
+            self.datacenter = try decoderContainer.decode(String?.self, forKey: .datacenter)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(Int64?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.downSample)
+        {
+            self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        }
+        if decoderContainer.contains(.enableTime)
+        {
+            self.enableTime = try decoderContainer.decode(String?.self, forKey: .enableTime)
+        }
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode(Int64?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.idpk)
+        {
+            self.idpk = try decoderContainer.decode(Int64?.self, forKey: .idpk)
+        }
+        if decoderContainer.contains(.isLatest)
+        {
+            self.isLatest = try decoderContainer.decode(Int64?.self, forKey: .isLatest)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricId)
+        {
+            self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
+        }
+        if decoderContainer.contains(.metricName)
+        {
+            self.metricName = try decoderContainer.decode(String?.self, forKey: .metricName)
+        }
+        if decoderContainer.contains(.noticeLevel)
+        {
+            self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
+        }
+        if decoderContainer.contains(.noticePeriod)
+        {
+            self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        }
+        if decoderContainer.contains(.operation)
+        {
+            self.operation = try decoderContainer.decode(String?.self, forKey: .operation)
+        }
+        if decoderContainer.contains(.period)
+        {
+            self.period = try decoderContainer.decode(Int64?.self, forKey: .period)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.preVersionId)
+        {
+            self.preVersionId = try decoderContainer.decode(Int64?.self, forKey: .preVersionId)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.rootRuleId)
+        {
+            self.rootRuleId = try decoderContainer.decode(Int64?.self, forKey: .rootRuleId)
+        }
+        if decoderContainer.contains(.ruleType)
+        {
+            self.ruleType = try decoderContainer.decode(Int64?.self, forKey: .ruleType)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int64?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.statusTime)
+        {
+            self.statusTime = try decoderContainer.decode(String?.self, forKey: .statusTime)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.tagsNonGrouping)
+        {
+            self.tagsNonGrouping = try decoderContainer.decode(String?.self, forKey: .tagsNonGrouping)
+        }
+        if decoderContainer.contains(.threshold)
+        {
+            self.threshold = try decoderContainer.decode(Double?.self, forKey: .threshold)
+        }
+        if decoderContainer.contains(.times)
+        {
+            self.times = try decoderContainer.decode(Int64?.self, forKey: .times)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.version)
+        {
+            self.version = try decoderContainer.decode(Int64?.self, forKey: .version)
+        }
     }
 }
 public extension Rule{

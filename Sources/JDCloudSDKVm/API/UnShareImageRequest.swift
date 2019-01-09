@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class UnShareImageRequest:JdCloudRequest
 {
     /// 需要取消的帐户
-    var pins:String?
+    var pins:[String?]?
 
     /// 镜像ID
     var imageId:String

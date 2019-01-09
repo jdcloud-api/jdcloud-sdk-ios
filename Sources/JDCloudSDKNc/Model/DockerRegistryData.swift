@@ -60,7 +60,10 @@ public class DockerRegistryData:NSObject,Codable{
         self.server = try decoderContainer.decode(String.self, forKey: .server)
         self.username = try decoderContainer.decode(String.self, forKey: .username)
         self.password = try decoderContainer.decode(String.self, forKey: .password)
-        self.email = try decoderContainer.decode(String?.self, forKey: .email)
+        if decoderContainer.contains(.email)
+        {
+            self.email = try decoderContainer.decode(String?.self, forKey: .email)
+        }
     }
 }
 public extension DockerRegistryData{

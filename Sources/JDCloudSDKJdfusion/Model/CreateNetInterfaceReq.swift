@@ -43,7 +43,10 @@ public class CreateNetInterfaceReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateNetInterfaceReqCodingKeys.self)
-        self.netInterface = try decoderContainer.decode(CreateNetInterface?.self, forKey: .netInterface)
+        if decoderContainer.contains(.netInterface)
+        {
+            self.netInterface = try decoderContainer.decode(CreateNetInterface?.self, forKey: .netInterface)
+        }
     }
 }
 public extension CreateNetInterfaceReq{

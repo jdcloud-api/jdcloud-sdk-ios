@@ -54,9 +54,18 @@ public class CreateKeypairResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateKeypairResultCodingKeys.self)
-        self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
-        self.privateKey = try decoderContainer.decode(String?.self, forKey: .privateKey)
-        self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        if decoderContainer.contains(.keyName)
+        {
+            self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
+        }
+        if decoderContainer.contains(.privateKey)
+        {
+            self.privateKey = try decoderContainer.decode(String?.self, forKey: .privateKey)
+        }
+        if decoderContainer.contains(.keyFingerprint)
+        {
+            self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        }
     }
 }
 public extension CreateKeypairResult{

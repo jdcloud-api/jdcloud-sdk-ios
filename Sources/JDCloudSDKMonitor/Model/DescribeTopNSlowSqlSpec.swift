@@ -66,11 +66,20 @@ public class DescribeTopNSlowSqlSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeTopNSlowSqlSpecCodingKeys.self)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
         self.resourceId = try decoderContainer.decode(String.self, forKey: .resourceId)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.timeInterval = try decoderContainer.decode(String?.self, forKey: .timeInterval)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.timeInterval)
+        {
+            self.timeInterval = try decoderContainer.decode(String?.self, forKey: .timeInterval)
+        }
         self.topN = try decoderContainer.decode(Int64.self, forKey: .topN)
     }
 }

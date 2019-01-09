@@ -46,8 +46,14 @@ public class AvailableZones:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AvailableZonesCodingKeys.self)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.canSale = try decoderContainer.decode(Bool?.self, forKey: .canSale)
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.canSale)
+        {
+            self.canSale = try decoderContainer.decode(Bool?.self, forKey: .canSale)
+        }
     }
 }
 public extension AvailableZones{

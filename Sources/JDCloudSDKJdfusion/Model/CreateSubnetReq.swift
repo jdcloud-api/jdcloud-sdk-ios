@@ -43,7 +43,10 @@ public class CreateSubnetReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSubnetReqCodingKeys.self)
-        self.subnet = try decoderContainer.decode(CreateSubnet?.self, forKey: .subnet)
+        if decoderContainer.contains(.subnet)
+        {
+            self.subnet = try decoderContainer.decode(CreateSubnet?.self, forKey: .subnet)
+        }
     }
 }
 public extension CreateSubnetReq{

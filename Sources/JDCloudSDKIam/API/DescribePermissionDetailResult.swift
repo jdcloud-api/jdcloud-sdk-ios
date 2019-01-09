@@ -44,7 +44,10 @@ public class DescribePermissionDetailResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribePermissionDetailResultCodingKeys.self)
-        self.permission = try decoderContainer.decode(Permission?.self, forKey: .permission)
+        if decoderContainer.contains(.permission)
+        {
+            self.permission = try decoderContainer.decode(Permission?.self, forKey: .permission)
+        }
     }
 }
 public extension DescribePermissionDetailResult{

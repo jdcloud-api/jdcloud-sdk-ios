@@ -51,7 +51,7 @@ public class DescribeInstancesRequest:JdCloudRequest
       /// agId - 使用可用组id，支持单个
       /// faultDomain - 错误域，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

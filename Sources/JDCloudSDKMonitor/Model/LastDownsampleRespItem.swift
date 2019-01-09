@@ -49,8 +49,14 @@ public class LastDownsampleRespItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LastDownsampleRespItemCodingKeys.self)
-        self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
     }
 }
 public extension LastDownsampleRespItem{

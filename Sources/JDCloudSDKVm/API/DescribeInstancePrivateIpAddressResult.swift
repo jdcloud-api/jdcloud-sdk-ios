@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeInstancePrivateIpAddressResult:NSObject,JdCloudResult
 {
     /// InstancePrivateIpAddress
-    var instancePrivateIpAddress:InstancePrivateIpAddress?
+    var instancePrivateIpAddress:[InstancePrivateIpAddress?]?
 
     /// TotalCount
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeInstancePrivateIpAddressResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstancePrivateIpAddressResultCodingKeys.self)
-        self.instancePrivateIpAddress = try decoderContainer.decode(InstancePrivateIpAddress?.self, forKey: .instancePrivateIpAddress)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.instancePrivateIpAddress)
+        {
+            self.instancePrivateIpAddress = try decoderContainer.decode([InstancePrivateIpAddress?]?.self, forKey: .instancePrivateIpAddress)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeInstancePrivateIpAddressResult{

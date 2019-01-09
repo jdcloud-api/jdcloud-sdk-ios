@@ -64,12 +64,30 @@ public class PreviewCertificateResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PreviewCertificateResultCodingKeys.self)
-        self.sigAlgName = try decoderContainer.decode(String?.self, forKey: .sigAlgName)
-        self.issuer = try decoderContainer.decode(String?.self, forKey: .issuer)
-        self.startDate = try decoderContainer.decode(String?.self, forKey: .startDate)
-        self.endDate = try decoderContainer.decode(String?.self, forKey: .endDate)
-        self.user = try decoderContainer.decode(String?.self, forKey: .user)
-        self.sigHashAlgName = try decoderContainer.decode(String?.self, forKey: .sigHashAlgName)
+        if decoderContainer.contains(.sigAlgName)
+        {
+            self.sigAlgName = try decoderContainer.decode(String?.self, forKey: .sigAlgName)
+        }
+        if decoderContainer.contains(.issuer)
+        {
+            self.issuer = try decoderContainer.decode(String?.self, forKey: .issuer)
+        }
+        if decoderContainer.contains(.startDate)
+        {
+            self.startDate = try decoderContainer.decode(String?.self, forKey: .startDate)
+        }
+        if decoderContainer.contains(.endDate)
+        {
+            self.endDate = try decoderContainer.decode(String?.self, forKey: .endDate)
+        }
+        if decoderContainer.contains(.user)
+        {
+            self.user = try decoderContainer.decode(String?.self, forKey: .user)
+        }
+        if decoderContainer.contains(.sigHashAlgName)
+        {
+            self.sigHashAlgName = try decoderContainer.decode(String?.self, forKey: .sigHashAlgName)
+        }
     }
 }
 public extension PreviewCertificateResult{

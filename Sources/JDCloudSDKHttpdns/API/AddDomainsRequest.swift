@@ -33,7 +33,7 @@ import JDCloudSDKCore
 public class AddDomainsRequest:JdCloudRequest
 {
     /// 需要添加的域名数组
-    var domainNames:String?
+    var domainNames:[String?]?
 
 
 

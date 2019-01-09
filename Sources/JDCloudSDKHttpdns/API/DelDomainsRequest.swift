@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class DelDomainsRequest:JdCloudRequest
 {
     /// 需要删除的域名数组
-    var domainNames:String?
+    var domainNames:[String?]?
 
 
 

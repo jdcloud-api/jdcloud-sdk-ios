@@ -29,11 +29,11 @@ import JDCloudSDKCore
 @objc(DescribeIndexPerformanceResult)
 public class DescribeIndexPerformanceResult:NSObject,JdCloudResult
 {
-    /// MissingIndexResult
-    var missingIndexResult:MissingIndexResult?
+    /// 当queryType为Missing时，返回结果集为MissingIndexResult&lt;br&gt;当queryType为其他值时，该字段为空
+    var missingIndexResult:[MissingIndexResult?]?
 
-    /// IndexPerformanceResult
-    var indexPerformanceResult:IndexPerformanceResult?
+    /// 当queryType为Missing时，该字段为空&lt;br&gt;当queryType为其他值时，返回IndexPerformanceResult
+    var indexPerformanceResult:[IndexPerformanceResult?]?
 
     /// 总记录条数
     var totalCount:Int?
@@ -60,11 +60,26 @@ public class DescribeIndexPerformanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeIndexPerformanceResultCodingKeys.self)
-        self.missingIndexResult = try decoderContainer.decode(MissingIndexResult?.self, forKey: .missingIndexResult)
-        self.indexPerformanceResult = try decoderContainer.decode(IndexPerformanceResult?.self, forKey: .indexPerformanceResult)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        if decoderContainer.contains(.missingIndexResult)
+        {
+            self.missingIndexResult = try decoderContainer.decode([MissingIndexResult?]?.self, forKey: .missingIndexResult)
+        }
+        if decoderContainer.contains(.indexPerformanceResult)
+        {
+            self.indexPerformanceResult = try decoderContainer.decode([IndexPerformanceResult?]?.self, forKey: .indexPerformanceResult)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
     }
 }
 public extension DescribeIndexPerformanceResult{

@@ -37,7 +37,7 @@ public class SetNotificationRequest:JdCloudRequest
     var endpoint:String?
 
     /// 触发通知的事件集合 (mpsTranscodeComplete, mpsThumbnailComplete)
-    var events:String?
+    var events:[String?]?
 
     /// 重试策略, BACKOFF_RETRY: 退避重试策略, 重试 3 次, 每次重试的间隔时间是 10秒 到 20秒 之间的随机值; EXPONENTIAL_DECAY_RETRY: 指数衰减重试, 重试 176 次, 每次重试的间隔时间指数递增至 512秒, 总计重试时间为1天; 每次重试的具体间隔为: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512 ... 512 秒(共167个512)
     var notifyStrategy:String?

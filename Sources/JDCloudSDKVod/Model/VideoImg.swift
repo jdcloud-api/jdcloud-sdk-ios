@@ -54,7 +54,7 @@ public class VideoImg:NSObject,Codable{
     /// 视频介绍
     var notes:String?
     /// 截图成品
-    var imgList:Img?
+    var imgList:[Img?]?
 
 
 
@@ -82,20 +82,62 @@ public class VideoImg:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VideoImgCodingKeys.self)
-        self.mid = try decoderContainer.decode(String?.self, forKey: .mid)
-        self.videoName = try decoderContainer.decode(String?.self, forKey: .videoName)
-        self.url = try decoderContainer.decode(String?.self, forKey: .url)
-        self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
-        self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.size = try decoderContainer.decode(Double?.self, forKey: .size)
-        self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.tags = try decoderContainer.decode(String?.self, forKey: .tags)
-        self.notes = try decoderContainer.decode(String?.self, forKey: .notes)
-        self.imgList = try decoderContainer.decode(Img?.self, forKey: .imgList)
+        if decoderContainer.contains(.mid)
+        {
+            self.mid = try decoderContainer.decode(String?.self, forKey: .mid)
+        }
+        if decoderContainer.contains(.videoName)
+        {
+            self.videoName = try decoderContainer.decode(String?.self, forKey: .videoName)
+        }
+        if decoderContainer.contains(.url)
+        {
+            self.url = try decoderContainer.decode(String?.self, forKey: .url)
+        }
+        if decoderContainer.contains(.imgUrl)
+        {
+            self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
+        }
+        if decoderContainer.contains(.categoryId)
+        {
+            self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
+        }
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.size)
+        {
+            self.size = try decoderContainer.decode(Double?.self, forKey: .size)
+        }
+        if decoderContainer.contains(.duration)
+        {
+            self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode(String?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.notes)
+        {
+            self.notes = try decoderContainer.decode(String?.self, forKey: .notes)
+        }
+        if decoderContainer.contains(.imgList)
+        {
+            self.imgList = try decoderContainer.decode([Img?]?.self, forKey: .imgList)
+        }
     }
 }
 public extension VideoImg{

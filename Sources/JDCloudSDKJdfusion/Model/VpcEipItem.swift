@@ -43,7 +43,10 @@ public class VpcEipItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcEipItemCodingKeys.self)
-        self.eipAddress = try decoderContainer.decode(EipAddress?.self, forKey: .eipAddress)
+        if decoderContainer.contains(.eipAddress)
+        {
+            self.eipAddress = try decoderContainer.decode(EipAddress?.self, forKey: .eipAddress)
+        }
     }
 }
 public extension VpcEipItem{

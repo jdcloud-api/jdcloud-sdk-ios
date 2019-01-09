@@ -36,9 +36,9 @@ public class CreateProbeTaskParam:NSObject,Codable{
       /// in: query
     var httpBody:String?
     /// http cookie：选择探测类型为1&#x3D;http时有效，最大允许20个key、value对，最长不超过1024字节
-    var httpCookie:KeyValue?
+    var httpCookie:[KeyValue?]?
     /// http header：选择探测类型为1&#x3D;http时有效，最大允许20个key、value对，最长不超过1024字节
-    var httpHeader:KeyValue?
+    var httpHeader:[KeyValue?]?
     /// http探测方法：选择探测类型为1&#x3D;http时有效，默认值为1&#x3D;get，可选值：1:get、2:post、3:head
     var httpType:Int64?
     /// task名称，不允许重复，长度不超过32字符，只允许中英文、数字、下划线_、中划线-, [0-9][a-z] [A-Z] [- _ ]
@@ -52,7 +52,7 @@ public class CreateProbeTaskParam:NSObject,Codable{
     var probeType:Int64
     /// 探测源（发起对探测目标探测的云主机，需安装相应的agent才能探测）
     /// Required:true
-    var probes:Probe?
+    var probes:[Probe?]
     /// 探测目标id：该探测对象的uuid，任务类型为2：rds、3：redis时必填，
     var targetId:String?
     /// 探测目标region：该探测对象所在region，任务类型为2：rds、3：redis时必填
@@ -66,7 +66,7 @@ public class CreateProbeTaskParam:NSObject,Codable{
 
 
 
-    public  init(address:String,name:String,probeType:Int64,probes:Probe?,taskType:Int64){
+    public  init(address:String,name:String,probeType:Int64,probes:[Probe?],taskType:Int64){
              self.address = address
              self.name = name
              self.probeType = probeType
@@ -95,19 +95,46 @@ public class CreateProbeTaskParam:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateProbeTaskParamCodingKeys.self)
         self.address = try decoderContainer.decode(String.self, forKey: .address)
-        self.frequency = try decoderContainer.decode(Int64?.self, forKey: .frequency)
-        self.httpBody = try decoderContainer.decode(String?.self, forKey: .httpBody)
-        self.httpCookie = try decoderContainer.decode(KeyValue?.self, forKey: .httpCookie)
-        self.httpHeader = try decoderContainer.decode(KeyValue?.self, forKey: .httpHeader)
-        self.httpType = try decoderContainer.decode(Int64?.self, forKey: .httpType)
+        if decoderContainer.contains(.frequency)
+        {
+            self.frequency = try decoderContainer.decode(Int64?.self, forKey: .frequency)
+        }
+        if decoderContainer.contains(.httpBody)
+        {
+            self.httpBody = try decoderContainer.decode(String?.self, forKey: .httpBody)
+        }
+        if decoderContainer.contains(.httpCookie)
+        {
+            self.httpCookie = try decoderContainer.decode([KeyValue?]?.self, forKey: .httpCookie)
+        }
+        if decoderContainer.contains(.httpHeader)
+        {
+            self.httpHeader = try decoderContainer.decode([KeyValue?]?.self, forKey: .httpHeader)
+        }
+        if decoderContainer.contains(.httpType)
+        {
+            self.httpType = try decoderContainer.decode(Int64?.self, forKey: .httpType)
+        }
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.port = try decoderContainer.decode(Int64?.self, forKey: .port)
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(Int64?.self, forKey: .port)
+        }
         self.probeType = try decoderContainer.decode(Int64.self, forKey: .probeType)
-        self.probes = try decoderContainer.decode(Probe?.self, forKey: .probes)
-        self.targetId = try decoderContainer.decode(String?.self, forKey: .targetId)
-        self.targetRegion = try decoderContainer.decode(String?.self, forKey: .targetRegion)
+        self.probes = try decoderContainer.decode([Probe?].self, forKey: .probes)
+        if decoderContainer.contains(.targetId)
+        {
+            self.targetId = try decoderContainer.decode(String?.self, forKey: .targetId)
+        }
+        if decoderContainer.contains(.targetRegion)
+        {
+            self.targetRegion = try decoderContainer.decode(String?.self, forKey: .targetRegion)
+        }
         self.taskType = try decoderContainer.decode(Int64.self, forKey: .taskType)
-        self.timeout = try decoderContainer.decode(Int64?.self, forKey: .timeout)
+        if decoderContainer.contains(.timeout)
+        {
+            self.timeout = try decoderContainer.decode(Int64?.self, forKey: .timeout)
+        }
     }
 }
 public extension CreateProbeTaskParam{

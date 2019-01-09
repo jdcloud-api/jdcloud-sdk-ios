@@ -58,12 +58,30 @@ public class BackSourceRule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackSourceRuleCodingKeys.self)
-        self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
-        self.condition = try decoderContainer.decode(BackSourceRuleCondition?.self, forKey: .condition)
-        self.address = try decoderContainer.decode(BackSourceAddress?.self, forKey: .address)
-        self.allowQueryString = try decoderContainer.decode(Bool?.self, forKey: .allowQueryString)
-        self.followRedirects = try decoderContainer.decode(Bool?.self, forKey: .followRedirects)
-        self.headerRule = try decoderContainer.decode(BackSourceHeaderRule?.self, forKey: .headerRule)
+        if decoderContainer.contains(.backSourceType)
+        {
+            self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
+        }
+        if decoderContainer.contains(.condition)
+        {
+            self.condition = try decoderContainer.decode(BackSourceRuleCondition?.self, forKey: .condition)
+        }
+        if decoderContainer.contains(.address)
+        {
+            self.address = try decoderContainer.decode(BackSourceAddress?.self, forKey: .address)
+        }
+        if decoderContainer.contains(.allowQueryString)
+        {
+            self.allowQueryString = try decoderContainer.decode(Bool?.self, forKey: .allowQueryString)
+        }
+        if decoderContainer.contains(.followRedirects)
+        {
+            self.followRedirects = try decoderContainer.decode(Bool?.self, forKey: .followRedirects)
+        }
+        if decoderContainer.contains(.headerRule)
+        {
+            self.headerRule = try decoderContainer.decode(BackSourceHeaderRule?.self, forKey: .headerRule)
+        }
     }
 }
 public extension BackSourceRule{

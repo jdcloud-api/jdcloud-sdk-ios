@@ -46,8 +46,14 @@ public class ImageInstanceTypeConstraint:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImageInstanceTypeConstraintCodingKeys.self)
-        self.constraintsType = try decoderContainer.decode(String?.self, forKey: .constraintsType)
-        self.instanceTypes = try decoderContainer.decode([String?]?.self, forKey: .instanceTypes)
+        if decoderContainer.contains(.constraintsType)
+        {
+            self.constraintsType = try decoderContainer.decode(String?.self, forKey: .constraintsType)
+        }
+        if decoderContainer.contains(.instanceTypes)
+        {
+            self.instanceTypes = try decoderContainer.decode([String?]?.self, forKey: .instanceTypes)
+        }
     }
 }
 public extension ImageInstanceTypeConstraint{

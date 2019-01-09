@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeDeviceRaidsResult:NSObject,JdCloudResult
 {
     /// Raids
-    var raids:Raid?
+    var raids:[Raid?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeDeviceRaidsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeDeviceRaidsResultCodingKeys.self)
-        self.raids = try decoderContainer.decode(Raid?.self, forKey: .raids)
+        if decoderContainer.contains(.raids)
+        {
+            self.raids = try decoderContainer.decode([Raid?]?.self, forKey: .raids)
+        }
     }
 }
 public extension DescribeDeviceRaidsResult{

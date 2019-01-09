@@ -30,7 +30,7 @@ public class CNameQueryResult:NSObject,Codable{
     /// 查询结果总数
     var totalCount:Int?
     /// ResultList
-    var resultList:CName?
+    var resultList:[CName?]?
 
 
 
@@ -46,8 +46,14 @@ public class CNameQueryResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CNameQueryResultCodingKeys.self)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.resultList = try decoderContainer.decode(CName?.self, forKey: .resultList)
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.resultList)
+        {
+            self.resultList = try decoderContainer.decode([CName?]?.self, forKey: .resultList)
+        }
     }
 }
 public extension CNameQueryResult{

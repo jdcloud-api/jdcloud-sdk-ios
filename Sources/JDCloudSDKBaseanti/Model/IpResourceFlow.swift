@@ -46,8 +46,14 @@ public class IpResourceFlow:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpResourceFlowCodingKeys.self)
-        self.bps = try decoderContainer.decode(IpResourceFlowDetail?.self, forKey: .bps)
-        self.pps = try decoderContainer.decode(IpResourceFlowDetail?.self, forKey: .pps)
+        if decoderContainer.contains(.bps)
+        {
+            self.bps = try decoderContainer.decode(IpResourceFlowDetail?.self, forKey: .bps)
+        }
+        if decoderContainer.contains(.pps)
+        {
+            self.pps = try decoderContainer.decode(IpResourceFlowDetail?.self, forKey: .pps)
+        }
     }
 }
 public extension IpResourceFlow{

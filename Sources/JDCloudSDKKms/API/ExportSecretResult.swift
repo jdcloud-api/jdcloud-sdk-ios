@@ -44,7 +44,10 @@ public class ExportSecretResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ExportSecretResultCodingKeys.self)
-        self.secretPackage = try decoderContainer.decode(String?.self, forKey: .secretPackage)
+        if decoderContainer.contains(.secretPackage)
+        {
+            self.secretPackage = try decoderContainer.decode(String?.self, forKey: .secretPackage)
+        }
     }
 }
 public extension ExportSecretResult{

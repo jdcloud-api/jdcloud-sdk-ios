@@ -44,7 +44,10 @@ public class DeleteAppResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DeleteAppResultCodingKeys.self)
-        self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        }
     }
 }
 public extension DeleteAppResult{

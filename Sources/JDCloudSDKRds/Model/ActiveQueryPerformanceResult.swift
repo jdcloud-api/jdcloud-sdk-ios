@@ -61,13 +61,34 @@ public class ActiveQueryPerformanceResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ActiveQueryPerformanceResultCodingKeys.self)
-        self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.elapsedTime = try decoderContainer.decode(Int?.self, forKey: .elapsedTime)
-        self.db = try decoderContainer.decode(String?.self, forKey: .db)
-        self.sessionId = try decoderContainer.decode(String?.self, forKey: .sessionId)
-        self.user = try decoderContainer.decode(String?.self, forKey: .user)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        if decoderContainer.contains(.sql)
+        {
+            self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.elapsedTime)
+        {
+            self.elapsedTime = try decoderContainer.decode(Int?.self, forKey: .elapsedTime)
+        }
+        if decoderContainer.contains(.db)
+        {
+            self.db = try decoderContainer.decode(String?.self, forKey: .db)
+        }
+        if decoderContainer.contains(.sessionId)
+        {
+            self.sessionId = try decoderContainer.decode(String?.self, forKey: .sessionId)
+        }
+        if decoderContainer.contains(.user)
+        {
+            self.user = try decoderContainer.decode(String?.self, forKey: .user)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
     }
 }
 public extension ActiveQueryPerformanceResult{

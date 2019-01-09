@@ -67,15 +67,42 @@ public class SlowLogDigest:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SlowLogDigestCodingKeys.self)
-        self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
-        self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
-        self.executionTime = try decoderContainer.decode(String?.self, forKey: .executionTime)
-        self.executionCount = try decoderContainer.decode(Int?.self, forKey: .executionCount)
-        self.elapsedTime = try decoderContainer.decode(DigestData?.self, forKey: .elapsedTime)
-        self.lockTime = try decoderContainer.decode(DigestData?.self, forKey: .lockTime)
-        self.sqlLength = try decoderContainer.decode(DigestData?.self, forKey: .sqlLength)
-        self.rowsExamined = try decoderContainer.decode(DigestData?.self, forKey: .rowsExamined)
-        self.rowsReturned = try decoderContainer.decode(DigestData?.self, forKey: .rowsReturned)
+        if decoderContainer.contains(.dbName)
+        {
+            self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
+        }
+        if decoderContainer.contains(.sql)
+        {
+            self.sql = try decoderContainer.decode(String?.self, forKey: .sql)
+        }
+        if decoderContainer.contains(.executionTime)
+        {
+            self.executionTime = try decoderContainer.decode(String?.self, forKey: .executionTime)
+        }
+        if decoderContainer.contains(.executionCount)
+        {
+            self.executionCount = try decoderContainer.decode(Int?.self, forKey: .executionCount)
+        }
+        if decoderContainer.contains(.elapsedTime)
+        {
+            self.elapsedTime = try decoderContainer.decode(DigestData?.self, forKey: .elapsedTime)
+        }
+        if decoderContainer.contains(.lockTime)
+        {
+            self.lockTime = try decoderContainer.decode(DigestData?.self, forKey: .lockTime)
+        }
+        if decoderContainer.contains(.sqlLength)
+        {
+            self.sqlLength = try decoderContainer.decode(DigestData?.self, forKey: .sqlLength)
+        }
+        if decoderContainer.contains(.rowsExamined)
+        {
+            self.rowsExamined = try decoderContainer.decode(DigestData?.self, forKey: .rowsExamined)
+        }
+        if decoderContainer.contains(.rowsReturned)
+        {
+            self.rowsReturned = try decoderContainer.decode(DigestData?.self, forKey: .rowsReturned)
+        }
     }
 }
 public extension SlowLogDigest{

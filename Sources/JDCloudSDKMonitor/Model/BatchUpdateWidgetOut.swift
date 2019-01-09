@@ -28,7 +28,7 @@ import Foundation
 @objc(BatchUpdateWidgetOut)
 public class BatchUpdateWidgetOut:NSObject,Codable{
     /// Errors
-    var errors:BatchUpdateWidgetError?
+    var errors:[BatchUpdateWidgetError?]?
     /// Suc
     var suc:Int64?
 
@@ -46,8 +46,14 @@ public class BatchUpdateWidgetOut:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchUpdateWidgetOutCodingKeys.self)
-        self.errors = try decoderContainer.decode(BatchUpdateWidgetError?.self, forKey: .errors)
-        self.suc = try decoderContainer.decode(Int64?.self, forKey: .suc)
+        if decoderContainer.contains(.errors)
+        {
+            self.errors = try decoderContainer.decode([BatchUpdateWidgetError?]?.self, forKey: .errors)
+        }
+        if decoderContainer.contains(.suc)
+        {
+            self.suc = try decoderContainer.decode(Int64?.self, forKey: .suc)
+        }
     }
 }
 public extension BatchUpdateWidgetOut{

@@ -43,13 +43,13 @@ public class CreateNetworkInterfaceRequest:JdCloudRequest
     var primaryIpAddress:String?
 
     /// SecondaryIp列表
-    var secondaryIpAddresses:String?
+    var secondaryIpAddresses:[String?]?
 
     /// 自动分配的SecondaryIp数量
     var secondaryIpCount:Int?
 
     /// 要绑定的安全组ID列表，最多指定5个安全组
-    var securityGroups:String?
+    var securityGroups:[String?]?
 
     /// 源和目标IP地址校验，取值为0或者1,默认为1
     var sanityCheck:Int?

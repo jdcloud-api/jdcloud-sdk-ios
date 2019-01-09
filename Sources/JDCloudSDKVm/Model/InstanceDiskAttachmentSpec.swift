@@ -66,11 +66,26 @@ public class InstanceDiskAttachmentSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceDiskAttachmentSpecCodingKeys.self)
-        self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
-        self.cloudDiskSpec = try decoderContainer.decode(DiskSpec?.self, forKey: .cloudDiskSpec)
-        self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
-        self.noDevice = try decoderContainer.decode(Bool?.self, forKey: .noDevice)
+        if decoderContainer.contains(.diskCategory)
+        {
+            self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
+        }
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.cloudDiskSpec)
+        {
+            self.cloudDiskSpec = try decoderContainer.decode(DiskSpec?.self, forKey: .cloudDiskSpec)
+        }
+        if decoderContainer.contains(.deviceName)
+        {
+            self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
+        }
+        if decoderContainer.contains(.noDevice)
+        {
+            self.noDevice = try decoderContainer.decode(Bool?.self, forKey: .noDevice)
+        }
     }
 }
 public extension InstanceDiskAttachmentSpec{

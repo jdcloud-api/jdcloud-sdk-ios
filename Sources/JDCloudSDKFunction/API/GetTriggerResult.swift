@@ -44,7 +44,10 @@ public class GetTriggerResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetTriggerResultCodingKeys.self)
-        self.data = try decoderContainer.decode(Trigger?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(Trigger?.self, forKey: .data)
+        }
     }
 }
 public extension GetTriggerResult{

@@ -32,7 +32,7 @@ public class TopicModel:NSObject,Codable{
     /// Target
     var target:Target?
     /// 归档相关的具体参数，需要对归档进行新建，更新，删除，修改对应参数值即可。&lt;br&gt;ossFlag，bucketName，directory，objectName 这四个参数值与ossFlag有关，若ossFlag为false，后面三个可为空，若为true，后面三个为异常数据保存位置，按需要填写即可。&lt;br&gt; 1）如果归档到数据计算服务需要传database，table，type，example，delimiter，targetColumn，analysisColumn，partsTargetColumn，partsAnalysisColumn。&lt;br&gt;2）如果归档到JFS需要传bucket，prefix，infix。&lt;br&gt;3）如果归档到京东云 Elasticsearch需要传host，port，indexType，idType，indexName，indexReferField，timestampFieldFormat，timestampIndexFormat，typeName，idReferField，noResolve，username，password。&lt;br&gt; 4）如果归档到mysql，则需要传host，database，table，username，password，type，example，delimiter。 &lt;br&gt;5)如果要归档到京东云数据库则需要传rdsId，database，table，username，password，type，example，delimiter。
-    var parameterList:ParameterList?
+    var parameterList:[ParameterList?]?
 
 
 
@@ -49,9 +49,18 @@ public class TopicModel:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TopicModelCodingKeys.self)
-        self.topic = try decoderContainer.decode(Topic?.self, forKey: .topic)
-        self.target = try decoderContainer.decode(Target?.self, forKey: .target)
-        self.parameterList = try decoderContainer.decode(ParameterList?.self, forKey: .parameterList)
+        if decoderContainer.contains(.topic)
+        {
+            self.topic = try decoderContainer.decode(Topic?.self, forKey: .topic)
+        }
+        if decoderContainer.contains(.target)
+        {
+            self.target = try decoderContainer.decode(Target?.self, forKey: .target)
+        }
+        if decoderContainer.contains(.parameterList)
+        {
+            self.parameterList = try decoderContainer.decode([ParameterList?]?.self, forKey: .parameterList)
+        }
     }
 }
 public extension TopicModel{

@@ -44,7 +44,10 @@ public class GetVpcSubnetByIdResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcSubnetByIdResultCodingKeys.self)
-        self.subnet = try decoderContainer.decode(SubnetDesInfo?.self, forKey: .subnet)
+        if decoderContainer.contains(.subnet)
+        {
+            self.subnet = try decoderContainer.decode(SubnetDesInfo?.self, forKey: .subnet)
+        }
     }
 }
 public extension GetVpcSubnetByIdResult{

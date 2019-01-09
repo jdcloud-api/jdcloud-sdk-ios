@@ -40,11 +40,11 @@ public class KeyDetail:NSObject,Codable{
     var keyVersionCount:Int
     /// Key版本详情的列表
     /// Required:true
-    var keyVersionList:KeyVersionItem?
+    var keyVersionList:[KeyVersionItem?]
 
 
 
-    public  init(keyId:String,keyName:String,keyVersionCount:Int,keyVersionList:KeyVersionItem?){
+    public  init(keyId:String,keyName:String,keyVersionCount:Int,keyVersionList:[KeyVersionItem?]){
              self.keyId = keyId
              self.keyName = keyName
              self.keyVersionCount = keyVersionCount
@@ -64,9 +64,12 @@ public class KeyDetail:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: KeyDetailCodingKeys.self)
         self.keyId = try decoderContainer.decode(String.self, forKey: .keyId)
         self.keyName = try decoderContainer.decode(String.self, forKey: .keyName)
-        self.rotationCycle = try decoderContainer.decode(Int?.self, forKey: .rotationCycle)
+        if decoderContainer.contains(.rotationCycle)
+        {
+            self.rotationCycle = try decoderContainer.decode(Int?.self, forKey: .rotationCycle)
+        }
         self.keyVersionCount = try decoderContainer.decode(Int.self, forKey: .keyVersionCount)
-        self.keyVersionList = try decoderContainer.decode(KeyVersionItem?.self, forKey: .keyVersionList)
+        self.keyVersionList = try decoderContainer.decode([KeyVersionItem?].self, forKey: .keyVersionList)
     }
 }
 public extension KeyDetail{

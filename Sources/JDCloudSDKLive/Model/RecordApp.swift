@@ -46,8 +46,14 @@ public class RecordApp:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RecordAppCodingKeys.self)
-        self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        self.recordConfig = try decoderContainer.decode(String?.self, forKey: .recordConfig)
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.recordConfig)
+        {
+            self.recordConfig = try decoderContainer.decode(String?.self, forKey: .recordConfig)
+        }
     }
 }
 public extension RecordApp{

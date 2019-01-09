@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeWhiteListResult)
 public class DescribeWhiteListResult:NSObject,JdCloudResult
 {
-    /// WhiteLists
-    var whiteLists:WhiteList?
+    /// 白名单列表
+    var whiteLists:[WhiteList?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeWhiteListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeWhiteListResultCodingKeys.self)
-        self.whiteLists = try decoderContainer.decode(WhiteList?.self, forKey: .whiteLists)
+        if decoderContainer.contains(.whiteLists)
+        {
+            self.whiteLists = try decoderContainer.decode([WhiteList?]?.self, forKey: .whiteLists)
+        }
     }
 }
 public extension DescribeWhiteListResult{

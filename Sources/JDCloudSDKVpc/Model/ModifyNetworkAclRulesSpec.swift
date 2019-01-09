@@ -29,11 +29,11 @@ import Foundation
 public class ModifyNetworkAclRulesSpec:NSObject,Codable{
     /// networkAcl规则列表
     /// Required:true
-    var modifyNetworkAclRuleSpecs:ModifyNetworkAclRuleSpec?
+    var modifyNetworkAclRuleSpecs:[ModifyNetworkAclRuleSpec?]
 
 
 
-    public  init(modifyNetworkAclRuleSpecs:ModifyNetworkAclRuleSpec?){
+    public  init(modifyNetworkAclRuleSpecs:[ModifyNetworkAclRuleSpec?]){
              self.modifyNetworkAclRuleSpecs = modifyNetworkAclRuleSpecs
     }
 
@@ -44,7 +44,7 @@ public class ModifyNetworkAclRulesSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyNetworkAclRulesSpecCodingKeys.self)
-        self.modifyNetworkAclRuleSpecs = try decoderContainer.decode(ModifyNetworkAclRuleSpec?.self, forKey: .modifyNetworkAclRuleSpecs)
+        self.modifyNetworkAclRuleSpecs = try decoderContainer.decode([ModifyNetworkAclRuleSpec?].self, forKey: .modifyNetworkAclRuleSpecs)
     }
 }
 public extension ModifyNetworkAclRulesSpec{

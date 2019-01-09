@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeAlarmContactsResult)
 public class DescribeAlarmContactsResult:NSObject,JdCloudResult
 {
-    /// ContactsList
-    var contactsList:DescribedNoticeContacts?
+    /// 报警联系人列表
+    var contactsList:[DescribedNoticeContacts?]?
 
     /// 报警联系人总数
     var total:Int64?
@@ -48,8 +48,14 @@ public class DescribeAlarmContactsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAlarmContactsResultCodingKeys.self)
-        self.contactsList = try decoderContainer.decode(DescribedNoticeContacts?.self, forKey: .contactsList)
-        self.total = try decoderContainer.decode(Int64?.self, forKey: .total)
+        if decoderContainer.contains(.contactsList)
+        {
+            self.contactsList = try decoderContainer.decode([DescribedNoticeContacts?]?.self, forKey: .contactsList)
+        }
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Int64?.self, forKey: .total)
+        }
     }
 }
 public extension DescribeAlarmContactsResult{

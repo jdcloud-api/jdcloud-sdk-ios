@@ -24,6 +24,7 @@ depends-top-level:
 - "NSObject"
 - "String"
 - "StringLiteralType"
+- "Tag"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
@@ -33,6 +34,7 @@ depends-member:
 - !private ["s7CVarArgP", "Charge"]
 - !private ["s7CVarArgP", "DBInstanceCodingKeys"]
 - !private ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "Tag"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "_findStringSwitchCase"]
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
@@ -49,6 +51,7 @@ depends-member:
 - !private ["s7CVarArgP", "instanceStatus"]
 - !private ["s7CVarArgP", "instanceType"]
 - !private ["s7CVarArgP", "regionId"]
+- !private ["s7CVarArgP", "tags"]
 - ["s9CodingKeyP", "RawValue"]
 - ["s9CodingKeyP", ""]
 - ["s9CodingKeyP", "_Default_RawValue"]
@@ -72,6 +75,7 @@ depends-member:
 - ["s9CodingKeyP", "rawValue"]
 - !private ["s9CodingKeyP", "regionId"]
 - ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "tags"]
 - ["Sl", "init"]
 - ["Sl", "init"]
 - ["SL", "init"]
@@ -80,6 +84,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DBInstanceCodingKeys"]
 - ["s28CustomDebugStringConvertibleP", "RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "Tag"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - ["s28CustomDebugStringConvertibleP", "_Default_RawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "_findStringSwitchCase"]
@@ -103,6 +108,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "regionId"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "tags"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -113,6 +119,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DBInstanceCodingKeys"]
 - ["s23CustomStringConvertibleP", "RawValue"]
 - !private ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "Tag"]
 - ["s23CustomStringConvertibleP", ""]
 - ["s23CustomStringConvertibleP", "_Default_RawValue"]
 - !private ["s23CustomStringConvertibleP", "_findStringSwitchCase"]
@@ -137,12 +144,14 @@ depends-member:
 - ["s23CustomStringConvertibleP", "rawValue"]
 - !private ["s23CustomStringConvertibleP", "regionId"]
 - ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "tags"]
 - ["13JDCloudSDKRds10DBInstanceC", "Charge"]
 - ["13JDCloudSDKRds10DBInstanceC", "CodingKey"]
 - ["13JDCloudSDKRds10DBInstanceC", "DBInstanceCodingKeys"]
 - ["13JDCloudSDKRds10DBInstanceC", "Decoder"]
 - ["13JDCloudSDKRds10DBInstanceC", "Encoder"]
 - ["13JDCloudSDKRds10DBInstanceC", "String"]
+- ["13JDCloudSDKRds10DBInstanceC", "Tag"]
 - !private ["13JDCloudSDKRds10DBInstanceC", "_findStringSwitchCase"]
 - ["13JDCloudSDKRds10DBInstanceC", "azId"]
 - ["13JDCloudSDKRds10DBInstanceC", "charge"]
@@ -157,6 +166,7 @@ depends-member:
 - ["13JDCloudSDKRds10DBInstanceC", "instanceStatus"]
 - ["13JDCloudSDKRds10DBInstanceC", "instanceType"]
 - ["13JDCloudSDKRds10DBInstanceC", "regionId"]
+- ["13JDCloudSDKRds10DBInstanceC", "tags"]
 - ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "RawValue"]
 - ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "_Default_RawValue"]
 - !private ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "_findStringSwitchCase"]
@@ -180,9 +190,11 @@ depends-member:
 - ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "rawValue"]
 - ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "regionId"]
 - ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "stringValue"]
+- ["13JDCloudSDKRds10DBInstanceC0C10CodingKeysO", "tags"]
 - !private ["Se", "Charge"]
 - !private ["Se", "DBInstanceCodingKeys"]
 - !private ["Se", "String"]
+- !private ["Se", "Tag"]
 - ["Se", ""]
 - !private ["Se", "_findStringSwitchCase"]
 - !private ["Se", "_getBuiltinLogicValue"]
@@ -199,10 +211,12 @@ depends-member:
 - !private ["Se", "instanceStatus"]
 - !private ["Se", "instanceType"]
 - !private ["Se", "regionId"]
+- !private ["Se", "tags"]
 - !private ["s7DecoderP", "container"]
 - !private ["SE", "Charge"]
 - !private ["SE", "DBInstanceCodingKeys"]
 - !private ["SE", "String"]
+- !private ["SE", "Tag"]
 - ["SE", ""]
 - !private ["SE", "_findStringSwitchCase"]
 - !private ["SE", "_getBuiltinLogicValue"]
@@ -219,11 +233,13 @@ depends-member:
 - !private ["SE", "instanceStatus"]
 - !private ["SE", "instanceType"]
 - !private ["SE", "regionId"]
+- !private ["SE", "tags"]
 - !private ["s7EncoderP", "container"]
 - !private ["SQ", "Charge"]
 - !private ["SQ", "DBInstanceCodingKeys"]
 - ["SQ", "RawValue"]
 - !private ["SQ", "String"]
+- !private ["SQ", "Tag"]
 - ["SQ", ""]
 - ["SQ", "_Default_RawValue"]
 - !private ["SQ", "_findStringSwitchCase"]
@@ -248,6 +264,7 @@ depends-member:
 - ["SQ", "rawValue"]
 - !private ["SQ", "regionId"]
 - ["SQ", "stringValue"]
+- !private ["SQ", "tags"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
@@ -259,6 +276,7 @@ depends-member:
 - !private ["SH", "DBInstanceCodingKeys"]
 - ["SH", "RawValue"]
 - !private ["SH", "String"]
+- !private ["SH", "Tag"]
 - ["SH", ""]
 - ["SH", "_Default_RawValue"]
 - !private ["SH", "_findStringSwitchCase"]
@@ -283,6 +301,7 @@ depends-member:
 - ["SH", "rawValue"]
 - !private ["SH", "regionId"]
 - ["SH", "stringValue"]
+- !private ["SH", "tags"]
 - !private ["s6HasherV", "combine"]
 - !private ["s22KeyedDecodingContainerV", "decode"]
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
@@ -299,6 +318,7 @@ depends-member:
 - ["So8NSObjectC", "Decoder"]
 - ["So8NSObjectC", "Encoder"]
 - ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "Tag"]
 - ["So8NSObjectC", ""]
 - !private ["So8NSObjectC", "_findStringSwitchCase"]
 - ["So8NSObjectC", "azId"]
@@ -313,9 +333,11 @@ depends-member:
 - ["So8NSObjectC", "instanceStatus"]
 - ["So8NSObjectC", "instanceType"]
 - ["So8NSObjectC", "regionId"]
+- ["So8NSObjectC", "tags"]
 - !private ["So8NSObjectP", "Charge"]
 - !private ["So8NSObjectP", "DBInstanceCodingKeys"]
 - !private ["So8NSObjectP", "String"]
+- !private ["So8NSObjectP", "Tag"]
 - ["So8NSObjectP", ""]
 - !private ["So8NSObjectP", "_findStringSwitchCase"]
 - !private ["So8NSObjectP", "azId"]
@@ -330,6 +352,7 @@ depends-member:
 - !private ["So8NSObjectP", "instanceStatus"]
 - !private ["So8NSObjectP", "instanceType"]
 - !private ["So8NSObjectP", "regionId"]
+- !private ["So8NSObjectP", "tags"]
 - ["Sm", "init"]
 - ["Sm", "init"]
 - ["SY", "RawValue"]
@@ -355,6 +378,7 @@ depends-member:
 - ["SY", "rawValue"]
 - !private ["SY", "regionId"]
 - ["SY", "stringValue"]
+- !private ["SY", "tags"]
 - ["ST", "init"]
 - ["ST", "init"]
 - !private ["s12StaticStringV", "init"]
@@ -363,6 +387,7 @@ depends-member:
 - ["SS", "init"]
 - ["Sy", "init"]
 - ["Sy", "init"]
+- !private ["13JDCloudSDKRds3TagC", "deinit"]
 - ["s16TextOutputStreamP", "init"]
 - ["s16TextOutputStreamP", "init"]
 - ["s20TextOutputStreamableP", "init"]
@@ -383,6 +408,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Charge"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DBInstanceCodingKeys"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Tag"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "_findStringSwitchCase"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "azId"]
@@ -397,6 +423,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "instanceStatus"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "instanceType"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "regionId"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tags"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
 - ["s21_ObjectiveCBridgeableP", "init"]
@@ -440,6 +467,7 @@ depends-nominal:
 - !private "s12StaticStringV"
 - "SS"
 - "Sy"
+- !private "13JDCloudSDKRds3TagC"
 - "s16TextOutputStreamP"
 - "s20TextOutputStreamableP"
 - "14JDCloudSDKCore14URLConvertibleP"
@@ -462,6 +490,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Users/lishijun1/Documents/swiftworkspace/JDCloudSDKSwift/jdcloud-sdk-swift-github/JDCloudSDKSwift/.build/x86_64-apple-macosx10.10/debug/JDCloudSDKCommon.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
@@ -473,4 +502,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "e4d13b9735f460ac39c7eb0c708b29d6"
+interface-hash: "5d41145763332c2d5717aeb845997fe8"

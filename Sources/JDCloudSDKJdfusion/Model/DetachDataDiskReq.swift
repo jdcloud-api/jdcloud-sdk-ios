@@ -43,7 +43,10 @@ public class DetachDataDiskReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DetachDataDiskReqCodingKeys.self)
-        self.detach = try decoderContainer.decode(DetachDataDisk?.self, forKey: .detach)
+        if decoderContainer.contains(.detach)
+        {
+            self.detach = try decoderContainer.decode(DetachDataDisk?.self, forKey: .detach)
+        }
     }
 }
 public extension DetachDataDiskReq{

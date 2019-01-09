@@ -79,14 +79,23 @@ public class DBInstanceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceSpecCodingKeys.self)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
         self.nodeType = try decoderContainer.decode(String.self, forKey: .nodeType)
         self.nodeNumber = try decoderContainer.decode(Int.self, forKey: .nodeNumber)
         self.azId = try decoderContainer.decode(String.self, forKey: .azId)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
-        self.accountPassword = try decoderContainer.decode(String?.self, forKey: .accountPassword)
+        if decoderContainer.contains(.accountName)
+        {
+            self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
+        }
+        if decoderContainer.contains(.accountPassword)
+        {
+            self.accountPassword = try decoderContainer.decode(String?.self, forKey: .accountPassword)
+        }
         self.chargeSpec = try decoderContainer.decode(ChargeSpec.self, forKey: .chargeSpec)
     }
 }

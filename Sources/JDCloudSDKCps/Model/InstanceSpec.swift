@@ -74,7 +74,7 @@ public class InstanceSpec:NSObject,Codable{
     /// Required:true
     var charge:ChargeSpec
     /// Softwares
-    var softwares:Software?
+    var softwares:[Software?]?
 
 
 
@@ -122,18 +122,39 @@ public class InstanceSpec:NSObject,Codable{
         self.osTypeId = try decoderContainer.decode(String.self, forKey: .osTypeId)
         self.sysRaidTypeId = try decoderContainer.decode(String.self, forKey: .sysRaidTypeId)
         self.dataRaidTypeId = try decoderContainer.decode(String.self, forKey: .dataRaidTypeId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.enableInternet = try decoderContainer.decode(String?.self, forKey: .enableInternet)
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.enableInternet)
+        {
+            self.enableInternet = try decoderContainer.decode(String?.self, forKey: .enableInternet)
+        }
         self.networkType = try decoderContainer.decode(String.self, forKey: .networkType)
-        self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
-        self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
-        self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
+        if decoderContainer.contains(.cidr)
+        {
+            self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
+        }
+        if decoderContainer.contains(.lineType)
+        {
+            self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
+        }
+        if decoderContainer.contains(.bandwidth)
+        {
+            self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
+        }
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.password = try decoderContainer.decode(String.self, forKey: .password)
         self.count = try decoderContainer.decode(Int.self, forKey: .count)
         self.charge = try decoderContainer.decode(ChargeSpec.self, forKey: .charge)
-        self.softwares = try decoderContainer.decode(Software?.self, forKey: .softwares)
+        if decoderContainer.contains(.softwares)
+        {
+            self.softwares = try decoderContainer.decode([Software?]?.self, forKey: .softwares)
+        }
     }
 }
 public extension InstanceSpec{

@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class DescribeSecretsResult:NSObject,JdCloudResult
 {
     /// Secrets
-    var secrets:Secret?
+    var secrets:[Secret?]?
 
     /// TotalCount
     var totalCount:Double?
@@ -50,8 +50,14 @@ public class DescribeSecretsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSecretsResultCodingKeys.self)
-        self.secrets = try decoderContainer.decode(Secret?.self, forKey: .secrets)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.secrets)
+        {
+            self.secrets = try decoderContainer.decode([Secret?]?.self, forKey: .secrets)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeSecretsResult{

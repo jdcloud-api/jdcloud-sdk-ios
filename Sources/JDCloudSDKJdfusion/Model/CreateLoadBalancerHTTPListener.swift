@@ -73,17 +73,50 @@ public class CreateLoadBalancerHTTPListener:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateLoadBalancerHTTPListenerCodingKeys.self)
-        self.loadBalancerId = try decoderContainer.decode(String?.self, forKey: .loadBalancerId)
-        self.listenerPort = try decoderContainer.decode(Int32?.self, forKey: .listenerPort)
-        self.backendServerPort = try decoderContainer.decode(Int32?.self, forKey: .backendServerPort)
-        self.vserverGroupId = try decoderContainer.decode(String?.self, forKey: .vserverGroupId)
-        self.bandwidth = try decoderContainer.decode(Int32?.self, forKey: .bandwidth)
-        self.healthCheckConnectPort = try decoderContainer.decode(Int32?.self, forKey: .healthCheckConnectPort)
-        self.healthyThreshold = try decoderContainer.decode(Int32?.self, forKey: .healthyThreshold)
-        self.unhealthyThreshold = try decoderContainer.decode(Int32?.self, forKey: .unhealthyThreshold)
-        self.healthCheckTimeout = try decoderContainer.decode(Int32?.self, forKey: .healthCheckTimeout)
-        self.healthCheckInterval = try decoderContainer.decode(Int32?.self, forKey: .healthCheckInterval)
-        self.healthCheckHttpCode = try decoderContainer.decode(String?.self, forKey: .healthCheckHttpCode)
+        if decoderContainer.contains(.loadBalancerId)
+        {
+            self.loadBalancerId = try decoderContainer.decode(String?.self, forKey: .loadBalancerId)
+        }
+        if decoderContainer.contains(.listenerPort)
+        {
+            self.listenerPort = try decoderContainer.decode(Int32?.self, forKey: .listenerPort)
+        }
+        if decoderContainer.contains(.backendServerPort)
+        {
+            self.backendServerPort = try decoderContainer.decode(Int32?.self, forKey: .backendServerPort)
+        }
+        if decoderContainer.contains(.vserverGroupId)
+        {
+            self.vserverGroupId = try decoderContainer.decode(String?.self, forKey: .vserverGroupId)
+        }
+        if decoderContainer.contains(.bandwidth)
+        {
+            self.bandwidth = try decoderContainer.decode(Int32?.self, forKey: .bandwidth)
+        }
+        if decoderContainer.contains(.healthCheckConnectPort)
+        {
+            self.healthCheckConnectPort = try decoderContainer.decode(Int32?.self, forKey: .healthCheckConnectPort)
+        }
+        if decoderContainer.contains(.healthyThreshold)
+        {
+            self.healthyThreshold = try decoderContainer.decode(Int32?.self, forKey: .healthyThreshold)
+        }
+        if decoderContainer.contains(.unhealthyThreshold)
+        {
+            self.unhealthyThreshold = try decoderContainer.decode(Int32?.self, forKey: .unhealthyThreshold)
+        }
+        if decoderContainer.contains(.healthCheckTimeout)
+        {
+            self.healthCheckTimeout = try decoderContainer.decode(Int32?.self, forKey: .healthCheckTimeout)
+        }
+        if decoderContainer.contains(.healthCheckInterval)
+        {
+            self.healthCheckInterval = try decoderContainer.decode(Int32?.self, forKey: .healthCheckInterval)
+        }
+        if decoderContainer.contains(.healthCheckHttpCode)
+        {
+            self.healthCheckHttpCode = try decoderContainer.decode(String?.self, forKey: .healthCheckHttpCode)
+        }
     }
 }
 public extension CreateLoadBalancerHTTPListener{

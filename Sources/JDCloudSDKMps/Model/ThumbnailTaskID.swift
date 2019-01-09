@@ -43,7 +43,10 @@ public class ThumbnailTaskID:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ThumbnailTaskIDCodingKeys.self)
-        self.taskID = try decoderContainer.decode(String?.self, forKey: .taskID)
+        if decoderContainer.contains(.taskID)
+        {
+            self.taskID = try decoderContainer.decode(String?.self, forKey: .taskID)
+        }
     }
 }
 public extension ThumbnailTaskID{

@@ -46,7 +46,10 @@ public class DescribeInstanceVncUrlResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstanceVncUrlResultCodingKeys.self)
-        self.vncUrl = try decoderContainer.decode(String?.self, forKey: .vncUrl)
+        if decoderContainer.contains(.vncUrl)
+        {
+            self.vncUrl = try decoderContainer.decode(String?.self, forKey: .vncUrl)
+        }
     }
 }
 public extension DescribeInstanceVncUrlResult{

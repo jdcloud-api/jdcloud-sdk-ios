@@ -44,7 +44,10 @@ public class GetVmInstancesByIdResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVmInstancesByIdResultCodingKeys.self)
-        self.vm = try decoderContainer.decode(VmInfoDetail?.self, forKey: .vm)
+        if decoderContainer.contains(.vm)
+        {
+            self.vm = try decoderContainer.decode(VmInfoDetail?.self, forKey: .vm)
+        }
     }
 }
 public extension GetVmInstancesByIdResult{

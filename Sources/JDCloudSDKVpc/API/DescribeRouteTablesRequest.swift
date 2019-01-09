@@ -41,7 +41,7 @@ public class DescribeRouteTablesRequest:JdCloudRequest
       /// routeTableNames - 路由表名称列表，支持多个
       /// vpcId	- 路由表所属vpc Id，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

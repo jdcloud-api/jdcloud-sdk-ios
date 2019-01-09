@@ -52,10 +52,22 @@ public class WidgetTagResource:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WidgetTagResourceCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.key = try decoderContainer.decode(String?.self, forKey: .key)
-        self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
-        self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode(String?.self, forKey: .key)
+        }
+        if decoderContainer.contains(.regionId)
+        {
+            self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        }
     }
 }
 public extension WidgetTagResource{

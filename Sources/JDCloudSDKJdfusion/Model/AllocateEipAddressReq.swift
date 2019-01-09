@@ -43,7 +43,10 @@ public class AllocateEipAddressReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AllocateEipAddressReqCodingKeys.self)
-        self.allocate = try decoderContainer.decode(AllocateEipAddress?.self, forKey: .allocate)
+        if decoderContainer.contains(.allocate)
+        {
+            self.allocate = try decoderContainer.decode(AllocateEipAddress?.self, forKey: .allocate)
+        }
     }
 }
 public extension AllocateEipAddressReq{

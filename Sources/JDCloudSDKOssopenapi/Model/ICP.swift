@@ -43,7 +43,10 @@ public class ICP:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ICPCodingKeys.self)
-        self.icp = try decoderContainer.decode(Bool?.self, forKey: .icp)
+        if decoderContainer.contains(.icp)
+        {
+            self.icp = try decoderContainer.decode(Bool?.self, forKey: .icp)
+        }
     }
 }
 public extension ICP{

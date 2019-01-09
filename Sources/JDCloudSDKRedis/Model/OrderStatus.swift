@@ -55,11 +55,26 @@ public class OrderStatus:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: OrderStatusCodingKeys.self)
-        self.total = try decoderContainer.decode(Int?.self, forKey: .total)
-        self.success = try decoderContainer.decode(Int?.self, forKey: .success)
-        self.fail = try decoderContainer.decode(Int?.self, forKey: .fail)
-        self.inProcess = try decoderContainer.decode(Int?.self, forKey: .inProcess)
-        self.resourceIds = try decoderContainer.decode([String?]?.self, forKey: .resourceIds)
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Int?.self, forKey: .total)
+        }
+        if decoderContainer.contains(.success)
+        {
+            self.success = try decoderContainer.decode(Int?.self, forKey: .success)
+        }
+        if decoderContainer.contains(.fail)
+        {
+            self.fail = try decoderContainer.decode(Int?.self, forKey: .fail)
+        }
+        if decoderContainer.contains(.inProcess)
+        {
+            self.inProcess = try decoderContainer.decode(Int?.self, forKey: .inProcess)
+        }
+        if decoderContainer.contains(.resourceIds)
+        {
+            self.resourceIds = try decoderContainer.decode([String?]?.self, forKey: .resourceIds)
+        }
     }
 }
 public extension OrderStatus{

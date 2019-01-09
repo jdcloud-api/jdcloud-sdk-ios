@@ -52,9 +52,18 @@ public class GetSensitiveOpSettingResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetSensitiveOpSettingResultCodingKeys.self)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.type = try decoderContainer.decode(Int?.self, forKey: .type)
-        self.extInfo = try decoderContainer.decode(String?.self, forKey: .extInfo)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(Int?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.extInfo)
+        {
+            self.extInfo = try decoderContainer.decode(String?.self, forKey: .extInfo)
+        }
     }
 }
 public extension GetSensitiveOpSettingResult{

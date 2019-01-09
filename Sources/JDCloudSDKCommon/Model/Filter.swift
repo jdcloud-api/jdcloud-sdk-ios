@@ -53,7 +53,10 @@ public class Filter:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FilterCodingKeys.self)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.operatorValue = try decoderContainer.decode(String?.self, forKey: .operatorValue)
+        if decoderContainer.contains(.operatorValue)
+        {
+            self.operatorValue = try decoderContainer.decode(String?.self, forKey: .operatorValue)
+        }
         self.values = try decoderContainer.decode([String?].self, forKey: .values)
     }
 }

@@ -39,7 +39,7 @@ public class QueryStatisticsTopIpResult:NSObject,JdCloudResult
     var domain:String?
 
     /// IpData
-    var ipData:StatisticsTopIpData?
+    var ipData:[StatisticsTopIpData?]?
 
 
 
@@ -56,10 +56,22 @@ public class QueryStatisticsTopIpResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryStatisticsTopIpResultCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.ipData = try decoderContainer.decode(StatisticsTopIpData?.self, forKey: .ipData)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.ipData)
+        {
+            self.ipData = try decoderContainer.decode([StatisticsTopIpData?]?.self, forKey: .ipData)
+        }
     }
 }
 public extension QueryStatisticsTopIpResult{

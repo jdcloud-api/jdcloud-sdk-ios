@@ -49,9 +49,18 @@ public class UpdateDashboardSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UpdateDashboardSpecCodingKeys.self)
-        self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
-        self.focused = try decoderContainer.decode(String?.self, forKey: .focused)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        if decoderContainer.contains(.dashboardId)
+        {
+            self.dashboardId = try decoderContainer.decode(String?.self, forKey: .dashboardId)
+        }
+        if decoderContainer.contains(.focused)
+        {
+            self.focused = try decoderContainer.decode(String?.self, forKey: .focused)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
     }
 }
 public extension UpdateDashboardSpec{

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeRegionesResult:NSObject,JdCloudResult
 {
     /// Regions
-    var regions:Region?
+    var regions:[Region?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeRegionesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRegionesResultCodingKeys.self)
-        self.regions = try decoderContainer.decode(Region?.self, forKey: .regions)
+        if decoderContainer.contains(.regions)
+        {
+            self.regions = try decoderContainer.decode([Region?]?.self, forKey: .regions)
+        }
     }
 }
 public extension DescribeRegionesResult{

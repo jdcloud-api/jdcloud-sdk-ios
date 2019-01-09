@@ -106,28 +106,94 @@ public class ConsumeRecord:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ConsumeRecordCodingKeys.self)
-        self.id = try decoderContainer.decode(Double?.self, forKey: .id)
-        self.billingRecordId = try decoderContainer.decode(Int?.self, forKey: .billingRecordId)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.formula = try decoderContainer.decode(String?.self, forKey: .formula)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.priceSnapShot = try decoderContainer.decode(String?.self, forKey: .priceSnapShot)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.billFee = try decoderContainer.decode(Double?.self, forKey: .billFee)
-        self.billFee2 = try decoderContainer.decode(Double?.self, forKey: .billFee2)
-        self.discountFee = try decoderContainer.decode(Double?.self, forKey: .discountFee)
-        self.couponId = try decoderContainer.decode(String?.self, forKey: .couponId)
-        self.couponFee = try decoderContainer.decode(Double?.self, forKey: .couponFee)
-        self.transactionNo = try decoderContainer.decode(String?.self, forKey: .transactionNo)
-        self.isBillGenerated = try decoderContainer.decode(Int?.self, forKey: .isBillGenerated)
-        self.subBillId = try decoderContainer.decode(Double?.self, forKey: .subBillId)
-        self.refundNo = try decoderContainer.decode(String?.self, forKey: .refundNo)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Double?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.billingRecordId)
+        {
+            self.billingRecordId = try decoderContainer.decode(Int?.self, forKey: .billingRecordId)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.formula)
+        {
+            self.formula = try decoderContainer.decode(String?.self, forKey: .formula)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.priceSnapShot)
+        {
+            self.priceSnapShot = try decoderContainer.decode(String?.self, forKey: .priceSnapShot)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.billFee)
+        {
+            self.billFee = try decoderContainer.decode(Double?.self, forKey: .billFee)
+        }
+        if decoderContainer.contains(.billFee2)
+        {
+            self.billFee2 = try decoderContainer.decode(Double?.self, forKey: .billFee2)
+        }
+        if decoderContainer.contains(.discountFee)
+        {
+            self.discountFee = try decoderContainer.decode(Double?.self, forKey: .discountFee)
+        }
+        if decoderContainer.contains(.couponId)
+        {
+            self.couponId = try decoderContainer.decode(String?.self, forKey: .couponId)
+        }
+        if decoderContainer.contains(.couponFee)
+        {
+            self.couponFee = try decoderContainer.decode(Double?.self, forKey: .couponFee)
+        }
+        if decoderContainer.contains(.transactionNo)
+        {
+            self.transactionNo = try decoderContainer.decode(String?.self, forKey: .transactionNo)
+        }
+        if decoderContainer.contains(.isBillGenerated)
+        {
+            self.isBillGenerated = try decoderContainer.decode(Int?.self, forKey: .isBillGenerated)
+        }
+        if decoderContainer.contains(.subBillId)
+        {
+            self.subBillId = try decoderContainer.decode(Double?.self, forKey: .subBillId)
+        }
+        if decoderContainer.contains(.refundNo)
+        {
+            self.refundNo = try decoderContainer.decode(String?.self, forKey: .refundNo)
+        }
     }
 }
 public extension ConsumeRecord{

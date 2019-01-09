@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeVpcsResult)
 public class DescribeVpcsResult:NSObject,JdCloudResult
 {
-    /// Vpcs
-    var vpcs:Vpc?
+    /// Vpc资源信息列表
+    var vpcs:[Vpc?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeVpcsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeVpcsResultCodingKeys.self)
-        self.vpcs = try decoderContainer.decode(Vpc?.self, forKey: .vpcs)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.vpcs)
+        {
+            self.vpcs = try decoderContainer.decode([Vpc?]?.self, forKey: .vpcs)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeVpcsResult{

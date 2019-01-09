@@ -22,6 +22,7 @@ depends-top-level:
 - "Sort"
 - "String"
 - "StringLiteralType"
+- "TagFilter"
 - !private "_findStringSwitchCase"
 - !private "~="
 depends-member:
@@ -38,6 +39,7 @@ depends-member:
 - !private ["s7CVarArgP", "pageNumber"]
 - !private ["s7CVarArgP", "pageSize"]
 - !private ["s7CVarArgP", "sorts"]
+- !private ["s7CVarArgP", "tagFilters"]
 - ["s9CodingKeyP", "RawValue"]
 - ["s9CodingKeyP", ""]
 - ["s9CodingKeyP", "_Default_RawValue"]
@@ -55,6 +57,7 @@ depends-member:
 - ["s9CodingKeyP", "rawValue"]
 - !private ["s9CodingKeyP", "sorts"]
 - ["s9CodingKeyP", "stringValue"]
+- !private ["s9CodingKeyP", "tagFilters"]
 - ["Sl", "init"]
 - ["Sl", "init"]
 - ["SL", "init"]
@@ -77,6 +80,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "rawValue"]
 - !private ["s28CustomDebugStringConvertibleP", "sorts"]
 - ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "tagFilters"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -102,6 +106,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "rawValue"]
 - !private ["s23CustomStringConvertibleP", "sorts"]
 - ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "tagFilters"]
 - !private ["Se", "_getBuiltinLogicValue"]
 - ["Se", "init"]
 - ["Se", "init"]
@@ -112,6 +117,7 @@ depends-member:
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "Int"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "Sort"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "String"]
+- ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "TagFilter"]
 - !private ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "_findStringSwitchCase"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "encode"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "filters"]
@@ -119,6 +125,7 @@ depends-member:
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "pageNumber"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "pageSize"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "sorts"]
+- ["17JDCloudSDKMongodb24DescribeInstancesRequestC", "tagFilters"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "RawValue"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "_Default_RawValue"]
 - !private ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "_findStringSwitchCase"]
@@ -136,6 +143,7 @@ depends-member:
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "rawValue"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "sorts"]
 - ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "stringValue"]
+- ["17JDCloudSDKMongodb24DescribeInstancesRequestC0cdeE10CodingKeysO", "tagFilters"]
 - !private ["SE", "DescribeInstancesRequestRequestCodingKeys"]
 - ["SE", ""]
 - !private ["SE", "_findStringSwitchCase"]
@@ -146,6 +154,7 @@ depends-member:
 - !private ["SE", "pageNumber"]
 - !private ["SE", "pageSize"]
 - !private ["SE", "sorts"]
+- !private ["SE", "tagFilters"]
 - !private ["s7EncoderP", "container"]
 - !private ["SQ", "DescribeInstancesRequestRequestCodingKeys"]
 - ["SQ", "RawValue"]
@@ -166,6 +175,7 @@ depends-member:
 - ["SQ", "rawValue"]
 - !private ["SQ", "sorts"]
 - ["SQ", "stringValue"]
+- !private ["SQ", "tagFilters"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
@@ -192,6 +202,7 @@ depends-member:
 - ["SH", "rawValue"]
 - !private ["SH", "sorts"]
 - ["SH", "stringValue"]
+- !private ["SH", "tagFilters"]
 - !private ["s6HasherV", "combine"]
 - ["14JDCloudSDKCore14JdCloudRequestC", "CodingKey"]
 - !private ["14JDCloudSDKCore14JdCloudRequestC", "DescribeInstancesRequestRequestCodingKeys"]
@@ -200,6 +211,7 @@ depends-member:
 - ["14JDCloudSDKCore14JdCloudRequestC", "Int"]
 - ["14JDCloudSDKCore14JdCloudRequestC", "Sort"]
 - ["14JDCloudSDKCore14JdCloudRequestC", "String"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "TagFilter"]
 - ["14JDCloudSDKCore14JdCloudRequestC", ""]
 - !private ["14JDCloudSDKCore14JdCloudRequestC", "_findStringSwitchCase"]
 - ["14JDCloudSDKCore14JdCloudRequestC", "encode"]
@@ -209,6 +221,7 @@ depends-member:
 - ["14JDCloudSDKCore14JdCloudRequestC", "pageNumber"]
 - ["14JDCloudSDKCore14JdCloudRequestC", "pageSize"]
 - ["14JDCloudSDKCore14JdCloudRequestC", "sorts"]
+- ["14JDCloudSDKCore14JdCloudRequestC", "tagFilters"]
 - !private ["s22KeyedEncodingContainerV", "encode"]
 - !private ["s30KeyedEncodingContainerProtocolP", "encode"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
@@ -223,6 +236,7 @@ depends-member:
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "Sort"]
 - ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "TagFilter"]
 - !private ["So8NSObjectC", "_findStringSwitchCase"]
 - ["So8NSObjectC", "encode"]
 - ["So8NSObjectC", "filters"]
@@ -230,6 +244,7 @@ depends-member:
 - ["So8NSObjectC", "pageNumber"]
 - ["So8NSObjectC", "pageSize"]
 - ["So8NSObjectC", "sorts"]
+- ["So8NSObjectC", "tagFilters"]
 - !private ["So8NSObjectP", "DescribeInstancesRequestRequestCodingKeys"]
 - ["So8NSObjectP", ""]
 - !private ["So8NSObjectP", "_findStringSwitchCase"]
@@ -239,6 +254,7 @@ depends-member:
 - !private ["So8NSObjectP", "pageNumber"]
 - !private ["So8NSObjectP", "pageSize"]
 - !private ["So8NSObjectP", "sorts"]
+- !private ["So8NSObjectP", "tagFilters"]
 - ["Sm", "init"]
 - ["Sm", "init"]
 - ["SY", "RawValue"]
@@ -258,6 +274,7 @@ depends-member:
 - ["SY", "rawValue"]
 - !private ["SY", "sorts"]
 - ["SY", "stringValue"]
+- !private ["SY", "tagFilters"]
 - ["ST", "init"]
 - ["ST", "init"]
 - !private ["s12StaticStringV", "init"]
@@ -292,6 +309,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pageNumber"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pageSize"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sorts"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tagFilters"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
 - ["s21_ObjectiveCBridgeableP", "init"]
@@ -367,4 +385,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "ae5b7eba90b608e2c5176ceb7e106b97"
+interface-hash: "fb80af0f14a76be5d60ac2d612f3bea5"

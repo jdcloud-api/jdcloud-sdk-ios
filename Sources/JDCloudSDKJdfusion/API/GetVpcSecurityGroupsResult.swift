@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcSecurityGroupsResult:NSObject,JdCloudResult
 {
     /// SecurityGroups
-    var securityGroups:SecurityGroupInfo?
+    var securityGroups:[SecurityGroupInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVpcSecurityGroupsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcSecurityGroupsResultCodingKeys.self)
-        self.securityGroups = try decoderContainer.decode(SecurityGroupInfo?.self, forKey: .securityGroups)
+        if decoderContainer.contains(.securityGroups)
+        {
+            self.securityGroups = try decoderContainer.decode([SecurityGroupInfo?]?.self, forKey: .securityGroups)
+        }
     }
 }
 public extension GetVpcSecurityGroupsResult{

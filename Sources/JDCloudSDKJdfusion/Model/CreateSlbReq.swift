@@ -43,7 +43,10 @@ public class CreateSlbReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSlbReqCodingKeys.self)
-        self.slb = try decoderContainer.decode(CreateSlb?.self, forKey: .slb)
+        if decoderContainer.contains(.slb)
+        {
+            self.slb = try decoderContainer.decode(CreateSlb?.self, forKey: .slb)
+        }
     }
 }
 public extension CreateSlbReq{

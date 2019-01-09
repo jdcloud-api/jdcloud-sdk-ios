@@ -55,11 +55,26 @@ public class ThumbnailTaskRule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ThumbnailTaskRuleCodingKeys.self)
-        self.mode = try decoderContainer.decode(String?.self, forKey: .mode)
-        self.keyFrame = try decoderContainer.decode(Bool?.self, forKey: .keyFrame)
-        self.startTimeInSecond = try decoderContainer.decode(Int?.self, forKey: .startTimeInSecond)
-        self.endTimeInSecond = try decoderContainer.decode(Int?.self, forKey: .endTimeInSecond)
-        self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        if decoderContainer.contains(.mode)
+        {
+            self.mode = try decoderContainer.decode(String?.self, forKey: .mode)
+        }
+        if decoderContainer.contains(.keyFrame)
+        {
+            self.keyFrame = try decoderContainer.decode(Bool?.self, forKey: .keyFrame)
+        }
+        if decoderContainer.contains(.startTimeInSecond)
+        {
+            self.startTimeInSecond = try decoderContainer.decode(Int?.self, forKey: .startTimeInSecond)
+        }
+        if decoderContainer.contains(.endTimeInSecond)
+        {
+            self.endTimeInSecond = try decoderContainer.decode(Int?.self, forKey: .endTimeInSecond)
+        }
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        }
     }
 }
 public extension ThumbnailTaskRule{

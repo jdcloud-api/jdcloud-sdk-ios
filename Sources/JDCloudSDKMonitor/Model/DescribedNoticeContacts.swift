@@ -46,8 +46,14 @@ public class DescribedNoticeContacts:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribedNoticeContactsCodingKeys.self)
-        self.referenceId = try decoderContainer.decode(Int64?.self, forKey: .referenceId)
-        self.referenceType = try decoderContainer.decode(Int64?.self, forKey: .referenceType)
+        if decoderContainer.contains(.referenceId)
+        {
+            self.referenceId = try decoderContainer.decode(Int64?.self, forKey: .referenceId)
+        }
+        if decoderContainer.contains(.referenceType)
+        {
+            self.referenceType = try decoderContainer.decode(Int64?.self, forKey: .referenceType)
+        }
     }
 }
 public extension DescribedNoticeContacts{

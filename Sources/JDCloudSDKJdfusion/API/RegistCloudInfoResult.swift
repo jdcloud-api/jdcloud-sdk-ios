@@ -44,7 +44,10 @@ public class RegistCloudInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RegistCloudInfoResultCodingKeys.self)
-        self.cloud = try decoderContainer.decode(CloudInfo?.self, forKey: .cloud)
+        if decoderContainer.contains(.cloud)
+        {
+            self.cloud = try decoderContainer.decode(CloudInfo?.self, forKey: .cloud)
+        }
     }
 }
 public extension RegistCloudInfoResult{

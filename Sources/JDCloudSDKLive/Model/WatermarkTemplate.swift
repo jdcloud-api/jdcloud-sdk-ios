@@ -58,12 +58,30 @@ public class WatermarkTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WatermarkTemplateCodingKeys.self)
-        self.offSetX = try decoderContainer.decode(Int?.self, forKey: .offSetX)
-        self.offSetY = try decoderContainer.decode(Int?.self, forKey: .offSetY)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.url = try decoderContainer.decode(String?.self, forKey: .url)
-        self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        if decoderContainer.contains(.offSetX)
+        {
+            self.offSetX = try decoderContainer.decode(Int?.self, forKey: .offSetX)
+        }
+        if decoderContainer.contains(.offSetY)
+        {
+            self.offSetY = try decoderContainer.decode(Int?.self, forKey: .offSetY)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.url)
+        {
+            self.url = try decoderContainer.decode(String?.self, forKey: .url)
+        }
+        if decoderContainer.contains(.template)
+        {
+            self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        }
     }
 }
 public extension WatermarkTemplate{

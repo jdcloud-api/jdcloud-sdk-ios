@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class DescribeKeypairsResult:NSObject,JdCloudResult
 {
     /// Keypairs
-    var keypairs:Keypair?
+    var keypairs:[Keypair?]?
 
     /// 总的数据条数
     var totalCount:Double?
@@ -50,8 +50,14 @@ public class DescribeKeypairsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeKeypairsResultCodingKeys.self)
-        self.keypairs = try decoderContainer.decode(Keypair?.self, forKey: .keypairs)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.keypairs)
+        {
+            self.keypairs = try decoderContainer.decode([Keypair?]?.self, forKey: .keypairs)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeKeypairsResult{

@@ -44,7 +44,10 @@ public class CreateNetworkInterfaceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateNetworkInterfaceResultCodingKeys.self)
-        self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        if decoderContainer.contains(.networkInterfaceId)
+        {
+            self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        }
     }
 }
 public extension CreateNetworkInterfaceResult{

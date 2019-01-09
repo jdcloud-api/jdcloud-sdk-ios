@@ -28,7 +28,7 @@ import Foundation
 @objc(UpdateAlarmSpec)
 public class UpdateAlarmSpec:NSObject,Codable{
     /// 通知联系人
-    var contacts:BaseContact?
+    var contacts:[BaseContact?]?
     /// Rule
     /// Required:true
     var rule:BaseRule
@@ -59,12 +59,27 @@ public class UpdateAlarmSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UpdateAlarmSpecCodingKeys.self)
-        self.contacts = try decoderContainer.decode(BaseContact?.self, forKey: .contacts)
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode([BaseContact?]?.self, forKey: .contacts)
+        }
         self.rule = try decoderContainer.decode(BaseRule.self, forKey: .rule)
-        self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
-        self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
-        self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
-        self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        if decoderContainer.contains(.webHookContent)
+        {
+            self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
+        }
+        if decoderContainer.contains(.webHookProtocol)
+        {
+            self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
+        }
+        if decoderContainer.contains(.webHookSecret)
+        {
+            self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
+        }
+        if decoderContainer.contains(.webHookUrl)
+        {
+            self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        }
     }
 }
 public extension UpdateAlarmSpec{

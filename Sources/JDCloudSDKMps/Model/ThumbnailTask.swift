@@ -67,14 +67,32 @@ public class ThumbnailTask:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ThumbnailTaskCodingKeys.self)
-        self.taskID = try decoderContainer.decode(String?.self, forKey: .taskID)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.errorCode = try decoderContainer.decode(Int?.self, forKey: .errorCode)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.lastUpdatedTime = try decoderContainer.decode(String?.self, forKey: .lastUpdatedTime)
+        if decoderContainer.contains(.taskID)
+        {
+            self.taskID = try decoderContainer.decode(String?.self, forKey: .taskID)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.errorCode)
+        {
+            self.errorCode = try decoderContainer.decode(Int?.self, forKey: .errorCode)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.lastUpdatedTime)
+        {
+            self.lastUpdatedTime = try decoderContainer.decode(String?.self, forKey: .lastUpdatedTime)
+        }
         self.source = try decoderContainer.decode(ThumbnailTaskSource.self, forKey: .source)
         self.target = try decoderContainer.decode(ThumbnailTaskTarget.self, forKey: .target)
-        self.rule = try decoderContainer.decode(ThumbnailTaskRule?.self, forKey: .rule)
+        if decoderContainer.contains(.rule)
+        {
+            self.rule = try decoderContainer.decode(ThumbnailTaskRule?.self, forKey: .rule)
+        }
     }
 }
 public extension ThumbnailTask{

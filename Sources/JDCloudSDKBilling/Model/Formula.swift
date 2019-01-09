@@ -52,10 +52,22 @@ public class Formula:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FormulaCodingKeys.self)
-        self.key = try decoderContainer.decode(String?.self, forKey: .key)
-        self.value = try decoderContainer.decode(Double?.self, forKey: .value)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
-        self.number = try decoderContainer.decode(Double?.self, forKey: .number)
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode(String?.self, forKey: .key)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Double?.self, forKey: .value)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
+        if decoderContainer.contains(.number)
+        {
+            self.number = try decoderContainer.decode(Double?.self, forKey: .number)
+        }
     }
 }
 public extension Formula{

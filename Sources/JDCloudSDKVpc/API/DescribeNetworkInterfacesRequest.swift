@@ -43,7 +43,7 @@ public class DescribeNetworkInterfacesRequest:JdCloudRequest
       /// subnetId	- 弹性网卡所属子网Id，支持单个
       /// role - 网卡角色，取值范围：Primary（主网卡）、Secondary（辅助网卡），支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

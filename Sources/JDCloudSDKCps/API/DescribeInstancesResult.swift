@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class DescribeInstancesResult:NSObject,JdCloudResult
 {
     /// Instances
-    var instances:Instance?
+    var instances:[Instance?]?
 
     /// 页码；默认为1
     var pageNumber:Int?
@@ -58,10 +58,22 @@ public class DescribeInstancesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstancesResultCodingKeys.self)
-        self.instances = try decoderContainer.decode(Instance?.self, forKey: .instances)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.instances)
+        {
+            self.instances = try decoderContainer.decode([Instance?]?.self, forKey: .instances)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeInstancesResult{

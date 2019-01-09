@@ -54,11 +54,11 @@ public class Instance:NSObject,Codable{
     /// 系统盘配置
     var systemDisk:InstanceDiskAttachment?
     /// 数据盘配置
-    var dataDisks:InstanceDiskAttachment?
+    var dataDisks:[InstanceDiskAttachment?]?
     /// 主网卡配置
     var primaryNetworkInterface:InstanceNetworkInterfaceAttachment?
     /// 辅助网卡配置
-    var secondaryNetworkInterfaces:InstanceNetworkInterfaceAttachment?
+    var secondaryNetworkInterfaces:[InstanceNetworkInterfaceAttachment?]?
     /// 创建时间
     var launchTime:String?
     /// 云主机所在可用区
@@ -72,7 +72,7 @@ public class Instance:NSObject,Codable{
     /// 高可用组中的错误域
     var faultDomain:String?
     /// Tag信息
-    var tags:Tag?
+    var tags:[Tag?]?
 
 
 
@@ -108,28 +108,94 @@ public class Instance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
-        self.systemDisk = try decoderContainer.decode(InstanceDiskAttachment?.self, forKey: .systemDisk)
-        self.dataDisks = try decoderContainer.decode(InstanceDiskAttachment?.self, forKey: .dataDisks)
-        self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
-        self.secondaryNetworkInterfaces = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .secondaryNetworkInterfaces)
-        self.launchTime = try decoderContainer.decode(String?.self, forKey: .launchTime)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.ag = try decoderContainer.decode(Ag?.self, forKey: .ag)
-        self.faultDomain = try decoderContainer.decode(String?.self, forKey: .faultDomain)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.elasticIpId)
+        {
+            self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.imageId)
+        {
+            self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        }
+        if decoderContainer.contains(.systemDisk)
+        {
+            self.systemDisk = try decoderContainer.decode(InstanceDiskAttachment?.self, forKey: .systemDisk)
+        }
+        if decoderContainer.contains(.dataDisks)
+        {
+            self.dataDisks = try decoderContainer.decode([InstanceDiskAttachment?]?.self, forKey: .dataDisks)
+        }
+        if decoderContainer.contains(.primaryNetworkInterface)
+        {
+            self.primaryNetworkInterface = try decoderContainer.decode(InstanceNetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
+        }
+        if decoderContainer.contains(.secondaryNetworkInterfaces)
+        {
+            self.secondaryNetworkInterfaces = try decoderContainer.decode([InstanceNetworkInterfaceAttachment?]?.self, forKey: .secondaryNetworkInterfaces)
+        }
+        if decoderContainer.contains(.launchTime)
+        {
+            self.launchTime = try decoderContainer.decode(String?.self, forKey: .launchTime)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.keyNames)
+        {
+            self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.ag)
+        {
+            self.ag = try decoderContainer.decode(Ag?.self, forKey: .ag)
+        }
+        if decoderContainer.contains(.faultDomain)
+        {
+            self.faultDomain = try decoderContainer.decode(String?.self, forKey: .faultDomain)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
     }
 }
 public extension Instance{

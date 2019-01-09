@@ -44,7 +44,10 @@ public class DescribeRouteTableResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRouteTableResultCodingKeys.self)
-        self.routeTable = try decoderContainer.decode(RouteTable?.self, forKey: .routeTable)
+        if decoderContainer.contains(.routeTable)
+        {
+            self.routeTable = try decoderContainer.decode(RouteTable?.self, forKey: .routeTable)
+        }
     }
 }
 public extension DescribeRouteTableResult{

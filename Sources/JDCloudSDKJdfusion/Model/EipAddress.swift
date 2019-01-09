@@ -64,14 +64,38 @@ public class EipAddress:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: EipAddressCodingKeys.self)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.ipAddress = try decoderContainer.decode(String?.self, forKey: .ipAddress)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.bandwidth = try decoderContainer.decode(String?.self, forKey: .bandwidth)
-        self.allocationTime = try decoderContainer.decode(String?.self, forKey: .allocationTime)
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.ipAddress)
+        {
+            self.ipAddress = try decoderContainer.decode(String?.self, forKey: .ipAddress)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.bandwidth)
+        {
+            self.bandwidth = try decoderContainer.decode(String?.self, forKey: .bandwidth)
+        }
+        if decoderContainer.contains(.allocationTime)
+        {
+            self.allocationTime = try decoderContainer.decode(String?.self, forKey: .allocationTime)
+        }
     }
 }
 public extension EipAddress{

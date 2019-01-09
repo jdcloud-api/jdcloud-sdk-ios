@@ -33,7 +33,7 @@ public class PutMetricDataResult:NSObject,JdCloudResult
     var success:Bool?
 
     /// ErrMetricDataList
-    var errMetricDataList:MetricDataList?
+    var errMetricDataList:[MetricDataList?]?
 
 
 
@@ -48,8 +48,14 @@ public class PutMetricDataResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PutMetricDataResultCodingKeys.self)
-        self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
-        self.errMetricDataList = try decoderContainer.decode(MetricDataList?.self, forKey: .errMetricDataList)
+        if decoderContainer.contains(.success)
+        {
+            self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        }
+        if decoderContainer.contains(.errMetricDataList)
+        {
+            self.errMetricDataList = try decoderContainer.decode([MetricDataList?]?.self, forKey: .errMetricDataList)
+        }
     }
 }
 public extension PutMetricDataResult{

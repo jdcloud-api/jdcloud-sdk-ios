@@ -64,14 +64,38 @@ public class Segment:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SegmentCodingKeys.self)
-        self.segmentId = try decoderContainer.decode(String?.self, forKey: .segmentId)
-        self.segmentName = try decoderContainer.decode(String?.self, forKey: .segmentName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.availableIpCount = try decoderContainer.decode(Int?.self, forKey: .availableIpCount)
-        self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
-        self.startIp = try decoderContainer.decode(String?.self, forKey: .startIp)
-        self.endIp = try decoderContainer.decode(String?.self, forKey: .endIp)
+        if decoderContainer.contains(.segmentId)
+        {
+            self.segmentId = try decoderContainer.decode(String?.self, forKey: .segmentId)
+        }
+        if decoderContainer.contains(.segmentName)
+        {
+            self.segmentName = try decoderContainer.decode(String?.self, forKey: .segmentName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.availableIpCount)
+        {
+            self.availableIpCount = try decoderContainer.decode(Int?.self, forKey: .availableIpCount)
+        }
+        if decoderContainer.contains(.provider)
+        {
+            self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
+        }
+        if decoderContainer.contains(.startIp)
+        {
+            self.startIp = try decoderContainer.decode(String?.self, forKey: .startIp)
+        }
+        if decoderContainer.contains(.endIp)
+        {
+            self.endIp = try decoderContainer.decode(String?.self, forKey: .endIp)
+        }
     }
 }
 public extension Segment{

@@ -47,7 +47,7 @@ public class DescribeContainersRequest:JdCloudRequest
       /// name - 实例名称，模糊匹配，支持单个
       /// subnetId - 镜像ID，模糊匹配，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

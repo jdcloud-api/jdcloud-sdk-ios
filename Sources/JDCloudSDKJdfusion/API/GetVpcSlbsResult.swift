@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcSlbsResult:NSObject,JdCloudResult
 {
     /// Slbs
-    var slbs:SlbInfo?
+    var slbs:[SlbInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVpcSlbsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcSlbsResultCodingKeys.self)
-        self.slbs = try decoderContainer.decode(SlbInfo?.self, forKey: .slbs)
+        if decoderContainer.contains(.slbs)
+        {
+            self.slbs = try decoderContainer.decode([SlbInfo?]?.self, forKey: .slbs)
+        }
     }
 }
 public extension GetVpcSlbsResult{

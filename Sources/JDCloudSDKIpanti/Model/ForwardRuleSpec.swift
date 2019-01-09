@@ -36,7 +36,7 @@ public class ForwardRuleSpec:NSObject,Codable{
     /// 回源类型，ip或者domain
     var originType:String?
     /// OriginAddr
-    var originAddr:OriginAddrItem?
+    var originAddr:[OriginAddrItem?]?
     /// OnlineAddr
     var onlineAddr:[String?]?
     /// 回源域名
@@ -64,14 +64,38 @@ public class ForwardRuleSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ForwardRuleSpecCodingKeys.self)
-        self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
-        self.port = try decoderContainer.decode(Int?.self, forKey: .port)
-        self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
-        self.originType = try decoderContainer.decode(String?.self, forKey: .originType)
-        self.originAddr = try decoderContainer.decode(OriginAddrItem?.self, forKey: .originAddr)
-        self.onlineAddr = try decoderContainer.decode([String?]?.self, forKey: .onlineAddr)
-        self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
-        self.originPort = try decoderContainer.decode(Int?.self, forKey: .originPort)
+        if decoderContainer.contains(.protocolValue)
+        {
+            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(Int?.self, forKey: .port)
+        }
+        if decoderContainer.contains(.algorithm)
+        {
+            self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
+        }
+        if decoderContainer.contains(.originType)
+        {
+            self.originType = try decoderContainer.decode(String?.self, forKey: .originType)
+        }
+        if decoderContainer.contains(.originAddr)
+        {
+            self.originAddr = try decoderContainer.decode([OriginAddrItem?]?.self, forKey: .originAddr)
+        }
+        if decoderContainer.contains(.onlineAddr)
+        {
+            self.onlineAddr = try decoderContainer.decode([String?]?.self, forKey: .onlineAddr)
+        }
+        if decoderContainer.contains(.originDomain)
+        {
+            self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
+        }
+        if decoderContainer.contains(.originPort)
+        {
+            self.originPort = try decoderContainer.decode(Int?.self, forKey: .originPort)
+        }
     }
 }
 public extension ForwardRuleSpec{

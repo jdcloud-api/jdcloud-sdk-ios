@@ -30,7 +30,7 @@ public class StatisticsTopUrlData:NSObject,Codable{
     /// Count
     var count:Int?
     /// Urls
-    var urls:StatisticsTopUrlItem?
+    var urls:[StatisticsTopUrlItem?]?
 
 
 
@@ -46,8 +46,14 @@ public class StatisticsTopUrlData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsTopUrlDataCodingKeys.self)
-        self.count = try decoderContainer.decode(Int?.self, forKey: .count)
-        self.urls = try decoderContainer.decode(StatisticsTopUrlItem?.self, forKey: .urls)
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        }
+        if decoderContainer.contains(.urls)
+        {
+            self.urls = try decoderContainer.decode([StatisticsTopUrlItem?]?.self, forKey: .urls)
+        }
     }
 }
 public extension StatisticsTopUrlData{

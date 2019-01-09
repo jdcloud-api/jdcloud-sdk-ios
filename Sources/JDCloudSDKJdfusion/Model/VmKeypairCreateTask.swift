@@ -28,7 +28,7 @@ import Foundation
 @objc(VmKeypairCreateTask)
 public class VmKeypairCreateTask:NSObject,Codable{
     /// Tasks
-    var tasks:ResourceTFInfo?
+    var tasks:[ResourceTFInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VmKeypairCreateTask:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmKeypairCreateTaskCodingKeys.self)
-        self.tasks = try decoderContainer.decode(ResourceTFInfo?.self, forKey: .tasks)
+        if decoderContainer.contains(.tasks)
+        {
+            self.tasks = try decoderContainer.decode([ResourceTFInfo?]?.self, forKey: .tasks)
+        }
     }
 }
 public extension VmKeypairCreateTask{

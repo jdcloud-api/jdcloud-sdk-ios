@@ -52,10 +52,22 @@ public class SiteMonitorSource:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SiteMonitorSourceCodingKeys.self)
-        self.sisp = try decoderContainer.decode(String?.self, forKey: .sisp)
-        self.sispName = try decoderContainer.decode(String?.self, forKey: .sispName)
-        self.sloc = try decoderContainer.decode(String?.self, forKey: .sloc)
-        self.slocName = try decoderContainer.decode(String?.self, forKey: .slocName)
+        if decoderContainer.contains(.sisp)
+        {
+            self.sisp = try decoderContainer.decode(String?.self, forKey: .sisp)
+        }
+        if decoderContainer.contains(.sispName)
+        {
+            self.sispName = try decoderContainer.decode(String?.self, forKey: .sispName)
+        }
+        if decoderContainer.contains(.sloc)
+        {
+            self.sloc = try decoderContainer.decode(String?.self, forKey: .sloc)
+        }
+        if decoderContainer.contains(.slocName)
+        {
+            self.slocName = try decoderContainer.decode(String?.self, forKey: .slocName)
+        }
     }
 }
 public extension SiteMonitorSource{

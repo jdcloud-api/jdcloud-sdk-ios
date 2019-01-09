@@ -44,7 +44,10 @@ public class DescribeDiskResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeDiskResultCodingKeys.self)
-        self.disk = try decoderContainer.decode(Disk?.self, forKey: .disk)
+        if decoderContainer.contains(.disk)
+        {
+            self.disk = try decoderContainer.decode(Disk?.self, forKey: .disk)
+        }
     }
 }
 public extension DescribeDiskResult{

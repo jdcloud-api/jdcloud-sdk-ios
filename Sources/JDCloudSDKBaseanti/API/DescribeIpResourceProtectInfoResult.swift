@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeIpResourceProtectInfoResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:IpResourceProtectInfo?
+    var dataList:[IpResourceProtectInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeIpResourceProtectInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeIpResourceProtectInfoResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(IpResourceProtectInfo?.self, forKey: .dataList)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([IpResourceProtectInfo?]?.self, forKey: .dataList)
+        }
     }
 }
 public extension DescribeIpResourceProtectInfoResult{

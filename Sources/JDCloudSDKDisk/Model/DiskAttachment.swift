@@ -58,12 +58,30 @@ public class DiskAttachment:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DiskAttachmentCodingKeys.self)
-        self.attachmentId = try decoderContainer.decode(String?.self, forKey: .attachmentId)
-        self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.attachTime = try decoderContainer.decode(String?.self, forKey: .attachTime)
+        if decoderContainer.contains(.attachmentId)
+        {
+            self.attachmentId = try decoderContainer.decode(String?.self, forKey: .attachmentId)
+        }
+        if decoderContainer.contains(.diskId)
+        {
+            self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.attachTime)
+        {
+            self.attachTime = try decoderContainer.decode(String?.self, forKey: .attachTime)
+        }
     }
 }
 public extension DiskAttachment{

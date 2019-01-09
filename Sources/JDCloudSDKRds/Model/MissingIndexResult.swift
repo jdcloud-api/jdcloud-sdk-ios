@@ -64,14 +64,38 @@ public class MissingIndexResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MissingIndexResultCodingKeys.self)
-        self.db = try decoderContainer.decode(String?.self, forKey: .db)
-        self.table = try decoderContainer.decode(String?.self, forKey: .table)
-        self.equalityColumns = try decoderContainer.decode(String?.self, forKey: .equalityColumns)
-        self.inequalityColumns = try decoderContainer.decode(String?.self, forKey: .inequalityColumns)
-        self.includedColumns = try decoderContainer.decode(String?.self, forKey: .includedColumns)
-        self.avgUserImpact = try decoderContainer.decode(Double?.self, forKey: .avgUserImpact)
-        self.userScans = try decoderContainer.decode(Int?.self, forKey: .userScans)
-        self.userSeeks = try decoderContainer.decode(Int?.self, forKey: .userSeeks)
+        if decoderContainer.contains(.db)
+        {
+            self.db = try decoderContainer.decode(String?.self, forKey: .db)
+        }
+        if decoderContainer.contains(.table)
+        {
+            self.table = try decoderContainer.decode(String?.self, forKey: .table)
+        }
+        if decoderContainer.contains(.equalityColumns)
+        {
+            self.equalityColumns = try decoderContainer.decode(String?.self, forKey: .equalityColumns)
+        }
+        if decoderContainer.contains(.inequalityColumns)
+        {
+            self.inequalityColumns = try decoderContainer.decode(String?.self, forKey: .inequalityColumns)
+        }
+        if decoderContainer.contains(.includedColumns)
+        {
+            self.includedColumns = try decoderContainer.decode(String?.self, forKey: .includedColumns)
+        }
+        if decoderContainer.contains(.avgUserImpact)
+        {
+            self.avgUserImpact = try decoderContainer.decode(Double?.self, forKey: .avgUserImpact)
+        }
+        if decoderContainer.contains(.userScans)
+        {
+            self.userScans = try decoderContainer.decode(Int?.self, forKey: .userScans)
+        }
+        if decoderContainer.contains(.userSeeks)
+        {
+            self.userSeeks = try decoderContainer.decode(Int?.self, forKey: .userSeeks)
+        }
     }
 }
 public extension MissingIndexResult{

@@ -66,9 +66,18 @@ public class AddSecurityGroupRules:NSObject,Codable{
         self.protocolValue = try decoderContainer.decode(Double.self, forKey: .protocolValue)
         self.direction = try decoderContainer.decode(Double.self, forKey: .direction)
         self.addressPrefix = try decoderContainer.decode(String.self, forKey: .addressPrefix)
-        self.fromPort = try decoderContainer.decode(Double?.self, forKey: .fromPort)
-        self.toPort = try decoderContainer.decode(Double?.self, forKey: .toPort)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.fromPort)
+        {
+            self.fromPort = try decoderContainer.decode(Double?.self, forKey: .fromPort)
+        }
+        if decoderContainer.contains(.toPort)
+        {
+            self.toPort = try decoderContainer.decode(Double?.self, forKey: .toPort)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension AddSecurityGroupRules{

@@ -36,7 +36,7 @@ public class ViewTree:NSObject,Codable{
     /// 解析线路ID
     var value:Int?
     /// Children
-    var children:ViewTree?
+    var children:[ViewTree?]?
 
 
 
@@ -55,11 +55,26 @@ public class ViewTree:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ViewTreeCodingKeys.self)
-        self.disabled = try decoderContainer.decode(Bool?.self, forKey: .disabled)
-        self.label = try decoderContainer.decode(String?.self, forKey: .label)
-        self.leaf = try decoderContainer.decode(Bool?.self, forKey: .leaf)
-        self.value = try decoderContainer.decode(Int?.self, forKey: .value)
-        self.children = try decoderContainer.decode(ViewTree?.self, forKey: .children)
+        if decoderContainer.contains(.disabled)
+        {
+            self.disabled = try decoderContainer.decode(Bool?.self, forKey: .disabled)
+        }
+        if decoderContainer.contains(.label)
+        {
+            self.label = try decoderContainer.decode(String?.self, forKey: .label)
+        }
+        if decoderContainer.contains(.leaf)
+        {
+            self.leaf = try decoderContainer.decode(Bool?.self, forKey: .leaf)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(Int?.self, forKey: .value)
+        }
+        if decoderContainer.contains(.children)
+        {
+            self.children = try decoderContainer.decode([ViewTree?]?.self, forKey: .children)
+        }
     }
 }
 public extension ViewTree{

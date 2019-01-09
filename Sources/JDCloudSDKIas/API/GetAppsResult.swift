@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetAppsResult)
 public class GetAppsResult:NSObject,JdCloudResult
 {
-    /// Apps
-    var apps:ApplicationRes?
+    /// 应用组
+    var apps:[ApplicationRes?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetAppsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetAppsResultCodingKeys.self)
-        self.apps = try decoderContainer.decode(ApplicationRes?.self, forKey: .apps)
+        if decoderContainer.contains(.apps)
+        {
+            self.apps = try decoderContainer.decode([ApplicationRes?]?.self, forKey: .apps)
+        }
     }
 }
 public extension GetAppsResult{

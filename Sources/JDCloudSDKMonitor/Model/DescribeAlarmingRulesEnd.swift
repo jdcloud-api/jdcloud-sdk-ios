@@ -28,7 +28,7 @@ import Foundation
 @objc(DescribeAlarmingRulesEnd)
 public class DescribeAlarmingRulesEnd:NSObject,Codable{
     /// 未恢复的报警
-    var alarmHistoryList:AlarmHistoryWithDetail?
+    var alarmHistoryList:[AlarmHistoryWithDetail?]?
     /// 总页数
     var numberPages:Int64?
     /// 总记录数
@@ -55,11 +55,26 @@ public class DescribeAlarmingRulesEnd:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAlarmingRulesEndCodingKeys.self)
-        self.alarmHistoryList = try decoderContainer.decode(AlarmHistoryWithDetail?.self, forKey: .alarmHistoryList)
-        self.numberPages = try decoderContainer.decode(Int64?.self, forKey: .numberPages)
-        self.numberRecords = try decoderContainer.decode(Int64?.self, forKey: .numberRecords)
-        self.pageNumber = try decoderContainer.decode(Int64?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int64?.self, forKey: .pageSize)
+        if decoderContainer.contains(.alarmHistoryList)
+        {
+            self.alarmHistoryList = try decoderContainer.decode([AlarmHistoryWithDetail?]?.self, forKey: .alarmHistoryList)
+        }
+        if decoderContainer.contains(.numberPages)
+        {
+            self.numberPages = try decoderContainer.decode(Int64?.self, forKey: .numberPages)
+        }
+        if decoderContainer.contains(.numberRecords)
+        {
+            self.numberRecords = try decoderContainer.decode(Int64?.self, forKey: .numberRecords)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int64?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int64?.self, forKey: .pageSize)
+        }
     }
 }
 public extension DescribeAlarmingRulesEnd{

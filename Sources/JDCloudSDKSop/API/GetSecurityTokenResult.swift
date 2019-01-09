@@ -44,7 +44,10 @@ public class GetSecurityTokenResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetSecurityTokenResultCodingKeys.self)
-        self.securityToken = try decoderContainer.decode(String?.self, forKey: .securityToken)
+        if decoderContainer.contains(.securityToken)
+        {
+            self.securityToken = try decoderContainer.decode(String?.self, forKey: .securityToken)
+        }
     }
 }
 public extension GetSecurityTokenResult{

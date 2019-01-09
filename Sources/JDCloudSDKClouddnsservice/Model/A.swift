@@ -46,8 +46,14 @@ public class A:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ACodingKeys.self)
-        self.code = try decoderContainer.decode(Int?.self, forKey: .code)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
     }
 }
 public extension A{

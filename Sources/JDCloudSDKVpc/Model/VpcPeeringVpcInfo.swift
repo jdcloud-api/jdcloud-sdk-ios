@@ -49,9 +49,18 @@ public class VpcPeeringVpcInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcPeeringVpcInfoCodingKeys.self)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
-        self.addressPrefix = try decoderContainer.decode([String?]?.self, forKey: .addressPrefix)
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.vpcName)
+        {
+            self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode([String?]?.self, forKey: .addressPrefix)
+        }
     }
 }
 public extension VpcPeeringVpcInfo{

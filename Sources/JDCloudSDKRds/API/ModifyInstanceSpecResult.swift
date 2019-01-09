@@ -44,7 +44,10 @@ public class ModifyInstanceSpecResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyInstanceSpecResultCodingKeys.self)
-        self.orderId = try decoderContainer.decode(String?.self, forKey: .orderId)
+        if decoderContainer.contains(.orderId)
+        {
+            self.orderId = try decoderContainer.decode(String?.self, forKey: .orderId)
+        }
     }
 }
 public extension ModifyInstanceSpecResult{

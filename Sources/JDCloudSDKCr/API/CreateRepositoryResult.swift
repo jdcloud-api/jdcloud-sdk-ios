@@ -47,7 +47,10 @@ public class CreateRepositoryResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateRepositoryResultCodingKeys.self)
-        self.repository = try decoderContainer.decode(RepositoryShort?.self, forKey: .repository)
+        if decoderContainer.contains(.repository)
+        {
+            self.repository = try decoderContainer.decode(RepositoryShort?.self, forKey: .repository)
+        }
     }
 }
 public extension CreateRepositoryResult{

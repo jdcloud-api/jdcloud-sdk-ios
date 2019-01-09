@@ -46,8 +46,14 @@ public class BackupSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackupSpecCodingKeys.self)
-        self.backupName = try decoderContainer.decode(String?.self, forKey: .backupName)
-        self.dbNames = try decoderContainer.decode([String?]?.self, forKey: .dbNames)
+        if decoderContainer.contains(.backupName)
+        {
+            self.backupName = try decoderContainer.decode(String?.self, forKey: .backupName)
+        }
+        if decoderContainer.contains(.dbNames)
+        {
+            self.dbNames = try decoderContainer.decode([String?]?.self, forKey: .dbNames)
+        }
     }
 }
 public extension BackupSpec{

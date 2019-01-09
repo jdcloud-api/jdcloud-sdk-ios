@@ -28,7 +28,7 @@ import Foundation
 @objc(CloudInfoListResp)
 public class CloudInfoListResp:NSObject,Codable{
     /// Clouds
-    var clouds:CloudInfo?
+    var clouds:[CloudInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class CloudInfoListResp:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CloudInfoListRespCodingKeys.self)
-        self.clouds = try decoderContainer.decode(CloudInfo?.self, forKey: .clouds)
+        if decoderContainer.contains(.clouds)
+        {
+            self.clouds = try decoderContainer.decode([CloudInfo?]?.self, forKey: .clouds)
+        }
     }
 }
 public extension CloudInfoListResp{

@@ -40,11 +40,11 @@ public class InstanceType:NSObject,Codable{
     /// 描述
     var desc:String?
     /// 规格状态
-    var state:InstanceTypeState?
+    var state:[InstanceTypeState?]?
     /// Gpu配置
     var gpu:Gpu?
     /// 本地缓存盘配置，目前只有Gpu规格上才有
-    var localDisks:LocalDisk?
+    var localDisks:[LocalDisk?]?
 
 
 
@@ -67,15 +67,42 @@ public class InstanceType:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTypeCodingKeys.self)
-        self.family = try decoderContainer.decode(String?.self, forKey: .family)
-        self.instanceTypeValue = try decoderContainer.decode(String?.self, forKey: .instanceTypeValue)
-        self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
-        self.memoryMB = try decoderContainer.decode(Int?.self, forKey: .memoryMB)
-        self.nicLimit = try decoderContainer.decode(Int?.self, forKey: .nicLimit)
-        self.desc = try decoderContainer.decode(String?.self, forKey: .desc)
-        self.state = try decoderContainer.decode(InstanceTypeState?.self, forKey: .state)
-        self.gpu = try decoderContainer.decode(Gpu?.self, forKey: .gpu)
-        self.localDisks = try decoderContainer.decode(LocalDisk?.self, forKey: .localDisks)
+        if decoderContainer.contains(.family)
+        {
+            self.family = try decoderContainer.decode(String?.self, forKey: .family)
+        }
+        if decoderContainer.contains(.instanceTypeValue)
+        {
+            self.instanceTypeValue = try decoderContainer.decode(String?.self, forKey: .instanceTypeValue)
+        }
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memoryMB)
+        {
+            self.memoryMB = try decoderContainer.decode(Int?.self, forKey: .memoryMB)
+        }
+        if decoderContainer.contains(.nicLimit)
+        {
+            self.nicLimit = try decoderContainer.decode(Int?.self, forKey: .nicLimit)
+        }
+        if decoderContainer.contains(.desc)
+        {
+            self.desc = try decoderContainer.decode(String?.self, forKey: .desc)
+        }
+        if decoderContainer.contains(.state)
+        {
+            self.state = try decoderContainer.decode([InstanceTypeState?]?.self, forKey: .state)
+        }
+        if decoderContainer.contains(.gpu)
+        {
+            self.gpu = try decoderContainer.decode(Gpu?.self, forKey: .gpu)
+        }
+        if decoderContainer.contains(.localDisks)
+        {
+            self.localDisks = try decoderContainer.decode([LocalDisk?]?.self, forKey: .localDisks)
+        }
     }
 }
 public extension InstanceType{

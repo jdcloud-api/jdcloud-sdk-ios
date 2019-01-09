@@ -38,7 +38,7 @@ public class DescribeImagesRequest:JdCloudRequest
       /// imageTag - 镜像标签 
       /// tagStatus - 打标TAGGED或没打标UNTAGGED 
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// 页码；默认为1
     var pageNumber:Int?

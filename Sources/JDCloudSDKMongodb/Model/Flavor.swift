@@ -61,13 +61,34 @@ public class Flavor:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FlavorCodingKeys.self)
-        self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
-        self.memory = try decoderContainer.decode(Int?.self, forKey: .memory)
-        self.iops = try decoderContainer.decode(Int?.self, forKey: .iops)
-        self.maxLink = try decoderContainer.decode(Int?.self, forKey: .maxLink)
-        self.maxDisk = try decoderContainer.decode(Int?.self, forKey: .maxDisk)
-        self.minDisk = try decoderContainer.decode(Int?.self, forKey: .minDisk)
-        self.diskStep = try decoderContainer.decode(Int?.self, forKey: .diskStep)
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memory)
+        {
+            self.memory = try decoderContainer.decode(Int?.self, forKey: .memory)
+        }
+        if decoderContainer.contains(.iops)
+        {
+            self.iops = try decoderContainer.decode(Int?.self, forKey: .iops)
+        }
+        if decoderContainer.contains(.maxLink)
+        {
+            self.maxLink = try decoderContainer.decode(Int?.self, forKey: .maxLink)
+        }
+        if decoderContainer.contains(.maxDisk)
+        {
+            self.maxDisk = try decoderContainer.decode(Int?.self, forKey: .maxDisk)
+        }
+        if decoderContainer.contains(.minDisk)
+        {
+            self.minDisk = try decoderContainer.decode(Int?.self, forKey: .minDisk)
+        }
+        if decoderContainer.contains(.diskStep)
+        {
+            self.diskStep = try decoderContainer.decode(Int?.self, forKey: .diskStep)
+        }
     }
 }
 public extension Flavor{

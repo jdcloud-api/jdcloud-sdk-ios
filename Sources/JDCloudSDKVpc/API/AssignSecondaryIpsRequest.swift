@@ -34,7 +34,7 @@ public class AssignSecondaryIpsRequest:JdCloudRequest
     var force:Bool?
 
     /// 指定分配的secondaryIp地址
-    var secondaryIps:String?
+    var secondaryIps:[String?]?
 
     /// 指定自动分配的secondaryIp个数
     var secondaryIpCount:Double?

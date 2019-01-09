@@ -34,7 +34,7 @@ public class CalculateTotalPriceRequest:JdCloudRequest
     var cmd:Int
 
     /// 计算价格的订单
-    var orderList:OrderPriceProtocol?
+    var orderList:[OrderPriceProtocol?]?
 
     /// 操作时间，遵循ISO8601标准，使用UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ
     var operateTime:String?

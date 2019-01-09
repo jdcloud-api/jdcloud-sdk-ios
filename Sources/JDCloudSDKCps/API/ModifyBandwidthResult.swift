@@ -47,7 +47,10 @@ public class ModifyBandwidthResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyBandwidthResultCodingKeys.self)
-        self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        if decoderContainer.contains(.success)
+        {
+            self.success = try decoderContainer.decode(Bool?.self, forKey: .success)
+        }
     }
 }
 public extension ModifyBandwidthResult{

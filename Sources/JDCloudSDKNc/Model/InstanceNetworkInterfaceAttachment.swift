@@ -55,11 +55,26 @@ public class InstanceNetworkInterfaceAttachment:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceNetworkInterfaceAttachmentCodingKeys.self)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
-        self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
-        self.attachStatus = try decoderContainer.decode(String?.self, forKey: .attachStatus)
-        self.attachTime = try decoderContainer.decode(String?.self, forKey: .attachTime)
-        self.networkInterface = try decoderContainer.decode(InstanceNetworkInterface?.self, forKey: .networkInterface)
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.deviceIndex)
+        {
+            self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
+        }
+        if decoderContainer.contains(.attachStatus)
+        {
+            self.attachStatus = try decoderContainer.decode(String?.self, forKey: .attachStatus)
+        }
+        if decoderContainer.contains(.attachTime)
+        {
+            self.attachTime = try decoderContainer.decode(String?.self, forKey: .attachTime)
+        }
+        if decoderContainer.contains(.networkInterface)
+        {
+            self.networkInterface = try decoderContainer.decode(InstanceNetworkInterface?.self, forKey: .networkInterface)
+        }
     }
 }
 public extension InstanceNetworkInterfaceAttachment{

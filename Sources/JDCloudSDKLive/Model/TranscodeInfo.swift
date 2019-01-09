@@ -70,16 +70,46 @@ public class TranscodeInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TranscodeInfoCodingKeys.self)
-        self.videoCodeRate = try decoderContainer.decode(Int?.self, forKey: .videoCodeRate)
-        self.videoFrameRate = try decoderContainer.decode(String?.self, forKey: .videoFrameRate)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.template = try decoderContainer.decode(String?.self, forKey: .template)
-        self.audioCodec = try decoderContainer.decode(String?.self, forKey: .audioCodec)
-        self.audioFormat = try decoderContainer.decode(String?.self, forKey: .audioFormat)
-        self.audioSampleRate = try decoderContainer.decode(Int?.self, forKey: .audioSampleRate)
-        self.audioChannel = try decoderContainer.decode(Int?.self, forKey: .audioChannel)
-        self.audioCodeRate = try decoderContainer.decode(Int?.self, forKey: .audioCodeRate)
+        if decoderContainer.contains(.videoCodeRate)
+        {
+            self.videoCodeRate = try decoderContainer.decode(Int?.self, forKey: .videoCodeRate)
+        }
+        if decoderContainer.contains(.videoFrameRate)
+        {
+            self.videoFrameRate = try decoderContainer.decode(String?.self, forKey: .videoFrameRate)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.template)
+        {
+            self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        }
+        if decoderContainer.contains(.audioCodec)
+        {
+            self.audioCodec = try decoderContainer.decode(String?.self, forKey: .audioCodec)
+        }
+        if decoderContainer.contains(.audioFormat)
+        {
+            self.audioFormat = try decoderContainer.decode(String?.self, forKey: .audioFormat)
+        }
+        if decoderContainer.contains(.audioSampleRate)
+        {
+            self.audioSampleRate = try decoderContainer.decode(Int?.self, forKey: .audioSampleRate)
+        }
+        if decoderContainer.contains(.audioChannel)
+        {
+            self.audioChannel = try decoderContainer.decode(Int?.self, forKey: .audioChannel)
+        }
+        if decoderContainer.contains(.audioCodeRate)
+        {
+            self.audioCodeRate = try decoderContainer.decode(Int?.self, forKey: .audioCodeRate)
+        }
     }
 }
 public extension TranscodeInfo{

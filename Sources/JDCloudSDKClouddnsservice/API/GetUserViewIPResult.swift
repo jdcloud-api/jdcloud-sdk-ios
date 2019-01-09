@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetUserViewIPResult)
 public class GetUserViewIPResult:NSObject,JdCloudResult
 {
-    /// DataList
-    var dataList:String?
+    /// 自定义线路包含的IP段列表
+    var dataList:[String?]?
 
     /// 当前页的IP列表里的个数
     var currentCount:Int?
@@ -56,10 +56,22 @@ public class GetUserViewIPResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetUserViewIPResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(String?.self, forKey: .dataList)
-        self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([String?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
 public extension GetUserViewIPResult{

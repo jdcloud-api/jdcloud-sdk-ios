@@ -52,10 +52,22 @@ public class BackupDownloadURL:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackupDownloadURLCodingKeys.self)
-        self.backupName = try decoderContainer.decode(String?.self, forKey: .backupName)
-        self.backupInternetDownloadURL = try decoderContainer.decode(String?.self, forKey: .backupInternetDownloadURL)
-        self.backupIntranetDownloadURL = try decoderContainer.decode(String?.self, forKey: .backupIntranetDownloadURL)
-        self.linkExpiredTime = try decoderContainer.decode(String?.self, forKey: .linkExpiredTime)
+        if decoderContainer.contains(.backupName)
+        {
+            self.backupName = try decoderContainer.decode(String?.self, forKey: .backupName)
+        }
+        if decoderContainer.contains(.backupInternetDownloadURL)
+        {
+            self.backupInternetDownloadURL = try decoderContainer.decode(String?.self, forKey: .backupInternetDownloadURL)
+        }
+        if decoderContainer.contains(.backupIntranetDownloadURL)
+        {
+            self.backupIntranetDownloadURL = try decoderContainer.decode(String?.self, forKey: .backupIntranetDownloadURL)
+        }
+        if decoderContainer.contains(.linkExpiredTime)
+        {
+            self.linkExpiredTime = try decoderContainer.decode(String?.self, forKey: .linkExpiredTime)
+        }
     }
 }
 public extension BackupDownloadURL{

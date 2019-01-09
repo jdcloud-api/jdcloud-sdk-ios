@@ -46,8 +46,14 @@ public class Config:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ConfigCodingKeys.self)
-        self.hd = try decoderContainer.decode(String?.self, forKey: .hd)
-        self.mytemplate = try decoderContainer.decode(String?.self, forKey: .mytemplate)
+        if decoderContainer.contains(.hd)
+        {
+            self.hd = try decoderContainer.decode(String?.self, forKey: .hd)
+        }
+        if decoderContainer.contains(.mytemplate)
+        {
+            self.mytemplate = try decoderContainer.decode(String?.self, forKey: .mytemplate)
+        }
     }
 }
 public extension Config{

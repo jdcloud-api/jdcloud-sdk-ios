@@ -44,7 +44,10 @@ public class DecryptResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DecryptResultCodingKeys.self)
-        self.plaintext = try decoderContainer.decode(String?.self, forKey: .plaintext)
+        if decoderContainer.contains(.plaintext)
+        {
+            self.plaintext = try decoderContainer.decode(String?.self, forKey: .plaintext)
+        }
     }
 }
 public extension DecryptResult{

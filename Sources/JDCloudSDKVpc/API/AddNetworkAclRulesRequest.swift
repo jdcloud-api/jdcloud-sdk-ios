@@ -31,13 +31,13 @@ import JDCloudSDKCore
 public class AddNetworkAclRulesRequest:JdCloudRequest
 {
     /// networkAcl规则列表
-    var networkAclRuleSpecs:AddNetworkAclRuleSpec?
+    var networkAclRuleSpecs:[AddNetworkAclRuleSpec?]?
 
     /// networkAclId ID
     var networkAclId:String
 
 
-    public init(regionId: String,networkAclRuleSpecs:AddNetworkAclRuleSpec?,networkAclId:String){
+    public init(regionId: String,networkAclRuleSpecs:[AddNetworkAclRuleSpec?]?,networkAclId:String){
         self.networkAclRuleSpecs = networkAclRuleSpecs
         self.networkAclId = networkAclId
         super.init(regionId: regionId)

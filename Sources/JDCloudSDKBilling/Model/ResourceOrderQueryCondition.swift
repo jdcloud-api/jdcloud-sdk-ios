@@ -139,39 +139,138 @@ public class ResourceOrderQueryCondition:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ResourceOrderQueryConditionCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.serviceCodeList = try decoderContainer.decode([String?]?.self, forKey: .serviceCodeList)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.resourceIdList = try decoderContainer.decode([String?]?.self, forKey: .resourceIdList)
-        self.expireInDays = try decoderContainer.decode(Int?.self, forKey: .expireInDays)
-        self.isOnTrial = try decoderContainer.decode(Int?.self, forKey: .isOnTrial)
-        self.site = try decoderContainer.decode(Int?.self, forKey: .site)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.billingStatus = try decoderContainer.decode(Int?.self, forKey: .billingStatus)
-        self.expiringInDays = try decoderContainer.decode(Int?.self, forKey: .expiringInDays)
-        self.billingTypeList = try decoderContainer.decode([Double?]?.self, forKey: .billingTypeList)
-        self.transactionNos = try decoderContainer.decode([String?]?.self, forKey: .transactionNos)
-        self.opTypes = try decoderContainer.decode([Double?]?.self, forKey: .opTypes)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.statusList = try decoderContainer.decode([Double?]?.self, forKey: .statusList)
-        self.excludeResources = try decoderContainer.decode([String?]?.self, forKey: .excludeResources)
-        self.orderByClaus = try decoderContainer.decode(String?.self, forKey: .orderByClaus)
-        self.node = try decoderContainer.decode(String?.self, forKey: .node)
-        self.departmentId = try decoderContainer.decode(Int?.self, forKey: .departmentId)
-        self.pinList = try decoderContainer.decode([String?]?.self, forKey: .pinList)
-        self.isSpecial = try decoderContainer.decode(Int?.self, forKey: .isSpecial)
-        self.nodeCode = try decoderContainer.decode(String?.self, forKey: .nodeCode)
-        self.timeout = try decoderContainer.decode(Int?.self, forKey: .timeout)
-        self.pageIndex = try decoderContainer.decode(Int?.self, forKey: .pageIndex)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.offset = try decoderContainer.decode(Int?.self, forKey: .offset)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCodeList)
+        {
+            self.serviceCodeList = try decoderContainer.decode([String?]?.self, forKey: .serviceCodeList)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.networkOperator)
+        {
+            self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.resourceIdList)
+        {
+            self.resourceIdList = try decoderContainer.decode([String?]?.self, forKey: .resourceIdList)
+        }
+        if decoderContainer.contains(.expireInDays)
+        {
+            self.expireInDays = try decoderContainer.decode(Int?.self, forKey: .expireInDays)
+        }
+        if decoderContainer.contains(.isOnTrial)
+        {
+            self.isOnTrial = try decoderContainer.decode(Int?.self, forKey: .isOnTrial)
+        }
+        if decoderContainer.contains(.site)
+        {
+            self.site = try decoderContainer.decode(Int?.self, forKey: .site)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.billingStatus)
+        {
+            self.billingStatus = try decoderContainer.decode(Int?.self, forKey: .billingStatus)
+        }
+        if decoderContainer.contains(.expiringInDays)
+        {
+            self.expiringInDays = try decoderContainer.decode(Int?.self, forKey: .expiringInDays)
+        }
+        if decoderContainer.contains(.billingTypeList)
+        {
+            self.billingTypeList = try decoderContainer.decode([Double?]?.self, forKey: .billingTypeList)
+        }
+        if decoderContainer.contains(.transactionNos)
+        {
+            self.transactionNos = try decoderContainer.decode([String?]?.self, forKey: .transactionNos)
+        }
+        if decoderContainer.contains(.opTypes)
+        {
+            self.opTypes = try decoderContainer.decode([Double?]?.self, forKey: .opTypes)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.statusList)
+        {
+            self.statusList = try decoderContainer.decode([Double?]?.self, forKey: .statusList)
+        }
+        if decoderContainer.contains(.excludeResources)
+        {
+            self.excludeResources = try decoderContainer.decode([String?]?.self, forKey: .excludeResources)
+        }
+        if decoderContainer.contains(.orderByClaus)
+        {
+            self.orderByClaus = try decoderContainer.decode(String?.self, forKey: .orderByClaus)
+        }
+        if decoderContainer.contains(.node)
+        {
+            self.node = try decoderContainer.decode(String?.self, forKey: .node)
+        }
+        if decoderContainer.contains(.departmentId)
+        {
+            self.departmentId = try decoderContainer.decode(Int?.self, forKey: .departmentId)
+        }
+        if decoderContainer.contains(.pinList)
+        {
+            self.pinList = try decoderContainer.decode([String?]?.self, forKey: .pinList)
+        }
+        if decoderContainer.contains(.isSpecial)
+        {
+            self.isSpecial = try decoderContainer.decode(Int?.self, forKey: .isSpecial)
+        }
+        if decoderContainer.contains(.nodeCode)
+        {
+            self.nodeCode = try decoderContainer.decode(String?.self, forKey: .nodeCode)
+        }
+        if decoderContainer.contains(.timeout)
+        {
+            self.timeout = try decoderContainer.decode(Int?.self, forKey: .timeout)
+        }
+        if decoderContainer.contains(.pageIndex)
+        {
+            self.pageIndex = try decoderContainer.decode(Int?.self, forKey: .pageIndex)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.offset)
+        {
+            self.offset = try decoderContainer.decode(Int?.self, forKey: .offset)
+        }
     }
 }
 public extension ResourceOrderQueryCondition{

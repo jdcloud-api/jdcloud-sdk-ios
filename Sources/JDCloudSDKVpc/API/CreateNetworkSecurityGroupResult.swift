@@ -44,7 +44,10 @@ public class CreateNetworkSecurityGroupResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateNetworkSecurityGroupResultCodingKeys.self)
-        self.networkSecurityGroupId = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupId)
+        if decoderContainer.contains(.networkSecurityGroupId)
+        {
+            self.networkSecurityGroupId = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupId)
+        }
     }
 }
 public extension CreateNetworkSecurityGroupResult{

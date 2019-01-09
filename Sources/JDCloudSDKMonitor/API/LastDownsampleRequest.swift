@@ -37,7 +37,7 @@ public class LastDownsampleRequest:JdCloudRequest
     var resourceId:String
 
     /// 自定义标签
-    var tags:TagFilter?
+    var tags:[TagFilter?]?
 
     /// 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
     var startTime:String?

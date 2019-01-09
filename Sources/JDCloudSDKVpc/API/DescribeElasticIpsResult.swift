@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeElasticIpsResult)
 public class DescribeElasticIpsResult:NSObject,JdCloudResult
 {
-    /// ElasticIps
-    var elasticIps:ElasticIp?
+    /// elasticIp资源信息列表
+    var elasticIps:[ElasticIp?]?
 
     /// 总数量
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeElasticIpsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeElasticIpsResultCodingKeys.self)
-        self.elasticIps = try decoderContainer.decode(ElasticIp?.self, forKey: .elasticIps)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.elasticIps)
+        {
+            self.elasticIps = try decoderContainer.decode([ElasticIp?]?.self, forKey: .elasticIps)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeElasticIpsResult{

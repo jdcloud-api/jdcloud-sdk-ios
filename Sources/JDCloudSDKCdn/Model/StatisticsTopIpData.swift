@@ -30,7 +30,7 @@ public class StatisticsTopIpData:NSObject,Codable{
     /// Count
     var count:Int?
     /// Ips
-    var ips:StatisticsTopIpItem?
+    var ips:[StatisticsTopIpItem?]?
 
 
 
@@ -46,8 +46,14 @@ public class StatisticsTopIpData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsTopIpDataCodingKeys.self)
-        self.count = try decoderContainer.decode(Int?.self, forKey: .count)
-        self.ips = try decoderContainer.decode(StatisticsTopIpItem?.self, forKey: .ips)
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        }
+        if decoderContainer.contains(.ips)
+        {
+            self.ips = try decoderContainer.decode([StatisticsTopIpItem?]?.self, forKey: .ips)
+        }
     }
 }
 public extension StatisticsTopIpData{

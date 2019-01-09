@@ -43,7 +43,7 @@ public class DescribeDDosAttackLogsRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例id
-    var instanceId:String?
+    var instanceId:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){

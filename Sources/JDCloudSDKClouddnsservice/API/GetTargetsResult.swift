@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetTargetsResult)
 public class GetTargetsResult:NSObject,JdCloudResult
 {
-    /// Data
-    var data:String?
+    /// 返回的可用监控对象的数组
+    var data:[String?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetTargetsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetTargetsResultCodingKeys.self)
-        self.data = try decoderContainer.decode(String?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([String?]?.self, forKey: .data)
+        }
     }
 }
 public extension GetTargetsResult{

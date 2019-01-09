@@ -70,16 +70,46 @@ public class TranscodeTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TranscodeTemplateCodingKeys.self)
-        self.coderateId = try decoderContainer.decode(Double?.self, forKey: .coderateId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.format = try decoderContainer.decode(String?.self, forKey: .format)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.videoCodeRate = try decoderContainer.decode(Int?.self, forKey: .videoCodeRate)
-        self.videoCodec = try decoderContainer.decode(String?.self, forKey: .videoCodec)
-        self.audioCodec = try decoderContainer.decode(String?.self, forKey: .audioCodec)
-        self.type = try decoderContainer.decode(Int?.self, forKey: .type)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.coderateId)
+        {
+            self.coderateId = try decoderContainer.decode(Double?.self, forKey: .coderateId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.format)
+        {
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.videoCodeRate)
+        {
+            self.videoCodeRate = try decoderContainer.decode(Int?.self, forKey: .videoCodeRate)
+        }
+        if decoderContainer.contains(.videoCodec)
+        {
+            self.videoCodec = try decoderContainer.decode(String?.self, forKey: .videoCodec)
+        }
+        if decoderContainer.contains(.audioCodec)
+        {
+            self.audioCodec = try decoderContainer.decode(String?.self, forKey: .audioCodec)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(Int?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension TranscodeTemplate{

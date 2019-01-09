@@ -31,7 +31,7 @@ public class ApplyTemplateSpec:NSObject,Codable{
     /// Required:true
     var clientToken:String
     /// 联系人列表
-    var contacts:BaseContact?
+    var contacts:[BaseContact?]?
     /// dataCenters，该资源所处地域，与resourceIds一一对应
     /// Required:true
     var dataCenters:[String?]
@@ -42,7 +42,7 @@ public class ApplyTemplateSpec:NSObject,Codable{
     /// Required:true
     var serviceCode:String
     /// 标签组，模板下面规则对应的tags，与resourceIds一一对应
-    var tagsArray:[String:String?]?
+    var tagsArray:[[String:String?]?]?
     /// 模板类型，1表示默认模板，2表示用户自定义模板
     /// Required:true
     var templateType:Int64
@@ -83,16 +83,34 @@ public class ApplyTemplateSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ApplyTemplateSpecCodingKeys.self)
         self.clientToken = try decoderContainer.decode(String.self, forKey: .clientToken)
-        self.contacts = try decoderContainer.decode(BaseContact?.self, forKey: .contacts)
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode([BaseContact?]?.self, forKey: .contacts)
+        }
         self.dataCenters = try decoderContainer.decode([String?].self, forKey: .dataCenters)
         self.resourceIds = try decoderContainer.decode([String?].self, forKey: .resourceIds)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        self.tagsArray = try decoderContainer.decode([String:String?]?.self, forKey: .tagsArray)
+        if decoderContainer.contains(.tagsArray)
+        {
+            self.tagsArray = try decoderContainer.decode([[String:String?]?]?.self, forKey: .tagsArray)
+        }
         self.templateType = try decoderContainer.decode(Int64.self, forKey: .templateType)
-        self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
-        self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
-        self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
-        self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        if decoderContainer.contains(.webHookContent)
+        {
+            self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
+        }
+        if decoderContainer.contains(.webHookProtocol)
+        {
+            self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
+        }
+        if decoderContainer.contains(.webHookSecret)
+        {
+            self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
+        }
+        if decoderContainer.contains(.webHookUrl)
+        {
+            self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        }
     }
 }
 public extension ApplyTemplateSpec{

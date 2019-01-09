@@ -43,7 +43,10 @@ public class VpcSecurityGroupItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcSecurityGroupItemCodingKeys.self)
-        self.securityGroup = try decoderContainer.decode(SecurityGroupDetail?.self, forKey: .securityGroup)
+        if decoderContainer.contains(.securityGroup)
+        {
+            self.securityGroup = try decoderContainer.decode(SecurityGroupDetail?.self, forKey: .securityGroup)
+        }
     }
 }
 public extension VpcSecurityGroupItem{

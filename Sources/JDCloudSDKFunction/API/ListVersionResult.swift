@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class ListVersionResult:NSObject,JdCloudResult
 {
     /// Data
-    var data:FunctionSpec?
+    var data:[FunctionSpec?]?
 
 
 
@@ -44,7 +44,10 @@ public class ListVersionResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListVersionResultCodingKeys.self)
-        self.data = try decoderContainer.decode(FunctionSpec?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([FunctionSpec?]?.self, forKey: .data)
+        }
     }
 }
 public extension ListVersionResult{

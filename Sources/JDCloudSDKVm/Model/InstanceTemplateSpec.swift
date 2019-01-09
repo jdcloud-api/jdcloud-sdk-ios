@@ -46,7 +46,7 @@ public class InstanceTemplateSpec:NSObject,Codable{
     /// Required:true
     var systemDisk:InstanceTemplateDiskAttachmentSpec
     /// 数据盘配置信息
-    var dataDisks:InstanceTemplateDiskAttachmentSpec?
+    var dataDisks:[InstanceTemplateDiskAttachmentSpec?]?
 
 
 
@@ -73,12 +73,24 @@ public class InstanceTemplateSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: InstanceTemplateSpecCodingKeys.self)
         self.instanceType = try decoderContainer.decode(String.self, forKey: .instanceType)
         self.imageId = try decoderContainer.decode(String.self, forKey: .imageId)
-        self.password = try decoderContainer.decode(String?.self, forKey: .password)
-        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
-        self.elasticIp = try decoderContainer.decode(InstanceTemplateElasticIpSpec?.self, forKey: .elasticIp)
+        if decoderContainer.contains(.password)
+        {
+            self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        }
+        if decoderContainer.contains(.keyNames)
+        {
+            self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        }
+        if decoderContainer.contains(.elasticIp)
+        {
+            self.elasticIp = try decoderContainer.decode(InstanceTemplateElasticIpSpec?.self, forKey: .elasticIp)
+        }
         self.primaryNetworkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceAttachmentSpec.self, forKey: .primaryNetworkInterface)
         self.systemDisk = try decoderContainer.decode(InstanceTemplateDiskAttachmentSpec.self, forKey: .systemDisk)
-        self.dataDisks = try decoderContainer.decode(InstanceTemplateDiskAttachmentSpec?.self, forKey: .dataDisks)
+        if decoderContainer.contains(.dataDisks)
+        {
+            self.dataDisks = try decoderContainer.decode([InstanceTemplateDiskAttachmentSpec?]?.self, forKey: .dataDisks)
+        }
     }
 }
 public extension InstanceTemplateSpec{

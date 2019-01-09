@@ -52,9 +52,18 @@ public class QueryAccesskeyConfigResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryAccesskeyConfigResultCodingKeys.self)
-        self.accesskeyType = try decoderContainer.decode(Int32?.self, forKey: .accesskeyType)
-        self.accesskeyKey = try decoderContainer.decode(String?.self, forKey: .accesskeyKey)
-        self.accesskeyKeep = try decoderContainer.decode(Int32?.self, forKey: .accesskeyKeep)
+        if decoderContainer.contains(.accesskeyType)
+        {
+            self.accesskeyType = try decoderContainer.decode(Int32?.self, forKey: .accesskeyType)
+        }
+        if decoderContainer.contains(.accesskeyKey)
+        {
+            self.accesskeyKey = try decoderContainer.decode(String?.self, forKey: .accesskeyKey)
+        }
+        if decoderContainer.contains(.accesskeyKeep)
+        {
+            self.accesskeyKeep = try decoderContainer.decode(Int32?.self, forKey: .accesskeyKeep)
+        }
     }
 }
 public extension QueryAccesskeyConfigResult{

@@ -64,14 +64,38 @@ public class Domains:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainsCodingKeys.self)
-        self.domainId = try decoderContainer.decode(Double?.self, forKey: .domainId)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
-        self.type = try decoderContainer.decode(Int?.self, forKey: .type)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.domainId)
+        {
+            self.domainId = try decoderContainer.decode(Double?.self, forKey: .domainId)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.cname)
+        {
+            self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.certificate)
+        {
+            self.certificate = try decoderContainer.decode(String?.self, forKey: .certificate)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(Int?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension Domains{

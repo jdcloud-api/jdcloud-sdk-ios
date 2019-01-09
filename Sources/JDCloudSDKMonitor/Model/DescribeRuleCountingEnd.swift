@@ -61,13 +61,34 @@ public class DescribeRuleCountingEnd:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRuleCountingEndCodingKeys.self)
-        self.alarmRuleCount = try decoderContainer.decode(Int64?.self, forKey: .alarmRuleCount)
-        self.disableRuleCount = try decoderContainer.decode(Int64?.self, forKey: .disableRuleCount)
-        self.normalRuleCount = try decoderContainer.decode(Int64?.self, forKey: .normalRuleCount)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.subUserPermission = try decoderContainer.decode(Bool?.self, forKey: .subUserPermission)
-        self.totalRuleCount = try decoderContainer.decode(Int64?.self, forKey: .totalRuleCount)
-        self.unknownRuleCount = try decoderContainer.decode(Int64?.self, forKey: .unknownRuleCount)
+        if decoderContainer.contains(.alarmRuleCount)
+        {
+            self.alarmRuleCount = try decoderContainer.decode(Int64?.self, forKey: .alarmRuleCount)
+        }
+        if decoderContainer.contains(.disableRuleCount)
+        {
+            self.disableRuleCount = try decoderContainer.decode(Int64?.self, forKey: .disableRuleCount)
+        }
+        if decoderContainer.contains(.normalRuleCount)
+        {
+            self.normalRuleCount = try decoderContainer.decode(Int64?.self, forKey: .normalRuleCount)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.subUserPermission)
+        {
+            self.subUserPermission = try decoderContainer.decode(Bool?.self, forKey: .subUserPermission)
+        }
+        if decoderContainer.contains(.totalRuleCount)
+        {
+            self.totalRuleCount = try decoderContainer.decode(Int64?.self, forKey: .totalRuleCount)
+        }
+        if decoderContainer.contains(.unknownRuleCount)
+        {
+            self.unknownRuleCount = try decoderContainer.decode(Int64?.self, forKey: .unknownRuleCount)
+        }
     }
 }
 public extension DescribeRuleCountingEnd{

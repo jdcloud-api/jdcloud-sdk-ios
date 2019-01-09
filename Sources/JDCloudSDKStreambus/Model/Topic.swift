@@ -61,13 +61,34 @@ public class Topic:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TopicCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.archived = try decoderContainer.decode(Int?.self, forKey: .archived)
-        self.lifecycle = try decoderContainer.decode(Int?.self, forKey: .lifecycle)
-        self.partitionNum = try decoderContainer.decode(Int?.self, forKey: .partitionNum)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.shardNum = try decoderContainer.decode(Int?.self, forKey: .shardNum)
-        self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.archived)
+        {
+            self.archived = try decoderContainer.decode(Int?.self, forKey: .archived)
+        }
+        if decoderContainer.contains(.lifecycle)
+        {
+            self.lifecycle = try decoderContainer.decode(Int?.self, forKey: .lifecycle)
+        }
+        if decoderContainer.contains(.partitionNum)
+        {
+            self.partitionNum = try decoderContainer.decode(Int?.self, forKey: .partitionNum)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.shardNum)
+        {
+            self.shardNum = try decoderContainer.decode(Int?.self, forKey: .shardNum)
+        }
+        if decoderContainer.contains(.remark)
+        {
+            self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
+        }
     }
 }
 public extension Topic{

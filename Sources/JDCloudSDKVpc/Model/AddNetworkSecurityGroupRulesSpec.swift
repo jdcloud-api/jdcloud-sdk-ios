@@ -29,11 +29,11 @@ import Foundation
 public class AddNetworkSecurityGroupRulesSpec:NSObject,Codable{
     /// 安全组规则信息
     /// Required:true
-    var networkSecurityGroupRuleSpecs:AddSecurityGroupRules?
+    var networkSecurityGroupRuleSpecs:[AddSecurityGroupRules?]
 
 
 
-    public  init(networkSecurityGroupRuleSpecs:AddSecurityGroupRules?){
+    public  init(networkSecurityGroupRuleSpecs:[AddSecurityGroupRules?]){
              self.networkSecurityGroupRuleSpecs = networkSecurityGroupRuleSpecs
     }
 
@@ -44,7 +44,7 @@ public class AddNetworkSecurityGroupRulesSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddNetworkSecurityGroupRulesSpecCodingKeys.self)
-        self.networkSecurityGroupRuleSpecs = try decoderContainer.decode(AddSecurityGroupRules?.self, forKey: .networkSecurityGroupRuleSpecs)
+        self.networkSecurityGroupRuleSpecs = try decoderContainer.decode([AddSecurityGroupRules?].self, forKey: .networkSecurityGroupRuleSpecs)
     }
 }
 public extension AddNetworkSecurityGroupRulesSpec{

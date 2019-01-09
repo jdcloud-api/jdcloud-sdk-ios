@@ -46,8 +46,14 @@ public class CCAttackLogDetail:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CCAttackLogDetailCodingKeys.self)
-        self.key = try decoderContainer.decode(String?.self, forKey: .key)
-        self.num = try decoderContainer.decode(Int?.self, forKey: .num)
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode(String?.self, forKey: .key)
+        }
+        if decoderContainer.contains(.num)
+        {
+            self.num = try decoderContainer.decode(Int?.self, forKey: .num)
+        }
     }
 }
 public extension CCAttackLogDetail{

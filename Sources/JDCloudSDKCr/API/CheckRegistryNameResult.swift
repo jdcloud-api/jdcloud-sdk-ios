@@ -49,8 +49,14 @@ public class CheckRegistryNameResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CheckRegistryNameResultCodingKeys.self)
-        self.code = try decoderContainer.decode(Int?.self, forKey: .code)
-        self.reason = try decoderContainer.decode(String?.self, forKey: .reason)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.reason)
+        {
+            self.reason = try decoderContainer.decode(String?.self, forKey: .reason)
+        }
     }
 }
 public extension CheckRegistryNameResult{

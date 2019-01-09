@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class OperateRRRequest:JdCloudRequest
 {
     /// 需要操作的解析记录ID
-    var ids:Int?
+    var ids:[Int?]?
 
     /// 操作类型，on-&gt;启用 off-&gt;停用 del-&gt;删除
     var action:String
@@ -40,7 +40,7 @@ public class OperateRRRequest:JdCloudRequest
     var domainId:String
 
 
-    public init(regionId: String,ids:Int?,action:String,domainId:String){
+    public init(regionId: String,ids:[Int?]?,action:String,domainId:String){
         self.ids = ids
         self.action = action
         self.domainId = domainId

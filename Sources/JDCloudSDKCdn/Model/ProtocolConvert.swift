@@ -46,8 +46,14 @@ public class ProtocolConvert:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ProtocolConvertCodingKeys.self)
-        self.sourceProtocol = try decoderContainer.decode(String?.self, forKey: .sourceProtocol)
-        self.targetProtocol = try decoderContainer.decode(String?.self, forKey: .targetProtocol)
+        if decoderContainer.contains(.sourceProtocol)
+        {
+            self.sourceProtocol = try decoderContainer.decode(String?.self, forKey: .sourceProtocol)
+        }
+        if decoderContainer.contains(.targetProtocol)
+        {
+            self.targetProtocol = try decoderContainer.decode(String?.self, forKey: .targetProtocol)
+        }
     }
 }
 public extension ProtocolConvert{

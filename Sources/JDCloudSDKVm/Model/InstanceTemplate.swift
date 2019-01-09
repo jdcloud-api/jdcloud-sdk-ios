@@ -36,7 +36,7 @@ public class InstanceTemplate:NSObject,Codable{
     /// 启动模板的数据
     var instanceTemplateData:InstanceTemplateData?
     /// 关联的高可用组(ag)信息
-    var ags:Ag?
+    var ags:[Ag?]?
     /// 创建时间
     var createdTime:String?
 
@@ -58,12 +58,30 @@ public class InstanceTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTemplateCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.instanceTemplateData = try decoderContainer.decode(InstanceTemplateData?.self, forKey: .instanceTemplateData)
-        self.ags = try decoderContainer.decode(Ag?.self, forKey: .ags)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.instanceTemplateData)
+        {
+            self.instanceTemplateData = try decoderContainer.decode(InstanceTemplateData?.self, forKey: .instanceTemplateData)
+        }
+        if decoderContainer.contains(.ags)
+        {
+            self.ags = try decoderContainer.decode([Ag?]?.self, forKey: .ags)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension InstanceTemplate{

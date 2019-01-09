@@ -48,8 +48,14 @@ public class Count:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CountCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.data = try decoderContainer.decode([Int64?]?.self, forKey: .data)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([Int64?]?.self, forKey: .data)
+        }
     }
 }
 public extension Count{

@@ -64,14 +64,38 @@ public class FunctionSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FunctionSpecCodingKeys.self)
-        self.functionId = try decoderContainer.decode(String?.self, forKey: .functionId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.runtime = try decoderContainer.decode(String?.self, forKey: .runtime)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.version = try decoderContainer.decode(String?.self, forKey: .version)
-        self.downloadUrl = try decoderContainer.decode(String?.self, forKey: .downloadUrl)
+        if decoderContainer.contains(.functionId)
+        {
+            self.functionId = try decoderContainer.decode(String?.self, forKey: .functionId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.runtime)
+        {
+            self.runtime = try decoderContainer.decode(String?.self, forKey: .runtime)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.version)
+        {
+            self.version = try decoderContainer.decode(String?.self, forKey: .version)
+        }
+        if decoderContainer.contains(.downloadUrl)
+        {
+            self.downloadUrl = try decoderContainer.decode(String?.self, forKey: .downloadUrl)
+        }
     }
 }
 public extension FunctionSpec{

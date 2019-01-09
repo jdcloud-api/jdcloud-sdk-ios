@@ -58,12 +58,30 @@ public class PlayDomain:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PlayDomainCodingKeys.self)
-        self.playDomainValue = try decoderContainer.decode(String?.self, forKey: .playDomainValue)
-        self.playDomainCname = try decoderContainer.decode(String?.self, forKey: .playDomainCname)
-        self.domainStatus = try decoderContainer.decode(String?.self, forKey: .domainStatus)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        if decoderContainer.contains(.playDomainValue)
+        {
+            self.playDomainValue = try decoderContainer.decode(String?.self, forKey: .playDomainValue)
+        }
+        if decoderContainer.contains(.playDomainCname)
+        {
+            self.playDomainCname = try decoderContainer.decode(String?.self, forKey: .playDomainCname)
+        }
+        if decoderContainer.contains(.domainStatus)
+        {
+            self.domainStatus = try decoderContainer.decode(String?.self, forKey: .domainStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
     }
 }
 public extension PlayDomain{

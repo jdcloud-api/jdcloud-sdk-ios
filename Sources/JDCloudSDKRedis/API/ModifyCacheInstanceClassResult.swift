@@ -46,7 +46,10 @@ public class ModifyCacheInstanceClassResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyCacheInstanceClassResultCodingKeys.self)
-        self.orderNum = try decoderContainer.decode(String?.self, forKey: .orderNum)
+        if decoderContainer.contains(.orderNum)
+        {
+            self.orderNum = try decoderContainer.decode(String?.self, forKey: .orderNum)
+        }
     }
 }
 public extension ModifyCacheInstanceClassResult{

@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class AssociateNetworkAclRequest:JdCloudRequest
 {
     /// networkAcl要绑定的子网ID列表, subnet已被其他networkAcl绑定时，自动解绑
-    var subnetIds:String?
+    var subnetIds:[String?]?
 
     /// networkAclId ID
     var networkAclId:String

@@ -46,8 +46,14 @@ public class Totalcount:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TotalcountCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.count = try decoderContainer.decode(Int64?.self, forKey: .count)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int64?.self, forKey: .count)
+        }
     }
 }
 public extension Totalcount{

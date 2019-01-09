@@ -44,7 +44,10 @@ public class GetVpcSlbByIdResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcSlbByIdResultCodingKeys.self)
-        self.slb = try decoderContainer.decode(SlbInfoDetail?.self, forKey: .slb)
+        if decoderContainer.contains(.slb)
+        {
+            self.slb = try decoderContainer.decode(SlbInfoDetail?.self, forKey: .slb)
+        }
     }
 }
 public extension GetVpcSlbByIdResult{

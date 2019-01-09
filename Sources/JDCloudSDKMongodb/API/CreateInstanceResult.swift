@@ -48,8 +48,14 @@ public class CreateInstanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateInstanceResultCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.orderId = try decoderContainer.decode(String?.self, forKey: .orderId)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.orderId)
+        {
+            self.orderId = try decoderContainer.decode(String?.self, forKey: .orderId)
+        }
     }
 }
 public extension CreateInstanceResult{

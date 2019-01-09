@@ -49,9 +49,18 @@ public class Quota:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QuotaCodingKeys.self)
-        self.resourceType = try decoderContainer.decode(String?.self, forKey: .resourceType)
-        self.limit = try decoderContainer.decode(Int?.self, forKey: .limit)
-        self.used = try decoderContainer.decode(Int?.self, forKey: .used)
+        if decoderContainer.contains(.resourceType)
+        {
+            self.resourceType = try decoderContainer.decode(String?.self, forKey: .resourceType)
+        }
+        if decoderContainer.contains(.limit)
+        {
+            self.limit = try decoderContainer.decode(Int?.self, forKey: .limit)
+        }
+        if decoderContainer.contains(.used)
+        {
+            self.used = try decoderContainer.decode(Int?.self, forKey: .used)
+        }
     }
 }
 public extension Quota{

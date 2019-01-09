@@ -67,15 +67,42 @@ public class SnapshotList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SnapshotListCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
-        self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
-        self.snapshotTime = try decoderContainer.decode(String?.self, forKey: .snapshotTime)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.ossBucket = try decoderContainer.decode(String?.self, forKey: .ossBucket)
-        self.ossEndpoint = try decoderContainer.decode(String?.self, forKey: .ossEndpoint)
-        self.ossObject = try decoderContainer.decode(String?.self, forKey: .ossObject)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.streamName)
+        {
+            self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
+        }
+        if decoderContainer.contains(.snapshotTime)
+        {
+            self.snapshotTime = try decoderContainer.decode(String?.self, forKey: .snapshotTime)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.ossBucket)
+        {
+            self.ossBucket = try decoderContainer.decode(String?.self, forKey: .ossBucket)
+        }
+        if decoderContainer.contains(.ossEndpoint)
+        {
+            self.ossEndpoint = try decoderContainer.decode(String?.self, forKey: .ossEndpoint)
+        }
+        if decoderContainer.contains(.ossObject)
+        {
+            self.ossObject = try decoderContainer.decode(String?.self, forKey: .ossObject)
+        }
     }
 }
 public extension SnapshotList{

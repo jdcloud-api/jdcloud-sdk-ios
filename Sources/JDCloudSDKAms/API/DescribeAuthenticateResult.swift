@@ -60,11 +60,26 @@ public class DescribeAuthenticateResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAuthenticateResultCodingKeys.self)
-        self.pId = try decoderContainer.decode(String?.self, forKey: .pId)
-        self.ver = try decoderContainer.decode(Int?.self, forKey: .ver)
-        self.blacklist = try decoderContainer.decode(Double?.self, forKey: .blacklist)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.license = try decoderContainer.decode(String?.self, forKey: .license)
+        if decoderContainer.contains(.pId)
+        {
+            self.pId = try decoderContainer.decode(String?.self, forKey: .pId)
+        }
+        if decoderContainer.contains(.ver)
+        {
+            self.ver = try decoderContainer.decode(Int?.self, forKey: .ver)
+        }
+        if decoderContainer.contains(.blacklist)
+        {
+            self.blacklist = try decoderContainer.decode(Double?.self, forKey: .blacklist)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.license)
+        {
+            self.license = try decoderContainer.decode(String?.self, forKey: .license)
+        }
     }
 }
 public extension DescribeAuthenticateResult{

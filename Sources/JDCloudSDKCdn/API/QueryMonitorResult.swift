@@ -56,10 +56,22 @@ public class QueryMonitorResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryMonitorResultCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.cycle = try decoderContainer.decode(Int32?.self, forKey: .cycle)
-        self.monitorPath = try decoderContainer.decode(String?.self, forKey: .monitorPath)
-        self.httpRequestHeader = try decoderContainer.decode([String:String?]?.self, forKey: .httpRequestHeader)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.cycle)
+        {
+            self.cycle = try decoderContainer.decode(Int32?.self, forKey: .cycle)
+        }
+        if decoderContainer.contains(.monitorPath)
+        {
+            self.monitorPath = try decoderContainer.decode(String?.self, forKey: .monitorPath)
+        }
+        if decoderContainer.contains(.httpRequestHeader)
+        {
+            self.httpRequestHeader = try decoderContainer.decode([String:String?]?.self, forKey: .httpRequestHeader)
+        }
     }
 }
 public extension QueryMonitorResult{

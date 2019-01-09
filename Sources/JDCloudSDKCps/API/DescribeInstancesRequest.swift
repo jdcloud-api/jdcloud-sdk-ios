@@ -56,7 +56,7 @@ public class DescribeInstancesRequest:JdCloudRequest
 
     /// instanceId - 云物理服务器ID，精确匹配，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

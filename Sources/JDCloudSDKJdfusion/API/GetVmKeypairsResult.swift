@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVmKeypairsResult:NSObject,JdCloudResult
 {
     /// Keypairs
-    var keypairs:KeypairInfo?
+    var keypairs:[KeypairInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVmKeypairsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVmKeypairsResultCodingKeys.self)
-        self.keypairs = try decoderContainer.decode(KeypairInfo?.self, forKey: .keypairs)
+        if decoderContainer.contains(.keypairs)
+        {
+            self.keypairs = try decoderContainer.decode([KeypairInfo?]?.self, forKey: .keypairs)
+        }
     }
 }
 public extension GetVmKeypairsResult{

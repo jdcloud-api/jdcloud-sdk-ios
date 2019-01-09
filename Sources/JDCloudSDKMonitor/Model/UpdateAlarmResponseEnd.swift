@@ -43,7 +43,10 @@ public class UpdateAlarmResponseEnd:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UpdateAlarmResponseEndCodingKeys.self)
-        self.alarmId = try decoderContainer.decode(String?.self, forKey: .alarmId)
+        if decoderContainer.contains(.alarmId)
+        {
+            self.alarmId = try decoderContainer.decode(String?.self, forKey: .alarmId)
+        }
     }
 }
 public extension UpdateAlarmResponseEnd{

@@ -55,11 +55,26 @@ public class DomainAdded:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainAddedCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
-        self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
-        self.expirationDate = try decoderContainer.decode(Int64?.self, forKey: .expirationDate)
-        self.packId = try decoderContainer.decode(Int?.self, forKey: .packId)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.domainName)
+        {
+            self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.expirationDate)
+        {
+            self.expirationDate = try decoderContainer.decode(Int64?.self, forKey: .expirationDate)
+        }
+        if decoderContainer.contains(.packId)
+        {
+            self.packId = try decoderContainer.decode(Int?.self, forKey: .packId)
+        }
     }
 }
 public extension DomainAdded{

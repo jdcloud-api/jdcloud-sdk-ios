@@ -46,7 +46,10 @@ public class DataPoint:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataPointCodingKeys.self)
-        self.timestamp = try decoderContainer.decode(Int64?.self, forKey: .timestamp)
+        if decoderContainer.contains(.timestamp)
+        {
+            self.timestamp = try decoderContainer.decode(Int64?.self, forKey: .timestamp)
+        }
     }
 }
 public extension DataPoint{

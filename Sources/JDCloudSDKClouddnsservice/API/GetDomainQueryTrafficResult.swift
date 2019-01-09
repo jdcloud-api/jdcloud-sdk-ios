@@ -29,14 +29,14 @@ import JDCloudSDKCore
 @objc(GetDomainQueryTrafficResult)
 public class GetDomainQueryTrafficResult:NSObject,JdCloudResult
 {
-    /// Time
-    var time:Int64?
+    /// 时间序列
+    var time:[Int64?]?
 
     /// 数据序列的单位
     var unit:String?
 
-    /// Traffic
-    var traffic:Double?
+    /// 与时间序列对应的数据序列
+    var traffic:[Double?]?
 
 
 
@@ -52,9 +52,18 @@ public class GetDomainQueryTrafficResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDomainQueryTrafficResultCodingKeys.self)
-        self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
-        self.traffic = try decoderContainer.decode(Double?.self, forKey: .traffic)
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode([Int64?]?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
+        if decoderContainer.contains(.traffic)
+        {
+            self.traffic = try decoderContainer.decode([Double?]?.self, forKey: .traffic)
+        }
     }
 }
 public extension GetDomainQueryTrafficResult{

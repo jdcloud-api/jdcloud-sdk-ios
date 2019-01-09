@@ -64,7 +64,7 @@ public class VideoInformation:NSObject,Codable{
     /// 更新时间
     var updateTime:String?
     /// 截图成品
-    var imgList:Img?
+    var imgList:[Img?]?
 
 
 
@@ -97,25 +97,82 @@ public class VideoInformation:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VideoInformationCodingKeys.self)
-        self.mid = try decoderContainer.decode(String?.self, forKey: .mid)
-        self.videoName = try decoderContainer.decode(String?.self, forKey: .videoName)
-        self.url = try decoderContainer.decode(String?.self, forKey: .url)
-        self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
-        self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.size = try decoderContainer.decode(Double?.self, forKey: .size)
-        self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
-        self.tags = try decoderContainer.decode(String?.self, forKey: .tags)
-        self.notes = try decoderContainer.decode(String?.self, forKey: .notes)
-        self.coderateId = try decoderContainer.decode(String?.self, forKey: .coderateId)
-        self.logoId = try decoderContainer.decode(String?.self, forKey: .logoId)
-        self.md5 = try decoderContainer.decode(String?.self, forKey: .md5)
-        self.clientIp = try decoderContainer.decode(String?.self, forKey: .clientIp)
-        self.clientId = try decoderContainer.decode(Int?.self, forKey: .clientId)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.imgList = try decoderContainer.decode(Img?.self, forKey: .imgList)
+        if decoderContainer.contains(.mid)
+        {
+            self.mid = try decoderContainer.decode(String?.self, forKey: .mid)
+        }
+        if decoderContainer.contains(.videoName)
+        {
+            self.videoName = try decoderContainer.decode(String?.self, forKey: .videoName)
+        }
+        if decoderContainer.contains(.url)
+        {
+            self.url = try decoderContainer.decode(String?.self, forKey: .url)
+        }
+        if decoderContainer.contains(.imgUrl)
+        {
+            self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
+        }
+        if decoderContainer.contains(.categoryId)
+        {
+            self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
+        }
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.size)
+        {
+            self.size = try decoderContainer.decode(Double?.self, forKey: .size)
+        }
+        if decoderContainer.contains(.duration)
+        {
+            self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode(String?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.notes)
+        {
+            self.notes = try decoderContainer.decode(String?.self, forKey: .notes)
+        }
+        if decoderContainer.contains(.coderateId)
+        {
+            self.coderateId = try decoderContainer.decode(String?.self, forKey: .coderateId)
+        }
+        if decoderContainer.contains(.logoId)
+        {
+            self.logoId = try decoderContainer.decode(String?.self, forKey: .logoId)
+        }
+        if decoderContainer.contains(.md5)
+        {
+            self.md5 = try decoderContainer.decode(String?.self, forKey: .md5)
+        }
+        if decoderContainer.contains(.clientIp)
+        {
+            self.clientIp = try decoderContainer.decode(String?.self, forKey: .clientIp)
+        }
+        if decoderContainer.contains(.clientId)
+        {
+            self.clientId = try decoderContainer.decode(Int?.self, forKey: .clientId)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.imgList)
+        {
+            self.imgList = try decoderContainer.decode([Img?]?.self, forKey: .imgList)
+        }
     }
 }
 public extension VideoInformation{

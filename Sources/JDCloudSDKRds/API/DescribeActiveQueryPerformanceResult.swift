@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeActiveQueryPerformanceResult)
 public class DescribeActiveQueryPerformanceResult:NSObject,JdCloudResult
 {
-    /// ActiveQueryPerformanceResult
-    var activeQueryPerformanceResult:ActiveQueryPerformanceResult?
+    /// 查询性能统计结果集
+    var activeQueryPerformanceResult:[ActiveQueryPerformanceResult?]?
 
     /// 总记录条数
     var totalCount:Int?
@@ -56,10 +56,22 @@ public class DescribeActiveQueryPerformanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeActiveQueryPerformanceResultCodingKeys.self)
-        self.activeQueryPerformanceResult = try decoderContainer.decode(ActiveQueryPerformanceResult?.self, forKey: .activeQueryPerformanceResult)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        if decoderContainer.contains(.activeQueryPerformanceResult)
+        {
+            self.activeQueryPerformanceResult = try decoderContainer.decode([ActiveQueryPerformanceResult?]?.self, forKey: .activeQueryPerformanceResult)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
     }
 }
 public extension DescribeActiveQueryPerformanceResult{

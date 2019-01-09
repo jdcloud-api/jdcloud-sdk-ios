@@ -33,7 +33,7 @@ import JDCloudSDKCore
 public class CopyImagesRequest:JdCloudRequest
 {
     /// 源镜像ID
-    var sourceImageIds:String?
+    var sourceImageIds:[String?]?
 
     /// 目标区域
     var destinationRegion:String

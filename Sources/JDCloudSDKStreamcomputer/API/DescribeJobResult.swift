@@ -44,7 +44,10 @@ public class DescribeJobResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeJobResultCodingKeys.self)
-        self.jobStr = try decoderContainer.decode(JobStr?.self, forKey: .jobStr)
+        if decoderContainer.contains(.jobStr)
+        {
+            self.jobStr = try decoderContainer.decode(JobStr?.self, forKey: .jobStr)
+        }
     }
 }
 public extension DescribeJobResult{

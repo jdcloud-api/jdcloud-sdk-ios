@@ -34,7 +34,7 @@ public class OperateMonitorRequest:JdCloudRequest
     var action:String
 
     /// 监控项ID
-    var ids:Int?
+    var ids:[Int?]?
 
     /// 监控项的主机值, 手动切换时必填
     var switchTarget:String?
@@ -43,7 +43,7 @@ public class OperateMonitorRequest:JdCloudRequest
     var domainId:String
 
 
-    public init(regionId: String,action:String,ids:Int?,domainId:String){
+    public init(regionId: String,action:String,ids:[Int?]?,domainId:String){
         self.action = action
         self.ids = ids
         self.domainId = domainId

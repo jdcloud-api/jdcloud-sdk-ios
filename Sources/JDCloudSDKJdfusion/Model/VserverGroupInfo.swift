@@ -49,9 +49,18 @@ public class VserverGroupInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VserverGroupInfoCodingKeys.self)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.vserverGroupId = try decoderContainer.decode(String?.self, forKey: .vserverGroupId)
-        self.vserverGroupName = try decoderContainer.decode(String?.self, forKey: .vserverGroupName)
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.vserverGroupId)
+        {
+            self.vserverGroupId = try decoderContainer.decode(String?.self, forKey: .vserverGroupId)
+        }
+        if decoderContainer.contains(.vserverGroupName)
+        {
+            self.vserverGroupName = try decoderContainer.decode(String?.self, forKey: .vserverGroupName)
+        }
     }
 }
 public extension VserverGroupInfo{

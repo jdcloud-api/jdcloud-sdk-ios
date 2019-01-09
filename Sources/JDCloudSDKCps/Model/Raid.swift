@@ -58,12 +58,30 @@ public class Raid:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RaidCodingKeys.self)
-        self.volumeType = try decoderContainer.decode(String?.self, forKey: .volumeType)
-        self.volumeDetail = try decoderContainer.decode(String?.self, forKey: .volumeDetail)
-        self.raidTypeId = try decoderContainer.decode(String?.self, forKey: .raidTypeId)
-        self.raidType = try decoderContainer.decode(String?.self, forKey: .raidType)
-        self.deviceType = try decoderContainer.decode(String?.self, forKey: .deviceType)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.volumeType)
+        {
+            self.volumeType = try decoderContainer.decode(String?.self, forKey: .volumeType)
+        }
+        if decoderContainer.contains(.volumeDetail)
+        {
+            self.volumeDetail = try decoderContainer.decode(String?.self, forKey: .volumeDetail)
+        }
+        if decoderContainer.contains(.raidTypeId)
+        {
+            self.raidTypeId = try decoderContainer.decode(String?.self, forKey: .raidTypeId)
+        }
+        if decoderContainer.contains(.raidType)
+        {
+            self.raidType = try decoderContainer.decode(String?.self, forKey: .raidType)
+        }
+        if decoderContainer.contains(.deviceType)
+        {
+            self.deviceType = try decoderContainer.decode(String?.self, forKey: .deviceType)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension Raid{

@@ -49,7 +49,7 @@ public class ReinstallInstanceSpec:NSObject,Codable{
     /// Required:true
     var password:String
     /// Softwares
-    var softwares:Software?
+    var softwares:[Software?]?
 
 
 
@@ -84,7 +84,10 @@ public class ReinstallInstanceSpec:NSObject,Codable{
         self.keepData = try decoderContainer.decode(String.self, forKey: .keepData)
         self.dataRaidTypeId = try decoderContainer.decode(String.self, forKey: .dataRaidTypeId)
         self.password = try decoderContainer.decode(String.self, forKey: .password)
-        self.softwares = try decoderContainer.decode(Software?.self, forKey: .softwares)
+        if decoderContainer.contains(.softwares)
+        {
+            self.softwares = try decoderContainer.decode([Software?]?.self, forKey: .softwares)
+        }
     }
 }
 public extension ReinstallInstanceSpec{

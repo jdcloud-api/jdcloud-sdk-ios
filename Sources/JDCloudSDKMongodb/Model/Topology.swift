@@ -30,9 +30,9 @@ public class Topology:NSObject,Codable{
     /// 主
     var primary:TopologyPair?
     /// 备
-    var secondary:TopologyPair?
+    var secondary:[TopologyPair?]?
     /// 隐藏
-    var hidden:TopologyPair?
+    var hidden:[TopologyPair?]?
 
 
 
@@ -49,9 +49,18 @@ public class Topology:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TopologyCodingKeys.self)
-        self.primary = try decoderContainer.decode(TopologyPair?.self, forKey: .primary)
-        self.secondary = try decoderContainer.decode(TopologyPair?.self, forKey: .secondary)
-        self.hidden = try decoderContainer.decode(TopologyPair?.self, forKey: .hidden)
+        if decoderContainer.contains(.primary)
+        {
+            self.primary = try decoderContainer.decode(TopologyPair?.self, forKey: .primary)
+        }
+        if decoderContainer.contains(.secondary)
+        {
+            self.secondary = try decoderContainer.decode([TopologyPair?]?.self, forKey: .secondary)
+        }
+        if decoderContainer.contains(.hidden)
+        {
+            self.hidden = try decoderContainer.decode([TopologyPair?]?.self, forKey: .hidden)
+        }
     }
 }
 public extension Topology{

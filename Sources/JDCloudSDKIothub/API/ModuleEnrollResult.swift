@@ -45,7 +45,10 @@ public class ModuleEnrollResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModuleEnrollResultCodingKeys.self)
-        self.data = try decoderContainer.decode(String?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(String?.self, forKey: .data)
+        }
     }
 }
 public extension ModuleEnrollResult{

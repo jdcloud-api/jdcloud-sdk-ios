@@ -46,8 +46,14 @@ public class TagKeyValue:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TagKeyValueCodingKeys.self)
-        self.tagKey = try decoderContainer.decode(String?.self, forKey: .tagKey)
-        self.tagValue = try decoderContainer.decode(String?.self, forKey: .tagValue)
+        if decoderContainer.contains(.tagKey)
+        {
+            self.tagKey = try decoderContainer.decode(String?.self, forKey: .tagKey)
+        }
+        if decoderContainer.contains(.tagValue)
+        {
+            self.tagValue = try decoderContainer.decode(String?.self, forKey: .tagValue)
+        }
     }
 }
 public extension TagKeyValue{

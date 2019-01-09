@@ -48,8 +48,14 @@ public class AddTopicResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddTopicResultCodingKeys.self)
-        self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
     }
 }
 public extension AddTopicResult{

@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeNetworkAclsResult)
 public class DescribeNetworkAclsResult:NSObject,JdCloudResult
 {
-    /// NetworkAcls
-    var networkAcls:NetworkAcl?
+    /// networkAcl资源信息列表
+    var networkAcls:[NetworkAcl?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeNetworkAclsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeNetworkAclsResultCodingKeys.self)
-        self.networkAcls = try decoderContainer.decode(NetworkAcl?.self, forKey: .networkAcls)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.networkAcls)
+        {
+            self.networkAcls = try decoderContainer.decode([NetworkAcl?]?.self, forKey: .networkAcls)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeNetworkAclsResult{

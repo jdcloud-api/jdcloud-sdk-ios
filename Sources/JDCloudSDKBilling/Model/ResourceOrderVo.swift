@@ -56,7 +56,7 @@ public class ResourceOrderVo:NSObject,Codable{
     /// 资源区域
     var region:String?
     /// 配置信息
-    var formula:Formula?
+    var formula:[Formula?]?
     /// 否为试用资源 0:非试用 1:试用
     var isOnTrial:Int?
     /// 开始时间
@@ -169,49 +169,178 @@ public class ResourceOrderVo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ResourceOrderVoCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.transactionNo = try decoderContainer.decode(String?.self, forKey: .transactionNo)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
-        self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.billingStatus = try decoderContainer.decode(Int?.self, forKey: .billingStatus)
-        self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.site = try decoderContainer.decode(Int?.self, forKey: .site)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.formula = try decoderContainer.decode(Formula?.self, forKey: .formula)
-        self.isOnTrial = try decoderContainer.decode(Int?.self, forKey: .isOnTrial)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.payTime = try decoderContainer.decode(String?.self, forKey: .payTime)
-        self.formulaStr = try decoderContainer.decode(String?.self, forKey: .formulaStr)
-        self.chargeMode = try decoderContainer.decode(Int?.self, forKey: .chargeMode)
-        self.chargeDuration = try decoderContainer.decode(Int?.self, forKey: .chargeDuration)
-        self.chargeUnit = try decoderContainer.decode(Int?.self, forKey: .chargeUnit)
-        self.aeStatus = try decoderContainer.decode(Int?.self, forKey: .aeStatus)
-        self.releasingTime = try decoderContainer.decode(String?.self, forKey: .releasingTime)
-        self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
-        self.billingStartTime = try decoderContainer.decode(String?.self, forKey: .billingStartTime)
-        self.priceMap = try decoderContainer.decode(PriceMap?.self, forKey: .priceMap)
-        self.priceSnapshot = try decoderContainer.decode(String?.self, forKey: .priceSnapshot)
-        self.price = try decoderContainer.decode(Double?.self, forKey: .price)
-        self.discountedPrice = try decoderContainer.decode(Double?.self, forKey: .discountedPrice)
-        self.expiringDays = try decoderContainer.decode(Int?.self, forKey: .expiringDays)
-        self.billingCategoryDescription = try decoderContainer.decode(String?.self, forKey: .billingCategoryDescription)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.refundNo = try decoderContainer.decode(String?.self, forKey: .refundNo)
-        self.billingTypeName = try decoderContainer.decode(String?.self, forKey: .billingTypeName)
-        self.favorableInfo = try decoderContainer.decode(String?.self, forKey: .favorableInfo)
-        self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
-        self.processType = try decoderContainer.decode(Int?.self, forKey: .processType)
-        self.applicant = try decoderContainer.decode(String?.self, forKey: .applicant)
-        self.billingMode = try decoderContainer.decode(Int?.self, forKey: .billingMode)
-        self.operateTime = try decoderContainer.decode(String?.self, forKey: .operateTime)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.transactionNo)
+        {
+            self.transactionNo = try decoderContainer.decode(String?.self, forKey: .transactionNo)
+        }
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.timeUnit)
+        {
+            self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
+        }
+        if decoderContainer.contains(.timeSpan)
+        {
+            self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.billingStatus)
+        {
+            self.billingStatus = try decoderContainer.decode(Int?.self, forKey: .billingStatus)
+        }
+        if decoderContainer.contains(.networkOperator)
+        {
+            self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.site)
+        {
+            self.site = try decoderContainer.decode(Int?.self, forKey: .site)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.formula)
+        {
+            self.formula = try decoderContainer.decode([Formula?]?.self, forKey: .formula)
+        }
+        if decoderContainer.contains(.isOnTrial)
+        {
+            self.isOnTrial = try decoderContainer.decode(Int?.self, forKey: .isOnTrial)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.payTime)
+        {
+            self.payTime = try decoderContainer.decode(String?.self, forKey: .payTime)
+        }
+        if decoderContainer.contains(.formulaStr)
+        {
+            self.formulaStr = try decoderContainer.decode(String?.self, forKey: .formulaStr)
+        }
+        if decoderContainer.contains(.chargeMode)
+        {
+            self.chargeMode = try decoderContainer.decode(Int?.self, forKey: .chargeMode)
+        }
+        if decoderContainer.contains(.chargeDuration)
+        {
+            self.chargeDuration = try decoderContainer.decode(Int?.self, forKey: .chargeDuration)
+        }
+        if decoderContainer.contains(.chargeUnit)
+        {
+            self.chargeUnit = try decoderContainer.decode(Int?.self, forKey: .chargeUnit)
+        }
+        if decoderContainer.contains(.aeStatus)
+        {
+            self.aeStatus = try decoderContainer.decode(Int?.self, forKey: .aeStatus)
+        }
+        if decoderContainer.contains(.releasingTime)
+        {
+            self.releasingTime = try decoderContainer.decode(String?.self, forKey: .releasingTime)
+        }
+        if decoderContainer.contains(.sourceId)
+        {
+            self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
+        }
+        if decoderContainer.contains(.billingStartTime)
+        {
+            self.billingStartTime = try decoderContainer.decode(String?.self, forKey: .billingStartTime)
+        }
+        if decoderContainer.contains(.priceMap)
+        {
+            self.priceMap = try decoderContainer.decode(PriceMap?.self, forKey: .priceMap)
+        }
+        if decoderContainer.contains(.priceSnapshot)
+        {
+            self.priceSnapshot = try decoderContainer.decode(String?.self, forKey: .priceSnapshot)
+        }
+        if decoderContainer.contains(.price)
+        {
+            self.price = try decoderContainer.decode(Double?.self, forKey: .price)
+        }
+        if decoderContainer.contains(.discountedPrice)
+        {
+            self.discountedPrice = try decoderContainer.decode(Double?.self, forKey: .discountedPrice)
+        }
+        if decoderContainer.contains(.expiringDays)
+        {
+            self.expiringDays = try decoderContainer.decode(Int?.self, forKey: .expiringDays)
+        }
+        if decoderContainer.contains(.billingCategoryDescription)
+        {
+            self.billingCategoryDescription = try decoderContainer.decode(String?.self, forKey: .billingCategoryDescription)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.refundNo)
+        {
+            self.refundNo = try decoderContainer.decode(String?.self, forKey: .refundNo)
+        }
+        if decoderContainer.contains(.billingTypeName)
+        {
+            self.billingTypeName = try decoderContainer.decode(String?.self, forKey: .billingTypeName)
+        }
+        if decoderContainer.contains(.favorableInfo)
+        {
+            self.favorableInfo = try decoderContainer.decode(String?.self, forKey: .favorableInfo)
+        }
+        if decoderContainer.contains(.resourceName)
+        {
+            self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
+        }
+        if decoderContainer.contains(.processType)
+        {
+            self.processType = try decoderContainer.decode(Int?.self, forKey: .processType)
+        }
+        if decoderContainer.contains(.applicant)
+        {
+            self.applicant = try decoderContainer.decode(String?.self, forKey: .applicant)
+        }
+        if decoderContainer.contains(.billingMode)
+        {
+            self.billingMode = try decoderContainer.decode(Int?.self, forKey: .billingMode)
+        }
+        if decoderContainer.contains(.operateTime)
+        {
+            self.operateTime = try decoderContainer.decode(String?.self, forKey: .operateTime)
+        }
     }
 }
 public extension ResourceOrderVo{

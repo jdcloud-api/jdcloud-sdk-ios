@@ -58,12 +58,30 @@ public class IpResourceInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpResourceInfoCodingKeys.self)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.safeStatus = try decoderContainer.decode(Int?.self, forKey: .safeStatus)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.blackHoleThreshold = try decoderContainer.decode(Int64?.self, forKey: .blackHoleThreshold)
-        self.cleanThresholdBps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdBps)
-        self.cleanThresholdPps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdPps)
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.safeStatus)
+        {
+            self.safeStatus = try decoderContainer.decode(Int?.self, forKey: .safeStatus)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.blackHoleThreshold)
+        {
+            self.blackHoleThreshold = try decoderContainer.decode(Int64?.self, forKey: .blackHoleThreshold)
+        }
+        if decoderContainer.contains(.cleanThresholdBps)
+        {
+            self.cleanThresholdBps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdBps)
+        }
+        if decoderContainer.contains(.cleanThresholdPps)
+        {
+            self.cleanThresholdPps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdPps)
+        }
     }
 }
 public extension IpResourceInfo{

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeFlavorsResult:NSObject,JdCloudResult
 {
     /// Flavors
-    var flavors:Flavor?
+    var flavors:[Flavor?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeFlavorsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeFlavorsResultCodingKeys.self)
-        self.flavors = try decoderContainer.decode(Flavor?.self, forKey: .flavors)
+        if decoderContainer.contains(.flavors)
+        {
+            self.flavors = try decoderContainer.decode([Flavor?]?.self, forKey: .flavors)
+        }
     }
 }
 public extension DescribeFlavorsResult{

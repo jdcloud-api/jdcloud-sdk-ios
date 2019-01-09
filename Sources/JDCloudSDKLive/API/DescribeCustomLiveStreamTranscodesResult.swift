@@ -38,8 +38,8 @@ public class DescribeCustomLiveStreamTranscodesResult:NSObject,JdCloudResult
     /// 查询总数
     var totalCount:Double?
 
-    /// TranscodeTemplateList
-    var transcodeTemplateList:TranscodeInfo?
+    /// 码率信息
+    var transcodeTemplateList:[TranscodeInfo?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeCustomLiveStreamTranscodesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamTranscodesResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.transcodeTemplateList = try decoderContainer.decode(TranscodeInfo?.self, forKey: .transcodeTemplateList)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.transcodeTemplateList)
+        {
+            self.transcodeTemplateList = try decoderContainer.decode([TranscodeInfo?]?.self, forKey: .transcodeTemplateList)
+        }
     }
 }
 public extension DescribeCustomLiveStreamTranscodesResult{

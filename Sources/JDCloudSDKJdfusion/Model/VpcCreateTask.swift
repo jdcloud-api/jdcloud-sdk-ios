@@ -43,7 +43,10 @@ public class VpcCreateTask:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcCreateTaskCodingKeys.self)
-        self.task = try decoderContainer.decode(ResourceTFInfo?.self, forKey: .task)
+        if decoderContainer.contains(.task)
+        {
+            self.task = try decoderContainer.decode(ResourceTFInfo?.self, forKey: .task)
+        }
     }
 }
 public extension VpcCreateTask{

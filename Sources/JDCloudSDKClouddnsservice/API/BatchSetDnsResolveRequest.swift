@@ -33,10 +33,10 @@ import JDCloudSDKCore
 public class BatchSetDnsResolveRequest:JdCloudRequest
 {
     /// 需要设置的解析记录列表
-    var req:BatchSetDNS?
+    var req:[BatchSetDNS?]?
 
 
-    public init(regionId: String,req:BatchSetDNS?){
+    public init(regionId: String,req:[BatchSetDNS?]?){
         self.req = req
         super.init(regionId: regionId)
     }

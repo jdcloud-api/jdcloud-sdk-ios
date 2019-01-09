@@ -48,7 +48,7 @@ public class NetworkInterface:NSObject,Codable{
     /// 网卡主IP
     var primaryIp:NetworkInterfacePrivateIp?
     /// 网卡附属IP列表
-    var secondaryIps:NetworkInterfacePrivateIp?
+    var secondaryIps:[NetworkInterfacePrivateIp?]?
     /// 关联实例类型，取值范围：vm
     var instanceType:String?
     /// 关联实例ID
@@ -91,23 +91,74 @@ public class NetworkInterface:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NetworkInterfaceCodingKeys.self)
-        self.networkInterfaceName = try decoderContainer.decode(String?.self, forKey: .networkInterfaceName)
-        self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.role = try decoderContainer.decode(String?.self, forKey: .role)
-        self.macAddress = try decoderContainer.decode(String?.self, forKey: .macAddress)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.networkSecurityGroupIds = try decoderContainer.decode([String?]?.self, forKey: .networkSecurityGroupIds)
-        self.sanityCheck = try decoderContainer.decode(Int?.self, forKey: .sanityCheck)
-        self.primaryIp = try decoderContainer.decode(NetworkInterfacePrivateIp?.self, forKey: .primaryIp)
-        self.secondaryIps = try decoderContainer.decode(NetworkInterfacePrivateIp?.self, forKey: .secondaryIps)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceOwnerId = try decoderContainer.decode(String?.self, forKey: .instanceOwnerId)
-        self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.networkInterfaceName)
+        {
+            self.networkInterfaceName = try decoderContainer.decode(String?.self, forKey: .networkInterfaceName)
+        }
+        if decoderContainer.contains(.networkInterfaceId)
+        {
+            self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.role)
+        {
+            self.role = try decoderContainer.decode(String?.self, forKey: .role)
+        }
+        if decoderContainer.contains(.macAddress)
+        {
+            self.macAddress = try decoderContainer.decode(String?.self, forKey: .macAddress)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.networkSecurityGroupIds)
+        {
+            self.networkSecurityGroupIds = try decoderContainer.decode([String?]?.self, forKey: .networkSecurityGroupIds)
+        }
+        if decoderContainer.contains(.sanityCheck)
+        {
+            self.sanityCheck = try decoderContainer.decode(Int?.self, forKey: .sanityCheck)
+        }
+        if decoderContainer.contains(.primaryIp)
+        {
+            self.primaryIp = try decoderContainer.decode(NetworkInterfacePrivateIp?.self, forKey: .primaryIp)
+        }
+        if decoderContainer.contains(.secondaryIps)
+        {
+            self.secondaryIps = try decoderContainer.decode([NetworkInterfacePrivateIp?]?.self, forKey: .secondaryIps)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceOwnerId)
+        {
+            self.instanceOwnerId = try decoderContainer.decode(String?.self, forKey: .instanceOwnerId)
+        }
+        if decoderContainer.contains(.deviceIndex)
+        {
+            self.deviceIndex = try decoderContainer.decode(Int?.self, forKey: .deviceIndex)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension NetworkInterface{

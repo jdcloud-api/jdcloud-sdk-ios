@@ -28,9 +28,9 @@ import Foundation
 @objc(DomainList)
 public class DomainList:NSObject,Codable{
     /// 推流域名集合
-    var publishDomain:PublishDomain?
+    var publishDomain:[PublishDomain?]?
     /// 直播域名集合
-    var playDomain:PlayDomain?
+    var playDomain:[PlayDomain?]?
 
 
 
@@ -46,8 +46,14 @@ public class DomainList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainListCodingKeys.self)
-        self.publishDomain = try decoderContainer.decode(PublishDomain?.self, forKey: .publishDomain)
-        self.playDomain = try decoderContainer.decode(PlayDomain?.self, forKey: .playDomain)
+        if decoderContainer.contains(.publishDomain)
+        {
+            self.publishDomain = try decoderContainer.decode([PublishDomain?]?.self, forKey: .publishDomain)
+        }
+        if decoderContainer.contains(.playDomain)
+        {
+            self.playDomain = try decoderContainer.decode([PlayDomain?]?.self, forKey: .playDomain)
+        }
     }
 }
 public extension DomainList{

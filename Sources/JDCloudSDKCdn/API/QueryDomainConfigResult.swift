@@ -69,7 +69,7 @@ public class QueryDomainConfigResult:NSObject,JdCloudResult
     var isShareOpen:String?
 
     /// CacheRules
-    var cacheRules:CacheRule?
+    var cacheRules:[CacheRule?]?
 
 
 
@@ -96,20 +96,62 @@ public class QueryDomainConfigResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryDomainConfigResultCodingKeys.self)
-        self.ignoreQueryString = try decoderContainer.decode(String?.self, forKey: .ignoreQueryString)
-        self.range = try decoderContainer.decode(String?.self, forKey: .range)
-        self.httpType = try decoderContainer.decode(String?.self, forKey: .httpType)
-        self.httpsCertificate = try decoderContainer.decode(String?.self, forKey: .httpsCertificate)
-        self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
-        self.httpsJumpType = try decoderContainer.decode(String?.self, forKey: .httpsJumpType)
-        self.videoDraft = try decoderContainer.decode(String?.self, forKey: .videoDraft)
-        self.groupName = try decoderContainer.decode(String?.self, forKey: .groupName)
-        self.shareId = try decoderContainer.decode(Int64?.self, forKey: .shareId)
-        self.shareName = try decoderContainer.decode(String?.self, forKey: .shareName)
-        self.jcdnTimeAnti = try decoderContainer.decode(String?.self, forKey: .jcdnTimeAnti)
-        self.shareCache = try decoderContainer.decode(String?.self, forKey: .shareCache)
-        self.isShareOpen = try decoderContainer.decode(String?.self, forKey: .isShareOpen)
-        self.cacheRules = try decoderContainer.decode(CacheRule?.self, forKey: .cacheRules)
+        if decoderContainer.contains(.ignoreQueryString)
+        {
+            self.ignoreQueryString = try decoderContainer.decode(String?.self, forKey: .ignoreQueryString)
+        }
+        if decoderContainer.contains(.range)
+        {
+            self.range = try decoderContainer.decode(String?.self, forKey: .range)
+        }
+        if decoderContainer.contains(.httpType)
+        {
+            self.httpType = try decoderContainer.decode(String?.self, forKey: .httpType)
+        }
+        if decoderContainer.contains(.httpsCertificate)
+        {
+            self.httpsCertificate = try decoderContainer.decode(String?.self, forKey: .httpsCertificate)
+        }
+        if decoderContainer.contains(.httpsRsaKey)
+        {
+            self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
+        }
+        if decoderContainer.contains(.httpsJumpType)
+        {
+            self.httpsJumpType = try decoderContainer.decode(String?.self, forKey: .httpsJumpType)
+        }
+        if decoderContainer.contains(.videoDraft)
+        {
+            self.videoDraft = try decoderContainer.decode(String?.self, forKey: .videoDraft)
+        }
+        if decoderContainer.contains(.groupName)
+        {
+            self.groupName = try decoderContainer.decode(String?.self, forKey: .groupName)
+        }
+        if decoderContainer.contains(.shareId)
+        {
+            self.shareId = try decoderContainer.decode(Int64?.self, forKey: .shareId)
+        }
+        if decoderContainer.contains(.shareName)
+        {
+            self.shareName = try decoderContainer.decode(String?.self, forKey: .shareName)
+        }
+        if decoderContainer.contains(.jcdnTimeAnti)
+        {
+            self.jcdnTimeAnti = try decoderContainer.decode(String?.self, forKey: .jcdnTimeAnti)
+        }
+        if decoderContainer.contains(.shareCache)
+        {
+            self.shareCache = try decoderContainer.decode(String?.self, forKey: .shareCache)
+        }
+        if decoderContainer.contains(.isShareOpen)
+        {
+            self.isShareOpen = try decoderContainer.decode(String?.self, forKey: .isShareOpen)
+        }
+        if decoderContainer.contains(.cacheRules)
+        {
+            self.cacheRules = try decoderContainer.decode([CacheRule?]?.self, forKey: .cacheRules)
+        }
     }
 }
 public extension QueryDomainConfigResult{

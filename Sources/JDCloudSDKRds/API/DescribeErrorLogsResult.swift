@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeErrorLogsResult)
 public class DescribeErrorLogsResult:NSObject,JdCloudResult
 {
-    /// ErrorLogs
-    var errorLogs:ErrorLog?
+    /// 错误日志文件的集合
+    var errorLogs:[ErrorLog?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeErrorLogsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeErrorLogsResultCodingKeys.self)
-        self.errorLogs = try decoderContainer.decode(ErrorLog?.self, forKey: .errorLogs)
+        if decoderContainer.contains(.errorLogs)
+        {
+            self.errorLogs = try decoderContainer.decode([ErrorLog?]?.self, forKey: .errorLogs)
+        }
     }
 }
 public extension DescribeErrorLogsResult{

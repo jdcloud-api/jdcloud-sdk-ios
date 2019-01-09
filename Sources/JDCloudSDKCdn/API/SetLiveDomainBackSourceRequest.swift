@@ -40,10 +40,10 @@ public class SetLiveDomainBackSourceRequest:JdCloudRequest
     var defaultSourceHost:String?
 
     /// DomainSource
-    var domainSource:DomainSourceInfo?
+    var domainSource:[DomainSourceInfo?]?
 
     /// IpSource
-    var ipSource:IpSourceInfo?
+    var ipSource:[IpSourceInfo?]?
 
     /// 用户域名
     var domain:String

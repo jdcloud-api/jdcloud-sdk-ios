@@ -52,10 +52,22 @@ public class BackSourceHeaderRule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackSourceHeaderRuleCodingKeys.self)
-        self.allowAllHeaders = try decoderContainer.decode(Bool?.self, forKey: .allowAllHeaders)
-        self.allowHeaders = try decoderContainer.decode([String?]?.self, forKey: .allowHeaders)
-        self.notAllowHeaders = try decoderContainer.decode([String?]?.self, forKey: .notAllowHeaders)
-        self.setHeaders = try decoderContainer.decode([String:String?]?.self, forKey: .setHeaders)
+        if decoderContainer.contains(.allowAllHeaders)
+        {
+            self.allowAllHeaders = try decoderContainer.decode(Bool?.self, forKey: .allowAllHeaders)
+        }
+        if decoderContainer.contains(.allowHeaders)
+        {
+            self.allowHeaders = try decoderContainer.decode([String?]?.self, forKey: .allowHeaders)
+        }
+        if decoderContainer.contains(.notAllowHeaders)
+        {
+            self.notAllowHeaders = try decoderContainer.decode([String?]?.self, forKey: .notAllowHeaders)
+        }
+        if decoderContainer.contains(.setHeaders)
+        {
+            self.setHeaders = try decoderContainer.decode([String:String?]?.self, forKey: .setHeaders)
+        }
     }
 }
 public extension BackSourceHeaderRule{

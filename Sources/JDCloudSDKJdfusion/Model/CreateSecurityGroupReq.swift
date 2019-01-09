@@ -43,7 +43,10 @@ public class CreateSecurityGroupReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateSecurityGroupReqCodingKeys.self)
-        self.securityGroup = try decoderContainer.decode(CreateSecurityGroup?.self, forKey: .securityGroup)
+        if decoderContainer.contains(.securityGroup)
+        {
+            self.securityGroup = try decoderContainer.decode(CreateSecurityGroup?.self, forKey: .securityGroup)
+        }
     }
 }
 public extension CreateSecurityGroupReq{

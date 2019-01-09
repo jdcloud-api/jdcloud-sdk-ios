@@ -92,12 +92,24 @@ public class CreateCmAlarmParam:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateCmAlarmParamCodingKeys.self)
         self.calculation = try decoderContainer.decode(String.self, forKey: .calculation)
-        self.contactGroups = try decoderContainer.decode([String?]?.self, forKey: .contactGroups)
-        self.contactPersons = try decoderContainer.decode([String?]?.self, forKey: .contactPersons)
-        self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        if decoderContainer.contains(.contactGroups)
+        {
+            self.contactGroups = try decoderContainer.decode([String?]?.self, forKey: .contactGroups)
+        }
+        if decoderContainer.contains(.contactPersons)
+        {
+            self.contactPersons = try decoderContainer.decode([String?]?.self, forKey: .contactPersons)
+        }
+        if decoderContainer.contains(.downSample)
+        {
+            self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        }
         self.metricUID = try decoderContainer.decode(String.self, forKey: .metricUID)
         self.namespaceUID = try decoderContainer.decode(String.self, forKey: .namespaceUID)
-        self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        if decoderContainer.contains(.noticePeriod)
+        {
+            self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        }
         self.objUIDs = try decoderContainer.decode([String?].self, forKey: .objUIDs)
         self.operation = try decoderContainer.decode(String.self, forKey: .operation)
         self.period = try decoderContainer.decode(Int64.self, forKey: .period)

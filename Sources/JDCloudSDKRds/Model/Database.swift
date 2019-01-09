@@ -36,7 +36,7 @@ public class Database:NSObject,Codable{
     /// 数据库创建时间，格式YYYY-MM-DD HH:mm:ss&lt;br&gt;- 仅支持SQL Server
     var createTime:String?
     /// 该数据库相关账户权限列表
-    var accessPrivilege:DBAccessPrivilege?
+    var accessPrivilege:[DBAccessPrivilege?]?
 
 
 
@@ -55,11 +55,26 @@ public class Database:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DatabaseCodingKeys.self)
-        self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
-        self.dbStatus = try decoderContainer.decode(String?.self, forKey: .dbStatus)
-        self.characterSetName = try decoderContainer.decode(String?.self, forKey: .characterSetName)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.accessPrivilege = try decoderContainer.decode(DBAccessPrivilege?.self, forKey: .accessPrivilege)
+        if decoderContainer.contains(.dbName)
+        {
+            self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
+        }
+        if decoderContainer.contains(.dbStatus)
+        {
+            self.dbStatus = try decoderContainer.decode(String?.self, forKey: .dbStatus)
+        }
+        if decoderContainer.contains(.characterSetName)
+        {
+            self.characterSetName = try decoderContainer.decode(String?.self, forKey: .characterSetName)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.accessPrivilege)
+        {
+            self.accessPrivilege = try decoderContainer.decode([DBAccessPrivilege?]?.self, forKey: .accessPrivilege)
+        }
     }
 }
 public extension Database{

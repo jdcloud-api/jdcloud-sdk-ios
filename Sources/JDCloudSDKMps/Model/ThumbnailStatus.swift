@@ -51,8 +51,14 @@ public class ThumbnailStatus:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ThumbnailStatusCodingKeys.self)
         self.status = try decoderContainer.decode(String.self, forKey: .status)
-        self.errorCode = try decoderContainer.decode(Int?.self, forKey: .errorCode)
-        self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        if decoderContainer.contains(.errorCode)
+        {
+            self.errorCode = try decoderContainer.decode(Int?.self, forKey: .errorCode)
+        }
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        }
     }
 }
 public extension ThumbnailStatus{

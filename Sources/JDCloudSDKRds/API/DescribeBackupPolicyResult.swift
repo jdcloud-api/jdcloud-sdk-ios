@@ -56,10 +56,22 @@ public class DescribeBackupPolicyResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeBackupPolicyResultCodingKeys.self)
-        self.startWindow = try decoderContainer.decode(String?.self, forKey: .startWindow)
-        self.retentionPeriod = try decoderContainer.decode(Int?.self, forKey: .retentionPeriod)
-        self.cycleMode = try decoderContainer.decode(Int?.self, forKey: .cycleMode)
-        self.backupBinlog = try decoderContainer.decode(String?.self, forKey: .backupBinlog)
+        if decoderContainer.contains(.startWindow)
+        {
+            self.startWindow = try decoderContainer.decode(String?.self, forKey: .startWindow)
+        }
+        if decoderContainer.contains(.retentionPeriod)
+        {
+            self.retentionPeriod = try decoderContainer.decode(Int?.self, forKey: .retentionPeriod)
+        }
+        if decoderContainer.contains(.cycleMode)
+        {
+            self.cycleMode = try decoderContainer.decode(Int?.self, forKey: .cycleMode)
+        }
+        if decoderContainer.contains(.backupBinlog)
+        {
+            self.backupBinlog = try decoderContainer.decode(String?.self, forKey: .backupBinlog)
+        }
     }
 }
 public extension DescribeBackupPolicyResult{

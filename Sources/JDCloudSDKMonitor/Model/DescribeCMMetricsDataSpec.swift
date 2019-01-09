@@ -59,11 +59,26 @@ public class DescribeCMMetricsDataSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCMMetricsDataSpecCodingKeys.self)
-        self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.metricUID = try decoderContainer.decode([String?]?.self, forKey: .metricUID)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.timeInterval = try decoderContainer.decode(String?.self, forKey: .timeInterval)
+        if decoderContainer.contains(.aggrType)
+        {
+            self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.metricUID)
+        {
+            self.metricUID = try decoderContainer.decode([String?]?.self, forKey: .metricUID)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.timeInterval)
+        {
+            self.timeInterval = try decoderContainer.decode(String?.self, forKey: .timeInterval)
+        }
     }
 }
 public extension DescribeCMMetricsDataSpec{

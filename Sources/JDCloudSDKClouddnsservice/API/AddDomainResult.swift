@@ -48,8 +48,14 @@ public class AddDomainResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AddDomainResultCodingKeys.self)
-        self.data = try decoderContainer.decode(DomainAdded?.self, forKey: .data)
-        self.order = try decoderContainer.decode(String?.self, forKey: .order)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(DomainAdded?.self, forKey: .data)
+        }
+        if decoderContainer.contains(.order)
+        {
+            self.order = try decoderContainer.decode(String?.self, forKey: .order)
+        }
     }
 }
 public extension AddDomainResult{

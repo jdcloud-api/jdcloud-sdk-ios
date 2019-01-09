@@ -52,10 +52,22 @@ public class Code:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CodeCodingKeys.self)
-        self.zipFile = try decoderContainer.decode(String?.self, forKey: .zipFile)
-        self.onlineCode = try decoderContainer.decode(String?.self, forKey: .onlineCode)
-        self.bucketName = try decoderContainer.decode(String?.self, forKey: .bucketName)
-        self.objectName = try decoderContainer.decode(String?.self, forKey: .objectName)
+        if decoderContainer.contains(.zipFile)
+        {
+            self.zipFile = try decoderContainer.decode(String?.self, forKey: .zipFile)
+        }
+        if decoderContainer.contains(.onlineCode)
+        {
+            self.onlineCode = try decoderContainer.decode(String?.self, forKey: .onlineCode)
+        }
+        if decoderContainer.contains(.bucketName)
+        {
+            self.bucketName = try decoderContainer.decode(String?.self, forKey: .bucketName)
+        }
+        if decoderContainer.contains(.objectName)
+        {
+            self.objectName = try decoderContainer.decode(String?.self, forKey: .objectName)
+        }
     }
 }
 public extension Code{

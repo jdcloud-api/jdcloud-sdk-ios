@@ -86,21 +86,66 @@ public class CacheInstance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CacheInstanceCodingKeys.self)
-        self.cacheInstanceId = try decoderContainer.decode(String?.self, forKey: .cacheInstanceId)
-        self.cacheInstanceName = try decoderContainer.decode(String?.self, forKey: .cacheInstanceName)
-        self.cacheInstanceClass = try decoderContainer.decode(String?.self, forKey: .cacheInstanceClass)
-        self.cacheInstanceMemoryMB = try decoderContainer.decode(Int?.self, forKey: .cacheInstanceMemoryMB)
-        self.cacheInstanceStatus = try decoderContainer.decode(String?.self, forKey: .cacheInstanceStatus)
-        self.cacheInstanceDescription = try decoderContainer.decode(String?.self, forKey: .cacheInstanceDescription)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.azId = try decoderContainer.decode(AzId?.self, forKey: .azId)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.connectionDomain = try decoderContainer.decode(String?.self, forKey: .connectionDomain)
-        self.port = try decoderContainer.decode(Int?.self, forKey: .port)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.instanceVersion = try decoderContainer.decode(String?.self, forKey: .instanceVersion)
-        self.auth = try decoderContainer.decode(Bool?.self, forKey: .auth)
+        if decoderContainer.contains(.cacheInstanceId)
+        {
+            self.cacheInstanceId = try decoderContainer.decode(String?.self, forKey: .cacheInstanceId)
+        }
+        if decoderContainer.contains(.cacheInstanceName)
+        {
+            self.cacheInstanceName = try decoderContainer.decode(String?.self, forKey: .cacheInstanceName)
+        }
+        if decoderContainer.contains(.cacheInstanceClass)
+        {
+            self.cacheInstanceClass = try decoderContainer.decode(String?.self, forKey: .cacheInstanceClass)
+        }
+        if decoderContainer.contains(.cacheInstanceMemoryMB)
+        {
+            self.cacheInstanceMemoryMB = try decoderContainer.decode(Int?.self, forKey: .cacheInstanceMemoryMB)
+        }
+        if decoderContainer.contains(.cacheInstanceStatus)
+        {
+            self.cacheInstanceStatus = try decoderContainer.decode(String?.self, forKey: .cacheInstanceStatus)
+        }
+        if decoderContainer.contains(.cacheInstanceDescription)
+        {
+            self.cacheInstanceDescription = try decoderContainer.decode(String?.self, forKey: .cacheInstanceDescription)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.azId)
+        {
+            self.azId = try decoderContainer.decode(AzId?.self, forKey: .azId)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.connectionDomain)
+        {
+            self.connectionDomain = try decoderContainer.decode(String?.self, forKey: .connectionDomain)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(Int?.self, forKey: .port)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.instanceVersion)
+        {
+            self.instanceVersion = try decoderContainer.decode(String?.self, forKey: .instanceVersion)
+        }
+        if decoderContainer.contains(.auth)
+        {
+            self.auth = try decoderContainer.decode(Bool?.self, forKey: .auth)
+        }
     }
 }
 public extension CacheInstance{

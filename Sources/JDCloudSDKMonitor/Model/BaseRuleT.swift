@@ -94,17 +94,32 @@ public class BaseRuleT:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BaseRuleTCodingKeys.self)
-        self.autoScalingPolicyId = try decoderContainer.decode(String?.self, forKey: .autoScalingPolicyId)
-        self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        if decoderContainer.contains(.autoScalingPolicyId)
+        {
+            self.autoScalingPolicyId = try decoderContainer.decode(String?.self, forKey: .autoScalingPolicyId)
+        }
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
         self.calculation = try decoderContainer.decode(String.self, forKey: .calculation)
-        self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        if decoderContainer.contains(.downSample)
+        {
+            self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        }
         self.metricId = try decoderContainer.decode(Int64.self, forKey: .metricId)
-        self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
+        if decoderContainer.contains(.noticeLevel)
+        {
+            self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
+        }
         self.noticePeriod = try decoderContainer.decode(Int64.self, forKey: .noticePeriod)
         self.operation = try decoderContainer.decode(String.self, forKey: .operation)
         self.period = try decoderContainer.decode(Int64.self, forKey: .period)
         self.ruleType = try decoderContainer.decode(Int64.self, forKey: .ruleType)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
         self.threshold = try decoderContainer.decode(Double.self, forKey: .threshold)
         self.times = try decoderContainer.decode(Int64.self, forKey: .times)
     }

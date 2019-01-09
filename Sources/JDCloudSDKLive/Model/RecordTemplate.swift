@@ -55,11 +55,26 @@ public class RecordTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RecordTemplateCodingKeys.self)
-        self.recordPeriod = try decoderContainer.decode(Int?.self, forKey: .recordPeriod)
-        self.saveBucket = try decoderContainer.decode(String?.self, forKey: .saveBucket)
-        self.saveEndpoint = try decoderContainer.decode(String?.self, forKey: .saveEndpoint)
-        self.recordFileType = try decoderContainer.decode(String?.self, forKey: .recordFileType)
-        self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        if decoderContainer.contains(.recordPeriod)
+        {
+            self.recordPeriod = try decoderContainer.decode(Int?.self, forKey: .recordPeriod)
+        }
+        if decoderContainer.contains(.saveBucket)
+        {
+            self.saveBucket = try decoderContainer.decode(String?.self, forKey: .saveBucket)
+        }
+        if decoderContainer.contains(.saveEndpoint)
+        {
+            self.saveEndpoint = try decoderContainer.decode(String?.self, forKey: .saveEndpoint)
+        }
+        if decoderContainer.contains(.recordFileType)
+        {
+            self.recordFileType = try decoderContainer.decode(String?.self, forKey: .recordFileType)
+        }
+        if decoderContainer.contains(.template)
+        {
+            self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        }
     }
 }
 public extension RecordTemplate{

@@ -44,7 +44,10 @@ public class DescribeForwardRuleResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeForwardRuleResultCodingKeys.self)
-        self.data = try decoderContainer.decode(ForwardRule?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(ForwardRule?.self, forKey: .data)
+        }
     }
 }
 public extension DescribeForwardRuleResult{

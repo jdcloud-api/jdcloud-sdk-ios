@@ -32,7 +32,7 @@ public class IspLocation:NSObject,Codable{
     /// SispName
     var sispName:String?
     /// Slocs
-    var slocs:Location?
+    var slocs:[Location?]?
 
 
 
@@ -49,9 +49,18 @@ public class IspLocation:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IspLocationCodingKeys.self)
-        self.sisp = try decoderContainer.decode(String?.self, forKey: .sisp)
-        self.sispName = try decoderContainer.decode(String?.self, forKey: .sispName)
-        self.slocs = try decoderContainer.decode(Location?.self, forKey: .slocs)
+        if decoderContainer.contains(.sisp)
+        {
+            self.sisp = try decoderContainer.decode(String?.self, forKey: .sisp)
+        }
+        if decoderContainer.contains(.sispName)
+        {
+            self.sispName = try decoderContainer.decode(String?.self, forKey: .sispName)
+        }
+        if decoderContainer.contains(.slocs)
+        {
+            self.slocs = try decoderContainer.decode([Location?]?.self, forKey: .slocs)
+        }
     }
 }
 public extension IspLocation{

@@ -46,8 +46,14 @@ public class LocalDisk:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LocalDiskCodingKeys.self)
-        self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
-        self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
+        if decoderContainer.contains(.diskType)
+        {
+            self.diskType = try decoderContainer.decode(String?.self, forKey: .diskType)
+        }
+        if decoderContainer.contains(.diskSizeGB)
+        {
+            self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
+        }
     }
 }
 public extension LocalDisk{

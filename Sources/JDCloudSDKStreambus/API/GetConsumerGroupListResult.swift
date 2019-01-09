@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetConsumerGroupListResult:NSObject,JdCloudResult
 {
     /// ConsumerGroup
-    var consumerGroup:ConsumerGroup?
+    var consumerGroup:[ConsumerGroup?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetConsumerGroupListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetConsumerGroupListResultCodingKeys.self)
-        self.consumerGroup = try decoderContainer.decode(ConsumerGroup?.self, forKey: .consumerGroup)
+        if decoderContainer.contains(.consumerGroup)
+        {
+            self.consumerGroup = try decoderContainer.decode([ConsumerGroup?]?.self, forKey: .consumerGroup)
+        }
     }
 }
 public extension GetConsumerGroupListResult{

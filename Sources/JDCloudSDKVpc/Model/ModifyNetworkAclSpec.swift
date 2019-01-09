@@ -46,8 +46,14 @@ public class ModifyNetworkAclSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyNetworkAclSpecCodingKeys.self)
-        self.networkAclName = try decoderContainer.decode(String?.self, forKey: .networkAclName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.networkAclName)
+        {
+            self.networkAclName = try decoderContainer.decode(String?.self, forKey: .networkAclName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifyNetworkAclSpec{

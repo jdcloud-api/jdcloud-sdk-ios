@@ -46,7 +46,7 @@ public class VmInfo:NSObject,Codable{
     /// 子网ID
     var subnetId:String?
     /// Tags
-    var tags:Tag?
+    var tags:[Tag?]?
     /// 所属云提供商ID
     var cloudID:String?
     /// 密钥对名称,jd当前只支持传入一个
@@ -88,22 +88,70 @@ public class VmInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmInfoCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
-        self.imageType = try decoderContainer.decode(ImageType?.self, forKey: .imageType)
-        self.instanceType = try decoderContainer.decode(InstanceType?.self, forKey: .instanceType)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.hostName)
+        {
+            self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
+        }
+        if decoderContainer.contains(.imageType)
+        {
+            self.imageType = try decoderContainer.decode(ImageType?.self, forKey: .imageType)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(InstanceType?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.keyNames)
+        {
+            self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension VmInfo{

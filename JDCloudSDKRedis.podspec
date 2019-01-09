@@ -1,20 +1,18 @@
 Pod::Spec.new do |s|
  
   s.name         = "JDCloudSDKRedis"
-  s.version      = "0.0.2"
-  s.summary      = "JD Cloud open API SDK Redis"
+  s.version      = "0.0.3"
+  s.summary      = "JD Cloud Open API Swift SDK Redis"
  
   s.description  = <<-DESC
-    JDCloud Open API SDK Redis framework   
+    JDCloud Open API Swift SDK Redis framework
   DESC
 
   s.homepage     = "https://github.com/jdcloud-api/jdcloud-sdk-ios"
- 
- 
 
   s.license      = "Apache License, Version 2.0"
   
-  s.author             = { "JDCloud API GateWay Team" => "JDCloud API GateWay Team" }
+  s.author       = { "JDCloud API GateWay Team" => "JDCloud API GateWay Team" }
 
  
   s.ios.deployment_target = "8.0"

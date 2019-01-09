@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeOSResult:NSObject,JdCloudResult
 {
     /// Oss
-    var oss:Os?
+    var oss:[Os?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeOSResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeOSResultCodingKeys.self)
-        self.oss = try decoderContainer.decode(Os?.self, forKey: .oss)
+        if decoderContainer.contains(.oss)
+        {
+            self.oss = try decoderContainer.decode([Os?]?.self, forKey: .oss)
+        }
     }
 }
 public extension DescribeOSResult{

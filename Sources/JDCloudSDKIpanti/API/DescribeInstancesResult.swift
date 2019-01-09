@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeInstancesResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:Instance?
+    var dataList:[Instance?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeInstancesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstancesResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(Instance?.self, forKey: .dataList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([Instance?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeInstancesResult{

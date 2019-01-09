@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcEipCollection)
 public class VpcEipCollection:NSObject,Codable{
     /// EipAddresses
-    var eipAddresses:EipAddress?
+    var eipAddresses:[EipAddress?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcEipCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcEipCollectionCodingKeys.self)
-        self.eipAddresses = try decoderContainer.decode(EipAddress?.self, forKey: .eipAddresses)
+        if decoderContainer.contains(.eipAddresses)
+        {
+            self.eipAddresses = try decoderContainer.decode([EipAddress?]?.self, forKey: .eipAddresses)
+        }
     }
 }
 public extension VpcEipCollection{

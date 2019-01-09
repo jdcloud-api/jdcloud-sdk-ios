@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeSubnetsResult)
 public class DescribeSubnetsResult:NSObject,JdCloudResult
 {
-    /// Subnets
-    var subnets:Subnet?
+    /// 子网资源信息列表
+    var subnets:[Subnet?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeSubnetsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSubnetsResultCodingKeys.self)
-        self.subnets = try decoderContainer.decode(Subnet?.self, forKey: .subnets)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.subnets)
+        {
+            self.subnets = try decoderContainer.decode([Subnet?]?.self, forKey: .subnets)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeSubnetsResult{

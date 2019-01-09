@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(CreateDisksResult)
 public class CreateDisksResult:NSObject,JdCloudResult
 {
-    /// DiskIds
-    var diskIds:String?
+    /// 创建的云硬盘ID列表
+    var diskIds:[String?]?
 
 
 
@@ -44,7 +44,10 @@ public class CreateDisksResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateDisksResultCodingKeys.self)
-        self.diskIds = try decoderContainer.decode(String?.self, forKey: .diskIds)
+        if decoderContainer.contains(.diskIds)
+        {
+            self.diskIds = try decoderContainer.decode([String?]?.self, forKey: .diskIds)
+        }
     }
 }
 public extension CreateDisksResult{

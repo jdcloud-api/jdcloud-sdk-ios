@@ -49,9 +49,18 @@ public class BackendServer2:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackendServer2CodingKeys.self)
-        self.serverId = try decoderContainer.decode(String?.self, forKey: .serverId)
-        self.weight = try decoderContainer.decode(Int32?.self, forKey: .weight)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        if decoderContainer.contains(.serverId)
+        {
+            self.serverId = try decoderContainer.decode(String?.self, forKey: .serverId)
+        }
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int32?.self, forKey: .weight)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
     }
 }
 public extension BackendServer2{

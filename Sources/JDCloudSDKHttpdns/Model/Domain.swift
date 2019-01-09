@@ -58,12 +58,30 @@ public class Domain:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.accountId = try decoderContainer.decode(String?.self, forKey: .accountId)
-        self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
-        self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
-        self.queryCount = try decoderContainer.decode(Int64?.self, forKey: .queryCount)
-        self.isDelete = try decoderContainer.decode(Int?.self, forKey: .isDelete)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.accountId)
+        {
+            self.accountId = try decoderContainer.decode(String?.self, forKey: .accountId)
+        }
+        if decoderContainer.contains(.domainName)
+        {
+            self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.queryCount)
+        {
+            self.queryCount = try decoderContainer.decode(Int64?.self, forKey: .queryCount)
+        }
+        if decoderContainer.contains(.isDelete)
+        {
+            self.isDelete = try decoderContainer.decode(Int?.self, forKey: .isDelete)
+        }
     }
 }
 public extension Domain{

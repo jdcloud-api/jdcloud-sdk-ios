@@ -52,10 +52,22 @@ public class Statistics:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsCodingKeys.self)
-        self.currentFunctionNumber = try decoderContainer.decode(Int?.self, forKey: .currentFunctionNumber)
-        self.maxFunctionNumber = try decoderContainer.decode(Int?.self, forKey: .maxFunctionNumber)
-        self.currentCodeSize = try decoderContainer.decode(Double?.self, forKey: .currentCodeSize)
-        self.maxCodeSize = try decoderContainer.decode(Int?.self, forKey: .maxCodeSize)
+        if decoderContainer.contains(.currentFunctionNumber)
+        {
+            self.currentFunctionNumber = try decoderContainer.decode(Int?.self, forKey: .currentFunctionNumber)
+        }
+        if decoderContainer.contains(.maxFunctionNumber)
+        {
+            self.maxFunctionNumber = try decoderContainer.decode(Int?.self, forKey: .maxFunctionNumber)
+        }
+        if decoderContainer.contains(.currentCodeSize)
+        {
+            self.currentCodeSize = try decoderContainer.decode(Double?.self, forKey: .currentCodeSize)
+        }
+        if decoderContainer.contains(.maxCodeSize)
+        {
+            self.maxCodeSize = try decoderContainer.decode(Int?.self, forKey: .maxCodeSize)
+        }
     }
 }
 public extension Statistics{

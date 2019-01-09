@@ -52,10 +52,22 @@ public class Software:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SoftwareCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.version = try decoderContainer.decode(String?.self, forKey: .version)
-        self.osTypeId = try decoderContainer.decode(String?.self, forKey: .osTypeId)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.version)
+        {
+            self.version = try decoderContainer.decode(String?.self, forKey: .version)
+        }
+        if decoderContainer.contains(.osTypeId)
+        {
+            self.osTypeId = try decoderContainer.decode(String?.self, forKey: .osTypeId)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension Software{

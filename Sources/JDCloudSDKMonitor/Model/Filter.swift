@@ -46,8 +46,14 @@ public class Filter:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FilterCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.values = try decoderContainer.decode([String?]?.self, forKey: .values)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.values)
+        {
+            self.values = try decoderContainer.decode([String?]?.self, forKey: .values)
+        }
     }
 }
 public extension Filter{

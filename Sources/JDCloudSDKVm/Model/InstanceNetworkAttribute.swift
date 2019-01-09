@@ -46,8 +46,14 @@ public class InstanceNetworkAttribute:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceNetworkAttributeCodingKeys.self)
-        self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        if decoderContainer.contains(.networkInterfaceId)
+        {
+            self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        }
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
     }
 }
 public extension InstanceNetworkAttribute{

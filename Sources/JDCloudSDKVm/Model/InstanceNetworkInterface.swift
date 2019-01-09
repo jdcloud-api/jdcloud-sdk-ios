@@ -37,13 +37,13 @@ public class InstanceNetworkInterface:NSObject,Codable{
     /// 子网ID
     var subnetId:String?
     /// SecurityGroups
-    var securityGroups:SecurityGroupSimple?
+    var securityGroups:[SecurityGroupSimple?]?
     /// 源和目标IP地址校验，取值为0或者1
     var sanityCheck:Int?
     /// 网卡主IP
     var primaryIp:NetworkInterfacePrivateIp?
     /// 网卡辅IP
-    var secondaryIps:NetworkInterfacePrivateIp?
+    var secondaryIps:[NetworkInterfacePrivateIp?]?
 
 
 
@@ -65,14 +65,38 @@ public class InstanceNetworkInterface:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceNetworkInterfaceCodingKeys.self)
-        self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
-        self.macAddress = try decoderContainer.decode(String?.self, forKey: .macAddress)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.securityGroups = try decoderContainer.decode(SecurityGroupSimple?.self, forKey: .securityGroups)
-        self.sanityCheck = try decoderContainer.decode(Int?.self, forKey: .sanityCheck)
-        self.primaryIp = try decoderContainer.decode(NetworkInterfacePrivateIp?.self, forKey: .primaryIp)
-        self.secondaryIps = try decoderContainer.decode(NetworkInterfacePrivateIp?.self, forKey: .secondaryIps)
+        if decoderContainer.contains(.networkInterfaceId)
+        {
+            self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        }
+        if decoderContainer.contains(.macAddress)
+        {
+            self.macAddress = try decoderContainer.decode(String?.self, forKey: .macAddress)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.securityGroups)
+        {
+            self.securityGroups = try decoderContainer.decode([SecurityGroupSimple?]?.self, forKey: .securityGroups)
+        }
+        if decoderContainer.contains(.sanityCheck)
+        {
+            self.sanityCheck = try decoderContainer.decode(Int?.self, forKey: .sanityCheck)
+        }
+        if decoderContainer.contains(.primaryIp)
+        {
+            self.primaryIp = try decoderContainer.decode(NetworkInterfacePrivateIp?.self, forKey: .primaryIp)
+        }
+        if decoderContainer.contains(.secondaryIps)
+        {
+            self.secondaryIps = try decoderContainer.decode([NetworkInterfacePrivateIp?]?.self, forKey: .secondaryIps)
+        }
     }
 }
 public extension InstanceNetworkInterface{

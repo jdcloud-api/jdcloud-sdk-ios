@@ -44,7 +44,10 @@ public class GetUploadKeyResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetUploadKeyResultCodingKeys.self)
-        self.key = try decoderContainer.decode(String?.self, forKey: .key)
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode(String?.self, forKey: .key)
+        }
     }
 }
 public extension GetUploadKeyResult{

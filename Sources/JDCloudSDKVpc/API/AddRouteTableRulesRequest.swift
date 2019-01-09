@@ -31,13 +31,13 @@ import JDCloudSDKCore
 public class AddRouteTableRulesRequest:JdCloudRequest
 {
     /// 安全组规则信息
-    var routeTableRuleSpecs:AddRouteTableRules?
+    var routeTableRuleSpecs:[AddRouteTableRules?]?
 
     /// RouteTable ID
     var routeTableId:String
 
 
-    public init(regionId: String,routeTableRuleSpecs:AddRouteTableRules?,routeTableId:String){
+    public init(regionId: String,routeTableRuleSpecs:[AddRouteTableRules?]?,routeTableId:String){
         self.routeTableRuleSpecs = routeTableRuleSpecs
         self.routeTableId = routeTableId
         super.init(regionId: regionId)

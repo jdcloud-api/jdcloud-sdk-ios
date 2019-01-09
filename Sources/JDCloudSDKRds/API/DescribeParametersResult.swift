@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeParametersResult)
 public class DescribeParametersResult:NSObject,JdCloudResult
 {
-    /// Parameters
-    var parameters:DBInstanceParameter?
+    /// 实例配置参数列表
+    var parameters:[DBInstanceParameter?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeParametersResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeParametersResultCodingKeys.self)
-        self.parameters = try decoderContainer.decode(DBInstanceParameter?.self, forKey: .parameters)
+        if decoderContainer.contains(.parameters)
+        {
+            self.parameters = try decoderContainer.decode([DBInstanceParameter?]?.self, forKey: .parameters)
+        }
     }
 }
 public extension DescribeParametersResult{

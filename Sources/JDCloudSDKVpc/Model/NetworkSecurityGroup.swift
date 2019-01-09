@@ -36,7 +36,7 @@ public class NetworkSecurityGroup:NSObject,Codable{
     /// 安全组所在vpc的Id
     var vpcId:String?
     /// 安全组规则信息
-    var securityGroupRules:SecurityGroupRule?
+    var securityGroupRules:[SecurityGroupRule?]?
     /// 安全组创建时间
     var createdTime:String?
 
@@ -58,12 +58,30 @@ public class NetworkSecurityGroup:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NetworkSecurityGroupCodingKeys.self)
-        self.networkSecurityGroupId = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupId)
-        self.networkSecurityGroupName = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.securityGroupRules = try decoderContainer.decode(SecurityGroupRule?.self, forKey: .securityGroupRules)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.networkSecurityGroupId)
+        {
+            self.networkSecurityGroupId = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupId)
+        }
+        if decoderContainer.contains(.networkSecurityGroupName)
+        {
+            self.networkSecurityGroupName = try decoderContainer.decode(String?.self, forKey: .networkSecurityGroupName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.securityGroupRules)
+        {
+            self.securityGroupRules = try decoderContainer.decode([SecurityGroupRule?]?.self, forKey: .securityGroupRules)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension NetworkSecurityGroup{

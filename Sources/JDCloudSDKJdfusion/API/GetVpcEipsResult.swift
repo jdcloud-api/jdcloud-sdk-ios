@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcEipsResult:NSObject,JdCloudResult
 {
     /// EipAddresses
-    var eipAddresses:EipAddress?
+    var eipAddresses:[EipAddress?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVpcEipsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcEipsResultCodingKeys.self)
-        self.eipAddresses = try decoderContainer.decode(EipAddress?.self, forKey: .eipAddresses)
+        if decoderContainer.contains(.eipAddresses)
+        {
+            self.eipAddresses = try decoderContainer.decode([EipAddress?]?.self, forKey: .eipAddresses)
+        }
     }
 }
 public extension GetVpcEipsResult{

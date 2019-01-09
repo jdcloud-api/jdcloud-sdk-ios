@@ -46,8 +46,14 @@ public class LogOption:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LogOptionCodingKeys.self)
-        self.key = try decoderContainer.decode(String?.self, forKey: .key)
-        self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        if decoderContainer.contains(.key)
+        {
+            self.key = try decoderContainer.decode(String?.self, forKey: .key)
+        }
+        if decoderContainer.contains(.value)
+        {
+            self.value = try decoderContainer.decode(String?.self, forKey: .value)
+        }
     }
 }
 public extension LogOption{

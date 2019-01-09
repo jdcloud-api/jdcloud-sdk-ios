@@ -41,7 +41,7 @@ public class DescribeElasticIpsRequest:JdCloudRequest
       /// elasticIpAddress - eip的IP地址，支持单个
       /// chargeStatus	- eip的费用支付状态,normal(正常状态) or overdue(预付费已到期) or arrear(欠费状态)，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

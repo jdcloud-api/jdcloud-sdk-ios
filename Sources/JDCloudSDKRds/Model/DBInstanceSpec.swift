@@ -86,7 +86,10 @@ public class DBInstanceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceSpecCodingKeys.self)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
         self.engine = try decoderContainer.decode(String.self, forKey: .engine)
         self.engineVersion = try decoderContainer.decode(String.self, forKey: .engineVersion)
         self.instanceClass = try decoderContainer.decode(String.self, forKey: .instanceClass)
@@ -94,7 +97,10 @@ public class DBInstanceSpec:NSObject,Codable{
         self.azId = try decoderContainer.decode([String?].self, forKey: .azId)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.parameterGroup = try decoderContainer.decode(String?.self, forKey: .parameterGroup)
+        if decoderContainer.contains(.parameterGroup)
+        {
+            self.parameterGroup = try decoderContainer.decode(String?.self, forKey: .parameterGroup)
+        }
         self.chargeSpec = try decoderContainer.decode(ChargeSpec.self, forKey: .chargeSpec)
     }
 }

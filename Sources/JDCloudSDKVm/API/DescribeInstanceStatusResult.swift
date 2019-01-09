@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeInstanceStatusResult:NSObject,JdCloudResult
 {
     /// InstanceStatuses
-    var instanceStatuses:InstanceStatus?
+    var instanceStatuses:[InstanceStatus?]?
 
     /// TotalCount
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeInstanceStatusResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstanceStatusResultCodingKeys.self)
-        self.instanceStatuses = try decoderContainer.decode(InstanceStatus?.self, forKey: .instanceStatuses)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.instanceStatuses)
+        {
+            self.instanceStatuses = try decoderContainer.decode([InstanceStatus?]?.self, forKey: .instanceStatuses)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeInstanceStatusResult{

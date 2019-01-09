@@ -43,11 +43,11 @@ public class UpdateTemplateSpec:NSObject,Codable{
     var templateName:String
     /// 模板内包含的规则
     /// Required:true
-    var templateRules:BaseRuleT?
+    var templateRules:[BaseRuleT?]
 
 
 
-    public  init(ruleServiceCode:String,serviceCode:String,templateId:Int64,templateName:String,templateRules:BaseRuleT?){
+    public  init(ruleServiceCode:String,serviceCode:String,templateId:Int64,templateName:String,templateRules:[BaseRuleT?]){
              self.ruleServiceCode = ruleServiceCode
              self.serviceCode = serviceCode
              self.templateId = templateId
@@ -67,12 +67,15 @@ public class UpdateTemplateSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UpdateTemplateSpecCodingKeys.self)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
         self.ruleServiceCode = try decoderContainer.decode(String.self, forKey: .ruleServiceCode)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
         self.templateId = try decoderContainer.decode(Int64.self, forKey: .templateId)
         self.templateName = try decoderContainer.decode(String.self, forKey: .templateName)
-        self.templateRules = try decoderContainer.decode(BaseRuleT?.self, forKey: .templateRules)
+        self.templateRules = try decoderContainer.decode([BaseRuleT?].self, forKey: .templateRules)
     }
 }
 public extension UpdateTemplateSpec{

@@ -49,7 +49,7 @@ public class DBInstance:NSObject,Codable{
     /// 计费配置
     var charge:Charge?
     /// 标签信息
-    var tags:Tag?
+    var tags:[Tag?]?
 
 
 
@@ -74,17 +74,50 @@ public class DBInstance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
-        self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
-        self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
-        self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
-        self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.engine)
+        {
+            self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
+        }
+        if decoderContainer.contains(.engineVersion)
+        {
+            self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
+        }
+        if decoderContainer.contains(.regionId)
+        {
+            self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
+        }
+        if decoderContainer.contains(.azId)
+        {
+            self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
+        }
+        if decoderContainer.contains(.instanceStatus)
+        {
+            self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
     }
 }
 public extension DBInstance{

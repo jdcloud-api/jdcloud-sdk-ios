@@ -32,9 +32,9 @@ public class SetSourceBody:NSObject,Codable{
     /// 回源类型，目前只能为rtmp
     var backSourceType:String?
     /// IpSource
-    var ipSource:IpSourceInfo?
+    var ipSource:[IpSourceInfo?]?
     /// DomainSource
-    var domainSource:DomainSourceInfo?
+    var domainSource:[DomainSourceInfo?]?
     /// OssSource
     var ossSource:String?
     /// DefaultSourceHost
@@ -58,12 +58,30 @@ public class SetSourceBody:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SetSourceBodyCodingKeys.self)
-        self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
-        self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
-        self.ipSource = try decoderContainer.decode(IpSourceInfo?.self, forKey: .ipSource)
-        self.domainSource = try decoderContainer.decode(DomainSourceInfo?.self, forKey: .domainSource)
-        self.ossSource = try decoderContainer.decode(String?.self, forKey: .ossSource)
-        self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
+        if decoderContainer.contains(.sourceType)
+        {
+            self.sourceType = try decoderContainer.decode(String?.self, forKey: .sourceType)
+        }
+        if decoderContainer.contains(.backSourceType)
+        {
+            self.backSourceType = try decoderContainer.decode(String?.self, forKey: .backSourceType)
+        }
+        if decoderContainer.contains(.ipSource)
+        {
+            self.ipSource = try decoderContainer.decode([IpSourceInfo?]?.self, forKey: .ipSource)
+        }
+        if decoderContainer.contains(.domainSource)
+        {
+            self.domainSource = try decoderContainer.decode([DomainSourceInfo?]?.self, forKey: .domainSource)
+        }
+        if decoderContainer.contains(.ossSource)
+        {
+            self.ossSource = try decoderContainer.decode(String?.self, forKey: .ossSource)
+        }
+        if decoderContainer.contains(.defaultSourceHost)
+        {
+            self.defaultSourceHost = try decoderContainer.decode(String?.self, forKey: .defaultSourceHost)
+        }
     }
 }
 public extension SetSourceBody{

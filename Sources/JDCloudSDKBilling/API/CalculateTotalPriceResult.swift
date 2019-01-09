@@ -41,8 +41,8 @@ public class CalculateTotalPriceResult:NSObject,JdCloudResult
     /// 总折扣金额
     var totalDiscount:Double?
 
-    /// List
-    var list:OrderPriceDetail?
+    /// 计算完价格后的详细订单列表
+    var list:[OrderPriceDetail?]?
 
     /// 订单原价 包年时 一年原价为12个月价格，totalPrice为10个月价格
     var totalOriginalPrice:Double?
@@ -76,15 +76,42 @@ public class CalculateTotalPriceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CalculateTotalPriceResultCodingKeys.self)
-        self.totalPrice = try decoderContainer.decode(Double?.self, forKey: .totalPrice)
-        self.totalPriceScale4 = try decoderContainer.decode(Double?.self, forKey: .totalPriceScale4)
-        self.discountedTotalPrice = try decoderContainer.decode(Double?.self, forKey: .discountedTotalPrice)
-        self.totalDiscount = try decoderContainer.decode(Double?.self, forKey: .totalDiscount)
-        self.list = try decoderContainer.decode(OrderPriceDetail?.self, forKey: .list)
-        self.totalOriginalPrice = try decoderContainer.decode(Double?.self, forKey: .totalOriginalPrice)
-        self.favorableInfos = try decoderContainer.decode(String?.self, forKey: .favorableInfos)
-        self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
-        self.totalUnitPrice = try decoderContainer.decode(String?.self, forKey: .totalUnitPrice)
+        if decoderContainer.contains(.totalPrice)
+        {
+            self.totalPrice = try decoderContainer.decode(Double?.self, forKey: .totalPrice)
+        }
+        if decoderContainer.contains(.totalPriceScale4)
+        {
+            self.totalPriceScale4 = try decoderContainer.decode(Double?.self, forKey: .totalPriceScale4)
+        }
+        if decoderContainer.contains(.discountedTotalPrice)
+        {
+            self.discountedTotalPrice = try decoderContainer.decode(Double?.self, forKey: .discountedTotalPrice)
+        }
+        if decoderContainer.contains(.totalDiscount)
+        {
+            self.totalDiscount = try decoderContainer.decode(Double?.self, forKey: .totalDiscount)
+        }
+        if decoderContainer.contains(.list)
+        {
+            self.list = try decoderContainer.decode([OrderPriceDetail?]?.self, forKey: .list)
+        }
+        if decoderContainer.contains(.totalOriginalPrice)
+        {
+            self.totalOriginalPrice = try decoderContainer.decode(Double?.self, forKey: .totalOriginalPrice)
+        }
+        if decoderContainer.contains(.favorableInfos)
+        {
+            self.favorableInfos = try decoderContainer.decode(String?.self, forKey: .favorableInfos)
+        }
+        if decoderContainer.contains(.remark)
+        {
+            self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
+        }
+        if decoderContainer.contains(.totalUnitPrice)
+        {
+            self.totalUnitPrice = try decoderContainer.decode(String?.self, forKey: .totalUnitPrice)
+        }
     }
 }
 public extension CalculateTotalPriceResult{

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcSubnetsResult:NSObject,JdCloudResult
 {
     /// Subnets
-    var subnets:SubnetDesInfo?
+    var subnets:[SubnetDesInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVpcSubnetsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcSubnetsResultCodingKeys.self)
-        self.subnets = try decoderContainer.decode(SubnetDesInfo?.self, forKey: .subnets)
+        if decoderContainer.contains(.subnets)
+        {
+            self.subnets = try decoderContainer.decode([SubnetDesInfo?]?.self, forKey: .subnets)
+        }
     }
 }
 public extension GetVpcSubnetsResult{

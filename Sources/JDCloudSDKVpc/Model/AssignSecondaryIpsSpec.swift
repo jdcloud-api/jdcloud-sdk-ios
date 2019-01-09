@@ -49,9 +49,18 @@ public class AssignSecondaryIpsSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AssignSecondaryIpsSpecCodingKeys.self)
-        self.force = try decoderContainer.decode(Bool?.self, forKey: .force)
-        self.secondaryIps = try decoderContainer.decode([String?]?.self, forKey: .secondaryIps)
-        self.secondaryIpCount = try decoderContainer.decode(Double?.self, forKey: .secondaryIpCount)
+        if decoderContainer.contains(.force)
+        {
+            self.force = try decoderContainer.decode(Bool?.self, forKey: .force)
+        }
+        if decoderContainer.contains(.secondaryIps)
+        {
+            self.secondaryIps = try decoderContainer.decode([String?]?.self, forKey: .secondaryIps)
+        }
+        if decoderContainer.contains(.secondaryIpCount)
+        {
+            self.secondaryIpCount = try decoderContainer.decode(Double?.self, forKey: .secondaryIpCount)
+        }
     }
 }
 public extension AssignSecondaryIpsSpec{

@@ -46,8 +46,14 @@ public class WhiteList:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WhiteListCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.ips = try decoderContainer.decode(String?.self, forKey: .ips)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.ips)
+        {
+            self.ips = try decoderContainer.decode(String?.self, forKey: .ips)
+        }
     }
 }
 public extension WhiteList{

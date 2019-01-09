@@ -63,8 +63,14 @@ public class SubnetSpec:NSObject,Codable{
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.subnetName = try decoderContainer.decode(String.self, forKey: .subnetName)
         self.addressPrefix = try decoderContainer.decode(String.self, forKey: .addressPrefix)
-        self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.routeTableId)
+        {
+            self.routeTableId = try decoderContainer.decode(String?.self, forKey: .routeTableId)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension SubnetSpec{

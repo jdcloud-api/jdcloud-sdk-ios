@@ -49,9 +49,18 @@ public class TopologyPair:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TopologyPairCodingKeys.self)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.port = try decoderContainer.decode(String?.self, forKey: .port)
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.port)
+        {
+            self.port = try decoderContainer.decode(String?.self, forKey: .port)
+        }
     }
 }
 public extension TopologyPair{

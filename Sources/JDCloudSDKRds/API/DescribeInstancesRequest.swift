@@ -46,10 +46,10 @@ public class DescribeInstancesRequest:JdCloudRequest
       /// instanceStatus, 支持operator选项：eq
       /// chargeMode, 支持operator选项：eq
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// 资源标签
-    var tagFilters:TagFilter?
+    var tagFilters:[TagFilter?]?
 
 
 

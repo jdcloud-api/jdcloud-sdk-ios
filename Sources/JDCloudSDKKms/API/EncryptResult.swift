@@ -44,7 +44,10 @@ public class EncryptResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: EncryptResultCodingKeys.self)
-        self.ciphertextBlob = try decoderContainer.decode(String?.self, forKey: .ciphertextBlob)
+        if decoderContainer.contains(.ciphertextBlob)
+        {
+            self.ciphertextBlob = try decoderContainer.decode(String?.self, forKey: .ciphertextBlob)
+        }
     }
 }
 public extension EncryptResult{

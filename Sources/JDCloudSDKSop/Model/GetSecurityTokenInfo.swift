@@ -60,7 +60,10 @@ public class GetSecurityTokenInfo:NSObject,Codable{
         self.type = try decoderContainer.decode(Int.self, forKey: .type)
         self.code = try decoderContainer.decode(String.self, forKey: .code)
         self.action = try decoderContainer.decode(String.self, forKey: .action)
-        self.durationSeconds = try decoderContainer.decode(Int?.self, forKey: .durationSeconds)
+        if decoderContainer.contains(.durationSeconds)
+        {
+            self.durationSeconds = try decoderContainer.decode(Int?.self, forKey: .durationSeconds)
+        }
     }
 }
 public extension GetSecurityTokenInfo{

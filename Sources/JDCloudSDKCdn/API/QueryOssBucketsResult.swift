@@ -33,7 +33,7 @@ public class QueryOssBucketsResult:NSObject,JdCloudResult
     var total:Int32?
 
     /// OssBuckets
-    var ossBuckets:AnyObject?
+    var ossBuckets:[AnyObject?]?
 
 
 
@@ -48,7 +48,10 @@ public class QueryOssBucketsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryOssBucketsResultCodingKeys.self)
-        self.total = try decoderContainer.decode(Int32?.self, forKey: .total)
+        if decoderContainer.contains(.total)
+        {
+            self.total = try decoderContainer.decode(Int32?.self, forKey: .total)
+        }
     }
 }
 public extension QueryOssBucketsResult{

@@ -76,12 +76,30 @@ public class TaskInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TaskInfoCodingKeys.self)
-        self.beginTime = try decoderContainer.decode(String?.self, forKey: .beginTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.taskStatus = try decoderContainer.decode(String?.self, forKey: .taskStatus)
-        self.taskResult = try decoderContainer.decode(String?.self, forKey: .taskResult)
-        self.lastCode = try decoderContainer.decode(String?.self, forKey: .lastCode)
-        self.taskLastInfo = try decoderContainer.decode(String?.self, forKey: .taskLastInfo)
+        if decoderContainer.contains(.beginTime)
+        {
+            self.beginTime = try decoderContainer.decode(String?.self, forKey: .beginTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.taskStatus)
+        {
+            self.taskStatus = try decoderContainer.decode(String?.self, forKey: .taskStatus)
+        }
+        if decoderContainer.contains(.taskResult)
+        {
+            self.taskResult = try decoderContainer.decode(String?.self, forKey: .taskResult)
+        }
+        if decoderContainer.contains(.lastCode)
+        {
+            self.lastCode = try decoderContainer.decode(String?.self, forKey: .lastCode)
+        }
+        if decoderContainer.contains(.taskLastInfo)
+        {
+            self.taskLastInfo = try decoderContainer.decode(String?.self, forKey: .taskLastInfo)
+        }
     }
 }
 public extension TaskInfo{

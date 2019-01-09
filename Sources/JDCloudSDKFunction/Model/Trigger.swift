@@ -61,13 +61,34 @@ public class Trigger:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TriggerCodingKeys.self)
-        self.triggerId = try decoderContainer.decode(String?.self, forKey: .triggerId)
-        self.functionName = try decoderContainer.decode(String?.self, forKey: .functionName)
-        self.versionName = try decoderContainer.decode(String?.self, forKey: .versionName)
-        self.eventSource = try decoderContainer.decode(String?.self, forKey: .eventSource)
-        self.eventSourceId = try decoderContainer.decode(String?.self, forKey: .eventSourceId)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.triggerId)
+        {
+            self.triggerId = try decoderContainer.decode(String?.self, forKey: .triggerId)
+        }
+        if decoderContainer.contains(.functionName)
+        {
+            self.functionName = try decoderContainer.decode(String?.self, forKey: .functionName)
+        }
+        if decoderContainer.contains(.versionName)
+        {
+            self.versionName = try decoderContainer.decode(String?.self, forKey: .versionName)
+        }
+        if decoderContainer.contains(.eventSource)
+        {
+            self.eventSource = try decoderContainer.decode(String?.self, forKey: .eventSource)
+        }
+        if decoderContainer.contains(.eventSourceId)
+        {
+            self.eventSourceId = try decoderContainer.decode(String?.self, forKey: .eventSourceId)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension Trigger{

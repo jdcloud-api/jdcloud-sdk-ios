@@ -94,24 +94,78 @@ public class Application:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ApplicationCodingKeys.self)
-        self.clientName = try decoderContainer.decode(String?.self, forKey: .clientName)
-        self.tokenEndpointAuthMethod = try decoderContainer.decode(String?.self, forKey: .tokenEndpointAuthMethod)
-        self.grantTypes = try decoderContainer.decode(String?.self, forKey: .grantTypes)
-        self.redirectUris = try decoderContainer.decode(String?.self, forKey: .redirectUris)
-        self.clientUri = try decoderContainer.decode(String?.self, forKey: .clientUri)
-        self.logoUri = try decoderContainer.decode(String?.self, forKey: .logoUri)
-        self.tosUri = try decoderContainer.decode(String?.self, forKey: .tosUri)
-        self.policyUri = try decoderContainer.decode(String?.self, forKey: .policyUri)
-        self.scope = try decoderContainer.decode(String?.self, forKey: .scope)
-        self.jwksUri = try decoderContainer.decode(String?.self, forKey: .jwksUri)
-        self.jwks = try decoderContainer.decode(String?.self, forKey: .jwks)
-        self.contacts = try decoderContainer.decode(String?.self, forKey: .contacts)
-        self.extensionValue = try decoderContainer.decode(String?.self, forKey: .extensionValue)
-        self.accessTokenValiditySeconds = try decoderContainer.decode(Int?.self, forKey: .accessTokenValiditySeconds)
-        self.refreshTokenValiditySeconds = try decoderContainer.decode(Int?.self, forKey: .refreshTokenValiditySeconds)
-        self.multiTenant = try decoderContainer.decode(Bool?.self, forKey: .multiTenant)
-        self.secret = try decoderContainer.decode(String?.self, forKey: .secret)
-        self.userType = try decoderContainer.decode(String?.self, forKey: .userType)
+        if decoderContainer.contains(.clientName)
+        {
+            self.clientName = try decoderContainer.decode(String?.self, forKey: .clientName)
+        }
+        if decoderContainer.contains(.tokenEndpointAuthMethod)
+        {
+            self.tokenEndpointAuthMethod = try decoderContainer.decode(String?.self, forKey: .tokenEndpointAuthMethod)
+        }
+        if decoderContainer.contains(.grantTypes)
+        {
+            self.grantTypes = try decoderContainer.decode(String?.self, forKey: .grantTypes)
+        }
+        if decoderContainer.contains(.redirectUris)
+        {
+            self.redirectUris = try decoderContainer.decode(String?.self, forKey: .redirectUris)
+        }
+        if decoderContainer.contains(.clientUri)
+        {
+            self.clientUri = try decoderContainer.decode(String?.self, forKey: .clientUri)
+        }
+        if decoderContainer.contains(.logoUri)
+        {
+            self.logoUri = try decoderContainer.decode(String?.self, forKey: .logoUri)
+        }
+        if decoderContainer.contains(.tosUri)
+        {
+            self.tosUri = try decoderContainer.decode(String?.self, forKey: .tosUri)
+        }
+        if decoderContainer.contains(.policyUri)
+        {
+            self.policyUri = try decoderContainer.decode(String?.self, forKey: .policyUri)
+        }
+        if decoderContainer.contains(.scope)
+        {
+            self.scope = try decoderContainer.decode(String?.self, forKey: .scope)
+        }
+        if decoderContainer.contains(.jwksUri)
+        {
+            self.jwksUri = try decoderContainer.decode(String?.self, forKey: .jwksUri)
+        }
+        if decoderContainer.contains(.jwks)
+        {
+            self.jwks = try decoderContainer.decode(String?.self, forKey: .jwks)
+        }
+        if decoderContainer.contains(.contacts)
+        {
+            self.contacts = try decoderContainer.decode(String?.self, forKey: .contacts)
+        }
+        if decoderContainer.contains(.extensionValue)
+        {
+            self.extensionValue = try decoderContainer.decode(String?.self, forKey: .extensionValue)
+        }
+        if decoderContainer.contains(.accessTokenValiditySeconds)
+        {
+            self.accessTokenValiditySeconds = try decoderContainer.decode(Int?.self, forKey: .accessTokenValiditySeconds)
+        }
+        if decoderContainer.contains(.refreshTokenValiditySeconds)
+        {
+            self.refreshTokenValiditySeconds = try decoderContainer.decode(Int?.self, forKey: .refreshTokenValiditySeconds)
+        }
+        if decoderContainer.contains(.multiTenant)
+        {
+            self.multiTenant = try decoderContainer.decode(Bool?.self, forKey: .multiTenant)
+        }
+        if decoderContainer.contains(.secret)
+        {
+            self.secret = try decoderContainer.decode(String?.self, forKey: .secret)
+        }
+        if decoderContainer.contains(.userType)
+        {
+            self.userType = try decoderContainer.decode(String?.self, forKey: .userType)
+        }
     }
 }
 public extension Application{

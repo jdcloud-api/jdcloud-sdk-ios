@@ -30,8 +30,8 @@ import JDCloudSDKCore
 @objc(DescribeImageMembersResult)
 public class DescribeImageMembersResult:NSObject,JdCloudResult
 {
-    /// Pins
-    var pins:String?
+    /// 用户Pin列表
+    var pins:[String?]?
 
 
 
@@ -45,7 +45,10 @@ public class DescribeImageMembersResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeImageMembersResultCodingKeys.self)
-        self.pins = try decoderContainer.decode(String?.self, forKey: .pins)
+        if decoderContainer.contains(.pins)
+        {
+            self.pins = try decoderContainer.decode([String?]?.self, forKey: .pins)
+        }
     }
 }
 public extension DescribeImageMembersResult{

@@ -44,7 +44,10 @@ public class DescribeCacheInstanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCacheInstanceResultCodingKeys.self)
-        self.cacheInstance = try decoderContainer.decode(CacheInstance?.self, forKey: .cacheInstance)
+        if decoderContainer.contains(.cacheInstance)
+        {
+            self.cacheInstance = try decoderContainer.decode(CacheInstance?.self, forKey: .cacheInstance)
+        }
     }
 }
 public extension DescribeCacheInstanceResult{

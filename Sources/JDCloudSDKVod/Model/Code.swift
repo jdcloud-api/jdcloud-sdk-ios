@@ -94,24 +94,78 @@ public class Code:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CodeCodingKeys.self)
-        self.cid = try decoderContainer.decode(Double?.self, forKey: .cid)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.mediaType = try decoderContainer.decode(Int?.self, forKey: .mediaType)
-        self.format = try decoderContainer.decode(String?.self, forKey: .format)
-        self.quality = try decoderContainer.decode(String?.self, forKey: .quality)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.progress = try decoderContainer.decode(String?.self, forKey: .progress)
-        self.url = try decoderContainer.decode(String?.self, forKey: .url)
-        self.cdnUrl = try decoderContainer.decode(String?.self, forKey: .cdnUrl)
-        self.size = try decoderContainer.decode(Double?.self, forKey: .size)
-        self.coderateId = try decoderContainer.decode(Int?.self, forKey: .coderateId)
-        self.coderate = try decoderContainer.decode(Double?.self, forKey: .coderate)
-        self.codec = try decoderContainer.decode(String?.self, forKey: .codec)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.frameRate = try decoderContainer.decode(String?.self, forKey: .frameRate)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.cid)
+        {
+            self.cid = try decoderContainer.decode(Double?.self, forKey: .cid)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.mediaType)
+        {
+            self.mediaType = try decoderContainer.decode(Int?.self, forKey: .mediaType)
+        }
+        if decoderContainer.contains(.format)
+        {
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
+        }
+        if decoderContainer.contains(.quality)
+        {
+            self.quality = try decoderContainer.decode(String?.self, forKey: .quality)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.progress)
+        {
+            self.progress = try decoderContainer.decode(String?.self, forKey: .progress)
+        }
+        if decoderContainer.contains(.url)
+        {
+            self.url = try decoderContainer.decode(String?.self, forKey: .url)
+        }
+        if decoderContainer.contains(.cdnUrl)
+        {
+            self.cdnUrl = try decoderContainer.decode(String?.self, forKey: .cdnUrl)
+        }
+        if decoderContainer.contains(.size)
+        {
+            self.size = try decoderContainer.decode(Double?.self, forKey: .size)
+        }
+        if decoderContainer.contains(.coderateId)
+        {
+            self.coderateId = try decoderContainer.decode(Int?.self, forKey: .coderateId)
+        }
+        if decoderContainer.contains(.coderate)
+        {
+            self.coderate = try decoderContainer.decode(Double?.self, forKey: .coderate)
+        }
+        if decoderContainer.contains(.codec)
+        {
+            self.codec = try decoderContainer.decode(String?.self, forKey: .codec)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.frameRate)
+        {
+            self.frameRate = try decoderContainer.decode(String?.self, forKey: .frameRate)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension Code{

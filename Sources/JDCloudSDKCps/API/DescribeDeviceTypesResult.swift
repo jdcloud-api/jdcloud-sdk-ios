@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeDeviceTypesResult:NSObject,JdCloudResult
 {
     /// DeviceTypes
-    var deviceTypes:DeviceType?
+    var deviceTypes:[DeviceType?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeDeviceTypesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeDeviceTypesResultCodingKeys.self)
-        self.deviceTypes = try decoderContainer.decode(DeviceType?.self, forKey: .deviceTypes)
+        if decoderContainer.contains(.deviceTypes)
+        {
+            self.deviceTypes = try decoderContainer.decode([DeviceType?]?.self, forKey: .deviceTypes)
+        }
     }
 }
 public extension DescribeDeviceTypesResult{

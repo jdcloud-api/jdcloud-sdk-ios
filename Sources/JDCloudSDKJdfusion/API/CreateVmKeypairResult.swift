@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class CreateVmKeypairResult:NSObject,JdCloudResult
 {
     /// Tasks
-    var tasks:ResourceTFInfo?
+    var tasks:[ResourceTFInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class CreateVmKeypairResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateVmKeypairResultCodingKeys.self)
-        self.tasks = try decoderContainer.decode(ResourceTFInfo?.self, forKey: .tasks)
+        if decoderContainer.contains(.tasks)
+        {
+            self.tasks = try decoderContainer.decode([ResourceTFInfo?]?.self, forKey: .tasks)
+        }
     }
 }
 public extension CreateVmKeypairResult{

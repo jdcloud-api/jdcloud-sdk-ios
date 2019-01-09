@@ -49,9 +49,18 @@ public class Notice:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NoticeCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.title = try decoderContainer.decode(String?.self, forKey: .title)
-        self.url = try decoderContainer.decode(String?.self, forKey: .url)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.title)
+        {
+            self.title = try decoderContainer.decode(String?.self, forKey: .title)
+        }
+        if decoderContainer.contains(.url)
+        {
+            self.url = try decoderContainer.decode(String?.self, forKey: .url)
+        }
     }
 }
 public extension Notice{

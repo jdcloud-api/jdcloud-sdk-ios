@@ -31,8 +31,8 @@ import JDCloudSDKCore
 @objc(GetViewTreeResult)
 public class GetViewTreeResult:NSObject,JdCloudResult
 {
-    /// Data
-    var data:ViewTree?
+    /// 解析线路的树
+    var data:[ViewTree?]?
 
 
 
@@ -46,7 +46,10 @@ public class GetViewTreeResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetViewTreeResultCodingKeys.self)
-        self.data = try decoderContainer.decode(ViewTree?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([ViewTree?]?.self, forKey: .data)
+        }
     }
 }
 public extension GetViewTreeResult{

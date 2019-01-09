@@ -44,7 +44,10 @@ public class QueryNamespaceDetailResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryNamespaceDetailResultCodingKeys.self)
-        self.namespace = try decoderContainer.decode(Namespace?.self, forKey: .namespace)
+        if decoderContainer.contains(.namespace)
+        {
+            self.namespace = try decoderContainer.decode(Namespace?.self, forKey: .namespace)
+        }
     }
 }
 public extension QueryNamespaceDetailResult{

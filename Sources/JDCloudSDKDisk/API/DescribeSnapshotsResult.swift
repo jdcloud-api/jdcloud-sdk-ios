@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeSnapshotsResult)
 public class DescribeSnapshotsResult:NSObject,JdCloudResult
 {
-    /// Snapshots
-    var snapshots:Snapshot?
+    /// 查询的快照信息详情列表
+    var snapshots:[Snapshot?]?
 
     /// 查询的快照数目
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeSnapshotsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSnapshotsResultCodingKeys.self)
-        self.snapshots = try decoderContainer.decode(Snapshot?.self, forKey: .snapshots)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.snapshots)
+        {
+            self.snapshots = try decoderContainer.decode([Snapshot?]?.self, forKey: .snapshots)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeSnapshotsResult{

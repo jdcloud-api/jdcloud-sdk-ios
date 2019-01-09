@@ -67,15 +67,42 @@ public class ImageType:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImageTypeCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.desc = try decoderContainer.decode(String?.self, forKey: .desc)
-        self.imageSource = try decoderContainer.decode(String?.self, forKey: .imageSource)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
-        self.osVersion = try decoderContainer.decode(String?.self, forKey: .osVersion)
-        self.platform = try decoderContainer.decode(String?.self, forKey: .platform)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.desc)
+        {
+            self.desc = try decoderContainer.decode(String?.self, forKey: .desc)
+        }
+        if decoderContainer.contains(.imageSource)
+        {
+            self.imageSource = try decoderContainer.decode(String?.self, forKey: .imageSource)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.osType)
+        {
+            self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
+        }
+        if decoderContainer.contains(.osVersion)
+        {
+            self.osVersion = try decoderContainer.decode(String?.self, forKey: .osVersion)
+        }
+        if decoderContainer.contains(.platform)
+        {
+            self.platform = try decoderContainer.decode(String?.self, forKey: .platform)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
     }
 }
 public extension ImageType{

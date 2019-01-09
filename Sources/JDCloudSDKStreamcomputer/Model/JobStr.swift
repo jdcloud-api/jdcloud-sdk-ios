@@ -85,21 +85,66 @@ public class JobStr:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: JobStrCodingKeys.self)
-        self.namespaceId = try decoderContainer.decode(String?.self, forKey: .namespaceId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.resourceConsume = try decoderContainer.decode(Int?.self, forKey: .resourceConsume)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
-        self.status = try decoderContainer.decode(UInt8?.self, forKey: .status)
-        self.duration = try decoderContainer.decode(Int?.self, forKey: .duration)
-        self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        self.deleted = try decoderContainer.decode(UInt8?.self, forKey: .deleted)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
-        self.sqlStatement = try decoderContainer.decode(String?.self, forKey: .sqlStatement)
-        self.jobType = try decoderContainer.decode(String?.self, forKey: .jobType)
+        if decoderContainer.contains(.namespaceId)
+        {
+            self.namespaceId = try decoderContainer.decode(String?.self, forKey: .namespaceId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.resourceConsume)
+        {
+            self.resourceConsume = try decoderContainer.decode(Int?.self, forKey: .resourceConsume)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.uid)
+        {
+            self.uid = try decoderContainer.decode(String?.self, forKey: .uid)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(UInt8?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.duration)
+        {
+            self.duration = try decoderContainer.decode(Int?.self, forKey: .duration)
+        }
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.deleted)
+        {
+            self.deleted = try decoderContainer.decode(UInt8?.self, forKey: .deleted)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.userName)
+        {
+            self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
+        }
+        if decoderContainer.contains(.sqlStatement)
+        {
+            self.sqlStatement = try decoderContainer.decode(String?.self, forKey: .sqlStatement)
+        }
+        if decoderContainer.contains(.jobType)
+        {
+            self.jobType = try decoderContainer.decode(String?.self, forKey: .jobType)
+        }
     }
 }
 public extension JobStr{

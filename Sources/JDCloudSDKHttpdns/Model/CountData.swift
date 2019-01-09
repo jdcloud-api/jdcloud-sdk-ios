@@ -30,7 +30,7 @@ public class CountData:NSObject,Codable{
     /// 时间序列
     var time:[Int64?]?
     /// 数据序列
-    var count:Count?
+    var count:[Count?]?
 
 
 
@@ -46,8 +46,14 @@ public class CountData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CountDataCodingKeys.self)
-        self.time = try decoderContainer.decode([Int64?]?.self, forKey: .time)
-        self.count = try decoderContainer.decode(Count?.self, forKey: .count)
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode([Int64?]?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode([Count?]?.self, forKey: .count)
+        }
     }
 }
 public extension CountData{

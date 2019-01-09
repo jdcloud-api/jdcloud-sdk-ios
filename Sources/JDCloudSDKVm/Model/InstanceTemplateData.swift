@@ -38,7 +38,7 @@ public class InstanceTemplateData:NSObject,Codable{
     /// 系统盘信息
     var systemDisk:InstanceTemplateDiskAttachment?
     /// 数据盘信息，本地盘(local类型)做系统盘的云主机可挂载8块数据盘，云硬盘(cloud类型)做系统盘的云主机可挂载7块数据盘。
-    var dataDisks:InstanceTemplateDiskAttachment?
+    var dataDisks:[InstanceTemplateDiskAttachment?]?
     /// 主网卡信息
     var primaryNetworkInterface:InstanceTemplateNetworkInterfaceAttachmentSpec?
     /// 主网卡主IP关联的弹性IP规格
@@ -67,15 +67,42 @@ public class InstanceTemplateData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTemplateDataCodingKeys.self)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
-        self.includePassword = try decoderContainer.decode(Bool?.self, forKey: .includePassword)
-        self.systemDisk = try decoderContainer.decode(InstanceTemplateDiskAttachment?.self, forKey: .systemDisk)
-        self.dataDisks = try decoderContainer.decode(InstanceTemplateDiskAttachment?.self, forKey: .dataDisks)
-        self.primaryNetworkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceAttachmentSpec?.self, forKey: .primaryNetworkInterface)
-        self.elasticIp = try decoderContainer.decode(InstanceTemplateElasticIp?.self, forKey: .elasticIp)
-        self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.imageId)
+        {
+            self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        }
+        if decoderContainer.contains(.includePassword)
+        {
+            self.includePassword = try decoderContainer.decode(Bool?.self, forKey: .includePassword)
+        }
+        if decoderContainer.contains(.systemDisk)
+        {
+            self.systemDisk = try decoderContainer.decode(InstanceTemplateDiskAttachment?.self, forKey: .systemDisk)
+        }
+        if decoderContainer.contains(.dataDisks)
+        {
+            self.dataDisks = try decoderContainer.decode([InstanceTemplateDiskAttachment?]?.self, forKey: .dataDisks)
+        }
+        if decoderContainer.contains(.primaryNetworkInterface)
+        {
+            self.primaryNetworkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceAttachmentSpec?.self, forKey: .primaryNetworkInterface)
+        }
+        if decoderContainer.contains(.elasticIp)
+        {
+            self.elasticIp = try decoderContainer.decode(InstanceTemplateElasticIp?.self, forKey: .elasticIp)
+        }
+        if decoderContainer.contains(.keyNames)
+        {
+            self.keyNames = try decoderContainer.decode([String?]?.self, forKey: .keyNames)
+        }
     }
 }
 public extension InstanceTemplateData{

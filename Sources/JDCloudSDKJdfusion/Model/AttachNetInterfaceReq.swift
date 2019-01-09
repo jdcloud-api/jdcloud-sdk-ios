@@ -43,7 +43,10 @@ public class AttachNetInterfaceReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AttachNetInterfaceReqCodingKeys.self)
-        self.attach = try decoderContainer.decode(AttachNetInterface?.self, forKey: .attach)
+        if decoderContainer.contains(.attach)
+        {
+            self.attach = try decoderContainer.decode(AttachNetInterface?.self, forKey: .attach)
+        }
     }
 }
 public extension AttachNetInterfaceReq{

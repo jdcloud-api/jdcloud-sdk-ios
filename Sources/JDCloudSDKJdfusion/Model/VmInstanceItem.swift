@@ -43,7 +43,10 @@ public class VmInstanceItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VmInstanceItemCodingKeys.self)
-        self.vm = try decoderContainer.decode(VmInfoDetail?.self, forKey: .vm)
+        if decoderContainer.contains(.vm)
+        {
+            self.vm = try decoderContainer.decode(VmInfoDetail?.self, forKey: .vm)
+        }
     }
 }
 public extension VmInstanceItem{

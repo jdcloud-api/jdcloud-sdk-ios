@@ -28,7 +28,7 @@ import Foundation
 @objc(BatchUpdateWidgetSpec)
 public class BatchUpdateWidgetSpec:NSObject,Codable{
     /// List
-    var list:Widget?
+    var list:[Widget?]?
 
 
 
@@ -43,7 +43,10 @@ public class BatchUpdateWidgetSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchUpdateWidgetSpecCodingKeys.self)
-        self.list = try decoderContainer.decode(Widget?.self, forKey: .list)
+        if decoderContainer.contains(.list)
+        {
+            self.list = try decoderContainer.decode([Widget?]?.self, forKey: .list)
+        }
     }
 }
 public extension BatchUpdateWidgetSpec{

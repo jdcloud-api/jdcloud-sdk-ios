@@ -52,9 +52,18 @@ public class ModifyBackupPolicyResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyBackupPolicyResultCodingKeys.self)
-        self.preferredBackupPeriod = try decoderContainer.decode(String?.self, forKey: .preferredBackupPeriod)
-        self.preferredBackupWindow = try decoderContainer.decode(String?.self, forKey: .preferredBackupWindow)
-        self.backupRetentionPeriod = try decoderContainer.decode(String?.self, forKey: .backupRetentionPeriod)
+        if decoderContainer.contains(.preferredBackupPeriod)
+        {
+            self.preferredBackupPeriod = try decoderContainer.decode(String?.self, forKey: .preferredBackupPeriod)
+        }
+        if decoderContainer.contains(.preferredBackupWindow)
+        {
+            self.preferredBackupWindow = try decoderContainer.decode(String?.self, forKey: .preferredBackupWindow)
+        }
+        if decoderContainer.contains(.backupRetentionPeriod)
+        {
+            self.backupRetentionPeriod = try decoderContainer.decode(String?.self, forKey: .backupRetentionPeriod)
+        }
     }
 }
 public extension ModifyBackupPolicyResult{

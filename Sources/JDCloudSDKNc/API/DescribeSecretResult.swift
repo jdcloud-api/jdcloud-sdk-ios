@@ -45,7 +45,10 @@ public class DescribeSecretResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSecretResultCodingKeys.self)
-        self.secret = try decoderContainer.decode(Secret?.self, forKey: .secret)
+        if decoderContainer.contains(.secret)
+        {
+            self.secret = try decoderContainer.decode(Secret?.self, forKey: .secret)
+        }
     }
 }
 public extension DescribeSecretResult{

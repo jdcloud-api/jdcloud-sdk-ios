@@ -49,9 +49,18 @@ public class NetworkInterfacePrivateIp:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NetworkInterfacePrivateIpCodingKeys.self)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.elasticIpId)
+        {
+            self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
     }
 }
 public extension NetworkInterfacePrivateIp{

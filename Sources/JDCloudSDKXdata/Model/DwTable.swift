@@ -88,21 +88,66 @@ public class DwTable:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DwTableCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
-        self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
-        self.tableName = try decoderContainer.decode(String?.self, forKey: .tableName)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.lastUpdateTime = try decoderContainer.decode(String?.self, forKey: .lastUpdateTime)
-        self.physicalStorageCapacity = try decoderContainer.decode(String?.self, forKey: .physicalStorageCapacity)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.source = try decoderContainer.decode(String?.self, forKey: .source)
-        self.owner = try decoderContainer.decode(String?.self, forKey: .owner)
-        self.hiveFileFormat = try decoderContainer.decode(String?.self, forKey: .hiveFileFormat)
-        self.encryption = try decoderContainer.decode(String?.self, forKey: .encryption)
-        self.location = try decoderContainer.decode(String?.self, forKey: .location)
-        self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
-        self.hiveObjectPrivileges = try decoderContainer.decode(DwHiveObjectPrivileges?.self, forKey: .hiveObjectPrivileges)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.userName)
+        {
+            self.userName = try decoderContainer.decode(String?.self, forKey: .userName)
+        }
+        if decoderContainer.contains(.dbName)
+        {
+            self.dbName = try decoderContainer.decode(String?.self, forKey: .dbName)
+        }
+        if decoderContainer.contains(.tableName)
+        {
+            self.tableName = try decoderContainer.decode(String?.self, forKey: .tableName)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.lastUpdateTime)
+        {
+            self.lastUpdateTime = try decoderContainer.decode(String?.self, forKey: .lastUpdateTime)
+        }
+        if decoderContainer.contains(.physicalStorageCapacity)
+        {
+            self.physicalStorageCapacity = try decoderContainer.decode(String?.self, forKey: .physicalStorageCapacity)
+        }
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.source)
+        {
+            self.source = try decoderContainer.decode(String?.self, forKey: .source)
+        }
+        if decoderContainer.contains(.owner)
+        {
+            self.owner = try decoderContainer.decode(String?.self, forKey: .owner)
+        }
+        if decoderContainer.contains(.hiveFileFormat)
+        {
+            self.hiveFileFormat = try decoderContainer.decode(String?.self, forKey: .hiveFileFormat)
+        }
+        if decoderContainer.contains(.encryption)
+        {
+            self.encryption = try decoderContainer.decode(String?.self, forKey: .encryption)
+        }
+        if decoderContainer.contains(.location)
+        {
+            self.location = try decoderContainer.decode(String?.self, forKey: .location)
+        }
+        if decoderContainer.contains(.comments)
+        {
+            self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
+        }
+        if decoderContainer.contains(.hiveObjectPrivileges)
+        {
+            self.hiveObjectPrivileges = try decoderContainer.decode(DwHiveObjectPrivileges?.self, forKey: .hiveObjectPrivileges)
+        }
     }
 }
 public extension DwTable{

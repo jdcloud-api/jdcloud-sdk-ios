@@ -74,9 +74,15 @@ public class CacheInstanceSpec:NSObject,Codable{
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
         self.cacheInstanceName = try decoderContainer.decode(String.self, forKey: .cacheInstanceName)
         self.cacheInstanceClass = try decoderContainer.decode(String.self, forKey: .cacheInstanceClass)
-        self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        if decoderContainer.contains(.password)
+        {
+            self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        }
         self.azId = try decoderContainer.decode(AzIdSpec.self, forKey: .azId)
-        self.cacheInstanceDescription = try decoderContainer.decode(String?.self, forKey: .cacheInstanceDescription)
+        if decoderContainer.contains(.cacheInstanceDescription)
+        {
+            self.cacheInstanceDescription = try decoderContainer.decode(String?.self, forKey: .cacheInstanceDescription)
+        }
     }
 }
 public extension CacheInstanceSpec{

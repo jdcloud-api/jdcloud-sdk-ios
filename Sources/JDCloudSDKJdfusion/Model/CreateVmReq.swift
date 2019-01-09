@@ -43,7 +43,10 @@ public class CreateVmReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateVmReqCodingKeys.self)
-        self.vms = try decoderContainer.decode(CreateVm?.self, forKey: .vms)
+        if decoderContainer.contains(.vms)
+        {
+            self.vms = try decoderContainer.decode(CreateVm?.self, forKey: .vms)
+        }
     }
 }
 public extension CreateVmReq{

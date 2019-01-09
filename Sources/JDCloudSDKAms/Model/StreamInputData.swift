@@ -64,14 +64,38 @@ public class StreamInputData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StreamInputDataCodingKeys.self)
-        self.downTime = try decoderContainer.decode(String?.self, forKey: .downTime)
-        self.mediaType = try decoderContainer.decode(String?.self, forKey: .mediaType)
-        self.bitrateFact = try decoderContainer.decode(String?.self, forKey: .bitrateFact)
-        self.fpsDatum = try decoderContainer.decode(String?.self, forKey: .fpsDatum)
-        self.fpsFact = try decoderContainer.decode(String?.self, forKey: .fpsFact)
-        self.bitrateDatum = try decoderContainer.decode(String?.self, forKey: .bitrateDatum)
-        self.tsDeltaDatum = try decoderContainer.decode(String?.self, forKey: .tsDeltaDatum)
-        self.tsDeltaFact = try decoderContainer.decode(String?.self, forKey: .tsDeltaFact)
+        if decoderContainer.contains(.downTime)
+        {
+            self.downTime = try decoderContainer.decode(String?.self, forKey: .downTime)
+        }
+        if decoderContainer.contains(.mediaType)
+        {
+            self.mediaType = try decoderContainer.decode(String?.self, forKey: .mediaType)
+        }
+        if decoderContainer.contains(.bitrateFact)
+        {
+            self.bitrateFact = try decoderContainer.decode(String?.self, forKey: .bitrateFact)
+        }
+        if decoderContainer.contains(.fpsDatum)
+        {
+            self.fpsDatum = try decoderContainer.decode(String?.self, forKey: .fpsDatum)
+        }
+        if decoderContainer.contains(.fpsFact)
+        {
+            self.fpsFact = try decoderContainer.decode(String?.self, forKey: .fpsFact)
+        }
+        if decoderContainer.contains(.bitrateDatum)
+        {
+            self.bitrateDatum = try decoderContainer.decode(String?.self, forKey: .bitrateDatum)
+        }
+        if decoderContainer.contains(.tsDeltaDatum)
+        {
+            self.tsDeltaDatum = try decoderContainer.decode(String?.self, forKey: .tsDeltaDatum)
+        }
+        if decoderContainer.contains(.tsDeltaFact)
+        {
+            self.tsDeltaFact = try decoderContainer.decode(String?.self, forKey: .tsDeltaFact)
+        }
     }
 }
 public extension StreamInputData{

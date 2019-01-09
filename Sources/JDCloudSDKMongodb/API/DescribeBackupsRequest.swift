@@ -40,7 +40,7 @@ public class DescribeBackupsRequest:JdCloudRequest
     /// instanceId - 实例ID, 精确匹配
       /// backupId - 备份ID, 精确匹配
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

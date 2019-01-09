@@ -52,10 +52,22 @@ public class DomainGroupItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DomainGroupItemCodingKeys.self)
-        self.domains = try decoderContainer.decode([String?]?.self, forKey: .domains)
-        self.primaryDomain = try decoderContainer.decode(String?.self, forKey: .primaryDomain)
-        self.shareCache = try decoderContainer.decode(String?.self, forKey: .shareCache)
-        self.domainGroupName = try decoderContainer.decode(String?.self, forKey: .domainGroupName)
+        if decoderContainer.contains(.domains)
+        {
+            self.domains = try decoderContainer.decode([String?]?.self, forKey: .domains)
+        }
+        if decoderContainer.contains(.primaryDomain)
+        {
+            self.primaryDomain = try decoderContainer.decode(String?.self, forKey: .primaryDomain)
+        }
+        if decoderContainer.contains(.shareCache)
+        {
+            self.shareCache = try decoderContainer.decode(String?.self, forKey: .shareCache)
+        }
+        if decoderContainer.contains(.domainGroupName)
+        {
+            self.domainGroupName = try decoderContainer.decode(String?.self, forKey: .domainGroupName)
+        }
     }
 }
 public extension DomainGroupItem{

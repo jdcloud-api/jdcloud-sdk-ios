@@ -44,7 +44,10 @@ public class DescribeInstanceAttributesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstanceAttributesResultCodingKeys.self)
-        self.dbInstanceAttributes = try decoderContainer.decode(DBInstanceAttribute?.self, forKey: .dbInstanceAttributes)
+        if decoderContainer.contains(.dbInstanceAttributes)
+        {
+            self.dbInstanceAttributes = try decoderContainer.decode(DBInstanceAttribute?.self, forKey: .dbInstanceAttributes)
+        }
     }
 }
 public extension DescribeInstanceAttributesResult{

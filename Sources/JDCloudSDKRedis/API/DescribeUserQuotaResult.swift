@@ -45,7 +45,10 @@ public class DescribeUserQuotaResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeUserQuotaResultCodingKeys.self)
-        self.quota = try decoderContainer.decode(Quota?.self, forKey: .quota)
+        if decoderContainer.contains(.quota)
+        {
+            self.quota = try decoderContainer.decode(Quota?.self, forKey: .quota)
+        }
     }
 }
 public extension DescribeUserQuotaResult{

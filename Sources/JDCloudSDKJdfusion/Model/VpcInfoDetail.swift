@@ -40,7 +40,7 @@ public class VpcInfoDetail:NSObject,Codable{
     /// 所属云提供商ID
     var cloudID:String?
     /// 私有网络包含的子网列表
-    var subnets:SubnetInfo?
+    var subnets:[SubnetInfo?]?
     /// 路由表ID集合
     var routeTableIds:[String?]?
 
@@ -64,14 +64,38 @@ public class VpcInfoDetail:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcInfoDetailCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
-        self.subnets = try decoderContainer.decode(SubnetInfo?.self, forKey: .subnets)
-        self.routeTableIds = try decoderContainer.decode([String?]?.self, forKey: .routeTableIds)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
+        if decoderContainer.contains(.subnets)
+        {
+            self.subnets = try decoderContainer.decode([SubnetInfo?]?.self, forKey: .subnets)
+        }
+        if decoderContainer.contains(.routeTableIds)
+        {
+            self.routeTableIds = try decoderContainer.decode([String?]?.self, forKey: .routeTableIds)
+        }
     }
 }
 public extension VpcInfoDetail{

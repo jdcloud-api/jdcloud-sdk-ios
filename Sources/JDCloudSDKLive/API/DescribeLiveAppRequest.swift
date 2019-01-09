@@ -38,7 +38,7 @@ public class DescribeLiveAppRequest:JdCloudRequest
     var pageSize:Int?
 
     /// 域名下的app列表过滤条件, 不传递分页参数时默认返回10条
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

@@ -58,12 +58,30 @@ public class InstanceClass:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceClassCodingKeys.self)
-        self.instanceClassValue = try decoderContainer.decode(String?.self, forKey: .instanceClassValue)
-        self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
-        self.memoryMB = try decoderContainer.decode(Int?.self, forKey: .memoryMB)
-        self.diskGB = try decoderContainer.decode(Int?.self, forKey: .diskGB)
-        self.maxConnetction = try decoderContainer.decode(Int?.self, forKey: .maxConnetction)
-        self.bandwidthMbps = try decoderContainer.decode(Int?.self, forKey: .bandwidthMbps)
+        if decoderContainer.contains(.instanceClassValue)
+        {
+            self.instanceClassValue = try decoderContainer.decode(String?.self, forKey: .instanceClassValue)
+        }
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memoryMB)
+        {
+            self.memoryMB = try decoderContainer.decode(Int?.self, forKey: .memoryMB)
+        }
+        if decoderContainer.contains(.diskGB)
+        {
+            self.diskGB = try decoderContainer.decode(Int?.self, forKey: .diskGB)
+        }
+        if decoderContainer.contains(.maxConnetction)
+        {
+            self.maxConnetction = try decoderContainer.decode(Int?.self, forKey: .maxConnetction)
+        }
+        if decoderContainer.contains(.bandwidthMbps)
+        {
+            self.bandwidthMbps = try decoderContainer.decode(Int?.self, forKey: .bandwidthMbps)
+        }
     }
 }
 public extension InstanceClass{

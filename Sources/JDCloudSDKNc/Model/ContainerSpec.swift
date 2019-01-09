@@ -38,7 +38,7 @@ public class ContainerSpec:NSObject,Codable{
     /// Required:true
     var name:String
     /// 域名和IP映射的信息；&lt;/br&gt; 最大10个alias
-    var hostAliases:HostAlias?
+    var hostAliases:[HostAlias?]?
     /// 主机名，规范请参考说明文档；默认容器ID
     var hostname:String?
     /// 容器执行命令，如果不指定默认是docker镜像的ENTRYPOINT
@@ -46,7 +46,7 @@ public class ContainerSpec:NSObject,Codable{
     /// 容器执行命令的参数，如果不指定默认是docker镜像的CMD
     var args:[String?]?
     /// 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；&lt;/br&gt; 最大10对
-    var envs:EnvVar?
+    var envs:[EnvVar?]?
     /// 镜像名称 &lt;/br&gt; 1. Docker Hub官方镜像通过类似nginx, mysql/mysql-server的名字指定 &lt;/br&gt; &lt;/br&gt; repository长度最大256个字符，tag最大128个字符，registry最大255个字符 &lt;/br&gt; 下载镜像超时时间：10分钟
     /// Required:true
     var image:String
@@ -60,7 +60,7 @@ public class ContainerSpec:NSObject,Codable{
     /// Required:true
     var rootVolume:VolumeMountSpec
     /// 挂载的数据Volume信息；最多7个
-    var dataVolumes:VolumeMountSpec?
+    var dataVolumes:[VolumeMountSpec?]?
     /// 主网卡主IP关联的弹性IP规格
     var elasticIp:ElasticIpSpec?
     /// 主网卡配置信息
@@ -112,22 +112,61 @@ public class ContainerSpec:NSObject,Codable{
         self.instanceType = try decoderContainer.decode(String.self, forKey: .instanceType)
         self.az = try decoderContainer.decode(String.self, forKey: .az)
         self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.hostAliases = try decoderContainer.decode(HostAlias?.self, forKey: .hostAliases)
-        self.hostname = try decoderContainer.decode(String?.self, forKey: .hostname)
-        self.command = try decoderContainer.decode([String?]?.self, forKey: .command)
-        self.args = try decoderContainer.decode([String?]?.self, forKey: .args)
-        self.envs = try decoderContainer.decode(EnvVar?.self, forKey: .envs)
+        if decoderContainer.contains(.hostAliases)
+        {
+            self.hostAliases = try decoderContainer.decode([HostAlias?]?.self, forKey: .hostAliases)
+        }
+        if decoderContainer.contains(.hostname)
+        {
+            self.hostname = try decoderContainer.decode(String?.self, forKey: .hostname)
+        }
+        if decoderContainer.contains(.command)
+        {
+            self.command = try decoderContainer.decode([String?]?.self, forKey: .command)
+        }
+        if decoderContainer.contains(.args)
+        {
+            self.args = try decoderContainer.decode([String?]?.self, forKey: .args)
+        }
+        if decoderContainer.contains(.envs)
+        {
+            self.envs = try decoderContainer.decode([EnvVar?]?.self, forKey: .envs)
+        }
         self.image = try decoderContainer.decode(String.self, forKey: .image)
-        self.secret = try decoderContainer.decode(String?.self, forKey: .secret)
-        self.tty = try decoderContainer.decode(Bool?.self, forKey: .tty)
-        self.workingDir = try decoderContainer.decode(String?.self, forKey: .workingDir)
+        if decoderContainer.contains(.secret)
+        {
+            self.secret = try decoderContainer.decode(String?.self, forKey: .secret)
+        }
+        if decoderContainer.contains(.tty)
+        {
+            self.tty = try decoderContainer.decode(Bool?.self, forKey: .tty)
+        }
+        if decoderContainer.contains(.workingDir)
+        {
+            self.workingDir = try decoderContainer.decode(String?.self, forKey: .workingDir)
+        }
         self.rootVolume = try decoderContainer.decode(VolumeMountSpec.self, forKey: .rootVolume)
-        self.dataVolumes = try decoderContainer.decode(VolumeMountSpec?.self, forKey: .dataVolumes)
-        self.elasticIp = try decoderContainer.decode(ElasticIpSpec?.self, forKey: .elasticIp)
+        if decoderContainer.contains(.dataVolumes)
+        {
+            self.dataVolumes = try decoderContainer.decode([VolumeMountSpec?]?.self, forKey: .dataVolumes)
+        }
+        if decoderContainer.contains(.elasticIp)
+        {
+            self.elasticIp = try decoderContainer.decode(ElasticIpSpec?.self, forKey: .elasticIp)
+        }
         self.primaryNetworkInterface = try decoderContainer.decode(ContainerNetworkInterfaceAttachmentSpec.self, forKey: .primaryNetworkInterface)
-        self.logConfiguration = try decoderContainer.decode(LogConfiguration?.self, forKey: .logConfiguration)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
+        if decoderContainer.contains(.logConfiguration)
+        {
+            self.logConfiguration = try decoderContainer.decode(LogConfiguration?.self, forKey: .logConfiguration)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
+        }
     }
 }
 public extension ContainerSpec{

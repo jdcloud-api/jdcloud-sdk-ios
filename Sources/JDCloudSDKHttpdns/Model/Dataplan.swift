@@ -67,15 +67,42 @@ public class Dataplan:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataplanCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.accountId = try decoderContainer.decode(String?.self, forKey: .accountId)
-        self.number = try decoderContainer.decode(Double?.self, forKey: .number)
-        self.unit = try decoderContainer.decode(Int?.self, forKey: .unit)
-        self.startTime = try decoderContainer.decode(Int64?.self, forKey: .startTime)
-        self.expireTime = try decoderContainer.decode(Int64?.self, forKey: .expireTime)
-        self.usedNumber = try decoderContainer.decode(Double?.self, forKey: .usedNumber)
-        self.type = try decoderContainer.decode(Int?.self, forKey: .type)
-        self.isExpired = try decoderContainer.decode(Int?.self, forKey: .isExpired)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.accountId)
+        {
+            self.accountId = try decoderContainer.decode(String?.self, forKey: .accountId)
+        }
+        if decoderContainer.contains(.number)
+        {
+            self.number = try decoderContainer.decode(Double?.self, forKey: .number)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(Int?.self, forKey: .unit)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(Int64?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.expireTime)
+        {
+            self.expireTime = try decoderContainer.decode(Int64?.self, forKey: .expireTime)
+        }
+        if decoderContainer.contains(.usedNumber)
+        {
+            self.usedNumber = try decoderContainer.decode(Double?.self, forKey: .usedNumber)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(Int?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.isExpired)
+        {
+            self.isExpired = try decoderContainer.decode(Int?.self, forKey: .isExpired)
+        }
     }
 }
 public extension Dataplan{

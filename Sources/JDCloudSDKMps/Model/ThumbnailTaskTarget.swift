@@ -60,11 +60,26 @@ public class ThumbnailTaskTarget:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ThumbnailTaskTargetCodingKeys.self)
         self.destBucket = try decoderContainer.decode(String.self, forKey: .destBucket)
-        self.destKeyPrefix = try decoderContainer.decode(String?.self, forKey: .destKeyPrefix)
-        self.format = try decoderContainer.decode(String?.self, forKey: .format)
-        self.widthInPixel = try decoderContainer.decode(Int?.self, forKey: .widthInPixel)
-        self.heightInPixel = try decoderContainer.decode(Int?.self, forKey: .heightInPixel)
-        self.keys = try decoderContainer.decode([String?]?.self, forKey: .keys)
+        if decoderContainer.contains(.destKeyPrefix)
+        {
+            self.destKeyPrefix = try decoderContainer.decode(String?.self, forKey: .destKeyPrefix)
+        }
+        if decoderContainer.contains(.format)
+        {
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
+        }
+        if decoderContainer.contains(.widthInPixel)
+        {
+            self.widthInPixel = try decoderContainer.decode(Int?.self, forKey: .widthInPixel)
+        }
+        if decoderContainer.contains(.heightInPixel)
+        {
+            self.heightInPixel = try decoderContainer.decode(Int?.self, forKey: .heightInPixel)
+        }
+        if decoderContainer.contains(.keys)
+        {
+            self.keys = try decoderContainer.decode([String?]?.self, forKey: .keys)
+        }
     }
 }
 public extension ThumbnailTaskTarget{

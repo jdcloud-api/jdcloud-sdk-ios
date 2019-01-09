@@ -36,7 +36,7 @@ public class ListDatabaseInfoResult:NSObject,JdCloudResult
     var message:String?
 
     /// Data
-    var data:DwDatabaseInfo?
+    var data:[DwDatabaseInfo?]?
 
 
 
@@ -52,9 +52,18 @@ public class ListDatabaseInfoResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListDatabaseInfoResultCodingKeys.self)
-        self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
-        self.data = try decoderContainer.decode(DwDatabaseInfo?.self, forKey: .data)
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([DwDatabaseInfo?]?.self, forKey: .data)
+        }
     }
 }
 public extension ListDatabaseInfoResult{

@@ -43,7 +43,10 @@ public class DetachNetInterfaceReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DetachNetInterfaceReqCodingKeys.self)
-        self.detach = try decoderContainer.decode(DetachNetInterface?.self, forKey: .detach)
+        if decoderContainer.contains(.detach)
+        {
+            self.detach = try decoderContainer.decode(DetachNetInterface?.self, forKey: .detach)
+        }
     }
 }
 public extension DetachNetInterfaceReq{

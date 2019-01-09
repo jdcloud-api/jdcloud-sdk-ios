@@ -67,15 +67,42 @@ public class Userview:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UserviewCodingKeys.self)
-        self.viewId = try decoderContainer.decode(Int?.self, forKey: .viewId)
-        self.viewName = try decoderContainer.decode(String?.self, forKey: .viewName)
-        self.domainId = try decoderContainer.decode(Int?.self, forKey: .domainId)
-        self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
-        self.isDelete = try decoderContainer.decode(Int?.self, forKey: .isDelete)
-        self.creator = try decoderContainer.decode(String?.self, forKey: .creator)
-        self.createTime = try decoderContainer.decode(Int?.self, forKey: .createTime)
-        self.updator = try decoderContainer.decode(String?.self, forKey: .updator)
-        self.updateTime = try decoderContainer.decode(Int?.self, forKey: .updateTime)
+        if decoderContainer.contains(.viewId)
+        {
+            self.viewId = try decoderContainer.decode(Int?.self, forKey: .viewId)
+        }
+        if decoderContainer.contains(.viewName)
+        {
+            self.viewName = try decoderContainer.decode(String?.self, forKey: .viewName)
+        }
+        if decoderContainer.contains(.domainId)
+        {
+            self.domainId = try decoderContainer.decode(Int?.self, forKey: .domainId)
+        }
+        if decoderContainer.contains(.domainName)
+        {
+            self.domainName = try decoderContainer.decode(String?.self, forKey: .domainName)
+        }
+        if decoderContainer.contains(.isDelete)
+        {
+            self.isDelete = try decoderContainer.decode(Int?.self, forKey: .isDelete)
+        }
+        if decoderContainer.contains(.creator)
+        {
+            self.creator = try decoderContainer.decode(String?.self, forKey: .creator)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(Int?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updator)
+        {
+            self.updator = try decoderContainer.decode(String?.self, forKey: .updator)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(Int?.self, forKey: .updateTime)
+        }
     }
 }
 public extension Userview{

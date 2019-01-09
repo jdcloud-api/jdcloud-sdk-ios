@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class GrantPrivilegeRequest:JdCloudRequest
 {
     /// 账号的访问权限
-    var accountPrivileges:AccountPrivilege?
+    var accountPrivileges:[AccountPrivilege?]?
 
     /// RDS 实例ID，唯一标识一个RDS实例
     var instanceId:String
@@ -40,7 +40,7 @@ public class GrantPrivilegeRequest:JdCloudRequest
     var accountName:String
 
 
-    public init(regionId: String,accountPrivileges:AccountPrivilege?,instanceId:String,accountName:String){
+    public init(regionId: String,accountPrivileges:[AccountPrivilege?]?,instanceId:String,accountName:String){
         self.accountPrivileges = accountPrivileges
         self.instanceId = instanceId
         self.accountName = accountName

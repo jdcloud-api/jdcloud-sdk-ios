@@ -58,12 +58,30 @@ public class CacheRule:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CacheRuleCodingKeys.self)
-        self.weight = try decoderContainer.decode(Int32?.self, forKey: .weight)
-        self.ttl = try decoderContainer.decode(Int64?.self, forKey: .ttl)
-        self.contents = try decoderContainer.decode(String?.self, forKey: .contents)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        self.cacheType = try decoderContainer.decode(String?.self, forKey: .cacheType)
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int32?.self, forKey: .weight)
+        }
+        if decoderContainer.contains(.ttl)
+        {
+            self.ttl = try decoderContainer.decode(Int64?.self, forKey: .ttl)
+        }
+        if decoderContainer.contains(.contents)
+        {
+            self.contents = try decoderContainer.decode(String?.self, forKey: .contents)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
+        if decoderContainer.contains(.cacheType)
+        {
+            self.cacheType = try decoderContainer.decode(String?.self, forKey: .cacheType)
+        }
     }
 }
 public extension CacheRule{

@@ -74,17 +74,50 @@ public class ElasticIp:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ElasticIpCodingKeys.self)
-        self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
-        self.bandwidthMbps = try decoderContainer.decode(Int?.self, forKey: .bandwidthMbps)
-        self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        if decoderContainer.contains(.elasticIpId)
+        {
+            self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
+        if decoderContainer.contains(.bandwidthMbps)
+        {
+            self.bandwidthMbps = try decoderContainer.decode(Int?.self, forKey: .bandwidthMbps)
+        }
+        if decoderContainer.contains(.provider)
+        {
+            self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.networkInterfaceId)
+        {
+            self.networkInterfaceId = try decoderContainer.decode(String?.self, forKey: .networkInterfaceId)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
     }
 }
 public extension ElasticIp{

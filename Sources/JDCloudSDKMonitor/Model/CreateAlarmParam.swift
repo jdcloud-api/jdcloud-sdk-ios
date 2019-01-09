@@ -119,23 +119,50 @@ public class CreateAlarmParam:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: CreateAlarmParamCodingKeys.self)
         self.calculateUnit = try decoderContainer.decode(String.self, forKey: .calculateUnit)
         self.calculation = try decoderContainer.decode(String.self, forKey: .calculation)
-        self.contactGroups = try decoderContainer.decode([String?]?.self, forKey: .contactGroups)
-        self.contactPersons = try decoderContainer.decode([String?]?.self, forKey: .contactPersons)
+        if decoderContainer.contains(.contactGroups)
+        {
+            self.contactGroups = try decoderContainer.decode([String?]?.self, forKey: .contactGroups)
+        }
+        if decoderContainer.contains(.contactPersons)
+        {
+            self.contactPersons = try decoderContainer.decode([String?]?.self, forKey: .contactPersons)
+        }
         self.downSample = try decoderContainer.decode(String.self, forKey: .downSample)
         self.metric = try decoderContainer.decode(String.self, forKey: .metric)
-        self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
-        self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        if decoderContainer.contains(.noticeLevel)
+        {
+            self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
+        }
+        if decoderContainer.contains(.noticePeriod)
+        {
+            self.noticePeriod = try decoderContainer.decode(Int64?.self, forKey: .noticePeriod)
+        }
         self.operation = try decoderContainer.decode(String.self, forKey: .operation)
         self.period = try decoderContainer.decode(Int64.self, forKey: .period)
         self.resourceIds = try decoderContainer.decode([String?].self, forKey: .resourceIds)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
         self.threshold = try decoderContainer.decode(Double.self, forKey: .threshold)
         self.times = try decoderContainer.decode(Int64.self, forKey: .times)
-        self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
-        self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
-        self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
-        self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        if decoderContainer.contains(.webHookContent)
+        {
+            self.webHookContent = try decoderContainer.decode(String?.self, forKey: .webHookContent)
+        }
+        if decoderContainer.contains(.webHookProtocol)
+        {
+            self.webHookProtocol = try decoderContainer.decode(String?.self, forKey: .webHookProtocol)
+        }
+        if decoderContainer.contains(.webHookSecret)
+        {
+            self.webHookSecret = try decoderContainer.decode(String?.self, forKey: .webHookSecret)
+        }
+        if decoderContainer.contains(.webHookUrl)
+        {
+            self.webHookUrl = try decoderContainer.decode(String?.self, forKey: .webHookUrl)
+        }
     }
 }
 public extension CreateAlarmParam{

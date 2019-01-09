@@ -123,7 +123,10 @@ public class UpdateMonitor:NSObject,Codable{
         self.monitorUri = try decoderContainer.decode(String.self, forKey: .monitorUri)
         self.notifyEmailEnable = try decoderContainer.decode(Int.self, forKey: .notifyEmailEnable)
         self.notifyMsgBarEnable = try decoderContainer.decode(Int.self, forKey: .notifyMsgBarEnable)
-        self.notifySmsEnable = try decoderContainer.decode(Int?.self, forKey: .notifySmsEnable)
+        if decoderContainer.contains(.notifySmsEnable)
+        {
+            self.notifySmsEnable = try decoderContainer.decode(Int?.self, forKey: .notifySmsEnable)
+        }
         self.protocolValue = try decoderContainer.decode(Int.self, forKey: .protocolValue)
         self.stopRecoverRule = try decoderContainer.decode(Int.self, forKey: .stopRecoverRule)
         self.switchRecoverRule = try decoderContainer.decode(Int.self, forKey: .switchRecoverRule)

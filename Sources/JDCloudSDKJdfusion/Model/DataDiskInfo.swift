@@ -55,11 +55,26 @@ public class DataDiskInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataDiskInfoCodingKeys.self)
-        self.diskSize = try decoderContainer.decode(Int32?.self, forKey: .diskSize)
-        self.diskMediumType = try decoderContainer.decode(String?.self, forKey: .diskMediumType)
-        self.diskName = try decoderContainer.decode(String?.self, forKey: .diskName)
-        self.autoDelete = try decoderContainer.decode(String?.self, forKey: .autoDelete)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        if decoderContainer.contains(.diskSize)
+        {
+            self.diskSize = try decoderContainer.decode(Int32?.self, forKey: .diskSize)
+        }
+        if decoderContainer.contains(.diskMediumType)
+        {
+            self.diskMediumType = try decoderContainer.decode(String?.self, forKey: .diskMediumType)
+        }
+        if decoderContainer.contains(.diskName)
+        {
+            self.diskName = try decoderContainer.decode(String?.self, forKey: .diskName)
+        }
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(String?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
     }
 }
 public extension DataDiskInfo{

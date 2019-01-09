@@ -61,13 +61,34 @@ public class DDosAttackLog:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DDosAttackLogCodingKeys.self)
-        self.attackTraffic = try decoderContainer.decode(Double?.self, forKey: .attackTraffic)
-        self.blackHole = try decoderContainer.decode(Int?.self, forKey: .blackHole)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
-        self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        if decoderContainer.contains(.attackTraffic)
+        {
+            self.attackTraffic = try decoderContainer.decode(Double?.self, forKey: .attackTraffic)
+        }
+        if decoderContainer.contains(.blackHole)
+        {
+            self.blackHole = try decoderContainer.decode(Int?.self, forKey: .blackHole)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
     }
 }
 public extension DDosAttackLog{

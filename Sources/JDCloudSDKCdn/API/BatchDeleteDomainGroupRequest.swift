@@ -31,10 +31,10 @@ import JDCloudSDKCore
 public class BatchDeleteDomainGroupRequest:JdCloudRequest
 {
     /// Ids
-    var ids:Int64?
+    var ids:[Int64?]?
 
 
-    public init(regionId: String,ids:Int64?){
+    public init(regionId: String,ids:[Int64?]?){
         self.ids = ids
         super.init(regionId: regionId)
     }

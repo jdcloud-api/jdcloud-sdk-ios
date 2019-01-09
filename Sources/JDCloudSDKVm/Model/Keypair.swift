@@ -49,9 +49,18 @@ public class Keypair:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: KeypairCodingKeys.self)
-        self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
-        self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.keyName)
+        {
+            self.keyName = try decoderContainer.decode(String?.self, forKey: .keyName)
+        }
+        if decoderContainer.contains(.keyFingerprint)
+        {
+            self.keyFingerprint = try decoderContainer.decode(String?.self, forKey: .keyFingerprint)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension Keypair{

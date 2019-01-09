@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeNetworkSecurityGroupsResult)
 public class DescribeNetworkSecurityGroupsResult:NSObject,JdCloudResult
 {
-    /// NetworkSecurityGroups
-    var networkSecurityGroups:NetworkSecurityGroup?
+    /// 安全组资源信息列表
+    var networkSecurityGroups:[NetworkSecurityGroup?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeNetworkSecurityGroupsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeNetworkSecurityGroupsResultCodingKeys.self)
-        self.networkSecurityGroups = try decoderContainer.decode(NetworkSecurityGroup?.self, forKey: .networkSecurityGroups)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.networkSecurityGroups)
+        {
+            self.networkSecurityGroups = try decoderContainer.decode([NetworkSecurityGroup?]?.self, forKey: .networkSecurityGroups)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeNetworkSecurityGroupsResult{

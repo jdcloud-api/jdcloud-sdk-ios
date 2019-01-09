@@ -85,19 +85,55 @@ public class CreateNetInterface:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateNetInterfaceCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.az = try decoderContainer.decode(String?.self, forKey: .az)
-        self.associatedPublicIp = try decoderContainer.decode(String?.self, forKey: .associatedPublicIp)
-        self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
-        self.macAddress = try decoderContainer.decode(String?.self, forKey: .macAddress)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.associatedPublicIp)
+        {
+            self.associatedPublicIp = try decoderContainer.decode(String?.self, forKey: .associatedPublicIp)
+        }
+        if decoderContainer.contains(.privateIpAddress)
+        {
+            self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
+        }
+        if decoderContainer.contains(.macAddress)
+        {
+            self.macAddress = try decoderContainer.decode(String?.self, forKey: .macAddress)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
         self.securityGroupId = try decoderContainer.decode(String.self, forKey: .securityGroupId)
     }
 }

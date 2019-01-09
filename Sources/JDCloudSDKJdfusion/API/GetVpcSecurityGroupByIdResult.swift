@@ -44,7 +44,10 @@ public class GetVpcSecurityGroupByIdResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVpcSecurityGroupByIdResultCodingKeys.self)
-        self.securityGroup = try decoderContainer.decode(SecurityGroupDetail?.self, forKey: .securityGroup)
+        if decoderContainer.contains(.securityGroup)
+        {
+            self.securityGroup = try decoderContainer.decode(SecurityGroupDetail?.self, forKey: .securityGroup)
+        }
     }
 }
 public extension GetVpcSecurityGroupByIdResult{

@@ -58,12 +58,30 @@ public class DBInstanceParameter:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceParameterCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.configureValue = try decoderContainer.decode(String?.self, forKey: .configureValue)
-        self.runningValue = try decoderContainer.decode(String?.self, forKey: .runningValue)
-        self.range = try decoderContainer.decode(String?.self, forKey: .range)
-        self.needRestart = try decoderContainer.decode(String?.self, forKey: .needRestart)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.configureValue)
+        {
+            self.configureValue = try decoderContainer.decode(String?.self, forKey: .configureValue)
+        }
+        if decoderContainer.contains(.runningValue)
+        {
+            self.runningValue = try decoderContainer.decode(String?.self, forKey: .runningValue)
+        }
+        if decoderContainer.contains(.range)
+        {
+            self.range = try decoderContainer.decode(String?.self, forKey: .range)
+        }
+        if decoderContainer.contains(.needRestart)
+        {
+            self.needRestart = try decoderContainer.decode(String?.self, forKey: .needRestart)
+        }
     }
 }
 public extension DBInstanceParameter{

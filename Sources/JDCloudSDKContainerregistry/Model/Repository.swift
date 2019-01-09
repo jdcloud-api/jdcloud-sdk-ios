@@ -61,13 +61,34 @@ public class Repository:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RepositoryCodingKeys.self)
-        self.createdAt = try decoderContainer.decode(String?.self, forKey: .createdAt)
-        self.updatedAt = try decoderContainer.decode(String?.self, forKey: .updatedAt)
-        self.registryName = try decoderContainer.decode(String?.self, forKey: .registryName)
-        self.repositoryName = try decoderContainer.decode(String?.self, forKey: .repositoryName)
-        self.repositoryUri = try decoderContainer.decode(String?.self, forKey: .repositoryUri)
-        self.totalSpaceUsedMB = try decoderContainer.decode(Double?.self, forKey: .totalSpaceUsedMB)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.createdAt)
+        {
+            self.createdAt = try decoderContainer.decode(String?.self, forKey: .createdAt)
+        }
+        if decoderContainer.contains(.updatedAt)
+        {
+            self.updatedAt = try decoderContainer.decode(String?.self, forKey: .updatedAt)
+        }
+        if decoderContainer.contains(.registryName)
+        {
+            self.registryName = try decoderContainer.decode(String?.self, forKey: .registryName)
+        }
+        if decoderContainer.contains(.repositoryName)
+        {
+            self.repositoryName = try decoderContainer.decode(String?.self, forKey: .repositoryName)
+        }
+        if decoderContainer.contains(.repositoryUri)
+        {
+            self.repositoryUri = try decoderContainer.decode(String?.self, forKey: .repositoryUri)
+        }
+        if decoderContainer.contains(.totalSpaceUsedMB)
+        {
+            self.totalSpaceUsedMB = try decoderContainer.decode(Double?.self, forKey: .totalSpaceUsedMB)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension Repository{

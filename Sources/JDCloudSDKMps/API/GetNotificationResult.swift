@@ -36,7 +36,7 @@ public class GetNotificationResult:NSObject,JdCloudResult
     var endpoint:String?
 
     /// 触发通知的事件集合 (mpsTranscodeComplete, mpsThumbnailComplete)
-    var events:String?
+    var events:[String?]?
 
     /// 重试策略, BACKOFF_RETRY: 退避重试策略, 重试 3 次, 每次重试的间隔时间是 10秒 到 20秒 之间的随机值; EXPONENTIAL_DECAY_RETRY: 指数衰减重试, 重试 176 次, 每次重试的间隔时间指数递增至 512秒, 总计重试时间为1天; 每次重试的具体间隔为: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512 ... 512 秒(共167个512)
     var notifyStrategy:String?
@@ -61,10 +61,22 @@ public class GetNotificationResult:NSObject,JdCloudResult
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetNotificationResultCodingKeys.self)
         self.enabled = try decoderContainer.decode(Bool.self, forKey: .enabled)
-        self.endpoint = try decoderContainer.decode(String?.self, forKey: .endpoint)
-        self.events = try decoderContainer.decode(String?.self, forKey: .events)
-        self.notifyStrategy = try decoderContainer.decode(String?.self, forKey: .notifyStrategy)
-        self.notifyContentFormat = try decoderContainer.decode(String?.self, forKey: .notifyContentFormat)
+        if decoderContainer.contains(.endpoint)
+        {
+            self.endpoint = try decoderContainer.decode(String?.self, forKey: .endpoint)
+        }
+        if decoderContainer.contains(.events)
+        {
+            self.events = try decoderContainer.decode([String?]?.self, forKey: .events)
+        }
+        if decoderContainer.contains(.notifyStrategy)
+        {
+            self.notifyStrategy = try decoderContainer.decode(String?.self, forKey: .notifyStrategy)
+        }
+        if decoderContainer.contains(.notifyContentFormat)
+        {
+            self.notifyContentFormat = try decoderContainer.decode(String?.self, forKey: .notifyContentFormat)
+        }
     }
 }
 public extension GetNotificationResult{

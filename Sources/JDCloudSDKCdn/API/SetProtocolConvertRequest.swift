@@ -37,7 +37,7 @@ public class SetProtocolConvertRequest:JdCloudRequest
     var rsaKey:String?
 
     /// ProtocolConverts
-    var protocolConverts:ProtocolConvert?
+    var protocolConverts:[ProtocolConvert?]?
 
     /// 用户域名
     var domain:String

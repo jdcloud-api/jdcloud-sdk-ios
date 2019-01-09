@@ -41,7 +41,7 @@ public class CreateImageRequest:JdCloudRequest
     var descriptionValue:String
 
     /// 数据盘列表，可以在实例已挂载数据盘的基础上，额外增加新的快照、空盘、或排除云主机中的数据盘。
-    var dataDisks:InstanceDiskAttachmentSpec?
+    var dataDisks:[InstanceDiskAttachmentSpec?]?
 
     /// 云主机ID
     var instanceId:String

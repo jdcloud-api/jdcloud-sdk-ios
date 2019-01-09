@@ -52,10 +52,22 @@ public class Secret:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SecretCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.type = try decoderContainer.decode(String?.self, forKey: .type)
-        self.createdAt = try decoderContainer.decode(String?.self, forKey: .createdAt)
-        self.data = try decoderContainer.decode(DockerRegistryData?.self, forKey: .data)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.type)
+        {
+            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+        }
+        if decoderContainer.contains(.createdAt)
+        {
+            self.createdAt = try decoderContainer.decode(String?.self, forKey: .createdAt)
+        }
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode(DockerRegistryData?.self, forKey: .data)
+        }
     }
 }
 public extension Secret{

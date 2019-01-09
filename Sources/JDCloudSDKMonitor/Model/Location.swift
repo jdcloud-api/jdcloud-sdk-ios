@@ -46,8 +46,14 @@ public class Location:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LocationCodingKeys.self)
-        self.sloc = try decoderContainer.decode(String?.self, forKey: .sloc)
-        self.slocName = try decoderContainer.decode(String?.self, forKey: .slocName)
+        if decoderContainer.contains(.sloc)
+        {
+            self.sloc = try decoderContainer.decode(String?.self, forKey: .sloc)
+        }
+        if decoderContainer.contains(.slocName)
+        {
+            self.slocName = try decoderContainer.decode(String?.self, forKey: .slocName)
+        }
     }
 }
 public extension Location{

@@ -17,8 +17,6 @@ depends-top-level:
 - "Decoder"
 - "DescribeSecurityIpsResult"
 - "Encoder"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "JdCloudResult"
 - "NSObject"
 - "String"

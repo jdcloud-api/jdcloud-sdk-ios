@@ -28,7 +28,7 @@ import Foundation
 @objc(DescribeSqlserverBlockProcessOut)
 public class DescribeSqlserverBlockProcessOut:NSObject,Codable{
     /// List
-    var list:LastDownsampleRespItem?
+    var list:[LastDownsampleRespItem?]?
 
 
 
@@ -43,7 +43,10 @@ public class DescribeSqlserverBlockProcessOut:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeSqlserverBlockProcessOutCodingKeys.self)
-        self.list = try decoderContainer.decode(LastDownsampleRespItem?.self, forKey: .list)
+        if decoderContainer.contains(.list)
+        {
+            self.list = try decoderContainer.decode([LastDownsampleRespItem?]?.self, forKey: .list)
+        }
     }
 }
 public extension DescribeSqlserverBlockProcessOut{

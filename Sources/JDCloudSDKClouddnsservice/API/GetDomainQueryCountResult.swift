@@ -29,11 +29,11 @@ import JDCloudSDKCore
 @objc(GetDomainQueryCountResult)
 public class GetDomainQueryCountResult:NSObject,JdCloudResult
 {
-    /// Time
-    var time:Int64?
+    /// 时间序列
+    var time:[Int64?]?
 
-    /// Traffic
-    var traffic:Int64?
+    /// 与时间序列对应的数据序列，单位：次数
+    var traffic:[Int64?]?
 
 
 
@@ -48,8 +48,14 @@ public class GetDomainQueryCountResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDomainQueryCountResultCodingKeys.self)
-        self.time = try decoderContainer.decode(Int64?.self, forKey: .time)
-        self.traffic = try decoderContainer.decode(Int64?.self, forKey: .traffic)
+        if decoderContainer.contains(.time)
+        {
+            self.time = try decoderContainer.decode([Int64?]?.self, forKey: .time)
+        }
+        if decoderContainer.contains(.traffic)
+        {
+            self.traffic = try decoderContainer.decode([Int64?]?.self, forKey: .traffic)
+        }
     }
 }
 public extension GetDomainQueryCountResult{

@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetJobListResult)
 public class GetJobListResult:NSObject,JdCloudResult
 {
-    /// Data
-    var data:JobStr?
+    /// 查询出的job对象
+    var data:[JobStr?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetJobListResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetJobListResultCodingKeys.self)
-        self.data = try decoderContainer.decode(JobStr?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([JobStr?]?.self, forKey: .data)
+        }
     }
 }
 public extension GetJobListResult{

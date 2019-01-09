@@ -46,8 +46,14 @@ public class DisassociateElasticIpSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DisassociateElasticIpSpecCodingKeys.self)
-        self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
-        self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        if decoderContainer.contains(.elasticIpId)
+        {
+            self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
+        }
+        if decoderContainer.contains(.elasticIpAddress)
+        {
+            self.elasticIpAddress = try decoderContainer.decode(String?.self, forKey: .elasticIpAddress)
+        }
     }
 }
 public extension DisassociateElasticIpSpec{

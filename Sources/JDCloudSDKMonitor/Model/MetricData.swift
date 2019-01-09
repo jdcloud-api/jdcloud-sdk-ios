@@ -28,11 +28,11 @@ import Foundation
 @objc(MetricData)
 public class MetricData:NSObject,Codable{
     /// Data
-    var data:DataPoint?
+    var data:[DataPoint?]?
     /// Metric
     var metric:Metric?
     /// Tags
-    var tags:Tag?
+    var tags:[Tag?]?
 
 
 
@@ -49,9 +49,18 @@ public class MetricData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MetricDataCodingKeys.self)
-        self.data = try decoderContainer.decode(DataPoint?.self, forKey: .data)
-        self.metric = try decoderContainer.decode(Metric?.self, forKey: .metric)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([DataPoint?]?.self, forKey: .data)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(Metric?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
     }
 }
 public extension MetricData{

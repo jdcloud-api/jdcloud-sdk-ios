@@ -60,11 +60,26 @@ public class DwInstance:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DwInstanceCodingKeys.self)
         self.instanceName = try decoderContainer.decode(String.self, forKey: .instanceName)
-        self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
-        self.instanceOwnerName = try decoderContainer.decode(String?.self, forKey: .instanceOwnerName)
-        self.area = try decoderContainer.decode(String?.self, forKey: .area)
-        self.uname = try decoderContainer.decode(String?.self, forKey: .uname)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        if decoderContainer.contains(.comments)
+        {
+            self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
+        }
+        if decoderContainer.contains(.instanceOwnerName)
+        {
+            self.instanceOwnerName = try decoderContainer.decode(String?.self, forKey: .instanceOwnerName)
+        }
+        if decoderContainer.contains(.area)
+        {
+            self.area = try decoderContainer.decode(String?.self, forKey: .area)
+        }
+        if decoderContainer.contains(.uname)
+        {
+            self.uname = try decoderContainer.decode(String?.self, forKey: .uname)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension DwInstance{

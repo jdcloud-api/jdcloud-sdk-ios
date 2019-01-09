@@ -30,7 +30,7 @@ public class BucketSpaceStatisticQueryResult:NSObject,Codable{
     /// 查询结果总数
     var totalCount:Int?
     /// bucket 统计列表
-    var queryList:BucketSpaceStatistic?
+    var queryList:[BucketSpaceStatistic?]?
 
 
 
@@ -46,8 +46,14 @@ public class BucketSpaceStatisticQueryResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BucketSpaceStatisticQueryResultCodingKeys.self)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.queryList = try decoderContainer.decode(BucketSpaceStatistic?.self, forKey: .queryList)
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.queryList)
+        {
+            self.queryList = try decoderContainer.decode([BucketSpaceStatistic?]?.self, forKey: .queryList)
+        }
     }
 }
 public extension BucketSpaceStatisticQueryResult{

@@ -33,7 +33,7 @@ public class QueryResourceBillsResult:NSObject,JdCloudResult
     var pagination:Pagination?
 
     /// Result
-    var result:ResourceBillQueryResultItem?
+    var result:[ResourceBillQueryResultItem?]?
 
 
 
@@ -48,8 +48,14 @@ public class QueryResourceBillsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: QueryResourceBillsResultCodingKeys.self)
-        self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
-        self.result = try decoderContainer.decode(ResourceBillQueryResultItem?.self, forKey: .result)
+        if decoderContainer.contains(.pagination)
+        {
+            self.pagination = try decoderContainer.decode(Pagination?.self, forKey: .pagination)
+        }
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode([ResourceBillQueryResultItem?]?.self, forKey: .result)
+        }
     }
 }
 public extension QueryResourceBillsResult{

@@ -53,7 +53,10 @@ public class InstanceTemplateElasticIp:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTemplateElasticIpCodingKeys.self)
         self.bandwidthMbps = try decoderContainer.decode(Int.self, forKey: .bandwidthMbps)
-        self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
+        if decoderContainer.contains(.provider)
+        {
+            self.provider = try decoderContainer.decode(String?.self, forKey: .provider)
+        }
         self.chargeMode = try decoderContainer.decode(String.self, forKey: .chargeMode)
     }
 }

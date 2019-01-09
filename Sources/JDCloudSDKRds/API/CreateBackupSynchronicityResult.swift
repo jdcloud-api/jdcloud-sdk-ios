@@ -44,7 +44,10 @@ public class CreateBackupSynchronicityResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateBackupSynchronicityResultCodingKeys.self)
-        self.serviceId = try decoderContainer.decode(String?.self, forKey: .serviceId)
+        if decoderContainer.contains(.serviceId)
+        {
+            self.serviceId = try decoderContainer.decode(String?.self, forKey: .serviceId)
+        }
     }
 }
 public extension CreateBackupSynchronicityResult{

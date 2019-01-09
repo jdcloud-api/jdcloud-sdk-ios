@@ -48,7 +48,10 @@ public class CreateImageResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateImageResultCodingKeys.self)
-        self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        if decoderContainer.contains(.imageId)
+        {
+            self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        }
     }
 }
 public extension CreateImageResult{

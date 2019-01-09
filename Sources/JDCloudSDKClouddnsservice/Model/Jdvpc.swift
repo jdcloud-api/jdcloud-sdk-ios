@@ -46,8 +46,14 @@ public class Jdvpc:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: JdvpcCodingKeys.self)
-        self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
-        self.binded = try decoderContainer.decode(Bool?.self, forKey: .binded)
+        if decoderContainer.contains(.ip)
+        {
+            self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
+        }
+        if decoderContainer.contains(.binded)
+        {
+            self.binded = try decoderContainer.decode(Bool?.self, forKey: .binded)
+        }
     }
 }
 public extension Jdvpc{

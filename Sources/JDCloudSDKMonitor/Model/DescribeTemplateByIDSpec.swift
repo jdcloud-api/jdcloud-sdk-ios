@@ -44,7 +44,10 @@ public class DescribeTemplateByIDSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeTemplateByIDSpecCodingKeys.self)
-        self.templateType = try decoderContainer.decode(Int64?.self, forKey: .templateType)
+        if decoderContainer.contains(.templateType)
+        {
+            self.templateType = try decoderContainer.decode(Int64?.self, forKey: .templateType)
+        }
     }
 }
 public extension DescribeTemplateByIDSpec{

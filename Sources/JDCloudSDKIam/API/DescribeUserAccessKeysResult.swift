@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeUserAccessKeysResult)
 public class DescribeUserAccessKeysResult:NSObject,JdCloudResult
 {
-    /// UserAccessKeys
-    var userAccessKeys:UserAccessKey?
+    /// userAccessKey列表
+    var userAccessKeys:[UserAccessKey?]?
 
 
 
@@ -44,7 +44,10 @@ public class DescribeUserAccessKeysResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeUserAccessKeysResultCodingKeys.self)
-        self.userAccessKeys = try decoderContainer.decode(UserAccessKey?.self, forKey: .userAccessKeys)
+        if decoderContainer.contains(.userAccessKeys)
+        {
+            self.userAccessKeys = try decoderContainer.decode([UserAccessKey?]?.self, forKey: .userAccessKeys)
+        }
     }
 }
 public extension DescribeUserAccessKeysResult{

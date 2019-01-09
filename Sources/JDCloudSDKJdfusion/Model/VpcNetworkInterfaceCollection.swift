@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcNetworkInterfaceCollection)
 public class VpcNetworkInterfaceCollection:NSObject,Codable{
     /// NetInterfaces
-    var netInterfaces:NetInterfaceInfo?
+    var netInterfaces:[NetInterfaceInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcNetworkInterfaceCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcNetworkInterfaceCollectionCodingKeys.self)
-        self.netInterfaces = try decoderContainer.decode(NetInterfaceInfo?.self, forKey: .netInterfaces)
+        if decoderContainer.contains(.netInterfaces)
+        {
+            self.netInterfaces = try decoderContainer.decode([NetInterfaceInfo?]?.self, forKey: .netInterfaces)
+        }
     }
 }
 public extension VpcNetworkInterfaceCollection{

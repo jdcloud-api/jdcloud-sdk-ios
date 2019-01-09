@@ -46,8 +46,14 @@ public class BackSourceRuleCondition:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BackSourceRuleConditionCodingKeys.self)
-        self.keyPrefixEquals = try decoderContainer.decode(String?.self, forKey: .keyPrefixEquals)
-        self.httpErrorCodeReturnedEquals = try decoderContainer.decode(Int?.self, forKey: .httpErrorCodeReturnedEquals)
+        if decoderContainer.contains(.keyPrefixEquals)
+        {
+            self.keyPrefixEquals = try decoderContainer.decode(String?.self, forKey: .keyPrefixEquals)
+        }
+        if decoderContainer.contains(.httpErrorCodeReturnedEquals)
+        {
+            self.httpErrorCodeReturnedEquals = try decoderContainer.decode(Int?.self, forKey: .httpErrorCodeReturnedEquals)
+        }
     }
 }
 public extension BackSourceRuleCondition{

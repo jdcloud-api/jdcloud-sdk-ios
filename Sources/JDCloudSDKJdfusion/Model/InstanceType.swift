@@ -49,9 +49,18 @@ public class InstanceType:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTypeCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.cpu = try decoderContainer.decode(Int32?.self, forKey: .cpu)
-        self.memory = try decoderContainer.decode(Int32?.self, forKey: .memory)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int32?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memory)
+        {
+            self.memory = try decoderContainer.decode(Int32?.self, forKey: .memory)
+        }
     }
 }
 public extension InstanceType{

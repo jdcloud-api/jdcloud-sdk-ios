@@ -35,7 +35,7 @@ public class DescribeInstanceTypesRequest:JdCloudRequest
     /// instanceTypes - 实例规格，精确匹配，支持多个
       /// az - 可用区，精确匹配，支持多个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

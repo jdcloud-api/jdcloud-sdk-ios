@@ -32,8 +32,8 @@ public class DescribeBinlogsResult:NSObject,JdCloudResult
     /// 总记录数
     var totalCount:Int?
 
-    /// Binlogs
-    var binlogs:Binlog?
+    /// 备份集合
+    var binlogs:[Binlog?]?
 
 
 
@@ -48,8 +48,14 @@ public class DescribeBinlogsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeBinlogsResultCodingKeys.self)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.binlogs = try decoderContainer.decode(Binlog?.self, forKey: .binlogs)
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.binlogs)
+        {
+            self.binlogs = try decoderContainer.decode([Binlog?]?.self, forKey: .binlogs)
+        }
     }
 }
 public extension DescribeBinlogsResult{

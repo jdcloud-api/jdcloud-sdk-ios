@@ -46,8 +46,14 @@ public class DBAccessPrivilege:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBAccessPrivilegeCodingKeys.self)
-        self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
-        self.privilege = try decoderContainer.decode(String?.self, forKey: .privilege)
+        if decoderContainer.contains(.accountName)
+        {
+            self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
+        }
+        if decoderContainer.contains(.privilege)
+        {
+            self.privilege = try decoderContainer.decode(String?.self, forKey: .privilege)
+        }
     }
 }
 public extension DBAccessPrivilege{

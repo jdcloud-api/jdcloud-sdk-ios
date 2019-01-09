@@ -55,11 +55,26 @@ public class Charge:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ChargeCodingKeys.self)
-        self.chargeMode = try decoderContainer.decode(String?.self, forKey: .chargeMode)
-        self.chargeStatus = try decoderContainer.decode(String?.self, forKey: .chargeStatus)
-        self.chargeStartTime = try decoderContainer.decode(String?.self, forKey: .chargeStartTime)
-        self.chargeExpiredTime = try decoderContainer.decode(String?.self, forKey: .chargeExpiredTime)
-        self.chargeRetireTime = try decoderContainer.decode(String?.self, forKey: .chargeRetireTime)
+        if decoderContainer.contains(.chargeMode)
+        {
+            self.chargeMode = try decoderContainer.decode(String?.self, forKey: .chargeMode)
+        }
+        if decoderContainer.contains(.chargeStatus)
+        {
+            self.chargeStatus = try decoderContainer.decode(String?.self, forKey: .chargeStatus)
+        }
+        if decoderContainer.contains(.chargeStartTime)
+        {
+            self.chargeStartTime = try decoderContainer.decode(String?.self, forKey: .chargeStartTime)
+        }
+        if decoderContainer.contains(.chargeExpiredTime)
+        {
+            self.chargeExpiredTime = try decoderContainer.decode(String?.self, forKey: .chargeExpiredTime)
+        }
+        if decoderContainer.contains(.chargeRetireTime)
+        {
+            self.chargeRetireTime = try decoderContainer.decode(String?.self, forKey: .chargeRetireTime)
+        }
     }
 }
 public extension Charge{

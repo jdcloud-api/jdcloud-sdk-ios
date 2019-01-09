@@ -31,13 +31,13 @@ import JDCloudSDKCore
 public class ModifyRouteTableRulesRequest:JdCloudRequest
 {
     /// 路由表规则信息
-    var modifyRouteTableRuleSpecs:ModifyRouteTableRules?
+    var modifyRouteTableRuleSpecs:[ModifyRouteTableRules?]?
 
     /// RouteTable ID
     var routeTableId:String
 
 
-    public init(regionId: String,modifyRouteTableRuleSpecs:ModifyRouteTableRules?,routeTableId:String){
+    public init(regionId: String,modifyRouteTableRuleSpecs:[ModifyRouteTableRules?]?,routeTableId:String){
         self.modifyRouteTableRuleSpecs = modifyRouteTableRuleSpecs
         self.routeTableId = routeTableId
         super.init(regionId: regionId)

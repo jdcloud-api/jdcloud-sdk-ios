@@ -46,8 +46,14 @@ public class StatisticsWithAreaGroupDetailItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsWithAreaGroupDetailItemCodingKeys.self)
-        self.area = try decoderContainer.decode(String?.self, forKey: .area)
-        self.ispStat = try decoderContainer.decode([String:String?]?.self, forKey: .ispStat)
+        if decoderContainer.contains(.area)
+        {
+            self.area = try decoderContainer.decode(String?.self, forKey: .area)
+        }
+        if decoderContainer.contains(.ispStat)
+        {
+            self.ispStat = try decoderContainer.decode([String:String?]?.self, forKey: .ispStat)
+        }
     }
 }
 public extension StatisticsWithAreaGroupDetailItem{

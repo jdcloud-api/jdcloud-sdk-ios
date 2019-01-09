@@ -52,10 +52,22 @@ public class DataDiskAttachment:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataDiskAttachmentCodingKeys.self)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
-        self.dataDisk = try decoderContainer.decode(DataDiskInfo?.self, forKey: .dataDisk)
-        self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
-        self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.dataDisk)
+        {
+            self.dataDisk = try decoderContainer.decode(DataDiskInfo?.self, forKey: .dataDisk)
+        }
+        if decoderContainer.contains(.deviceName)
+        {
+            self.deviceName = try decoderContainer.decode(String?.self, forKey: .deviceName)
+        }
+        if decoderContainer.contains(.diskCategory)
+        {
+            self.diskCategory = try decoderContainer.decode(String?.self, forKey: .diskCategory)
+        }
     }
 }
 public extension DataDiskAttachment{

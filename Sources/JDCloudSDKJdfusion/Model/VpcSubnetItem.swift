@@ -43,7 +43,10 @@ public class VpcSubnetItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcSubnetItemCodingKeys.self)
-        self.subnet = try decoderContainer.decode(SubnetDesInfo?.self, forKey: .subnet)
+        if decoderContainer.contains(.subnet)
+        {
+            self.subnet = try decoderContainer.decode(SubnetDesInfo?.self, forKey: .subnet)
+        }
     }
 }
 public extension VpcSubnetItem{

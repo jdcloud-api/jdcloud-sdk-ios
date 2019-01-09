@@ -46,8 +46,14 @@ public class ResourceInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ResourceInfoCodingKeys.self)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.resourceName)
+        {
+            self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
+        }
     }
 }
 public extension ResourceInfo{

@@ -46,7 +46,7 @@ public class OrderPriceProtocol:NSObject,Codable{
     /// 网络类型 0:non 1:非BGP  2:BGP
     var networkOperator:Int?
     /// 计算公式（配置细项）
-    var formula:Formula?
+    var formula:[Formula?]?
     /// 配置细项
     var formulaStr:String?
     /// 用户pin
@@ -88,22 +88,70 @@ public class OrderPriceProtocol:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: OrderPriceProtocolCodingKeys.self)
-        self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.site = try decoderContainer.decode(Int?.self, forKey: .site)
-        self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
-        self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
-        self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
-        self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
-        self.formula = try decoderContainer.decode(Formula?.self, forKey: .formula)
-        self.formulaStr = try decoderContainer.decode(String?.self, forKey: .formulaStr)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.count = try decoderContainer.decode(Int?.self, forKey: .count)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
-        self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
+        if decoderContainer.contains(.resourceId)
+        {
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.site)
+        {
+            self.site = try decoderContainer.decode(Int?.self, forKey: .site)
+        }
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.billingType)
+        {
+            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.timeSpan)
+        {
+            self.timeSpan = try decoderContainer.decode(Int?.self, forKey: .timeSpan)
+        }
+        if decoderContainer.contains(.timeUnit)
+        {
+            self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
+        }
+        if decoderContainer.contains(.networkOperator)
+        {
+            self.networkOperator = try decoderContainer.decode(Int?.self, forKey: .networkOperator)
+        }
+        if decoderContainer.contains(.formula)
+        {
+            self.formula = try decoderContainer.decode([Formula?]?.self, forKey: .formula)
+        }
+        if decoderContainer.contains(.formulaStr)
+        {
+            self.formulaStr = try decoderContainer.decode(String?.self, forKey: .formulaStr)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.count)
+        {
+            self.count = try decoderContainer.decode(Int?.self, forKey: .count)
+        }
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.taskId)
+        {
+            self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
+        }
+        if decoderContainer.contains(.sourceId)
+        {
+            self.sourceId = try decoderContainer.decode(String?.self, forKey: .sourceId)
+        }
     }
 }
 public extension OrderPriceProtocol{

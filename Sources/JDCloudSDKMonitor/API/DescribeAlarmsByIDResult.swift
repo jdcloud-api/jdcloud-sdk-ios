@@ -44,7 +44,10 @@ public class DescribeAlarmsByIDResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAlarmsByIDResultCodingKeys.self)
-        self.alarm = try decoderContainer.decode(Alarm?.self, forKey: .alarm)
+        if decoderContainer.contains(.alarm)
+        {
+            self.alarm = try decoderContainer.decode(Alarm?.self, forKey: .alarm)
+        }
     }
 }
 public extension DescribeAlarmsByIDResult{

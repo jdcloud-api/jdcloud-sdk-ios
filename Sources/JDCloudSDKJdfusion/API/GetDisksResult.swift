@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetDisksResult:NSObject,JdCloudResult
 {
     /// Disks
-    var disks:CloudDataDisk?
+    var disks:[CloudDataDisk?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetDisksResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetDisksResultCodingKeys.self)
-        self.disks = try decoderContainer.decode(CloudDataDisk?.self, forKey: .disks)
+        if decoderContainer.contains(.disks)
+        {
+            self.disks = try decoderContainer.decode([CloudDataDisk?]?.self, forKey: .disks)
+        }
     }
 }
 public extension GetDisksResult{

@@ -55,7 +55,10 @@ public class ElasticIpSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: ElasticIpSpecCodingKeys.self)
         self.bandwidthMbps = try decoderContainer.decode(Int.self, forKey: .bandwidthMbps)
         self.provider = try decoderContainer.decode(String.self, forKey: .provider)
-        self.chargeSpec = try decoderContainer.decode(ChargeSpec?.self, forKey: .chargeSpec)
+        if decoderContainer.contains(.chargeSpec)
+        {
+            self.chargeSpec = try decoderContainer.decode(ChargeSpec?.self, forKey: .chargeSpec)
+        }
     }
 }
 public extension ElasticIpSpec{

@@ -57,10 +57,22 @@ public class Notification:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NotificationCodingKeys.self)
         self.enabled = try decoderContainer.decode(Bool.self, forKey: .enabled)
-        self.endpoint = try decoderContainer.decode(String?.self, forKey: .endpoint)
-        self.events = try decoderContainer.decode([String?]?.self, forKey: .events)
-        self.notifyStrategy = try decoderContainer.decode(String?.self, forKey: .notifyStrategy)
-        self.notifyContentFormat = try decoderContainer.decode(String?.self, forKey: .notifyContentFormat)
+        if decoderContainer.contains(.endpoint)
+        {
+            self.endpoint = try decoderContainer.decode(String?.self, forKey: .endpoint)
+        }
+        if decoderContainer.contains(.events)
+        {
+            self.events = try decoderContainer.decode([String?]?.self, forKey: .events)
+        }
+        if decoderContainer.contains(.notifyStrategy)
+        {
+            self.notifyStrategy = try decoderContainer.decode(String?.self, forKey: .notifyStrategy)
+        }
+        if decoderContainer.contains(.notifyContentFormat)
+        {
+            self.notifyContentFormat = try decoderContainer.decode(String?.self, forKey: .notifyContentFormat)
+        }
     }
 }
 public extension Notification{

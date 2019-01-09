@@ -34,7 +34,7 @@ public class DescribeRepositoriesRequest:JdCloudRequest
 {
     /// name - 仓库名称，模糊匹配，支持单个
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// 页码；默认为1
     var pageNumber:Int?

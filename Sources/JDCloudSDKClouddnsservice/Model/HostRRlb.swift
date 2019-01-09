@@ -52,10 +52,22 @@ public class HostRRlb:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: HostRRlbCodingKeys.self)
-        self.hostValue = try decoderContainer.decode(String?.self, forKey: .hostValue)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
-        self.rate = try decoderContainer.decode(Double?.self, forKey: .rate)
+        if decoderContainer.contains(.hostValue)
+        {
+            self.hostValue = try decoderContainer.decode(String?.self, forKey: .hostValue)
+        }
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.weight)
+        {
+            self.weight = try decoderContainer.decode(Int?.self, forKey: .weight)
+        }
+        if decoderContainer.contains(.rate)
+        {
+            self.rate = try decoderContainer.decode(Double?.self, forKey: .rate)
+        }
     }
 }
 public extension HostRRlb{

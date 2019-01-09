@@ -43,7 +43,10 @@ public class SimpleResponses:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SimpleResponsesCodingKeys.self)
-        self.requestId = try decoderContainer.decode(String?.self, forKey: .requestId)
+        if decoderContainer.contains(.requestId)
+        {
+            self.requestId = try decoderContainer.decode(String?.self, forKey: .requestId)
+        }
     }
 }
 public extension SimpleResponses{

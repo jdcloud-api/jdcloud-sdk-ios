@@ -46,8 +46,14 @@ public class ServiceMetricAggregateItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ServiceMetricAggregateItemCodingKeys.self)
-        self.aggregate = try decoderContainer.decode(String?.self, forKey: .aggregate)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        if decoderContainer.contains(.aggregate)
+        {
+            self.aggregate = try decoderContainer.decode(String?.self, forKey: .aggregate)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
     }
 }
 public extension ServiceMetricAggregateItem{

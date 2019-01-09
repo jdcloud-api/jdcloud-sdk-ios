@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVmInstancesResult:NSObject,JdCloudResult
 {
     /// Vms
-    var vms:VmInfo?
+    var vms:[VmInfo?]?
 
 
 
@@ -44,7 +44,10 @@ public class GetVmInstancesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVmInstancesResultCodingKeys.self)
-        self.vms = try decoderContainer.decode(VmInfo?.self, forKey: .vms)
+        if decoderContainer.contains(.vms)
+        {
+            self.vms = try decoderContainer.decode([VmInfo?]?.self, forKey: .vms)
+        }
     }
 }
 public extension GetVmInstancesResult{

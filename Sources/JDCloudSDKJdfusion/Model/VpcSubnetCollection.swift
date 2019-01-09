@@ -28,7 +28,7 @@ import Foundation
 @objc(VpcSubnetCollection)
 public class VpcSubnetCollection:NSObject,Codable{
     /// Subnets
-    var subnets:SubnetDesInfo?
+    var subnets:[SubnetDesInfo?]?
 
 
 
@@ -43,7 +43,10 @@ public class VpcSubnetCollection:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcSubnetCollectionCodingKeys.self)
-        self.subnets = try decoderContainer.decode(SubnetDesInfo?.self, forKey: .subnets)
+        if decoderContainer.contains(.subnets)
+        {
+            self.subnets = try decoderContainer.decode([SubnetDesInfo?]?.self, forKey: .subnets)
+        }
     }
 }
 public extension VpcSubnetCollection{

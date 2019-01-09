@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeAuditResultResult:NSObject,JdCloudResult
 {
     /// AuditResult
-    var auditResult:AuditResult?
+    var auditResult:[AuditResult?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeAuditResultResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAuditResultResultCodingKeys.self)
-        self.auditResult = try decoderContainer.decode(AuditResult?.self, forKey: .auditResult)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.auditResult)
+        {
+            self.auditResult = try decoderContainer.decode([AuditResult?]?.self, forKey: .auditResult)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeAuditResultResult{

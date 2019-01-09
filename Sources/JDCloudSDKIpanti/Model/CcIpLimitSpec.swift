@@ -46,8 +46,14 @@ public class CcIpLimitSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CcIpLimitSpecCodingKeys.self)
-        self.ccSpeedLimit = try decoderContainer.decode(Int?.self, forKey: .ccSpeedLimit)
-        self.ccSpeedPeriod = try decoderContainer.decode(Int?.self, forKey: .ccSpeedPeriod)
+        if decoderContainer.contains(.ccSpeedLimit)
+        {
+            self.ccSpeedLimit = try decoderContainer.decode(Int?.self, forKey: .ccSpeedLimit)
+        }
+        if decoderContainer.contains(.ccSpeedPeriod)
+        {
+            self.ccSpeedPeriod = try decoderContainer.decode(Int?.self, forKey: .ccSpeedPeriod)
+        }
     }
 }
 public extension CcIpLimitSpec{

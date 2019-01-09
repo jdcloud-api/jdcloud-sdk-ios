@@ -97,25 +97,82 @@ public class Function:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FunctionCodingKeys.self)
-        self.functionId = try decoderContainer.decode(String?.self, forKey: .functionId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.entrance = try decoderContainer.decode(String?.self, forKey: .entrance)
-        self.memory = try decoderContainer.decode(Int32?.self, forKey: .memory)
-        self.runTime = try decoderContainer.decode(String?.self, forKey: .runTime)
-        self.overTime = try decoderContainer.decode(Int32?.self, forKey: .overTime)
-        self.version = try decoderContainer.decode(String?.self, forKey: .version)
-        self.code = try decoderContainer.decode(Code?.self, forKey: .code)
-        self.environment = try decoderContainer.decode(Env?.self, forKey: .environment)
-        self.logSetId = try decoderContainer.decode(String?.self, forKey: .logSetId)
-        self.logTopicId = try decoderContainer.decode(String?.self, forKey: .logTopicId)
-        self.codeCheckSum = try decoderContainer.decode(String?.self, forKey: .codeCheckSum)
-        self.codeSize = try decoderContainer.decode(Int32?.self, forKey: .codeSize)
-        self.downloadUrl = try decoderContainer.decode(String?.self, forKey: .downloadUrl)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.functionId)
+        {
+            self.functionId = try decoderContainer.decode(String?.self, forKey: .functionId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.entrance)
+        {
+            self.entrance = try decoderContainer.decode(String?.self, forKey: .entrance)
+        }
+        if decoderContainer.contains(.memory)
+        {
+            self.memory = try decoderContainer.decode(Int32?.self, forKey: .memory)
+        }
+        if decoderContainer.contains(.runTime)
+        {
+            self.runTime = try decoderContainer.decode(String?.self, forKey: .runTime)
+        }
+        if decoderContainer.contains(.overTime)
+        {
+            self.overTime = try decoderContainer.decode(Int32?.self, forKey: .overTime)
+        }
+        if decoderContainer.contains(.version)
+        {
+            self.version = try decoderContainer.decode(String?.self, forKey: .version)
+        }
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Code?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.environment)
+        {
+            self.environment = try decoderContainer.decode(Env?.self, forKey: .environment)
+        }
+        if decoderContainer.contains(.logSetId)
+        {
+            self.logSetId = try decoderContainer.decode(String?.self, forKey: .logSetId)
+        }
+        if decoderContainer.contains(.logTopicId)
+        {
+            self.logTopicId = try decoderContainer.decode(String?.self, forKey: .logTopicId)
+        }
+        if decoderContainer.contains(.codeCheckSum)
+        {
+            self.codeCheckSum = try decoderContainer.decode(String?.self, forKey: .codeCheckSum)
+        }
+        if decoderContainer.contains(.codeSize)
+        {
+            self.codeSize = try decoderContainer.decode(Int32?.self, forKey: .codeSize)
+        }
+        if decoderContainer.contains(.downloadUrl)
+        {
+            self.downloadUrl = try decoderContainer.decode(String?.self, forKey: .downloadUrl)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension Function{

@@ -75,7 +75,7 @@ public class DBInstanceAttribute:NSObject,Codable{
     /// 高可用集群中从节点的信息&lt;br&gt;- 仅支持SQL Server
     var secondaryNode:DBInstanceNode?
     /// 标签信息
-    var tags:Tag?
+    var tags:[Tag?]?
 
 
 
@@ -113,30 +113,102 @@ public class DBInstanceAttribute:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceAttributeCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
-        self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
-        self.instanceClass = try decoderContainer.decode(String?.self, forKey: .instanceClass)
-        self.instanceStorageGB = try decoderContainer.decode(Int?.self, forKey: .instanceStorageGB)
-        self.instanceCPU = try decoderContainer.decode(Int?.self, forKey: .instanceCPU)
-        self.instanceMemoryMB = try decoderContainer.decode(Int?.self, forKey: .instanceMemoryMB)
-        self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
-        self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.internalDomainName = try decoderContainer.decode(String?.self, forKey: .internalDomainName)
-        self.publicDomainName = try decoderContainer.decode(String?.self, forKey: .publicDomainName)
-        self.instancePort = try decoderContainer.decode(String?.self, forKey: .instancePort)
-        self.connectionMode = try decoderContainer.decode(String?.self, forKey: .connectionMode)
-        self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
-        self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.primaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .primaryNode)
-        self.secondaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .secondaryNode)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.engine)
+        {
+            self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
+        }
+        if decoderContainer.contains(.engineVersion)
+        {
+            self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
+        }
+        if decoderContainer.contains(.instanceClass)
+        {
+            self.instanceClass = try decoderContainer.decode(String?.self, forKey: .instanceClass)
+        }
+        if decoderContainer.contains(.instanceStorageGB)
+        {
+            self.instanceStorageGB = try decoderContainer.decode(Int?.self, forKey: .instanceStorageGB)
+        }
+        if decoderContainer.contains(.instanceCPU)
+        {
+            self.instanceCPU = try decoderContainer.decode(Int?.self, forKey: .instanceCPU)
+        }
+        if decoderContainer.contains(.instanceMemoryMB)
+        {
+            self.instanceMemoryMB = try decoderContainer.decode(Int?.self, forKey: .instanceMemoryMB)
+        }
+        if decoderContainer.contains(.regionId)
+        {
+            self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
+        }
+        if decoderContainer.contains(.azId)
+        {
+            self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.internalDomainName)
+        {
+            self.internalDomainName = try decoderContainer.decode(String?.self, forKey: .internalDomainName)
+        }
+        if decoderContainer.contains(.publicDomainName)
+        {
+            self.publicDomainName = try decoderContainer.decode(String?.self, forKey: .publicDomainName)
+        }
+        if decoderContainer.contains(.instancePort)
+        {
+            self.instancePort = try decoderContainer.decode(String?.self, forKey: .instancePort)
+        }
+        if decoderContainer.contains(.connectionMode)
+        {
+            self.connectionMode = try decoderContainer.decode(String?.self, forKey: .connectionMode)
+        }
+        if decoderContainer.contains(.auditStatus)
+        {
+            self.auditStatus = try decoderContainer.decode(String?.self, forKey: .auditStatus)
+        }
+        if decoderContainer.contains(.instanceStatus)
+        {
+            self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.primaryNode)
+        {
+            self.primaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .primaryNode)
+        }
+        if decoderContainer.contains(.secondaryNode)
+        {
+            self.secondaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .secondaryNode)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
     }
 }
 public extension DBInstanceAttribute{

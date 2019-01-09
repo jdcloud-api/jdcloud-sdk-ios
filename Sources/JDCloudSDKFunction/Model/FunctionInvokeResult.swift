@@ -61,13 +61,34 @@ public class FunctionInvokeResult:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: FunctionInvokeResultCodingKeys.self)
-        self.result = try decoderContainer.decode(String?.self, forKey: .result)
-        self.codeCheckSum = try decoderContainer.decode(String?.self, forKey: .codeCheckSum)
-        self.invokeTime = try decoderContainer.decode(Double?.self, forKey: .invokeTime)
-        self.billingTime = try decoderContainer.decode(Double?.self, forKey: .billingTime)
-        self.setupMem = try decoderContainer.decode(Double?.self, forKey: .setupMem)
-        self.realMem = try decoderContainer.decode(Double?.self, forKey: .realMem)
-        self.logStr = try decoderContainer.decode(String?.self, forKey: .logStr)
+        if decoderContainer.contains(.result)
+        {
+            self.result = try decoderContainer.decode(String?.self, forKey: .result)
+        }
+        if decoderContainer.contains(.codeCheckSum)
+        {
+            self.codeCheckSum = try decoderContainer.decode(String?.self, forKey: .codeCheckSum)
+        }
+        if decoderContainer.contains(.invokeTime)
+        {
+            self.invokeTime = try decoderContainer.decode(Double?.self, forKey: .invokeTime)
+        }
+        if decoderContainer.contains(.billingTime)
+        {
+            self.billingTime = try decoderContainer.decode(Double?.self, forKey: .billingTime)
+        }
+        if decoderContainer.contains(.setupMem)
+        {
+            self.setupMem = try decoderContainer.decode(Double?.self, forKey: .setupMem)
+        }
+        if decoderContainer.contains(.realMem)
+        {
+            self.realMem = try decoderContainer.decode(Double?.self, forKey: .realMem)
+        }
+        if decoderContainer.contains(.logStr)
+        {
+            self.logStr = try decoderContainer.decode(String?.self, forKey: .logStr)
+        }
     }
 }
 public extension FunctionInvokeResult{

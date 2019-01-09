@@ -38,7 +38,7 @@ public class DescribeCustomLiveStreamSnapshotTemplatesRequest:JdCloudRequest
     var pageSize:Int?
 
     /// 域名列表查询过滤条件, 不传递分页参数时默认返回10条
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 

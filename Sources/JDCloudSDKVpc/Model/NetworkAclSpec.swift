@@ -54,7 +54,10 @@ public class NetworkAclSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: NetworkAclSpecCodingKeys.self)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.networkAclName = try decoderContainer.decode(String.self, forKey: .networkAclName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension NetworkAclSpec{

@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeRouteTablesResult)
 public class DescribeRouteTablesResult:NSObject,JdCloudResult
 {
-    /// RouteTables
-    var routeTables:RouteTable?
+    /// 路由表资源信息列表
+    var routeTables:[RouteTable?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeRouteTablesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeRouteTablesResultCodingKeys.self)
-        self.routeTables = try decoderContainer.decode(RouteTable?.self, forKey: .routeTables)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.routeTables)
+        {
+            self.routeTables = try decoderContainer.decode([RouteTable?]?.self, forKey: .routeTables)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeRouteTablesResult{

@@ -41,11 +41,11 @@ public class DescribeCacheInstancesRequest:JdCloudRequest
       /// cacheInstanceName - 缓存实例名称，模糊匹配，支持单个
       /// cacheInstanceStatus - 缓存你实例状态，精确匹配，支持多个(running：运行，error：错误，creating：创建中，changing：变配中，deleting：删除中)
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
     /// createTime - 创建时间(asc：正序，desc：倒序)
       /// 
-    var sorts:Sort?
+    var sorts:[Sort?]?
 
 
 

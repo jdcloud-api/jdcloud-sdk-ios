@@ -44,7 +44,10 @@ public class DescribeVpcPeeringResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeVpcPeeringResultCodingKeys.self)
-        self.vpcPeering = try decoderContainer.decode(VpcPeering?.self, forKey: .vpcPeering)
+        if decoderContainer.contains(.vpcPeering)
+        {
+            self.vpcPeering = try decoderContainer.decode(VpcPeering?.self, forKey: .vpcPeering)
+        }
     }
 }
 public extension DescribeVpcPeeringResult{

@@ -28,7 +28,7 @@ import Foundation
 @objc(ServiceCodeMetrics)
 public class ServiceCodeMetrics:NSObject,Codable{
     /// Metrics
-    var metrics:MetricDetail?
+    var metrics:[MetricDetail?]?
     /// ServiceCode
     var serviceCode:String?
 
@@ -46,8 +46,14 @@ public class ServiceCodeMetrics:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ServiceCodeMetricsCodingKeys.self)
-        self.metrics = try decoderContainer.decode(MetricDetail?.self, forKey: .metrics)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        if decoderContainer.contains(.metrics)
+        {
+            self.metrics = try decoderContainer.decode([MetricDetail?]?.self, forKey: .metrics)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
     }
 }
 public extension ServiceCodeMetrics{

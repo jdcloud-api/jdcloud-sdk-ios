@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class UnassignSecondaryIpsRequest:JdCloudRequest
 {
     /// 指定删除的secondaryIp地址
-    var secondaryIps:String?
+    var secondaryIps:[String?]?
 
     /// networkInterface ID
     var networkInterfaceId:String

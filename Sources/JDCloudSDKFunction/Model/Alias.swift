@@ -55,11 +55,26 @@ public class Alias:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AliasCodingKeys.self)
-        self.aliasId = try decoderContainer.decode(String?.self, forKey: .aliasId)
-        self.aliasName = try decoderContainer.decode(String?.self, forKey: .aliasName)
-        self.functionName = try decoderContainer.decode(String?.self, forKey: .functionName)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.version = try decoderContainer.decode(String?.self, forKey: .version)
+        if decoderContainer.contains(.aliasId)
+        {
+            self.aliasId = try decoderContainer.decode(String?.self, forKey: .aliasId)
+        }
+        if decoderContainer.contains(.aliasName)
+        {
+            self.aliasName = try decoderContainer.decode(String?.self, forKey: .aliasName)
+        }
+        if decoderContainer.contains(.functionName)
+        {
+            self.functionName = try decoderContainer.decode(String?.self, forKey: .functionName)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.version)
+        {
+            self.version = try decoderContainer.decode(String?.self, forKey: .version)
+        }
     }
 }
 public extension Alias{

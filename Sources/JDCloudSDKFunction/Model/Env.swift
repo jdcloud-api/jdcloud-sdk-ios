@@ -43,7 +43,10 @@ public class Env:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: EnvCodingKeys.self)
-        self.data = try decoderContainer.decode([String:String?]?.self, forKey: .data)
+        if decoderContainer.contains(.data)
+        {
+            self.data = try decoderContainer.decode([String:String?]?.self, forKey: .data)
+        }
     }
 }
 public extension Env{

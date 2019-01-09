@@ -33,7 +33,7 @@ import JDCloudSDKCore
 public class ShareImageRequest:JdCloudRequest
 {
     /// 需要共享的帐户
-    var pins:String?
+    var pins:[String?]?
 
     /// 镜像ID
     var imageId:String

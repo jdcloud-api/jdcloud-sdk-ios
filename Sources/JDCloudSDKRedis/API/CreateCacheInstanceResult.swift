@@ -53,8 +53,14 @@ public class CreateCacheInstanceResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateCacheInstanceResultCodingKeys.self)
-        self.cacheInstanceId = try decoderContainer.decode(String?.self, forKey: .cacheInstanceId)
-        self.orderNum = try decoderContainer.decode(String?.self, forKey: .orderNum)
+        if decoderContainer.contains(.cacheInstanceId)
+        {
+            self.cacheInstanceId = try decoderContainer.decode(String?.self, forKey: .cacheInstanceId)
+        }
+        if decoderContainer.contains(.orderNum)
+        {
+            self.orderNum = try decoderContainer.decode(String?.self, forKey: .orderNum)
+        }
     }
 }
 public extension CreateCacheInstanceResult{

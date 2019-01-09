@@ -46,7 +46,7 @@ public class DescribeCcAttackLogDetailsRequest:JdCloudRequest
     var instanceId:String
 
     /// 子域名
-    var subDomain:String?
+    var subDomain:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String,instanceId:String){

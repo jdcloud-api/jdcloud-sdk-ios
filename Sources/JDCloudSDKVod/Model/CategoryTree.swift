@@ -34,7 +34,7 @@ public class CategoryTree:NSObject,Codable{
     /// 等级ID
     var levelId:Int?
     /// 子分类
-    var children:CategoryTree?
+    var children:[CategoryTree?]?
 
 
 
@@ -52,10 +52,22 @@ public class CategoryTree:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CategoryTreeCodingKeys.self)
-        self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
-        self.category = try decoderContainer.decode(String?.self, forKey: .category)
-        self.levelId = try decoderContainer.decode(Int?.self, forKey: .levelId)
-        self.children = try decoderContainer.decode(CategoryTree?.self, forKey: .children)
+        if decoderContainer.contains(.categoryId)
+        {
+            self.categoryId = try decoderContainer.decode(Double?.self, forKey: .categoryId)
+        }
+        if decoderContainer.contains(.category)
+        {
+            self.category = try decoderContainer.decode(String?.self, forKey: .category)
+        }
+        if decoderContainer.contains(.levelId)
+        {
+            self.levelId = try decoderContainer.decode(Int?.self, forKey: .levelId)
+        }
+        if decoderContainer.contains(.children)
+        {
+            self.children = try decoderContainer.decode([CategoryTree?]?.self, forKey: .children)
+        }
     }
 }
 public extension CategoryTree{

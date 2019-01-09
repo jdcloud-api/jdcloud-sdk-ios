@@ -55,11 +55,26 @@ public class Pagination:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PaginationCodingKeys.self)
-        self.currPageNo = try decoderContainer.decode(Int?.self, forKey: .currPageNo)
-        self.numberPages = try decoderContainer.decode(Int?.self, forKey: .numberPages)
-        self.numberRecords = try decoderContainer.decode(Int?.self, forKey: .numberRecords)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.startIndex = try decoderContainer.decode(Int?.self, forKey: .startIndex)
+        if decoderContainer.contains(.currPageNo)
+        {
+            self.currPageNo = try decoderContainer.decode(Int?.self, forKey: .currPageNo)
+        }
+        if decoderContainer.contains(.numberPages)
+        {
+            self.numberPages = try decoderContainer.decode(Int?.self, forKey: .numberPages)
+        }
+        if decoderContainer.contains(.numberRecords)
+        {
+            self.numberRecords = try decoderContainer.decode(Int?.self, forKey: .numberRecords)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.startIndex)
+        {
+            self.startIndex = try decoderContainer.decode(Int?.self, forKey: .startIndex)
+        }
     }
 }
 public extension Pagination{

@@ -37,7 +37,7 @@ public class FwdGraphRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例id，可以传0个或多个
-    var instanceId:String?
+    var instanceId:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){

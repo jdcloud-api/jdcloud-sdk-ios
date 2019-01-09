@@ -70,16 +70,46 @@ public class LogosTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: LogosTemplateCodingKeys.self)
-        self.logoId = try decoderContainer.decode(Double?.self, forKey: .logoId)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
-        self.position = try decoderContainer.decode(Int?.self, forKey: .position)
-        self.width = try decoderContainer.decode(Int?.self, forKey: .width)
-        self.height = try decoderContainer.decode(Int?.self, forKey: .height)
-        self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
-        self.offsetX = try decoderContainer.decode(Int?.self, forKey: .offsetX)
-        self.offsetY = try decoderContainer.decode(Int?.self, forKey: .offsetY)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.logoId)
+        {
+            self.logoId = try decoderContainer.decode(Double?.self, forKey: .logoId)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.imgUrl)
+        {
+            self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
+        }
+        if decoderContainer.contains(.position)
+        {
+            self.position = try decoderContainer.decode(Int?.self, forKey: .position)
+        }
+        if decoderContainer.contains(.width)
+        {
+            self.width = try decoderContainer.decode(Int?.self, forKey: .width)
+        }
+        if decoderContainer.contains(.height)
+        {
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
+        }
+        if decoderContainer.contains(.offsetX)
+        {
+            self.offsetX = try decoderContainer.decode(Int?.self, forKey: .offsetX)
+        }
+        if decoderContainer.contains(.offsetY)
+        {
+            self.offsetY = try decoderContainer.decode(Int?.self, forKey: .offsetY)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension LogosTemplate{

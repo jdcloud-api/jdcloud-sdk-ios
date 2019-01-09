@@ -43,7 +43,10 @@ public class UserNotFoundResp:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: UserNotFoundRespCodingKeys.self)
-        self.error = try decoderContainer.decode(UserNotFoundException?.self, forKey: .error)
+        if decoderContainer.contains(.error)
+        {
+            self.error = try decoderContainer.decode(UserNotFoundException?.self, forKey: .error)
+        }
     }
 }
 public extension UserNotFoundResp{

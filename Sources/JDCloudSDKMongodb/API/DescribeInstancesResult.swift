@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeInstancesResult:NSObject,JdCloudResult
 {
     /// DbInstances
-    var dbInstances:DBInstance?
+    var dbInstances:[DBInstance?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -52,9 +52,18 @@ public class DescribeInstancesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeInstancesResultCodingKeys.self)
-        self.dbInstances = try decoderContainer.decode(DBInstance?.self, forKey: .dbInstances)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        if decoderContainer.contains(.dbInstances)
+        {
+            self.dbInstances = try decoderContainer.decode([DBInstance?]?.self, forKey: .dbInstances)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
     }
 }
 public extension DescribeInstancesResult{

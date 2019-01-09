@@ -43,7 +43,10 @@ public class AssociateEipAddressReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AssociateEipAddressReqCodingKeys.self)
-        self.associate = try decoderContainer.decode(AssociateEipAddress?.self, forKey: .associate)
+        if decoderContainer.contains(.associate)
+        {
+            self.associate = try decoderContainer.decode(AssociateEipAddress?.self, forKey: .associate)
+        }
     }
 }
 public extension AssociateEipAddressReq{

@@ -67,15 +67,42 @@ public class CName:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CNameCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
-        self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
-        self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        self.bucketName = try decoderContainer.decode(String?.self, forKey: .bucketName)
-        self.isCName = try decoderContainer.decode(Int?.self, forKey: .isCName)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.protoType = try decoderContainer.decode(Int?.self, forKey: .protoType)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.originDomain)
+        {
+            self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
+        }
+        if decoderContainer.contains(.cname)
+        {
+            self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.bucketName)
+        {
+            self.bucketName = try decoderContainer.decode(String?.self, forKey: .bucketName)
+        }
+        if decoderContainer.contains(.isCName)
+        {
+            self.isCName = try decoderContainer.decode(Int?.self, forKey: .isCName)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.protoType)
+        {
+            self.protoType = try decoderContainer.decode(Int?.self, forKey: .protoType)
+        }
     }
 }
 public extension CName{

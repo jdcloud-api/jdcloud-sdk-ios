@@ -32,7 +32,7 @@ public class Account:NSObject,Codable{
     /// 账号状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)&lt;br&gt;- **MySQL：不支持，不返回该字段**&lt;br&gt;- **SQL Server：返回该字段**
     var accountStatus:String?
     /// 具有的权限
-    var accountPrivileges:AccountPrivilege?
+    var accountPrivileges:[AccountPrivilege?]?
 
 
 
@@ -49,9 +49,18 @@ public class Account:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AccountCodingKeys.self)
-        self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
-        self.accountStatus = try decoderContainer.decode(String?.self, forKey: .accountStatus)
-        self.accountPrivileges = try decoderContainer.decode(AccountPrivilege?.self, forKey: .accountPrivileges)
+        if decoderContainer.contains(.accountName)
+        {
+            self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
+        }
+        if decoderContainer.contains(.accountStatus)
+        {
+            self.accountStatus = try decoderContainer.decode(String?.self, forKey: .accountStatus)
+        }
+        if decoderContainer.contains(.accountPrivileges)
+        {
+            self.accountPrivileges = try decoderContainer.decode([AccountPrivilege?]?.self, forKey: .accountPrivileges)
+        }
     }
 }
 public extension Account{

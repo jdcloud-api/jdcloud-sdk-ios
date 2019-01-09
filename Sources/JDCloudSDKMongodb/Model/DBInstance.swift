@@ -75,7 +75,7 @@ public class DBInstance:NSObject,Codable{
     /// 是否设置白名单，true：已设置，false：未设置
     var isSetSecurityIps:Bool?
     /// 标签
-    var tags:Tag?
+    var tags:[Tag?]?
 
 
 
@@ -113,30 +113,102 @@ public class DBInstance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DBInstanceCodingKeys.self)
-        self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
-        self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
-        self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
-        self.instanceClass = try decoderContainer.decode(String?.self, forKey: .instanceClass)
-        self.instanceStorageGB = try decoderContainer.decode(Int?.self, forKey: .instanceStorageGB)
-        self.instanceCPU = try decoderContainer.decode(Int?.self, forKey: .instanceCPU)
-        self.instanceMemoryGB = try decoderContainer.decode(Int?.self, forKey: .instanceMemoryGB)
-        self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
-        self.replicaSetName = try decoderContainer.decode(String?.self, forKey: .replicaSetName)
-        self.instanceDomain = try decoderContainer.decode(String?.self, forKey: .instanceDomain)
-        self.dBName = try decoderContainer.decode(String?.self, forKey: .dBName)
-        self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
-        self.instancePort = try decoderContainer.decode(String?.self, forKey: .instancePort)
-        self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
-        self.backupRetentionPeriod = try decoderContainer.decode(Int?.self, forKey: .backupRetentionPeriod)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.preferredBackupWindow = try decoderContainer.decode(String?.self, forKey: .preferredBackupWindow)
-        self.preferredmaintenanceWindow = try decoderContainer.decode(String?.self, forKey: .preferredmaintenanceWindow)
-        self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
-        self.isSetSecurityIps = try decoderContainer.decode(Bool?.self, forKey: .isSetSecurityIps)
-        self.tags = try decoderContainer.decode(Tag?.self, forKey: .tags)
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.engine)
+        {
+            self.engine = try decoderContainer.decode(String?.self, forKey: .engine)
+        }
+        if decoderContainer.contains(.engineVersion)
+        {
+            self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
+        }
+        if decoderContainer.contains(.instanceClass)
+        {
+            self.instanceClass = try decoderContainer.decode(String?.self, forKey: .instanceClass)
+        }
+        if decoderContainer.contains(.instanceStorageGB)
+        {
+            self.instanceStorageGB = try decoderContainer.decode(Int?.self, forKey: .instanceStorageGB)
+        }
+        if decoderContainer.contains(.instanceCPU)
+        {
+            self.instanceCPU = try decoderContainer.decode(Int?.self, forKey: .instanceCPU)
+        }
+        if decoderContainer.contains(.instanceMemoryGB)
+        {
+            self.instanceMemoryGB = try decoderContainer.decode(Int?.self, forKey: .instanceMemoryGB)
+        }
+        if decoderContainer.contains(.azId)
+        {
+            self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.replicaSetName)
+        {
+            self.replicaSetName = try decoderContainer.decode(String?.self, forKey: .replicaSetName)
+        }
+        if decoderContainer.contains(.instanceDomain)
+        {
+            self.instanceDomain = try decoderContainer.decode(String?.self, forKey: .instanceDomain)
+        }
+        if decoderContainer.contains(.dBName)
+        {
+            self.dBName = try decoderContainer.decode(String?.self, forKey: .dBName)
+        }
+        if decoderContainer.contains(.accountName)
+        {
+            self.accountName = try decoderContainer.decode(String?.self, forKey: .accountName)
+        }
+        if decoderContainer.contains(.instancePort)
+        {
+            self.instancePort = try decoderContainer.decode(String?.self, forKey: .instancePort)
+        }
+        if decoderContainer.contains(.instanceStatus)
+        {
+            self.instanceStatus = try decoderContainer.decode(String?.self, forKey: .instanceStatus)
+        }
+        if decoderContainer.contains(.backupRetentionPeriod)
+        {
+            self.backupRetentionPeriod = try decoderContainer.decode(Int?.self, forKey: .backupRetentionPeriod)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.preferredBackupWindow)
+        {
+            self.preferredBackupWindow = try decoderContainer.decode(String?.self, forKey: .preferredBackupWindow)
+        }
+        if decoderContainer.contains(.preferredmaintenanceWindow)
+        {
+            self.preferredmaintenanceWindow = try decoderContainer.decode(String?.self, forKey: .preferredmaintenanceWindow)
+        }
+        if decoderContainer.contains(.charge)
+        {
+            self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
+        }
+        if decoderContainer.contains(.isSetSecurityIps)
+        {
+            self.isSetSecurityIps = try decoderContainer.decode(Bool?.self, forKey: .isSetSecurityIps)
+        }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
     }
 }
 public extension DBInstance{

@@ -44,7 +44,10 @@ public class StartJobResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StartJobResultCodingKeys.self)
-        self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
     }
 }
 public extension StartJobResult{

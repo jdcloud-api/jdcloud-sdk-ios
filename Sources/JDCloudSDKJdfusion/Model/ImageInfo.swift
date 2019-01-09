@@ -76,18 +76,54 @@ public class ImageInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ImageInfoCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.architecture = try decoderContainer.decode(String?.self, forKey: .architecture)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.imageSource = try decoderContainer.decode(String?.self, forKey: .imageSource)
-        self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
-        self.platform = try decoderContainer.decode(String?.self, forKey: .platform)
-        self.progress = try decoderContainer.decode(String?.self, forKey: .progress)
-        self.size = try decoderContainer.decode(Int32?.self, forKey: .size)
-        self.status = try decoderContainer.decode(String?.self, forKey: .status)
-        self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.architecture)
+        {
+            self.architecture = try decoderContainer.decode(String?.self, forKey: .architecture)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.imageSource)
+        {
+            self.imageSource = try decoderContainer.decode(String?.self, forKey: .imageSource)
+        }
+        if decoderContainer.contains(.osType)
+        {
+            self.osType = try decoderContainer.decode(String?.self, forKey: .osType)
+        }
+        if decoderContainer.contains(.platform)
+        {
+            self.platform = try decoderContainer.decode(String?.self, forKey: .platform)
+        }
+        if decoderContainer.contains(.progress)
+        {
+            self.progress = try decoderContainer.decode(String?.self, forKey: .progress)
+        }
+        if decoderContainer.contains(.size)
+        {
+            self.size = try decoderContainer.decode(Int32?.self, forKey: .size)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
     }
 }
 public extension ImageInfo{

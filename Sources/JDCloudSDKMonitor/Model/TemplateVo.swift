@@ -42,7 +42,7 @@ public class TemplateVo:NSObject,Codable{
     /// 模板名称
     var templateName:String?
     /// 模板内包含的规则
-    var templateRules:AlarmVo?
+    var templateRules:[AlarmVo?]?
     /// 模板内包含的提供给前端的拼接好的规则
     var templateRulesString:[String?]?
     /// 模板类型，区分默认模板和用户自定义模板：1表示默认模板，2表示用户自定义模板
@@ -73,17 +73,50 @@ public class TemplateVo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TemplateVoCodingKeys.self)
-        self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        self.rulesCount = try decoderContainer.decode(Int64?.self, forKey: .rulesCount)
-        self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
-        self.templateId = try decoderContainer.decode(Int64?.self, forKey: .templateId)
-        self.templateName = try decoderContainer.decode(String?.self, forKey: .templateName)
-        self.templateRules = try decoderContainer.decode(AlarmVo?.self, forKey: .templateRules)
-        self.templateRulesString = try decoderContainer.decode([String?]?.self, forKey: .templateRulesString)
-        self.templateType = try decoderContainer.decode(Int64?.self, forKey: .templateType)
-        self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.pin)
+        {
+            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
+        }
+        if decoderContainer.contains(.rulesCount)
+        {
+            self.rulesCount = try decoderContainer.decode(Int64?.self, forKey: .rulesCount)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
+        if decoderContainer.contains(.templateId)
+        {
+            self.templateId = try decoderContainer.decode(Int64?.self, forKey: .templateId)
+        }
+        if decoderContainer.contains(.templateName)
+        {
+            self.templateName = try decoderContainer.decode(String?.self, forKey: .templateName)
+        }
+        if decoderContainer.contains(.templateRules)
+        {
+            self.templateRules = try decoderContainer.decode([AlarmVo?]?.self, forKey: .templateRules)
+        }
+        if decoderContainer.contains(.templateRulesString)
+        {
+            self.templateRulesString = try decoderContainer.decode([String?]?.self, forKey: .templateRulesString)
+        }
+        if decoderContainer.contains(.templateType)
+        {
+            self.templateType = try decoderContainer.decode(Int64?.self, forKey: .templateType)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
+        }
     }
 }
 public extension TemplateVo{

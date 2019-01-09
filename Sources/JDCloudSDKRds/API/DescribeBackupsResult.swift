@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeBackupsResult)
 public class DescribeBackupsResult:NSObject,JdCloudResult
 {
-    /// Backup
-    var backup:Backup?
+    /// 备份集合
+    var backup:[Backup?]?
 
     /// 总记录数
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeBackupsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeBackupsResultCodingKeys.self)
-        self.backup = try decoderContainer.decode(Backup?.self, forKey: .backup)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.backup)
+        {
+            self.backup = try decoderContainer.decode([Backup?]?.self, forKey: .backup)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeBackupsResult{

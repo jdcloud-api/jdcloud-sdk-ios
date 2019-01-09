@@ -44,7 +44,10 @@ public class GetSessionTokenResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetSessionTokenResultCodingKeys.self)
-        self.sessionToken = try decoderContainer.decode(String?.self, forKey: .sessionToken)
+        if decoderContainer.contains(.sessionToken)
+        {
+            self.sessionToken = try decoderContainer.decode(String?.self, forKey: .sessionToken)
+        }
     }
 }
 public extension GetSessionTokenResult{

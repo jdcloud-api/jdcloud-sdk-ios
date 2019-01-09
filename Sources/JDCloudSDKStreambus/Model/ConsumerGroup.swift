@@ -55,11 +55,26 @@ public class ConsumerGroup:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ConsumerGroupCodingKeys.self)
-        self.id = try decoderContainer.decode(Int?.self, forKey: .id)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
-        self.delete = try decoderContainer.decode(UInt8?.self, forKey: .delete)
-        self.topicId = try decoderContainer.decode(Int64?.self, forKey: .topicId)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(Int?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
+        if decoderContainer.contains(.delete)
+        {
+            self.delete = try decoderContainer.decode(UInt8?.self, forKey: .delete)
+        }
+        if decoderContainer.contains(.topicId)
+        {
+            self.topicId = try decoderContainer.decode(Int64?.self, forKey: .topicId)
+        }
     }
 }
 public extension ConsumerGroup{

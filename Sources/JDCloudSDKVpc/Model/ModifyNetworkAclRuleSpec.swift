@@ -66,13 +66,34 @@ public class ModifyNetworkAclRuleSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ModifyNetworkAclRuleSpecCodingKeys.self)
         self.ruleId = try decoderContainer.decode(String.self, forKey: .ruleId)
-        self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
-        self.fromPort = try decoderContainer.decode(Int?.self, forKey: .fromPort)
-        self.toPort = try decoderContainer.decode(Int?.self, forKey: .toPort)
-        self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
-        self.ruleAction = try decoderContainer.decode(String?.self, forKey: .ruleAction)
-        self.priority = try decoderContainer.decode(Int?.self, forKey: .priority)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        if decoderContainer.contains(.protocolValue)
+        {
+            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.fromPort)
+        {
+            self.fromPort = try decoderContainer.decode(Int?.self, forKey: .fromPort)
+        }
+        if decoderContainer.contains(.toPort)
+        {
+            self.toPort = try decoderContainer.decode(Int?.self, forKey: .toPort)
+        }
+        if decoderContainer.contains(.addressPrefix)
+        {
+            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+        }
+        if decoderContainer.contains(.ruleAction)
+        {
+            self.ruleAction = try decoderContainer.decode(String?.self, forKey: .ruleAction)
+        }
+        if decoderContainer.contains(.priority)
+        {
+            self.priority = try decoderContainer.decode(Int?.self, forKey: .priority)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
     }
 }
 public extension ModifyNetworkAclRuleSpec{

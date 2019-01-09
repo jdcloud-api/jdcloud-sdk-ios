@@ -28,7 +28,7 @@ import Foundation
 @objc(GetWidgetMetricOut)
 public class GetWidgetMetricOut:NSObject,Codable{
     /// List
-    var list:ServiceMetric?
+    var list:[ServiceMetric?]?
 
 
 
@@ -43,7 +43,10 @@ public class GetWidgetMetricOut:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetWidgetMetricOutCodingKeys.self)
-        self.list = try decoderContainer.decode(ServiceMetric?.self, forKey: .list)
+        if decoderContainer.contains(.list)
+        {
+            self.list = try decoderContainer.decode([ServiceMetric?]?.self, forKey: .list)
+        }
     }
 }
 public extension GetWidgetMetricOut{

@@ -29,11 +29,11 @@ import JDCloudSDKCore
 @objc(DescribeAuditOptionsResult)
 public class DescribeAuditOptionsResult:NSObject,JdCloudResult
 {
-    /// AuditDefault类模板：返回建议开启的审计选项。&lt;br&gt; AuditOptions类模板：不返回该参数
-    var enabled:String?
+    /// Enabled
+    var enabled:[String?]?
 
-    /// AuditDefault类模板：返回未开启的审计选项&lt;br&gt;AuditOptions类模板：返回所有的审计选项
-    var disabled:String?
+    /// Disabled
+    var disabled:[String?]?
 
 
 
@@ -48,8 +48,14 @@ public class DescribeAuditOptionsResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeAuditOptionsResultCodingKeys.self)
-        self.enabled = try decoderContainer.decode(String?.self, forKey: .enabled)
-        self.disabled = try decoderContainer.decode(String?.self, forKey: .disabled)
+        if decoderContainer.contains(.enabled)
+        {
+            self.enabled = try decoderContainer.decode([String?]?.self, forKey: .enabled)
+        }
+        if decoderContainer.contains(.disabled)
+        {
+            self.disabled = try decoderContainer.decode([String?]?.self, forKey: .disabled)
+        }
     }
 }
 public extension DescribeAuditOptionsResult{

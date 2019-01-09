@@ -34,7 +34,7 @@ public class StatisticsData:NSObject,Codable{
     /// Domain
     var domain:String?
     /// DataItemList
-    var dataItemList:StatisticsDataItem?
+    var dataItemList:[StatisticsDataItem?]?
 
 
 
@@ -52,10 +52,22 @@ public class StatisticsData:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StatisticsDataCodingKeys.self)
-        self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
-        self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
-        self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        self.dataItemList = try decoderContainer.decode(StatisticsDataItem?.self, forKey: .dataItemList)
+        if decoderContainer.contains(.startTime)
+        {
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
+        }
+        if decoderContainer.contains(.domain)
+        {
+            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
+        }
+        if decoderContainer.contains(.dataItemList)
+        {
+            self.dataItemList = try decoderContainer.decode([StatisticsDataItem?]?.self, forKey: .dataItemList)
+        }
     }
 }
 public extension StatisticsData{

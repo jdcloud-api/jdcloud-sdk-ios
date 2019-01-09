@@ -28,7 +28,7 @@ import Foundation
 @objc(MetricDataRespToFE)
 public class MetricDataRespToFE:NSObject,Codable{
     /// MetricDatas
-    var metricDatas:MetricData?
+    var metricDatas:[MetricData?]?
 
 
 
@@ -43,7 +43,10 @@ public class MetricDataRespToFE:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: MetricDataRespToFECodingKeys.self)
-        self.metricDatas = try decoderContainer.decode(MetricData?.self, forKey: .metricDatas)
+        if decoderContainer.contains(.metricDatas)
+        {
+            self.metricDatas = try decoderContainer.decode([MetricData?]?.self, forKey: .metricDatas)
+        }
     }
 }
 public extension MetricDataRespToFE{

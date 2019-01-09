@@ -49,9 +49,18 @@ public class Template:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TemplateCodingKeys.self)
-        self.templateType = try decoderContainer.decode(Int?.self, forKey: .templateType)
-        self.flag = try decoderContainer.decode(Int?.self, forKey: .flag)
-        self.templateId = try decoderContainer.decode(String?.self, forKey: .templateId)
+        if decoderContainer.contains(.templateType)
+        {
+            self.templateType = try decoderContainer.decode(Int?.self, forKey: .templateType)
+        }
+        if decoderContainer.contains(.flag)
+        {
+            self.flag = try decoderContainer.decode(Int?.self, forKey: .flag)
+        }
+        if decoderContainer.contains(.templateId)
+        {
+            self.templateId = try decoderContainer.decode(String?.self, forKey: .templateId)
+        }
     }
 }
 public extension Template{

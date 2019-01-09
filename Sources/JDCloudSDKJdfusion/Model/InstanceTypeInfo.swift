@@ -67,15 +67,42 @@ public class InstanceTypeInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceTypeInfoCodingKeys.self)
-        self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
-        self.cpu = try decoderContainer.decode(Int32?.self, forKey: .cpu)
-        self.memory = try decoderContainer.decode(Int32?.self, forKey: .memory)
-        self.gpuAmount = try decoderContainer.decode(Int32?.self, forKey: .gpuAmount)
-        self.gpuSpec = try decoderContainer.decode(String?.self, forKey: .gpuSpec)
-        self.localStorageSize = try decoderContainer.decode(Int32?.self, forKey: .localStorageSize)
-        self.localStorageType = try decoderContainer.decode(String?.self, forKey: .localStorageType)
-        self.localStorageAmount = try decoderContainer.decode(Int32?.self, forKey: .localStorageAmount)
-        self.nicLimit = try decoderContainer.decode(Int32?.self, forKey: .nicLimit)
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
+        if decoderContainer.contains(.cpu)
+        {
+            self.cpu = try decoderContainer.decode(Int32?.self, forKey: .cpu)
+        }
+        if decoderContainer.contains(.memory)
+        {
+            self.memory = try decoderContainer.decode(Int32?.self, forKey: .memory)
+        }
+        if decoderContainer.contains(.gpuAmount)
+        {
+            self.gpuAmount = try decoderContainer.decode(Int32?.self, forKey: .gpuAmount)
+        }
+        if decoderContainer.contains(.gpuSpec)
+        {
+            self.gpuSpec = try decoderContainer.decode(String?.self, forKey: .gpuSpec)
+        }
+        if decoderContainer.contains(.localStorageSize)
+        {
+            self.localStorageSize = try decoderContainer.decode(Int32?.self, forKey: .localStorageSize)
+        }
+        if decoderContainer.contains(.localStorageType)
+        {
+            self.localStorageType = try decoderContainer.decode(String?.self, forKey: .localStorageType)
+        }
+        if decoderContainer.contains(.localStorageAmount)
+        {
+            self.localStorageAmount = try decoderContainer.decode(Int32?.self, forKey: .localStorageAmount)
+        }
+        if decoderContainer.contains(.nicLimit)
+        {
+            self.nicLimit = try decoderContainer.decode(Int32?.self, forKey: .nicLimit)
+        }
     }
 }
 public extension InstanceTypeInfo{

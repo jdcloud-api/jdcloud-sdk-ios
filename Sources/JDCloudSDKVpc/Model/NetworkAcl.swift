@@ -34,7 +34,7 @@ public class NetworkAcl:NSObject,Codable{
     /// 私有网络 ID
     var vpcId:String?
     /// networkAcl规则列表
-    var networkAclRules:NetworkAclRule?
+    var networkAclRules:[NetworkAclRule?]?
     /// networkAcl绑定的子网列表
     var subnetIds:[String?]?
     /// 描述,允许输入UTF-8编码下的全部字符，不超过256字符
@@ -61,13 +61,34 @@ public class NetworkAcl:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NetworkAclCodingKeys.self)
-        self.networkAclId = try decoderContainer.decode(String?.self, forKey: .networkAclId)
-        self.networkAclName = try decoderContainer.decode(String?.self, forKey: .networkAclName)
-        self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
-        self.networkAclRules = try decoderContainer.decode(NetworkAclRule?.self, forKey: .networkAclRules)
-        self.subnetIds = try decoderContainer.decode([String?]?.self, forKey: .subnetIds)
-        self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
-        self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        if decoderContainer.contains(.networkAclId)
+        {
+            self.networkAclId = try decoderContainer.decode(String?.self, forKey: .networkAclId)
+        }
+        if decoderContainer.contains(.networkAclName)
+        {
+            self.networkAclName = try decoderContainer.decode(String?.self, forKey: .networkAclName)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.networkAclRules)
+        {
+            self.networkAclRules = try decoderContainer.decode([NetworkAclRule?]?.self, forKey: .networkAclRules)
+        }
+        if decoderContainer.contains(.subnetIds)
+        {
+            self.subnetIds = try decoderContainer.decode([String?]?.self, forKey: .subnetIds)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension NetworkAcl{

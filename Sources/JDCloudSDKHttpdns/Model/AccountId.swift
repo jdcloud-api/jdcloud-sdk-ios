@@ -46,8 +46,14 @@ public class AccountId:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AccountIdCodingKeys.self)
-        self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
-        self.accountIdValue = try decoderContainer.decode(String?.self, forKey: .accountIdValue)
+        if decoderContainer.contains(.userPin)
+        {
+            self.userPin = try decoderContainer.decode(String?.self, forKey: .userPin)
+        }
+        if decoderContainer.contains(.accountIdValue)
+        {
+            self.accountIdValue = try decoderContainer.decode(String?.self, forKey: .accountIdValue)
+        }
     }
 }
 public extension AccountId{

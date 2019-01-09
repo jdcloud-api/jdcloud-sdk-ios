@@ -64,14 +64,38 @@ public class ProbeInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ProbeInfoCodingKeys.self)
-        self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        self.privateIp = try decoderContainer.decode(String?.self, forKey: .privateIp)
-        self.probeResult = try decoderContainer.decode(Int64?.self, forKey: .probeResult)
-        self.probeStatus = try decoderContainer.decode(Int64?.self, forKey: .probeStatus)
-        self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
-        self.targetStatus = try decoderContainer.decode(Int64?.self, forKey: .targetStatus)
-        self.uuid = try decoderContainer.decode(String?.self, forKey: .uuid)
-        self.vmStatus = try decoderContainer.decode(String?.self, forKey: .vmStatus)
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.privateIp)
+        {
+            self.privateIp = try decoderContainer.decode(String?.self, forKey: .privateIp)
+        }
+        if decoderContainer.contains(.probeResult)
+        {
+            self.probeResult = try decoderContainer.decode(Int64?.self, forKey: .probeResult)
+        }
+        if decoderContainer.contains(.probeStatus)
+        {
+            self.probeStatus = try decoderContainer.decode(Int64?.self, forKey: .probeStatus)
+        }
+        if decoderContainer.contains(.publicIp)
+        {
+            self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
+        }
+        if decoderContainer.contains(.targetStatus)
+        {
+            self.targetStatus = try decoderContainer.decode(Int64?.self, forKey: .targetStatus)
+        }
+        if decoderContainer.contains(.uuid)
+        {
+            self.uuid = try decoderContainer.decode(String?.self, forKey: .uuid)
+        }
+        if decoderContainer.contains(.vmStatus)
+        {
+            self.vmStatus = try decoderContainer.decode(String?.self, forKey: .vmStatus)
+        }
     }
 }
 public extension ProbeInfo{

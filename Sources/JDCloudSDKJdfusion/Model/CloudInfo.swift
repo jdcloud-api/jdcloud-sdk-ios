@@ -60,7 +60,10 @@ public class CloudInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CloudInfoCodingKeys.self)
-        self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        if decoderContainer.contains(.id)
+        {
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+        }
         self.name = try decoderContainer.decode(String.self, forKey: .name)
         self.vendor = try decoderContainer.decode(String.self, forKey: .vendor)
     }

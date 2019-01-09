@@ -43,7 +43,10 @@ public class CreateKeypairReq:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateKeypairReqCodingKeys.self)
-        self.keypair = try decoderContainer.decode(CreateKeypair?.self, forKey: .keypair)
+        if decoderContainer.contains(.keypair)
+        {
+            self.keypair = try decoderContainer.decode(CreateKeypair?.self, forKey: .keypair)
+        }
     }
 }
 public extension CreateKeypairReq{

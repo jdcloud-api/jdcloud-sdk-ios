@@ -43,7 +43,10 @@ public class VpcItem:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VpcItemCodingKeys.self)
-        self.vpc = try decoderContainer.decode(VpcInfoDetail?.self, forKey: .vpc)
+        if decoderContainer.contains(.vpc)
+        {
+            self.vpc = try decoderContainer.decode(VpcInfoDetail?.self, forKey: .vpc)
+        }
     }
 }
 public extension VpcItem{

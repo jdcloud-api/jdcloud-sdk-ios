@@ -38,8 +38,8 @@ public class DescribeLiveAppResult:NSObject,JdCloudResult
     /// 查询总数
     var totalCount:Double?
 
-    /// AppList
-    var appList:AppList?
+    /// app列表
+    var appList:[AppList?]?
 
 
 
@@ -56,10 +56,22 @@ public class DescribeLiveAppResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeLiveAppResultCodingKeys.self)
-        self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
-        self.appList = try decoderContainer.decode(AppList?.self, forKey: .appList)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.appList)
+        {
+            self.appList = try decoderContainer.decode([AppList?]?.self, forKey: .appList)
+        }
     }
 }
 public extension DescribeLiveAppResult{

@@ -76,13 +76,19 @@ public class RestoredNewDBInstanceSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RestoredNewDBInstanceSpecCodingKeys.self)
-        self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
         self.instanceClass = try decoderContainer.decode(String.self, forKey: .instanceClass)
         self.instanceStorageGB = try decoderContainer.decode(Int.self, forKey: .instanceStorageGB)
         self.azId = try decoderContainer.decode([String?].self, forKey: .azId)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
-        self.parameterGroup = try decoderContainer.decode(String?.self, forKey: .parameterGroup)
+        if decoderContainer.contains(.parameterGroup)
+        {
+            self.parameterGroup = try decoderContainer.decode(String?.self, forKey: .parameterGroup)
+        }
         self.chargeSpec = try decoderContainer.decode(ChargeSpec.self, forKey: .chargeSpec)
     }
 }

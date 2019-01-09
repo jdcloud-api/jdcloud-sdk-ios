@@ -44,7 +44,10 @@ public class GetVmKeypairsByNameResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVmKeypairsByNameResultCodingKeys.self)
-        self.keypair = try decoderContainer.decode(KeypairInfo?.self, forKey: .keypair)
+        if decoderContainer.contains(.keypair)
+        {
+            self.keypair = try decoderContainer.decode(KeypairInfo?.self, forKey: .keypair)
+        }
     }
 }
 public extension GetVmKeypairsByNameResult{

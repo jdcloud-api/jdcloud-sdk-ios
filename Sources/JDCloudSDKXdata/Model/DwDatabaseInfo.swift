@@ -49,9 +49,18 @@ public class DwDatabaseInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DwDatabaseInfoCodingKeys.self)
-        self.owner = try decoderContainer.decode(String?.self, forKey: .owner)
-        self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
-        self.databaseName = try decoderContainer.decode(String?.self, forKey: .databaseName)
+        if decoderContainer.contains(.owner)
+        {
+            self.owner = try decoderContainer.decode(String?.self, forKey: .owner)
+        }
+        if decoderContainer.contains(.comments)
+        {
+            self.comments = try decoderContainer.decode(String?.self, forKey: .comments)
+        }
+        if decoderContainer.contains(.databaseName)
+        {
+            self.databaseName = try decoderContainer.decode(String?.self, forKey: .databaseName)
+        }
     }
 }
 public extension DwDatabaseInfo{

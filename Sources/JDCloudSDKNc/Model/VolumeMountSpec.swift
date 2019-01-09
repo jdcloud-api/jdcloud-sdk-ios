@@ -67,13 +67,34 @@ public class VolumeMountSpec:NSObject,Codable{
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: VolumeMountSpecCodingKeys.self)
         self.category = try decoderContainer.decode(String.self, forKey: .category)
-        self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
-        self.mountPath = try decoderContainer.decode(String?.self, forKey: .mountPath)
-        self.readOnly = try decoderContainer.decode(Bool?.self, forKey: .readOnly)
-        self.cloudDiskSpec = try decoderContainer.decode(DiskSpec?.self, forKey: .cloudDiskSpec)
-        self.cloudDiskId = try decoderContainer.decode(String?.self, forKey: .cloudDiskId)
-        self.fsType = try decoderContainer.decode(String?.self, forKey: .fsType)
-        self.formatVolume = try decoderContainer.decode(Bool?.self, forKey: .formatVolume)
+        if decoderContainer.contains(.autoDelete)
+        {
+            self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
+        }
+        if decoderContainer.contains(.mountPath)
+        {
+            self.mountPath = try decoderContainer.decode(String?.self, forKey: .mountPath)
+        }
+        if decoderContainer.contains(.readOnly)
+        {
+            self.readOnly = try decoderContainer.decode(Bool?.self, forKey: .readOnly)
+        }
+        if decoderContainer.contains(.cloudDiskSpec)
+        {
+            self.cloudDiskSpec = try decoderContainer.decode(DiskSpec?.self, forKey: .cloudDiskSpec)
+        }
+        if decoderContainer.contains(.cloudDiskId)
+        {
+            self.cloudDiskId = try decoderContainer.decode(String?.self, forKey: .cloudDiskId)
+        }
+        if decoderContainer.contains(.fsType)
+        {
+            self.fsType = try decoderContainer.decode(String?.self, forKey: .fsType)
+        }
+        if decoderContainer.contains(.formatVolume)
+        {
+            self.formatVolume = try decoderContainer.decode(Bool?.self, forKey: .formatVolume)
+        }
     }
 }
 public extension VolumeMountSpec{

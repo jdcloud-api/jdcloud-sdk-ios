@@ -52,10 +52,10 @@ public class CreateLiveDomainRequest:JdCloudRequest
     var backSourceType:String?
 
     /// IpSource
-    var ipSource:IpSourceInfo?
+    var ipSource:[IpSourceInfo?]?
 
     /// DomainSource
-    var domainSource:DomainSourceInfo?
+    var domainSource:[DomainSourceInfo?]?
 
 
 

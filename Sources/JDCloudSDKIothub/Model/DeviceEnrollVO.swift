@@ -52,10 +52,22 @@ public class DeviceEnrollVO:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DeviceEnrollVOCodingKeys.self)
-        self.deviceIds = try decoderContainer.decode([String?]?.self, forKey: .deviceIds)
-        self.modelName = try decoderContainer.decode(String?.self, forKey: .modelName)
-        self.deviceType = try decoderContainer.decode(Int?.self, forKey: .deviceType)
-        self.parentDeviceName = try decoderContainer.decode(String?.self, forKey: .parentDeviceName)
+        if decoderContainer.contains(.deviceIds)
+        {
+            self.deviceIds = try decoderContainer.decode([String?]?.self, forKey: .deviceIds)
+        }
+        if decoderContainer.contains(.modelName)
+        {
+            self.modelName = try decoderContainer.decode(String?.self, forKey: .modelName)
+        }
+        if decoderContainer.contains(.deviceType)
+        {
+            self.deviceType = try decoderContainer.decode(Int?.self, forKey: .deviceType)
+        }
+        if decoderContainer.contains(.parentDeviceName)
+        {
+            self.parentDeviceName = try decoderContainer.decode(String?.self, forKey: .parentDeviceName)
+        }
     }
 }
 public extension DeviceEnrollVO{

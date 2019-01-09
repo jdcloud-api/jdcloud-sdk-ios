@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(DescribeNetworkInterfacesResult)
 public class DescribeNetworkInterfacesResult:NSObject,JdCloudResult
 {
-    /// NetworkInterfaces
-    var networkInterfaces:NetworkInterface?
+    /// networkInterface资源信息列表
+    var networkInterfaces:[NetworkInterface?]?
 
     /// 总数量
     var totalCount:Double?
@@ -48,8 +48,14 @@ public class DescribeNetworkInterfacesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeNetworkInterfacesResultCodingKeys.self)
-        self.networkInterfaces = try decoderContainer.decode(NetworkInterface?.self, forKey: .networkInterfaces)
-        self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        if decoderContainer.contains(.networkInterfaces)
+        {
+            self.networkInterfaces = try decoderContainer.decode([NetworkInterface?]?.self, forKey: .networkInterfaces)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeNetworkInterfacesResult{

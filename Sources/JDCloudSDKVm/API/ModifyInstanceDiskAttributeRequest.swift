@@ -32,7 +32,7 @@ import JDCloudSDKCore
 public class ModifyInstanceDiskAttributeRequest:JdCloudRequest
 {
     /// 云硬盘列表
-    var dataDisks:InstanceDiskAttribute?
+    var dataDisks:[InstanceDiskAttribute?]?
 
     /// 云主机ID
     var instanceId:String

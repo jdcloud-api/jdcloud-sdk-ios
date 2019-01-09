@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeForwardRulesResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:ForwardRule?
+    var dataList:[ForwardRule?]?
 
     /// TotalCount
     var totalCount:Int?
@@ -48,8 +48,14 @@ public class DescribeForwardRulesResult:NSObject,JdCloudResult
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeForwardRulesResultCodingKeys.self)
-        self.dataList = try decoderContainer.decode(ForwardRule?.self, forKey: .dataList)
-        self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        if decoderContainer.contains(.dataList)
+        {
+            self.dataList = try decoderContainer.decode([ForwardRule?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeForwardRulesResult{

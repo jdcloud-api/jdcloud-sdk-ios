@@ -33,7 +33,7 @@ public class DescribeQuotasRequest:JdCloudRequest
 {
     /// resourceTypes - 资源类型，暂时只支持[kubernetes]
       /// 
-    var filters:Filter?
+    var filters:[Filter?]?
 
 
 
