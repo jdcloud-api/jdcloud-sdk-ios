@@ -40,7 +40,15 @@ public class JDCloudSigner
         requestHeader[X_JDCLOUD_DATE] = formattedSigningDateTime
         requestHeader[X_JDCLOUD_NONCE] = nonceId
         requestHeader = processContentType(header: requestHeader,  requestInfo: requestInfo)
-        let contentSHA256 = calculateContentHash(requestBody: requestInfo.requestBodyContent)
+        let jdcloudContentSha256 = requestHeader[X_JDCLOUD_CONTENT_SHA256]
+        var contentSHA256 = "";
+        if(jdcloudContentSha256 != nil && jdcloudContentSha256 != "")
+        {
+            contentSHA256  = jdcloudContentSha256!;
+        }else{
+            contentSHA256 = calculateContentHash(requestBody: requestInfo.requestBodyContent)
+        } 
+        
         let canonicalRequest = try createCanonicalRequest(contentSHA256: contentSHA256, requestInfo: requestInfo,requestHeader:requestHeader)
         let stringToSign = createStringToSign(canonicalRequest: canonicalRequest, formattedSigningDateTime: formattedSigningDateTime, scope: scope)
         

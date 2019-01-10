@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
  
 
   s.name         = "JDCloudSDKCore"
-  s.version      = "0.0.1"
+  s.version      = "0.0.3"
   s.summary      = "JD Cloud open API SDK Core"
  
   s.description  = <<-DESC
