@@ -29,6 +29,6 @@ Pod::Spec.new do |s|
 
  
   s.requires_arc = true
-  s.dependency "JDCloudSDKCore", "~> 0.0.1"
-  s.dependency "JDCloudSDKCommon", "~> 0.0.2"
+  s.dependency "JDCloudSDKCore", "~> 0.0.3"
+  s.dependency "JDCloudSDKCommon", "~> 0.0.3"
 end

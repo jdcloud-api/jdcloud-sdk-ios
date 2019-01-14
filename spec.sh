@@ -1,4 +1,10 @@
 
+pod trunk push  JDCloudSDKDisk.podspec --allow-warnings
+pod trunk push  JDCloudSDKVm.podspec --allow-warnings
+pod trunk push  JDCloudSDKAms.podspec --allow-warnings
+pod trunk push  JDCloudSDKBaseanti.podspec --allow-warnings
+pod trunk push  JDCloudSDKBilling.podspec --allow-warnings 
+pod trunk push  JDCloudSDKCdn.podspec --allow-warnings  
 pod trunk push  JDCloudSDKCr.podspec --allow-warnings
 pod trunk push  JDCloudSDKClouddnsservice.podspec --allow-warnings
 pod trunk push  JDCloudSDKContainerregistry.podspec --allow-warnings
@@ -22,6 +28,11 @@ pod trunk push  JDCloudSDKNc.podspec --allow-warnings
 pod trunk push  JDCloudSDKOss.podspec  --allow-warnings  
 pod trunk push  JDCloudSDKOssopenapi.podspec  --allow-warnings
 pod trunk push  JDCloudSDKRds.podspec  --allow-warnings 
+pod spec lint JDCloudSDKRedis.podspec  --allow-warnings  --verbose
+pod spec lint JDCloudSDKSop.podspec  --allow-warnings  --verbose
+pod spec lint JDCloudSDKStreambus.podspec  --allow-warnings  --verbose
+pod spec lint JDCloudSDKStreamcomputer.podspec  --allow-warnings  --verbose
+pod spec lint JDCloudSDKXdata.podspec  --allow-warnings  --verbose
 pod trunk push  JDCloudSDKRedis.podspec  --allow-warnings 
 pod trunk push  JDCloudSDKSop.podspec  --allow-warnings  
 pod trunk push  JDCloudSDKStreambus.podspec  --allow-warnings
