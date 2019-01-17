@@ -1,6 +1,6 @@
 import XCTest
-@testable import CoreTests
+@testable import JDCloudSDKSwiftTests
 
 XCTMain([
-    testCase(VmTests.allTests),
+    testCase(VmTest.allTests),
 ])

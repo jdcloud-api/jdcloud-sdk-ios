@@ -228,7 +228,6 @@ let package = Package(
             exclude: ["Sources/JDCloudSDKJdw/JDCloudSDKJdw_Info.plist","Sources/JDCloudSDKJdw/JDCloudSDKJdw.h","Sources/ChangeLog.md","Sources/ChangeLog.txt"]),
         .testTarget(
             name: "JDCloudSDKSwiftTests",
-            dependencies: ["JDCloudSDKVm","JDCloudSDKCore"],
-            path: "Tests"),
+            dependencies: ["JDCloudSDKVm","JDCloudSDKCore"]),
     ]
 )
