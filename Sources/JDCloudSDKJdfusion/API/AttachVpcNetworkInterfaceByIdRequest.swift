@@ -31,27 +31,27 @@ import JDCloudSDKCore
 public class AttachVpcNetworkInterfaceByIdRequest:JdCloudRequest
 {
     /// 网卡挂载虚拟机
-    var body:AttachNetInterfaceReq
+    var attach:AttachNetInterface
 
     /// 网卡 ID
     var id:String
 
 
-    public init(regionId: String,body:AttachNetInterfaceReq,id:String){
-        self.body = body
+    public init(regionId: String,attach:AttachNetInterface,id:String){
+        self.attach = attach
         self.id = id
         super.init(regionId: regionId)
     }
 
 
     enum AttachVpcNetworkInterfaceByIdRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case attach
         case id
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AttachVpcNetworkInterfaceByIdRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(attach, forKey: .attach)
         try encoderContainer.encode(id, forKey: .id)
 
     }

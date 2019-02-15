@@ -249,27 +249,6 @@ public class CpsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func describeSoftwareAsync(request:DescribeSoftwareRequest,requestComplation:@escaping (NSNumber?,DescribeSoftwareResponse?,NSError?,NSString?)->()) throws {
-        cpsJDCloudClient = self
-        try DescribeSoftwareExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSoftwareResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func describeInstanceNameAsync(request:DescribeInstanceNameRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceNameResponse?,NSError?,NSString?)->()) throws {
         cpsJDCloudClient = self
         try DescribeInstanceNameExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

@@ -33,6 +33,12 @@ public class DescribeDatabasesRequest:JdCloudRequest
     /// 数据库名。如果不指定数据库名，则返回所有数据库列表&lt;br&gt;- **MySQL：不支持该字段**&lt;br&gt;- **SQL Server：支持该字段**
     var dbName:String?
 
+    /// 显示数据的页码，默认为1，取值范围：[-1,∞)。pageNumber为-1时，返回所有数据页码；超过总页数时，显示最后一页;
+    var pageNumber:Int?
+
+    /// 每页显示的数据条数，默认为100，取值范围：[10,100]，用于查询列表的接口
+    var pageSize:Int?
+
     /// RDS 实例ID，唯一标识一个RDS实例
     var instanceId:String
 
@@ -45,12 +51,16 @@ public class DescribeDatabasesRequest:JdCloudRequest
 
     enum DescribeDatabasesRequestRequestCodingKeys: String, CodingKey {
         case dbName
+        case pageNumber
+        case pageSize
         case instanceId
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDatabasesRequestRequestCodingKeys.self)
         try encoderContainer.encode(dbName, forKey: .dbName)
+        try encoderContainer.encode(pageNumber, forKey: .pageNumber)
+        try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
 
     }

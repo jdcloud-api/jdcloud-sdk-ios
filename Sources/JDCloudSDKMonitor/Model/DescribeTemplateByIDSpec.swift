@@ -29,12 +29,13 @@ import Foundation
 public class DescribeTemplateByIDSpec:NSObject,Codable{
     /// 模板类型，区分默认模板和用户自定义模板：1表示默认模板，2表示用户自定义模板
       /// in: query
-    var templateType:Int64?
+    /// Required:true
+    var templateType:Int64
 
 
 
-    public override init(){
-            super.init()
+    public  init(templateType:Int64){
+             self.templateType = templateType
     }
 
     enum DescribeTemplateByIDSpecCodingKeys: String, CodingKey {
@@ -44,10 +45,7 @@ public class DescribeTemplateByIDSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeTemplateByIDSpecCodingKeys.self)
-        if decoderContainer.contains(.templateType)
-        {
-            self.templateType = try decoderContainer.decode(Int64?.self, forKey: .templateType)
-        }
+        self.templateType = try decoderContainer.decode(Int64.self, forKey: .templateType)
     }
 }
 public extension DescribeTemplateByIDSpec{

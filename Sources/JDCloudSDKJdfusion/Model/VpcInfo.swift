@@ -32,7 +32,7 @@ public class VpcInfo:NSObject,Codable{
     /// 私有网络名称
     var name:String?
     /// 地址范围
-    var addressPrefix:String?
+    var cidrBlock:String?
     /// VPC 描述
     var descriptionValue:String?
     /// 创建时间
@@ -49,7 +49,7 @@ public class VpcInfo:NSObject,Codable{
     enum VpcInfoCodingKeys: String, CodingKey {
         case id
         case name
-        case addressPrefix
+        case cidrBlock
         case descriptionValue = "description"
         case createdTime
         case cloudID
@@ -66,9 +66,9 @@ public class VpcInfo:NSObject,Codable{
         {
             self.name = try decoderContainer.decode(String?.self, forKey: .name)
         }
-        if decoderContainer.contains(.addressPrefix)
+        if decoderContainer.contains(.cidrBlock)
         {
-            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+            self.cidrBlock = try decoderContainer.decode(String?.self, forKey: .cidrBlock)
         }
         if decoderContainer.contains(.descriptionValue)
         {
@@ -89,7 +89,7 @@ public extension VpcInfo{
         var encoderContainer = encoder.container(keyedBy: VpcInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)
-         try encoderContainer.encode(addressPrefix, forKey: .addressPrefix)
+         try encoderContainer.encode(cidrBlock, forKey: .cidrBlock)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
          try encoderContainer.encode(cloudID, forKey: .cloudID)

@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateDiskRequest:JdCloudRequest
 {
     /// 创建云硬盘
-    var body:CreateDataDiskReq
+    var disk:CreateDataDisk
 
 
-    public init(regionId: String,body:CreateDataDiskReq){
-        self.body = body
+    public init(regionId: String,disk:CreateDataDisk){
+        self.disk = disk
         super.init(regionId: regionId)
     }
 
 
     enum CreateDiskRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case disk
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateDiskRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(disk, forKey: .disk)
 
     }
 }

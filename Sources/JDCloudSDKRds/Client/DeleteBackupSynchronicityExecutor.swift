@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除一个跨地域备份同步服务。
+///  删除一个跨地域备份同步服务。&lt;br&gt;- 仅支持MySQL
 public class DeleteBackupSynchronicityExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

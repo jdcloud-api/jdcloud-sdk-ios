@@ -45,10 +45,8 @@ public class SlbInfo:NSObject,Codable{
     var vpc:String?
     /// 私网负载均衡实例的网络类型
     var networkType:String?
-    /// 实例的主可用区ID。
-    var masterAz:String?
-    /// 实例的备可用区ID。
-    var slaveAz:String?
+    /// 可用区域。
+    var azs:[String?]?
     /// 创建时间
     var createdTime:String?
 
@@ -68,8 +66,7 @@ public class SlbInfo:NSObject,Codable{
         case subnetId
         case vpc
         case networkType
-        case masterAz
-        case slaveAz
+        case azs
         case createdTime
     }
 
@@ -112,13 +109,9 @@ public class SlbInfo:NSObject,Codable{
         {
             self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
         }
-        if decoderContainer.contains(.masterAz)
+        if decoderContainer.contains(.azs)
         {
-            self.masterAz = try decoderContainer.decode(String?.self, forKey: .masterAz)
-        }
-        if decoderContainer.contains(.slaveAz)
-        {
-            self.slaveAz = try decoderContainer.decode(String?.self, forKey: .slaveAz)
+            self.azs = try decoderContainer.decode([String?]?.self, forKey: .azs)
         }
         if decoderContainer.contains(.createdTime)
         {
@@ -138,8 +131,7 @@ public extension SlbInfo{
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(vpc, forKey: .vpc)
          try encoderContainer.encode(networkType, forKey: .networkType)
-         try encoderContainer.encode(masterAz, forKey: .masterAz)
-         try encoderContainer.encode(slaveAz, forKey: .slaveAz)
+         try encoderContainer.encode(azs, forKey: .azs)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
     }
 }

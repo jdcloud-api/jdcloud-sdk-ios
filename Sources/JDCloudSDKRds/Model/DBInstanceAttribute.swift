@@ -54,9 +54,9 @@ public class DBInstanceAttribute:NSObject,Codable{
     var vpcId:String?
     /// 子网的ID
     var subnetId:String?
-    /// 实例公网域名
-    var internalDomainName:String?
     /// 实例内网域名
+    var internalDomainName:String?
+    /// 实例公网域名
     var publicDomainName:String?
     /// 应用访问端口
     var instancePort:String?

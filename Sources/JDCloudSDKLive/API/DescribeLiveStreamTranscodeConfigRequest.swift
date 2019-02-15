@@ -31,10 +31,10 @@ import JDCloudSDKCommon
 @objc(DescribeLiveStreamTranscodeConfigRequest)
 public class DescribeLiveStreamTranscodeConfigRequest:JdCloudRequest
 {
-    /// 页码, 默认为1, 取值范围：[1,∞)
+    /// 页码；默认为1；取值范围[1, 100000]
     var pageNum:Int?
 
-    /// 分页大小，默认为20，取值范围：[10,100]
+    /// 分页大小；默认为10；取值范围[10, 100]
     var pageSize:Int?
 
     /// 转码模板查询过滤条件, 不传递分页参数时默认返回10条

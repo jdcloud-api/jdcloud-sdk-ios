@@ -27,15 +27,18 @@ import Foundation
 ///  addTagsSpec
 @objc(AddTagsSpec)
 public class AddTagsSpec:NSObject,Codable{
-    /// 校验码。调用此API前需找云监控提供
+    /// 应用码。调用此API前需找云监控提供
     /// Required:true
     var appCode:String
     /// 组id。须确保在一个APP范围内全局唯一
     /// Required:true
     var groupCode:String
-    /// 资源列表。总资源数不能超过上限500
+    /// 资源列表。总资源不能超过100个
     /// Required:true
     var resourceIds:[String?]
+    /// 资源的产品线
+    /// Required:true
+    var serviceCode:String
     /// 标签名称。调用此API前需要与云监控确认可以使用的标签名称
     /// Required:true
     var tagK:String
@@ -45,10 +48,11 @@ public class AddTagsSpec:NSObject,Codable{
 
 
 
-    public  init(appCode:String,groupCode:String,resourceIds:[String?],tagK:String,tagV:String){
+    public  init(appCode:String,groupCode:String,resourceIds:[String?],serviceCode:String,tagK:String,tagV:String){
              self.appCode = appCode
              self.groupCode = groupCode
              self.resourceIds = resourceIds
+             self.serviceCode = serviceCode
              self.tagK = tagK
              self.tagV = tagV
     }
@@ -57,6 +61,7 @@ public class AddTagsSpec:NSObject,Codable{
         case appCode
         case groupCode
         case resourceIds
+        case serviceCode
         case tagK
         case tagV
     }
@@ -67,6 +72,7 @@ public class AddTagsSpec:NSObject,Codable{
         self.appCode = try decoderContainer.decode(String.self, forKey: .appCode)
         self.groupCode = try decoderContainer.decode(String.self, forKey: .groupCode)
         self.resourceIds = try decoderContainer.decode([String?].self, forKey: .resourceIds)
+        self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
         self.tagK = try decoderContainer.decode(String.self, forKey: .tagK)
         self.tagV = try decoderContainer.decode(String.self, forKey: .tagV)
     }
@@ -77,6 +83,7 @@ public extension AddTagsSpec{
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(groupCode, forKey: .groupCode)
          try encoderContainer.encode(resourceIds, forKey: .resourceIds)
+         try encoderContainer.encode(serviceCode, forKey: .serviceCode)
          try encoderContainer.encode(tagK, forKey: .tagK)
          try encoderContainer.encode(tagV, forKey: .tagV)
     }

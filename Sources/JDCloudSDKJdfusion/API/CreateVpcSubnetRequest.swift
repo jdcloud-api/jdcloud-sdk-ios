@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVpcSubnetRequest:JdCloudRequest
 {
     /// 创建subnet
-    var body:CreateSubnetReq
+    var subnet:CreateSubnet
 
 
-    public init(regionId: String,body:CreateSubnetReq){
-        self.body = body
+    public init(regionId: String,subnet:CreateSubnet){
+        self.subnet = subnet
         super.init(regionId: regionId)
     }
 
 
     enum CreateVpcSubnetRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case subnet
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcSubnetRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(subnet, forKey: .subnet)
 
     }
 }

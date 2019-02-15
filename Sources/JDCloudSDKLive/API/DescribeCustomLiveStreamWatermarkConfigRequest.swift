@@ -31,7 +31,7 @@ import JDCloudSDKCommon
 @objc(DescribeCustomLiveStreamWatermarkConfigRequest)
 public class DescribeCustomLiveStreamWatermarkConfigRequest:JdCloudRequest
 {
-    /// 页码；默认为1
+    /// 页码；默认为1；取值范围[1, 100000]
     var pageNum:Int?
 
     /// 分页大小；默认为10；取值范围[10, 100]

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
  
   s.name         = "JDCloudSDKCps"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "JD Cloud Open API Swift SDK Cps"
  
   s.description  = <<-DESC
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
  
   s.requires_arc = true
-  s.dependency "JDCloudSDKCore", "~> 0.0.3"
-  s.dependency "JDCloudSDKCommon", "~> 0.0.3"
-  s.dependency "JDCloudSDKCharge", "~> 0.0.3"
+  s.dependency "JDCloudSDKCore", "~> 0.0.4"
+  s.dependency "JDCloudSDKCommon", "~> 0.0.4"
+  s.dependency "JDCloudSDKCharge", "~> 0.0.4"
 end

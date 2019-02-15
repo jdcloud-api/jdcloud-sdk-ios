@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVpcNetworkInterfaceRequest:JdCloudRequest
 {
     /// 创建网卡
-    var body:CreateNetInterfaceReq
+    var netInterface:CreateNetInterface
 
 
-    public init(regionId: String,body:CreateNetInterfaceReq){
-        self.body = body
+    public init(regionId: String,netInterface:CreateNetInterface){
+        self.netInterface = netInterface
         super.init(regionId: regionId)
     }
 
 
     enum CreateVpcNetworkInterfaceRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case netInterface
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcNetworkInterfaceRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(netInterface, forKey: .netInterface)
 
     }
 }

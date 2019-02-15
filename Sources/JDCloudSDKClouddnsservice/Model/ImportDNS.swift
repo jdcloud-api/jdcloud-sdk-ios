@@ -52,7 +52,7 @@ public class ImportDNS:NSObject,Codable{
     var type:String
     /// 解析记录的权重
     var weight:Int?
-    /// 解析线路的ID
+    /// 解析线路的ID，请调用getViewTree接口获取解析线路的ID。
     /// Required:true
     var viewValue:Int
 

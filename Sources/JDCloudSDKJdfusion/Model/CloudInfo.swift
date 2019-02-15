@@ -24,55 +24,58 @@
 
 import Foundation
 
-///  cloudInfo
+///  迁移通道
 @objc(CloudInfo)
 public class CloudInfo:NSObject,Codable{
-    /// Id
-    var id:String?
-    /// Name
-    /// Required:true
-    var name:String
-    /// Vendor
-    /// Required:true
-    var vendor:String
-    /// Info
-    /// Required:true
-    var info:AnyObject?
-    /// Metadata
-    var metadata:AnyObject?
+    /// 云ID
+    var cloudId:String?
+    /// 数据库ID
+    var rdsId:String?
+    /// 数据库账号
+    var username:String?
+    /// 数据库密码
+    var password:String?
 
 
 
-    public  init(name:String,vendor:String,info:AnyObject?){
-             self.name = name
-             self.vendor = vendor
-             self.info = info
+    public override init(){
+            super.init()
     }
 
     enum CloudInfoCodingKeys: String, CodingKey {
-        case id
-        case name
-        case vendor
-        case info
-        case metadata
+        case cloudId
+        case rdsId
+        case username
+        case password
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CloudInfoCodingKeys.self)
-        if decoderContainer.contains(.id)
+        if decoderContainer.contains(.cloudId)
         {
-            self.id = try decoderContainer.decode(String?.self, forKey: .id)
+            self.cloudId = try decoderContainer.decode(String?.self, forKey: .cloudId)
         }
-        self.name = try decoderContainer.decode(String.self, forKey: .name)
-        self.vendor = try decoderContainer.decode(String.self, forKey: .vendor)
+        if decoderContainer.contains(.rdsId)
+        {
+            self.rdsId = try decoderContainer.decode(String?.self, forKey: .rdsId)
+        }
+        if decoderContainer.contains(.username)
+        {
+            self.username = try decoderContainer.decode(String?.self, forKey: .username)
+        }
+        if decoderContainer.contains(.password)
+        {
+            self.password = try decoderContainer.decode(String?.self, forKey: .password)
+        }
     }
 }
 public extension CloudInfo{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CloudInfoCodingKeys.self)
-         try encoderContainer.encode(id, forKey: .id)
-         try encoderContainer.encode(name, forKey: .name)
-         try encoderContainer.encode(vendor, forKey: .vendor)
+         try encoderContainer.encode(cloudId, forKey: .cloudId)
+         try encoderContainer.encode(rdsId, forKey: .rdsId)
+         try encoderContainer.encode(username, forKey: .username)
+         try encoderContainer.encode(password, forKey: .password)
     }
 }

@@ -36,7 +36,7 @@ public class DBInstanceSpec:NSObject,Codable{
     /// 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     /// Required:true
     var engineVersion:String
-    /// 实例规格代码，可以通过[describeInstanceClasses](../instance/describeInstanceClasses.md)接口获取
+    /// 实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
     /// Required:true
     var instanceClass:String
     /// 磁盘大小，单位GB

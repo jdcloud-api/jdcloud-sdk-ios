@@ -30,7 +30,7 @@ import JDCloudSDKCharge
 public class RestoredNewDBInstanceSpec:NSObject,Codable{
     /// 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
     var instanceName:String?
-    /// 实例规格代码，可以通过[describeInstanceClasses](../instance/describeInstanceClasses.md)接口获取
+    /// 实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
     /// Required:true
     var instanceClass:String
     /// 磁盘大小，单位GB

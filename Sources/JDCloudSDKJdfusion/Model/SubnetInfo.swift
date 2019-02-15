@@ -34,7 +34,7 @@ public class SubnetInfo:NSObject,Codable{
     /// 子网名称
     var subnetName:String?
     /// 子网网段
-    var addressPrefix:String?
+    var cidrBlock:String?
     /// 子网可用ip数量
     var availableIpCount:Int32?
     /// 子网描述信息
@@ -58,7 +58,7 @@ public class SubnetInfo:NSObject,Codable{
         case id
         case vpcId
         case subnetName
-        case addressPrefix
+        case cidrBlock
         case availableIpCount
         case descriptionValue = "description"
         case endIp
@@ -82,9 +82,9 @@ public class SubnetInfo:NSObject,Codable{
         {
             self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
         }
-        if decoderContainer.contains(.addressPrefix)
+        if decoderContainer.contains(.cidrBlock)
         {
-            self.addressPrefix = try decoderContainer.decode(String?.self, forKey: .addressPrefix)
+            self.cidrBlock = try decoderContainer.decode(String?.self, forKey: .cidrBlock)
         }
         if decoderContainer.contains(.availableIpCount)
         {
@@ -118,7 +118,7 @@ public extension SubnetInfo{
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(subnetName, forKey: .subnetName)
-         try encoderContainer.encode(addressPrefix, forKey: .addressPrefix)
+         try encoderContainer.encode(cidrBlock, forKey: .cidrBlock)
          try encoderContainer.encode(availableIpCount, forKey: .availableIpCount)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(endIp, forKey: .endIp)

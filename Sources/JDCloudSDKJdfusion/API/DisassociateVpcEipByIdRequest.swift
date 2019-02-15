@@ -31,27 +31,27 @@ import JDCloudSDKCore
 public class DisassociateVpcEipByIdRequest:JdCloudRequest
 {
     /// 解绑公网IP
-    var body:UnassociateEipAddressReq
+    var unassociate:UnassociateEipAddress
 
     /// 公网IP ID
     var id:String
 
 
-    public init(regionId: String,body:UnassociateEipAddressReq,id:String){
-        self.body = body
+    public init(regionId: String,unassociate:UnassociateEipAddress,id:String){
+        self.unassociate = unassociate
         self.id = id
         super.init(regionId: regionId)
     }
 
 
     enum DisassociateVpcEipByIdRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case unassociate
         case id
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisassociateVpcEipByIdRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(unassociate, forKey: .unassociate)
         try encoderContainer.encode(id, forKey: .id)
 
     }

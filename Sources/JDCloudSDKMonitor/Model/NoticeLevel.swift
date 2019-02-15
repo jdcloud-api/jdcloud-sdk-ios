@@ -30,7 +30,7 @@ public class NoticeLevel:NSObject,Codable{
     /// 是否为用户自己定义的级别，自定义(true) or 固定(false)
     /// Required:true
     var custom:Bool
-    /// 报警级别以及对应的指标，common：一般 critial： 严重 fatal：紧急
+    /// 报警级别以及对应的阈值，是一个map[string]float64对象。key:common(一般)、critial(严重)、 fatal(紧急),value:各报警级别对应的阀值，要符合operation参数对应的递进关系。 eg: &quot;levels&quot;:{&quot;common&quot;:1000,&quot;critial&quot;:10000,&quot;fatal&quot;:15000}
     /// Required:true
     var levels:[String:Double?]
 

@@ -27,7 +27,7 @@ import JDCloudSDKCore
 import JDCloudSDKCommon
 
 
-///  查询云硬盘快照列表
+///  查询云硬盘快照列表，filters多个过滤条件之间是逻辑与(AND)，每个条件内部的多个取值是逻辑或(OR)
 @objc(DescribeSnapshotsRequest)
 public class DescribeSnapshotsRequest:JdCloudRequest
 {
@@ -37,9 +37,12 @@ public class DescribeSnapshotsRequest:JdCloudRequest
     /// 分页大小，默认为20，取值范围：[10,100]
     var pageSize:Int?
 
+    /// 查找快照的类型，可以为private，others，shared，默认为private
+    var snapshotSource:String?
+
     /// snapshotId - 云硬盘快照ID，支持多个
       /// diskId - 生成快照的云硬盘ID，支持多个
-      /// status - 快照状态，精确匹配，支持多个,取值为 creating、available、in-use、deleting、error_create、error_delete
+      /// status - 快照状态，精确匹配，支持多个,取值为 creating、available、copying、deleting、error_create、error_delete
       /// name - 快照名称，模糊匹配，支持单个
       /// 
     var filters:[Filter?]?
@@ -50,6 +53,7 @@ public class DescribeSnapshotsRequest:JdCloudRequest
     enum DescribeSnapshotsRequestRequestCodingKeys: String, CodingKey {
         case pageNumber
         case pageSize
+        case snapshotSource
         case filters
     }
 
@@ -57,6 +61,7 @@ public class DescribeSnapshotsRequest:JdCloudRequest
         var encoderContainer = encoder.container(keyedBy: DescribeSnapshotsRequestRequestCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(snapshotSource, forKey: .snapshotSource)
         try encoderContainer.encode(filters, forKey: .filters)
 
     }

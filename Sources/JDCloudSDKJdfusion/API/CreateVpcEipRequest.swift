@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVpcEipRequest:JdCloudRequest
 {
     /// 分配弹性公网ip
-    var body:AllocateEipAddressReq
+    var allocate:AllocateEipAddress
 
 
-    public init(regionId: String,body:AllocateEipAddressReq){
-        self.body = body
+    public init(regionId: String,allocate:AllocateEipAddress){
+        self.allocate = allocate
         super.init(regionId: regionId)
     }
 
 
     enum CreateVpcEipRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case allocate
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcEipRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(allocate, forKey: .allocate)
 
     }
 }

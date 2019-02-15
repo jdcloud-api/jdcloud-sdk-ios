@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 修改云硬盘的名字或描述信息
+/// 修改云硬盘的名字或描述信息，名字或描述信息至少要指定一个。
 @objc(ModifyDiskAttributeResult)
 public class ModifyDiskAttributeResult:NSObject,JdCloudResult
 {

@@ -39,7 +39,7 @@ public class DescribeLiveAppResult:NSObject,JdCloudResult
     var totalCount:Double?
 
     /// app列表
-    var appList:[AppList?]?
+    var apps:[App?]?
 
 
 
@@ -51,7 +51,7 @@ public class DescribeLiveAppResult:NSObject,JdCloudResult
         case pageNumber
         case pageSize
         case totalCount
-        case appList
+        case apps
     }
 
     required public init(from decoder: Decoder) throws {
@@ -68,9 +68,9 @@ public class DescribeLiveAppResult:NSObject,JdCloudResult
         {
             self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
         }
-        if decoderContainer.contains(.appList)
+        if decoderContainer.contains(.apps)
         {
-            self.appList = try decoderContainer.decode([AppList?]?.self, forKey: .appList)
+            self.apps = try decoderContainer.decode([App?]?.self, forKey: .apps)
         }
     }
 }
@@ -80,6 +80,6 @@ public extension DescribeLiveAppResult{
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(totalCount, forKey: .totalCount)
-        try encoderContainer.encode(appList, forKey: .appList)
+        try encoderContainer.encode(apps, forKey: .apps)
     }
 }

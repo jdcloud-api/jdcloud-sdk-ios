@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class RegistCloudInfoRequest:JdCloudRequest
 {
     /// 
-    var body:CreateCloudInfoReq
+    var cloud:CloudInfo
 
 
-    public init(regionId: String,body:CreateCloudInfoReq){
-        self.body = body
+    public init(regionId: String,cloud:CloudInfo){
+        self.cloud = cloud
         super.init(regionId: regionId)
     }
 
 
     enum RegistCloudInfoRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case cloud
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegistCloudInfoRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(cloud, forKey: .cloud)
 
     }
 }

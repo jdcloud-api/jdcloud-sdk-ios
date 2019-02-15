@@ -31,27 +31,27 @@ import JDCloudSDKCore
 public class AssociateVpcEipByIdRequest:JdCloudRequest
 {
     /// 弹性公网IP绑定到虚拟机
-    var body:AssociateEipAddressReq
+    var associate:AssociateEipAddress
 
     /// 公网IP ID
     var id:String
 
 
-    public init(regionId: String,body:AssociateEipAddressReq,id:String){
-        self.body = body
+    public init(regionId: String,associate:AssociateEipAddress,id:String){
+        self.associate = associate
         self.id = id
         super.init(regionId: regionId)
     }
 
 
     enum AssociateVpcEipByIdRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case associate
         case id
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AssociateVpcEipByIdRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(associate, forKey: .associate)
         try encoderContainer.encode(id, forKey: .id)
 
     }

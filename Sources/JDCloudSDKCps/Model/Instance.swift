@@ -44,6 +44,8 @@ public class Instance:NSObject,Codable{
     var status:String?
     /// 是否启用外网, 如 yes/no
     var enableInternet:String?
+    /// 是否启用IPv6, 如 yes/no
+    var enableIpv6:String?
     /// 带宽, 单位Mbps
     var bandwidth:Int?
     /// 镜像类型, 如 standard/standard_app
@@ -74,6 +76,8 @@ public class Instance:NSObject,Codable{
     var privateIp:String?
     /// 公网IP
     var publicIp:String?
+    /// 公网IPv6
+    var publicIpv6:String?
     /// 计费信息
     var charge:Charge?
 
@@ -92,6 +96,7 @@ public class Instance:NSObject,Codable{
         case descriptionValue = "description"
         case status
         case enableInternet
+        case enableIpv6
         case bandwidth
         case imageType
         case osTypeId
@@ -107,6 +112,7 @@ public class Instance:NSObject,Codable{
         case subnetId
         case privateIp
         case publicIp
+        case publicIpv6
         case charge
     }
 
@@ -144,6 +150,10 @@ public class Instance:NSObject,Codable{
         if decoderContainer.contains(.enableInternet)
         {
             self.enableInternet = try decoderContainer.decode(String?.self, forKey: .enableInternet)
+        }
+        if decoderContainer.contains(.enableIpv6)
+        {
+            self.enableIpv6 = try decoderContainer.decode(String?.self, forKey: .enableIpv6)
         }
         if decoderContainer.contains(.bandwidth)
         {
@@ -205,6 +215,10 @@ public class Instance:NSObject,Codable{
         {
             self.publicIp = try decoderContainer.decode(String?.self, forKey: .publicIp)
         }
+        if decoderContainer.contains(.publicIpv6)
+        {
+            self.publicIpv6 = try decoderContainer.decode(String?.self, forKey: .publicIpv6)
+        }
         if decoderContainer.contains(.charge)
         {
             self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
@@ -222,6 +236,7 @@ public extension Instance{
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(enableInternet, forKey: .enableInternet)
+         try encoderContainer.encode(enableIpv6, forKey: .enableIpv6)
          try encoderContainer.encode(bandwidth, forKey: .bandwidth)
          try encoderContainer.encode(imageType, forKey: .imageType)
          try encoderContainer.encode(osTypeId, forKey: .osTypeId)
@@ -237,6 +252,7 @@ public extension Instance{
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(privateIp, forKey: .privateIp)
          try encoderContainer.encode(publicIp, forKey: .publicIp)
+         try encoderContainer.encode(publicIpv6, forKey: .publicIpv6)
          try encoderContainer.encode(charge, forKey: .charge)
     }
 }

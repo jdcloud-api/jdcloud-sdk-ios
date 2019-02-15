@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
  
   s.name         = "JDCloudSDKCharge"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "JD Cloud Open API Swift SDK Charge"
  
   s.description  = <<-DESC

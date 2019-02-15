@@ -37,8 +37,12 @@ public class AlarmVo:NSObject,Codable{
     var createTime:String?
     /// 是否删除 1正常，0删除
     var deleted:Int64?
+    /// downSample
+    var downSample:String?
     /// 规则ID
     var id:Int64?
+    /// 监控项
+    var metric:String?
     /// 监控项ID
     var metricId:Int64?
     /// 监控项名称
@@ -78,7 +82,9 @@ public class AlarmVo:NSObject,Codable{
         case contacts
         case createTime
         case deleted
+        case downSample
         case id
+        case metric
         case metricId
         case metricName
         case noticeLevel
@@ -117,9 +123,17 @@ public class AlarmVo:NSObject,Codable{
         {
             self.deleted = try decoderContainer.decode(Int64?.self, forKey: .deleted)
         }
+        if decoderContainer.contains(.downSample)
+        {
+            self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
+        }
         if decoderContainer.contains(.id)
         {
             self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
         }
         if decoderContainer.contains(.metricId)
         {
@@ -183,7 +197,9 @@ public extension AlarmVo{
          try encoderContainer.encode(contacts, forKey: .contacts)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(deleted, forKey: .deleted)
+         try encoderContainer.encode(downSample, forKey: .downSample)
          try encoderContainer.encode(id, forKey: .id)
+         try encoderContainer.encode(metric, forKey: .metric)
          try encoderContainer.encode(metricId, forKey: .metricId)
          try encoderContainer.encode(metricName, forKey: .metricName)
          try encoderContainer.encode(noticeLevel, forKey: .noticeLevel)

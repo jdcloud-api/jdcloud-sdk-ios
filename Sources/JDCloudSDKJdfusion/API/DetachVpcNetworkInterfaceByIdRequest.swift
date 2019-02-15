@@ -31,27 +31,27 @@ import JDCloudSDKCore
 public class DetachVpcNetworkInterfaceByIdRequest:JdCloudRequest
 {
     /// 卸载网卡
-    var body:DetachNetInterfaceReq
+    var detach:DetachNetInterface
 
     /// 网卡 ID
     var id:String
 
 
-    public init(regionId: String,body:DetachNetInterfaceReq,id:String){
-        self.body = body
+    public init(regionId: String,detach:DetachNetInterface,id:String){
+        self.detach = detach
         self.id = id
         super.init(regionId: regionId)
     }
 
 
     enum DetachVpcNetworkInterfaceByIdRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case detach
         case id
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DetachVpcNetworkInterfaceByIdRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(detach, forKey: .detach)
         try encoderContainer.encode(id, forKey: .id)
 
     }

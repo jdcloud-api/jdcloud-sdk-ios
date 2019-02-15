@@ -30,7 +30,7 @@ public class Setlb:NSObject,Codable{
     /// 解析记录的ID。在getLB接口中获取。
     /// Required:true
     var id:Int
-    /// 此条解析记录的权重。
+    /// 此条解析记录的权重。A,AAAA类型的权重范围为：0-100，CNAME, JNAME类型的权重范围为：1-100。
     /// Required:true
     var weight:Int
 

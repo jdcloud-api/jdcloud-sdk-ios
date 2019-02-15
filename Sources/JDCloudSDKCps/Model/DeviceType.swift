@@ -31,6 +31,8 @@ public class DeviceType:NSObject,Codable{
     var nameEN:String?
     /// 实例类型中文名称, 如 计算型
     var nameZH:String?
+    /// 实例所属规格系列，如 计算、存储、GPU
+    var family:String?
     /// 镜像类型英文描述, 如 standard
     var useTypeEN:String?
     /// 镜像类型中文描述, 如 标准型
@@ -61,6 +63,8 @@ public class DeviceType:NSObject,Codable{
     var gpuConcise:String?
     /// GPU详细信息
     var gpuDetail:String?
+    /// 售罄状态
+    var isSoldOut:Bool?
 
 
 
@@ -71,6 +75,7 @@ public class DeviceType:NSObject,Codable{
     enum DeviceTypeCodingKeys: String, CodingKey {
         case nameEN
         case nameZH
+        case family
         case useTypeEN
         case useTypeZH
         case region
@@ -86,6 +91,7 @@ public class DeviceType:NSObject,Codable{
         case dataDiskDetail
         case gpuConcise
         case gpuDetail
+        case isSoldOut
     }
 
 
@@ -98,6 +104,10 @@ public class DeviceType:NSObject,Codable{
         if decoderContainer.contains(.nameZH)
         {
             self.nameZH = try decoderContainer.decode(String?.self, forKey: .nameZH)
+        }
+        if decoderContainer.contains(.family)
+        {
+            self.family = try decoderContainer.decode(String?.self, forKey: .family)
         }
         if decoderContainer.contains(.useTypeEN)
         {
@@ -159,6 +169,10 @@ public class DeviceType:NSObject,Codable{
         {
             self.gpuDetail = try decoderContainer.decode(String?.self, forKey: .gpuDetail)
         }
+        if decoderContainer.contains(.isSoldOut)
+        {
+            self.isSoldOut = try decoderContainer.decode(Bool?.self, forKey: .isSoldOut)
+        }
     }
 }
 public extension DeviceType{
@@ -166,6 +180,7 @@ public extension DeviceType{
         var encoderContainer = encoder.container(keyedBy: DeviceTypeCodingKeys.self)
          try encoderContainer.encode(nameEN, forKey: .nameEN)
          try encoderContainer.encode(nameZH, forKey: .nameZH)
+         try encoderContainer.encode(family, forKey: .family)
          try encoderContainer.encode(useTypeEN, forKey: .useTypeEN)
          try encoderContainer.encode(useTypeZH, forKey: .useTypeZH)
          try encoderContainer.encode(region, forKey: .region)
@@ -181,5 +196,6 @@ public extension DeviceType{
          try encoderContainer.encode(dataDiskDetail, forKey: .dataDiskDetail)
          try encoderContainer.encode(gpuConcise, forKey: .gpuConcise)
          try encoderContainer.encode(gpuDetail, forKey: .gpuDetail)
+         try encoderContainer.encode(isSoldOut, forKey: .isSoldOut)
     }
 }

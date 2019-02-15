@@ -28,13 +28,21 @@ import Foundation
 @objc(MetricCm)
 public class MetricCm:NSObject,Codable{
     /// AggrPeriod
-    var aggrPeriod:Int64?
+    var aggrPeriod:String?
     /// AggrType
     var aggrType:String?
+    /// CalculateUnit
+    var calculateUnit:String?
+    /// DownSampleType
+    var downSampleType:String?
+    /// Metric
+    var metric:String?
     /// MetricName
     var metricName:String?
     /// MetricUID
     var metricUID:String?
+    /// Tags
+    var tags:[String:String?]?
 
 
 
@@ -45,8 +53,12 @@ public class MetricCm:NSObject,Codable{
     enum MetricCmCodingKeys: String, CodingKey {
         case aggrPeriod
         case aggrType
+        case calculateUnit
+        case downSampleType
+        case metric
         case metricName
         case metricUID
+        case tags
     }
 
 
@@ -54,11 +66,23 @@ public class MetricCm:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: MetricCmCodingKeys.self)
         if decoderContainer.contains(.aggrPeriod)
         {
-            self.aggrPeriod = try decoderContainer.decode(Int64?.self, forKey: .aggrPeriod)
+            self.aggrPeriod = try decoderContainer.decode(String?.self, forKey: .aggrPeriod)
         }
         if decoderContainer.contains(.aggrType)
         {
             self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
+        }
+        if decoderContainer.contains(.calculateUnit)
+        {
+            self.calculateUnit = try decoderContainer.decode(String?.self, forKey: .calculateUnit)
+        }
+        if decoderContainer.contains(.downSampleType)
+        {
+            self.downSampleType = try decoderContainer.decode(String?.self, forKey: .downSampleType)
+        }
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
         }
         if decoderContainer.contains(.metricName)
         {
@@ -68,6 +92,10 @@ public class MetricCm:NSObject,Codable{
         {
             self.metricUID = try decoderContainer.decode(String?.self, forKey: .metricUID)
         }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([String:String?]?.self, forKey: .tags)
+        }
     }
 }
 public extension MetricCm{
@@ -75,7 +103,11 @@ public extension MetricCm{
         var encoderContainer = encoder.container(keyedBy: MetricCmCodingKeys.self)
          try encoderContainer.encode(aggrPeriod, forKey: .aggrPeriod)
          try encoderContainer.encode(aggrType, forKey: .aggrType)
+         try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)
+         try encoderContainer.encode(downSampleType, forKey: .downSampleType)
+         try encoderContainer.encode(metric, forKey: .metric)
          try encoderContainer.encode(metricName, forKey: .metricName)
          try encoderContainer.encode(metricUID, forKey: .metricUID)
+         try encoderContainer.encode(tags, forKey: .tags)
     }
 }

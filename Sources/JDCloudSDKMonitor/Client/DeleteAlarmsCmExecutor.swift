@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DeleteAlarmsCmExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "DELETE", url: "/regions/{regionId}/cm/alarms")
+        super.init(jdCloudClient: jdCloudClient, method: "DELETE", url: "/regions/{regionId}/cmAlarms")
     }
     
 }

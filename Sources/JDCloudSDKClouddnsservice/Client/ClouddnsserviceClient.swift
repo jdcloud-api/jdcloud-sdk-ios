@@ -270,48 +270,6 @@ public class ClouddnsserviceJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func getLBAsync(request:GetLBRequest,requestComplation:@escaping (NSNumber?,GetLBResponse?,NSError?,NSString?)->()) throws {
-        clouddnsserviceJDCloudClient = self
-        try GetLBExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetLBResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func setLBAsync(request:SetLBRequest,requestComplation:@escaping (NSNumber?,SetLBResponse?,NSError?,NSString?)->()) throws {
-        clouddnsserviceJDCloudClient = self
-        try SetLBExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetLBResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func delUserViewAsync(request:DelUserViewRequest,requestComplation:@escaping (NSNumber?,DelUserViewResponse?,NSError?,NSString?)->()) throws {
         clouddnsserviceJDCloudClient = self
         try DelUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

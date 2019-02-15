@@ -37,8 +37,6 @@ public class PlayDomain:NSObject,Codable{
     var createTime:String?
     /// 更新时间
     var updateTime:String?
-    /// 地域编码
-    var region:String?
 
 
 
@@ -52,7 +50,6 @@ public class PlayDomain:NSObject,Codable{
         case domainStatus
         case createTime
         case updateTime
-        case region
     }
 
 
@@ -78,10 +75,6 @@ public class PlayDomain:NSObject,Codable{
         {
             self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
         }
-        if decoderContainer.contains(.region)
-        {
-            self.region = try decoderContainer.decode(String?.self, forKey: .region)
-        }
     }
 }
 public extension PlayDomain{
@@ -92,6 +85,5 @@ public extension PlayDomain{
          try encoderContainer.encode(domainStatus, forKey: .domainStatus)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(updateTime, forKey: .updateTime)
-         try encoderContainer.encode(region, forKey: .region)
     }
 }

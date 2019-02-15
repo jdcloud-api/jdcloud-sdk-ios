@@ -28,10 +28,10 @@ import Foundation
 @objc(Getlb)
 public class Getlb:NSObject,Codable{
     /// 负载均衡的解析记录的列表中解析记录是否是相同的权重&lt;br&gt;
-      /// true: 按权重分配负载&lt;br&gt;
-      /// false: 均等负载
+      /// true: 均等负载&lt;br&gt;
+      /// false: 按权重分配负载
       /// 
-    var isBalance:Bool?
+    var balance:Bool?
     /// 主机记录
     var record:String?
     /// 解析的类型
@@ -50,7 +50,7 @@ public class Getlb:NSObject,Codable{
     }
 
     enum GetlbCodingKeys: String, CodingKey {
-        case isBalance
+        case balance
         case record
         case type
         case viewName
@@ -61,9 +61,9 @@ public class Getlb:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetlbCodingKeys.self)
-        if decoderContainer.contains(.isBalance)
+        if decoderContainer.contains(.balance)
         {
-            self.isBalance = try decoderContainer.decode(Bool?.self, forKey: .isBalance)
+            self.balance = try decoderContainer.decode(Bool?.self, forKey: .balance)
         }
         if decoderContainer.contains(.record)
         {
@@ -90,7 +90,7 @@ public class Getlb:NSObject,Codable{
 public extension Getlb{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetlbCodingKeys.self)
-         try encoderContainer.encode(isBalance, forKey: .isBalance)
+         try encoderContainer.encode(balance, forKey: .balance)
          try encoderContainer.encode(record, forKey: .record)
          try encoderContainer.encode(type, forKey: .type)
          try encoderContainer.encode(viewName, forKey: .viewName)

@@ -27,27 +27,32 @@ import Foundation
 ///  describeMetricDataSpec
 @objc(DescribeMetricDataSpec)
 public class DescribeMetricDataSpec:NSObject,Codable{
-    /// 指标聚合方式，每个指标都有默认的聚合方式， 可选值包括：sum,avg.max.min
+    /// 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;zimsum#available-aggregators
     var aggrType:String?
+    /// 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;avg#available-aggregators
+    var downSampleType:String?
     /// 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
       /// in: query
     var endTime:String?
     /// 是否对查询的tags分组
       /// in: query
     var groupBy:Bool?
+    /// 是否求速率
+      /// in: query
+    var rate:Bool?
     /// 资源的uuid
     /// Required:true
     var resourceId:String
     /// 资源的类型，取值vm, lb, ip, database 等
     /// Required:true
     var serviceCode:String
-    /// 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
+    /// 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
       /// in: query
     var startTime:String?
-    /// 自定义标签
+    /// 自定义标签/tag；至少要传一个tag，且tag.Values不为空
       /// in: query
     var tags:[TagFilter?]?
-    /// 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
+    /// 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval默认为1h，当前时间往 前1h
       /// in: query
     var timeInterval:String?
 
@@ -60,8 +65,10 @@ public class DescribeMetricDataSpec:NSObject,Codable{
 
     enum DescribeMetricDataSpecCodingKeys: String, CodingKey {
         case aggrType
+        case downSampleType
         case endTime
         case groupBy
+        case rate
         case resourceId
         case serviceCode
         case startTime
@@ -76,6 +83,10 @@ public class DescribeMetricDataSpec:NSObject,Codable{
         {
             self.aggrType = try decoderContainer.decode(String?.self, forKey: .aggrType)
         }
+        if decoderContainer.contains(.downSampleType)
+        {
+            self.downSampleType = try decoderContainer.decode(String?.self, forKey: .downSampleType)
+        }
         if decoderContainer.contains(.endTime)
         {
             self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
@@ -83,6 +94,10 @@ public class DescribeMetricDataSpec:NSObject,Codable{
         if decoderContainer.contains(.groupBy)
         {
             self.groupBy = try decoderContainer.decode(Bool?.self, forKey: .groupBy)
+        }
+        if decoderContainer.contains(.rate)
+        {
+            self.rate = try decoderContainer.decode(Bool?.self, forKey: .rate)
         }
         self.resourceId = try decoderContainer.decode(String.self, forKey: .resourceId)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
@@ -104,8 +119,10 @@ public extension DescribeMetricDataSpec{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeMetricDataSpecCodingKeys.self)
          try encoderContainer.encode(aggrType, forKey: .aggrType)
+         try encoderContainer.encode(downSampleType, forKey: .downSampleType)
          try encoderContainer.encode(endTime, forKey: .endTime)
          try encoderContainer.encode(groupBy, forKey: .groupBy)
+         try encoderContainer.encode(rate, forKey: .rate)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)
          try encoderContainer.encode(startTime, forKey: .startTime)

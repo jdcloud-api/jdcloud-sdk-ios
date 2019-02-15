@@ -81,6 +81,27 @@ public class DiskJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func modifySnapshotAttributeAsync(request:ModifySnapshotAttributeRequest,requestComplation:@escaping (NSNumber?,ModifySnapshotAttributeResponse?,NSError?,NSString?)->()) throws {
+        diskJDCloudClient = self
+        try ModifySnapshotAttributeExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ModifySnapshotAttributeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func deleteSnapshotAsync(request:DeleteSnapshotRequest,requestComplation:@escaping (NSNumber?,DeleteSnapshotResponse?,NSError?,NSString?)->()) throws {
         diskJDCloudClient = self
         try DeleteSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -131,27 +152,6 @@ public class DiskJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeSnapshotsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func modifySnpAttributeAsync(request:ModifySnpAttributeRequest,requestComplation:@escaping (NSNumber?,ModifySnpAttributeResponse?,NSError?,NSString?)->()) throws {
-        diskJDCloudClient = self
-        try ModifySnpAttributeExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifySnpAttributeResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

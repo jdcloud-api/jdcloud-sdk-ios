@@ -33,7 +33,7 @@ public class MetricDataCm:NSObject,Codable{
     /// 监控指标名称，长度不超过255字节，只允许英文、数字、下划线_、点.,  [0-9][a-z] [A-Z] [. _ ]， 其它会返回err
     /// Required:true
     var metric:String
-    /// 数据维度，数据类型为map类型，支持最少一个，最多五个标签，总长度不大于255字节，只允许英文、数字、下划线_、点., [0-9][a-z] [A-Z] [. _ ]，  其它会返回err
+    /// 数据维度，数据类型为map类型，支持最少一个，最多6个标签，总长度不大于1024字节，只允许英文、数字、下划线_、点., [0-9][a-z] [A-Z] [. _ ]，  其它会返回err
     /// Required:true
     var dimensions:[String:String?]
     /// 上报数据点的时间戳,只支持10位，秒级时间戳，不能写入过去30天的时间

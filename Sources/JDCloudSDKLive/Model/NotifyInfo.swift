@@ -28,7 +28,7 @@ import Foundation
 @objc(NotifyInfo)
 public class NotifyInfo:NSObject,Codable{
     /// 您的加速域名
-    var publishDoamin:String?
+    var publishDomain:String?
     /// 回调地址
     var notifyUrl:String?
 
@@ -39,16 +39,16 @@ public class NotifyInfo:NSObject,Codable{
     }
 
     enum NotifyInfoCodingKeys: String, CodingKey {
-        case publishDoamin
+        case publishDomain
         case notifyUrl
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: NotifyInfoCodingKeys.self)
-        if decoderContainer.contains(.publishDoamin)
+        if decoderContainer.contains(.publishDomain)
         {
-            self.publishDoamin = try decoderContainer.decode(String?.self, forKey: .publishDoamin)
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
         }
         if decoderContainer.contains(.notifyUrl)
         {
@@ -59,7 +59,7 @@ public class NotifyInfo:NSObject,Codable{
 public extension NotifyInfo{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NotifyInfoCodingKeys.self)
-         try encoderContainer.encode(publishDoamin, forKey: .publishDoamin)
+         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(notifyUrl, forKey: .notifyUrl)
     }
 }

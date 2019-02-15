@@ -31,27 +31,27 @@ import JDCloudSDKCore
 public class DetachDiskToVmInstanceByDiskIdRequest:JdCloudRequest
 {
     /// 从虚拟机卸载云硬盘
-    var body:DetachDataDiskReq
+    var detach:DetachDataDisk
 
     /// 云硬盘 ID
     var id:String
 
 
-    public init(regionId: String,body:DetachDataDiskReq,id:String){
-        self.body = body
+    public init(regionId: String,detach:DetachDataDisk,id:String){
+        self.detach = detach
         self.id = id
         super.init(regionId: regionId)
     }
 
 
     enum DetachDiskToVmInstanceByDiskIdRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case detach
         case id
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DetachDiskToVmInstanceByDiskIdRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(detach, forKey: .detach)
         try encoderContainer.encode(id, forKey: .id)
 
     }

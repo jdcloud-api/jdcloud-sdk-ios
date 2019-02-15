@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVmKeypairRequest:JdCloudRequest
 {
     /// 创建keypair
-    var body:CreateKeypairReq
+    var keypair:CreateKeypair
 
 
-    public init(regionId: String,body:CreateKeypairReq){
-        self.body = body
+    public init(regionId: String,keypair:CreateKeypair){
+        self.keypair = keypair
         super.init(regionId: regionId)
     }
 
 
     enum CreateVmKeypairRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case keypair
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVmKeypairRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(keypair, forKey: .keypair)
 
     }
 }

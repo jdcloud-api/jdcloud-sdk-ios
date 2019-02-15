@@ -28,11 +28,12 @@ import JDCloudSDKCore
 
 ///  查询报警历史
       ///       /// 检索条件组合优先级从高到低为
-      ///       /// 1. serviceCode
-      ///       /// 1.1 serviceCode + resourceId
-      ///       /// 1.2 serviceCode + resourceIds
-      ///       /// 2. serviceCodes
-      ///       /// 3. 用户所有规则
+      ///       /// 1. alarmId
+      ///       /// 2. serviceCode
+      ///       /// 2.1 serviceCode + resourceId
+      ///       /// 2.2 serviceCode + resourceIds
+      ///       /// 3. serviceCodes
+      ///       /// 4. 用户所有规则
 @objc(DescribeAlarmHistoryAllRegionRequest)
 public class DescribeAlarmHistoryAllRegionRequest:JdCloudRequest
 {
@@ -48,17 +49,26 @@ public class DescribeAlarmHistoryAllRegionRequest:JdCloudRequest
     /// 资源Id
     var resourceId:String?
 
+    /// resourceId列表
+    var resourceIdList:[String?]?
+
     /// 规则Id
     var alarmId:String?
 
     /// 正在报警, 取值为1
     var alarming:Int64?
 
+    /// 产品线列表
+    var serviceCodeList:[String?]?
+
     /// 开始时间
     var startTime:String?
 
     /// 结束时间
     var endTime:String?
+
+    /// 规则类型,默认查询1， 1表示资源监控，6表示站点监控,7表示可用性监控
+    var ruleType:Int64?
 
     /// 服务码或资源Id列表
       /// filter name 为serviceCodes表示查询多个产品线的规则
@@ -73,10 +83,13 @@ public class DescribeAlarmHistoryAllRegionRequest:JdCloudRequest
         case pageSize
         case serviceCode
         case resourceId
+        case resourceIdList
         case alarmId
         case alarming
+        case serviceCodeList
         case startTime
         case endTime
+        case ruleType
         case filters
     }
 
@@ -86,10 +99,13 @@ public class DescribeAlarmHistoryAllRegionRequest:JdCloudRequest
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(serviceCode, forKey: .serviceCode)
         try encoderContainer.encode(resourceId, forKey: .resourceId)
+        try encoderContainer.encode(resourceIdList, forKey: .resourceIdList)
         try encoderContainer.encode(alarmId, forKey: .alarmId)
         try encoderContainer.encode(alarming, forKey: .alarming)
+        try encoderContainer.encode(serviceCodeList, forKey: .serviceCodeList)
         try encoderContainer.encode(startTime, forKey: .startTime)
         try encoderContainer.encode(endTime, forKey: .endTime)
+        try encoderContainer.encode(ruleType, forKey: .ruleType)
         try encoderContainer.encode(filters, forKey: .filters)
 
     }

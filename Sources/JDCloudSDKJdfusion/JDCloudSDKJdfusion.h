@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   JD Fusion
+   JDFusion
    云主机、网卡、云硬盘、网络与相关、关系型数据库、对象存储等相关的接口
 
    OpenAPI spec version: v1

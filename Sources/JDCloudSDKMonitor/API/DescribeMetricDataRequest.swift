@@ -30,29 +30,35 @@ import JDCloudSDKCore
 @objc(DescribeMetricDataRequest)
 public class DescribeMetricDataRequest:JdCloudRequest
 {
-    /// 资源的类型，取值vm, lb, ip, database 等
-    var serviceCode:String
-
-    /// 资源的uuid
-    var resourceId:String
-
-    /// 指标聚合方式，每个指标都有默认的聚合方式， 可选值包括：sum,avg.max.min
+    /// 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;zimsum#available-aggregators
     var aggrType:String?
 
-    /// 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（默认为当前时间，早于30d时，将被重置为30d）
+    /// 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;avg#available-aggregators
+    var downSampleType:String?
+
+    /// 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
     var startTime:String?
 
     /// 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
     var endTime:String?
 
-    /// 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval 与 endTime 至少填一项
+    /// 时间间隔：1h，6h，12h，1d，3d，7d，14d，固定时间间隔，timeInterval默认为1h，当前时间往 前1h
     var timeInterval:String?
 
-    /// 自定义标签
+    /// 自定义标签/tag；至少要传一个tag，且tag.Values不为空
     var tags:[TagFilter?]?
 
     /// 是否对查询的tags分组
     var groupBy:Bool?
+
+    /// 是否求速率
+    var rate:Bool?
+
+    /// 资源的类型，取值vm, lb, ip, database 等
+    var serviceCode:String
+
+    /// 资源的uuid
+    var resourceId:String
 
     /// 监控项英文标识(id)
     var metric:String
@@ -67,27 +73,31 @@ public class DescribeMetricDataRequest:JdCloudRequest
 
 
     enum DescribeMetricDataRequestRequestCodingKeys: String, CodingKey {
-        case serviceCode
-        case resourceId
         case aggrType
+        case downSampleType
         case startTime
         case endTime
         case timeInterval
         case tags
         case groupBy
+        case rate
+        case serviceCode
+        case resourceId
         case metric
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeMetricDataRequestRequestCodingKeys.self)
-        try encoderContainer.encode(serviceCode, forKey: .serviceCode)
-        try encoderContainer.encode(resourceId, forKey: .resourceId)
         try encoderContainer.encode(aggrType, forKey: .aggrType)
+        try encoderContainer.encode(downSampleType, forKey: .downSampleType)
         try encoderContainer.encode(startTime, forKey: .startTime)
         try encoderContainer.encode(endTime, forKey: .endTime)
         try encoderContainer.encode(timeInterval, forKey: .timeInterval)
         try encoderContainer.encode(tags, forKey: .tags)
         try encoderContainer.encode(groupBy, forKey: .groupBy)
+        try encoderContainer.encode(rate, forKey: .rate)
+        try encoderContainer.encode(serviceCode, forKey: .serviceCode)
+        try encoderContainer.encode(resourceId, forKey: .resourceId)
         try encoderContainer.encode(metric, forKey: .metric)
 
     }

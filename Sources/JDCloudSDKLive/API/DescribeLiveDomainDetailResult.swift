@@ -30,10 +30,10 @@ import JDCloudSDKCore
 public class DescribeLiveDomainDetailResult:NSObject,JdCloudResult
 {
     /// 推流域名集合
-    var publishDomain:[PublishDomain?]?
+    var publishDomains:[PublishDomain?]?
 
     /// 直播域名集合
-    var playDomain:[PlayDomain?]?
+    var playDomains:[PlayDomain?]?
 
 
 
@@ -42,26 +42,26 @@ public class DescribeLiveDomainDetailResult:NSObject,JdCloudResult
     }
 
     enum DescribeLiveDomainDetailResultCodingKeys: String, CodingKey {
-        case publishDomain
-        case playDomain
+        case publishDomains
+        case playDomains
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeLiveDomainDetailResultCodingKeys.self)
-        if decoderContainer.contains(.publishDomain)
+        if decoderContainer.contains(.publishDomains)
         {
-            self.publishDomain = try decoderContainer.decode([PublishDomain?]?.self, forKey: .publishDomain)
+            self.publishDomains = try decoderContainer.decode([PublishDomain?]?.self, forKey: .publishDomains)
         }
-        if decoderContainer.contains(.playDomain)
+        if decoderContainer.contains(.playDomains)
         {
-            self.playDomain = try decoderContainer.decode([PlayDomain?]?.self, forKey: .playDomain)
+            self.playDomains = try decoderContainer.decode([PlayDomain?]?.self, forKey: .playDomains)
         }
     }
 }
 public extension DescribeLiveDomainDetailResult{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLiveDomainDetailResultCodingKeys.self)
-        try encoderContainer.encode(publishDomain, forKey: .publishDomain)
-        try encoderContainer.encode(playDomain, forKey: .playDomain)
+        try encoderContainer.encode(publishDomains, forKey: .publishDomains)
+        try encoderContainer.encode(playDomains, forKey: .playDomains)
     }
 }

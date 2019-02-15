@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVpcLBHttpListenerRequest:JdCloudRequest
 {
     /// 创建HTTP监听器
-    var body:CreateLoadBalancerHTTPListenerReq
+    var httpListener:CreateLoadBalancerHTTPListener
 
 
-    public init(regionId: String,body:CreateLoadBalancerHTTPListenerReq){
-        self.body = body
+    public init(regionId: String,httpListener:CreateLoadBalancerHTTPListener){
+        self.httpListener = httpListener
         super.init(regionId: regionId)
     }
 
 
     enum CreateVpcLBHttpListenerRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case httpListener
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcLBHttpListenerRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(httpListener, forKey: .httpListener)
 
     }
 }

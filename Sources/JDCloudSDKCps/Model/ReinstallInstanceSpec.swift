@@ -48,6 +48,8 @@ public class ReinstallInstanceSpec:NSObject,Codable{
     /// 密码
     /// Required:true
     var password:String
+    /// 主机名
+    var hostname:String?
     /// Softwares
     var softwares:[Software?]?
 
@@ -71,6 +73,7 @@ public class ReinstallInstanceSpec:NSObject,Codable{
         case keepData
         case dataRaidTypeId
         case password
+        case hostname
         case softwares
     }
 
@@ -84,6 +87,10 @@ public class ReinstallInstanceSpec:NSObject,Codable{
         self.keepData = try decoderContainer.decode(String.self, forKey: .keepData)
         self.dataRaidTypeId = try decoderContainer.decode(String.self, forKey: .dataRaidTypeId)
         self.password = try decoderContainer.decode(String.self, forKey: .password)
+        if decoderContainer.contains(.hostname)
+        {
+            self.hostname = try decoderContainer.decode(String?.self, forKey: .hostname)
+        }
         if decoderContainer.contains(.softwares)
         {
             self.softwares = try decoderContainer.decode([Software?]?.self, forKey: .softwares)
@@ -100,6 +107,7 @@ public extension ReinstallInstanceSpec{
          try encoderContainer.encode(keepData, forKey: .keepData)
          try encoderContainer.encode(dataRaidTypeId, forKey: .dataRaidTypeId)
          try encoderContainer.encode(password, forKey: .password)
+         try encoderContainer.encode(hostname, forKey: .hostname)
          try encoderContainer.encode(softwares, forKey: .softwares)
     }
 }

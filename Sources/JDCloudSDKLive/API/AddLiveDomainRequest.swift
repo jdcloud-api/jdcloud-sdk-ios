@@ -36,14 +36,10 @@ public class AddLiveDomainRequest:JdCloudRequest
     /// 直播的播放域名
     var playDomain:String
 
-    /// 区域ID
-    var region:String
 
-
-    public init(regionId: String,publishDomain:String,playDomain:String,region:String){
+    public init(regionId: String,publishDomain:String,playDomain:String){
         self.publishDomain = publishDomain
         self.playDomain = playDomain
-        self.region = region
         super.init(regionId: regionId)
     }
 
@@ -51,14 +47,12 @@ public class AddLiveDomainRequest:JdCloudRequest
     enum AddLiveDomainRequestRequestCodingKeys: String, CodingKey {
         case publishDomain
         case playDomain
-        case region
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddLiveDomainRequestRequestCodingKeys.self)
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
         try encoderContainer.encode(playDomain, forKey: .playDomain)
-        try encoderContainer.encode(region, forKey: .region)
 
     }
 }

@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVmInstanceRequest:JdCloudRequest
 {
     /// 创建VM
-    var body:CreateVmReq
+    var vm:CreateVm
 
 
-    public init(regionId: String,body:CreateVmReq){
-        self.body = body
+    public init(regionId: String,vm:CreateVm){
+        self.vm = vm
         super.init(regionId: regionId)
     }
 
 
     enum CreateVmInstanceRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case vm
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVmInstanceRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(vm, forKey: .vm)
 
     }
 }

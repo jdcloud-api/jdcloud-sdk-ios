@@ -30,4 +30,19 @@ import JDCloudSDKCore
 @objc(DescribeDeviceTypesRequest)
 public class DescribeDeviceTypesRequest:JdCloudRequest
 {
+    /// 可用区，精确匹配
+    var az:String?
+
+
+
+
+    enum DescribeDeviceTypesRequestRequestCodingKeys: String, CodingKey {
+        case az
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: DescribeDeviceTypesRequestRequestCodingKeys.self)
+        try encoderContainer.encode(az, forKey: .az)
+
+    }
 }

@@ -26,7 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询云硬盘列表
+///  -   查询您已经创建的云硬盘。
+      /// -   filters多个过滤条件之间是逻辑与(AND)，每个条件内部的多个取值是逻辑或(OR)
+      /// 
 public class DescribeDisksExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

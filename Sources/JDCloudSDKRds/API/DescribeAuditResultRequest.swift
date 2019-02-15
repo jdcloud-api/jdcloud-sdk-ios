@@ -24,6 +24,7 @@
 
 import Foundation
 import JDCloudSDKCore
+import JDCloudSDKCommon
 
 
 ///  仅支持查看MySQL实例的审计内容
@@ -48,6 +49,12 @@ public class DescribeAuditResultRequest:JdCloudRequest
     /// 每页显示的数据条数，默认为10，取值范围：10、20、50
     var pageSize:Int?
 
+    /// 过滤参数，多个过滤参数之间的关系为“与”(and)
+      /// 支持以下属性的过滤：
+      /// operation
+      /// 
+    var filters:[Filter?]?
+
     /// RDS 实例ID，唯一标识一个RDS实例
     var instanceId:String
 
@@ -67,6 +74,7 @@ public class DescribeAuditResultRequest:JdCloudRequest
         case accountName
         case pageNumber
         case pageSize
+        case filters
         case instanceId
     }
 
@@ -78,6 +86,7 @@ public class DescribeAuditResultRequest:JdCloudRequest
         try encoderContainer.encode(accountName, forKey: .accountName)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(filters, forKey: .filters)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
 
     }

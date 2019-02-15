@@ -31,22 +31,22 @@ import JDCloudSDKCore
 public class CreateVpcSlbRequest:JdCloudRequest
 {
     /// 创建SLB
-    var body:CreateSlbReq
+    var slb:SlbInfo
 
 
-    public init(regionId: String,body:CreateSlbReq){
-        self.body = body
+    public init(regionId: String,slb:SlbInfo){
+        self.slb = slb
         super.init(regionId: regionId)
     }
 
 
     enum CreateVpcSlbRequestRequestCodingKeys: String, CodingKey {
-        case body
+        case slb
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcSlbRequestRequestCodingKeys.self)
-        try encoderContainer.encode(body, forKey: .body)
+        try encoderContainer.encode(slb, forKey: .slb)
 
     }
 }

@@ -27,10 +27,14 @@ import Foundation
 ///  app
 @objc(App)
 public class App:NSObject,Codable{
-    /// 推流域名
-    var publishDomain:String?
-    /// config
-    var transcodeConfig:[Config?]?
+    /// 应用名
+    var appName:String?
+    /// 应用状态
+    var appStatus:String?
+    /// 创建时间
+    var createTime:String?
+    /// 更新时间
+    var updateTime:String?
 
 
 
@@ -39,27 +43,39 @@ public class App:NSObject,Codable{
     }
 
     enum AppCodingKeys: String, CodingKey {
-        case publishDomain
-        case transcodeConfig
+        case appName
+        case appStatus
+        case createTime
+        case updateTime
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AppCodingKeys.self)
-        if decoderContainer.contains(.publishDomain)
+        if decoderContainer.contains(.appName)
         {
-            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
         }
-        if decoderContainer.contains(.transcodeConfig)
+        if decoderContainer.contains(.appStatus)
         {
-            self.transcodeConfig = try decoderContainer.decode([Config?]?.self, forKey: .transcodeConfig)
+            self.appStatus = try decoderContainer.decode(String?.self, forKey: .appStatus)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
+        if decoderContainer.contains(.updateTime)
+        {
+            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
         }
     }
 }
 public extension App{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AppCodingKeys.self)
-         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
-         try encoderContainer.encode(transcodeConfig, forKey: .transcodeConfig)
+         try encoderContainer.encode(appName, forKey: .appName)
+         try encoderContainer.encode(appStatus, forKey: .appStatus)
+         try encoderContainer.encode(createTime, forKey: .createTime)
+         try encoderContainer.encode(updateTime, forKey: .updateTime)
     }
 }

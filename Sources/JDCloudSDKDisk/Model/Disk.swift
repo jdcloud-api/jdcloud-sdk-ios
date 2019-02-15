@@ -32,20 +32,30 @@ public class Disk:NSObject,Codable{
     var diskId:String?
     /// 云硬盘所属AZ
     var az:String?
-    /// 云硬盘名称
+    /// 云硬盘名称，只允许输入中文、数字、大小写字母、英文下划线“_”及中划线“-”，不允许为空且不超过32字符。
     var name:String?
-    /// 云硬盘描述
+    /// 云硬盘描述，允许输入UTF-8编码下的全部字符，不超过256字符。
     var descriptionValue:String?
-    /// 磁盘类型，取值为 ssd 或 premium-hdd
+    /// 云硬盘类型，取值为 ssd,premium-hdd,ssd.gp1,ssd.io1,hdd.std1
     var diskType:String?
-    /// 磁盘大小，单位为 GiB
+    /// 云硬盘大小，单位为 GiB
     var diskSizeGB:Int?
+    /// 该云硬盘实际应用的iops值
+    var iops:Int?
+    /// 该云硬盘实际应用的吞吐量的数值
+    var throughput:Int?
     /// 云硬盘状态，取值为 creating、available、in-use、extending、restoring、deleting、deleted、error_create、error_delete、error_restore、error_extend 之一
     var status:String?
     /// 挂载信息
     var attachments:[DiskAttachment?]?
     /// 创建该云硬盘的快照ID
     var snapshotId:String?
+    /// 云盘是否支持多挂载
+    var multiAttachable:Bool?
+    /// 云盘是否为加密盘
+    var encrypted:Bool?
+    /// 云盘是否被暂停（IOPS限制为极低）
+    var enable:Bool?
     /// 创建云硬盘时间
     var createTime:String?
     /// 云硬盘计费配置信息
@@ -66,9 +76,14 @@ public class Disk:NSObject,Codable{
         case descriptionValue = "description"
         case diskType
         case diskSizeGB
+        case iops
+        case throughput
         case status
         case attachments
         case snapshotId
+        case multiAttachable
+        case encrypted
+        case enable
         case createTime
         case charge
         case tags
@@ -101,6 +116,14 @@ public class Disk:NSObject,Codable{
         {
             self.diskSizeGB = try decoderContainer.decode(Int?.self, forKey: .diskSizeGB)
         }
+        if decoderContainer.contains(.iops)
+        {
+            self.iops = try decoderContainer.decode(Int?.self, forKey: .iops)
+        }
+        if decoderContainer.contains(.throughput)
+        {
+            self.throughput = try decoderContainer.decode(Int?.self, forKey: .throughput)
+        }
         if decoderContainer.contains(.status)
         {
             self.status = try decoderContainer.decode(String?.self, forKey: .status)
@@ -112,6 +135,18 @@ public class Disk:NSObject,Codable{
         if decoderContainer.contains(.snapshotId)
         {
             self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
+        }
+        if decoderContainer.contains(.multiAttachable)
+        {
+            self.multiAttachable = try decoderContainer.decode(Bool?.self, forKey: .multiAttachable)
+        }
+        if decoderContainer.contains(.encrypted)
+        {
+            self.encrypted = try decoderContainer.decode(Bool?.self, forKey: .encrypted)
+        }
+        if decoderContainer.contains(.enable)
+        {
+            self.enable = try decoderContainer.decode(Bool?.self, forKey: .enable)
         }
         if decoderContainer.contains(.createTime)
         {
@@ -136,9 +171,14 @@ public extension Disk{
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(diskType, forKey: .diskType)
          try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)
+         try encoderContainer.encode(iops, forKey: .iops)
+         try encoderContainer.encode(throughput, forKey: .throughput)
          try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(attachments, forKey: .attachments)
          try encoderContainer.encode(snapshotId, forKey: .snapshotId)
+         try encoderContainer.encode(multiAttachable, forKey: .multiAttachable)
+         try encoderContainer.encode(encrypted, forKey: .encrypted)
+         try encoderContainer.encode(enable, forKey: .enable)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(tags, forKey: .tags)

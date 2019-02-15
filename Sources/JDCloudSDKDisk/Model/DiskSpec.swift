@@ -36,7 +36,7 @@ public class DiskSpec:NSObject,Codable{
     var name:String
     /// 云硬盘描述
     var descriptionValue:String?
-    /// 云硬盘类型，取值为ssd、premium-hdd之一
+    /// 云硬盘类型，取值为ssd、premium-hdd、ssd.gp1、ssd.io1、hdd.std1之一
     /// Required:true
     var diskType:String
     /// 云硬盘大小，单位为 GiB，ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G
@@ -46,6 +46,10 @@ public class DiskSpec:NSObject,Codable{
     var snapshotId:String?
     /// 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
     var charge:ChargeSpec?
+    /// 云硬盘是否支持一盘多主机挂载，默认为false（不支持）
+    var multiAttachable:Bool?
+    /// 云硬盘是否加密，默认为false（不加密）
+    var encrypt:Bool?
 
 
 
@@ -64,6 +68,8 @@ public class DiskSpec:NSObject,Codable{
         case diskSizeGB
         case snapshotId
         case charge
+        case multiAttachable
+        case encrypt
     }
 
 
@@ -85,6 +91,14 @@ public class DiskSpec:NSObject,Codable{
         {
             self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
         }
+        if decoderContainer.contains(.multiAttachable)
+        {
+            self.multiAttachable = try decoderContainer.decode(Bool?.self, forKey: .multiAttachable)
+        }
+        if decoderContainer.contains(.encrypt)
+        {
+            self.encrypt = try decoderContainer.decode(Bool?.self, forKey: .encrypt)
+        }
     }
 }
 public extension DiskSpec{
@@ -97,5 +111,7 @@ public extension DiskSpec{
          try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)
          try encoderContainer.encode(snapshotId, forKey: .snapshotId)
          try encoderContainer.encode(charge, forKey: .charge)
+         try encoderContainer.encode(multiAttachable, forKey: .multiAttachable)
+         try encoderContainer.encode(encrypt, forKey: .encrypt)
     }
 }

@@ -32,6 +32,9 @@ public class DescribeDatabasesResult:NSObject,JdCloudResult
     /// Databases
     var databases:[Database?]?
 
+    /// TotalCount
+    var totalCount:Int?
+
 
 
     public override init(){
@@ -40,6 +43,7 @@ public class DescribeDatabasesResult:NSObject,JdCloudResult
 
     enum DescribeDatabasesResultCodingKeys: String, CodingKey {
         case databases
+        case totalCount
     }
 
     required public init(from decoder: Decoder) throws {
@@ -48,11 +52,16 @@ public class DescribeDatabasesResult:NSObject,JdCloudResult
         {
             self.databases = try decoderContainer.decode([Database?]?.self, forKey: .databases)
         }
+        if decoderContainer.contains(.totalCount)
+        {
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
     }
 }
 public extension DescribeDatabasesResult{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDatabasesResultCodingKeys.self)
         try encoderContainer.encode(databases, forKey: .databases)
+        try encoderContainer.encode(totalCount, forKey: .totalCount)
     }
 }

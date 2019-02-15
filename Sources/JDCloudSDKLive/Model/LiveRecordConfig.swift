@@ -29,10 +29,12 @@ import Foundation
 public class LiveRecordConfig:NSObject,Codable{
     /// 推流域名
     var publishDomain:String?
-    /// 录制模板配置
-    var recordConfig:String?
     /// 推流域名
-    var app:[RecordApp?]?
+    var appName:String?
+    /// 直播流名称
+    var streamName:String?
+    /// RecordConfig
+    var recordConfig:String?
 
 
 
@@ -42,8 +44,9 @@ public class LiveRecordConfig:NSObject,Codable{
 
     enum LiveRecordConfigCodingKeys: String, CodingKey {
         case publishDomain
+        case appName
+        case streamName
         case recordConfig
-        case app
     }
 
 
@@ -53,13 +56,17 @@ public class LiveRecordConfig:NSObject,Codable{
         {
             self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
         }
+        if decoderContainer.contains(.appName)
+        {
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
+        }
+        if decoderContainer.contains(.streamName)
+        {
+            self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
+        }
         if decoderContainer.contains(.recordConfig)
         {
             self.recordConfig = try decoderContainer.decode(String?.self, forKey: .recordConfig)
-        }
-        if decoderContainer.contains(.app)
-        {
-            self.app = try decoderContainer.decode([RecordApp?]?.self, forKey: .app)
         }
     }
 }
@@ -67,7 +74,8 @@ public extension LiveRecordConfig{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LiveRecordConfigCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
+         try encoderContainer.encode(appName, forKey: .appName)
+         try encoderContainer.encode(streamName, forKey: .streamName)
          try encoderContainer.encode(recordConfig, forKey: .recordConfig)
-         try encoderContainer.encode(app, forKey: .app)
     }
 }

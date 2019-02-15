@@ -27,11 +27,12 @@ import JDCloudSDKCore
 
 
 ///  查询规则, 查询参数组合及优先级从高到低为：
-      ///       /// 1：serviceCode不为空
-      ///       /// 1.1：serviceCode + resourceId
-      ///       /// 1.2: serviceCode + resourceIds
-      ///       /// 2：serviceCodes不为空
-      ///       /// 3: 所有规则
+      ///       /// 1：alarmId不为空
+      ///       /// 2：serviceCode不为空
+      ///       /// 2.1：serviceCode + resourceId
+      ///       /// 2.2: serviceCode + resourceIds
+      ///       /// 3：serviceCodes不为空
+      ///       /// 4: 所有规则
 @objc(DescribeAlarmsRequest)
 public class DescribeAlarmsRequest:JdCloudRequest
 {
@@ -45,7 +46,7 @@ public class DescribeAlarmsRequest:JdCloudRequest
     var serviceCode:String?
 
     /// 资源ID
-    var resourceID:String?
+    var resourceId:String?
 
     /// 规则类型, 1表示资源监控，6表示站点监控,7表示可用性监控
     var ruleType:Int64?
@@ -74,7 +75,7 @@ public class DescribeAlarmsRequest:JdCloudRequest
         case pageNumber
         case pageSize
         case serviceCode
-        case resourceID
+        case resourceId
         case ruleType
         case status
         case enabled
@@ -88,7 +89,7 @@ public class DescribeAlarmsRequest:JdCloudRequest
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(serviceCode, forKey: .serviceCode)
-        try encoderContainer.encode(resourceID, forKey: .resourceID)
+        try encoderContainer.encode(resourceId, forKey: .resourceId)
         try encoderContainer.encode(ruleType, forKey: .ruleType)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(enabled, forKey: .enabled)

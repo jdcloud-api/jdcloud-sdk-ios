@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询云硬盘信息详情
+/// 查询某一块云硬盘的信息详情
 @objc(DescribeDiskResult)
 public class DescribeDiskResult:NSObject,JdCloudResult
 {

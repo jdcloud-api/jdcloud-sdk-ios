@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  创建一个跨地域备份同步服务。
+///  创建一个跨地域备份同步服务。&lt;br&gt;- 仅支持MySQL
 public class CreateBackupSynchronicityExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

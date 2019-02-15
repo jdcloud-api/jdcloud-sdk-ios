@@ -29,10 +29,14 @@ import Foundation
 public class Snapshot:NSObject,Codable{
     /// 云硬盘快照ID
     var snapshotId:String?
-    /// 创建快照的云硬盘ID
+    /// 快照来源 可以有self，others两种来源
+    var snapshotSource:String?
+    /// 创建快照的云硬盘ID(snapshotSource为others时不展示)
     var diskId:String?
     /// 快照大小，单位为GiB
     var snapshotSizeGB:Int?
+    /// 快照关联的所有镜像ID(snapshotSource为others时不展示)
+    var images:[String?]?
     /// 快照名称
     var name:String?
     /// 快照描述
@@ -41,6 +45,10 @@ public class Snapshot:NSObject,Codable{
     var status:String?
     /// 创建时间
     var createTime:String?
+    /// 共享信息
+    var sharInfo:[ShareInfo?]?
+    /// 快照是否为加密盘的快照
+    var encrypted:Bool?
 
 
 
@@ -50,12 +58,16 @@ public class Snapshot:NSObject,Codable{
 
     enum SnapshotCodingKeys: String, CodingKey {
         case snapshotId
+        case snapshotSource
         case diskId
         case snapshotSizeGB
+        case images
         case name
         case descriptionValue = "description"
         case status
         case createTime
+        case sharInfo
+        case encrypted
     }
 
 
@@ -65,6 +77,10 @@ public class Snapshot:NSObject,Codable{
         {
             self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
         }
+        if decoderContainer.contains(.snapshotSource)
+        {
+            self.snapshotSource = try decoderContainer.decode(String?.self, forKey: .snapshotSource)
+        }
         if decoderContainer.contains(.diskId)
         {
             self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
@@ -72,6 +88,10 @@ public class Snapshot:NSObject,Codable{
         if decoderContainer.contains(.snapshotSizeGB)
         {
             self.snapshotSizeGB = try decoderContainer.decode(Int?.self, forKey: .snapshotSizeGB)
+        }
+        if decoderContainer.contains(.images)
+        {
+            self.images = try decoderContainer.decode([String?]?.self, forKey: .images)
         }
         if decoderContainer.contains(.name)
         {
@@ -89,17 +109,29 @@ public class Snapshot:NSObject,Codable{
         {
             self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
         }
+        if decoderContainer.contains(.sharInfo)
+        {
+            self.sharInfo = try decoderContainer.decode([ShareInfo?]?.self, forKey: .sharInfo)
+        }
+        if decoderContainer.contains(.encrypted)
+        {
+            self.encrypted = try decoderContainer.decode(Bool?.self, forKey: .encrypted)
+        }
     }
 }
 public extension Snapshot{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SnapshotCodingKeys.self)
          try encoderContainer.encode(snapshotId, forKey: .snapshotId)
+         try encoderContainer.encode(snapshotSource, forKey: .snapshotSource)
          try encoderContainer.encode(diskId, forKey: .diskId)
          try encoderContainer.encode(snapshotSizeGB, forKey: .snapshotSizeGB)
+         try encoderContainer.encode(images, forKey: .images)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(createTime, forKey: .createTime)
+         try encoderContainer.encode(sharInfo, forKey: .sharInfo)
+         try encoderContainer.encode(encrypted, forKey: .encrypted)
     }
 }

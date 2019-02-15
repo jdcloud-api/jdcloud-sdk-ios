@@ -354,27 +354,6 @@ public class MonitorJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func describeCmMetricDataByTagSpecAsync(request:DescribeCmMetricDataByTagSpecRequest,requestComplation:@escaping (NSNumber?,DescribeCmMetricDataByTagSpecResponse?,NSError?,NSString?)->()) throws {
-        monitorJDCloudClient = self
-        try DescribeCmMetricDataByTagSpecExecutor(jdCloudClient: monitorJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCmMetricDataByTagSpecResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func describeMetricsAsync(request:DescribeMetricsRequest,requestComplation:@escaping (NSNumber?,DescribeMetricsResponse?,NSError?,NSString?)->()) throws {
         monitorJDCloudClient = self
         try DescribeMetricsExecutor(jdCloudClient: monitorJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

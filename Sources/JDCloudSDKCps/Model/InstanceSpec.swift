@@ -34,6 +34,8 @@ public class InstanceSpec:NSObject,Codable{
     /// 实例类型, 如 cps.c.normal
     /// Required:true
     var deviceType:String
+    /// 主机名
+    var hostname:String?
     /// 镜像类型, 取值范围：standard、standard_app
     /// Required:true
     var imageType:String
@@ -50,6 +52,8 @@ public class InstanceSpec:NSObject,Codable{
     var subnetId:String?
     /// 是否启用外网，取值范围：yes、no
     var enableInternet:String?
+    /// 是否启用IPv6，取值范围：yes、no
+    var enableIpv6:String?
     /// 网络类型，目前只支持basic
     /// Required:true
     var networkType:String
@@ -95,12 +99,14 @@ public class InstanceSpec:NSObject,Codable{
     enum InstanceSpecCodingKeys: String, CodingKey {
         case az
         case deviceType
+        case hostname
         case imageType
         case osTypeId
         case sysRaidTypeId
         case dataRaidTypeId
         case subnetId
         case enableInternet
+        case enableIpv6
         case networkType
         case cidr
         case lineType
@@ -118,6 +124,10 @@ public class InstanceSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: InstanceSpecCodingKeys.self)
         self.az = try decoderContainer.decode(String.self, forKey: .az)
         self.deviceType = try decoderContainer.decode(String.self, forKey: .deviceType)
+        if decoderContainer.contains(.hostname)
+        {
+            self.hostname = try decoderContainer.decode(String?.self, forKey: .hostname)
+        }
         self.imageType = try decoderContainer.decode(String.self, forKey: .imageType)
         self.osTypeId = try decoderContainer.decode(String.self, forKey: .osTypeId)
         self.sysRaidTypeId = try decoderContainer.decode(String.self, forKey: .sysRaidTypeId)
@@ -129,6 +139,10 @@ public class InstanceSpec:NSObject,Codable{
         if decoderContainer.contains(.enableInternet)
         {
             self.enableInternet = try decoderContainer.decode(String?.self, forKey: .enableInternet)
+        }
+        if decoderContainer.contains(.enableIpv6)
+        {
+            self.enableIpv6 = try decoderContainer.decode(String?.self, forKey: .enableIpv6)
         }
         self.networkType = try decoderContainer.decode(String.self, forKey: .networkType)
         if decoderContainer.contains(.cidr)
@@ -162,12 +176,14 @@ public extension InstanceSpec{
         var encoderContainer = encoder.container(keyedBy: InstanceSpecCodingKeys.self)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(deviceType, forKey: .deviceType)
+         try encoderContainer.encode(hostname, forKey: .hostname)
          try encoderContainer.encode(imageType, forKey: .imageType)
          try encoderContainer.encode(osTypeId, forKey: .osTypeId)
          try encoderContainer.encode(sysRaidTypeId, forKey: .sysRaidTypeId)
          try encoderContainer.encode(dataRaidTypeId, forKey: .dataRaidTypeId)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(enableInternet, forKey: .enableInternet)
+         try encoderContainer.encode(enableIpv6, forKey: .enableIpv6)
          try encoderContainer.encode(networkType, forKey: .networkType)
          try encoderContainer.encode(cidr, forKey: .cidr)
          try encoderContainer.encode(lineType, forKey: .lineType)
