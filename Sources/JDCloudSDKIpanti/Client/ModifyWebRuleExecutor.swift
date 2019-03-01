@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   网站转发配置相关接口
-   网站转发配置相关接口
+   Anti DDos Pro Web Rule Configuration APIs
+   Anti DDos Pro Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  更新某条网站类规则
+///  修改网站类规则
 public class ModifyWebRuleExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

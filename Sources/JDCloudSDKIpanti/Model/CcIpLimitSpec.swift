@@ -28,14 +28,17 @@ import Foundation
 @objc(CcIpLimitSpec)
 public class CcIpLimitSpec:NSObject,Codable{
     /// cc防护每ip的限速大小
-    var ccSpeedLimit:Int?
+    /// Required:true
+    var ccSpeedLimit:Int64
     /// cc防护每ip的限速大小的统计周期
-    var ccSpeedPeriod:Int?
+    /// Required:true
+    var ccSpeedPeriod:Int64
 
 
 
-    public override init(){
-            super.init()
+    public  init(ccSpeedLimit:Int64,ccSpeedPeriod:Int64){
+             self.ccSpeedLimit = ccSpeedLimit
+             self.ccSpeedPeriod = ccSpeedPeriod
     }
 
     enum CcIpLimitSpecCodingKeys: String, CodingKey {
@@ -46,14 +49,8 @@ public class CcIpLimitSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CcIpLimitSpecCodingKeys.self)
-        if decoderContainer.contains(.ccSpeedLimit)
-        {
-            self.ccSpeedLimit = try decoderContainer.decode(Int?.self, forKey: .ccSpeedLimit)
-        }
-        if decoderContainer.contains(.ccSpeedPeriod)
-        {
-            self.ccSpeedPeriod = try decoderContainer.decode(Int?.self, forKey: .ccSpeedPeriod)
-        }
+        self.ccSpeedLimit = try decoderContainer.decode(Int64.self, forKey: .ccSpeedLimit)
+        self.ccSpeedPeriod = try decoderContainer.decode(Int64.self, forKey: .ccSpeedPeriod)
     }
 }
 public extension CcIpLimitSpec{

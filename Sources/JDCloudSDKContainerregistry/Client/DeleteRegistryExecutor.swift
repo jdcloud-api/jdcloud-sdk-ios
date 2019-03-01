@@ -27,7 +27,7 @@ import JDCloudSDKCore
 
 
 ///  删除指定用户下某个 registry.
-      /// 
+      ///  [MFA enabled]
 public class DeleteRegistryExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

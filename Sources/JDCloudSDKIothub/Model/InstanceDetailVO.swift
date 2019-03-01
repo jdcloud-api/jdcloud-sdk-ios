@@ -61,6 +61,8 @@ public class InstanceDetailVO:NSObject,Codable{
     var rdsHostName:String?
     /// RdsUserName
     var rdsUserName:String?
+    /// JcqId
+    var jcqId:String?
     /// JcqAccessPoint
     var jcqAccessPoint:String?
     /// JcqTopicName
@@ -69,6 +71,10 @@ public class InstanceDetailVO:NSObject,Codable{
     var jcqTopicType:String?
     /// JcqRegion
     var jcqRegion:String?
+    /// ak
+    var ak:String?
+    /// sk
+    var sk:String?
 
 
 
@@ -94,10 +100,13 @@ public class InstanceDetailVO:NSObject,Codable{
         case rdsDatabase
         case rdsHostName
         case rdsUserName
+        case jcqId
         case jcqAccessPoint
         case jcqTopicName
         case jcqTopicType
         case jcqRegion
+        case ak
+        case sk
     }
 
 
@@ -171,6 +180,10 @@ public class InstanceDetailVO:NSObject,Codable{
         {
             self.rdsUserName = try decoderContainer.decode(String?.self, forKey: .rdsUserName)
         }
+        if decoderContainer.contains(.jcqId)
+        {
+            self.jcqId = try decoderContainer.decode(String?.self, forKey: .jcqId)
+        }
         if decoderContainer.contains(.jcqAccessPoint)
         {
             self.jcqAccessPoint = try decoderContainer.decode(String?.self, forKey: .jcqAccessPoint)
@@ -186,6 +199,14 @@ public class InstanceDetailVO:NSObject,Codable{
         if decoderContainer.contains(.jcqRegion)
         {
             self.jcqRegion = try decoderContainer.decode(String?.self, forKey: .jcqRegion)
+        }
+        if decoderContainer.contains(.ak)
+        {
+            self.ak = try decoderContainer.decode(String?.self, forKey: .ak)
+        }
+        if decoderContainer.contains(.sk)
+        {
+            self.sk = try decoderContainer.decode(String?.self, forKey: .sk)
         }
     }
 }
@@ -209,9 +230,12 @@ public extension InstanceDetailVO{
          try encoderContainer.encode(rdsDatabase, forKey: .rdsDatabase)
          try encoderContainer.encode(rdsHostName, forKey: .rdsHostName)
          try encoderContainer.encode(rdsUserName, forKey: .rdsUserName)
+         try encoderContainer.encode(jcqId, forKey: .jcqId)
          try encoderContainer.encode(jcqAccessPoint, forKey: .jcqAccessPoint)
          try encoderContainer.encode(jcqTopicName, forKey: .jcqTopicName)
          try encoderContainer.encode(jcqTopicType, forKey: .jcqTopicType)
          try encoderContainer.encode(jcqRegion, forKey: .jcqRegion)
+         try encoderContainer.encode(ak, forKey: .ak)
+         try encoderContainer.encode(sk, forKey: .sk)
     }
 }

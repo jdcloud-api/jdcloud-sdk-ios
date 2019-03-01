@@ -27,10 +27,13 @@ import JDCloudSDKCore
 
 
 ///  删除指定用户下某个镜像仓库.
-      ///       /// 
+      ///       ///  [MFA enabled]
 @objc(DeleteRepositoryRequest)
 public class DeleteRepositoryRequest:JdCloudRequest
 {
+    /// 是否强制删除有镜像的镜像仓库
+    var force:Bool?
+
     /// 注册表名称
     var registryName:String
 
@@ -46,12 +49,14 @@ public class DeleteRepositoryRequest:JdCloudRequest
 
 
     enum DeleteRepositoryRequestRequestCodingKeys: String, CodingKey {
+        case force
         case registryName
         case repositoryName
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteRepositoryRequestRequestCodingKeys.self)
+        try encoderContainer.encode(force, forKey: .force)
         try encoderContainer.encode(registryName, forKey: .registryName)
         try encoderContainer.encode(repositoryName, forKey: .repositoryName)
 

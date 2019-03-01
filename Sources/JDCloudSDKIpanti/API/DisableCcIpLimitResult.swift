@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,8 +25,43 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 关闭CC防护每ip的限速
-@objc(DisableCcIpLimitResult)
-public class DisableCcIpLimitResult:NSObject,JdCloudResult
+/// 关闭 CC 防护每 IP 的限速
+@objc(DisableCCIpLimitResult)
+public class DisableCCIpLimitResult:NSObject,JdCloudResult
 {
+    /// 0: 关闭 CC 防护每 IP 的限速失败, 1: 关闭 CC 防护每 IP 的限速成功
+    var code:Int?
+
+    /// 关闭 CC 防护每 IP 的限速失败时给出具体原因
+    var message:String?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum DisableCCIpLimitResultCodingKeys: String, CodingKey {
+        case code
+        case message
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: DisableCCIpLimitResultCodingKeys.self)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+    }
+}
+public extension DisableCCIpLimitResult{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: DisableCCIpLimitResultCodingKeys.self)
+        try encoderContainer.encode(code, forKey: .code)
+        try encoderContainer.encode(message, forKey: .message)
+    }
 }

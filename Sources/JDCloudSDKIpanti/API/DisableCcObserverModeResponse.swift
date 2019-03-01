@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,32 +25,32 @@
 import Foundation
 import JDCloudSDKCore
 
-@objc(DisableCcObserverModeResponse)
-public class DisableCcObserverModeResponse:NSObject,Codable
+@objc(DisableCCObserverModeResponse)
+public class DisableCCObserverModeResponse:NSObject,Codable
 {
     var requestId:String?;
 
     var error:ServiceError?;
 
-    var result:DisableCcObserverModeResult?;
+    var result:DisableCCObserverModeResult?;
 
-    enum DisableCcObserverModeResponseCodingKeys: String, CodingKey {
+    enum DisableCCObserverModeResponseCodingKeys: String, CodingKey {
         case requestId
         case error
         case result
     }
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: DisableCcObserverModeResponseCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: DisableCCObserverModeResponseCodingKeys.self)
         self.requestId = try decoderContainer.decodeIfPresent(String?.self, forKey: .requestId) ?? nil
         self.error = try decoderContainer.decodeIfPresent(ServiceError?.self, forKey: .error) ?? nil
-        self.result = try decoderContainer.decodeIfPresent(DisableCcObserverModeResult?.self, forKey: .result) ?? nil
+        self.result = try decoderContainer.decodeIfPresent(DisableCCObserverModeResult?.self, forKey: .result) ?? nil
     }
 }
 
-public extension DisableCcObserverModeResponse{
+public extension DisableCCObserverModeResponse{
         public func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DisableCcObserverModeResponseCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DisableCCObserverModeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)
         try encoderContainer.encode(result, forKey: .result)

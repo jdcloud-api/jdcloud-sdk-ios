@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   网站转发配置相关接口
-   网站转发配置相关接口
+   Anti DDos Pro Web Rule Configuration APIs
+   Anti DDos Pro Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -30,14 +30,14 @@ import JDCloudSDKCore
 @objc(CreateWebRuleRequest)
 public class CreateWebRuleRequest:JdCloudRequest
 {
-    /// 网站类规则参数
+    /// 添加网站类规则请求参数
     var webRuleSpec:WebRuleSpec
 
-    /// 实例id
-    var instanceId:String
+    /// 高防实例 Id
+    var instanceId:Int64
 
 
-    public init(regionId: String,webRuleSpec:WebRuleSpec,instanceId:String){
+    public init(regionId: String,webRuleSpec:WebRuleSpec,instanceId:Int64){
         self.webRuleSpec = webRuleSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)

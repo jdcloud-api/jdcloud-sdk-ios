@@ -28,38 +28,59 @@ import Foundation
 @objc(WebRuleSpec)
 public class WebRuleSpec:NSObject,Codable{
     /// 子域名
-    var domain:String?
-    /// 协议：HTTP、HTTPS、HTTP_HTTPS
-    var protocolValue:String?
-    /// HTTP协议的端口号，如80,81，多个端口号使用逗号分隔
-    var port:String?
-    /// HTTPS协议的端口号，如443,8443，多个端口号使用逗号分隔
-    var httpsPort:String?
+    /// Required:true
+    var domain:String
+    /// 协议: http, https 至少一个为 true
+    /// Required:true
+    var protocolValue:WebRuleProtocol
+    /// HTTP协议的端口号, 如80, 81; 如果 protocol.http 为 true, 至少配置一个端口, 最多添加 5 个
+    var port:[Int?]?
+    /// HTTPS协议的端口号，如443, 8443; 如果 protocol.https 为 true, 至少配置一个端口, 最多添加 5 个
+    var httpsPort:[Int?]?
     /// 回源类型：A或者CNAME
-    var originType:String?
-    /// OriginAddr
+    /// Required:true
+    var originType:String
+    /// originType 为 A 时，需要设置该字段
     var originAddr:[OriginAddrItem?]?
-    /// OnlineAddr
+    /// 备用的回源地址列表，可以配置为一个域名或者多个 ip 地址
     var onlineAddr:[String?]?
     /// 回源域名,originType为CNAME时需要指定该字段
     var originDomain:String?
+    /// 转发规则：wrr-&gt;带权重的轮询，rr-&gt;不带权重的轮询
+    /// Required:true
+    var algorithm:String
+    /// 是否开启 https 强制跳转，当 protocol 为 HTTP_HTTPS 时可以配置该属性
+      ///   - 0 不开启强制跳转
+      ///   - 1 开启强制跳转
+      /// 
+    var forceJump:Int?
+    /// 是否为自定义端口号，0为默认 1为自定义
+    var customPortStatus:Int?
+    /// 是否开启http回源, 当勾选HTTPS时可以配置该属性
+      ///   - 0 不开启
+      ///   - 1 开启
+      /// 
+    var httpOrigin:Int?
+    /// 是否开启 WebSocket, 0 为不开启, 1 为开启
+    /// Required:true
+    var webSocketStatus:Int
     /// 证书内容
     var httpsCertContent:String?
     /// 证书私钥
     var httpsRsaKey:String?
-    /// 转发规则：wrr-&gt;带权重的轮询，rr-&gt;不带权重的轮询
-    var algorithm:String?
-    /// 是否开启https强制跳转，当protocol为HTTP_HTTPS时可以配置该属性 0为不强跳 1为开启强跳
-    var forceJump:Int?
-    /// 是否为自定义端口号，0为默认 1为自定义
-    var customPortStatus:Int?
-    /// 是否开启http回源，0为不开启 1为开启，当勾选HTTPS时可以配置该属性
-    var httpOrigin:Int?
+    /// 证书 Id
+      ///   - 如果传 certId, 请确认已经上传了相应的证书
+      ///   - certId 缺省时网站规则将使用 httpsCertContent, httpsRsaKey 对应的证书
+    var certId:Int64?
 
 
 
-    public override init(){
-            super.init()
+    public  init(domain:String,protocolValue:WebRuleProtocol,originType:String,algorithm:String,webSocketStatus:Int){
+             self.domain = domain
+             self.protocolValue = protocolValue
+             self.originType = originType
+             self.algorithm = algorithm
+             self.webSocketStatus = webSocketStatus
     }
 
     enum WebRuleSpecCodingKeys: String, CodingKey {
@@ -71,37 +92,30 @@ public class WebRuleSpec:NSObject,Codable{
         case originAddr
         case onlineAddr
         case originDomain
-        case httpsCertContent
-        case httpsRsaKey
         case algorithm
         case forceJump
         case customPortStatus
         case httpOrigin
+        case webSocketStatus
+        case httpsCertContent
+        case httpsRsaKey
+        case certId
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WebRuleSpecCodingKeys.self)
-        if decoderContainer.contains(.domain)
-        {
-            self.domain = try decoderContainer.decode(String?.self, forKey: .domain)
-        }
-        if decoderContainer.contains(.protocolValue)
-        {
-            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
-        }
+        self.domain = try decoderContainer.decode(String.self, forKey: .domain)
+        self.protocolValue = try decoderContainer.decode(WebRuleProtocol.self, forKey: .protocolValue)
         if decoderContainer.contains(.port)
         {
-            self.port = try decoderContainer.decode(String?.self, forKey: .port)
+            self.port = try decoderContainer.decode([Int?]?.self, forKey: .port)
         }
         if decoderContainer.contains(.httpsPort)
         {
-            self.httpsPort = try decoderContainer.decode(String?.self, forKey: .httpsPort)
+            self.httpsPort = try decoderContainer.decode([Int?]?.self, forKey: .httpsPort)
         }
-        if decoderContainer.contains(.originType)
-        {
-            self.originType = try decoderContainer.decode(String?.self, forKey: .originType)
-        }
+        self.originType = try decoderContainer.decode(String.self, forKey: .originType)
         if decoderContainer.contains(.originAddr)
         {
             self.originAddr = try decoderContainer.decode([OriginAddrItem?]?.self, forKey: .originAddr)
@@ -114,18 +128,7 @@ public class WebRuleSpec:NSObject,Codable{
         {
             self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
         }
-        if decoderContainer.contains(.httpsCertContent)
-        {
-            self.httpsCertContent = try decoderContainer.decode(String?.self, forKey: .httpsCertContent)
-        }
-        if decoderContainer.contains(.httpsRsaKey)
-        {
-            self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
-        }
-        if decoderContainer.contains(.algorithm)
-        {
-            self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
-        }
+        self.algorithm = try decoderContainer.decode(String.self, forKey: .algorithm)
         if decoderContainer.contains(.forceJump)
         {
             self.forceJump = try decoderContainer.decode(Int?.self, forKey: .forceJump)
@@ -137,6 +140,19 @@ public class WebRuleSpec:NSObject,Codable{
         if decoderContainer.contains(.httpOrigin)
         {
             self.httpOrigin = try decoderContainer.decode(Int?.self, forKey: .httpOrigin)
+        }
+        self.webSocketStatus = try decoderContainer.decode(Int.self, forKey: .webSocketStatus)
+        if decoderContainer.contains(.httpsCertContent)
+        {
+            self.httpsCertContent = try decoderContainer.decode(String?.self, forKey: .httpsCertContent)
+        }
+        if decoderContainer.contains(.httpsRsaKey)
+        {
+            self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
+        }
+        if decoderContainer.contains(.certId)
+        {
+            self.certId = try decoderContainer.decode(Int64?.self, forKey: .certId)
         }
     }
 }
@@ -151,11 +167,13 @@ public extension WebRuleSpec{
          try encoderContainer.encode(originAddr, forKey: .originAddr)
          try encoderContainer.encode(onlineAddr, forKey: .onlineAddr)
          try encoderContainer.encode(originDomain, forKey: .originDomain)
-         try encoderContainer.encode(httpsCertContent, forKey: .httpsCertContent)
-         try encoderContainer.encode(httpsRsaKey, forKey: .httpsRsaKey)
          try encoderContainer.encode(algorithm, forKey: .algorithm)
          try encoderContainer.encode(forceJump, forKey: .forceJump)
          try encoderContainer.encode(customPortStatus, forKey: .customPortStatus)
          try encoderContainer.encode(httpOrigin, forKey: .httpOrigin)
+         try encoderContainer.encode(webSocketStatus, forKey: .webSocketStatus)
+         try encoderContainer.encode(httpsCertContent, forKey: .httpsCertContent)
+         try encoderContainer.encode(httpsRsaKey, forKey: .httpsRsaKey)
+         try encoderContainer.encode(certId, forKey: .certId)
     }
 }

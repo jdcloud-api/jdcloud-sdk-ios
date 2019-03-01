@@ -27,27 +27,41 @@ import Foundation
 ///  forwardRuleSpec
 @objc(ForwardRuleSpec)
 public class ForwardRuleSpec:NSObject,Codable{
-    /// 协议：TCP或者UDP
-    var protocolValue:String?
-    /// 端口号
-    var port:Int?
-    /// 转发规则：wrr-&gt;带权重的轮询，wlc-&gt;加权最小连接，rr-&gt;不带权重的轮询，sh-&gt;源地址hash
-    var algorithm:String?
-    /// 回源类型，ip或者domain
-    var originType:String?
+    /// 协议: TCP或者UDP
+    /// Required:true
+    var protocolValue:String
+    /// 端口号, 取值范围[1, 65535]
+    /// Required:true
+    var port:Int
+    /// 转发规则
+      /// - wrr 带权重的轮询
+      /// - wlc 加权最小连接
+      /// - rr  不带权重的轮询
+      /// - sh  源地址hash
+      /// 
+    /// Required:true
+    var algorithm:String
+    /// 回源类型: A 或者 CNAME
+    /// Required:true
+    var originType:String
     /// OriginAddr
     var originAddr:[OriginAddrItem?]?
-    /// OnlineAddr
+    /// 备用的回源地址列表, 可以配置为一个域名或者多个 ip 地址
     var onlineAddr:[String?]?
     /// 回源域名
     var originDomain:String?
-    /// 回源端口号
-    var originPort:Int?
+    /// 回源端口号, 取值范围[1, 65535]
+    /// Required:true
+    var originPort:Int
 
 
 
-    public override init(){
-            super.init()
+    public  init(protocolValue:String,port:Int,algorithm:String,originType:String,originPort:Int){
+             self.protocolValue = protocolValue
+             self.port = port
+             self.algorithm = algorithm
+             self.originType = originType
+             self.originPort = originPort
     }
 
     enum ForwardRuleSpecCodingKeys: String, CodingKey {
@@ -64,22 +78,10 @@ public class ForwardRuleSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ForwardRuleSpecCodingKeys.self)
-        if decoderContainer.contains(.protocolValue)
-        {
-            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
-        }
-        if decoderContainer.contains(.port)
-        {
-            self.port = try decoderContainer.decode(Int?.self, forKey: .port)
-        }
-        if decoderContainer.contains(.algorithm)
-        {
-            self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
-        }
-        if decoderContainer.contains(.originType)
-        {
-            self.originType = try decoderContainer.decode(String?.self, forKey: .originType)
-        }
+        self.protocolValue = try decoderContainer.decode(String.self, forKey: .protocolValue)
+        self.port = try decoderContainer.decode(Int.self, forKey: .port)
+        self.algorithm = try decoderContainer.decode(String.self, forKey: .algorithm)
+        self.originType = try decoderContainer.decode(String.self, forKey: .originType)
         if decoderContainer.contains(.originAddr)
         {
             self.originAddr = try decoderContainer.decode([OriginAddrItem?]?.self, forKey: .originAddr)
@@ -92,10 +94,7 @@ public class ForwardRuleSpec:NSObject,Codable{
         {
             self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
         }
-        if decoderContainer.contains(.originPort)
-        {
-            self.originPort = try decoderContainer.decode(Int?.self, forKey: .originPort)
-        }
+        self.originPort = try decoderContainer.decode(Int.self, forKey: .originPort)
     }
 }
 public extension ForwardRuleSpec{

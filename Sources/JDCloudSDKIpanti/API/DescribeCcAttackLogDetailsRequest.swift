@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防攻击记录相关接口
-   Ip高防攻击记录相关接口
+   Anti DDoS Pro Attack Log APIs
+   Anti DDoS Pro Attack Log APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,30 +26,30 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询cc攻击日志详情
-@objc(DescribeCcAttackLogDetailsRequest)
-public class DescribeCcAttackLogDetailsRequest:JdCloudRequest
+///  查询 CC 攻击日志详情
+@objc(DescribeCCAttackLogDetailsRequest)
+public class DescribeCCAttackLogDetailsRequest:JdCloudRequest
 {
-    /// 页码；默认为1
+    /// 页码, 默认为1
     var pageNumber:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小, 默认为10, 取值范围[10, 100]
     var pageSize:Int?
 
-    /// 开始时间，最多查最近30天，UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
+    /// 开始时间, 只能查询最近 60 天以内的数据, UTC 时间, 格式: yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
     var startTime:String
 
-    /// 查询的结束时间，UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
+    /// 查询的结束时间, UTC 时间, 格式: yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
     var endTime:String
 
-    /// 高防实例id
-    var instanceId:String
+    /// 高防实例 ID
+    var instanceId:Int64
 
     /// 子域名
     var subDomain:[String?]?
 
 
-    public init(regionId: String,startTime:String,endTime:String,instanceId:String){
+    public init(regionId: String,startTime:String,endTime:String,instanceId:Int64){
         self.startTime = startTime
         self.endTime = endTime
         self.instanceId = instanceId
@@ -57,7 +57,7 @@ public class DescribeCcAttackLogDetailsRequest:JdCloudRequest
     }
 
 
-    enum DescribeCcAttackLogDetailsRequestRequestCodingKeys: String, CodingKey {
+    enum DescribeCCAttackLogDetailsRequestRequestCodingKeys: String, CodingKey {
         case pageNumber
         case pageSize
         case startTime
@@ -67,7 +67,7 @@ public class DescribeCcAttackLogDetailsRequest:JdCloudRequest
     }
 
     public override func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DescribeCcAttackLogDetailsRequestRequestCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DescribeCCAttackLogDetailsRequestRequestCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(startTime, forKey: .startTime)

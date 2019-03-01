@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,8 +25,43 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 设置实例ip白名单
+/// 设置实例 IP 白名单
 @objc(ModifyInstanceIpWhiteListResult)
 public class ModifyInstanceIpWhiteListResult:NSObject,JdCloudResult
 {
+    /// 0: 设置 IP 白名单成功, 1: 设置 IP 白名单失败
+    var code:Int?
+
+    /// 对应提示消息
+    var message:String?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum ModifyInstanceIpWhiteListResultCodingKeys: String, CodingKey {
+        case code
+        case message
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: ModifyInstanceIpWhiteListResultCodingKeys.self)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+    }
+}
+public extension ModifyInstanceIpWhiteListResult{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: ModifyInstanceIpWhiteListResultCodingKeys.self)
+        try encoderContainer.encode(code, forKey: .code)
+        try encoderContainer.encode(message, forKey: .message)
+    }
 }

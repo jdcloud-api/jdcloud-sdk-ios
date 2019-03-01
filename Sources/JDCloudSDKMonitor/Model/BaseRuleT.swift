@@ -36,9 +36,10 @@ public class BaseRuleT:NSObject,Codable{
     var calculation:String
     /// 降采样函数
     var downSample:String?
+    /// 监控项
+    var metric:String?
     /// 监控项ID
-    /// Required:true
-    var metricId:Int64
+    var metricId:Int64?
     /// NoticeLevel
     var noticeLevel:NoticeLevel?
     /// 通知周期，单位：小时
@@ -64,9 +65,8 @@ public class BaseRuleT:NSObject,Codable{
 
 
 
-    public  init(calculation:String,metricId:Int64,noticePeriod:Int64,operation:String,period:Int64,ruleType:Int64,threshold:Double,times:Int64){
+    public  init(calculation:String,noticePeriod:Int64,operation:String,period:Int64,ruleType:Int64,threshold:Double,times:Int64){
              self.calculation = calculation
-             self.metricId = metricId
              self.noticePeriod = noticePeriod
              self.operation = operation
              self.period = period
@@ -80,6 +80,7 @@ public class BaseRuleT:NSObject,Codable{
         case calculateUnit
         case calculation
         case downSample
+        case metric
         case metricId
         case noticeLevel
         case noticePeriod
@@ -107,7 +108,14 @@ public class BaseRuleT:NSObject,Codable{
         {
             self.downSample = try decoderContainer.decode(String?.self, forKey: .downSample)
         }
-        self.metricId = try decoderContainer.decode(Int64.self, forKey: .metricId)
+        if decoderContainer.contains(.metric)
+        {
+            self.metric = try decoderContainer.decode(String?.self, forKey: .metric)
+        }
+        if decoderContainer.contains(.metricId)
+        {
+            self.metricId = try decoderContainer.decode(Int64?.self, forKey: .metricId)
+        }
         if decoderContainer.contains(.noticeLevel)
         {
             self.noticeLevel = try decoderContainer.decode(NoticeLevel?.self, forKey: .noticeLevel)
@@ -131,6 +139,7 @@ public extension BaseRuleT{
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)
          try encoderContainer.encode(calculation, forKey: .calculation)
          try encoderContainer.encode(downSample, forKey: .downSample)
+         try encoderContainer.encode(metric, forKey: .metric)
          try encoderContainer.encode(metricId, forKey: .metricId)
          try encoderContainer.encode(noticeLevel, forKey: .noticeLevel)
          try encoderContainer.encode(noticePeriod, forKey: .noticePeriod)

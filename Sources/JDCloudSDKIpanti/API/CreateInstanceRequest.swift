@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,27 +26,27 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  创建实例
+///  新购或升级高防实例, 新购或升级成功时, 需根据订单 id 完成支付流程, 新购或升级实例才会生效
 @objc(CreateInstanceRequest)
 public class CreateInstanceRequest:JdCloudRequest
 {
-    /// 实例规格参数
-    var instanceSpec:InstanceSpec
+    /// 新购或升级实例请求参数
+    var createInstanceSpec:CreateInstanceSpec
 
 
-    public init(regionId: String,instanceSpec:InstanceSpec){
-        self.instanceSpec = instanceSpec
+    public init(regionId: String,createInstanceSpec:CreateInstanceSpec){
+        self.createInstanceSpec = createInstanceSpec
         super.init(regionId: regionId)
     }
 
 
     enum CreateInstanceRequestRequestCodingKeys: String, CodingKey {
-        case instanceSpec
+        case createInstanceSpec
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateInstanceRequestRequestCodingKeys.self)
-        try encoderContainer.encode(instanceSpec, forKey: .instanceSpec)
+        try encoderContainer.encode(createInstanceSpec, forKey: .createInstanceSpec)
 
     }
 }

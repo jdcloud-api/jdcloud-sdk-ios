@@ -35,15 +35,20 @@ public class ForwardRule:NSObject,Codable{
     var protocolValue:String?
     /// 规则的cname
     var cname:String?
-    /// 回源类型：ip或者domain
+    /// 回源类型: ip或者domain
     var originType:String?
     /// 端口号
     var port:Int?
-    /// 转发规则：wrr-&gt;带权重的轮询，wlc-&gt;加权最小连接，rr-&gt;不带权重的轮询，sh-&gt;源地址hash
+    /// 转发规则
+      /// - wrr 带权重的轮询
+      /// - wlc 加权最小连接
+      /// - rr  不带权重的轮询
+      /// - sh  源地址hash
+      /// 
     var algorithm:String?
     /// OriginAddr
     var originAddr:[OriginAddrItem?]?
-    /// OnlineAddr
+    /// 备用的回源地址列表
     var onlineAddr:[String?]?
     /// 回源域名
     var originDomain:String?

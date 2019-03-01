@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,31 +26,31 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置实例CC防护每ip限速
-@objc(SetCcIpLimitRequest)
-public class SetCcIpLimitRequest:JdCloudRequest
+///  设置实例 CC 防护每 IP 限速
+@objc(SetCCIpLimitRequest)
+public class SetCCIpLimitRequest:JdCloudRequest
 {
-    /// cc参数
+    /// CC 参数
     var cCSpec:CcIpLimitSpec
 
-    /// 实例id
-    var instanceId:String
+    /// 实例 ID
+    var instanceId:Int64
 
 
-    public init(regionId: String,cCSpec:CcIpLimitSpec,instanceId:String){
+    public init(regionId: String,cCSpec:CcIpLimitSpec,instanceId:Int64){
         self.cCSpec = cCSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)
     }
 
 
-    enum SetCcIpLimitRequestRequestCodingKeys: String, CodingKey {
+    enum SetCCIpLimitRequestRequestCodingKeys: String, CodingKey {
         case cCSpec
         case instanceId
     }
 
     public override func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: SetCcIpLimitRequestRequestCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: SetCCIpLimitRequestRequestCodingKeys.self)
         try encoderContainer.encode(cCSpec, forKey: .cCSpec)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
 

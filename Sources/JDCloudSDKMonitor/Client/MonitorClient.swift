@@ -228,6 +228,27 @@ public class MonitorJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func deleteAlarmsAsync(request:DeleteAlarmsRequest,requestComplation:@escaping (NSNumber?,DeleteAlarmsResponse?,NSError?,NSString?)->()) throws {
+        monitorJDCloudClient = self
+        try DeleteAlarmsExecutor(jdCloudClient: monitorJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteAlarmsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeAlarmsByIDAsync(request:DescribeAlarmsByIDRequest,requestComplation:@escaping (NSNumber?,DescribeAlarmsByIDResponse?,NSError?,NSString?)->()) throws {
         monitorJDCloudClient = self
         try DescribeAlarmsByIDExecutor(jdCloudClient: monitorJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

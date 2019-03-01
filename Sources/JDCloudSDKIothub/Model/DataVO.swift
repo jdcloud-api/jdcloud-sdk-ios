@@ -27,30 +27,32 @@ import Foundation
 ///  dataVO
 @objc(DataVO)
 public class DataVO:NSObject,Codable{
-    /// Id
+    /// 系统流水号
     var id:String?
-    /// Name
+    /// 实例名称
     var name:String?
-    /// SubNetId
+    /// 子网编号
     var subNetId:String?
-    /// SubNetName
+    /// 子网名称
     var subNetName:String?
-    /// VpcId
+    /// VPC编号
     var vpcId:String?
-    /// VpcName
+    /// VPC名称
     var vpcName:String?
-    /// AzName
+    /// 可用区名称
     var azName:String?
-    /// PubDomain
+    /// 公网域名
     var pubDomain:String?
-    /// PriDomain
+    /// 内网域名
     var priDomain:String?
-    /// Status
+    /// 实例状态
     var status:String?
-    /// Feetype
+    /// 资费形式
     var feetype:String?
-    /// CreateTime
+    /// 创建时间
     var createTime:String?
+    /// 实例编号
+    var instanceId:String?
 
 
 
@@ -71,6 +73,7 @@ public class DataVO:NSObject,Codable{
         case status
         case feetype
         case createTime
+        case instanceId
     }
 
 
@@ -124,6 +127,10 @@ public class DataVO:NSObject,Codable{
         {
             self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
         }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
+        }
     }
 }
 public extension DataVO{
@@ -141,5 +148,6 @@ public extension DataVO{
          try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(feetype, forKey: .feetype)
          try encoderContainer.encode(createTime, forKey: .createTime)
+         try encoderContainer.encode(instanceId, forKey: .instanceId)
     }
 }

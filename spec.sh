@@ -1,3 +1,7 @@
+
+pod spec lint JDCloudSDKCore.podspec  --allow-warnings
+pod trunk push JDCloudSDKCore.podspec  --allow-warnings
+
 pod spec lint JDCloudSDKCommon.podspec  --allow-warnings  
 pod trunk push  JDCloudSDKCommon.podspec  --allow-warnings
 
@@ -108,4 +112,8 @@ pod trunk push JDCloudSDKXdata.podspec  --allow-warnings
 pod spec lint JDCloudSDKElite.podspec --allow-warnings
 pod trunk push JDCloudSDKElite.podspec --allow-warnings
 
-  
+pod spec lint JDCloudSDKJdro.podspec --allow-warnings
+pod trunk push JDCloudSDKJdro.podspec --allow-warnings 
+
+pod spec lint JDCloudSDKPartnet.podspec --allow-warnings
+pod trunk push JDCloudSDKPartner.podspec --allow-warnings 

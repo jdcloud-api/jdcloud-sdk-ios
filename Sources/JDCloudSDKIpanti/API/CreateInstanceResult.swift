@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,12 +25,15 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 创建实例
+/// 新购或升级高防实例, 新购或升级成功时, 需根据订单 id 完成支付流程, 新购或升级实例才会生效
 @objc(CreateInstanceResult)
 public class CreateInstanceResult:NSObject,JdCloudResult
 {
-    /// OrderId
-    var orderId:String?
+    /// 0: 新购或升级实例失败, 1: 新购或升级实例成功
+    var code:Int?
+
+    /// 新购或升级成功时为 订单 id, 创建实例失败时给出具体原因
+    var message:String?
 
 
 
@@ -39,20 +42,26 @@ public class CreateInstanceResult:NSObject,JdCloudResult
     }
 
     enum CreateInstanceResultCodingKeys: String, CodingKey {
-        case orderId
+        case code
+        case message
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateInstanceResultCodingKeys.self)
-        if decoderContainer.contains(.orderId)
+        if decoderContainer.contains(.code)
         {
-            self.orderId = try decoderContainer.decode(String?.self, forKey: .orderId)
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
         }
     }
 }
 public extension CreateInstanceResult{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateInstanceResultCodingKeys.self)
-        try encoderContainer.encode(orderId, forKey: .orderId)
+        try encoderContainer.encode(code, forKey: .code)
+        try encoderContainer.encode(message, forKey: .message)
     }
 }

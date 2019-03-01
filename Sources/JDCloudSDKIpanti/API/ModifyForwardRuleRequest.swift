@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   非网站转发配置相关接口
-   非网站转发配置相关接口
+   Anti DDos Pro non-Web Rule Configuration APIs
+   Anti DDos Pro non-Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,21 +26,21 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  更新某条非网站类规则
+///  更新非网站类规则
 @objc(ModifyForwardRuleRequest)
 public class ModifyForwardRuleRequest:JdCloudRequest
 {
-    /// 非网站类规则参数
+    /// 更新非网站类规则请求参数
     var forwardRuleSpec:ForwardRuleSpec
 
-    /// 实例id
-    var instanceId:String
+    /// 高防实例 Id
+    var instanceId:Int64
 
-    /// 转发规则id
-    var forwardRuleId:String
+    /// 转发规则 Id
+    var forwardRuleId:Int64
 
 
-    public init(regionId: String,forwardRuleSpec:ForwardRuleSpec,instanceId:String,forwardRuleId:String){
+    public init(regionId: String,forwardRuleSpec:ForwardRuleSpec,instanceId:Int64,forwardRuleId:Int64){
         self.forwardRuleSpec = forwardRuleSpec
         self.instanceId = instanceId
         self.forwardRuleId = forwardRuleId

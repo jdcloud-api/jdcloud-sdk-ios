@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   网站转发配置相关接口
-   网站转发配置相关接口
+   Anti DDos Pro Web Rule Configuration APIs
+   Anti DDos Pro Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -32,8 +32,14 @@ public class DescribeWebRulesResult:NSObject,JdCloudResult
     /// DataList
     var dataList:[WebRule?]?
 
-    /// TotalCount
+    /// 当前页数量
+    var currentCount:Int?
+
+    /// 总数
     var totalCount:Int?
+
+    /// 总页数
+    var totalPage:Int?
 
 
 
@@ -43,7 +49,9 @@ public class DescribeWebRulesResult:NSObject,JdCloudResult
 
     enum DescribeWebRulesResultCodingKeys: String, CodingKey {
         case dataList
+        case currentCount
         case totalCount
+        case totalPage
     }
 
     required public init(from decoder: Decoder) throws {
@@ -52,9 +60,17 @@ public class DescribeWebRulesResult:NSObject,JdCloudResult
         {
             self.dataList = try decoderContainer.decode([WebRule?]?.self, forKey: .dataList)
         }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
+        }
         if decoderContainer.contains(.totalCount)
         {
             self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
+        }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
         }
     }
 }
@@ -62,6 +78,8 @@ public extension DescribeWebRulesResult{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeWebRulesResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
+        try encoderContainer.encode(currentCount, forKey: .currentCount)
         try encoderContainer.encode(totalCount, forKey: .totalCount)
+        try encoderContainer.encode(totalPage, forKey: .totalPage)
     }
 }

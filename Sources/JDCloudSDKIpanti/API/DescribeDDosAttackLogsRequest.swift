@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防攻击记录相关接口
-   Ip高防攻击记录相关接口
+   Anti DDoS Pro Attack Log APIs
+   Anti DDoS Pro Attack Log APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,24 +26,24 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询DDos攻击日志
-@objc(DescribeDDosAttackLogsRequest)
-public class DescribeDDosAttackLogsRequest:JdCloudRequest
+///  查询 DDos 攻击日志
+@objc(DescribeDDoSAttackLogsRequest)
+public class DescribeDDoSAttackLogsRequest:JdCloudRequest
 {
-    /// 页码；默认为1
+    /// 页码, 默认为1
     var pageNumber:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小, 默认为10, 取值范围[10, 100]
     var pageSize:Int?
 
-    /// 开始时间，最多查最近30天，UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
+    /// 开始时间, 只能查询最近 60 天以内的数据, UTC 时间, 格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
     var startTime:String
 
-    /// 查询的结束时间，UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
+    /// 查询的结束时间, UTC 时间, 格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
     var endTime:String
 
-    /// 高防实例id
-    var instanceId:[String?]?
+    /// 高防实例 ID
+    var instanceId:[Int64?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){
@@ -53,7 +53,7 @@ public class DescribeDDosAttackLogsRequest:JdCloudRequest
     }
 
 
-    enum DescribeDDosAttackLogsRequestRequestCodingKeys: String, CodingKey {
+    enum DescribeDDoSAttackLogsRequestRequestCodingKeys: String, CodingKey {
         case pageNumber
         case pageSize
         case startTime
@@ -62,7 +62,7 @@ public class DescribeDDosAttackLogsRequest:JdCloudRequest
     }
 
     public override func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DescribeDDosAttackLogsRequestRequestCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DescribeDDoSAttackLogsRequestRequestCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(startTime, forKey: .startTime)

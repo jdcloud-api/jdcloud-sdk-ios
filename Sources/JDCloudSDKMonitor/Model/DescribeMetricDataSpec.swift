@@ -27,9 +27,9 @@ import Foundation
 ///  describeMetricDataSpec
 @objc(DescribeMetricDataSpec)
 public class DescribeMetricDataSpec:NSObject,Codable{
-    /// 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;zimsum#available-aggregators
+    /// 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、last、min、max
     var aggrType:String?
-    /// 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;avg#available-aggregators
+    /// 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
     var downSampleType:String?
     /// 查询时间范围的结束时间， UTC时间，格式：2016-12- yyyy-MM-dd&#39;T&#39;HH:mm:ssZ（为空时，将由startTime与timeInterval计算得出）
       /// in: query

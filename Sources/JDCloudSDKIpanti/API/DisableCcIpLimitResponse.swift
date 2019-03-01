@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,32 +25,32 @@
 import Foundation
 import JDCloudSDKCore
 
-@objc(DisableCcIpLimitResponse)
-public class DisableCcIpLimitResponse:NSObject,Codable
+@objc(DisableCCIpLimitResponse)
+public class DisableCCIpLimitResponse:NSObject,Codable
 {
     var requestId:String?;
 
     var error:ServiceError?;
 
-    var result:DisableCcIpLimitResult?;
+    var result:DisableCCIpLimitResult?;
 
-    enum DisableCcIpLimitResponseCodingKeys: String, CodingKey {
+    enum DisableCCIpLimitResponseCodingKeys: String, CodingKey {
         case requestId
         case error
         case result
     }
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: DisableCcIpLimitResponseCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: DisableCCIpLimitResponseCodingKeys.self)
         self.requestId = try decoderContainer.decodeIfPresent(String?.self, forKey: .requestId) ?? nil
         self.error = try decoderContainer.decodeIfPresent(ServiceError?.self, forKey: .error) ?? nil
-        self.result = try decoderContainer.decodeIfPresent(DisableCcIpLimitResult?.self, forKey: .result) ?? nil
+        self.result = try decoderContainer.decodeIfPresent(DisableCCIpLimitResult?.self, forKey: .result) ?? nil
     }
 }
 
-public extension DisableCcIpLimitResponse{
+public extension DisableCCIpLimitResponse{
         public func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DisableCcIpLimitResponseCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DisableCCIpLimitResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)
         try encoderContainer.encode(result, forKey: .result)

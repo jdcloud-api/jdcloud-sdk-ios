@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   网站转发配置相关接口
-   网站转发配置相关接口
+   Anti DDos Pro Web Rule Configuration APIs
+   Anti DDos Pro Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -29,4 +29,39 @@ import JDCloudSDKCore
 @objc(CreateWebRuleResult)
 public class CreateWebRuleResult:NSObject,JdCloudResult
 {
+    /// 0: 添加失败, 1: 添加成功
+    var code:Int?
+
+    /// 添加失败时给出具体原因
+    var message:String?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum CreateWebRuleResultCodingKeys: String, CodingKey {
+        case code
+        case message
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: CreateWebRuleResultCodingKeys.self)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+    }
+}
+public extension CreateWebRuleResult{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: CreateWebRuleResultCodingKeys.self)
+        try encoderContainer.encode(code, forKey: .code)
+        try encoderContainer.encode(message, forKey: .message)
+    }
 }

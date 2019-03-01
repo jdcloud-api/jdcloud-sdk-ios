@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,8 +25,43 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 开启实例CC防护
+/// 开启实例 CC 防护
 @objc(EnableInstanceCCResult)
 public class EnableInstanceCCResult:NSObject,JdCloudResult
 {
+    /// 0: 开启实例 CC 防护失败, 1: 开启实例 CC 防护成功
+    var code:Int?
+
+    /// 开启实例 CC 防护失败时给出具体原因
+    var message:String?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum EnableInstanceCCResultCodingKeys: String, CodingKey {
+        case code
+        case message
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: EnableInstanceCCResultCodingKeys.self)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+    }
+}
+public extension EnableInstanceCCResult{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: EnableInstanceCCResultCodingKeys.self)
+        try encoderContainer.encode(code, forKey: .code)
+        try encoderContainer.encode(message, forKey: .message)
+    }
 }

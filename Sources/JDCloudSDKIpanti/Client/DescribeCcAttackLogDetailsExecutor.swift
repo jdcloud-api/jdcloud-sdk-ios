@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防攻击记录相关接口
-   Ip高防攻击记录相关接口
+   Anti DDoS Pro Attack Log APIs
+   Anti DDoS Pro Attack Log APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,11 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询cc攻击日志详情
-public class DescribeCcAttackLogDetailsExecutor:JDCloudExecutor {
+///  查询 CC 攻击日志详情
+public class DescribeCCAttackLogDetailsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:ccDetail")
+        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:CCDetail")
     }
     
 }

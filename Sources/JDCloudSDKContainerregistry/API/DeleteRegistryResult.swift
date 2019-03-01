@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 /// 删除指定用户下某个 registry.
-      ///       /// 
+      ///       ///  [MFA enabled]
 @objc(DeleteRegistryResult)
 public class DeleteRegistryResult:NSObject,JdCloudResult
 {

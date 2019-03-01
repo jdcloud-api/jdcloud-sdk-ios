@@ -30,7 +30,7 @@ import JDCloudSDKCore
 @objc(CreateAlarmRequest)
 public class CreateAlarmRequest:JdCloudRequest
 {
-    /// 幂等性校验参数,最长36位
+    /// 幂等性校验参数,最长36位,若两个请求clientToken相等，则返回第一次创建的规则id，只创建一次规则
     var clientToken:String
 
     /// CreateAlarmSpec

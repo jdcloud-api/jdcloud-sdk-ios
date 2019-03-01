@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   非网站转发配置相关接口
-   非网站转发配置相关接口
+   Anti DDos Pro non-Web Rule Configuration APIs
+   Anti DDos Pro non-Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -30,17 +30,23 @@ import JDCloudSDKCore
 @objc(DescribeForwardRulesRequest)
 public class DescribeForwardRulesRequest:JdCloudRequest
 {
-    /// 页码；默认为1
+    /// 页码, 默认为1
     var pageNumber:Int?
 
-    /// 分页大小；默认为20；取值范围[10, 100]
+    /// 分页大小, 默认为10, 取值范围[10, 100]
     var pageSize:Int?
 
-    /// 实例id
-    var instanceId:String
+    /// 查询类型名称, domain:源站域名, ip:源站 IP, port: 转发端口, originPort: 源站端口
+    var searchType:String?
+
+    /// 查询类型值
+    var searchValue:String?
+
+    /// 高防实例 Id
+    var instanceId:Int64
 
 
-    public init(regionId: String,instanceId:String){
+    public init(regionId: String,instanceId:Int64){
         self.instanceId = instanceId
         super.init(regionId: regionId)
     }
@@ -49,6 +55,8 @@ public class DescribeForwardRulesRequest:JdCloudRequest
     enum DescribeForwardRulesRequestRequestCodingKeys: String, CodingKey {
         case pageNumber
         case pageSize
+        case searchType
+        case searchValue
         case instanceId
     }
 
@@ -56,6 +64,8 @@ public class DescribeForwardRulesRequest:JdCloudRequest
         var encoderContainer = encoder.container(keyedBy: DescribeForwardRulesRequestRequestCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(searchType, forKey: .searchType)
+        try encoderContainer.encode(searchValue, forKey: .searchValue)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
 
     }

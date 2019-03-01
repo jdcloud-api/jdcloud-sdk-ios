@@ -27,44 +27,47 @@ import Foundation
 ///  dataTag
 @objc(DataTag)
 public class DataTag:NSObject,Codable{
-    /// 标签名称
-    /// Required:true
-    var tagKey:String
-    /// 标签值
-    /// Required:true
-    var tagValue:String
-    /// 标签的处理方式，1 代表对于新增标签的时候，如果数据点存在该标签，跳过不处理，2、代表新增标签的时候，如果标签存在进行覆盖
+    /// Operation
     var operation:Int64?
+    /// TagKey
+    var tagKey:String?
+    /// TagValue
+    var tagValue:String?
 
 
 
-    public  init(tagKey:String,tagValue:String){
-             self.tagKey = tagKey
-             self.tagValue = tagValue
+    public override init(){
+            super.init()
     }
 
     enum DataTagCodingKeys: String, CodingKey {
+        case operation
         case tagKey
         case tagValue
-        case operation
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataTagCodingKeys.self)
-        self.tagKey = try decoderContainer.decode(String.self, forKey: .tagKey)
-        self.tagValue = try decoderContainer.decode(String.self, forKey: .tagValue)
         if decoderContainer.contains(.operation)
         {
             self.operation = try decoderContainer.decode(Int64?.self, forKey: .operation)
+        }
+        if decoderContainer.contains(.tagKey)
+        {
+            self.tagKey = try decoderContainer.decode(String?.self, forKey: .tagKey)
+        }
+        if decoderContainer.contains(.tagValue)
+        {
+            self.tagValue = try decoderContainer.decode(String?.self, forKey: .tagValue)
         }
     }
 }
 public extension DataTag{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataTagCodingKeys.self)
+         try encoderContainer.encode(operation, forKey: .operation)
          try encoderContainer.encode(tagKey, forKey: .tagKey)
          try encoderContainer.encode(tagValue, forKey: .tagValue)
-         try encoderContainer.encode(operation, forKey: .operation)
     }
 }

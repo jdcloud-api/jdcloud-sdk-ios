@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   非网站转发配置相关接口
-   非网站转发配置相关接口
+   Anti DDos Pro non-Web Rule Configuration APIs
+   Anti DDos Pro non-Web Rule Configuration APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,8 +25,43 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 更新某条非网站类规则
+/// 更新非网站类规则
 @objc(ModifyForwardRuleResult)
 public class ModifyForwardRuleResult:NSObject,JdCloudResult
 {
+    /// 0: 更新规则失败, 1: 更新规则成功
+    var code:Int?
+
+    /// 更新规则失败时给出具体原因
+    var message:String?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum ModifyForwardRuleResultCodingKeys: String, CodingKey {
+        case code
+        case message
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: ModifyForwardRuleResultCodingKeys.self)
+        if decoderContainer.contains(.code)
+        {
+            self.code = try decoderContainer.decode(Int?.self, forKey: .code)
+        }
+        if decoderContainer.contains(.message)
+        {
+            self.message = try decoderContainer.decode(String?.self, forKey: .message)
+        }
+    }
+}
+public extension ModifyForwardRuleResult{
+    public func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: ModifyForwardRuleResultCodingKeys.self)
+        try encoderContainer.encode(code, forKey: .code)
+        try encoderContainer.encode(message, forKey: .message)
+    }
 }

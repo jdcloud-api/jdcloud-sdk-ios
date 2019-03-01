@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   监控项相关接口
+   Monitoring Items APIs
    监控项相关接口，提供可用监控项列表查询和监控数据查询等功能
 
    OpenAPI spec version: v1
@@ -33,7 +33,7 @@ public class LastDownsampleRequest:JdCloudRequest
     /// 资源的类型，取值vm, lb, ip, database 等
     var serviceCode:String
 
-    /// 资源的uuid，支持多个resourceId批量查询，每个id用竖线&#39;|&#39;分隔。 如：id1|id2|id3|id4
+    /// 资源的uuid，支持多个resourceId批量查询，每个id用竖线分隔。 如：id1|id2|id3|id4
     var resourceId:String
 
     /// 自定义标签

@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防实例相关接口
-   Ip高防实例相关接口，以及转发配置中实例级别的接口等
+   Anti DDos Pro Instance APIs
+   Anti DDos Pro Instance APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,31 +26,32 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置实例ip白名单
+///  设置实例 IP 白名单
 @objc(ModifyInstanceIpWhiteListRequest)
 public class ModifyInstanceIpWhiteListRequest:JdCloudRequest
 {
-    /// ip白名单列表
-    var ipWhiteList:[String?]?
+    /// 设置 IP 白名单请求参数
+    var ipBwListSpec:IpBwListSpec
 
-    /// 实例id
-    var instanceId:String
+    /// 实例 ID
+    var instanceId:Int64
 
 
-    public init(regionId: String,instanceId:String){
+    public init(regionId: String,ipBwListSpec:IpBwListSpec,instanceId:Int64){
+        self.ipBwListSpec = ipBwListSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)
     }
 
 
     enum ModifyInstanceIpWhiteListRequestRequestCodingKeys: String, CodingKey {
-        case ipWhiteList
+        case ipBwListSpec
         case instanceId
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyInstanceIpWhiteListRequestRequestCodingKeys.self)
-        try encoderContainer.encode(ipWhiteList, forKey: .ipWhiteList)
+        try encoderContainer.encode(ipBwListSpec, forKey: .ipBwListSpec)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
 
     }

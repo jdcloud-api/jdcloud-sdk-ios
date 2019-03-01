@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防攻击记录相关接口
-   Ip高防攻击记录相关接口
+   Anti DDoS Pro Attack Log APIs
+   Anti DDoS Pro Attack Log APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,32 +25,32 @@
 import Foundation
 import JDCloudSDKCore
 
-@objc(DescribeCcAttackLogsResponse)
-public class DescribeCcAttackLogsResponse:NSObject,Codable
+@objc(DescribeCCAttackLogsResponse)
+public class DescribeCCAttackLogsResponse:NSObject,Codable
 {
     var requestId:String?;
 
     var error:ServiceError?;
 
-    var result:DescribeCcAttackLogsResult?;
+    var result:DescribeCCAttackLogsResult?;
 
-    enum DescribeCcAttackLogsResponseCodingKeys: String, CodingKey {
+    enum DescribeCCAttackLogsResponseCodingKeys: String, CodingKey {
         case requestId
         case error
         case result
     }
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: DescribeCcAttackLogsResponseCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: DescribeCCAttackLogsResponseCodingKeys.self)
         self.requestId = try decoderContainer.decodeIfPresent(String?.self, forKey: .requestId) ?? nil
         self.error = try decoderContainer.decodeIfPresent(ServiceError?.self, forKey: .error) ?? nil
-        self.result = try decoderContainer.decodeIfPresent(DescribeCcAttackLogsResult?.self, forKey: .result) ?? nil
+        self.result = try decoderContainer.decodeIfPresent(DescribeCCAttackLogsResult?.self, forKey: .result) ?? nil
     }
 }
 
-public extension DescribeCcAttackLogsResponse{
+public extension DescribeCCAttackLogsResponse{
         public func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DescribeCcAttackLogsResponseCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DescribeCCAttackLogsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)
         try encoderContainer.encode(result, forKey: .result)

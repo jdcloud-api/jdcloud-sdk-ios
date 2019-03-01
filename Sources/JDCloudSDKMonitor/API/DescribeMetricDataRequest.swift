@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   监控项相关接口
+   Monitoring Items APIs
    监控项相关接口，提供可用监控项列表查询和监控数据查询等功能
 
    OpenAPI spec version: v1
@@ -30,10 +30,10 @@ import JDCloudSDKCore
 @objc(DescribeMetricDataRequest)
 public class DescribeMetricDataRequest:JdCloudRequest
 {
-    /// 聚合方式，默认等于downSampleType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;zimsum#available-aggregators
+    /// 聚合方式，默认等于downSampleType或avg，可选值参考:sum、avg、last、min、max
     var aggrType:String?
 
-    /// 采样方式，默认等于aggrType或avg，可选值参考http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html?highlight&#x3D;avg#available-aggregators
+    /// 采样方式，默认等于aggrType或avg，可选值参考：sum、avg、last、min、max
     var downSampleType:String?
 
     /// 查询时间范围的开始时间， UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ

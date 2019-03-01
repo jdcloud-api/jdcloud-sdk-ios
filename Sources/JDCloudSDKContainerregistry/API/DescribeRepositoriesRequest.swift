@@ -36,6 +36,9 @@ public class DescribeRepositoriesRequest:JdCloudRequest
       /// 
     var filters:[Filter?]?
 
+    /// 注册表名
+    var registryName:String?
+
     /// 页码；默认为1
     var pageNumber:Int?
 
@@ -47,6 +50,7 @@ public class DescribeRepositoriesRequest:JdCloudRequest
 
     enum DescribeRepositoriesRequestRequestCodingKeys: String, CodingKey {
         case filters
+        case registryName
         case pageNumber
         case pageSize
     }
@@ -54,6 +58,7 @@ public class DescribeRepositoriesRequest:JdCloudRequest
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRepositoriesRequestRequestCodingKeys.self)
         try encoderContainer.encode(filters, forKey: .filters)
+        try encoderContainer.encode(registryName, forKey: .registryName)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
 

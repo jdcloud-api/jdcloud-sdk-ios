@@ -27,12 +27,17 @@ import Foundation
 ///  instance
 @objc(Instance)
 public class Instance:NSObject,Codable{
-    /// 实例id
-    var instanceId:Int64?
+    /// 实例 Id
+    var id:Int64?
     /// 实例名称
     var name:String?
-    /// 线路，UNICOM、TELECOM
-    var carrier:String?
+    /// 链路类型, 1: 电信, 2: 电信、联通, 3: 电信、联通和移动
+    var carrier:Int?
+    /// 可防护 ip 类型, 目前仅电信线路支持 IPV6 线路:
+      /// - 0: IPV4,
+      /// - 1: IPV4/IPV6
+      /// 
+    var ipType:Int?
     /// 触发弹性带宽的次数
     var elasticTriggerCount:Int?
     /// 超峰次数
@@ -54,9 +59,9 @@ public class Instance:NSObject,Codable{
     /// SAFE|CLEANING|BLOCKING
     var securityStatus:String?
     /// 实例的创建的时间
-    var createTime:Int64?
+    var createTime:String?
     /// 实例的过期时间
-    var expireTime:Int64?
+    var expireTime:String?
     /// 资源id，升级和续费时使用
     var resourceId:String?
     /// cc防护模式，0正常、1紧急、2宽松、3自定义
@@ -75,8 +80,6 @@ public class Instance:NSObject,Codable{
     var ipWhiteList:[String?]?
     /// ip白名单状态，0关闭，1开启
     var ipWhiteStatus:Int?
-    /// 用户pin
-    var pin:String?
     /// url白名单列表
     var urlWhitelist:[String?]?
     /// url白名单状态，0关闭，1开启
@@ -97,9 +100,10 @@ public class Instance:NSObject,Codable{
     }
 
     enum InstanceCodingKeys: String, CodingKey {
-        case instanceId
+        case id
         case name
         case carrier
+        case ipType
         case elasticTriggerCount
         case abovePeakCount
         case inBitslimit
@@ -121,7 +125,6 @@ public class Instance:NSObject,Codable{
         case ipBlackStatus
         case ipWhiteList
         case ipWhiteStatus
-        case pin
         case urlWhitelist
         case urlWhitelistStatus
         case hostQps
@@ -133,9 +136,9 @@ public class Instance:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: InstanceCodingKeys.self)
-        if decoderContainer.contains(.instanceId)
+        if decoderContainer.contains(.id)
         {
-            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
         }
         if decoderContainer.contains(.name)
         {
@@ -143,7 +146,11 @@ public class Instance:NSObject,Codable{
         }
         if decoderContainer.contains(.carrier)
         {
-            self.carrier = try decoderContainer.decode(String?.self, forKey: .carrier)
+            self.carrier = try decoderContainer.decode(Int?.self, forKey: .carrier)
+        }
+        if decoderContainer.contains(.ipType)
+        {
+            self.ipType = try decoderContainer.decode(Int?.self, forKey: .ipType)
         }
         if decoderContainer.contains(.elasticTriggerCount)
         {
@@ -187,11 +194,11 @@ public class Instance:NSObject,Codable{
         }
         if decoderContainer.contains(.createTime)
         {
-            self.createTime = try decoderContainer.decode(Int64?.self, forKey: .createTime)
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
         }
         if decoderContainer.contains(.expireTime)
         {
-            self.expireTime = try decoderContainer.decode(Int64?.self, forKey: .expireTime)
+            self.expireTime = try decoderContainer.decode(String?.self, forKey: .expireTime)
         }
         if decoderContainer.contains(.resourceId)
         {
@@ -229,10 +236,6 @@ public class Instance:NSObject,Codable{
         {
             self.ipWhiteStatus = try decoderContainer.decode(Int?.self, forKey: .ipWhiteStatus)
         }
-        if decoderContainer.contains(.pin)
-        {
-            self.pin = try decoderContainer.decode(String?.self, forKey: .pin)
-        }
         if decoderContainer.contains(.urlWhitelist)
         {
             self.urlWhitelist = try decoderContainer.decode([String?]?.self, forKey: .urlWhitelist)
@@ -262,9 +265,10 @@ public class Instance:NSObject,Codable{
 public extension Instance{
     public func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceCodingKeys.self)
-         try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(carrier, forKey: .carrier)
+         try encoderContainer.encode(ipType, forKey: .ipType)
          try encoderContainer.encode(elasticTriggerCount, forKey: .elasticTriggerCount)
          try encoderContainer.encode(abovePeakCount, forKey: .abovePeakCount)
          try encoderContainer.encode(inBitslimit, forKey: .inBitslimit)
@@ -286,7 +290,6 @@ public extension Instance{
          try encoderContainer.encode(ipBlackStatus, forKey: .ipBlackStatus)
          try encoderContainer.encode(ipWhiteList, forKey: .ipWhiteList)
          try encoderContainer.encode(ipWhiteStatus, forKey: .ipWhiteStatus)
-         try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(urlWhitelist, forKey: .urlWhitelist)
          try encoderContainer.encode(urlWhitelistStatus, forKey: .urlWhitelistStatus)
          try encoderContainer.encode(hostQps, forKey: .hostQps)

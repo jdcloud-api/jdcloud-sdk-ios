@@ -27,7 +27,7 @@ import Foundation
 ///  createAlarmSpec
 @objc(CreateAlarmSpec)
 public class CreateAlarmSpec:NSObject,Codable{
-    /// 幂等性校验参数,最长36位
+    /// 幂等性校验参数,最长36位,若两个请求clientToken相等，则返回第一次创建的规则id，只创建一次规则
     /// Required:true
     var clientToken:String
     /// CreateAlarmSpecValue

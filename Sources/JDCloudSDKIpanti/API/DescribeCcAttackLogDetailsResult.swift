@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防攻击记录相关接口
-   Ip高防攻击记录相关接口
+   Anti DDoS Pro Attack Log APIs
+   Anti DDoS Pro Attack Log APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,15 +25,21 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询cc攻击日志详情
-@objc(DescribeCcAttackLogDetailsResult)
-public class DescribeCcAttackLogDetailsResult:NSObject,JdCloudResult
+/// 查询 CC 攻击日志详情
+@objc(DescribeCCAttackLogDetailsResult)
+public class DescribeCCAttackLogDetailsResult:NSObject,JdCloudResult
 {
     /// DataList
     var dataList:[CCAttackLogDetail?]?
 
-    /// TotalCount
+    /// 当前页数量
+    var currentCount:Int?
+
+    /// 实例总数
     var totalCount:Int?
+
+    /// 总页数
+    var totalPage:Int?
 
 
 
@@ -41,27 +47,39 @@ public class DescribeCcAttackLogDetailsResult:NSObject,JdCloudResult
         super.init()
     }
 
-    enum DescribeCcAttackLogDetailsResultCodingKeys: String, CodingKey {
+    enum DescribeCCAttackLogDetailsResultCodingKeys: String, CodingKey {
         case dataList
+        case currentCount
         case totalCount
+        case totalPage
     }
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: DescribeCcAttackLogDetailsResultCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: DescribeCCAttackLogDetailsResultCodingKeys.self)
         if decoderContainer.contains(.dataList)
         {
             self.dataList = try decoderContainer.decode([CCAttackLogDetail?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
         }
         if decoderContainer.contains(.totalCount)
         {
             self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
-public extension DescribeCcAttackLogDetailsResult{
+public extension DescribeCCAttackLogDetailsResult{
     public func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DescribeCcAttackLogDetailsResultCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DescribeCCAttackLogDetailsResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
+        try encoderContainer.encode(currentCount, forKey: .currentCount)
         try encoderContainer.encode(totalCount, forKey: .totalCount)
+        try encoderContainer.encode(totalPage, forKey: .totalPage)
     }
 }

@@ -27,46 +27,55 @@ import Foundation
 ///  webRule
 @objc(WebRule)
 public class WebRule:NSObject,Codable{
-    /// 规则id
+    /// 规则 Id
     var id:Int64?
-    /// 实例id
+    /// 实例 Id
     var instanceId:Int64?
     /// 子域名
     var domain:String?
-    /// 规则的cname
+    /// 规则的 cname
     var cname:String?
-    /// 协议：HTTP、HTTPS、HTTP_HTTPS
-    var protocolValue:String?
-    /// HTTP协议的端口号，如80,81，多个端口号使用逗号分隔
-    var port:String?
-    /// HTTPS协议的端口号，如443,8443，多个端口号使用逗号分隔
-    var httpsPort:String?
-    /// 回源类型：A或者CNAME
+    /// Protocol
+    var protocolValue:WebRuleProtocol?
+    /// 是否为自定义端口号, 0: 为默认, 1: 为自定义
+    var customPortStatus:Int?
+    /// HTTP 协议的端口号, 如 80,81
+    var port:[Int?]?
+    /// HTTPS 协议的端口号, 如 443,8443
+    var httpsPort:[Int?]?
+    /// 是否开启 http 回源, 0: 为不开启, 1: 为开启, 当勾选 HTTPS 时可以配置该属性
+    var httpOrigin:Int?
+    /// 0: 防御状态, 1: 回源状态
+    var status:Int?
+    /// 回源类型: A 或者 CNAME
     var originType:String?
     /// OriginAddr
     var originAddr:[OriginAddrItem?]?
+    /// 回源域名, originType 为 CNAME 时返回该字段
+    var originDomain:String?
     /// OnlineAddr
     var onlineAddr:[String?]?
-    /// 回源域名,originType为CNAME时返回该字段
-    var originDomain:String?
+    /// 证书状态, 0: 异常, 1: 正常, 2: 证书未上传
+    var httpCertStatus:Int?
+    /// 证书 Id
+    var certId:Int64?
+    /// 证书名称
+    var certName:String?
     /// 证书内容
     var httpsCertContent:String?
     /// 证书私钥
     var httpsRsaKey:String?
-    /// 证书状态：0异常，1正常
-    var httpCertStatus:Int?
-    /// 0防御状态，1回源状态
-    var status:Int?
-    /// 0 CC关闭 1 CC开启
-    var ccStatus:Int?
-    /// 转发规则：wrr-&gt;带权重的轮询，rr-&gt;不带权重的轮询
-    var algorithm:String?
-    /// 是否开启https强制跳转，当protocol为HTTP_HTTPS时可以配置该属性 0为不强跳 1为开启强跳
+    /// 是否开启https强制跳转, 当 protocol 为 HTTP_HTTPS 时可以配置该属性
+      ///   - 0 不强跳
+      ///   - 1 开启强跳
+      /// 
     var forceJump:Int?
-    /// 是否为自定义端口号，0为默认 1为自定义
-    var customPortStatus:Int?
-    /// 是否开启http回源，0为不开启 1为开启，当勾选HTTPS时可以配置该属性
-    var httpOrigin:Int?
+    /// 转发规则,  wrr: 带权重的轮询, rr: 不带权重的轮询
+    var algorithm:String?
+    /// CC 状态, 0: CC 关闭, 1: CC 开启
+    var ccStatus:Int?
+    /// webSocketStatus, 0: 关闭, 1: 开启
+    var webSocketStatus:Int?
 
 
 
@@ -80,21 +89,24 @@ public class WebRule:NSObject,Codable{
         case domain
         case cname
         case protocolValue = "protocol"
+        case customPortStatus
         case port
         case httpsPort
+        case httpOrigin
+        case status
         case originType
         case originAddr
-        case onlineAddr
         case originDomain
+        case onlineAddr
+        case httpCertStatus
+        case certId
+        case certName
         case httpsCertContent
         case httpsRsaKey
-        case httpCertStatus
-        case status
-        case ccStatus
-        case algorithm
         case forceJump
-        case customPortStatus
-        case httpOrigin
+        case algorithm
+        case ccStatus
+        case webSocketStatus
     }
 
 
@@ -118,15 +130,27 @@ public class WebRule:NSObject,Codable{
         }
         if decoderContainer.contains(.protocolValue)
         {
-            self.protocolValue = try decoderContainer.decode(String?.self, forKey: .protocolValue)
+            self.protocolValue = try decoderContainer.decode(WebRuleProtocol?.self, forKey: .protocolValue)
+        }
+        if decoderContainer.contains(.customPortStatus)
+        {
+            self.customPortStatus = try decoderContainer.decode(Int?.self, forKey: .customPortStatus)
         }
         if decoderContainer.contains(.port)
         {
-            self.port = try decoderContainer.decode(String?.self, forKey: .port)
+            self.port = try decoderContainer.decode([Int?]?.self, forKey: .port)
         }
         if decoderContainer.contains(.httpsPort)
         {
-            self.httpsPort = try decoderContainer.decode(String?.self, forKey: .httpsPort)
+            self.httpsPort = try decoderContainer.decode([Int?]?.self, forKey: .httpsPort)
+        }
+        if decoderContainer.contains(.httpOrigin)
+        {
+            self.httpOrigin = try decoderContainer.decode(Int?.self, forKey: .httpOrigin)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
         }
         if decoderContainer.contains(.originType)
         {
@@ -136,13 +160,25 @@ public class WebRule:NSObject,Codable{
         {
             self.originAddr = try decoderContainer.decode([OriginAddrItem?]?.self, forKey: .originAddr)
         }
+        if decoderContainer.contains(.originDomain)
+        {
+            self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
+        }
         if decoderContainer.contains(.onlineAddr)
         {
             self.onlineAddr = try decoderContainer.decode([String?]?.self, forKey: .onlineAddr)
         }
-        if decoderContainer.contains(.originDomain)
+        if decoderContainer.contains(.httpCertStatus)
         {
-            self.originDomain = try decoderContainer.decode(String?.self, forKey: .originDomain)
+            self.httpCertStatus = try decoderContainer.decode(Int?.self, forKey: .httpCertStatus)
+        }
+        if decoderContainer.contains(.certId)
+        {
+            self.certId = try decoderContainer.decode(Int64?.self, forKey: .certId)
+        }
+        if decoderContainer.contains(.certName)
+        {
+            self.certName = try decoderContainer.decode(String?.self, forKey: .certName)
         }
         if decoderContainer.contains(.httpsCertContent)
         {
@@ -152,33 +188,21 @@ public class WebRule:NSObject,Codable{
         {
             self.httpsRsaKey = try decoderContainer.decode(String?.self, forKey: .httpsRsaKey)
         }
-        if decoderContainer.contains(.httpCertStatus)
+        if decoderContainer.contains(.forceJump)
         {
-            self.httpCertStatus = try decoderContainer.decode(Int?.self, forKey: .httpCertStatus)
-        }
-        if decoderContainer.contains(.status)
-        {
-            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
-        }
-        if decoderContainer.contains(.ccStatus)
-        {
-            self.ccStatus = try decoderContainer.decode(Int?.self, forKey: .ccStatus)
+            self.forceJump = try decoderContainer.decode(Int?.self, forKey: .forceJump)
         }
         if decoderContainer.contains(.algorithm)
         {
             self.algorithm = try decoderContainer.decode(String?.self, forKey: .algorithm)
         }
-        if decoderContainer.contains(.forceJump)
+        if decoderContainer.contains(.ccStatus)
         {
-            self.forceJump = try decoderContainer.decode(Int?.self, forKey: .forceJump)
+            self.ccStatus = try decoderContainer.decode(Int?.self, forKey: .ccStatus)
         }
-        if decoderContainer.contains(.customPortStatus)
+        if decoderContainer.contains(.webSocketStatus)
         {
-            self.customPortStatus = try decoderContainer.decode(Int?.self, forKey: .customPortStatus)
-        }
-        if decoderContainer.contains(.httpOrigin)
-        {
-            self.httpOrigin = try decoderContainer.decode(Int?.self, forKey: .httpOrigin)
+            self.webSocketStatus = try decoderContainer.decode(Int?.self, forKey: .webSocketStatus)
         }
     }
 }
@@ -190,20 +214,23 @@ public extension WebRule{
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(cname, forKey: .cname)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)
+         try encoderContainer.encode(customPortStatus, forKey: .customPortStatus)
          try encoderContainer.encode(port, forKey: .port)
          try encoderContainer.encode(httpsPort, forKey: .httpsPort)
+         try encoderContainer.encode(httpOrigin, forKey: .httpOrigin)
+         try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(originType, forKey: .originType)
          try encoderContainer.encode(originAddr, forKey: .originAddr)
-         try encoderContainer.encode(onlineAddr, forKey: .onlineAddr)
          try encoderContainer.encode(originDomain, forKey: .originDomain)
+         try encoderContainer.encode(onlineAddr, forKey: .onlineAddr)
+         try encoderContainer.encode(httpCertStatus, forKey: .httpCertStatus)
+         try encoderContainer.encode(certId, forKey: .certId)
+         try encoderContainer.encode(certName, forKey: .certName)
          try encoderContainer.encode(httpsCertContent, forKey: .httpsCertContent)
          try encoderContainer.encode(httpsRsaKey, forKey: .httpsRsaKey)
-         try encoderContainer.encode(httpCertStatus, forKey: .httpCertStatus)
-         try encoderContainer.encode(status, forKey: .status)
-         try encoderContainer.encode(ccStatus, forKey: .ccStatus)
-         try encoderContainer.encode(algorithm, forKey: .algorithm)
          try encoderContainer.encode(forceJump, forKey: .forceJump)
-         try encoderContainer.encode(customPortStatus, forKey: .customPortStatus)
-         try encoderContainer.encode(httpOrigin, forKey: .httpOrigin)
+         try encoderContainer.encode(algorithm, forKey: .algorithm)
+         try encoderContainer.encode(ccStatus, forKey: .ccStatus)
+         try encoderContainer.encode(webSocketStatus, forKey: .webSocketStatus)
     }
 }

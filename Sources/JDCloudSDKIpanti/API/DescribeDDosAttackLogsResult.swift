@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Ip高防攻击记录相关接口
-   Ip高防攻击记录相关接口
+   Anti DDoS Pro Attack Log APIs
+   Anti DDoS Pro Attack Log APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,15 +25,21 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询DDos攻击日志
-@objc(DescribeDDosAttackLogsResult)
-public class DescribeDDosAttackLogsResult:NSObject,JdCloudResult
+/// 查询 DDos 攻击日志
+@objc(DescribeDDoSAttackLogsResult)
+public class DescribeDDoSAttackLogsResult:NSObject,JdCloudResult
 {
     /// DataList
     var dataList:[DDosAttackLog?]?
 
-    /// TotalCount
+    /// 当前页数量
+    var currentCount:Int?
+
+    /// 实例总数
     var totalCount:Int?
+
+    /// 总页数
+    var totalPage:Int?
 
 
 
@@ -41,27 +47,39 @@ public class DescribeDDosAttackLogsResult:NSObject,JdCloudResult
         super.init()
     }
 
-    enum DescribeDDosAttackLogsResultCodingKeys: String, CodingKey {
+    enum DescribeDDoSAttackLogsResultCodingKeys: String, CodingKey {
         case dataList
+        case currentCount
         case totalCount
+        case totalPage
     }
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: DescribeDDosAttackLogsResultCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: DescribeDDoSAttackLogsResultCodingKeys.self)
         if decoderContainer.contains(.dataList)
         {
             self.dataList = try decoderContainer.decode([DDosAttackLog?]?.self, forKey: .dataList)
+        }
+        if decoderContainer.contains(.currentCount)
+        {
+            self.currentCount = try decoderContainer.decode(Int?.self, forKey: .currentCount)
         }
         if decoderContainer.contains(.totalCount)
         {
             self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
+        if decoderContainer.contains(.totalPage)
+        {
+            self.totalPage = try decoderContainer.decode(Int?.self, forKey: .totalPage)
+        }
     }
 }
-public extension DescribeDDosAttackLogsResult{
+public extension DescribeDDoSAttackLogsResult{
     public func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DescribeDDosAttackLogsResultCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DescribeDDoSAttackLogsResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
+        try encoderContainer.encode(currentCount, forKey: .currentCount)
         try encoderContainer.encode(totalCount, forKey: .totalCount)
+        try encoderContainer.encode(totalPage, forKey: .totalPage)
     }
 }

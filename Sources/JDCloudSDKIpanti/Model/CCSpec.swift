@@ -30,15 +30,15 @@ public class CCSpec:NSObject,Codable{
     /// cc防护模式：0正常 1宽松 2紧急 3自定义
     var ccProtectMode:Int?
     /// cc阈值大小
-    var ccThreshold:Int?
+    var ccThreshold:Int64?
     /// ccProtectMode为自定义模式时，指定每个Host的防护阈值
-    var hostQps:Int?
+    var hostQps:Int64?
     /// ccProtectMode为自定义模式时，指定每个Host+URI的防护阈值
-    var hostUrlQps:Int?
+    var hostUrlQps:Int64?
     /// ccProtectMode为自定义模式时，指定每个源IP对Host的防护阈值
-    var ipHostQps:Int?
+    var ipHostQps:Int64?
     /// ccProtectMode为自定义模式时，指定每个源IP对Host+URI的防护阈值
-    var ipHostUrlQps:Int?
+    var ipHostUrlQps:Int64?
 
 
 
@@ -64,23 +64,23 @@ public class CCSpec:NSObject,Codable{
         }
         if decoderContainer.contains(.ccThreshold)
         {
-            self.ccThreshold = try decoderContainer.decode(Int?.self, forKey: .ccThreshold)
+            self.ccThreshold = try decoderContainer.decode(Int64?.self, forKey: .ccThreshold)
         }
         if decoderContainer.contains(.hostQps)
         {
-            self.hostQps = try decoderContainer.decode(Int?.self, forKey: .hostQps)
+            self.hostQps = try decoderContainer.decode(Int64?.self, forKey: .hostQps)
         }
         if decoderContainer.contains(.hostUrlQps)
         {
-            self.hostUrlQps = try decoderContainer.decode(Int?.self, forKey: .hostUrlQps)
+            self.hostUrlQps = try decoderContainer.decode(Int64?.self, forKey: .hostUrlQps)
         }
         if decoderContainer.contains(.ipHostQps)
         {
-            self.ipHostQps = try decoderContainer.decode(Int?.self, forKey: .ipHostQps)
+            self.ipHostQps = try decoderContainer.decode(Int64?.self, forKey: .ipHostQps)
         }
         if decoderContainer.contains(.ipHostUrlQps)
         {
-            self.ipHostUrlQps = try decoderContainer.decode(Int?.self, forKey: .ipHostUrlQps)
+            self.ipHostUrlQps = try decoderContainer.decode(Int64?.self, forKey: .ipHostUrlQps)
         }
     }
 }
