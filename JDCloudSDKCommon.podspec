@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
  
   s.name         = "JDCloudSDKCommon"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "JD Cloud Open API Swift SDK Common"
  
   s.description  = <<-DESC
