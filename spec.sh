@@ -115,5 +115,5 @@ pod trunk push JDCloudSDKElite.podspec --allow-warnings
 pod spec lint JDCloudSDKJdro.podspec --allow-warnings
 pod trunk push JDCloudSDKJdro.podspec --allow-warnings 
 
-pod spec lint JDCloudSDKPartnet.podspec --allow-warnings
+pod spec lint JDCloudSDKPartner.podspec --allow-warnings
 pod trunk push JDCloudSDKPartner.podspec --allow-warnings 
