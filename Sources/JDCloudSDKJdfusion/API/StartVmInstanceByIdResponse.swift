@@ -49,7 +49,7 @@ public class StartVmInstanceByIdResponse:NSObject,Codable
 }
 
 public extension StartVmInstanceByIdResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StartVmInstanceByIdResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

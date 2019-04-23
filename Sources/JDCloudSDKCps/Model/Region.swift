@@ -64,7 +64,7 @@ public class Region:NSObject,Codable{
     }
 }
 public extension Region{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegionCodingKeys.self)
          try encoderContainer.encode(regionValue, forKey: .regionValue)
          try encoderContainer.encode(regionName, forKey: .regionName)

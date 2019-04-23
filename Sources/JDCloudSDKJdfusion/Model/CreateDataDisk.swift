@@ -124,7 +124,7 @@ public class CreateDataDisk:NSObject,Codable{
     }
 }
 public extension CreateDataDisk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateDataDiskCodingKeys.self)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
          try encoderContainer.encode(id, forKey: .id)

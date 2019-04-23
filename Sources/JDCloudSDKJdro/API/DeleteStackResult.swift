@@ -51,7 +51,7 @@ public class DeleteStackResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteStackResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteStackResultCodingKeys.self)
         try encoderContainer.encode(details, forKey: .details)
     }

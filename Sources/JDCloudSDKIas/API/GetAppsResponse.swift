@@ -49,7 +49,7 @@ public class GetAppsResponse:NSObject,Codable
 }
 
 public extension GetAppsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetAppsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

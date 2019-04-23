@@ -51,7 +51,7 @@ public class DescribeIpResourceProtectInfoResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeIpResourceProtectInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeIpResourceProtectInfoResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
     }

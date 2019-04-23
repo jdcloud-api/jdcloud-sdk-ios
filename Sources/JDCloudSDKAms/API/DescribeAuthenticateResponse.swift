@@ -49,7 +49,7 @@ public class DescribeAuthenticateResponse:NSObject,Codable
 }
 
 public extension DescribeAuthenticateResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAuthenticateResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

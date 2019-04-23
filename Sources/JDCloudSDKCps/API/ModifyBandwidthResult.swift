@@ -54,7 +54,7 @@ public class ModifyBandwidthResult:NSObject,JdCloudResult
     }
 }
 public extension ModifyBandwidthResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyBandwidthResultCodingKeys.self)
         try encoderContainer.encode(success, forKey: .success)
     }

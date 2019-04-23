@@ -54,7 +54,7 @@ public class VerificationCodeInfo:NSObject,Codable{
     }
 }
 public extension VerificationCodeInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VerificationCodeInfoCodingKeys.self)
          try encoderContainer.encode(action, forKey: .action)
          try encoderContainer.encode(type, forKey: .type)

@@ -103,7 +103,7 @@ public class TaskInfo:NSObject,Codable{
     }
 }
 public extension TaskInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TaskInfoCodingKeys.self)
          try encoderContainer.encode(beginTime, forKey: .beginTime)
          try encoderContainer.encode(endTime, forKey: .endTime)

@@ -49,7 +49,7 @@ public class DeleteAlarmsResponse:NSObject,Codable
 }
 
 public extension DeleteAlarmsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteAlarmsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

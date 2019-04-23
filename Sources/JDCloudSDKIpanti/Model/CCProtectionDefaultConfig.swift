@@ -78,7 +78,7 @@ public class CCProtectionDefaultConfig:NSObject,Codable{
     }
 }
 public extension CCProtectionDefaultConfig{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCProtectionDefaultConfigCodingKeys.self)
          try encoderContainer.encode(ccThreshold, forKey: .ccThreshold)
          try encoderContainer.encode(hostQps, forKey: .hostQps)

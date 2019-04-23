@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   用户管理接口
-   用户管理接口
+   SubUser Management
+   SubUser Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,11 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  创建子账号
-public class CreateSubuserExecutor:JDCloudExecutor {
+///  创建子用户
+public class CreateSubUserExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/regions/{regionId}/subUser")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/subUser")
     }
     
 }

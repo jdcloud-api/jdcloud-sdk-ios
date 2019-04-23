@@ -64,7 +64,7 @@ public class Template:NSObject,Codable{
     }
 }
 public extension Template{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TemplateCodingKeys.self)
          try encoderContainer.encode(templateType, forKey: .templateType)
          try encoderContainer.encode(flag, forKey: .flag)

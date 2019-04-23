@@ -49,7 +49,7 @@ public class CreateNetworkSecurityGroupResponse:NSObject,Codable
 }
 
 public extension CreateNetworkSecurityGroupResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateNetworkSecurityGroupResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

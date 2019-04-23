@@ -51,7 +51,7 @@ public class BackupDownloadURLResult:NSObject,JdCloudResult
     }
 }
 public extension BackupDownloadURLResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackupDownloadURLResultCodingKeys.self)
         try encoderContainer.encode(backupDownloadURL, forKey: .backupDownloadURL)
     }

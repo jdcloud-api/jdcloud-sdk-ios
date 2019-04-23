@@ -163,7 +163,7 @@ public class Disk:NSObject,Codable{
     }
 }
 public extension Disk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DiskCodingKeys.self)
          try encoderContainer.encode(diskId, forKey: .diskId)
          try encoderContainer.encode(az, forKey: .az)

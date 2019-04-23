@@ -75,7 +75,7 @@ public class DescribeInstancesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeInstancesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstancesResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

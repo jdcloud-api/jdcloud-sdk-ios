@@ -57,7 +57,7 @@ public class ModifyRouteTableSpec:NSObject,Codable{
     }
 }
 public extension ModifyRouteTableSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyRouteTableSpecCodingKeys.self)
          try encoderContainer.encode(routeTableName, forKey: .routeTableName)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

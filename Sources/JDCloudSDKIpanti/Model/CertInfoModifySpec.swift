@@ -67,7 +67,7 @@ public class CertInfoModifySpec:NSObject,Codable{
     }
 }
 public extension CertInfoModifySpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CertInfoModifySpecCodingKeys.self)
          try encoderContainer.encode(certId, forKey: .certId)
          try encoderContainer.encode(httpsCertContent, forKey: .httpsCertContent)

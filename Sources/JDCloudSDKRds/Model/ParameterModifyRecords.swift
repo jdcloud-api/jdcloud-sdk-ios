@@ -71,7 +71,7 @@ public class ParameterModifyRecords:NSObject,Codable{
     }
 }
 public extension ParameterModifyRecords{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ParameterModifyRecordsCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(preModify, forKey: .preModify)

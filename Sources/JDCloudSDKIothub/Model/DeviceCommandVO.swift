@@ -57,7 +57,7 @@ public class DeviceCommandVO:NSObject,Codable{
     }
 }
 public extension DeviceCommandVO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeviceCommandVOCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(inputData, forKey: .inputData)

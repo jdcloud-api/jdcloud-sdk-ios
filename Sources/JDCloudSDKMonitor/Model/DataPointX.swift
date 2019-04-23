@@ -66,7 +66,7 @@ public class DataPointX:NSObject,Codable{
     }
 }
 public extension DataPointX{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataPointXCodingKeys.self)
          try encoderContainer.encode(metric, forKey: .metric)
          try encoderContainer.encode(tags, forKey: .tags)

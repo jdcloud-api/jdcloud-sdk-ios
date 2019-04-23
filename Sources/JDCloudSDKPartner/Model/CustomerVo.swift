@@ -176,7 +176,7 @@ public class CustomerVo:NSObject,Codable{
     }
 }
 public extension CustomerVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CustomerVoCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(distributorLevel1Name, forKey: .distributorLevel1Name)

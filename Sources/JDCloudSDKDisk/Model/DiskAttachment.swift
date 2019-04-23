@@ -85,7 +85,7 @@ public class DiskAttachment:NSObject,Codable{
     }
 }
 public extension DiskAttachment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DiskAttachmentCodingKeys.self)
          try encoderContainer.encode(attachmentId, forKey: .attachmentId)
          try encoderContainer.encode(diskId, forKey: .diskId)

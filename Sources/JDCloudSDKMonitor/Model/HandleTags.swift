@@ -57,7 +57,7 @@ public class HandleTags:NSObject,Codable{
     }
 }
 public extension HandleTags{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: HandleTagsCodingKeys.self)
          try encoderContainer.encode(handleTagCode, forKey: .handleTagCode)
          try encoderContainer.encode(prefixMetric, forKey: .prefixMetric)

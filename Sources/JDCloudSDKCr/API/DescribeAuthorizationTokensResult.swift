@@ -61,7 +61,7 @@ public class DescribeAuthorizationTokensResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAuthorizationTokensResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAuthorizationTokensResultCodingKeys.self)
         try encoderContainer.encode(authorizationTokens, forKey: .authorizationTokens)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

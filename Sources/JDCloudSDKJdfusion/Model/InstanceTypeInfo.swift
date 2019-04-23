@@ -106,7 +106,7 @@ public class InstanceTypeInfo:NSObject,Codable{
     }
 }
 public extension InstanceTypeInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTypeInfoCodingKeys.self)
          try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(cpu, forKey: .cpu)

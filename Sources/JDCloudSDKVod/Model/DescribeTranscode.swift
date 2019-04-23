@@ -148,7 +148,7 @@ public class DescribeTranscode:NSObject,Codable{
     }
 }
 public extension DescribeTranscode{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeTranscodeCodingKeys.self)
          try encoderContainer.encode(coderateId, forKey: .coderateId)
          try encoderContainer.encode(name, forKey: .name)

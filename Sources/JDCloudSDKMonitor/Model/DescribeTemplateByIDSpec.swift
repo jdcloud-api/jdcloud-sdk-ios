@@ -49,7 +49,7 @@ public class DescribeTemplateByIDSpec:NSObject,Codable{
     }
 }
 public extension DescribeTemplateByIDSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeTemplateByIDSpecCodingKeys.self)
          try encoderContainer.encode(templateType, forKey: .templateType)
     }

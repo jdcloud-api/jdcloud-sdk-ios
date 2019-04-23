@@ -67,7 +67,7 @@ public class GetSecurityTokenInfo:NSObject,Codable{
     }
 }
 public extension GetSecurityTokenInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetSecurityTokenInfoCodingKeys.self)
          try encoderContainer.encode(type, forKey: .type)
          try encoderContainer.encode(code, forKey: .code)

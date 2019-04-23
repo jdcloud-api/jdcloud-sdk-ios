@@ -113,7 +113,7 @@ public class Subscription:NSObject,Codable{
     }
 }
 public extension Subscription{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SubscriptionCodingKeys.self)
          try encoderContainer.encode(consumerGroupId, forKey: .consumerGroupId)
          try encoderContainer.encode(endPoint, forKey: .endPoint)

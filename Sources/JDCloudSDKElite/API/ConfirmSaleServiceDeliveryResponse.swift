@@ -49,7 +49,7 @@ public class ConfirmSaleServiceDeliveryResponse:NSObject,Codable
 }
 
 public extension ConfirmSaleServiceDeliveryResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConfirmSaleServiceDeliveryResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -49,7 +49,7 @@ public class DescribePermissionResponse:NSObject,Codable
 }
 
 public extension DescribePermissionResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribePermissionResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

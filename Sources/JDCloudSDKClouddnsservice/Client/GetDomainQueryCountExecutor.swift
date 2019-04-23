@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查看域名的解析次数
+///  查看主域名的解析次数
 public class GetDomainQueryCountExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

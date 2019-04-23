@@ -45,6 +45,6 @@ public class GetUserCloudNotFoundResp:NSObject,Codable{
     }
 }
 public extension GetUserCloudNotFoundResp{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
     }
 }

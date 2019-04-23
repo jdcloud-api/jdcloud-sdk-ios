@@ -176,7 +176,7 @@ public class Function:NSObject,Codable{
     }
 }
 public extension Function{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FunctionCodingKeys.self)
          try encoderContainer.encode(functionId, forKey: .functionId)
          try encoderContainer.encode(name, forKey: .name)

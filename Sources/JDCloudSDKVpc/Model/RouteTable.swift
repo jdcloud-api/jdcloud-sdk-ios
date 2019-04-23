@@ -99,7 +99,7 @@ public class RouteTable:NSObject,Codable{
     }
 }
 public extension RouteTable{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RouteTableCodingKeys.self)
          try encoderContainer.encode(routeTableId, forKey: .routeTableId)
          try encoderContainer.encode(routeTableName, forKey: .routeTableName)

@@ -53,7 +53,7 @@ public class CreateStackSpec:NSObject,Codable{
     }
 }
 public extension CreateStackSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateStackSpecCodingKeys.self)
          try encoderContainer.encode(environment, forKey: .environment)
     }

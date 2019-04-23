@@ -83,7 +83,7 @@ public class UpdateAlarmSpec:NSObject,Codable{
     }
 }
 public extension UpdateAlarmSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateAlarmSpecCodingKeys.self)
          try encoderContainer.encode(contacts, forKey: .contacts)
          try encoderContainer.encode(rule, forKey: .rule)

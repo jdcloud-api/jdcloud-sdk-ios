@@ -99,7 +99,7 @@ public class StreamInputData:NSObject,Codable{
     }
 }
 public extension StreamInputData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StreamInputDataCodingKeys.self)
          try encoderContainer.encode(downTime, forKey: .downTime)
          try encoderContainer.encode(mediaType, forKey: .mediaType)

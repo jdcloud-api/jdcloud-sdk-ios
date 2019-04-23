@@ -85,7 +85,7 @@ public class SetSourceBody:NSObject,Codable{
     }
 }
 public extension SetSourceBody{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetSourceBodyCodingKeys.self)
          try encoderContainer.encode(sourceType, forKey: .sourceType)
          try encoderContainer.encode(backSourceType, forKey: .backSourceType)

@@ -83,7 +83,7 @@ public class DwInstance:NSObject,Codable{
     }
 }
 public extension DwInstance{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DwInstanceCodingKeys.self)
          try encoderContainer.encode(instanceName, forKey: .instanceName)
          try encoderContainer.encode(comments, forKey: .comments)

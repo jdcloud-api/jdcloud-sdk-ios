@@ -51,7 +51,7 @@ public class DeleteAppResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteAppResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteAppResultCodingKeys.self)
         try encoderContainer.encode(count, forKey: .count)
     }

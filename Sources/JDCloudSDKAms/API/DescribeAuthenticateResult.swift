@@ -83,7 +83,7 @@ public class DescribeAuthenticateResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAuthenticateResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAuthenticateResultCodingKeys.self)
         try encoderContainer.encode(pId, forKey: .pId)
         try encoderContainer.encode(ver, forKey: .ver)

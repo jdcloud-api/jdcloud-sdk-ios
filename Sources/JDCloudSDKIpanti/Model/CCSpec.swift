@@ -85,7 +85,7 @@ public class CCSpec:NSObject,Codable{
     }
 }
 public extension CCSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCSpecCodingKeys.self)
          try encoderContainer.encode(ccProtectMode, forKey: .ccProtectMode)
          try encoderContainer.encode(ccThreshold, forKey: .ccThreshold)

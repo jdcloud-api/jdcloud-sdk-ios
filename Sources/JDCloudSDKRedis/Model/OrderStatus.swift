@@ -78,7 +78,7 @@ public class OrderStatus:NSObject,Codable{
     }
 }
 public extension OrderStatus{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderStatusCodingKeys.self)
          try encoderContainer.encode(total, forKey: .total)
          try encoderContainer.encode(success, forKey: .success)

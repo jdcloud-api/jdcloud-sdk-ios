@@ -162,7 +162,7 @@ public class ReturnItemDTO:NSObject,Codable{
     }
 }
 public extension ReturnItemDTO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnItemDTOCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(itemId, forKey: .itemId)

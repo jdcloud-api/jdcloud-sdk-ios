@@ -134,7 +134,7 @@ public class ResourceOut:NSObject,Codable{
     }
 }
 public extension ResourceOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceOutCodingKeys.self)
          try encoderContainer.encode(action, forKey: .action)
          try encoderContainer.encode(createTime, forKey: .createTime)

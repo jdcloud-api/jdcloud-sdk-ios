@@ -51,7 +51,7 @@ public class AssociateVpcEipByIdResult:NSObject,JdCloudResult
     }
 }
 public extension AssociateVpcEipByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AssociateVpcEipByIdResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

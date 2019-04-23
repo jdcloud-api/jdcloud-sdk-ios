@@ -78,7 +78,7 @@ public class DatasourceInfo:NSObject,Codable{
     }
 }
 public extension DatasourceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DatasourceInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(address, forKey: .address)

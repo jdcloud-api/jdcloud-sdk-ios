@@ -49,7 +49,7 @@ public class EnableSecretResponse:NSObject,Codable
 }
 
 public extension EnableSecretResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableSecretResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

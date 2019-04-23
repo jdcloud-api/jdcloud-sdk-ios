@@ -49,7 +49,7 @@ public class DescribeElasticIpResponse:NSObject,Codable
 }
 
 public extension DescribeElasticIpResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeElasticIpResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

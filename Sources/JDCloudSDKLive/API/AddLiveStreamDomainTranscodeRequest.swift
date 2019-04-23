@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加域名转码配置
+///  添加域名级别转码配置
+      ///       /// - 添加域名级别的转码模板配置
+      ///       /// 
 @objc(AddLiveStreamDomainTranscodeRequest)
 public class AddLiveStreamDomainTranscodeRequest:JdCloudRequest
 {
@@ -34,6 +36,13 @@ public class AddLiveStreamDomainTranscodeRequest:JdCloudRequest
     var publishDomain:String
 
     /// 转码模版
+      /// - 取值范围: 系统标准转码模板, 用户自定义转码模板
+      /// - 系统标准转码模板
+      ///   ld (h.264/640*360/15f)
+      ///   sd (h.264/854*480/24f)
+      ///   hd (h.264/1280*720/25f)
+      ///   shd (h.264/1920*1080/30f)
+      /// 
     var template:String
 
 

@@ -204,7 +204,7 @@ public class OrderPriceDetail:NSObject,Codable{
     }
 }
 public extension OrderPriceDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderPriceDetailCodingKeys.self)
          try encoderContainer.encode(price, forKey: .price)
          try encoderContainer.encode(priceScale4, forKey: .priceScale4)

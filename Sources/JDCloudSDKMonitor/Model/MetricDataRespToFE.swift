@@ -50,7 +50,7 @@ public class MetricDataRespToFE:NSObject,Codable{
     }
 }
 public extension MetricDataRespToFE{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MetricDataRespToFECodingKeys.self)
          try encoderContainer.encode(metricDatas, forKey: .metricDatas)
     }

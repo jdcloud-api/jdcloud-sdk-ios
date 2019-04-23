@@ -49,7 +49,7 @@ public class DescribeIndexPerformanceResponse:NSObject,Codable
 }
 
 public extension DescribeIndexPerformanceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeIndexPerformanceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

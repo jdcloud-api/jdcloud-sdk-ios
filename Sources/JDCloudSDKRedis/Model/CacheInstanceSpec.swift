@@ -86,7 +86,7 @@ public class CacheInstanceSpec:NSObject,Codable{
     }
 }
 public extension CacheInstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CacheInstanceSpecCodingKeys.self)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(subnetId, forKey: .subnetId)

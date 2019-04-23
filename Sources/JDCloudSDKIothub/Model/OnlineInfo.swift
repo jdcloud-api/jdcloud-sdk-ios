@@ -32,7 +32,7 @@ public class OnlineInfo:NSObject,Codable{
     /// Online
     var online:Int?
     /// LastConnectTime
-    var lastConnectTime:Int?
+    var lastConnectTime:String?
 
 
 
@@ -59,12 +59,12 @@ public class OnlineInfo:NSObject,Codable{
         }
         if decoderContainer.contains(.lastConnectTime)
         {
-            self.lastConnectTime = try decoderContainer.decode(Int?.self, forKey: .lastConnectTime)
+            self.lastConnectTime = try decoderContainer.decode(String?.self, forKey: .lastConnectTime)
         }
     }
 }
 public extension OnlineInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OnlineInfoCodingKeys.self)
          try encoderContainer.encode(deviceId, forKey: .deviceId)
          try encoderContainer.encode(online, forKey: .online)

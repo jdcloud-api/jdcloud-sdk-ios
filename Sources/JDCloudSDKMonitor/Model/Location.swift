@@ -57,7 +57,7 @@ public class Location:NSObject,Codable{
     }
 }
 public extension Location{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LocationCodingKeys.self)
          try encoderContainer.encode(sloc, forKey: .sloc)
          try encoderContainer.encode(slocName, forKey: .slocName)

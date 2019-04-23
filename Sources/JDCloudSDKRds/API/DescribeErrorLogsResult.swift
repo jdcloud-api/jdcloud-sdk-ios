@@ -51,7 +51,7 @@ public class DescribeErrorLogsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeErrorLogsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeErrorLogsResultCodingKeys.self)
         try encoderContainer.encode(errorLogs, forKey: .errorLogs)
     }

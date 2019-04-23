@@ -37,6 +37,8 @@ public class VmInfoDetail:NSObject,Codable{
     var name:String?
     /// 云主机
     var hostName:String?
+    /// 镜像ID
+    var imageId:String?
     /// ImageType
     var imageType:ImageType?
     /// InstanceType
@@ -55,6 +57,8 @@ public class VmInfoDetail:NSObject,Codable{
     var elasticIpAddress:String?
     /// 私有ip地址
     var privateIpAddress:String?
+    /// 安全组ID
+    var securityGroupIds:[String?]?
     /// 云主机状态
     var status:String?
     /// 创建时间
@@ -82,6 +86,7 @@ public class VmInfoDetail:NSObject,Codable{
         case az
         case name
         case hostName
+        case imageId
         case imageType
         case instanceType
         case descriptionValue = "description"
@@ -91,6 +96,7 @@ public class VmInfoDetail:NSObject,Codable{
         case keyNames
         case elasticIpAddress
         case privateIpAddress
+        case securityGroupIds
         case status
         case createdTime
         case sysDiskInfo
@@ -122,6 +128,10 @@ public class VmInfoDetail:NSObject,Codable{
         if decoderContainer.contains(.hostName)
         {
             self.hostName = try decoderContainer.decode(String?.self, forKey: .hostName)
+        }
+        if decoderContainer.contains(.imageId)
+        {
+            self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
         }
         if decoderContainer.contains(.imageType)
         {
@@ -159,6 +169,10 @@ public class VmInfoDetail:NSObject,Codable{
         {
             self.privateIpAddress = try decoderContainer.decode(String?.self, forKey: .privateIpAddress)
         }
+        if decoderContainer.contains(.securityGroupIds)
+        {
+            self.securityGroupIds = try decoderContainer.decode([String?]?.self, forKey: .securityGroupIds)
+        }
         if decoderContainer.contains(.status)
         {
             self.status = try decoderContainer.decode(String?.self, forKey: .status)
@@ -190,13 +204,14 @@ public class VmInfoDetail:NSObject,Codable{
     }
 }
 public extension VmInfoDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VmInfoDetailCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(hostName, forKey: .hostName)
+         try encoderContainer.encode(imageId, forKey: .imageId)
          try encoderContainer.encode(imageType, forKey: .imageType)
          try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
@@ -206,6 +221,7 @@ public extension VmInfoDetail{
          try encoderContainer.encode(keyNames, forKey: .keyNames)
          try encoderContainer.encode(elasticIpAddress, forKey: .elasticIpAddress)
          try encoderContainer.encode(privateIpAddress, forKey: .privateIpAddress)
+         try encoderContainer.encode(securityGroupIds, forKey: .securityGroupIds)
          try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
          try encoderContainer.encode(sysDiskInfo, forKey: .sysDiskInfo)

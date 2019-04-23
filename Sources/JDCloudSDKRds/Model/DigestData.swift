@@ -78,7 +78,7 @@ public class DigestData:NSObject,Codable{
     }
 }
 public extension DigestData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DigestDataCodingKeys.self)
          try encoderContainer.encode(pct95, forKey: .pct95)
          try encoderContainer.encode(max, forKey: .max)

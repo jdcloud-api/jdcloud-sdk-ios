@@ -51,7 +51,7 @@ public class RollbackDeploymentsVersionResult:NSObject,JdCloudResult
     }
 }
 public extension RollbackDeploymentsVersionResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RollbackDeploymentsVersionResultCodingKeys.self)
         try encoderContainer.encode(deployment, forKey: .deployment)
     }

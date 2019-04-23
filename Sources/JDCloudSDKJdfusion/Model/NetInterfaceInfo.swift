@@ -53,6 +53,10 @@ public class NetInterfaceInfo:NSObject,Codable{
     var createdTime:String?
     /// 所属云提供商ID
     var cloudID:String?
+    /// 安全组id列表
+    var securityGroupIds:[String?]?
+    /// 内网ip详情列表。
+    var privateIps:[PrivateIp?]?
 
 
 
@@ -74,6 +78,8 @@ public class NetInterfaceInfo:NSObject,Codable{
         case instanceId
         case createdTime
         case cloudID
+        case securityGroupIds
+        case privateIps
     }
 
 
@@ -131,10 +137,18 @@ public class NetInterfaceInfo:NSObject,Codable{
         {
             self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
         }
+        if decoderContainer.contains(.securityGroupIds)
+        {
+            self.securityGroupIds = try decoderContainer.decode([String?]?.self, forKey: .securityGroupIds)
+        }
+        if decoderContainer.contains(.privateIps)
+        {
+            self.privateIps = try decoderContainer.decode([PrivateIp?]?.self, forKey: .privateIps)
+        }
     }
 }
 public extension NetInterfaceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetInterfaceInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)
@@ -149,5 +163,7 @@ public extension NetInterfaceInfo{
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
+         try encoderContainer.encode(securityGroupIds, forKey: .securityGroupIds)
+         try encoderContainer.encode(privateIps, forKey: .privateIps)
     }
 }

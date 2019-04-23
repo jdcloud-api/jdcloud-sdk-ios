@@ -55,7 +55,7 @@ public class ValidateTemplateResult:NSObject,JdCloudResult
     }
 }
 public extension ValidateTemplateResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ValidateTemplateResultCodingKeys.self)
         try encoderContainer.encode(describe, forKey: .describe)
     }

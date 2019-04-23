@@ -211,7 +211,7 @@ public class AppQueryResultItem:NSObject,Codable{
     }
 }
 public extension AppQueryResultItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AppQueryResultItemCodingKeys.self)
          try encoderContainer.encode(clientId, forKey: .clientId)
          try encoderContainer.encode(clientName, forKey: .clientName)

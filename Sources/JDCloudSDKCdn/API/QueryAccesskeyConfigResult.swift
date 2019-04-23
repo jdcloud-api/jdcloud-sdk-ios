@@ -67,7 +67,7 @@ public class QueryAccesskeyConfigResult:NSObject,JdCloudResult
     }
 }
 public extension QueryAccesskeyConfigResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryAccesskeyConfigResultCodingKeys.self)
         try encoderContainer.encode(accesskeyType, forKey: .accesskeyType)
         try encoderContainer.encode(accesskeyKey, forKey: .accesskeyKey)

@@ -48,7 +48,7 @@ public class ModifyInstanceEPBSpec:NSObject,Codable{
     }
 }
 public extension ModifyInstanceEPBSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyInstanceEPBSpecCodingKeys.self)
          try encoderContainer.encode(ep, forKey: .ep)
     }

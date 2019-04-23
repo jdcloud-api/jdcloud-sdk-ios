@@ -51,7 +51,7 @@ public class DescribeInstanceAttributesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeInstanceAttributesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstanceAttributesResultCodingKeys.self)
         try encoderContainer.encode(dbInstanceAttributes, forKey: .dbInstanceAttributes)
     }

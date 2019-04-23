@@ -93,7 +93,7 @@ public class RestoredNewDBInstanceSpec:NSObject,Codable{
     }
 }
 public extension RestoredNewDBInstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RestoredNewDBInstanceSpecCodingKeys.self)
          try encoderContainer.encode(instanceName, forKey: .instanceName)
          try encoderContainer.encode(instanceClass, forKey: .instanceClass)

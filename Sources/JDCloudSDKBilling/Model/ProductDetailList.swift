@@ -57,7 +57,7 @@ public class ProductDetailList:NSObject,Codable{
     }
 }
 public extension ProductDetailList{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProductDetailListCodingKeys.self)
          try encoderContainer.encode(key, forKey: .key)
          try encoderContainer.encode(values, forKey: .values)

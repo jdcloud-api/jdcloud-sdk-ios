@@ -176,7 +176,7 @@ public class ReturnItemResult:NSObject,Codable{
     }
 }
 public extension ReturnItemResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnItemResultCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(itemId, forKey: .itemId)

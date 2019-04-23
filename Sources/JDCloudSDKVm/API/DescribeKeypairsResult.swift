@@ -61,7 +61,7 @@ public class DescribeKeypairsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeKeypairsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeKeypairsResultCodingKeys.self)
         try encoderContainer.encode(keypairs, forKey: .keypairs)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

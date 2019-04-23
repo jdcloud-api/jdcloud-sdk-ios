@@ -59,7 +59,7 @@ public class DescribeInterceptResultResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeInterceptResultResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInterceptResultResultCodingKeys.self)
         try encoderContainer.encode(interceptResult, forKey: .interceptResult)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

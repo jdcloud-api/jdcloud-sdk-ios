@@ -49,7 +49,7 @@ public class CreateDomainGroupResponse:NSObject,Codable
 }
 
 public extension CreateDomainGroupResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateDomainGroupResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

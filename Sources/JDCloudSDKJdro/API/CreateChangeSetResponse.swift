@@ -49,7 +49,7 @@ public class CreateChangeSetResponse:NSObject,Codable
 }
 
 public extension CreateChangeSetResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateChangeSetResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

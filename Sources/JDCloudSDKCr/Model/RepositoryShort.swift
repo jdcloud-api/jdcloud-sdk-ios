@@ -64,7 +64,7 @@ public class RepositoryShort:NSObject,Codable{
     }
 }
 public extension RepositoryShort{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RepositoryShortCodingKeys.self)
          try encoderContainer.encode(createdAt, forKey: .createdAt)
          try encoderContainer.encode(repositoryName, forKey: .repositoryName)

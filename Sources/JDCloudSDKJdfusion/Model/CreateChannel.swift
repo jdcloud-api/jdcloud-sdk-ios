@@ -50,7 +50,7 @@ public class CreateChannel:NSObject,Codable{
     }
 }
 public extension CreateChannel{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateChannelCodingKeys.self)
          try encoderContainer.encode(channel, forKey: .channel)
     }

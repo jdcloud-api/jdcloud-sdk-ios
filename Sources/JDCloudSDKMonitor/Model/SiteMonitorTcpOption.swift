@@ -78,7 +78,7 @@ public class SiteMonitorTcpOption:NSObject,Codable{
     }
 }
 public extension SiteMonitorTcpOption{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SiteMonitorTcpOptionCodingKeys.self)
          try encoderContainer.encode(reqContent, forKey: .reqContent)
          try encoderContainer.encode(reqContentType, forKey: .reqContentType)

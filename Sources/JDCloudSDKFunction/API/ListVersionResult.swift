@@ -51,7 +51,7 @@ public class ListVersionResult:NSObject,JdCloudResult
     }
 }
 public extension ListVersionResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListVersionResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

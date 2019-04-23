@@ -48,7 +48,7 @@ public class Payload:NSObject,Codable{
     }
 }
 public extension Payload{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PayloadCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
     }

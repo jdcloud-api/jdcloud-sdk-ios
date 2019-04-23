@@ -49,7 +49,7 @@ public class GetVpcNetworkInterfacesResponse:NSObject,Codable
 }
 
 public extension GetVpcNetworkInterfacesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcNetworkInterfacesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

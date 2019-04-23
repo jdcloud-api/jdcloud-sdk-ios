@@ -99,7 +99,7 @@ public class MissingIndexResult:NSObject,Codable{
     }
 }
 public extension MissingIndexResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MissingIndexResultCodingKeys.self)
          try encoderContainer.encode(db, forKey: .db)
          try encoderContainer.encode(table, forKey: .table)

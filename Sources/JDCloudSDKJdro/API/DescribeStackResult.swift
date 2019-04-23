@@ -51,7 +51,7 @@ public class DescribeStackResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeStackResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeStackResultCodingKeys.self)
         try encoderContainer.encode(stack, forKey: .stack)
     }

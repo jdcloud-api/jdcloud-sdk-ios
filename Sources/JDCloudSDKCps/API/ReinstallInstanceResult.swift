@@ -53,7 +53,7 @@ public class ReinstallInstanceResult:NSObject,JdCloudResult
     }
 }
 public extension ReinstallInstanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReinstallInstanceResultCodingKeys.self)
         try encoderContainer.encode(success, forKey: .success)
     }

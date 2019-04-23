@@ -49,7 +49,7 @@ public class GetVpcEipsResponse:NSObject,Codable
 }
 
 public extension GetVpcEipsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcEipsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

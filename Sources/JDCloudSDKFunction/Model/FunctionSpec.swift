@@ -99,7 +99,7 @@ public class FunctionSpec:NSObject,Codable{
     }
 }
 public extension FunctionSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FunctionSpecCodingKeys.self)
          try encoderContainer.encode(functionId, forKey: .functionId)
          try encoderContainer.encode(name, forKey: .name)

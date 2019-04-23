@@ -53,7 +53,7 @@ public class DescribeRegistriesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeRegistriesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRegistriesResultCodingKeys.self)
         try encoderContainer.encode(registries, forKey: .registries)
     }

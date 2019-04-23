@@ -64,7 +64,7 @@ public class Event:NSObject,Codable{
     }
 }
 public extension Event{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EventCodingKeys.self)
          try encoderContainer.encode(probeResult, forKey: .probeResult)
          try encoderContainer.encode(probeStatus, forKey: .probeStatus)

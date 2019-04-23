@@ -75,7 +75,7 @@ public class GetActionLogResult:NSObject,JdCloudResult
     }
 }
 public extension GetActionLogResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetActionLogResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

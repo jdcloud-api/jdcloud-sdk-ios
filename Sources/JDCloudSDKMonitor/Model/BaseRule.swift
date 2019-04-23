@@ -124,7 +124,7 @@ public class BaseRule:NSObject,Codable{
     }
 }
 public extension BaseRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BaseRuleCodingKeys.self)
          try encoderContainer.encode(autoScalingPolicyId, forKey: .autoScalingPolicyId)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)

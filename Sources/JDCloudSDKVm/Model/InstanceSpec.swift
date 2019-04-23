@@ -145,7 +145,7 @@ public class InstanceSpec:NSObject,Codable{
     }
 }
 public extension InstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceSpecCodingKeys.self)
          try encoderContainer.encode(agId, forKey: .agId)
          try encoderContainer.encode(instanceTemplateId, forKey: .instanceTemplateId)

@@ -99,7 +99,7 @@ public class EipAddress:NSObject,Codable{
     }
 }
 public extension EipAddress{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EipAddressCodingKeys.self)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
          try encoderContainer.encode(ipAddress, forKey: .ipAddress)

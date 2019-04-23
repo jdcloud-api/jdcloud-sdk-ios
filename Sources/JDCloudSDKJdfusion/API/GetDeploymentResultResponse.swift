@@ -49,7 +49,7 @@ public class GetDeploymentResultResponse:NSObject,Codable
 }
 
 public extension GetDeploymentResultResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDeploymentResultResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -59,7 +59,7 @@ public class DescribeBinlogsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeBinlogsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeBinlogsResultCodingKeys.self)
         try encoderContainer.encode(totalCount, forKey: .totalCount)
         try encoderContainer.encode(binlogs, forKey: .binlogs)

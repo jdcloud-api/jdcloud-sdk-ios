@@ -49,7 +49,7 @@ public class ListSaleServiceResponse:NSObject,Codable
 }
 
 public extension ListSaleServiceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListSaleServiceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

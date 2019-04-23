@@ -240,7 +240,7 @@ public class Container:NSObject,Codable{
     }
 }
 public extension Container{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ContainerCodingKeys.self)
          try encoderContainer.encode(containerId, forKey: .containerId)
          try encoderContainer.encode(status, forKey: .status)

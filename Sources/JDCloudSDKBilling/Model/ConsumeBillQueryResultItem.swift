@@ -225,7 +225,7 @@ public class ConsumeBillQueryResultItem:NSObject,Codable{
     }
 }
 public extension ConsumeBillQueryResultItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConsumeBillQueryResultItemCodingKeys.self)
          try encoderContainer.encode(billId, forKey: .billId)
          try encoderContainer.encode(pin, forKey: .pin)

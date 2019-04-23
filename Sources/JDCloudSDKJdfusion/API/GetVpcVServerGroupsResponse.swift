@@ -49,7 +49,7 @@ public class GetVpcVServerGroupsResponse:NSObject,Codable
 }
 
 public extension GetVpcVServerGroupsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcVServerGroupsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

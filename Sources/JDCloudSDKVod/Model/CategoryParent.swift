@@ -60,7 +60,7 @@ public class CategoryParent:NSObject,Codable{
     }
 }
 public extension CategoryParent{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CategoryParentCodingKeys.self)
          try encoderContainer.encode(categoryId, forKey: .categoryId)
          try encoderContainer.encode(category, forKey: .category)

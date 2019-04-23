@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,10 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 删除域名
+/// 删除直播域名
+      ///       /// - 请慎重操作（建议在进行域名删除前到域名解析服务商处恢复域名A记录），以免导致删除操作后此域名不可访问。
+      ///       ///   deleteLiveDomain调用成功后将删除本条直播域名的全部相关记录，对于仅需要暂停使用该直播域名，推荐stopLiveDomain接口
+      ///       /// 
 @objc(DeleteLiveDomainResult)
 public class DeleteLiveDomainResult:NSObject,JdCloudResult
 {

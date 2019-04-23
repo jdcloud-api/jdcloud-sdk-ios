@@ -49,7 +49,7 @@ public class DescribeStackEventsResponse:NSObject,Codable
 }
 
 public extension DescribeStackEventsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeStackEventsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -28,9 +28,17 @@ import Foundation
 @objc(RecordTime)
 public class RecordTime:NSObject,Codable{
     /// 开始时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例: 2018-10-21T10:00:00Z
+      /// 
     /// Required:true
     var startTime:String
     /// 结束时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例: 2018-10-21T10:00:00Z
+      /// 
     /// Required:true
     var endTime:String
 
@@ -54,7 +62,7 @@ public class RecordTime:NSObject,Codable{
     }
 }
 public extension RecordTime{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RecordTimeCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(endTime, forKey: .endTime)

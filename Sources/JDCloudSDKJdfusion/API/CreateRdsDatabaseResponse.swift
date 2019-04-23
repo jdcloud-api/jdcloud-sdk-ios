@@ -49,7 +49,7 @@ public class CreateRdsDatabaseResponse:NSObject,Codable
 }
 
 public extension CreateRdsDatabaseResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRdsDatabaseResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

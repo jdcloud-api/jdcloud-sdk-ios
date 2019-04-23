@@ -57,7 +57,7 @@ public class CreateSnapshotResult:NSObject,JdCloudResult
     }
 }
 public extension CreateSnapshotResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateSnapshotResultCodingKeys.self)
         try encoderContainer.encode(snapshotId, forKey: .snapshotId)
     }

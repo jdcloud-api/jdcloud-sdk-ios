@@ -64,7 +64,7 @@ public class RdsDBAccessPrivilege:NSObject,Codable{
     }
 }
 public extension RdsDBAccessPrivilege{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RdsDBAccessPrivilegeCodingKeys.self)
          try encoderContainer.encode(accountName, forKey: .accountName)
          try encoderContainer.encode(privilege, forKey: .privilege)

@@ -51,7 +51,7 @@ public class DescribeLatestRestoreTimeResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeLatestRestoreTimeResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLatestRestoreTimeResultCodingKeys.self)
         try encoderContainer.encode(latestRestoreTime, forKey: .latestRestoreTime)
     }

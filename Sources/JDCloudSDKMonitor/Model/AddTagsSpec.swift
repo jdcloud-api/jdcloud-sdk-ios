@@ -78,7 +78,7 @@ public class AddTagsSpec:NSObject,Codable{
     }
 }
 public extension AddTagsSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddTagsSpecCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(groupCode, forKey: .groupCode)

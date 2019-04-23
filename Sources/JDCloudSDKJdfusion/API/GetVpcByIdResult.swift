@@ -51,7 +51,7 @@ public class GetVpcByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetVpcByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcByIdResultCodingKeys.self)
         try encoderContainer.encode(vpc, forKey: .vpc)
     }

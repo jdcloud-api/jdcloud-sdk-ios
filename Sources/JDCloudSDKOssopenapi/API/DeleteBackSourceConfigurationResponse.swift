@@ -49,7 +49,7 @@ public class DeleteBackSourceConfigurationResponse:NSObject,Codable
 }
 
 public extension DeleteBackSourceConfigurationResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteBackSourceConfigurationResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

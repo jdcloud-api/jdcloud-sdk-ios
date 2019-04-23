@@ -75,7 +75,7 @@ public class DescribeForwardRulesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeForwardRulesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeForwardRulesResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

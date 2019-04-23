@@ -49,7 +49,7 @@ public class ModifyInstanceCCResponse:NSObject,Codable
 }
 
 public extension ModifyInstanceCCResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyInstanceCCResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

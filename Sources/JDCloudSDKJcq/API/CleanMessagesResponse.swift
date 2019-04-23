@@ -49,7 +49,7 @@ public class CleanMessagesResponse:NSObject,Codable
 }
 
 public extension CleanMessagesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CleanMessagesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

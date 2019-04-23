@@ -78,7 +78,7 @@ public class Database:NSObject,Codable{
     }
 }
 public extension Database{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DatabaseCodingKeys.self)
          try encoderContainer.encode(dbName, forKey: .dbName)
          try encoderContainer.encode(dbStatus, forKey: .dbStatus)

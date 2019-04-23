@@ -49,7 +49,7 @@ public class CreateVmInstanceResponse:NSObject,Codable
 }
 
 public extension CreateVmInstanceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVmInstanceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

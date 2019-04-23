@@ -71,7 +71,7 @@ public class StatisticsTopUrlItem:NSObject,Codable{
     }
 }
 public extension StatisticsTopUrlItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsTopUrlItemCodingKeys.self)
          try encoderContainer.encode(url, forKey: .url)
          try encoderContainer.encode(rank, forKey: .rank)

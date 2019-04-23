@@ -49,7 +49,7 @@ public class GetAccountInfoResponse:NSObject,Codable
 }
 
 public extension GetAccountInfoResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetAccountInfoResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

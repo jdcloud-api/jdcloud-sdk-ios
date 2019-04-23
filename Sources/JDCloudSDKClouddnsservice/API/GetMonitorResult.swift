@@ -75,7 +75,7 @@ public class GetMonitorResult:NSObject,JdCloudResult
     }
 }
 public extension GetMonitorResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetMonitorResultCodingKeys.self)
         try encoderContainer.encode(currentCount, forKey: .currentCount)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

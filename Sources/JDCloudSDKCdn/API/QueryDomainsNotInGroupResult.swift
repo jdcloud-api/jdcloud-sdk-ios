@@ -51,7 +51,7 @@ public class QueryDomainsNotInGroupResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDomainsNotInGroupResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDomainsNotInGroupResultCodingKeys.self)
         try encoderContainer.encode(domains, forKey: .domains)
     }

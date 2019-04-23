@@ -49,7 +49,7 @@ public class ModifyInstanceDiskAttributeResponse:NSObject,Codable
 }
 
 public extension ModifyInstanceDiskAttributeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyInstanceDiskAttributeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -50,7 +50,7 @@ public class EPBSpec:NSObject,Codable{
     }
 }
 public extension EPBSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EPBSpecCodingKeys.self)
          try encoderContainer.encode(ePB, forKey: .ePB)
     }

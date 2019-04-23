@@ -218,7 +218,7 @@ public class CmAlarmHistory:NSObject,Codable{
     }
 }
 public extension CmAlarmHistory{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CmAlarmHistoryCodingKeys.self)
          try encoderContainer.encode(calculation, forKey: .calculation)
          try encoderContainer.encode(contactGroups, forKey: .contactGroups)

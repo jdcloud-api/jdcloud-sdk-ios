@@ -114,7 +114,7 @@ public class ApplyTemplateSpec:NSObject,Codable{
     }
 }
 public extension ApplyTemplateSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ApplyTemplateSpecCodingKeys.self)
          try encoderContainer.encode(clientToken, forKey: .clientToken)
          try encoderContainer.encode(contacts, forKey: .contacts)

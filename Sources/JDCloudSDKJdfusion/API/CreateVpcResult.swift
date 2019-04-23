@@ -51,7 +51,7 @@ public class CreateVpcResult:NSObject,JdCloudResult
     }
 }
 public extension CreateVpcResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加域名转码配置
+///  添加域名级别转码配置
+      /// - 添加域名级别的转码模板配置
+      /// 
 public class AddLiveStreamDomainTranscodeExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

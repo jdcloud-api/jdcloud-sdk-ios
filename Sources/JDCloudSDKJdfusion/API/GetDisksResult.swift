@@ -51,7 +51,7 @@ public class GetDisksResult:NSObject,JdCloudResult
     }
 }
 public extension GetDisksResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDisksResultCodingKeys.self)
         try encoderContainer.encode(disks, forKey: .disks)
     }

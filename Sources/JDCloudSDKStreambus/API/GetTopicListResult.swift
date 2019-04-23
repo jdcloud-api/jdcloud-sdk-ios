@@ -51,7 +51,7 @@ public class GetTopicListResult:NSObject,JdCloudResult
     }
 }
 public extension GetTopicListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTopicListResultCodingKeys.self)
         try encoderContainer.encode(topic, forKey: .topic)
     }

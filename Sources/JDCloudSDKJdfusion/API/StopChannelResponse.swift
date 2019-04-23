@@ -49,7 +49,7 @@ public class StopChannelResponse:NSObject,Codable
 }
 
 public extension StopChannelResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StopChannelResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

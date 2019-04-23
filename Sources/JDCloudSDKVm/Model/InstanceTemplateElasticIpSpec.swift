@@ -61,7 +61,7 @@ public class InstanceTemplateElasticIpSpec:NSObject,Codable{
     }
 }
 public extension InstanceTemplateElasticIpSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateElasticIpSpecCodingKeys.self)
          try encoderContainer.encode(bandwidthMbps, forKey: .bandwidthMbps)
          try encoderContainer.encode(provider, forKey: .provider)

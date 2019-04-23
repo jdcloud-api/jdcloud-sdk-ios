@@ -127,7 +127,7 @@ public class Widget:NSObject,Codable{
     }
 }
 public extension Widget{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetCodingKeys.self)
          try encoderContainer.encode(aggregated, forKey: .aggregated)
          try encoderContainer.encode(createdTime, forKey: .createdTime)

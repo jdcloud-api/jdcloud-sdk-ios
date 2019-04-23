@@ -49,7 +49,7 @@ public class DescribeErrorLogsResponse:NSObject,Codable
 }
 
 public extension DescribeErrorLogsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeErrorLogsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

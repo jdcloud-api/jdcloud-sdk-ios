@@ -51,7 +51,7 @@ public class RegistCloudInfoResult:NSObject,JdCloudResult
     }
 }
 public extension RegistCloudInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegistCloudInfoResultCodingKeys.self)
         try encoderContainer.encode(cloud, forKey: .cloud)
     }

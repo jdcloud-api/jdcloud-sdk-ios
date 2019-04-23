@@ -59,7 +59,7 @@ public class DescribeBackupSynchronicitiesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeBackupSynchronicitiesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeBackupSynchronicitiesResultCodingKeys.self)
         try encoderContainer.encode(backupSynchronicities, forKey: .backupSynchronicities)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

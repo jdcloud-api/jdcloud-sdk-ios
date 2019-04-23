@@ -64,7 +64,7 @@ public class AssignSecondaryIpsSpec:NSObject,Codable{
     }
 }
 public extension AssignSecondaryIpsSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AssignSecondaryIpsSpecCodingKeys.self)
          try encoderContainer.encode(force, forKey: .force)
          try encoderContainer.encode(secondaryIps, forKey: .secondaryIps)

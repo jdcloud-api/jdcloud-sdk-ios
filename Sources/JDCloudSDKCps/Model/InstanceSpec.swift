@@ -172,7 +172,7 @@ public class InstanceSpec:NSObject,Codable{
     }
 }
 public extension InstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceSpecCodingKeys.self)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(deviceType, forKey: .deviceType)

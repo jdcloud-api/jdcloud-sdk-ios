@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询域名的自定义解析线路
+/// 查询主域名的自定义解析线路
 @objc(GetUserViewResult)
 public class GetUserViewResult:NSObject,JdCloudResult
 {
@@ -75,7 +75,7 @@ public class GetUserViewResult:NSObject,JdCloudResult
     }
 }
 public extension GetUserViewResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetUserViewResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

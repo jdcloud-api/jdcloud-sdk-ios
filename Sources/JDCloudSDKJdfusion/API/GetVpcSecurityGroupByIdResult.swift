@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 根据云提供商查询对应的安全组资源信息
+/// 查询指定的安全组资源信息
 @objc(GetVpcSecurityGroupByIdResult)
 public class GetVpcSecurityGroupByIdResult:NSObject,JdCloudResult
 {
@@ -51,7 +51,7 @@ public class GetVpcSecurityGroupByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetVpcSecurityGroupByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcSecurityGroupByIdResultCodingKeys.self)
         try encoderContainer.encode(securityGroup, forKey: .securityGroup)
     }

@@ -98,7 +98,7 @@ public class ForwardRuleSpec:NSObject,Codable{
     }
 }
 public extension ForwardRuleSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ForwardRuleSpecCodingKeys.self)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)
          try encoderContainer.encode(port, forKey: .port)

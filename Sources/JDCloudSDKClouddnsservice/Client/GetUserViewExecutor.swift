@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询域名的自定义解析线路
+///  查询主域名的自定义解析线路
 public class GetUserViewExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

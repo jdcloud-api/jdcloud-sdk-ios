@@ -49,7 +49,7 @@ public class ResetPasswordResponse:NSObject,Codable
 }
 
 public extension ResetPasswordResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResetPasswordResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

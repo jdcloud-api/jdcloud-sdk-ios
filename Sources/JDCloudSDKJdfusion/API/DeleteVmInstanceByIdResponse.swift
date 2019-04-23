@@ -49,7 +49,7 @@ public class DeleteVmInstanceByIdResponse:NSObject,Codable
 }
 
 public extension DeleteVmInstanceByIdResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteVmInstanceByIdResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

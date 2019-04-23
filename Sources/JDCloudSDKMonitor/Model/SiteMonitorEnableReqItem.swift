@@ -57,7 +57,7 @@ public class SiteMonitorEnableReqItem:NSObject,Codable{
     }
 }
 public extension SiteMonitorEnableReqItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SiteMonitorEnableReqItemCodingKeys.self)
          try encoderContainer.encode(enabled, forKey: .enabled)
          try encoderContainer.encode(id, forKey: .id)

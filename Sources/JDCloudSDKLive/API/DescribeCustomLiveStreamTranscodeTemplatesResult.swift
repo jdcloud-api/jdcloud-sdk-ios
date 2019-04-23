@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,6 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 /// 查询用户自定义转码模板列表
+      ///       /// 
 @objc(DescribeCustomLiveStreamTranscodeTemplatesResult)
 public class DescribeCustomLiveStreamTranscodeTemplatesResult:NSObject,JdCloudResult
 {
@@ -36,7 +37,7 @@ public class DescribeCustomLiveStreamTranscodeTemplatesResult:NSObject,JdCloudRe
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
     /// 码率信息
     var transcodeTemplates:[TranscodeInfo?]?
@@ -66,7 +67,7 @@ public class DescribeCustomLiveStreamTranscodeTemplatesResult:NSObject,JdCloudRe
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.transcodeTemplates)
         {
@@ -75,7 +76,7 @@ public class DescribeCustomLiveStreamTranscodeTemplatesResult:NSObject,JdCloudRe
     }
 }
 public extension DescribeCustomLiveStreamTranscodeTemplatesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamTranscodeTemplatesResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

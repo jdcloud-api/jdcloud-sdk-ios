@@ -49,7 +49,7 @@ public class EnableInstanceUrlWhiteListResponse:NSObject,Codable
 }
 
 public extension EnableInstanceUrlWhiteListResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableInstanceUrlWhiteListResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

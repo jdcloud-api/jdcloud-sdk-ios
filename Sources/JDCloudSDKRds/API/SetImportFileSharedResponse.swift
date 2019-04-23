@@ -49,7 +49,7 @@ public class SetImportFileSharedResponse:NSObject,Codable
 }
 
 public extension SetImportFileSharedResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetImportFileSharedResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

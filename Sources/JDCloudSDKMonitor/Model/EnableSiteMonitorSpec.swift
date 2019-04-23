@@ -50,7 +50,7 @@ public class EnableSiteMonitorSpec:NSObject,Codable{
     }
 }
 public extension EnableSiteMonitorSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableSiteMonitorSpecCodingKeys.self)
          try encoderContainer.encode(list, forKey: .list)
     }

@@ -51,7 +51,7 @@ public class ExportSecretResult:NSObject,JdCloudResult
     }
 }
 public extension ExportSecretResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ExportSecretResultCodingKeys.self)
         try encoderContainer.encode(secretPackage, forKey: .secretPackage)
     }

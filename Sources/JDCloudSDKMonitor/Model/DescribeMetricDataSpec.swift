@@ -116,7 +116,7 @@ public class DescribeMetricDataSpec:NSObject,Codable{
     }
 }
 public extension DescribeMetricDataSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeMetricDataSpecCodingKeys.self)
          try encoderContainer.encode(aggrType, forKey: .aggrType)
          try encoderContainer.encode(downSampleType, forKey: .downSampleType)

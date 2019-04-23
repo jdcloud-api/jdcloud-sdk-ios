@@ -99,7 +99,7 @@ public class Segment:NSObject,Codable{
     }
 }
 public extension Segment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SegmentCodingKeys.self)
          try encoderContainer.encode(segmentId, forKey: .segmentId)
          try encoderContainer.encode(segmentName, forKey: .segmentName)

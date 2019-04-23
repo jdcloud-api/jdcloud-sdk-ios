@@ -75,7 +75,7 @@ public class DescribeInstanceRaidResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeInstanceRaidResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstanceRaidResultCodingKeys.self)
         try encoderContainer.encode(sysRaidTypeId, forKey: .sysRaidTypeId)
         try encoderContainer.encode(sysRaidType, forKey: .sysRaidType)

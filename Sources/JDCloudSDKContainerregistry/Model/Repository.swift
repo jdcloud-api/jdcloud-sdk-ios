@@ -92,7 +92,7 @@ public class Repository:NSObject,Codable{
     }
 }
 public extension Repository{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RepositoryCodingKeys.self)
          try encoderContainer.encode(createdAt, forKey: .createdAt)
          try encoderContainer.encode(updatedAt, forKey: .updatedAt)

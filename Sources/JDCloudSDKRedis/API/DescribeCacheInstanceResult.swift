@@ -51,7 +51,7 @@ public class DescribeCacheInstanceResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeCacheInstanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCacheInstanceResultCodingKeys.self)
         try encoderContainer.encode(cacheInstance, forKey: .cacheInstance)
     }

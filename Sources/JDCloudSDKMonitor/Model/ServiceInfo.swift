@@ -78,7 +78,7 @@ public class ServiceInfo:NSObject,Codable{
     }
 }
 public extension ServiceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ServiceInfoCodingKeys.self)
          try encoderContainer.encode(metricGroup, forKey: .metricGroup)
          try encoderContainer.encode(metricsTimeDelay, forKey: .metricsTimeDelay)

@@ -51,7 +51,7 @@ public class DeleteDeadLettersResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteDeadLettersResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteDeadLettersResultCodingKeys.self)
         try encoderContainer.encode(messageIds, forKey: .messageIds)
     }

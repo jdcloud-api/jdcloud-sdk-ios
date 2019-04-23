@@ -225,7 +225,7 @@ public class ReturnBillQuery:NSObject,Codable{
     }
 }
 public extension ReturnBillQuery{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnBillQueryCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(retrunBillId, forKey: .retrunBillId)

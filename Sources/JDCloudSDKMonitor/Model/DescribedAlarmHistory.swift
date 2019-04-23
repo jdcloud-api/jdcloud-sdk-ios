@@ -78,7 +78,7 @@ public class DescribedAlarmHistory:NSObject,Codable{
     }
 }
 public extension DescribedAlarmHistory{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribedAlarmHistoryCodingKeys.self)
          try encoderContainer.encode(alarm, forKey: .alarm)
          try encoderContainer.encode(contacts, forKey: .contacts)

@@ -67,7 +67,7 @@ public class GetDatabaseInfoResult:NSObject,JdCloudResult
     }
 }
 public extension GetDatabaseInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDatabaseInfoResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

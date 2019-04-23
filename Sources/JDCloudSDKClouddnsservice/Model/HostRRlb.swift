@@ -71,7 +71,7 @@ public class HostRRlb:NSObject,Codable{
     }
 }
 public extension HostRRlb{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: HostRRlbCodingKeys.self)
          try encoderContainer.encode(hostValue, forKey: .hostValue)
          try encoderContainer.encode(id, forKey: .id)

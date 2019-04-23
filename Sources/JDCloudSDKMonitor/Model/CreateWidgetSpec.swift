@@ -127,7 +127,7 @@ public class CreateWidgetSpec:NSObject,Codable{
     }
 }
 public extension CreateWidgetSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateWidgetSpecCodingKeys.self)
          try encoderContainer.encode(aggregated, forKey: .aggregated)
          try encoderContainer.encode(createdTime, forKey: .createdTime)

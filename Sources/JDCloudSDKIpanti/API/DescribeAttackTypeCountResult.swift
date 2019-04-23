@@ -51,7 +51,7 @@ public class DescribeAttackTypeCountResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAttackTypeCountResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAttackTypeCountResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
     }

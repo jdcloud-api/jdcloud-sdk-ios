@@ -120,7 +120,7 @@ public class Storage:NSObject,Codable{
     }
 }
 public extension Storage{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StorageCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)

@@ -78,7 +78,7 @@ public class ProductServiceVoListData:NSObject,Codable{
     }
 }
 public extension ProductServiceVoListData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProductServiceVoListDataCodingKeys.self)
          try encoderContainer.encode(pageNo, forKey: .pageNo)
          try encoderContainer.encode(pageSize, forKey: .pageSize)

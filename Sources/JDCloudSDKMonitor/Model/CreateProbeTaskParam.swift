@@ -138,7 +138,7 @@ public class CreateProbeTaskParam:NSObject,Codable{
     }
 }
 public extension CreateProbeTaskParam{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateProbeTaskParamCodingKeys.self)
          try encoderContainer.encode(address, forKey: .address)
          try encoderContainer.encode(frequency, forKey: .frequency)

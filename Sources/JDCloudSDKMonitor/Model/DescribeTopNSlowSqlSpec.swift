@@ -84,7 +84,7 @@ public class DescribeTopNSlowSqlSpec:NSObject,Codable{
     }
 }
 public extension DescribeTopNSlowSqlSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeTopNSlowSqlSpecCodingKeys.self)
          try encoderContainer.encode(endTime, forKey: .endTime)
          try encoderContainer.encode(resourceId, forKey: .resourceId)

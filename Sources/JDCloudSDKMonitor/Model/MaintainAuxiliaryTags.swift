@@ -79,7 +79,7 @@ public class MaintainAuxiliaryTags:NSObject,Codable{
     }
 }
 public extension MaintainAuxiliaryTags{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MaintainAuxiliaryTagsCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(filter, forKey: .filter)

@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查看域名的解析次数
+/// 查看主域名的解析次数
 @objc(GetDomainQueryCountResult)
 public class GetDomainQueryCountResult:NSObject,JdCloudResult
 {
@@ -59,7 +59,7 @@ public class GetDomainQueryCountResult:NSObject,JdCloudResult
     }
 }
 public extension GetDomainQueryCountResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainQueryCountResultCodingKeys.self)
         try encoderContainer.encode(time, forKey: .time)
         try encoderContainer.encode(traffic, forKey: .traffic)

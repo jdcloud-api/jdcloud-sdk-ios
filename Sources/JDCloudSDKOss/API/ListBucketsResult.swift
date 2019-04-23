@@ -60,7 +60,7 @@ public class ListBucketsResult:NSObject,JdCloudResult
     }
 }
 public extension ListBucketsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListBucketsResultCodingKeys.self)
         try encoderContainer.encode(owner, forKey: .owner)
         try encoderContainer.encode(buckets, forKey: .buckets)

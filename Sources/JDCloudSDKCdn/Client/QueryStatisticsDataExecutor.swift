@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class QueryStatisticsDataExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/statistics")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/vodStatistics")
     }
     
 }

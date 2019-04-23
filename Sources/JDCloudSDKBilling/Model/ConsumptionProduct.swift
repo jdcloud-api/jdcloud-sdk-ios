@@ -120,7 +120,7 @@ public class ConsumptionProduct:NSObject,Codable{
     }
 }
 public extension ConsumptionProduct{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConsumptionProductCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(appCodeName, forKey: .appCodeName)

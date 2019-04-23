@@ -62,7 +62,7 @@ public class InstanceTemplateNetworkInterfaceAttachmentSpec:NSObject,Codable{
     }
 }
 public extension InstanceTemplateNetworkInterfaceAttachmentSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateNetworkInterfaceAttachmentSpecCodingKeys.self)
          try encoderContainer.encode(deviceIndex, forKey: .deviceIndex)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)

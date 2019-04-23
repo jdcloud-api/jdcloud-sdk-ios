@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,11 +26,17 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加录制打点任务
+///  添加打点录制任务
+      ///       /// - 您可以调用此接口精确提取已录制的文件中所需要的部分
+      ///       /// 
 @objc(AddLiveRecordTaskRequest)
 public class AddLiveRecordTaskRequest:JdCloudRequest
 {
-    /// 您的推流加速域名
+    /// 录制时间集合
+      /// - 最大支持10段,多段合并成一个文件
+      /// - 多段时间跨度最小不能小于10s
+      /// - 多段时间跨度最大不能超过8小时
+      /// 
     var recordTimes:[RecordTime?]?
 
     /// 存储桶
@@ -39,19 +45,28 @@ public class AddLiveRecordTaskRequest:JdCloudRequest
     /// 存储地址
     var saveEndpoint:String
 
-    /// 录制文件类型
+    /// 录制文件类型:
+      /// - 取值: ts,flv,mp4 (多种类型之前用;隔开)
+      /// - 不区分大小写
+      /// 
     var recordFileType:String
 
-    /// 录制文件存储路径
+    /// 录制文件存储路径:
+      /// - 默认地址: record/{Date}/{ServerId}/{AppName}/{StreamName}/{StartTime}_{EndTime}
+      /// 
     var saveObject:String?
 
-    /// 推流加速域名
+    /// 打点录制任务外键
+      /// 
+    var taskExternalId:String?
+
+    /// 推流域名
     var publishDomain:String
 
-    /// 直播流所属应用名称
+    /// 应用名称
     var appName:String
 
-    /// 直播流名称
+    /// 流名称
     var streamName:String
 
 
@@ -73,6 +88,7 @@ public class AddLiveRecordTaskRequest:JdCloudRequest
         case saveEndpoint
         case recordFileType
         case saveObject
+        case taskExternalId
         case publishDomain
         case appName
         case streamName
@@ -85,6 +101,7 @@ public class AddLiveRecordTaskRequest:JdCloudRequest
         try encoderContainer.encode(saveEndpoint, forKey: .saveEndpoint)
         try encoderContainer.encode(recordFileType, forKey: .recordFileType)
         try encoderContainer.encode(saveObject, forKey: .saveObject)
+        try encoderContainer.encode(taskExternalId, forKey: .taskExternalId)
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
         try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(streamName, forKey: .streamName)

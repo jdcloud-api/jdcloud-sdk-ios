@@ -85,7 +85,7 @@ public class VpcInfo:NSObject,Codable{
     }
 }
 public extension VpcInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)

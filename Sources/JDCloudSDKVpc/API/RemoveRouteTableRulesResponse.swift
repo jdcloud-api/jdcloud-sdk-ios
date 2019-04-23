@@ -49,7 +49,7 @@ public class RemoveRouteTableRulesResponse:NSObject,Codable
 }
 
 public extension RemoveRouteTableRulesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RemoveRouteTableRulesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -59,7 +59,7 @@ public class DeleteConsumerGroupResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteConsumerGroupResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteConsumerGroupResultCodingKeys.self)
         try encoderContainer.encode(message, forKey: .message)
         try encoderContainer.encode(status, forKey: .status)

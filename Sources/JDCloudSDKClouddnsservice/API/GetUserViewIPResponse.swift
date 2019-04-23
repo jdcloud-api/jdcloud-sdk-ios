@@ -49,7 +49,7 @@ public class GetUserViewIPResponse:NSObject,Codable
 }
 
 public extension GetUserViewIPResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetUserViewIPResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

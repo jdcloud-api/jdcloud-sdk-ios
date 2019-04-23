@@ -49,7 +49,7 @@ public class CreateNetworkInterfaceResponse:NSObject,Codable
 }
 
 public extension CreateNetworkInterfaceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateNetworkInterfaceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

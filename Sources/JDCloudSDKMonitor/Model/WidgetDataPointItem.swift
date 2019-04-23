@@ -64,7 +64,7 @@ public class WidgetDataPointItem:NSObject,Codable{
     }
 }
 public extension WidgetDataPointItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetDataPointItemCodingKeys.self)
          try encoderContainer.encode(aggregate, forKey: .aggregate)
          try encoderContainer.encode(detail, forKey: .detail)

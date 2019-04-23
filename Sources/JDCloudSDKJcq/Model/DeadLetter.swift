@@ -57,7 +57,7 @@ public class DeadLetter:NSObject,Codable{
     }
 }
 public extension DeadLetter{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeadLetterCodingKeys.self)
          try encoderContainer.encode(messageId, forKey: .messageId)
          try encoderContainer.encode(expireTime, forKey: .expireTime)

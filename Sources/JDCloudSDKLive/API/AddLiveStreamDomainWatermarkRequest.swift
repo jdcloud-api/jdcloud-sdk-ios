@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -27,13 +27,15 @@ import JDCloudSDKCore
 
 
 ///  添加域名水印配置
+      ///       /// 
 @objc(AddLiveStreamDomainWatermarkRequest)
 public class AddLiveStreamDomainWatermarkRequest:JdCloudRequest
 {
-    /// 您的推流加速域名
+    /// 推流域名
     var publishDomain:String
 
-    /// 录制模版
+    /// 水印模板
+      /// 
     var template:String
 
 

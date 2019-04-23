@@ -73,7 +73,7 @@ public class KeyDetail:NSObject,Codable{
     }
 }
 public extension KeyDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeyDetailCodingKeys.self)
          try encoderContainer.encode(keyId, forKey: .keyId)
          try encoderContainer.encode(keyName, forKey: .keyName)

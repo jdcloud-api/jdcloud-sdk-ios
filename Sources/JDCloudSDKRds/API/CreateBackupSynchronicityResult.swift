@@ -51,7 +51,7 @@ public class CreateBackupSynchronicityResult:NSObject,JdCloudResult
     }
 }
 public extension CreateBackupSynchronicityResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateBackupSynchronicityResultCodingKeys.self)
         try encoderContainer.encode(serviceId, forKey: .serviceId)
     }

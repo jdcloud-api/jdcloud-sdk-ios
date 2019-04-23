@@ -59,7 +59,7 @@ public class CreateConsumerGroupResult:NSObject,JdCloudResult
     }
 }
 public extension CreateConsumerGroupResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateConsumerGroupResultCodingKeys.self)
         try encoderContainer.encode(message, forKey: .message)
         try encoderContainer.encode(status, forKey: .status)

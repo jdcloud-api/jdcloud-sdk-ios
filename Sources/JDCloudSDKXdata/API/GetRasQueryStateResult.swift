@@ -67,7 +67,7 @@ public class GetRasQueryStateResult:NSObject,JdCloudResult
     }
 }
 public extension GetRasQueryStateResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetRasQueryStateResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

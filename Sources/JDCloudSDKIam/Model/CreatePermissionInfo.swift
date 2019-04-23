@@ -61,7 +61,7 @@ public class CreatePermissionInfo:NSObject,Codable{
     }
 }
 public extension CreatePermissionInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreatePermissionInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

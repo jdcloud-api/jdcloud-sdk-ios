@@ -288,7 +288,7 @@ public class Rule:NSObject,Codable{
     }
 }
 public extension Rule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RuleCodingKeys.self)
          try encoderContainer.encode(autoScalingPolicyId, forKey: .autoScalingPolicyId)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)

@@ -71,7 +71,7 @@ public class DomainData:NSObject,Codable{
     }
 }
 public extension DomainData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DomainDataCodingKeys.self)
          try encoderContainer.encode(dataList, forKey: .dataList)
          try encoderContainer.encode(currentCount, forKey: .currentCount)

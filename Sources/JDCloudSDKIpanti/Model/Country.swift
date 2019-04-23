@@ -64,7 +64,7 @@ public class Country:NSObject,Codable{
     }
 }
 public extension Country{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CountryCodingKeys.self)
          try encoderContainer.encode(label, forKey: .label)
          try encoderContainer.encode(value, forKey: .value)

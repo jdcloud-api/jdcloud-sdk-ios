@@ -59,7 +59,7 @@ public class DescribeNetworkInterfacesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeNetworkInterfacesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeNetworkInterfacesResultCodingKeys.self)
         try encoderContainer.encode(networkInterfaces, forKey: .networkInterfaces)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

@@ -78,7 +78,7 @@ public class BackSourceAddress:NSObject,Codable{
     }
 }
 public extension BackSourceAddress{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackSourceAddressCodingKeys.self)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)
          try encoderContainer.encode(hostName, forKey: .hostName)

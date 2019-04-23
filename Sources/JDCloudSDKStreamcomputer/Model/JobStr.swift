@@ -148,7 +148,7 @@ public class JobStr:NSObject,Codable{
     }
 }
 public extension JobStr{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: JobStrCodingKeys.self)
          try encoderContainer.encode(namespaceId, forKey: .namespaceId)
          try encoderContainer.encode(name, forKey: .name)

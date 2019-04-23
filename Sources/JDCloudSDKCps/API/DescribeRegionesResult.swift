@@ -51,7 +51,7 @@ public class DescribeRegionesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeRegionesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRegionesResultCodingKeys.self)
         try encoderContainer.encode(regions, forKey: .regions)
     }

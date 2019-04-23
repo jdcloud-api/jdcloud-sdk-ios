@@ -183,7 +183,7 @@ public class Alarm:NSObject,Codable{
     }
 }
 public extension Alarm{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AlarmCodingKeys.self)
          try encoderContainer.encode(calculation, forKey: .calculation)
          try encoderContainer.encode(contactGroups, forKey: .contactGroups)

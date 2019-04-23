@@ -57,7 +57,7 @@ public class PriceMap:NSObject,Codable{
     }
 }
 public extension PriceMap{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PriceMapCodingKeys.self)
          try encoderContainer.encode(key, forKey: .key)
          try encoderContainer.encode(value, forKey: .value)

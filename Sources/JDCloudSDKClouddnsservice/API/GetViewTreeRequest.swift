@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询云解析所有的基础解析线路。&lt;br&gt;
+///  查询云解析所有的基础解析线路。  
       ///       /// 在使用解析线路的参数之前，请调用此接口获取解析线路的ID。
       ///       /// 
 @objc(GetViewTreeRequest)
@@ -38,7 +38,7 @@ public class GetViewTreeRequest:JdCloudRequest
     /// 套餐ID，0-&gt;免费版 1-&gt;企业版 2-&gt;企业高级版
     var packId:Int
 
-    /// view ID，默认为0
+    /// view ID，默认为-1
     var viewId:Int
 
     /// 域名ID，请使用getDomains接口获取。

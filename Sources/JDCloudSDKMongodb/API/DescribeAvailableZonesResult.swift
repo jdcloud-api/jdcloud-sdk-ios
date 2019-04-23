@@ -51,7 +51,7 @@ public class DescribeAvailableZonesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAvailableZonesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAvailableZonesResultCodingKeys.self)
         try encoderContainer.encode(availableZones, forKey: .availableZones)
     }

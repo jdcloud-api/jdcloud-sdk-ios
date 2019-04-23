@@ -50,7 +50,7 @@ public class SimpleResponses:NSObject,Codable{
     }
 }
 public extension SimpleResponses{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SimpleResponsesCodingKeys.self)
          try encoderContainer.encode(requestId, forKey: .requestId)
     }

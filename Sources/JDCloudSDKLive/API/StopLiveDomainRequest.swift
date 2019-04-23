@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -27,10 +27,15 @@ import JDCloudSDKCore
 
 
 ///  停用域名
+      ///       /// - 停用直播域名对(推流域名,播放域名),将DomainStatus变更为offline
+      ///       /// - 停用该直播域名对后,直播域名信息仍保留,但用户将不能再用该推流域名推流或播放域名播放
+      ///       /// 
 @objc(StopLiveDomainRequest)
 public class StopLiveDomainRequest:JdCloudRequest
 {
-    /// 要停用的域名
+    /// 推流域名
+      /// - 需要停用的域名对(推流域名,播放域名)中的推流域名
+      /// 
     var publishDomain:String
 
 

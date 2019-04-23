@@ -226,7 +226,7 @@ public class Instance:NSObject,Codable{
     }
 }
 public extension Instance{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(region, forKey: .region)

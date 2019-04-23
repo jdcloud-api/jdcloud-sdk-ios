@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class QueryStatisticsDataGroupByAreaExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/statistics:groupByArea")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/vodStatistics:groupByArea")
     }
     
 }

@@ -64,7 +64,7 @@ public class UpdateDashboardSpec:NSObject,Codable{
     }
 }
 public extension UpdateDashboardSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateDashboardSpecCodingKeys.self)
          try encoderContainer.encode(dashboardId, forKey: .dashboardId)
          try encoderContainer.encode(focused, forKey: .focused)

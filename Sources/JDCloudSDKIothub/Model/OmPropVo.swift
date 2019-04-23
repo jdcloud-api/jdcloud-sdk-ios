@@ -99,7 +99,7 @@ public class OmPropVo:NSObject,Codable{
     }
 }
 public extension OmPropVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OmPropVoCodingKeys.self)
          try encoderContainer.encode(uuid, forKey: .uuid)
          try encoderContainer.encode(omId, forKey: .omId)

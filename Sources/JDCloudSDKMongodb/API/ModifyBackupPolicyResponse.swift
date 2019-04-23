@@ -49,7 +49,7 @@ public class ModifyBackupPolicyResponse:NSObject,Codable
 }
 
 public extension ModifyBackupPolicyResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyBackupPolicyResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -57,7 +57,7 @@ public class AttackTypeCount:NSObject,Codable{
     }
 }
 public extension AttackTypeCount{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AttackTypeCountCodingKeys.self)
          try encoderContainer.encode(type, forKey: .type)
          try encoderContainer.encode(count, forKey: .count)

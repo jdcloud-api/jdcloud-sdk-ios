@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -27,10 +27,12 @@ import JDCloudSDKCore
 
 
 ///  删除用户自定义直播截图模板
+      ///       /// - 删除截图模板前,请先删除此模板相关的截图配置,否则将会影响线上业务
+      ///       /// 
 @objc(DeleteCustomLiveStreamSnapshotTemplateRequest)
 public class DeleteCustomLiveStreamSnapshotTemplateRequest:JdCloudRequest
 {
-    /// 录制模板自定义名称
+    /// 截图模板
     var template:String
 
 

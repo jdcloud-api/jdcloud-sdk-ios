@@ -49,7 +49,7 @@ public class DescribeVpcIpListResponse:NSObject,Codable
 }
 
 public extension DescribeVpcIpListResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeVpcIpListResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

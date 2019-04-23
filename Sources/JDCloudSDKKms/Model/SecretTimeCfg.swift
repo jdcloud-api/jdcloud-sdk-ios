@@ -54,7 +54,7 @@ public class SecretTimeCfg:NSObject,Codable{
     }
 }
 public extension SecretTimeCfg{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecretTimeCfgCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(expireTime, forKey: .expireTime)

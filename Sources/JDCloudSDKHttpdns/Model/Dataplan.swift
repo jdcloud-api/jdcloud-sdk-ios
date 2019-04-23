@@ -106,7 +106,7 @@ public class Dataplan:NSObject,Codable{
     }
 }
 public extension Dataplan{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataplanCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(accountId, forKey: .accountId)

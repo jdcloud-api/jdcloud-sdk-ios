@@ -49,7 +49,7 @@ public class DescribeWebRuleResponse:NSObject,Codable
 }
 
 public extension DescribeWebRuleResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeWebRuleResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -49,7 +49,7 @@ public class DisassociateRouteTableResponse:NSObject,Codable
 }
 
 public extension DisassociateRouteTableResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisassociateRouteTableResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

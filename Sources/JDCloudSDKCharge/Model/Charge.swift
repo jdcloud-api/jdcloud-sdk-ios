@@ -78,7 +78,7 @@ public class Charge:NSObject,Codable{
     }
 }
 public extension Charge{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ChargeCodingKeys.self)
          try encoderContainer.encode(chargeMode, forKey: .chargeMode)
          try encoderContainer.encode(chargeStatus, forKey: .chargeStatus)

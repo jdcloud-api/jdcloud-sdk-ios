@@ -49,7 +49,7 @@ public class DeleteVpcEipByIdResponse:NSObject,Codable
 }
 
 public extension DeleteVpcEipByIdResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteVpcEipByIdResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

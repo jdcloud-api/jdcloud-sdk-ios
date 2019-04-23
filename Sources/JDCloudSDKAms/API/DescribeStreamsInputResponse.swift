@@ -49,7 +49,7 @@ public class DescribeStreamsInputResponse:NSObject,Codable
 }
 
 public extension DescribeStreamsInputResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeStreamsInputResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

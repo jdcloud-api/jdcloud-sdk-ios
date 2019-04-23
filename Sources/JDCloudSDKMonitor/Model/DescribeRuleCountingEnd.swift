@@ -92,7 +92,7 @@ public class DescribeRuleCountingEnd:NSObject,Codable{
     }
 }
 public extension DescribeRuleCountingEnd{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRuleCountingEndCodingKeys.self)
          try encoderContainer.encode(alarmRuleCount, forKey: .alarmRuleCount)
          try encoderContainer.encode(disableRuleCount, forKey: .disableRuleCount)

@@ -180,7 +180,7 @@ public class ApplicationRes:NSObject,Codable{
     }
 }
 public extension ApplicationRes{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ApplicationResCodingKeys.self)
          try encoderContainer.encode(clientId, forKey: .clientId)
          try encoderContainer.encode(clientName, forKey: .clientName)

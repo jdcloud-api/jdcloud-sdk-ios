@@ -75,7 +75,7 @@ public class DescribeCCGraphResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeCCGraphResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCCGraphResultCodingKeys.self)
         try encoderContainer.encode(postProtect, forKey: .postProtect)
         try encoderContainer.encode(preProtect, forKey: .preProtect)

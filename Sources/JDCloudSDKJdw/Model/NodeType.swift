@@ -85,7 +85,7 @@ public class NodeType:NSObject,Codable{
     }
 }
 public extension NodeType{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NodeTypeCodingKeys.self)
          try encoderContainer.encode(nodeTypeValue, forKey: .nodeTypeValue)
          try encoderContainer.encode(cpu, forKey: .cpu)

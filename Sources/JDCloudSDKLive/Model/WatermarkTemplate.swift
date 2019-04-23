@@ -28,16 +28,26 @@ import Foundation
 @objc(WatermarkTemplate)
 public class WatermarkTemplate:NSObject,Codable{
     /// x轴偏移量
+      /// - 单位: 像素
+      /// 
     var offSetX:Int?
     /// y轴偏移量
+      /// - 单位: 像素
+      /// 
     var offSetY:Int?
-    /// 宽
+    /// 水印宽度
+      /// - 单位: 像素
+      /// 
     var width:Int?
-    /// 高
+    /// 水印高度
+      /// - 单位: 像素
+      /// 
     var height:Int?
-    /// url
+    /// 水印地址
+      /// 
     var url:String?
-    /// 录制模板自定义名称
+    /// 水印模板自定义名称
+      /// 
     var template:String?
 
 
@@ -85,7 +95,7 @@ public class WatermarkTemplate:NSObject,Codable{
     }
 }
 public extension WatermarkTemplate{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WatermarkTemplateCodingKeys.self)
          try encoderContainer.encode(offSetX, forKey: .offSetX)
          try encoderContainer.encode(offSetY, forKey: .offSetY)

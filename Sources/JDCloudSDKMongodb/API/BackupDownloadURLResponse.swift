@@ -49,7 +49,7 @@ public class BackupDownloadURLResponse:NSObject,Codable
 }
 
 public extension BackupDownloadURLResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackupDownloadURLResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

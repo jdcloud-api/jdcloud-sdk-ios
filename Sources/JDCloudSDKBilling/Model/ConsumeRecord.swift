@@ -197,7 +197,7 @@ public class ConsumeRecord:NSObject,Codable{
     }
 }
 public extension ConsumeRecord{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConsumeRecordCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(billingRecordId, forKey: .billingRecordId)

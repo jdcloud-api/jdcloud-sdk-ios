@@ -85,7 +85,7 @@ public class InstanceClass:NSObject,Codable{
     }
 }
 public extension InstanceClass{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceClassCodingKeys.self)
          try encoderContainer.encode(instanceClassValue, forKey: .instanceClassValue)
          try encoderContainer.encode(cpu, forKey: .cpu)

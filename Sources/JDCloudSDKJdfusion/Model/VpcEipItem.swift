@@ -50,7 +50,7 @@ public class VpcEipItem:NSObject,Codable{
     }
 }
 public extension VpcEipItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcEipItemCodingKeys.self)
          try encoderContainer.encode(eipAddress, forKey: .eipAddress)
     }

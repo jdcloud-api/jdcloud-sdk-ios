@@ -54,7 +54,7 @@ public class DeploymentAttachNetInterface:NSObject,Codable{
     }
 }
 public extension DeploymentAttachNetInterface{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentAttachNetInterfaceCodingKeys.self)
          try encoderContainer.encode(interfaceId, forKey: .interfaceId)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

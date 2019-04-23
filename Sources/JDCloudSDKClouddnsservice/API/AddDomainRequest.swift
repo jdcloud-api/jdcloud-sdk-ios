@@ -26,29 +26,33 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加主域名
+///  添加主域名  
+      ///       /// 如何添加免费域名，详细情况请查阅&lt;a href&#x3D;&quot;https://docs.jdcloud.com/cn/jd-cloud-dns/domainadd&quot;&gt;文档&lt;/a&gt;
+      ///       /// 添加收费域名，请查阅&lt;a href&#x3D;&quot;https://docs.jdcloud.com/cn/jd-cloud-dns/purchase-process&quot;&gt;文档&lt;/a&gt;，
+      ///       /// 添加收费域名前，请确保用户的京东云账户有足够的资金支付，Openapi接口回返回订单号，可以用此订单号向计费系统查阅详情。
+      ///       /// 
 @objc(AddDomainRequest)
 public class AddDomainRequest:JdCloudRequest
 {
-    /// 域名的套餐类型, 0-&gt;免费 ,1-&gt;企业版, 2-&gt;高级版
+    /// 主域名的套餐类型, 0-&gt;免费 ,1-&gt;企业版, 2-&gt;高级版
     var packId:Int
 
-    /// 要添加的域名
+    /// 要添加的主域名
     var domainName:String
 
-    /// 域名ID，升级高级版必填
+    /// 主域名的ID，升级套餐必填，请使用getDomains获取
     var domainId:Int?
 
     /// 1-&gt;新购买、3-&gt;升级，收费套餐的域名必填
     var buyType:Int?
 
-    /// 1，2，3 ，时长，收费套餐的域名必填
+    /// 取值1，2，3 ，含义：时长，收费套餐的域名必填
     var timeSpan:Int?
 
-    /// 时间单位，收费套餐的域名必填
+    /// 时间单位，收费套餐的域名必填，1：小时，2：天，3：月，4：年
     var timeUnit:Int?
 
-    /// 计费类型，收费套餐的域名必填
+    /// 计费类型，可以不传此参数。
     var billingType:Int?
 
 

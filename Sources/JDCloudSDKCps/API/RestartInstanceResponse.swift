@@ -49,7 +49,7 @@ public class RestartInstanceResponse:NSObject,Codable
 }
 
 public extension RestartInstanceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RestartInstanceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

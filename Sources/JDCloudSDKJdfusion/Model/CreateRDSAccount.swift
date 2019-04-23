@@ -54,7 +54,7 @@ public class CreateRDSAccount:NSObject,Codable{
     }
 }
 public extension CreateRDSAccount{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRDSAccountCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(password, forKey: .password)

@@ -71,7 +71,7 @@ public class WidgetRawResource:NSObject,Codable{
     }
 }
 public extension WidgetRawResource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetRawResourceCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(regionId, forKey: .regionId)

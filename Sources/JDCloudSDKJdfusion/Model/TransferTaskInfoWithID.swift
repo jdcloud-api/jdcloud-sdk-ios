@@ -71,7 +71,7 @@ public class TransferTaskInfoWithID:NSObject,Codable{
     }
 }
 public extension TransferTaskInfoWithID{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TransferTaskInfoWithIDCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)

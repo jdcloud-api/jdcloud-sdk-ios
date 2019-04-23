@@ -57,7 +57,7 @@ public class CertInfoDescribeSpec:NSObject,Codable{
     }
 }
 public extension CertInfoDescribeSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CertInfoDescribeSpecCodingKeys.self)
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(httpsCertContent, forKey: .httpsCertContent)

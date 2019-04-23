@@ -62,7 +62,7 @@ public class InstanceTemplateNetworkInterfaceSpec:NSObject,Codable{
     }
 }
 public extension InstanceTemplateNetworkInterfaceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateNetworkInterfaceSpecCodingKeys.self)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(securityGroups, forKey: .securityGroups)

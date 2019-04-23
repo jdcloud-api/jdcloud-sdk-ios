@@ -99,7 +99,7 @@ public class ListDomainItem:NSObject,Codable{
     }
 }
 public extension ListDomainItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListDomainItemCodingKeys.self)
          try encoderContainer.encode(cname, forKey: .cname)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

@@ -27,15 +27,19 @@ import Foundation
 ///  onlineStreamInfo
 @objc(OnlineStreamInfo)
 public class OnlineStreamInfo:NSObject,Codable{
-    /// 您的加速域名
+    /// 推流域名
     var publishDomain:String?
-    /// 您的APP
+    /// 应用名称
     var appName:String?
-    /// 您的流名
+    /// 流名称
     var streamName:String?
-    /// 您的推流时间
+    /// 推流时间
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例:2018-10-21T10:00:00Z
+      /// 
     var publishTime:String?
-    /// 您的推流地址
+    /// 推流地址
     var publishUrl:String?
 
 
@@ -78,7 +82,7 @@ public class OnlineStreamInfo:NSObject,Codable{
     }
 }
 public extension OnlineStreamInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OnlineStreamInfoCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(appName, forKey: .appName)

@@ -143,7 +143,7 @@ public class BatchCreateAlarmsSpec:NSObject,Codable{
     }
 }
 public extension BatchCreateAlarmsSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchCreateAlarmsSpecCodingKeys.self)
          try encoderContainer.encode(clientToken, forKey: .clientToken)
          try encoderContainer.encode(contacts, forKey: .contacts)

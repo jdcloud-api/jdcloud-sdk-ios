@@ -50,7 +50,7 @@ public class VpcSlbItem:NSObject,Codable{
     }
 }
 public extension VpcSlbItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcSlbItemCodingKeys.self)
          try encoderContainer.encode(slb, forKey: .slb)
     }

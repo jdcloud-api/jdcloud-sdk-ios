@@ -71,7 +71,7 @@ public class TotalcountData:NSObject,Codable{
     }
 }
 public extension TotalcountData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TotalcountDataCodingKeys.self)
          try encoderContainer.encode(dataList, forKey: .dataList)
          try encoderContainer.encode(currentCount, forKey: .currentCount)

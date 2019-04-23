@@ -225,7 +225,7 @@ public class DistributorDTO:NSObject,Codable{
     }
 }
 public extension DistributorDTO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DistributorDTOCodingKeys.self)
          try encoderContainer.encode(distributorId, forKey: .distributorId)
          try encoderContainer.encode(distributorName, forKey: .distributorName)

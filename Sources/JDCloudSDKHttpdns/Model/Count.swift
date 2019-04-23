@@ -59,7 +59,7 @@ public class Count:NSObject,Codable{
     }
 }
 public extension Count{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CountCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(data, forKey: .data)

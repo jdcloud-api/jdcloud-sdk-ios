@@ -49,7 +49,7 @@ public class DescribeSubscriptionsResponse:NSObject,Codable
 }
 
 public extension DescribeSubscriptionsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSubscriptionsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

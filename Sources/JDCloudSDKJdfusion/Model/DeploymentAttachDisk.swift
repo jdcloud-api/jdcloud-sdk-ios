@@ -54,7 +54,7 @@ public class DeploymentAttachDisk:NSObject,Codable{
     }
 }
 public extension DeploymentAttachDisk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentAttachDiskCodingKeys.self)
          try encoderContainer.encode(diskId, forKey: .diskId)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

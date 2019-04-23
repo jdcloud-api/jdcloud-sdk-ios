@@ -92,7 +92,7 @@ public class Dashboard:NSObject,Codable{
     }
 }
 public extension Dashboard{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DashboardCodingKeys.self)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
          try encoderContainer.encode(dashboardId, forKey: .dashboardId)

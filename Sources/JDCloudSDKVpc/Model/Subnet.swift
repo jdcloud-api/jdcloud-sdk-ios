@@ -120,7 +120,7 @@ public class Subnet:NSObject,Codable{
     }
 }
 public extension Subnet{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SubnetCodingKeys.self)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(subnetName, forKey: .subnetName)

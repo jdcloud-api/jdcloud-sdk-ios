@@ -27,7 +27,7 @@ import Foundation
 ///  delView
 @objc(DelView)
 public class DelView:NSObject,Codable{
-    /// 域名ID
+    /// 主域名ID，请使用getDomains接口获取
     /// Required:true
     var domainId:Int
     /// 主域名
@@ -38,11 +38,11 @@ public class DelView:NSObject,Codable{
     var viewName:String
     /// 自定义线路ID
     /// Required:true
-    var viewId:String
+    var viewId:Int
 
 
 
-    public  init(domainId:Int,domainName:String,viewName:String,viewId:String){
+    public  init(domainId:Int,domainName:String,viewName:String,viewId:Int){
              self.domainId = domainId
              self.domainName = domainName
              self.viewName = viewName
@@ -62,11 +62,11 @@ public class DelView:NSObject,Codable{
         self.domainId = try decoderContainer.decode(Int.self, forKey: .domainId)
         self.domainName = try decoderContainer.decode(String.self, forKey: .domainName)
         self.viewName = try decoderContainer.decode(String.self, forKey: .viewName)
-        self.viewId = try decoderContainer.decode(String.self, forKey: .viewId)
+        self.viewId = try decoderContainer.decode(Int.self, forKey: .viewId)
     }
 }
 public extension DelView{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DelViewCodingKeys.self)
          try encoderContainer.encode(domainId, forKey: .domainId)
          try encoderContainer.encode(domainName, forKey: .domainName)

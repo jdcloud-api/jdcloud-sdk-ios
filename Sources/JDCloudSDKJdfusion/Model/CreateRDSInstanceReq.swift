@@ -50,7 +50,7 @@ public class CreateRDSInstanceReq:NSObject,Codable{
     }
 }
 public extension CreateRDSInstanceReq{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRDSInstanceReqCodingKeys.self)
          try encoderContainer.encode(instance, forKey: .instance)
     }

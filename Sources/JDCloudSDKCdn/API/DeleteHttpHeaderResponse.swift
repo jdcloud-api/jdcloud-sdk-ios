@@ -49,7 +49,7 @@ public class DeleteHttpHeaderResponse:NSObject,Codable
 }
 
 public extension DeleteHttpHeaderResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteHttpHeaderResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

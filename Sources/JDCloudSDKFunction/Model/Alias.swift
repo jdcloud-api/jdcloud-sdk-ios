@@ -78,7 +78,7 @@ public class Alias:NSObject,Codable{
     }
 }
 public extension Alias{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AliasCodingKeys.self)
          try encoderContainer.encode(aliasId, forKey: .aliasId)
          try encoderContainer.encode(aliasName, forKey: .aliasName)

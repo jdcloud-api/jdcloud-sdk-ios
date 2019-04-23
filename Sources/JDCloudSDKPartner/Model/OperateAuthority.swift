@@ -106,7 +106,7 @@ public class OperateAuthority:NSObject,Codable{
     }
 }
 public extension OperateAuthority{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OperateAuthorityCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(deptId, forKey: .deptId)

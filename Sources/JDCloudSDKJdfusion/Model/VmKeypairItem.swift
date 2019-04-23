@@ -50,7 +50,7 @@ public class VmKeypairItem:NSObject,Codable{
     }
 }
 public extension VmKeypairItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VmKeypairItemCodingKeys.self)
          try encoderContainer.encode(keypair, forKey: .keypair)
     }

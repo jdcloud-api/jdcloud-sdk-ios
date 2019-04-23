@@ -57,7 +57,7 @@ public class Result:NSObject,Codable{
     }
 }
 public extension Result{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResultCodingKeys.self)
          try encoderContainer.encode(code, forKey: .code)
          try encoderContainer.encode(detail, forKey: .detail)

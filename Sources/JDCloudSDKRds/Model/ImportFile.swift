@@ -92,7 +92,7 @@ public class ImportFile:NSObject,Codable{
     }
 }
 public extension ImportFile{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ImportFileCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(sharedFileGid, forKey: .sharedFileGid)

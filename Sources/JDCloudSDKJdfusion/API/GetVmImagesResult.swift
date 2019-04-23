@@ -51,7 +51,7 @@ public class GetVmImagesResult:NSObject,JdCloudResult
     }
 }
 public extension GetVmImagesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVmImagesResultCodingKeys.self)
         try encoderContainer.encode(images, forKey: .images)
     }

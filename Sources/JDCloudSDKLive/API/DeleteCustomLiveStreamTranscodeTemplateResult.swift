@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,6 +26,8 @@ import Foundation
 import JDCloudSDKCore
 
 /// 删除用户自定义转码模板
+      ///       /// - 删除用户自定义转码模板之前必须先删除此模板在各域名、应用、流级别的转码设置
+      ///       /// 
 @objc(DeleteCustomLiveStreamTranscodeTemplateResult)
 public class DeleteCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudResult
 {

@@ -141,7 +141,7 @@ public class DevicePageVo:NSObject,Codable{
     }
 }
 public extension DevicePageVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DevicePageVoCodingKeys.self)
          try encoderContainer.encode(uuid, forKey: .uuid)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

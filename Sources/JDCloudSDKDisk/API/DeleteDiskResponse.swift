@@ -49,7 +49,7 @@ public class DeleteDiskResponse:NSObject,Codable
 }
 
 public extension DeleteDiskResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteDiskResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

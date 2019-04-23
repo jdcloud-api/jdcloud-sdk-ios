@@ -57,7 +57,7 @@ public class Gpu:NSObject,Codable{
     }
 }
 public extension Gpu{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GpuCodingKeys.self)
          try encoderContainer.encode(model, forKey: .model)
          try encoderContainer.encode(number, forKey: .number)

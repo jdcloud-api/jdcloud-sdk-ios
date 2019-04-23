@@ -29,11 +29,11 @@ import Foundation
 public class LiveStreamRecordConfig:NSObject,Codable{
     /// 推流域名
     var publishDomain:String?
-    /// appName
+    /// 应用名称
     var appName:String?
-    /// 流名
+    /// 流名称
     var streamName:String?
-    /// 水印模板配置
+    /// 水印模板集合
     var watermarkConfig:[String?]?
 
 
@@ -71,7 +71,7 @@ public class LiveStreamRecordConfig:NSObject,Codable{
     }
 }
 public extension LiveStreamRecordConfig{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LiveStreamRecordConfigCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(appName, forKey: .appName)

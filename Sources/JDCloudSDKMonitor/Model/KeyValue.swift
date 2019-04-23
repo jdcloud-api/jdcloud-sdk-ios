@@ -57,7 +57,7 @@ public class KeyValue:NSObject,Codable{
     }
 }
 public extension KeyValue{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeyValueCodingKeys.self)
          try encoderContainer.encode(key, forKey: .key)
          try encoderContainer.encode(value, forKey: .value)

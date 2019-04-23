@@ -49,7 +49,7 @@ public class EnableCCObserverModeResponse:NSObject,Codable
 }
 
 public extension EnableCCObserverModeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableCCObserverModeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

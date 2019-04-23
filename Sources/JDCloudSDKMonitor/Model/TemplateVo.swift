@@ -120,7 +120,7 @@ public class TemplateVo:NSObject,Codable{
     }
 }
 public extension TemplateVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TemplateVoCodingKeys.self)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

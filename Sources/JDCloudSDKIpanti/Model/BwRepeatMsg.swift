@@ -57,7 +57,7 @@ public class BwRepeatMsg:NSObject,Codable{
     }
 }
 public extension BwRepeatMsg{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BwRepeatMsgCodingKeys.self)
          try encoderContainer.encode(black, forKey: .black)
          try encoderContainer.encode(white, forKey: .white)

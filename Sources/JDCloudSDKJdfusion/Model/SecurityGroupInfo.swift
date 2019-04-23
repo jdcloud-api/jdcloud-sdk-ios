@@ -85,7 +85,7 @@ public class SecurityGroupInfo:NSObject,Codable{
     }
 }
 public extension SecurityGroupInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecurityGroupInfoCodingKeys.self)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
          try encoderContainer.encode(id, forKey: .id)

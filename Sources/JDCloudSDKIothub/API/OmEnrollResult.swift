@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   物模型管理
+   OMManager
    用于完成物模型管理
 
    OpenAPI spec version: v1
@@ -52,7 +52,7 @@ public class OmEnrollResult:NSObject,JdCloudResult
     }
 }
 public extension OmEnrollResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OmEnrollResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

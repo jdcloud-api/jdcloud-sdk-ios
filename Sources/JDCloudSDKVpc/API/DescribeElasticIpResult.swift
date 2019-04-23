@@ -51,7 +51,7 @@ public class DescribeElasticIpResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeElasticIpResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeElasticIpResultCodingKeys.self)
         try encoderContainer.encode(elasticIp, forKey: .elasticIp)
     }

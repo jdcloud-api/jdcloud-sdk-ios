@@ -49,7 +49,7 @@ public class DeleteFunctionResponse:NSObject,Codable
 }
 
 public extension DeleteFunctionResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteFunctionResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -49,7 +49,7 @@ public class GrantPrivilegeResponse:NSObject,Codable
 }
 
 public extension GrantPrivilegeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GrantPrivilegeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

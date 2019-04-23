@@ -68,7 +68,7 @@ public class CreateInstancesResult:NSObject,JdCloudResult
     }
 }
 public extension CreateInstancesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateInstancesResultCodingKeys.self)
         try encoderContainer.encode(instanceIds, forKey: .instanceIds)
     }

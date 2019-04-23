@@ -88,7 +88,7 @@ public class InstanceTemplateDiskAttachment:NSObject,Codable{
     }
 }
 public extension InstanceTemplateDiskAttachment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateDiskAttachmentCodingKeys.self)
          try encoderContainer.encode(diskCategory, forKey: .diskCategory)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)

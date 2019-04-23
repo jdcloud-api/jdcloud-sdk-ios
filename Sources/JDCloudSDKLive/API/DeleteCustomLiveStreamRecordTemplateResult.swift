@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,6 +26,8 @@ import Foundation
 import JDCloudSDKCore
 
 /// 删除用户自定义录制模板
+      ///       /// - 删除用户自定义录制模板之前必须先删除此模板在各域名、应用、流级别的录制设置
+      ///       /// 
 @objc(DeleteCustomLiveStreamRecordTemplateResult)
 public class DeleteCustomLiveStreamRecordTemplateResult:NSObject,JdCloudResult
 {

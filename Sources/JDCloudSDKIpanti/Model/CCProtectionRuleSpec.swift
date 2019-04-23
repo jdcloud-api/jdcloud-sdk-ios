@@ -84,7 +84,7 @@ public class CCProtectionRuleSpec:NSObject,Codable{
     }
 }
 public extension CCProtectionRuleSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCProtectionRuleSpecCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(uri, forKey: .uri)

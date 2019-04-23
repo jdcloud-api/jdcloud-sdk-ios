@@ -75,7 +75,7 @@ public class QueryDomainGroupDetailResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDomainGroupDetailResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDomainGroupDetailResultCodingKeys.self)
         try encoderContainer.encode(domains, forKey: .domains)
         try encoderContainer.encode(primaryDomain, forKey: .primaryDomain)

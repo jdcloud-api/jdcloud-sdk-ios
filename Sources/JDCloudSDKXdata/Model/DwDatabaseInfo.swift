@@ -64,7 +64,7 @@ public class DwDatabaseInfo:NSObject,Codable{
     }
 }
 public extension DwDatabaseInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DwDatabaseInfoCodingKeys.self)
          try encoderContainer.encode(owner, forKey: .owner)
          try encoderContainer.encode(comments, forKey: .comments)

@@ -59,7 +59,7 @@ public class DeleteWebRuleResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteWebRuleResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteWebRuleResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

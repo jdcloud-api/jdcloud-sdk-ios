@@ -49,7 +49,7 @@ public class SwitchWebRuleOriginResponse:NSObject,Codable
 }
 
 public extension SwitchWebRuleOriginResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SwitchWebRuleOriginResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

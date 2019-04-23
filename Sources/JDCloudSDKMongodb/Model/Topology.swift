@@ -64,7 +64,7 @@ public class Topology:NSObject,Codable{
     }
 }
 public extension Topology{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopologyCodingKeys.self)
          try encoderContainer.encode(primary, forKey: .primary)
          try encoderContainer.encode(secondary, forKey: .secondary)

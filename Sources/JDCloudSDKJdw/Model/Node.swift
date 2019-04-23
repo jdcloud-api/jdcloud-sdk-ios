@@ -78,7 +78,7 @@ public class Node:NSObject,Codable{
     }
 }
 public extension Node{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NodeCodingKeys.self)
          try encoderContainer.encode(nodeRole, forKey: .nodeRole)
          try encoderContainer.encode(nodeStatus, forKey: .nodeStatus)

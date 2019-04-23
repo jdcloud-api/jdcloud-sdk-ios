@@ -64,7 +64,7 @@ public class ReturnConditionOperatorDTO:NSObject,Codable{
     }
 }
 public extension ReturnConditionOperatorDTO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnConditionOperatorDTOCodingKeys.self)
          try encoderContainer.encode(code, forKey: .code)
          try encoderContainer.encode(operatorValue, forKey: .operatorValue)

@@ -57,7 +57,7 @@ public class Quota:NSObject,Codable{
     }
 }
 public extension Quota{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QuotaCodingKeys.self)
          try encoderContainer.encode(total, forKey: .total)
          try encoderContainer.encode(use, forKey: .use)

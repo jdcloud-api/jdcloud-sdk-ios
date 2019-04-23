@@ -85,7 +85,7 @@ public class IpResourceInfo:NSObject,Codable{
     }
 }
 public extension IpResourceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpResourceInfoCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(safeStatus, forKey: .safeStatus)

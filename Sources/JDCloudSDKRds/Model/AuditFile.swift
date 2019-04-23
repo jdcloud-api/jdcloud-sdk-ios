@@ -71,7 +71,7 @@ public class AuditFile:NSObject,Codable{
     }
 }
 public extension AuditFile{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AuditFileCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(sizeByte, forKey: .sizeByte)

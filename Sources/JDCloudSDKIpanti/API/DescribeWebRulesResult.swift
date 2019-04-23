@@ -75,7 +75,7 @@ public class DescribeWebRulesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeWebRulesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeWebRulesResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

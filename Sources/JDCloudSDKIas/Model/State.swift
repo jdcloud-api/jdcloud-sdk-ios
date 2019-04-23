@@ -57,7 +57,7 @@ public class State:NSObject,Codable{
     }
 }
 public extension State{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StateCodingKeys.self)
          try encoderContainer.encode(label, forKey: .label)
          try encoderContainer.encode(value, forKey: .value)

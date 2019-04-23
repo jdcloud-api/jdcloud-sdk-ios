@@ -48,7 +48,7 @@ public class AddNetworkSecurityGroupRulesSpec:NSObject,Codable{
     }
 }
 public extension AddNetworkSecurityGroupRulesSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddNetworkSecurityGroupRulesSpecCodingKeys.self)
          try encoderContainer.encode(networkSecurityGroupRuleSpecs, forKey: .networkSecurityGroupRuleSpecs)
     }

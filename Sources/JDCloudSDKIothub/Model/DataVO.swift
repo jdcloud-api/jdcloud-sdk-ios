@@ -134,7 +134,7 @@ public class DataVO:NSObject,Codable{
     }
 }
 public extension DataVO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataVOCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)

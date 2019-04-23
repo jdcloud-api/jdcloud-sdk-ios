@@ -54,7 +54,7 @@ public class CreateProbeTaskSpec:NSObject,Codable{
     }
 }
 public extension CreateProbeTaskSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateProbeTaskSpecCodingKeys.self)
          try encoderContainer.encode(clientToken, forKey: .clientToken)
          try encoderContainer.encode(createProbeTaskSpecValue, forKey: .createProbeTaskSpecValue)

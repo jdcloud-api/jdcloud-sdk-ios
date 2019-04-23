@@ -71,7 +71,7 @@ public class Formula:NSObject,Codable{
     }
 }
 public extension Formula{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FormulaCodingKeys.self)
          try encoderContainer.encode(key, forKey: .key)
          try encoderContainer.encode(value, forKey: .value)

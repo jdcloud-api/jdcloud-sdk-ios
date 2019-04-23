@@ -49,7 +49,7 @@ public class QueryHttpHeaderResponse:NSObject,Codable
 }
 
 public extension QueryHttpHeaderResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryHttpHeaderResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

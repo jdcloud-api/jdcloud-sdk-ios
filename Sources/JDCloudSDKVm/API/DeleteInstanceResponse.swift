@@ -49,7 +49,7 @@ public class DeleteInstanceResponse:NSObject,Codable
 }
 
 public extension DeleteInstanceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteInstanceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

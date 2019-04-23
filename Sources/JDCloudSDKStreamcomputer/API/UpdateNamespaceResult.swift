@@ -51,7 +51,7 @@ public class UpdateNamespaceResult:NSObject,JdCloudResult
     }
 }
 public extension UpdateNamespaceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateNamespaceResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
     }

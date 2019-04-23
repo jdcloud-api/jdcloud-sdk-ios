@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,8 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询录制模板列表
+/// 查询用户定义水印模板列表
+      ///       /// 
 @objc(DescribeCustomLiveStreamWatermarkTemplatesResult)
 public class DescribeCustomLiveStreamWatermarkTemplatesResult:NSObject,JdCloudResult
 {
@@ -36,7 +37,7 @@ public class DescribeCustomLiveStreamWatermarkTemplatesResult:NSObject,JdCloudRe
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
     /// 水印模板
     var watermarkTemplates:[WatermarkTemplate?]?
@@ -66,7 +67,7 @@ public class DescribeCustomLiveStreamWatermarkTemplatesResult:NSObject,JdCloudRe
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.watermarkTemplates)
         {
@@ -75,7 +76,7 @@ public class DescribeCustomLiveStreamWatermarkTemplatesResult:NSObject,JdCloudRe
     }
 }
 public extension DescribeCustomLiveStreamWatermarkTemplatesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamWatermarkTemplatesResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

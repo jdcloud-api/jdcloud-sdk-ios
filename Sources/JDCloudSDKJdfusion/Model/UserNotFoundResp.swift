@@ -50,7 +50,7 @@ public class UserNotFoundResp:NSObject,Codable{
     }
 }
 public extension UserNotFoundResp{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UserNotFoundRespCodingKeys.self)
          try encoderContainer.encode(error, forKey: .error)
     }

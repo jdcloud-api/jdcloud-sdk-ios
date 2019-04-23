@@ -75,7 +75,7 @@ public class DescribeDDoSGraphResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeDDoSGraphResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDDoSGraphResultCodingKeys.self)
         try encoderContainer.encode(preProtect, forKey: .preProtect)
         try encoderContainer.encode(postProtect, forKey: .postProtect)

@@ -27,15 +27,21 @@ import Foundation
 ///  liveStreamPublishInfo
 @objc(LiveStreamPublishInfo)
 public class LiveStreamPublishInfo:NSObject,Codable{
-    /// 您的加速域名
+    /// 推流域名
     var publishDomain:String?
-    /// 您的APP
+    /// 应用名称
     var appName:String?
-    /// 您的流名
+    /// 流名称
     var streamName:String?
-    /// 开始推流时刻 UTC 时间
+    /// 推流开始时间
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var publishUpTime:String?
-    /// 开始推流时刻 UTC 时间
+    /// 推流结束时刻
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var publishDownTime:String?
 
 
@@ -78,7 +84,7 @@ public class LiveStreamPublishInfo:NSObject,Codable{
     }
 }
 public extension LiveStreamPublishInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LiveStreamPublishInfoCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(appName, forKey: .appName)

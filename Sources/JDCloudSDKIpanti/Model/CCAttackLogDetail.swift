@@ -57,7 +57,7 @@ public class CCAttackLogDetail:NSObject,Codable{
     }
 }
 public extension CCAttackLogDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCAttackLogDetailCodingKeys.self)
          try encoderContainer.encode(key, forKey: .key)
          try encoderContainer.encode(num, forKey: .num)

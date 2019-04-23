@@ -71,7 +71,7 @@ public class CategoryTree:NSObject,Codable{
     }
 }
 public extension CategoryTree{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CategoryTreeCodingKeys.self)
          try encoderContainer.encode(categoryId, forKey: .categoryId)
          try encoderContainer.encode(category, forKey: .category)

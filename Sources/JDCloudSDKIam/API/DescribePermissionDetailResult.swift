@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   策略管理接口
-   策略管理接口
+   Permission Management
+   Permission Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -51,7 +51,7 @@ public class DescribePermissionDetailResult:NSObject,JdCloudResult
     }
 }
 public extension DescribePermissionDetailResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribePermissionDetailResultCodingKeys.self)
         try encoderContainer.encode(permission, forKey: .permission)
     }

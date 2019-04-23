@@ -151,7 +151,7 @@ public class DwTable:NSObject,Codable{
     }
 }
 public extension DwTable{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DwTableCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(userName, forKey: .userName)

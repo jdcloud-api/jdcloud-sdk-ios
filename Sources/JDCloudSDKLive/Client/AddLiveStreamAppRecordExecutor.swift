@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加APP录制配置
+///  添加应用级别直播录制配置
+      /// - 添加应用级别的直播录制模板配置
+      /// 
 public class AddLiveStreamAppRecordExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

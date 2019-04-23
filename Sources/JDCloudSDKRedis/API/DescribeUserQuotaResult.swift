@@ -52,7 +52,7 @@ public class DescribeUserQuotaResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeUserQuotaResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeUserQuotaResultCodingKeys.self)
         try encoderContainer.encode(quota, forKey: .quota)
     }

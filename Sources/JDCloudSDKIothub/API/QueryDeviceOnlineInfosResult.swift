@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   设备管理
+   DeviceInfo
    device管理模块
 
    OpenAPI spec version: v1
@@ -51,7 +51,7 @@ public class QueryDeviceOnlineInfosResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDeviceOnlineInfosResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDeviceOnlineInfosResultCodingKeys.self)
         try encoderContainer.encode(onlineInfos, forKey: .onlineInfos)
     }

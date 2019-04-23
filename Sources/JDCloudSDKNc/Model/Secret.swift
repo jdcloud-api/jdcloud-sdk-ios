@@ -71,7 +71,7 @@ public class Secret:NSObject,Codable{
     }
 }
 public extension Secret{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecretCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(type, forKey: .type)

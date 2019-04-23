@@ -49,7 +49,7 @@ public class ModifyCertInfoResponse:NSObject,Codable
 }
 
 public extension ModifyCertInfoResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyCertInfoResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

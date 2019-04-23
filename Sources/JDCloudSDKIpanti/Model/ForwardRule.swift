@@ -132,7 +132,7 @@ public class ForwardRule:NSObject,Codable{
     }
 }
 public extension ForwardRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ForwardRuleCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

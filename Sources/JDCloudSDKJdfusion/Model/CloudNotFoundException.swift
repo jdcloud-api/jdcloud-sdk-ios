@@ -60,7 +60,7 @@ public class CloudNotFoundException:NSObject,Codable{
     }
 }
 public extension CloudNotFoundException{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CloudNotFoundExceptionCodingKeys.self)
          try encoderContainer.encode(message, forKey: .message)
          try encoderContainer.encode(code, forKey: .code)

@@ -51,7 +51,7 @@ public class DeleteNamespaceResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteNamespaceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteNamespaceResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
     }

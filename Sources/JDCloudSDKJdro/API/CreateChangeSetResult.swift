@@ -51,7 +51,7 @@ public class CreateChangeSetResult:NSObject,JdCloudResult
     }
 }
 public extension CreateChangeSetResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateChangeSetResultCodingKeys.self)
         try encoderContainer.encode(id, forKey: .id)
     }

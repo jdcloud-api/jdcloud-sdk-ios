@@ -49,7 +49,7 @@ public class UpdateFunctionResponse:NSObject,Codable
 }
 
 public extension UpdateFunctionResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateFunctionResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

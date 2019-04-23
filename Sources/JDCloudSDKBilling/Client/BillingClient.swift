@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   JDCLOUD BILLING API
+   计费
    计费系统API接口
 
    OpenAPI spec version: v1
@@ -81,14 +81,14 @@ public class BillingJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func queryConsumptionOverViewAsync(request:QueryConsumptionOverViewRequest,requestComplation:@escaping (NSNumber?,QueryConsumptionOverViewResponse?,NSError?,NSString?)->()) throws {
+    public func queryBillSummaryAsync(request:QueryBillSummaryRequest,requestComplation:@escaping (NSNumber?,QueryBillSummaryResponse?,NSError?,NSString?)->()) throws {
         billingJDCloudClient = self
-        try QueryConsumptionOverViewExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try QueryBillSummaryExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryConsumptionOverViewResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(QueryBillSummaryResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -102,266 +102,14 @@ public class BillingJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func isArrearAsync(request:IsArrearRequest,requestComplation:@escaping (NSNumber?,IsArrearResponse?,NSError?,NSString?)->()) throws {
+    public func queryBillDetailAsync(request:QueryBillDetailRequest,requestComplation:@escaping (NSNumber?,QueryBillDetailResponse?,NSError?,NSString?)->()) throws {
         billingJDCloudClient = self
-        try IsArrearExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try QueryBillDetailExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(IsArrearResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func adminQueryBillStatisticsInfoAsync(request:AdminQueryBillStatisticsInfoRequest,requestComplation:@escaping (NSNumber?,AdminQueryBillStatisticsInfoResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try AdminQueryBillStatisticsInfoExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AdminQueryBillStatisticsInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func sendResourceOrderStatusMessageAsync(request:SendResourceOrderStatusMessageRequest,requestComplation:@escaping (NSNumber?,SendResourceOrderStatusMessageResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try SendResourceOrderStatusMessageExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SendResourceOrderStatusMessageResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func getBillDetailAsync(request:GetBillDetailRequest,requestComplation:@escaping (NSNumber?,GetBillDetailResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try GetBillDetailExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetBillDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func queryResourceBillsAsync(request:QueryResourceBillsRequest,requestComplation:@escaping (NSNumber?,QueryResourceBillsResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try QueryResourceBillsExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryResourceBillsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func calculateTotalPriceAsync(request:CalculateTotalPriceRequest,requestComplation:@escaping (NSNumber?,CalculateTotalPriceResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try CalculateTotalPriceExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CalculateTotalPriceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func calculateCompensateFeeAndSendCouponsAsync(request:CalculateCompensateFeeAndSendCouponsRequest,requestComplation:@escaping (NSNumber?,CalculateCompensateFeeAndSendCouponsResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try CalculateCompensateFeeAndSendCouponsExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CalculateCompensateFeeAndSendCouponsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func queryConsumeRecordsAsync(request:QueryConsumeRecordsRequest,requestComplation:@escaping (NSNumber?,QueryConsumeRecordsResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try QueryConsumeRecordsExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryConsumeRecordsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func queryPageByConditionAsync(request:QueryPageByConditionRequest,requestComplation:@escaping (NSNumber?,QueryPageByConditionResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try QueryPageByConditionExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryPageByConditionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func getResourceNameAsync(request:GetResourceNameRequest,requestComplation:@escaping (NSNumber?,GetResourceNameResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try GetResourceNameExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetResourceNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func queryConsumeBillsAsync(request:QueryConsumeBillsRequest,requestComplation:@escaping (NSNumber?,QueryConsumeBillsResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try QueryConsumeBillsExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryConsumeBillsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func queryBillStatisticsInfoAsync(request:QueryBillStatisticsInfoRequest,requestComplation:@escaping (NSNumber?,QueryBillStatisticsInfoResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try QueryBillStatisticsInfoExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryBillStatisticsInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func getExpiringOrdersAsync(request:GetExpiringOrdersRequest,requestComplation:@escaping (NSNumber?,GetExpiringOrdersResponse?,NSError?,NSString?)->()) throws {
-        billingJDCloudClient = self
-        try GetExpiringOrdersExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetExpiringOrdersResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(QueryBillDetailResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -379,7 +127,7 @@ public class BillingJDCloudClient:NSObject,JDCloudClient{
 
 public extension BillingJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -27,7 +27,7 @@ import Foundation
 ///  delViewIP
 @objc(DelViewIP)
 public class DelViewIP:NSObject,Codable{
-    /// 域名ID
+    /// 主域名ID，请使用getDomains接口获取
     /// Required:true
     var domainId:Int
     /// 自定义线路ID
@@ -36,8 +36,9 @@ public class DelViewIP:NSObject,Codable{
     /// 自定义线路名称, 最多64个字符
     /// Required:true
     var viewName:String
-    /// 此线路需要删除的ip段。&lt;br&gt;
-      /// ip段支持1.2.3.4-5.6.7.8和1.2.3.4/16两种格式。    
+    /// 此线路需要删除的ip段。  
+      /// IPv4地址段支持1.2.3.4-5.6.7.8和1.2.3.4/16两种格式。    
+      /// IPv6地址段支持CIDR格式，例如：11:22:33:44:55::99/64
       /// 
     /// Required:true
     var ipRanges:[String?]
@@ -68,7 +69,7 @@ public class DelViewIP:NSObject,Codable{
     }
 }
 public extension DelViewIP{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DelViewIPCodingKeys.self)
          try encoderContainer.encode(domainId, forKey: .domainId)
          try encoderContainer.encode(viewId, forKey: .viewId)

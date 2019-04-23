@@ -71,7 +71,7 @@ public class ResourceChangeDetail:NSObject,Codable{
     }
 }
 public extension ResourceChangeDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceChangeDetailCodingKeys.self)
          try encoderContainer.encode(causingEntity, forKey: .causingEntity)
          try encoderContainer.encode(changeSource, forKey: .changeSource)

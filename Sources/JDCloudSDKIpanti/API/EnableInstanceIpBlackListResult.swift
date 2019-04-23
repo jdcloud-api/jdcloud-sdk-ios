@@ -59,7 +59,7 @@ public class EnableInstanceIpBlackListResult:NSObject,JdCloudResult
     }
 }
 public extension EnableInstanceIpBlackListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableInstanceIpBlackListResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

@@ -92,7 +92,7 @@ public class SlowLogAttributes:NSObject,Codable{
     }
 }
 public extension SlowLogAttributes{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SlowLogAttributesCodingKeys.self)
          try encoderContainer.encode(dbName, forKey: .dbName)
          try encoderContainer.encode(sql, forKey: .sql)

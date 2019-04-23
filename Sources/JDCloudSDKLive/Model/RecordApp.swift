@@ -27,7 +27,7 @@ import Foundation
 ///  recordApp
 @objc(RecordApp)
 public class RecordApp:NSObject,Codable{
-    /// appName
+    /// 应用名称
     var appName:String?
     /// 自动录制周期
     var recordConfig:String?
@@ -57,7 +57,7 @@ public class RecordApp:NSObject,Codable{
     }
 }
 public extension RecordApp{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RecordAppCodingKeys.self)
          try encoderContainer.encode(appName, forKey: .appName)
          try encoderContainer.encode(recordConfig, forKey: .recordConfig)

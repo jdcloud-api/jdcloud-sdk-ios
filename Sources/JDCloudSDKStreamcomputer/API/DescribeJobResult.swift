@@ -51,7 +51,7 @@ public class DescribeJobResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeJobResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeJobResultCodingKeys.self)
         try encoderContainer.encode(jobStr, forKey: .jobStr)
     }

@@ -99,7 +99,7 @@ public class Domains:NSObject,Codable{
     }
 }
 public extension Domains{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DomainsCodingKeys.self)
          try encoderContainer.encode(domainId, forKey: .domainId)
          try encoderContainer.encode(domain, forKey: .domain)

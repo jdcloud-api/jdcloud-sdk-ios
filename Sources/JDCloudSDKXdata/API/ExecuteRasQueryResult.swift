@@ -67,7 +67,7 @@ public class ExecuteRasQueryResult:NSObject,JdCloudResult
     }
 }
 public extension ExecuteRasQueryResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ExecuteRasQueryResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

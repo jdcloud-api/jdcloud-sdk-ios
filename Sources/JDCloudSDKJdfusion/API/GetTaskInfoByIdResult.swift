@@ -51,7 +51,7 @@ public class GetTaskInfoByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetTaskInfoByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTaskInfoByIdResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

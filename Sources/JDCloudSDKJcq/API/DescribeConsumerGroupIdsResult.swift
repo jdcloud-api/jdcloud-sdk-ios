@@ -51,7 +51,7 @@ public class DescribeConsumerGroupIdsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeConsumerGroupIdsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeConsumerGroupIdsResultCodingKeys.self)
         try encoderContainer.encode(consumerGroupIds, forKey: .consumerGroupIds)
     }

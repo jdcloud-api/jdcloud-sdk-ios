@@ -274,7 +274,7 @@ public class ResourceOrderQueryCondition:NSObject,Codable{
     }
 }
 public extension ResourceOrderQueryCondition{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceOrderQueryConditionCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(pin, forKey: .pin)

@@ -27,6 +27,8 @@ import Foundation
 ///  数据盘配置
 @objc(DataDiskInfo)
 public class DataDiskInfo:NSObject,Codable{
+    /// 硬盘ID
+    var diskId:String?
     /// 硬盘大小
     var diskSize:Int32?
     /// 磁盘介质分类，目前为预留，可以为空
@@ -45,6 +47,7 @@ public class DataDiskInfo:NSObject,Codable{
     }
 
     enum DataDiskInfoCodingKeys: String, CodingKey {
+        case diskId
         case diskSize
         case diskMediumType
         case diskName
@@ -55,6 +58,10 @@ public class DataDiskInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DataDiskInfoCodingKeys.self)
+        if decoderContainer.contains(.diskId)
+        {
+            self.diskId = try decoderContainer.decode(String?.self, forKey: .diskId)
+        }
         if decoderContainer.contains(.diskSize)
         {
             self.diskSize = try decoderContainer.decode(Int32?.self, forKey: .diskSize)
@@ -78,8 +85,9 @@ public class DataDiskInfo:NSObject,Codable{
     }
 }
 public extension DataDiskInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataDiskInfoCodingKeys.self)
+         try encoderContainer.encode(diskId, forKey: .diskId)
          try encoderContainer.encode(diskSize, forKey: .diskSize)
          try encoderContainer.encode(diskMediumType, forKey: .diskMediumType)
          try encoderContainer.encode(diskName, forKey: .diskName)

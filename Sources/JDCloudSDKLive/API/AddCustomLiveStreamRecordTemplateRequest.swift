@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,23 +26,35 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加直播录制模板
+///  添加用户自定义直播录制模板
+      ///       /// 
 @objc(AddCustomLiveStreamRecordTemplateRequest)
 public class AddCustomLiveStreamRecordTemplateRequest:JdCloudRequest
 {
     /// 自动录制周期
+      /// - 取值: [15,360]
+      /// - 单位: 分钟
+      /// 
     var recordPeriod:Int
 
-    /// null
+    /// 存储桶
+      /// 
     var saveBucket:String
 
-    /// null
+    /// endpoint
+      /// 
     var saveEndpoint:String
 
-    /// 录制文件格式
+    /// 录制文件格式:
+      /// - 取值: ts,flv,mp4 (多种类型之间用;隔开)
+      /// - 不区分大小写
+      /// 
     var recordFileType:String
 
-    /// 录制模板自定义名称
+    /// 录制模板自定义名称:
+      ///  - 取值要求：数字、大小写字母或短横线(&quot;-&quot;)
+      ///  - &lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
+      /// 
     var template:String
 
 

@@ -132,7 +132,7 @@ public class BillQueryCondition:NSObject,Codable{
     }
 }
 public extension BillQueryCondition{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BillQueryConditionCodingKeys.self)
          try encoderContainer.encode(queryType, forKey: .queryType)
          try encoderContainer.encode(pin, forKey: .pin)

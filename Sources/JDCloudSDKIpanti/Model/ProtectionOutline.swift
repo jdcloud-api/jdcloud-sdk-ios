@@ -106,7 +106,7 @@ public class ProtectionOutline:NSObject,Codable{
     }
 }
 public extension ProtectionOutline{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProtectionOutlineCodingKeys.self)
          try encoderContainer.encode(instancesCount, forKey: .instancesCount)
          try encoderContainer.encode(protectedCount, forKey: .protectedCount)

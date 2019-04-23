@@ -51,7 +51,7 @@ public class GetDiskByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetDiskByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDiskByIdResultCodingKeys.self)
         try encoderContainer.encode(disk, forKey: .disk)
     }

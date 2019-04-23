@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询域名的自定义解析线路的IP段
+/// 查询主域名的自定义解析线路的IP段
 @objc(GetUserViewIPResult)
 public class GetUserViewIPResult:NSObject,JdCloudResult
 {
@@ -75,7 +75,7 @@ public class GetUserViewIPResult:NSObject,JdCloudResult
     }
 }
 public extension GetUserViewIPResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetUserViewIPResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

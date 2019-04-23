@@ -51,7 +51,7 @@ public class CreateRdsDatabaseResult:NSObject,JdCloudResult
     }
 }
 public extension CreateRdsDatabaseResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRdsDatabaseResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

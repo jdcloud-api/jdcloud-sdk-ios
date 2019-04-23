@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   策略管理接口
-   策略管理接口
+   Permission Management
+   Permission Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -49,7 +49,7 @@ public class AddPermissionsToSubUserResponse:NSObject,Codable
 }
 
 public extension AddPermissionsToSubUserResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddPermissionsToSubUserResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

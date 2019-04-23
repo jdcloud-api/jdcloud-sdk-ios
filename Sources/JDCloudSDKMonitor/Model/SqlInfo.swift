@@ -148,7 +148,7 @@ public class SqlInfo:NSObject,Codable{
     }
 }
 public extension SqlInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SqlInfoCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(client_net_address, forKey: .client_net_address)

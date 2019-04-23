@@ -51,7 +51,7 @@ public class DescribeCCDefaultThresholdsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeCCDefaultThresholdsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCCDefaultThresholdsResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

@@ -64,7 +64,7 @@ public class AuthorizationData:NSObject,Codable{
     }
 }
 public extension AuthorizationData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AuthorizationDataCodingKeys.self)
          try encoderContainer.encode(authorizationToken, forKey: .authorizationToken)
          try encoderContainer.encode(loginCmdLine, forKey: .loginCmdLine)

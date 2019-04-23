@@ -67,7 +67,7 @@ public class AddRouteTableRules:NSObject,Codable{
     }
 }
 public extension AddRouteTableRules{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddRouteTableRulesCodingKeys.self)
          try encoderContainer.encode(nextHopType, forKey: .nextHopType)
          try encoderContainer.encode(nextHopId, forKey: .nextHopId)

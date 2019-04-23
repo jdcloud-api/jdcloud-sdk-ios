@@ -49,7 +49,7 @@ public class SwitchWebRuleProtectResponse:NSObject,Codable
 }
 
 public extension SwitchWebRuleProtectResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SwitchWebRuleProtectResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

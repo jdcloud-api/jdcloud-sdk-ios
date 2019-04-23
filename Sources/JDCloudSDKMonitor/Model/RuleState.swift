@@ -64,7 +64,7 @@ public class RuleState:NSObject,Codable{
     }
 }
 public extension RuleState{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RuleStateCodingKeys.self)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
          try encoderContainer.encode(ruleCount, forKey: .ruleCount)

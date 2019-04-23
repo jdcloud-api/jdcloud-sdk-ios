@@ -30,4 +30,19 @@ import JDCloudSDKCore
 @objc(GetDisksRequest)
 public class GetDisksRequest:JdCloudRequest
 {
+    /// 云主机id
+    var vmId:String?
+
+
+
+
+    enum GetDisksRequestRequestCodingKeys: String, CodingKey {
+        case vmId
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: GetDisksRequestRequestCodingKeys.self)
+        try encoderContainer.encode(vmId, forKey: .vmId)
+
+    }
 }

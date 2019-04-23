@@ -49,7 +49,7 @@ public class AddOrUpdateStorageResponse:NSObject,Codable
 }
 
 public extension AddOrUpdateStorageResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddOrUpdateStorageResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

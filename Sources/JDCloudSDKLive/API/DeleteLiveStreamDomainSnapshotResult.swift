@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,6 +26,8 @@ import Foundation
 import JDCloudSDKCore
 
 /// 删除域名截图配置
+      ///       /// - 删除域名级别的截图模板配置,重新推流后生效
+      ///       /// 
 @objc(DeleteLiveStreamDomainSnapshotResult)
 public class DeleteLiveStreamDomainSnapshotResult:NSObject,JdCloudResult
 {

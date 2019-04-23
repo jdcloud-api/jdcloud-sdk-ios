@@ -71,7 +71,7 @@ public class StatisticsData:NSObject,Codable{
     }
 }
 public extension StatisticsData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsDataCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(endTime, forKey: .endTime)

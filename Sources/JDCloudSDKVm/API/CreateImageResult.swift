@@ -55,7 +55,7 @@ public class CreateImageResult:NSObject,JdCloudResult
     }
 }
 public extension CreateImageResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateImageResultCodingKeys.self)
         try encoderContainer.encode(imageId, forKey: .imageId)
     }

@@ -49,7 +49,7 @@ public class DescribeLatestRestoreTimeResponse:NSObject,Codable
 }
 
 public extension DescribeLatestRestoreTimeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLatestRestoreTimeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

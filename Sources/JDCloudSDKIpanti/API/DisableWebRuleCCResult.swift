@@ -59,7 +59,7 @@ public class DisableWebRuleCCResult:NSObject,JdCloudResult
     }
 }
 public extension DisableWebRuleCCResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisableWebRuleCCResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

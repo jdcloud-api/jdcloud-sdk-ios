@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,8 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 设置录制回调通知
+/// 设置直播录制回调通知
+      ///       /// 
 @objc(SetLiveStreamRecordNotifyConfigResult)
 public class SetLiveStreamRecordNotifyConfigResult:NSObject,JdCloudResult
 {

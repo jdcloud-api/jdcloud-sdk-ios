@@ -64,7 +64,7 @@ public class ProtectionStatistics:NSObject,Codable{
     }
 }
 public extension ProtectionStatistics{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProtectionStatisticsCodingKeys.self)
          try encoderContainer.encode(instancesCount, forKey: .instancesCount)
          try encoderContainer.encode(protectedCount, forKey: .protectedCount)

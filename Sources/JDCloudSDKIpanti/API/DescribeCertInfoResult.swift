@@ -51,7 +51,7 @@ public class DescribeCertInfoResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeCertInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCertInfoResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

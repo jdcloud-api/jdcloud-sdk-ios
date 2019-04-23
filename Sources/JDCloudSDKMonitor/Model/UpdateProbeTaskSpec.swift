@@ -118,7 +118,7 @@ public class UpdateProbeTaskSpec:NSObject,Codable{
     }
 }
 public extension UpdateProbeTaskSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateProbeTaskSpecCodingKeys.self)
          try encoderContainer.encode(address, forKey: .address)
          try encoderContainer.encode(frequency, forKey: .frequency)

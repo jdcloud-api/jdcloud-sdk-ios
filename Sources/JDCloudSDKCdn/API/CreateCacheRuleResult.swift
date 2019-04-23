@@ -51,7 +51,7 @@ public class CreateCacheRuleResult:NSObject,JdCloudResult
     }
 }
 public extension CreateCacheRuleResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateCacheRuleResultCodingKeys.self)
         try encoderContainer.encode(configId, forKey: .configId)
     }

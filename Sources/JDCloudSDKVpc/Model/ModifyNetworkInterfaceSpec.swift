@@ -64,7 +64,7 @@ public class ModifyNetworkInterfaceSpec:NSObject,Codable{
     }
 }
 public extension ModifyNetworkInterfaceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyNetworkInterfaceSpecCodingKeys.self)
          try encoderContainer.encode(networkInterfaceName, forKey: .networkInterfaceName)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

@@ -54,7 +54,7 @@ public class Setlb:NSObject,Codable{
     }
 }
 public extension Setlb{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetlbCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(weight, forKey: .weight)

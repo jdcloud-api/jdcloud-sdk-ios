@@ -106,7 +106,7 @@ public class EventOut:NSObject,Codable{
     }
 }
 public extension EventOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EventOutCodingKeys.self)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(physicalId, forKey: .physicalId)

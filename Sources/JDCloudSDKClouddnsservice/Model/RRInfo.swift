@@ -39,9 +39,9 @@ public class RRInfo:NSObject,Codable{
     var hostValue:String?
     /// 是否是京东云资源
     var jcloudRes:Bool?
-    /// 优先级，只存在于某些解析记录类型
+    /// 优先级，只存在于MX, SRV解析记录类型
     var mxPriority:Int?
-    /// 端口，只存在于某些解析记录类型
+    /// 端口，只存在于SRV解析记录类型
     var port:Int?
     /// 解析记录的生存时间
     var ttl:Int?
@@ -141,7 +141,7 @@ public class RRInfo:NSObject,Codable{
     }
 }
 public extension RRInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RRInfoCodingKeys.self)
          try encoderContainer.encode(creator, forKey: .creator)
          try encoderContainer.encode(viewName, forKey: .viewName)

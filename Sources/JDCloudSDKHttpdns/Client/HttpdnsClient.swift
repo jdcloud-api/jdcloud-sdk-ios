@@ -232,7 +232,7 @@ public class HttpdnsJDCloudClient:NSObject,JDCloudClient{
 
 public extension HttpdnsJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

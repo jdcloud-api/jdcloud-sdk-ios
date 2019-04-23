@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 添加域名的解析记录
+/// 添加主域名的解析记录
 @objc(AddRRResult)
 public class AddRRResult:NSObject,JdCloudResult
 {
@@ -51,7 +51,7 @@ public class AddRRResult:NSObject,JdCloudResult
     }
 }
 public extension AddRRResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddRRResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
     }

@@ -78,7 +78,7 @@ public class OssFileInfo:NSObject,Codable{
     }
 }
 public extension OssFileInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OssFileInfoCodingKeys.self)
          try encoderContainer.encode(bucketName, forKey: .bucketName)
          try encoderContainer.encode(key, forKey: .key)

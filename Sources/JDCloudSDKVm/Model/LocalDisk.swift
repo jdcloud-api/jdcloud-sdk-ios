@@ -57,7 +57,7 @@ public class LocalDisk:NSObject,Codable{
     }
 }
 public extension LocalDisk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LocalDiskCodingKeys.self)
          try encoderContainer.encode(diskType, forKey: .diskType)
          try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)

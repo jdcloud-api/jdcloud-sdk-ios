@@ -49,7 +49,7 @@ public class GetLargeScreenDataResponse:NSObject,Codable
 }
 
 public extension GetLargeScreenDataResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetLargeScreenDataResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

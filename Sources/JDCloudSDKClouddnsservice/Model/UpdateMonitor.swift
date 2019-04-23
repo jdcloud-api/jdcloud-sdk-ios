@@ -133,7 +133,7 @@ public class UpdateMonitor:NSObject,Codable{
     }
 }
 public extension UpdateMonitor{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateMonitorCodingKeys.self)
          try encoderContainer.encode(alarmLimit, forKey: .alarmLimit)
          try encoderContainer.encode(id, forKey: .id)

@@ -51,7 +51,7 @@ public class CopyParameterGroupResult:NSObject,JdCloudResult
     }
 }
 public extension CopyParameterGroupResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CopyParameterGroupResultCodingKeys.self)
         try encoderContainer.encode(parameterGroupId, forKey: .parameterGroupId)
     }

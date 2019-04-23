@@ -61,7 +61,7 @@ public class Filter:NSObject,Codable{
     }
 }
 public extension Filter{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FilterCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(operatorValue, forKey: .operatorValue)

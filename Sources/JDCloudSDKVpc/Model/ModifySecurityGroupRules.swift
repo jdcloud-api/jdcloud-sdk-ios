@@ -83,7 +83,7 @@ public class ModifySecurityGroupRules:NSObject,Codable{
     }
 }
 public extension ModifySecurityGroupRules{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifySecurityGroupRulesCodingKeys.self)
          try encoderContainer.encode(ruleId, forKey: .ruleId)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)

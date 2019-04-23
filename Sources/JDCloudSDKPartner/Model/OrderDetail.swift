@@ -302,7 +302,7 @@ public class OrderDetail:NSObject,Codable{
     }
 }
 public extension OrderDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderDetailCodingKeys.self)
          try encoderContainer.encode(orderItemDetails, forKey: .orderItemDetails)
          try encoderContainer.encode(childOrderDetailList, forKey: .childOrderDetailList)

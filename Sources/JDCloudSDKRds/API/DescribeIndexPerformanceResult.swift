@@ -83,7 +83,7 @@ public class DescribeIndexPerformanceResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeIndexPerformanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeIndexPerformanceResultCodingKeys.self)
         try encoderContainer.encode(missingIndexResult, forKey: .missingIndexResult)
         try encoderContainer.encode(indexPerformanceResult, forKey: .indexPerformanceResult)

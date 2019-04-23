@@ -99,7 +99,7 @@ public class MetricCm:NSObject,Codable{
     }
 }
 public extension MetricCm{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MetricCmCodingKeys.self)
          try encoderContainer.encode(aggrPeriod, forKey: .aggrPeriod)
          try encoderContainer.encode(aggrType, forKey: .aggrType)

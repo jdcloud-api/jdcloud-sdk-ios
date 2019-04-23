@@ -106,7 +106,7 @@ public class BackupSynchronicity:NSObject,Codable{
     }
 }
 public extension BackupSynchronicity{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackupSynchronicityCodingKeys.self)
          try encoderContainer.encode(serviceId, forKey: .serviceId)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

@@ -141,7 +141,7 @@ public class PermissionType:NSObject,Codable{
     }
 }
 public extension PermissionType{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PermissionTypeCodingKeys.self)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
          try encoderContainer.encode(ipProtocol, forKey: .ipProtocol)

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class CreateTransferTaskExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/regions/{regionId}/oss_transferTasks")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/regions/{regionId}/oss_transferTasks_simple")
     }
     
 }

@@ -129,15 +129,15 @@ extension String: URLConvertible {
 
 
 public extension Data {
-    public init(hex: String) {
+    init(hex: String) {
         self.init(bytes: Array<UInt8>(hex: hex))
     }
     
-    public var bytes: Array<UInt8> {
+    var bytes: Array<UInt8> {
         return Array(self)
     }
     
-    public func toHexString() -> String {
+    func toHexString() -> String {
         return bytes.toHexString()
     }
 }
@@ -154,11 +154,11 @@ extension Array {
 }
 
 public extension Array where Element == UInt8 {
-    public func toBase64() -> String? {
+    func toBase64() -> String? {
         return Data(bytes: self).base64EncodedString()
     }
     
-    public init(base64: String) {
+    init(base64: String) {
         self.init()
         
         guard let decodedData = Data(base64Encoded: base64) else {
@@ -168,7 +168,7 @@ public extension Array where Element == UInt8 {
         append(contentsOf: decodedData.bytes)
     }
     
-    public init(hex: String) {
+    init(hex: String) {
         self.init(reserveCapacity: hex.unicodeScalars.lazy.underestimatedCount)
         var buffer: UInt8?
         var skip = hex.hasPrefix("0x") ? 2 : 0
@@ -206,7 +206,7 @@ public extension Array where Element == UInt8 {
         }
     }
     
-    public func toHexString() -> String {
+    func toHexString() -> String {
         return `lazy`.reduce("") {
             var s = String($1, radix: 16)
             if s.count == 1 {

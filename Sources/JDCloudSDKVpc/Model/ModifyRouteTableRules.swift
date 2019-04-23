@@ -76,7 +76,7 @@ public class ModifyRouteTableRules:NSObject,Codable{
     }
 }
 public extension ModifyRouteTableRules{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyRouteTableRulesCodingKeys.self)
          try encoderContainer.encode(ruleId, forKey: .ruleId)
          try encoderContainer.encode(priority, forKey: .priority)

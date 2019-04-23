@@ -27,11 +27,17 @@ import Foundation
 ///  app
 @objc(App)
 public class App:NSObject,Codable{
-    /// 应用名
+    /// 应用名称
     var appName:String?
     /// 应用状态
+      ///   online: 开启
+      ///   offline: 关闭
+      /// 
     var appStatus:String?
-    /// 创建时间
+    /// 应用创建时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var createTime:String?
     /// 更新时间
     var updateTime:String?
@@ -71,7 +77,7 @@ public class App:NSObject,Codable{
     }
 }
 public extension App{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AppCodingKeys.self)
          try encoderContainer.encode(appName, forKey: .appName)
          try encoderContainer.encode(appStatus, forKey: .appStatus)

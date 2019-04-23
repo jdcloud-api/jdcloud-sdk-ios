@@ -67,7 +67,7 @@ public class GetDomainQueryTrafficResult:NSObject,JdCloudResult
     }
 }
 public extension GetDomainQueryTrafficResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainQueryTrafficResultCodingKeys.self)
         try encoderContainer.encode(time, forKey: .time)
         try encoderContainer.encode(unit, forKey: .unit)

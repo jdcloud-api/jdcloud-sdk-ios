@@ -239,7 +239,7 @@ public class DistributorQuery:NSObject,Codable{
     }
 }
 public extension DistributorQuery{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DistributorQueryCodingKeys.self)
          try encoderContainer.encode(distributorId, forKey: .distributorId)
          try encoderContainer.encode(distributorName, forKey: .distributorName)

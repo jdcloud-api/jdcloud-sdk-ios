@@ -117,7 +117,7 @@ public class ResourceOrderStatusVo:NSObject,Codable{
     }
 }
 public extension ResourceOrderStatusVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceOrderStatusVoCodingKeys.self)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
          try encoderContainer.encode(pin, forKey: .pin)

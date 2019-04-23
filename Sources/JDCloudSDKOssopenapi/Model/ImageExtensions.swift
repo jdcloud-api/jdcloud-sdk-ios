@@ -48,7 +48,7 @@ public class ImageExtensions:NSObject,Codable{
     }
 }
 public extension ImageExtensions{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ImageExtensionsCodingKeys.self)
          try encoderContainer.encode(imageExtensionsValue, forKey: .imageExtensionsValue)
     }

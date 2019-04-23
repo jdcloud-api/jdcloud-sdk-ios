@@ -246,7 +246,7 @@ public class OrderItemDetail:NSObject,Codable{
     }
 }
 public extension OrderItemDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderItemDetailCodingKeys.self)
          try encoderContainer.encode(priceSnapshot, forKey: .priceSnapshot)
          try encoderContainer.encode(extraInfoBefore, forKey: .extraInfoBefore)

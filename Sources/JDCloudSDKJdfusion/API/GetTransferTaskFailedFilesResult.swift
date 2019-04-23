@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(GetTransferTaskFailedFilesResult)
 public class GetTransferTaskFailedFilesResult:NSObject,JdCloudResult
 {
-    /// Bucket
-    var bucket:TransferTaskFailedDetailInfo?
+    /// Task
+    var task:TransferTaskFailedDetailInfo?
 
 
 
@@ -39,20 +39,20 @@ public class GetTransferTaskFailedFilesResult:NSObject,JdCloudResult
     }
 
     enum GetTransferTaskFailedFilesResultCodingKeys: String, CodingKey {
-        case bucket
+        case task
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetTransferTaskFailedFilesResultCodingKeys.self)
-        if decoderContainer.contains(.bucket)
+        if decoderContainer.contains(.task)
         {
-            self.bucket = try decoderContainer.decode(TransferTaskFailedDetailInfo?.self, forKey: .bucket)
+            self.task = try decoderContainer.decode(TransferTaskFailedDetailInfo?.self, forKey: .task)
         }
     }
 }
 public extension GetTransferTaskFailedFilesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTransferTaskFailedFilesResultCodingKeys.self)
-        try encoderContainer.encode(bucket, forKey: .bucket)
+        try encoderContainer.encode(task, forKey: .task)
     }
 }

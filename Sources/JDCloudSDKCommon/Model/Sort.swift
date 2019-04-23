@@ -57,7 +57,7 @@ public class Sort:NSObject,Codable{
     }
 }
 public extension Sort{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SortCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(direction, forKey: .direction)

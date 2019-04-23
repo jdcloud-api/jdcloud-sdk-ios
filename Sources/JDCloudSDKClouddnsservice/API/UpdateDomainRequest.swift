@@ -30,10 +30,10 @@ import JDCloudSDKCore
 @objc(UpdateDomainRequest)
 public class UpdateDomainRequest:JdCloudRequest
 {
-    /// 需要修改的域名
+    /// 需要修改的主域名，请使用getDomains接口获取
     var domainName:String
 
-    /// 需要修改的域名ID
+    /// 需要修改的主域名ID，请使用getDomains接口获取
     var id:Int
 
 

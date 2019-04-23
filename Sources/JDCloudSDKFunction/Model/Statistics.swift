@@ -71,7 +71,7 @@ public class Statistics:NSObject,Codable{
     }
 }
 public extension Statistics{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsCodingKeys.self)
          try encoderContainer.encode(currentFunctionNumber, forKey: .currentFunctionNumber)
          try encoderContainer.encode(maxFunctionNumber, forKey: .maxFunctionNumber)

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,38 +26,40 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加APP水印配置
+///  添加应用级别水印配置
+      ///       /// 
 @objc(AddLiveStreamAppWatermarkRequest)
 public class AddLiveStreamAppWatermarkRequest:JdCloudRequest
 {
-    /// 直播流所属应用名称
-    var appName:String
-
-    /// 您的推流加速域名
+    /// 推流域名
     var publishDomain:String
 
-    /// 录制模版
+    /// 应用名称
+    var appName:String
+
+    /// 水印模板名称
+      /// 
     var template:String
 
 
-    public init(regionId: String,appName:String,publishDomain:String,template:String){
-        self.appName = appName
+    public init(regionId: String,publishDomain:String,appName:String,template:String){
         self.publishDomain = publishDomain
+        self.appName = appName
         self.template = template
         super.init(regionId: regionId)
     }
 
 
     enum AddLiveStreamAppWatermarkRequestRequestCodingKeys: String, CodingKey {
-        case appName
         case publishDomain
+        case appName
         case template
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddLiveStreamAppWatermarkRequestRequestCodingKeys.self)
-        try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
+        try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(template, forKey: .template)
 
     }

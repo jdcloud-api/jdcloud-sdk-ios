@@ -72,7 +72,7 @@ public class PutBody:NSObject,Codable{
     }
 }
 public extension PutBody{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PutBodyCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)

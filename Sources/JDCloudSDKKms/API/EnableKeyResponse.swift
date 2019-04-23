@@ -49,7 +49,7 @@ public class EnableKeyResponse:NSObject,Codable
 }
 
 public extension EnableKeyResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableKeyResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

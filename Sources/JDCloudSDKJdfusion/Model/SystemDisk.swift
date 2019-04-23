@@ -64,7 +64,7 @@ public class SystemDisk:NSObject,Codable{
     }
 }
 public extension SystemDisk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SystemDiskCodingKeys.self)
          try encoderContainer.encode(category, forKey: .category)
          try encoderContainer.encode(diskSize, forKey: .diskSize)

@@ -253,7 +253,7 @@ public class StreambusJDCloudClient:NSObject,JDCloudClient{
 
 public extension StreambusJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

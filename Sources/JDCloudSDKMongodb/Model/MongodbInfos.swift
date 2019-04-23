@@ -57,7 +57,7 @@ public class MongodbInfos:NSObject,Codable{
     }
 }
 public extension MongodbInfos{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MongodbInfosCodingKeys.self)
          try encoderContainer.encode(spaceId, forKey: .spaceId)
          try encoderContainer.encode(status, forKey: .status)

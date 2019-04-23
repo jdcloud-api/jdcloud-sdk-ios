@@ -57,7 +57,7 @@ public class TagFilter:NSObject,Codable{
     }
 }
 public extension TagFilter{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TagFilterCodingKeys.self)
          try encoderContainer.encode(key, forKey: .key)
          try encoderContainer.encode(values, forKey: .values)

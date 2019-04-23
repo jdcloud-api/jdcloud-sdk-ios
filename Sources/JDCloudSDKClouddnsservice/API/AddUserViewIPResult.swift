@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 添加域名的自定义解析线路的IP段
+/// 添加主域名的自定义解析线路的IP段
 @objc(AddUserViewIPResult)
 public class AddUserViewIPResult:NSObject,JdCloudResult
 {

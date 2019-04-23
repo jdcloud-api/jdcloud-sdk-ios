@@ -51,7 +51,7 @@ public class CreateBackupResult:NSObject,JdCloudResult
     }
 }
 public extension CreateBackupResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateBackupResultCodingKeys.self)
         try encoderContainer.encode(backupId, forKey: .backupId)
     }

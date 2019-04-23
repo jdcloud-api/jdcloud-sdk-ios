@@ -59,7 +59,7 @@ public class ModifyCertInfoResult:NSObject,JdCloudResult
     }
 }
 public extension ModifyCertInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyCertInfoResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

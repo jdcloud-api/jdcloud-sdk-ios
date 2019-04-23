@@ -64,7 +64,7 @@ public class Az:NSObject,Codable{
     }
 }
 public extension Az{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AzCodingKeys.self)
          try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(azValue, forKey: .azValue)

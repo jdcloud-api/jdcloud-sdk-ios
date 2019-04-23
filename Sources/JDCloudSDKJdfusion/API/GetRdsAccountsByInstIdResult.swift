@@ -51,7 +51,7 @@ public class GetRdsAccountsByInstIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetRdsAccountsByInstIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetRdsAccountsByInstIdResultCodingKeys.self)
         try encoderContainer.encode(accounts, forKey: .accounts)
     }

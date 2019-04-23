@@ -91,7 +91,7 @@ public class PreviewCertificateResult:NSObject,JdCloudResult
     }
 }
 public extension PreviewCertificateResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PreviewCertificateResultCodingKeys.self)
         try encoderContainer.encode(sigAlgName, forKey: .sigAlgName)
         try encoderContainer.encode(issuer, forKey: .issuer)

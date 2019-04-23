@@ -48,7 +48,7 @@ public class RemovePermissionInfo:NSObject,Codable{
     }
 }
 public extension RemovePermissionInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RemovePermissionInfoCodingKeys.self)
          try encoderContainer.encode(permissionId, forKey: .permissionId)
     }

@@ -141,7 +141,7 @@ public class ChangeSet:NSObject,Codable{
     }
 }
 public extension ChangeSet{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ChangeSetCodingKeys.self)
          try encoderContainer.encode(action, forKey: .action)
          try encoderContainer.encode(changeInfo, forKey: .changeInfo)

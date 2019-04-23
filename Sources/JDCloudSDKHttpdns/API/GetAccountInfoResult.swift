@@ -51,7 +51,7 @@ public class GetAccountInfoResult:NSObject,JdCloudResult
     }
 }
 public extension GetAccountInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetAccountInfoResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

@@ -57,7 +57,7 @@ public class DataplanInfo:NSObject,Codable{
     }
 }
 public extension DataplanInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataplanInfoCodingKeys.self)
          try encoderContainer.encode(usedNumber, forKey: .usedNumber)
          try encoderContainer.encode(excessNumber, forKey: .excessNumber)

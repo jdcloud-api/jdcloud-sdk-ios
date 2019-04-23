@@ -60,7 +60,7 @@ public class InstanceDiskAttribute:NSObject,Codable{
     }
 }
 public extension InstanceDiskAttribute{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceDiskAttributeCodingKeys.self)
          try encoderContainer.encode(diskId, forKey: .diskId)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)

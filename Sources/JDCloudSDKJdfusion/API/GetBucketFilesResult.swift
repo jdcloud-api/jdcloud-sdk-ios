@@ -67,7 +67,7 @@ public class GetBucketFilesResult:NSObject,JdCloudResult
     }
 }
 public extension GetBucketFilesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetBucketFilesResultCodingKeys.self)
         try encoderContainer.encode(isTruncated, forKey: .isTruncated)
         try encoderContainer.encode(marker, forKey: .marker)

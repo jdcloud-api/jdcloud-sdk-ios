@@ -120,7 +120,7 @@ public class ReturnBillStatusResult:NSObject,Codable{
     }
 }
 public extension ReturnBillStatusResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnBillStatusResultCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(retrunBillId, forKey: .retrunBillId)

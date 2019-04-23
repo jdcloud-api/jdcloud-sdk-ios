@@ -57,7 +57,7 @@ public class ModifyVpcSpec:NSObject,Codable{
     }
 }
 public extension ModifyVpcSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyVpcSpecCodingKeys.self)
          try encoderContainer.encode(vpcName, forKey: .vpcName)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

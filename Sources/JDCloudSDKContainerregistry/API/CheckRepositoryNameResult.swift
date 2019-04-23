@@ -60,7 +60,7 @@ public class CheckRepositoryNameResult:NSObject,JdCloudResult
     }
 }
 public extension CheckRepositoryNameResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CheckRepositoryNameResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(reason, forKey: .reason)

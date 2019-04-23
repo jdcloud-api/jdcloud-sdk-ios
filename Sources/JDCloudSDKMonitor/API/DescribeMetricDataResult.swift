@@ -51,7 +51,7 @@ public class DescribeMetricDataResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeMetricDataResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeMetricDataResultCodingKeys.self)
         try encoderContainer.encode(metricDatas, forKey: .metricDatas)
     }

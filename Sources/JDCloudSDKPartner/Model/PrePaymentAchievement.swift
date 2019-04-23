@@ -148,7 +148,7 @@ public class PrePaymentAchievement:NSObject,Codable{
     }
 }
 public extension PrePaymentAchievement{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PrePaymentAchievementCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(name, forKey: .name)

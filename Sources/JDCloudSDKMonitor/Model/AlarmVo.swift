@@ -190,7 +190,7 @@ public class AlarmVo:NSObject,Codable{
     }
 }
 public extension AlarmVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AlarmVoCodingKeys.self)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)
          try encoderContainer.encode(calculation, forKey: .calculation)

@@ -133,7 +133,7 @@ public class BaseRuleT:NSObject,Codable{
     }
 }
 public extension BaseRuleT{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BaseRuleTCodingKeys.self)
          try encoderContainer.encode(autoScalingPolicyId, forKey: .autoScalingPolicyId)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)

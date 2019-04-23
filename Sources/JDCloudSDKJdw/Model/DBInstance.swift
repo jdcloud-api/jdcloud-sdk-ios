@@ -135,7 +135,7 @@ public class DBInstance:NSObject,Codable{
     }
 }
 public extension DBInstance{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DBInstanceCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(instanceName, forKey: .instanceName)

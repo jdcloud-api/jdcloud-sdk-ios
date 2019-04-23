@@ -127,7 +127,7 @@ public class ReturnRuleDTO:NSObject,Codable{
     }
 }
 public extension ReturnRuleDTO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnRuleDTOCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(deptId, forKey: .deptId)

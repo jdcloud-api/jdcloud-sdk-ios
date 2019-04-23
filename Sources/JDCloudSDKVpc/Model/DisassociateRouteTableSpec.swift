@@ -48,7 +48,7 @@ public class DisassociateRouteTableSpec:NSObject,Codable{
     }
 }
 public extension DisassociateRouteTableSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisassociateRouteTableSpecCodingKeys.self)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
     }

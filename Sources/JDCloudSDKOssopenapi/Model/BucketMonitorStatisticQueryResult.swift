@@ -57,7 +57,7 @@ public class BucketMonitorStatisticQueryResult:NSObject,Codable{
     }
 }
 public extension BucketMonitorStatisticQueryResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BucketMonitorStatisticQueryResultCodingKeys.self)
          try encoderContainer.encode(totalCount, forKey: .totalCount)
          try encoderContainer.encode(queryList, forKey: .queryList)

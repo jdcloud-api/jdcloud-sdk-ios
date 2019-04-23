@@ -64,7 +64,7 @@ public class DomainSourceInfo:NSObject,Codable{
     }
 }
 public extension DomainSourceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DomainSourceInfoCodingKeys.self)
          try encoderContainer.encode(priority, forKey: .priority)
          try encoderContainer.encode(sourceHost, forKey: .sourceHost)

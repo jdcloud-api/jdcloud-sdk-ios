@@ -54,7 +54,7 @@ public class CreateCmAlarmSpec:NSObject,Codable{
     }
 }
 public extension CreateCmAlarmSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateCmAlarmSpecCodingKeys.self)
          try encoderContainer.encode(clientToken, forKey: .clientToken)
          try encoderContainer.encode(createCmAlarmSpecValue, forKey: .createCmAlarmSpecValue)

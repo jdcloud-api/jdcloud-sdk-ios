@@ -78,7 +78,7 @@ public class UserAccessKey:NSObject,Codable{
     }
 }
 public extension UserAccessKey{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UserAccessKeyCodingKeys.self)
          try encoderContainer.encode(accessKey, forKey: .accessKey)
          try encoderContainer.encode(accessKeySecret, forKey: .accessKeySecret)

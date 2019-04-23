@@ -51,7 +51,7 @@ public class DescribeOSResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeOSResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeOSResultCodingKeys.self)
         try encoderContainer.encode(oss, forKey: .oss)
     }

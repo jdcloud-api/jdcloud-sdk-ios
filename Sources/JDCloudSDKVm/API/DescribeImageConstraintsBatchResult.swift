@@ -53,7 +53,7 @@ public class DescribeImageConstraintsBatchResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeImageConstraintsBatchResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeImageConstraintsBatchResultCodingKeys.self)
         try encoderContainer.encode(imageConstraints, forKey: .imageConstraints)
     }

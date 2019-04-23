@@ -67,7 +67,7 @@ public class GetTableInfoResult:NSObject,JdCloudResult
     }
 }
 public extension GetTableInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTableInfoResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

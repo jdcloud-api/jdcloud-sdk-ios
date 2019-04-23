@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,39 +26,48 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加APP转码配置
+///  添加应用转码配置
+      ///       /// - 添加应用级别的转码模板配置
+      ///       /// 
 @objc(AddLiveStreamAppTranscodeRequest)
 public class AddLiveStreamAppTranscodeRequest:JdCloudRequest
 {
-    /// 直播的推流域名
+    /// 推流域名
     var publishDomain:String
 
-    /// 转码模版
-    var template:String
-
-    /// 直播流所属应用名称
+    /// 应用名称
     var appName:String
 
+    /// 转码模版
+      /// - 取值范围: 系统标准转码模板, 用户自定义转码模板
+      /// - 系统标准转码模板
+      ///   ld (h.264/640*360/15f)
+      ///   sd (h.264/854*480/24f)
+      ///   hd (h.264/1280*720/25f)
+      ///   shd (h.264/1920*1080/30f)
+      /// 
+    var template:String
 
-    public init(regionId: String,publishDomain:String,template:String,appName:String){
+
+    public init(regionId: String,publishDomain:String,appName:String,template:String){
         self.publishDomain = publishDomain
-        self.template = template
         self.appName = appName
+        self.template = template
         super.init(regionId: regionId)
     }
 
 
     enum AddLiveStreamAppTranscodeRequestRequestCodingKeys: String, CodingKey {
         case publishDomain
-        case template
         case appName
+        case template
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddLiveStreamAppTranscodeRequestRequestCodingKeys.self)
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
-        try encoderContainer.encode(template, forKey: .template)
         try encoderContainer.encode(appName, forKey: .appName)
+        try encoderContainer.encode(template, forKey: .template)
 
     }
 }

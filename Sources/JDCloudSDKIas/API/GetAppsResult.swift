@@ -51,7 +51,7 @@ public class GetAppsResult:NSObject,JdCloudResult
     }
 }
 public extension GetAppsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetAppsResultCodingKeys.self)
         try encoderContainer.encode(apps, forKey: .apps)
     }

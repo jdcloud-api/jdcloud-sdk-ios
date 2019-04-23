@@ -29,13 +29,31 @@ import Foundation
 public class PlayDomain:NSObject,Codable{
     /// 播放域名
     var playDomainValue:String?
-    /// 播放域名(Cname)
+    /// 播放域名Cname
     var playDomainCname:String?
     /// 直播域名状态
+      ///   online: 启用
+      ///   offline: 停用
+      ///   configuring: 配置中
+      ///   configure_failed: 配置失败
+      ///   checking: 正在审核
+      ///   check_failed: 审核失败
+      /// 
     var domainStatus:String?
-    /// 创建时间
+    /// 播放域名类型
+      ///   normal: 普通播放域名
+      ///   restart: 回看域名
+      /// 
+    var playType:String?
+    /// 域名创建时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var createTime:String?
-    /// 更新时间
+    /// 域名更新时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var updateTime:String?
 
 
@@ -48,6 +66,7 @@ public class PlayDomain:NSObject,Codable{
         case playDomainValue = "playDomain"
         case playDomainCname
         case domainStatus
+        case playType
         case createTime
         case updateTime
     }
@@ -67,6 +86,10 @@ public class PlayDomain:NSObject,Codable{
         {
             self.domainStatus = try decoderContainer.decode(String?.self, forKey: .domainStatus)
         }
+        if decoderContainer.contains(.playType)
+        {
+            self.playType = try decoderContainer.decode(String?.self, forKey: .playType)
+        }
         if decoderContainer.contains(.createTime)
         {
             self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
@@ -78,11 +101,12 @@ public class PlayDomain:NSObject,Codable{
     }
 }
 public extension PlayDomain{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PlayDomainCodingKeys.self)
          try encoderContainer.encode(playDomainValue, forKey: .playDomainValue)
          try encoderContainer.encode(playDomainCname, forKey: .playDomainCname)
          try encoderContainer.encode(domainStatus, forKey: .domainStatus)
+         try encoderContainer.encode(playType, forKey: .playType)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(updateTime, forKey: .updateTime)
     }

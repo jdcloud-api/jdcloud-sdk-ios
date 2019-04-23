@@ -106,7 +106,7 @@ public class QueryPerformanceResult:NSObject,Codable{
     }
 }
 public extension QueryPerformanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryPerformanceResultCodingKeys.self)
          try encoderContainer.encode(sql, forKey: .sql)
          try encoderContainer.encode(lastExecutionTime, forKey: .lastExecutionTime)

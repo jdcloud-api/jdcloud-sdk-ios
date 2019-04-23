@@ -67,7 +67,7 @@ public class ModifyBackupPolicyResult:NSObject,JdCloudResult
     }
 }
 public extension ModifyBackupPolicyResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyBackupPolicyResultCodingKeys.self)
         try encoderContainer.encode(preferredBackupPeriod, forKey: .preferredBackupPeriod)
         try encoderContainer.encode(preferredBackupWindow, forKey: .preferredBackupWindow)

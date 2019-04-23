@@ -64,7 +64,7 @@ public class TopicModel:NSObject,Codable{
     }
 }
 public extension TopicModel{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopicModelCodingKeys.self)
          try encoderContainer.encode(topic, forKey: .topic)
          try encoderContainer.encode(target, forKey: .target)

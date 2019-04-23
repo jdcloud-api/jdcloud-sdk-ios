@@ -57,7 +57,7 @@ public class SecurityGroup:NSObject,Codable{
     }
 }
 public extension SecurityGroup{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecurityGroupCodingKeys.self)
          try encoderContainer.encode(groupId, forKey: .groupId)
          try encoderContainer.encode(groupName, forKey: .groupName)

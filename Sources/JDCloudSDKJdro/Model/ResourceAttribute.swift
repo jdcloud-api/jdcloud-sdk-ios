@@ -78,7 +78,7 @@ public class ResourceAttribute:NSObject,Codable{
     }
 }
 public extension ResourceAttribute{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceAttributeCodingKeys.self)
          try encoderContainer.encode(comment, forKey: .comment)
          try encoderContainer.encode(itemType, forKey: .itemType)

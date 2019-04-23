@@ -71,7 +71,7 @@ public class StatisticsProductMetric:NSObject,Codable{
     }
 }
 public extension StatisticsProductMetric{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsProductMetricCodingKeys.self)
          try encoderContainer.encode(aggregate, forKey: .aggregate)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)

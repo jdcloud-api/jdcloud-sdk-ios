@@ -51,7 +51,7 @@ public class DescribeStorageResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeStorageResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeStorageResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

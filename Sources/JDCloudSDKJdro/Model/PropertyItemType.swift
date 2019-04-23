@@ -57,7 +57,7 @@ public class PropertyItemType:NSObject,Codable{
     }
 }
 public extension PropertyItemType{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PropertyItemTypeCodingKeys.self)
          try encoderContainer.encode(multiValues, forKey: .multiValues)
          try encoderContainer.encode(scalar, forKey: .scalar)

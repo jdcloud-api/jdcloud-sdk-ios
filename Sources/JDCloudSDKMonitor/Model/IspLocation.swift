@@ -64,7 +64,7 @@ public class IspLocation:NSObject,Codable{
     }
 }
 public extension IspLocation{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IspLocationCodingKeys.self)
          try encoderContainer.encode(sisp, forKey: .sisp)
          try encoderContainer.encode(sispName, forKey: .sispName)

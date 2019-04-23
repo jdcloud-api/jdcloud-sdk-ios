@@ -57,7 +57,7 @@ public class PropertyTypes:NSObject,Codable{
     }
 }
 public extension PropertyTypes{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PropertyTypesCodingKeys.self)
          try encoderContainer.encode(documentation, forKey: .documentation)
          try encoderContainer.encode(properties, forKey: .properties)

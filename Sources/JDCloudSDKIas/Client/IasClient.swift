@@ -253,7 +253,7 @@ public class IasJDCloudClient:NSObject,JDCloudClient{
 
 public extension IasJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

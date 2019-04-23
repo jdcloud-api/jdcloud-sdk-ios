@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetVpcsResult:NSObject,JdCloudResult
 {
     /// Vpcs
-    var vpcs:[VpcInfo?]?
+    var vpcs:[VpcListInfo?]?
 
 
 
@@ -46,12 +46,12 @@ public class GetVpcsResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: GetVpcsResultCodingKeys.self)
         if decoderContainer.contains(.vpcs)
         {
-            self.vpcs = try decoderContainer.decode([VpcInfo?]?.self, forKey: .vpcs)
+            self.vpcs = try decoderContainer.decode([VpcListInfo?]?.self, forKey: .vpcs)
         }
     }
 }
 public extension GetVpcsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcsResultCodingKeys.self)
         try encoderContainer.encode(vpcs, forKey: .vpcs)
     }

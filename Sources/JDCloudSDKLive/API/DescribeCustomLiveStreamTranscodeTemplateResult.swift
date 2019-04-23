@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,37 +26,58 @@ import Foundation
 import JDCloudSDKCore
 
 /// 查询用户自定义转码模板详情
+      ///       /// - 查询用户自定义转码模板详情
+      ///       /// - 系统标准转码模板
+      ///       ///     ld (h.264/640*360/15f)
+      ///       ///     sd (h.264/854*480/24f)
+      ///       ///     hd (h.264/1280*720/25f)
+      ///       ///     shd (h.264/1920*1080/30f)
+      ///       /// 
 @objc(DescribeCustomLiveStreamTranscodeTemplateResult)
 public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudResult
 {
     /// 转码输出的码率值
+      /// - 单位: kpbs
+      /// 
     var videoCodeRate:Int?
 
     /// 转码输出的帧率值
+      /// 
     var videoFrameRate:String?
 
     /// 转码输出视频宽度
+      /// 
     var width:Int?
 
     /// 转码输出视频宽度
+      /// 
     var height:Int?
 
-    /// 转码模板自定义名称
+    /// 转码模板
+      /// 
     var template:String?
 
     /// 转码输出音频编码格式
+      /// 
     var audioCodec:String?
 
     /// 转码输出音频格式
+      /// 
     var audioFormat:String?
 
     /// 转码输出音频采样率
+      /// 
     var audioSampleRate:Int?
 
     /// 转码输出音频通道数
+      ///   1: 单声道
+      ///   2: 双声道
+      /// 
     var audioChannel:Int?
 
     /// 转码输出音频码率
+      /// - 单位: kbps
+      /// 
     var audioCodeRate:Int?
 
 
@@ -123,7 +144,7 @@ public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudRes
     }
 }
 public extension DescribeCustomLiveStreamTranscodeTemplateResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamTranscodeTemplateResultCodingKeys.self)
         try encoderContainer.encode(videoCodeRate, forKey: .videoCodeRate)
         try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)

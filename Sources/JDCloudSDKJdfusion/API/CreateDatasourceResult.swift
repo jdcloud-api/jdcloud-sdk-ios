@@ -51,7 +51,7 @@ public class CreateDatasourceResult:NSObject,JdCloudResult
     }
 }
 public extension CreateDatasourceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateDatasourceResultCodingKeys.self)
         try encoderContainer.encode(datasource, forKey: .datasource)
     }

@@ -64,7 +64,7 @@ public class Notice:NSObject,Codable{
     }
 }
 public extension Notice{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NoticeCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(title, forKey: .title)

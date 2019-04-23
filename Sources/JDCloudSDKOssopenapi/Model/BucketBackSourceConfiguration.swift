@@ -50,7 +50,7 @@ public class BucketBackSourceConfiguration:NSObject,Codable{
     }
 }
 public extension BucketBackSourceConfiguration{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BucketBackSourceConfigurationCodingKeys.self)
          try encoderContainer.encode(backSourceRules, forKey: .backSourceRules)
     }

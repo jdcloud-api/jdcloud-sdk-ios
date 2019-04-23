@@ -120,7 +120,7 @@ public class DiskSpecification:NSObject,Codable{
     }
 }
 public extension DiskSpecification{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DiskSpecificationCodingKeys.self)
          try encoderContainer.encode(diskType, forKey: .diskType)
          try encoderContainer.encode(minSizeGB, forKey: .minSizeGB)

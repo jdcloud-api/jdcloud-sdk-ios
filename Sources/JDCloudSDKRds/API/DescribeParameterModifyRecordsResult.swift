@@ -59,7 +59,7 @@ public class DescribeParameterModifyRecordsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeParameterModifyRecordsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeParameterModifyRecordsResultCodingKeys.self)
         try encoderContainer.encode(records, forKey: .records)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

@@ -71,7 +71,7 @@ public class ListenerPortsAndProtocol:NSObject,Codable{
     }
 }
 public extension ListenerPortsAndProtocol{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListenerPortsAndProtocolCodingKeys.self)
          try encoderContainer.encode(listenerPort, forKey: .listenerPort)
          try encoderContainer.encode(listenerProtocol, forKey: .listenerProtocol)

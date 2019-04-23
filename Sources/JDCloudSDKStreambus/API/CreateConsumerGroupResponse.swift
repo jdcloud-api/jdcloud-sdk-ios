@@ -49,7 +49,7 @@ public class CreateConsumerGroupResponse:NSObject,Codable
 }
 
 public extension CreateConsumerGroupResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateConsumerGroupResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

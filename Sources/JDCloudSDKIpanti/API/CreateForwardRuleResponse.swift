@@ -49,7 +49,7 @@ public class CreateForwardRuleResponse:NSObject,Codable
 }
 
 public extension CreateForwardRuleResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateForwardRuleResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

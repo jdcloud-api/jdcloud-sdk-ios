@@ -78,7 +78,7 @@ public class Pagination:NSObject,Codable{
     }
 }
 public extension Pagination{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PaginationCodingKeys.self)
          try encoderContainer.encode(currPageNo, forKey: .currPageNo)
          try encoderContainer.encode(numberPages, forKey: .numberPages)

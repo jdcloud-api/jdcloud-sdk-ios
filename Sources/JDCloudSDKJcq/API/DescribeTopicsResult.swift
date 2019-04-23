@@ -59,7 +59,7 @@ public class DescribeTopicsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeTopicsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeTopicsResultCodingKeys.self)
         try encoderContainer.encode(topics, forKey: .topics)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

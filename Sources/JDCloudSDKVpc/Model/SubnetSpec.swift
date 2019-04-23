@@ -74,7 +74,7 @@ public class SubnetSpec:NSObject,Codable{
     }
 }
 public extension SubnetSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SubnetSpecCodingKeys.self)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(subnetName, forKey: .subnetName)

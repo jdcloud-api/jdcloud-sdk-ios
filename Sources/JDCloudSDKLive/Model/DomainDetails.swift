@@ -29,7 +29,7 @@ import Foundation
 public class DomainDetails:NSObject,Codable{
     /// 推流域名集合
     var publishDomains:[PublishDomain?]?
-    /// 直播域名集合
+    /// 播放域名集合
     var playDomains:[PlayDomain?]?
 
 
@@ -57,7 +57,7 @@ public class DomainDetails:NSObject,Codable{
     }
 }
 public extension DomainDetails{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DomainDetailsCodingKeys.self)
          try encoderContainer.encode(publishDomains, forKey: .publishDomains)
          try encoderContainer.encode(playDomains, forKey: .playDomains)

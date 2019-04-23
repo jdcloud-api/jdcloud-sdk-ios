@@ -51,7 +51,7 @@ public class DescribeRouteTableResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeRouteTableResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRouteTableResultCodingKeys.self)
         try encoderContainer.encode(routeTable, forKey: .routeTable)
     }

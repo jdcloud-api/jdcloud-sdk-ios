@@ -71,7 +71,7 @@ public class TopicConfig:NSObject,Codable{
     }
 }
 public extension TopicConfig{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopicConfigCodingKeys.self)
          try encoderContainer.encode(maxMessageSizeKB, forKey: .maxMessageSizeKB)
          try encoderContainer.encode(threshold, forKey: .threshold)

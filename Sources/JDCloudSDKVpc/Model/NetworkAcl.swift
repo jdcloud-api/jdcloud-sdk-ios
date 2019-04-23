@@ -92,7 +92,7 @@ public class NetworkAcl:NSObject,Codable{
     }
 }
 public extension NetworkAcl{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetworkAclCodingKeys.self)
          try encoderContainer.encode(networkAclId, forKey: .networkAclId)
          try encoderContainer.encode(networkAclName, forKey: .networkAclName)

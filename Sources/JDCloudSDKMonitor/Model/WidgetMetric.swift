@@ -64,7 +64,7 @@ public class WidgetMetric:NSObject,Codable{
     }
 }
 public extension WidgetMetric{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetMetricCodingKeys.self)
          try encoderContainer.encode(aggregate, forKey: .aggregate)
          try encoderContainer.encode(metric, forKey: .metric)

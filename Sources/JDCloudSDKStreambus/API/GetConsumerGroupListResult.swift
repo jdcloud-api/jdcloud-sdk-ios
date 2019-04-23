@@ -51,7 +51,7 @@ public class GetConsumerGroupListResult:NSObject,JdCloudResult
     }
 }
 public extension GetConsumerGroupListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetConsumerGroupListResultCodingKeys.self)
         try encoderContainer.encode(consumerGroup, forKey: .consumerGroup)
     }

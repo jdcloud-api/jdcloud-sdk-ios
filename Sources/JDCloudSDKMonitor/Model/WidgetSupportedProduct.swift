@@ -57,7 +57,7 @@ public class WidgetSupportedProduct:NSObject,Codable{
     }
 }
 public extension WidgetSupportedProduct{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetSupportedProductCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)

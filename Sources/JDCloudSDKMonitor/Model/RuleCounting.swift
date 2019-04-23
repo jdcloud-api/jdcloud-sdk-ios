@@ -85,7 +85,7 @@ public class RuleCounting:NSObject,Codable{
     }
 }
 public extension RuleCounting{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RuleCountingCodingKeys.self)
          try encoderContainer.encode(alarmRuleCount, forKey: .alarmRuleCount)
          try encoderContainer.encode(disableRuleCount, forKey: .disableRuleCount)

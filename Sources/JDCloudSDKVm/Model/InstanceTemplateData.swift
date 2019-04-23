@@ -106,7 +106,7 @@ public class InstanceTemplateData:NSObject,Codable{
     }
 }
 public extension InstanceTemplateData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateDataCodingKeys.self)
          try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(vpcId, forKey: .vpcId)

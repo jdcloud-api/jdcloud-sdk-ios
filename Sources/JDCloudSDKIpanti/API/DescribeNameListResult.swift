@@ -75,7 +75,7 @@ public class DescribeNameListResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeNameListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeNameListResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

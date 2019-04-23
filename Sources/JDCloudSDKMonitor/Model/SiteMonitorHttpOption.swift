@@ -78,7 +78,7 @@ public class SiteMonitorHttpOption:NSObject,Codable{
     }
 }
 public extension SiteMonitorHttpOption{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SiteMonitorHttpOptionCodingKeys.self)
          try encoderContainer.encode(cookie, forKey: .cookie)
          try encoderContainer.encode(header, forKey: .header)

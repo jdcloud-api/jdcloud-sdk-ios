@@ -49,7 +49,7 @@ public class ModifyImageAttributeResponse:NSObject,Codable
 }
 
 public extension ModifyImageAttributeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyImageAttributeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

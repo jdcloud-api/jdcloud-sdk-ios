@@ -183,7 +183,7 @@ public class ReturnItemQuery:NSObject,Codable{
     }
 }
 public extension ReturnItemQuery{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnItemQueryCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(itemId, forKey: .itemId)

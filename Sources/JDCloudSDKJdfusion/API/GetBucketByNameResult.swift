@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class GetBucketByNameResult:NSObject,JdCloudResult
 {
     /// Bucket
-    var bucket:OssBucketInfo?
+    var bucket:OssBucketDetailInfo?
 
 
 
@@ -46,12 +46,12 @@ public class GetBucketByNameResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: GetBucketByNameResultCodingKeys.self)
         if decoderContainer.contains(.bucket)
         {
-            self.bucket = try decoderContainer.decode(OssBucketInfo?.self, forKey: .bucket)
+            self.bucket = try decoderContainer.decode(OssBucketDetailInfo?.self, forKey: .bucket)
         }
     }
 }
 public extension GetBucketByNameResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetBucketByNameResultCodingKeys.self)
         try encoderContainer.encode(bucket, forKey: .bucket)
     }

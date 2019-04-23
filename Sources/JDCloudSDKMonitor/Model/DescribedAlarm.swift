@@ -176,7 +176,7 @@ public class DescribedAlarm:NSObject,Codable{
     }
 }
 public extension DescribedAlarm{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribedAlarmCodingKeys.self)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)
          try encoderContainer.encode(calculation, forKey: .calculation)

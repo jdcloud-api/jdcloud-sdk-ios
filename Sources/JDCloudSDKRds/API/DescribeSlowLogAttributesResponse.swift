@@ -49,7 +49,7 @@ public class DescribeSlowLogAttributesResponse:NSObject,Codable
 }
 
 public extension DescribeSlowLogAttributesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSlowLogAttributesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

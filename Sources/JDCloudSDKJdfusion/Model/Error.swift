@@ -53,7 +53,7 @@ public class Error:NSObject,Codable{
     }
 }
 public extension Error{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ErrorCodingKeys.self)
          try encoderContainer.encode(info, forKey: .info)
     }

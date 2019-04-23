@@ -61,7 +61,7 @@ public class NetworkSecurityGroupSpec:NSObject,Codable{
     }
 }
 public extension NetworkSecurityGroupSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetworkSecurityGroupSpecCodingKeys.self)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(networkSecurityGroupName, forKey: .networkSecurityGroupName)

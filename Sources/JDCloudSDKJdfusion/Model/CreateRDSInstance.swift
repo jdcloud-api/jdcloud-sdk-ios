@@ -60,6 +60,8 @@ public class CreateRDSInstance:NSObject,Codable{
     /// 子网ID
     /// Required:true
     var subnetId:String
+    /// 创建时间
+    var createTime:String?
 
 
 
@@ -87,6 +89,7 @@ public class CreateRDSInstance:NSObject,Codable{
         case storageGB
         case vpcId
         case subnetId
+        case createTime
     }
 
 
@@ -123,10 +126,14 @@ public class CreateRDSInstance:NSObject,Codable{
         self.storageGB = try decoderContainer.decode(Int32.self, forKey: .storageGB)
         self.vpcId = try decoderContainer.decode(String.self, forKey: .vpcId)
         self.subnetId = try decoderContainer.decode(String.self, forKey: .subnetId)
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
+        }
     }
 }
 public extension CreateRDSInstance{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRDSInstanceCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)
@@ -141,5 +148,6 @@ public extension CreateRDSInstance{
          try encoderContainer.encode(storageGB, forKey: .storageGB)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
+         try encoderContainer.encode(createTime, forKey: .createTime)
     }
 }

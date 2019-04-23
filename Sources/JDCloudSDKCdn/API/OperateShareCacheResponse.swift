@@ -49,7 +49,7 @@ public class OperateShareCacheResponse:NSObject,Codable
 }
 
 public extension OperateShareCacheResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OperateShareCacheResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

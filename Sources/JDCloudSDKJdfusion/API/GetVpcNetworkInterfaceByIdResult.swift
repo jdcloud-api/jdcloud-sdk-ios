@@ -51,7 +51,7 @@ public class GetVpcNetworkInterfaceByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetVpcNetworkInterfaceByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcNetworkInterfaceByIdResultCodingKeys.self)
         try encoderContainer.encode(netInterface, forKey: .netInterface)
     }

@@ -232,7 +232,7 @@ public class ResourceBillQueryResultItem:NSObject,Codable{
     }
 }
 public extension ResourceBillQueryResultItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceBillQueryResultItemCodingKeys.self)
          try encoderContainer.encode(billId, forKey: .billId)
          try encoderContainer.encode(pin, forKey: .pin)

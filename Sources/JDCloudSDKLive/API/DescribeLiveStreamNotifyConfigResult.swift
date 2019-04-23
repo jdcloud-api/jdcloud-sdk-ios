@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,14 +25,14 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询直播流状态通知
+/// 查询直播流状态回调地址
 @objc(DescribeLiveStreamNotifyConfigResult)
 public class DescribeLiveStreamNotifyConfigResult:NSObject,JdCloudResult
 {
-    /// 您的加速域名
+    /// 推流域名
     var publishDomain:String?
 
-    /// 回调地址
+    /// 流状态回调地址
     var notifyUrl:String?
 
 
@@ -59,7 +59,7 @@ public class DescribeLiveStreamNotifyConfigResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeLiveStreamNotifyConfigResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLiveStreamNotifyConfigResultCodingKeys.self)
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
         try encoderContainer.encode(notifyUrl, forKey: .notifyUrl)

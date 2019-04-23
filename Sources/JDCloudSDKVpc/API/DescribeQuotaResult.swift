@@ -46,6 +46,6 @@ public class DescribeQuotaResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeQuotaResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
     }
 }

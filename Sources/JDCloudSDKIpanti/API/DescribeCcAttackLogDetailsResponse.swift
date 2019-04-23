@@ -49,7 +49,7 @@ public class DescribeCCAttackLogDetailsResponse:NSObject,Codable
 }
 
 public extension DescribeCCAttackLogDetailsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCCAttackLogDetailsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

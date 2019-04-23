@@ -71,7 +71,7 @@ public class BackupDownloadURL:NSObject,Codable{
     }
 }
 public extension BackupDownloadURL{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackupDownloadURLCodingKeys.self)
          try encoderContainer.encode(backupName, forKey: .backupName)
          try encoderContainer.encode(backupInternetDownloadURL, forKey: .backupInternetDownloadURL)

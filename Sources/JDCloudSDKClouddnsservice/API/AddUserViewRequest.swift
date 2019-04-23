@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加域名的自定义解析线路
+///  添加主域名的自定义解析线路
 @objc(AddUserViewRequest)
 public class AddUserViewRequest:JdCloudRequest
 {

@@ -60,7 +60,7 @@ public class UserNotFoundException:NSObject,Codable{
     }
 }
 public extension UserNotFoundException{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UserNotFoundExceptionCodingKeys.self)
          try encoderContainer.encode(message, forKey: .message)
          try encoderContainer.encode(code, forKey: .code)

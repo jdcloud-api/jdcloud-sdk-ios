@@ -81,6 +81,48 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func setOnlineBillingTypeAsync(request:SetOnlineBillingTypeRequest,requestComplation:@escaping (NSNumber?,SetOnlineBillingTypeResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try SetOnlineBillingTypeExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(SetOnlineBillingTypeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryMixTrafficGroupSumAsync(request:QueryMixTrafficGroupSumRequest,requestComplation:@escaping (NSNumber?,QueryMixTrafficGroupSumResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryMixTrafficGroupSumExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryMixTrafficGroupSumResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func queryDomainGroupDetailAsync(request:QueryDomainGroupDetailRequest,requestComplation:@escaping (NSNumber?,QueryDomainGroupDetailResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try QueryDomainGroupDetailExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -215,6 +257,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(SetProtocolConvertResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryLiveStatisticsAreaDataGroupByAsync(request:QueryLiveStatisticsAreaDataGroupByRequest,requestComplation:@escaping (NSNumber?,QueryLiveStatisticsAreaDataGroupByResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryLiveStatisticsAreaDataGroupByExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryLiveStatisticsAreaDataGroupByResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -375,6 +438,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func setFollowSourceProtocolAsync(request:SetFollowSourceProtocolRequest,requestComplation:@escaping (NSNumber?,SetFollowSourceProtocolResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try SetFollowSourceProtocolExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(SetFollowSourceProtocolResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func startDomainAsync(request:StartDomainRequest,requestComplation:@escaping (NSNumber?,StartDomainResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try StartDomainExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -383,6 +467,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(StartDomainResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func setFollowRedirectAsync(request:SetFollowRedirectRequest,requestComplation:@escaping (NSNumber?,SetFollowRedirectResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try SetFollowRedirectExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(SetFollowRedirectResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -585,6 +690,48 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func queryLiveDomainAppsAsync(request:QueryLiveDomainAppsRequest,requestComplation:@escaping (NSNumber?,QueryLiveDomainAppsResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryLiveDomainAppsExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryLiveDomainAppsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryMixStatisticsWithAreaDataAsync(request:QueryMixStatisticsWithAreaDataRequest,requestComplation:@escaping (NSNumber?,QueryMixStatisticsWithAreaDataResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryMixStatisticsWithAreaDataExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryMixStatisticsWithAreaDataResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func operateLiveDomainIpBlackListAsync(request:OperateLiveDomainIpBlackListRequest,requestComplation:@escaping (NSNumber?,OperateLiveDomainIpBlackListResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try OperateLiveDomainIpBlackListExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -627,6 +774,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func queryAreaIspListAsync(request:QueryAreaIspListRequest,requestComplation:@escaping (NSNumber?,QueryAreaIspListResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryAreaIspListExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryAreaIspListResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func createDomainGroupAsync(request:CreateDomainGroupRequest,requestComplation:@escaping (NSNumber?,CreateDomainGroupResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try CreateDomainGroupExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -656,6 +824,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(OperateIpBlackListResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryMixStatisticsDataAsync(request:QueryMixStatisticsDataRequest,requestComplation:@escaping (NSNumber?,QueryMixStatisticsDataResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryMixStatisticsDataExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryMixStatisticsDataResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -753,6 +942,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func getDomainListByFilterAsync(request:GetDomainListByFilterRequest,requestComplation:@escaping (NSNumber?,GetDomainListByFilterResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try GetDomainListByFilterExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetDomainListByFilterResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func queryUserAgentAsync(request:QueryUserAgentRequest,requestComplation:@escaping (NSNumber?,QueryUserAgentResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try QueryUserAgentExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -761,6 +971,48 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(QueryUserAgentResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryPushDomainORAppOrStreamAsync(request:QueryPushDomainORAppOrStreamRequest,requestComplation:@escaping (NSNumber?,QueryPushDomainORAppOrStreamResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryPushDomainORAppOrStreamExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryPushDomainORAppOrStreamResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryFollowRedirectAsync(request:QueryFollowRedirectRequest,requestComplation:@escaping (NSNumber?,QueryFollowRedirectResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryFollowRedirectExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryFollowRedirectResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -879,6 +1131,48 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func deleteForbiddenStreamAsync(request:DeleteForbiddenStreamRequest,requestComplation:@escaping (NSNumber?,DeleteForbiddenStreamResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try DeleteForbiddenStreamExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteForbiddenStreamResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryFollowSourceProtocolAsync(request:QueryFollowSourceProtocolRequest,requestComplation:@escaping (NSNumber?,QueryFollowSourceProtocolResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryFollowSourceProtocolExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryFollowSourceProtocolResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func queryStatisticsDataGroupSumAsync(request:QueryStatisticsDataGroupSumRequest,requestComplation:@escaping (NSNumber?,QueryStatisticsDataGroupSumResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try QueryStatisticsDataGroupSumExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -963,6 +1257,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func queryLiveStatisticsDataAsync(request:QueryLiveStatisticsDataRequest,requestComplation:@escaping (NSNumber?,QueryLiveStatisticsDataResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryLiveStatisticsDataExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryLiveStatisticsDataResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func queryLiveDomainDetailAsync(request:QueryLiveDomainDetailRequest,requestComplation:@escaping (NSNumber?,QueryLiveDomainDetailResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try QueryLiveDomainDetailExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1013,6 +1328,27 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(QueryStatisticsTopIpResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func createLiveDomainPrefecthTaskAsync(request:CreateLiveDomainPrefecthTaskRequest,requestComplation:@escaping (NSNumber?,CreateLiveDomainPrefecthTaskResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try CreateLiveDomainPrefecthTaskExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateLiveDomainPrefecthTaskResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1131,6 +1467,69 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func queryLiveTrafficGroupSumAsync(request:QueryLiveTrafficGroupSumRequest,requestComplation:@escaping (NSNumber?,QueryLiveTrafficGroupSumResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryLiveTrafficGroupSumExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryLiveTrafficGroupSumResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryLivePrefetchTaskAsync(request:QueryLivePrefetchTaskRequest,requestComplation:@escaping (NSNumber?,QueryLivePrefetchTaskResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryLivePrefetchTaskExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryLivePrefetchTaskResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func queryOnlineBillingTypeAsync(request:QueryOnlineBillingTypeRequest,requestComplation:@escaping (NSNumber?,QueryOnlineBillingTypeResponse?,NSError?,NSString?)->()) throws {
+        cdnJDCloudClient = self
+        try QueryOnlineBillingTypeExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(QueryOnlineBillingTypeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func updateCacheRuleAsync(request:UpdateCacheRuleRequest,requestComplation:@escaping (NSNumber?,UpdateCacheRuleResponse?,NSError?,NSString?)->()) throws {
         cdnJDCloudClient = self
         try UpdateCacheRuleExecutor(jdCloudClient: cdnJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1219,7 +1618,7 @@ public class CdnJDCloudClient:NSObject,JDCloudClient{
 
 public extension CdnJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

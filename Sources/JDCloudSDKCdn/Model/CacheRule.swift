@@ -85,7 +85,7 @@ public class CacheRule:NSObject,Codable{
     }
 }
 public extension CacheRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CacheRuleCodingKeys.self)
          try encoderContainer.encode(weight, forKey: .weight)
          try encoderContainer.encode(ttl, forKey: .ttl)

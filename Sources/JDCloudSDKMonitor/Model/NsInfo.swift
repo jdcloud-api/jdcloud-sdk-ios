@@ -71,7 +71,7 @@ public class NsInfo:NSObject,Codable{
     }
 }
 public extension NsInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NsInfoCodingKeys.self)
          try encoderContainer.encode(metricCount, forKey: .metricCount)
          try encoderContainer.encode(nsName, forKey: .nsName)

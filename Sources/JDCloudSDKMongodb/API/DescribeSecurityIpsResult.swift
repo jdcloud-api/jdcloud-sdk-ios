@@ -51,7 +51,7 @@ public class DescribeSecurityIpsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeSecurityIpsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSecurityIpsResultCodingKeys.self)
         try encoderContainer.encode(securityIps, forKey: .securityIps)
     }

@@ -85,7 +85,7 @@ public class StatsItem:NSObject,Codable{
     }
 }
 public extension StatsItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatsItemCodingKeys.self)
          try encoderContainer.encode(aggregateFunc, forKey: .aggregateFunc)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)

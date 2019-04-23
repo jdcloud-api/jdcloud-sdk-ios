@@ -172,7 +172,7 @@ public class UpdateSiteMonitorSpec:NSObject,Codable{
     }
 }
 public extension UpdateSiteMonitorSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateSiteMonitorSpecCodingKeys.self)
          try encoderContainer.encode(address, forKey: .address)
          try encoderContainer.encode(advanceChecked, forKey: .advanceChecked)

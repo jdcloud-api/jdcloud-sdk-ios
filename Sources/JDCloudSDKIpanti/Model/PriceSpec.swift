@@ -104,7 +104,7 @@ public class PriceSpec:NSObject,Codable{
     }
 }
 public extension PriceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PriceSpecCodingKeys.self)
          try encoderContainer.encode(buyType, forKey: .buyType)
          try encoderContainer.encode(billingType, forKey: .billingType)

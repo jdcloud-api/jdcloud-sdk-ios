@@ -50,7 +50,7 @@ public class CloudInfoListResp:NSObject,Codable{
     }
 }
 public extension CloudInfoListResp{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CloudInfoListRespCodingKeys.self)
          try encoderContainer.encode(clouds, forKey: .clouds)
     }

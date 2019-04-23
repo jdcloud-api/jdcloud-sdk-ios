@@ -123,6 +123,27 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func deleteStyleDelimiterAsync(request:DeleteStyleDelimiterRequest,requestComplation:@escaping (NSNumber?,DeleteStyleDelimiterResponse?,NSError?,NSString?)->()) throws {
+        mpsJDCloudClient = self
+        try DeleteStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteStyleDelimiterResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func getNotificationAsync(request:GetNotificationRequest,requestComplation:@escaping (NSNumber?,GetNotificationResponse?,NSError?,NSString?)->()) throws {
         mpsJDCloudClient = self
         try GetNotificationExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -184,13 +205,55 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
         }
     }
 
+
+    @objc
+    public func setStyleDelimiterAsync(request:SetStyleDelimiterRequest,requestComplation:@escaping (NSNumber?,SetStyleDelimiterResponse?,NSError?,NSString?)->()) throws {
+        mpsJDCloudClient = self
+        try SetStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(SetStyleDelimiterResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func getStyleDelimiterAsync(request:GetStyleDelimiterRequest,requestComplation:@escaping (NSNumber?,GetStyleDelimiterResponse?,NSError?,NSString?)->()) throws {
+        mpsJDCloudClient = self
+        try GetStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetStyleDelimiterResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
     
 }
 
 
 public extension MpsJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

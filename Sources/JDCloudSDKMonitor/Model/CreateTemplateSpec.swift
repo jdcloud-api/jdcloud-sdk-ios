@@ -79,7 +79,7 @@ public class CreateTemplateSpec:NSObject,Codable{
     }
 }
 public extension CreateTemplateSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateTemplateSpecCodingKeys.self)
          try encoderContainer.encode(clientToken, forKey: .clientToken)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

@@ -75,7 +75,7 @@ public class QueryDomainGroupListResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDomainGroupListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDomainGroupListResultCodingKeys.self)
         try encoderContainer.encode(totalCount, forKey: .totalCount)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

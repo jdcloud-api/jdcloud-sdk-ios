@@ -49,7 +49,7 @@ public class CreateCacheRuleResponse:NSObject,Codable
 }
 
 public extension CreateCacheRuleResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateCacheRuleResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,26 +26,42 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加直播水印模板
+///  添加用户自定义水印模板
+      ///       /// 
 @objc(AddCustomLiveStreamWatermarkTemplateRequest)
 public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
 {
-    /// x轴偏移量 单位：像素
+    /// x轴偏移量
+      /// - 单位: 像素
+      /// 
     var offsetX:Int
 
-    /// y轴偏移量 单位：像素
+    /// y轴偏移量:
+      /// - 单位: 像素
+      /// 
     var offsetY:Int
 
-    /// 宽
+    /// 水印宽度:
+      /// - 取值: [0,1920]
+      /// - 单位: 像素
+      /// 
     var width:Int
 
-    /// 高
+    /// 水印高度:
+      /// - 取值: [0,1920]
+      /// - 单位: 像素
+      /// 
     var height:Int
 
-    /// 录制模板自定义名称
+    /// 自定义水印模板名称
+      /// -&amp;ensp;取值要求: 数字、大小写字母或短横线(&quot;-&quot;),
+      /// &amp;ensp;&amp;ensp;首尾不能有特殊字符(&quot;-&quot;),
+      /// &amp;ensp;&amp;ensp;不超过50字符,utf-8格式
+      /// -&amp;ensp;&lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
+      /// 
     var template:String
 
-    /// 高
+    /// 水印地址&lt;br&gt;-&amp;ensp;以&amp;ensp;http:// 开头,可公开访问地址&lt;br&gt;
     var url:String
 
 

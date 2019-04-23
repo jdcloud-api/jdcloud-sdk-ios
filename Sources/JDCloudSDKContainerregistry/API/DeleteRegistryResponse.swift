@@ -49,7 +49,7 @@ public class DeleteRegistryResponse:NSObject,Codable
 }
 
 public extension DeleteRegistryResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteRegistryResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

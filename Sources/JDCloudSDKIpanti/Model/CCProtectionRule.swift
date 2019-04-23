@@ -120,7 +120,7 @@ public class CCProtectionRule:NSObject,Codable{
     }
 }
 public extension CCProtectionRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCProtectionRuleCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(webRuleId, forKey: .webRuleId)

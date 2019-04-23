@@ -50,7 +50,7 @@ public class BatchUpdateWidgetSpec:NSObject,Codable{
     }
 }
 public extension BatchUpdateWidgetSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchUpdateWidgetSpecCodingKeys.self)
          try encoderContainer.encode(list, forKey: .list)
     }

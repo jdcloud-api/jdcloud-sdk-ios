@@ -51,7 +51,7 @@ public class DescribeFlavorsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeFlavorsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeFlavorsResultCodingKeys.self)
         try encoderContainer.encode(flavors, forKey: .flavors)
     }

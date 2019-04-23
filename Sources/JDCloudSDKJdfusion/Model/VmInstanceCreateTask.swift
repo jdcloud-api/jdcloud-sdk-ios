@@ -50,7 +50,7 @@ public class VmInstanceCreateTask:NSObject,Codable{
     }
 }
 public extension VmInstanceCreateTask{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VmInstanceCreateTaskCodingKeys.self)
          try encoderContainer.encode(task, forKey: .task)
     }

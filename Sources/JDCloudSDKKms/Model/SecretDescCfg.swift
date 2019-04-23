@@ -54,7 +54,7 @@ public class SecretDescCfg:NSObject,Codable{
     }
 }
 public extension SecretDescCfg{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecretDescCfgCodingKeys.self)
          try encoderContainer.encode(secretName, forKey: .secretName)
          try encoderContainer.encode(secretDesc, forKey: .secretDesc)

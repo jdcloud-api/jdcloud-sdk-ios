@@ -78,7 +78,7 @@ public class DescribeAlarmingRulesEnd:NSObject,Codable{
     }
 }
 public extension DescribeAlarmingRulesEnd{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAlarmingRulesEndCodingKeys.self)
          try encoderContainer.encode(alarmHistoryList, forKey: .alarmHistoryList)
          try encoderContainer.encode(numberPages, forKey: .numberPages)

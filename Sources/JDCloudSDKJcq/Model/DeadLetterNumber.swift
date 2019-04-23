@@ -71,7 +71,7 @@ public class DeadLetterNumber:NSObject,Codable{
     }
 }
 public extension DeadLetterNumber{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeadLetterNumberCodingKeys.self)
          try encoderContainer.encode(topicId, forKey: .topicId)
          try encoderContainer.encode(topicName, forKey: .topicName)

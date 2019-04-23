@@ -49,7 +49,7 @@ public class GetRdsAccountsByInstIdResponse:NSObject,Codable
 }
 
 public extension GetRdsAccountsByInstIdResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetRdsAccountsByInstIdResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

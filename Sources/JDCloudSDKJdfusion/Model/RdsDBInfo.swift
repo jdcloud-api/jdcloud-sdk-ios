@@ -78,7 +78,7 @@ public class RdsDBInfo:NSObject,Codable{
     }
 }
 public extension RdsDBInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RdsDBInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(status, forKey: .status)

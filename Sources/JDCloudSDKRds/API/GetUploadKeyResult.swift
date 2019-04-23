@@ -51,7 +51,7 @@ public class GetUploadKeyResult:NSObject,JdCloudResult
     }
 }
 public extension GetUploadKeyResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetUploadKeyResultCodingKeys.self)
         try encoderContainer.encode(key, forKey: .key)
     }

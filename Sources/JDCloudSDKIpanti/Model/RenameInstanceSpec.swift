@@ -48,7 +48,7 @@ public class RenameInstanceSpec:NSObject,Codable{
     }
 }
 public extension RenameInstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RenameInstanceSpecCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
     }

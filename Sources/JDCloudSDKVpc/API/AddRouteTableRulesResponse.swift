@@ -49,7 +49,7 @@ public class AddRouteTableRulesResponse:NSObject,Codable
 }
 
 public extension AddRouteTableRulesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddRouteTableRulesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

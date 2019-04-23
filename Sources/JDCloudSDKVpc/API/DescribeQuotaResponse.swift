@@ -49,7 +49,7 @@ public class DescribeQuotaResponse:NSObject,Codable
 }
 
 public extension DescribeQuotaResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeQuotaResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

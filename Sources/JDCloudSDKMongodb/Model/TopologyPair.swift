@@ -64,7 +64,7 @@ public class TopologyPair:NSObject,Codable{
     }
 }
 public extension TopologyPair{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopologyPairCodingKeys.self)
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(ip, forKey: .ip)

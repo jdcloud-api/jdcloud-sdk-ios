@@ -62,7 +62,7 @@ public class ElasticIpSpec:NSObject,Codable{
     }
 }
 public extension ElasticIpSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ElasticIpSpecCodingKeys.self)
          try encoderContainer.encode(bandwidthMbps, forKey: .bandwidthMbps)
          try encoderContainer.encode(provider, forKey: .provider)

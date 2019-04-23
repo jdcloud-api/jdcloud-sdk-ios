@@ -59,7 +59,7 @@ public class SwitchWebRuleOriginResult:NSObject,JdCloudResult
     }
 }
 public extension SwitchWebRuleOriginResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SwitchWebRuleOriginResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

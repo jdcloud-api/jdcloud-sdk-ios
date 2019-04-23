@@ -31,7 +31,7 @@ public class Userview:NSObject,Codable{
     var viewId:Int?
     /// 自定义线路名称, 最多64个字符
     var viewName:String?
-    /// 域名ID
+    /// 主域名ID
     var domainId:Int?
     /// 域名
     var domainName:String?
@@ -106,7 +106,7 @@ public class Userview:NSObject,Codable{
     }
 }
 public extension Userview{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UserviewCodingKeys.self)
          try encoderContainer.encode(viewId, forKey: .viewId)
          try encoderContainer.encode(viewName, forKey: .viewName)

@@ -64,7 +64,7 @@ public class CreateVserverGroup:NSObject,Codable{
     }
 }
 public extension CreateVserverGroup{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVserverGroupCodingKeys.self)
          try encoderContainer.encode(loadBalancerId, forKey: .loadBalancerId)
          try encoderContainer.encode(vserverGroupName, forKey: .vserverGroupName)

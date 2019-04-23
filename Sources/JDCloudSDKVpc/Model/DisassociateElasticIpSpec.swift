@@ -57,7 +57,7 @@ public class DisassociateElasticIpSpec:NSObject,Codable{
     }
 }
 public extension DisassociateElasticIpSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisassociateElasticIpSpecCodingKeys.self)
          try encoderContainer.encode(elasticIpId, forKey: .elasticIpId)
          try encoderContainer.encode(elasticIpAddress, forKey: .elasticIpAddress)

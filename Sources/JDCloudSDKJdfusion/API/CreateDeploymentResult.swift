@@ -51,7 +51,7 @@ public class CreateDeploymentResult:NSObject,JdCloudResult
     }
 }
 public extension CreateDeploymentResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateDeploymentResultCodingKeys.self)
         try encoderContainer.encode(deployment, forKey: .deployment)
     }

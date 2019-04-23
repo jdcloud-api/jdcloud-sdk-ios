@@ -50,7 +50,7 @@ public class Env:NSObject,Codable{
     }
 }
 public extension Env{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnvCodingKeys.self)
          try encoderContainer.encode(data, forKey: .data)
     }

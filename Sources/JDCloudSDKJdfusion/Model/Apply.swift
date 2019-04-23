@@ -50,7 +50,7 @@ public class Apply:NSObject,Codable{
     }
 }
 public extension Apply{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ApplyCodingKeys.self)
          try encoderContainer.encode(comment, forKey: .comment)
     }

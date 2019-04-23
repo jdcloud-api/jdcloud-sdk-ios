@@ -64,7 +64,7 @@ public class InstanceTemplateDiskSpec:NSObject,Codable{
     }
 }
 public extension InstanceTemplateDiskSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateDiskSpecCodingKeys.self)
          try encoderContainer.encode(diskType, forKey: .diskType)
          try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)

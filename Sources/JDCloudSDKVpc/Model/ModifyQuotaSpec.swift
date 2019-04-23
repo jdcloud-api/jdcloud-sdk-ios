@@ -61,7 +61,7 @@ public class ModifyQuotaSpec:NSObject,Codable{
     }
 }
 public extension ModifyQuotaSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyQuotaSpecCodingKeys.self)
          try encoderContainer.encode(type, forKey: .type)
          try encoderContainer.encode(parentResourceId, forKey: .parentResourceId)

@@ -39,6 +39,8 @@ public class DeploymentResourcesInfo:NSObject,Codable{
     var slbs:[String:SlbInfo?]?
     /// SecurityGroups
     var securityGroups:[String:CreateSecurityGroup?]?
+    /// SecurityGroupRules
+    var securityGroupRules:[String:CreateSgRule?]?
     /// Keypairs
     var keypairs:[String:CreateKeypair?]?
     /// Disks
@@ -55,6 +57,16 @@ public class DeploymentResourcesInfo:NSObject,Codable{
     var netInterfaceAttachment:[String:DeploymentAttachNetInterface?]?
     /// EipAssociate
     var eipAssociate:[String:DeploymentAssociateEip?]?
+    /// Rds
+    var rds:[String:CreateRDSInstance?]?
+    /// RdsDatabase
+    var rdsDatabase:[String:DeploymentRdsDatabase?]?
+    /// RdsAccount
+    var rdsAccount:[String:DeploymentRdsAccount?]?
+    /// RdsAccountGrant
+    var rdsAccountGrant:[String:DeploymentAccountGrant?]?
+    /// Bucket
+    var bucket:[String:DeploymentBucket?]?
     /// Variables
     var variables:[String:String?]?
 
@@ -71,6 +83,7 @@ public class DeploymentResourcesInfo:NSObject,Codable{
         case networkInterfaces
         case slbs
         case securityGroups
+        case securityGroupRules
         case keypairs
         case disks
         case vpcs
@@ -79,6 +92,11 @@ public class DeploymentResourcesInfo:NSObject,Codable{
         case diskAttachment
         case netInterfaceAttachment
         case eipAssociate
+        case rds
+        case rdsDatabase
+        case rdsAccount
+        case rdsAccountGrant
+        case bucket
         case variables
     }
 
@@ -108,6 +126,10 @@ public class DeploymentResourcesInfo:NSObject,Codable{
         if decoderContainer.contains(.securityGroups)
         {
             self.securityGroups = try decoderContainer.decode([String:CreateSecurityGroup?]?.self, forKey: .securityGroups)
+        }
+        if decoderContainer.contains(.securityGroupRules)
+        {
+            self.securityGroupRules = try decoderContainer.decode([String:CreateSgRule?]?.self, forKey: .securityGroupRules)
         }
         if decoderContainer.contains(.keypairs)
         {
@@ -141,6 +163,26 @@ public class DeploymentResourcesInfo:NSObject,Codable{
         {
             self.eipAssociate = try decoderContainer.decode([String:DeploymentAssociateEip?]?.self, forKey: .eipAssociate)
         }
+        if decoderContainer.contains(.rds)
+        {
+            self.rds = try decoderContainer.decode([String:CreateRDSInstance?]?.self, forKey: .rds)
+        }
+        if decoderContainer.contains(.rdsDatabase)
+        {
+            self.rdsDatabase = try decoderContainer.decode([String:DeploymentRdsDatabase?]?.self, forKey: .rdsDatabase)
+        }
+        if decoderContainer.contains(.rdsAccount)
+        {
+            self.rdsAccount = try decoderContainer.decode([String:DeploymentRdsAccount?]?.self, forKey: .rdsAccount)
+        }
+        if decoderContainer.contains(.rdsAccountGrant)
+        {
+            self.rdsAccountGrant = try decoderContainer.decode([String:DeploymentAccountGrant?]?.self, forKey: .rdsAccountGrant)
+        }
+        if decoderContainer.contains(.bucket)
+        {
+            self.bucket = try decoderContainer.decode([String:DeploymentBucket?]?.self, forKey: .bucket)
+        }
         if decoderContainer.contains(.variables)
         {
             self.variables = try decoderContainer.decode([String:String?]?.self, forKey: .variables)
@@ -148,7 +190,7 @@ public class DeploymentResourcesInfo:NSObject,Codable{
     }
 }
 public extension DeploymentResourcesInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentResourcesInfoCodingKeys.self)
          try encoderContainer.encode(vms, forKey: .vms)
          try encoderContainer.encode(eips, forKey: .eips)
@@ -156,6 +198,7 @@ public extension DeploymentResourcesInfo{
          try encoderContainer.encode(networkInterfaces, forKey: .networkInterfaces)
          try encoderContainer.encode(slbs, forKey: .slbs)
          try encoderContainer.encode(securityGroups, forKey: .securityGroups)
+         try encoderContainer.encode(securityGroupRules, forKey: .securityGroupRules)
          try encoderContainer.encode(keypairs, forKey: .keypairs)
          try encoderContainer.encode(disks, forKey: .disks)
          try encoderContainer.encode(vpcs, forKey: .vpcs)
@@ -164,6 +207,11 @@ public extension DeploymentResourcesInfo{
          try encoderContainer.encode(diskAttachment, forKey: .diskAttachment)
          try encoderContainer.encode(netInterfaceAttachment, forKey: .netInterfaceAttachment)
          try encoderContainer.encode(eipAssociate, forKey: .eipAssociate)
+         try encoderContainer.encode(rds, forKey: .rds)
+         try encoderContainer.encode(rdsDatabase, forKey: .rdsDatabase)
+         try encoderContainer.encode(rdsAccount, forKey: .rdsAccount)
+         try encoderContainer.encode(rdsAccountGrant, forKey: .rdsAccountGrant)
+         try encoderContainer.encode(bucket, forKey: .bucket)
          try encoderContainer.encode(variables, forKey: .variables)
     }
 }

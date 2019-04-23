@@ -49,7 +49,7 @@ public class DescribeRegionesResponse:NSObject,Codable
 }
 
 public extension DescribeRegionesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRegionesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

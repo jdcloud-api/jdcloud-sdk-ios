@@ -57,7 +57,7 @@ public class Jdvpc:NSObject,Codable{
     }
 }
 public extension Jdvpc{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: JdvpcCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(binded, forKey: .binded)

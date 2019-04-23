@@ -28,22 +28,38 @@ import Foundation
 @objc(SnapshotTemplate)
 public class SnapshotTemplate:NSObject,Codable{
     /// 截图格式
+      /// 
     var format:String?
-    /// 宽
+    /// 截图宽度
+      /// - 单位: 像素
+      /// 
     var width:Int?
-    /// 高
+    /// 截图高度
+      /// - 单位: 像素
+      /// 
     var height:Int?
-    /// 文件类型
+    /// 截图与设定的宽高不匹配时的处理规则
+      ///   1: 拉伸
+      ///   2: 留黑
+      ///   3: 留白
+      ///   4: 高斯模糊
+      /// 
     var fillType:Int?
-    /// 截图
+    /// 截图周期
+      /// - 单位: 秒
+      /// 
     var snapshotInterval:Int?
-    /// 保存模式
+    /// 存储模式
+      ///   1: 覆盖
+      ///   2: 顺序编号存储
+      /// 
     var saveMode:Int?
     /// 存储桶
     var saveBucket:String?
-    /// 存储endPoint
+    /// 存储地址
     var saveEndpoint:String?
-    /// 录制模板自定义名称
+    /// 截图模板自定义名称
+      /// 
     var template:String?
 
 
@@ -106,7 +122,7 @@ public class SnapshotTemplate:NSObject,Codable{
     }
 }
 public extension SnapshotTemplate{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SnapshotTemplateCodingKeys.self)
          try encoderContainer.encode(format, forKey: .format)
          try encoderContainer.encode(width, forKey: .width)

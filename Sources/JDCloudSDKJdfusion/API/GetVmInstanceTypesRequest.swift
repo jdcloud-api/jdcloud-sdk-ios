@@ -30,4 +30,19 @@ import JDCloudSDKCore
 @objc(GetVmInstanceTypesRequest)
 public class GetVmInstanceTypesRequest:JdCloudRequest
 {
+    /// 可用区
+    var az:String?
+
+
+
+
+    enum GetVmInstanceTypesRequestRequestCodingKeys: String, CodingKey {
+        case az
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: GetVmInstanceTypesRequestRequestCodingKeys.self)
+        try encoderContainer.encode(az, forKey: .az)
+
+    }
 }

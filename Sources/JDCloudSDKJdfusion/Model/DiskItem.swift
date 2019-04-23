@@ -50,7 +50,7 @@ public class DiskItem:NSObject,Codable{
     }
 }
 public extension DiskItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DiskItemCodingKeys.self)
          try encoderContainer.encode(disk, forKey: .disk)
     }

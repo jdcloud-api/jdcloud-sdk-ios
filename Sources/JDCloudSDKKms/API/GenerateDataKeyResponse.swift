@@ -49,7 +49,7 @@ public class GenerateDataKeyResponse:NSObject,Codable
 }
 
 public extension GenerateDataKeyResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GenerateDataKeyResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

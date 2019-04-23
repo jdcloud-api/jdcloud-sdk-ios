@@ -51,7 +51,7 @@ public class DescribeSubscriptionResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeSubscriptionResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSubscriptionResultCodingKeys.self)
         try encoderContainer.encode(subscription, forKey: .subscription)
     }

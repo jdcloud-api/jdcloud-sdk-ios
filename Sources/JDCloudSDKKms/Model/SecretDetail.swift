@@ -60,7 +60,7 @@ public class SecretDetail:NSObject,Codable{
     }
 }
 public extension SecretDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecretDetailCodingKeys.self)
          try encoderContainer.encode(secretInfo, forKey: .secretInfo)
          try encoderContainer.encode(secretVersionCount, forKey: .secretVersionCount)

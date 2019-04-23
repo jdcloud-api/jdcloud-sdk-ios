@@ -246,7 +246,7 @@ public class CompatibleBill:NSObject,Codable{
     }
 }
 public extension CompatibleBill{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CompatibleBillCodingKeys.self)
          try encoderContainer.encode(billId, forKey: .billId)
          try encoderContainer.encode(pin, forKey: .pin)

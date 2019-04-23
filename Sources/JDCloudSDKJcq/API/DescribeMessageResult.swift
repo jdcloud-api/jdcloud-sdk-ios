@@ -51,7 +51,7 @@ public class DescribeMessageResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeMessageResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeMessageResultCodingKeys.self)
         try encoderContainer.encode(message, forKey: .message)
     }

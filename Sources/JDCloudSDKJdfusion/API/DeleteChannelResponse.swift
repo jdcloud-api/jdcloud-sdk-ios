@@ -49,7 +49,7 @@ public class DeleteChannelResponse:NSObject,Codable
 }
 
 public extension DeleteChannelResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteChannelResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

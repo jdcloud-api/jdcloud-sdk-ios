@@ -49,7 +49,7 @@ public class GetPySparkExecuteResultResponse:NSObject,Codable
 }
 
 public extension GetPySparkExecuteResultResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetPySparkExecuteResultResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -49,7 +49,7 @@ public class SetHttpTypeResponse:NSObject,Codable
 }
 
 public extension SetHttpTypeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetHttpTypeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -51,7 +51,7 @@ public class ReverseDeploymentResult:NSObject,JdCloudResult
     }
 }
 public extension ReverseDeploymentResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReverseDeploymentResultCodingKeys.self)
         try encoderContainer.encode(deployment, forKey: .deployment)
     }

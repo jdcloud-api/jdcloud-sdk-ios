@@ -64,7 +64,7 @@ public class ChannelInfo:NSObject,Codable{
     }
 }
 public extension ChannelInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ChannelInfoCodingKeys.self)
          try encoderContainer.encode(info, forKey: .info)
          try encoderContainer.encode(source, forKey: .source)

@@ -61,7 +61,7 @@ public class TemplateValidateSpec:NSObject,Codable{
     }
 }
 public extension TemplateValidateSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TemplateValidateSpecCodingKeys.self)
          try encoderContainer.encode(environment, forKey: .environment)
          try encoderContainer.encode(validateMode, forKey: .validateMode)

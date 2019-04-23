@@ -102,7 +102,7 @@ public class DiskSpec:NSObject,Codable{
     }
 }
 public extension DiskSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DiskSpecCodingKeys.self)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(name, forKey: .name)

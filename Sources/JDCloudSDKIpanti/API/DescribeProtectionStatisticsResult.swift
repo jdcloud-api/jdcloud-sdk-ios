@@ -51,7 +51,7 @@ public class DescribeProtectionStatisticsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeProtectionStatisticsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeProtectionStatisticsResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

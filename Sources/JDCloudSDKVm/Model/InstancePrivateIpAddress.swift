@@ -57,7 +57,7 @@ public class InstancePrivateIpAddress:NSObject,Codable{
     }
 }
 public extension InstancePrivateIpAddress{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstancePrivateIpAddressCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(privateIpAddress, forKey: .privateIpAddress)

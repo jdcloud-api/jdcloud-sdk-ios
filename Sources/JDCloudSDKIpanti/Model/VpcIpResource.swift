@@ -57,7 +57,7 @@ public class VpcIpResource:NSObject,Codable{
     }
 }
 public extension VpcIpResource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcIpResourceCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(binded, forKey: .binded)

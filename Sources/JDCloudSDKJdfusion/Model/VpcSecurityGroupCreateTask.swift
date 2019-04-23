@@ -50,7 +50,7 @@ public class VpcSecurityGroupCreateTask:NSObject,Codable{
     }
 }
 public extension VpcSecurityGroupCreateTask{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcSecurityGroupCreateTaskCodingKeys.self)
          try encoderContainer.encode(task, forKey: .task)
     }

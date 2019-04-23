@@ -42,12 +42,12 @@ public class AddRR:NSObject,Codable{
     /// 解析记录的生存时间
     /// Required:true
     var ttl:Int
-    /// 解析的类型
+    /// 解析的类型，请参考&lt;a href&#x3D;&quot;https://docs.jdcloud.com/cn/jd-cloud-dns/detailed-interpretation-of-parsed-records&quot;&gt;解析记录类型详解&lt;/a&gt;
     /// Required:true
     var type:String
-    /// 解析记录的权重
+    /// 解析记录的权重，目前支持权重的有：A/AAAA/CNAME/JNAME。
     var weight:Int?
-    /// 解析线路的ID，请调用getViewTree接口获取解析线路的ID。
+    /// 解析线路的ID，请调用getViewTree接口获取基础解析线路的ID，使用getUserView接口获取自定义线路的ID。
     /// Required:true
     var viewValue:Int
 
@@ -100,7 +100,7 @@ public class AddRR:NSObject,Codable{
     }
 }
 public extension AddRR{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddRRCodingKeys.self)
          try encoderContainer.encode(hostRecord, forKey: .hostRecord)
          try encoderContainer.encode(hostValue, forKey: .hostValue)

@@ -57,7 +57,7 @@ public class SpaceId:NSObject,Codable{
     }
 }
 public extension SpaceId{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SpaceIdCodingKeys.self)
          try encoderContainer.encode(spaceIdValue, forKey: .spaceIdValue)
          try encoderContainer.encode(status, forKey: .status)

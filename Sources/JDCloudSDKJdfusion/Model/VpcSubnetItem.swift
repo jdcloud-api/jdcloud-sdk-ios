@@ -50,7 +50,7 @@ public class VpcSubnetItem:NSObject,Codable{
     }
 }
 public extension VpcSubnetItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcSubnetItemCodingKeys.self)
          try encoderContainer.encode(subnet, forKey: .subnet)
     }

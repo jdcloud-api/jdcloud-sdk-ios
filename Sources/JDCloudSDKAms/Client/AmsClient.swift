@@ -127,7 +127,7 @@ public class AmsJDCloudClient:NSObject,JDCloudClient{
 
 public extension AmsJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

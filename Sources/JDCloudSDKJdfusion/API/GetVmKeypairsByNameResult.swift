@@ -51,7 +51,7 @@ public class GetVmKeypairsByNameResult:NSObject,JdCloudResult
     }
 }
 public extension GetVmKeypairsByNameResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVmKeypairsByNameResultCodingKeys.self)
         try encoderContainer.encode(keypair, forKey: .keypair)
     }

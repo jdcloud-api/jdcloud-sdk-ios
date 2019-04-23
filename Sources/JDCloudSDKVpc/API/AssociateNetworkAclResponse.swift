@@ -49,7 +49,7 @@ public class AssociateNetworkAclResponse:NSObject,Codable
 }
 
 public extension AssociateNetworkAclResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AssociateNetworkAclResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

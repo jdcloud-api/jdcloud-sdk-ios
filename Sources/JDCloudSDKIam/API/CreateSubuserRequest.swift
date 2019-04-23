@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   用户管理接口
-   用户管理接口
+   SubUser Management
+   SubUser Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,11 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  创建子账号
-@objc(CreateSubuserRequest)
-public class CreateSubuserRequest:JdCloudRequest
+///  创建子用户
+@objc(CreateSubUserRequest)
+public class CreateSubUserRequest:JdCloudRequest
 {
-    /// 子账号信息
+    /// 子用户信息
     var createSubUserInfo:CreateSubUserInfo
 
 
@@ -40,12 +40,12 @@ public class CreateSubuserRequest:JdCloudRequest
     }
 
 
-    enum CreateSubuserRequestRequestCodingKeys: String, CodingKey {
+    enum CreateSubUserRequestRequestCodingKeys: String, CodingKey {
         case createSubUserInfo
     }
 
     public override func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: CreateSubuserRequestRequestCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: CreateSubUserRequestRequestCodingKeys.self)
         try encoderContainer.encode(createSubUserInfo, forKey: .createSubUserInfo)
 
     }

@@ -49,7 +49,7 @@ public class CreateInstanceFromBackupResponse:NSObject,Codable
 }
 
 public extension CreateInstanceFromBackupResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateInstanceFromBackupResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

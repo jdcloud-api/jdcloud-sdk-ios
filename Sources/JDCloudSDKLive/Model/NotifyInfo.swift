@@ -57,7 +57,7 @@ public class NotifyInfo:NSObject,Codable{
     }
 }
 public extension NotifyInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NotifyInfoCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(notifyUrl, forKey: .notifyUrl)

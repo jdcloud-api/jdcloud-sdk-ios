@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DeleteHttpHeaderExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "DELETE", url: "/domain/{domain}/httpHeader")
+        super.init(jdCloudClient: jdCloudClient, method: "PUT", url: "/domain/{domain}/httpHeader")
     }
     
 }

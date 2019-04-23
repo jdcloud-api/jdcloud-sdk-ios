@@ -29,7 +29,7 @@ import Foundation
 public class SnapshotConfig:NSObject,Codable{
     /// 推流域名
     var publishDomain:String?
-    /// APP名称
+    /// 应用名称
     var appName:String?
     /// 流名称
     var streamName:String?
@@ -71,7 +71,7 @@ public class SnapshotConfig:NSObject,Codable{
     }
 }
 public extension SnapshotConfig{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SnapshotConfigCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(appName, forKey: .appName)

@@ -71,7 +71,7 @@ public class CloudInfo:NSObject,Codable{
     }
 }
 public extension CloudInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CloudInfoCodingKeys.self)
          try encoderContainer.encode(cloudId, forKey: .cloudId)
          try encoderContainer.encode(rdsId, forKey: .rdsId)

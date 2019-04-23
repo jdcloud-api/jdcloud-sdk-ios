@@ -57,7 +57,7 @@ public class DescribeResourceTypeListItem:NSObject,Codable{
     }
 }
 public extension DescribeResourceTypeListItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeResourceTypeListItemCodingKeys.self)
          try encoderContainer.encode(describe, forKey: .describe)
          try encoderContainer.encode(type, forKey: .type)

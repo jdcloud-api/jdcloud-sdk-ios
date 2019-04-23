@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除域名的自定义解析线路的IP段
+///  删除主域名的自定义解析线路的IP段
 @objc(DelUserViewIPRequest)
 public class DelUserViewIPRequest:JdCloudRequest
 {

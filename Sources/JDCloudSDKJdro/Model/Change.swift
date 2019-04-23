@@ -57,7 +57,7 @@ public class Change:NSObject,Codable{
     }
 }
 public extension Change{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ChangeCodingKeys.self)
          try encoderContainer.encode(resourceChange, forKey: .resourceChange)
          try encoderContainer.encode(type, forKey: .type)

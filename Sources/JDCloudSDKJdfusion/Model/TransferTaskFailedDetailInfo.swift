@@ -57,7 +57,7 @@ public class TransferTaskFailedDetailInfo:NSObject,Codable{
     }
 }
 public extension TransferTaskFailedDetailInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TransferTaskFailedDetailInfoCodingKeys.self)
          try encoderContainer.encode(count, forKey: .count)
          try encoderContainer.encode(files, forKey: .files)

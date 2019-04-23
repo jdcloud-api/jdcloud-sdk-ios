@@ -49,7 +49,7 @@ public class ModifyInstanceNameResponse:NSObject,Codable
 }
 
 public extension ModifyInstanceNameResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyInstanceNameResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

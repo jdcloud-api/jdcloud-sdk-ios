@@ -51,7 +51,7 @@ public class GetDomainsResult:NSObject,JdCloudResult
     }
 }
 public extension GetDomainsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainsResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

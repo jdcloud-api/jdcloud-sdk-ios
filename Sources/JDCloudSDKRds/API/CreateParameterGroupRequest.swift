@@ -30,10 +30,10 @@ import JDCloudSDKCore
 @objc(CreateParameterGroupRequest)
 public class CreateParameterGroupRequest:JdCloudRequest
 {
-    /// 实例引擎类型
+    /// 实例引擎类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var engine:String
 
-    /// 实例引擎版本
+    /// 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var engineVersion:String
 
     /// 参数组的名字

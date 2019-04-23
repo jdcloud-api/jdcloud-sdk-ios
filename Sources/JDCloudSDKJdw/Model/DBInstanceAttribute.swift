@@ -142,7 +142,7 @@ public class DBInstanceAttribute:NSObject,Codable{
     }
 }
 public extension DBInstanceAttribute{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DBInstanceAttributeCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(instanceName, forKey: .instanceName)

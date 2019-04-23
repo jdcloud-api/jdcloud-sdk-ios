@@ -75,7 +75,7 @@ public class QueryStatisticsDataResult:NSObject,JdCloudResult
     }
 }
 public extension QueryStatisticsDataResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryStatisticsDataResultCodingKeys.self)
         try encoderContainer.encode(startTime, forKey: .startTime)
         try encoderContainer.encode(endTime, forKey: .endTime)

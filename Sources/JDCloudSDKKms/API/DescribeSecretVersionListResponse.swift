@@ -49,7 +49,7 @@ public class DescribeSecretVersionListResponse:NSObject,Codable
 }
 
 public extension DescribeSecretVersionListResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSecretVersionListResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

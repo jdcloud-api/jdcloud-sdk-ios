@@ -49,7 +49,7 @@ public class ListDeadLettersResponse:NSObject,Codable
 }
 
 public extension ListDeadLettersResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListDeadLettersResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

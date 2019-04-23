@@ -92,7 +92,7 @@ public class BillStatisticsInfoVo:NSObject,Codable{
     }
 }
 public extension BillStatisticsInfoVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BillStatisticsInfoVoCodingKeys.self)
          try encoderContainer.encode(totalFee, forKey: .totalFee)
          try encoderContainer.encode(cashPayFee, forKey: .cashPayFee)

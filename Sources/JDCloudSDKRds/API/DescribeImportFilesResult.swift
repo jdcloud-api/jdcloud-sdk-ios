@@ -51,7 +51,7 @@ public class DescribeImportFilesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeImportFilesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeImportFilesResultCodingKeys.self)
         try encoderContainer.encode(importFiles, forKey: .importFiles)
     }

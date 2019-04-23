@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,14 +26,17 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除域名录制配置
+///  删除域名级别录制模板配置
+      ///       /// - 删除域名级别录制模板配置,重新推流后生效
+      ///       /// 
 @objc(DeleteLiveStreamDomainRecordRequest)
 public class DeleteLiveStreamDomainRecordRequest:JdCloudRequest
 {
-    /// 推流加速域名
+    /// 推流域名
     var publishDomain:String
 
-    /// 录制模板自定义名称
+    /// 录制模板
+      /// 
     var template:String
 
 

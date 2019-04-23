@@ -169,7 +169,7 @@ public class Code:NSObject,Codable{
     }
 }
 public extension Code{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CodeCodingKeys.self)
          try encoderContainer.encode(cid, forKey: .cid)
          try encoderContainer.encode(name, forKey: .name)

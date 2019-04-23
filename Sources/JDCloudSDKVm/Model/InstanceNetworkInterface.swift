@@ -100,7 +100,7 @@ public class InstanceNetworkInterface:NSObject,Codable{
     }
 }
 public extension InstanceNetworkInterface{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceNetworkInterfaceCodingKeys.self)
          try encoderContainer.encode(networkInterfaceId, forKey: .networkInterfaceId)
          try encoderContainer.encode(macAddress, forKey: .macAddress)

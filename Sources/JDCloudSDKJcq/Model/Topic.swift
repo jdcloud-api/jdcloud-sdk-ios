@@ -127,7 +127,7 @@ public class Topic:NSObject,Codable{
     }
 }
 public extension Topic{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopicCodingKeys.self)
          try encoderContainer.encode(topicId, forKey: .topicId)
          try encoderContainer.encode(topicName, forKey: .topicName)

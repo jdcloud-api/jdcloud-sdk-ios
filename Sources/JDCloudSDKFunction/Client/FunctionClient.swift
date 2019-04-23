@@ -249,6 +249,27 @@ public class FunctionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func invokeAsync(request:InvokeRequest,requestComplation:@escaping (NSNumber?,InvokeResponse?,NSError?,NSString?)->()) throws {
+        functionJDCloudClient = self
+        try InvokeExecutor(jdCloudClient: functionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(InvokeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func updateAliasAsync(request:UpdateAliasRequest,requestComplation:@escaping (NSNumber?,UpdateAliasResponse?,NSError?,NSString?)->()) throws {
         functionJDCloudClient = self
         try UpdateAliasExecutor(jdCloudClient: functionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -270,14 +291,14 @@ public class FunctionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func testInvokeAsync(request:TestInvokeRequest,requestComplation:@escaping (NSNumber?,TestInvokeResponse?,NSError?,NSString?)->()) throws {
+    public func asyncInvokeAsync(request:AsyncInvokeRequest,requestComplation:@escaping (NSNumber?,AsyncInvokeResponse?,NSError?,NSString?)->()) throws {
         functionJDCloudClient = self
-        try TestInvokeExecutor(jdCloudClient: functionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try AsyncInvokeExecutor(jdCloudClient: functionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(TestInvokeResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(AsyncInvokeResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -442,7 +463,7 @@ public class FunctionJDCloudClient:NSObject,JDCloudClient{
 
 public extension FunctionJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

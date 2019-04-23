@@ -51,7 +51,7 @@ public class DescribeAccessPointResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAccessPointResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAccessPointResultCodingKeys.self)
         try encoderContainer.encode(accessPoint, forKey: .accessPoint)
     }

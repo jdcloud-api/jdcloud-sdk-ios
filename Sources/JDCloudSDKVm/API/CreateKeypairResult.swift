@@ -69,7 +69,7 @@ public class CreateKeypairResult:NSObject,JdCloudResult
     }
 }
 public extension CreateKeypairResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateKeypairResultCodingKeys.self)
         try encoderContainer.encode(keyName, forKey: .keyName)
         try encoderContainer.encode(privateKey, forKey: .privateKey)

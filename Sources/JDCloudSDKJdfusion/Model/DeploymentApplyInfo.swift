@@ -78,7 +78,7 @@ public class DeploymentApplyInfo:NSObject,Codable{
     }
 }
 public extension DeploymentApplyInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentApplyInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(comment, forKey: .comment)

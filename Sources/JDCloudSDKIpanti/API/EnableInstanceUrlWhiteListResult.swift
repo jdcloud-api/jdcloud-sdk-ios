@@ -59,7 +59,7 @@ public class EnableInstanceUrlWhiteListResult:NSObject,JdCloudResult
     }
 }
 public extension EnableInstanceUrlWhiteListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableInstanceUrlWhiteListResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

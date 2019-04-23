@@ -49,7 +49,7 @@ public class CreateLiveDomainResponse:NSObject,Codable
 }
 
 public extension CreateLiveDomainResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateLiveDomainResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

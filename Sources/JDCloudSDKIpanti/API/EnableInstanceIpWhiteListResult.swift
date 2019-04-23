@@ -59,7 +59,7 @@ public class EnableInstanceIpWhiteListResult:NSObject,JdCloudResult
     }
 }
 public extension EnableInstanceIpWhiteListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableInstanceIpWhiteListResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

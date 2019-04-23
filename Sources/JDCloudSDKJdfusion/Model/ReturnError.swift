@@ -50,7 +50,7 @@ public class ReturnError:NSObject,Codable{
     }
 }
 public extension ReturnError{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnErrorCodingKeys.self)
          try encoderContainer.encode(error, forKey: .error)
     }

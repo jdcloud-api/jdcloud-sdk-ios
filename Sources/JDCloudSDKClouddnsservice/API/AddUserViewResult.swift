@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 添加域名的自定义解析线路
+/// 添加主域名的自定义解析线路
 @objc(AddUserViewResult)
 public class AddUserViewResult:NSObject,JdCloudResult
 {
@@ -51,7 +51,7 @@ public class AddUserViewResult:NSObject,JdCloudResult
     }
 }
 public extension AddUserViewResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddUserViewResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

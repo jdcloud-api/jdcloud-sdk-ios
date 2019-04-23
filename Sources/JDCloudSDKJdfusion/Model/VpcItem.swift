@@ -50,7 +50,7 @@ public class VpcItem:NSObject,Codable{
     }
 }
 public extension VpcItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcItemCodingKeys.self)
          try encoderContainer.encode(vpc, forKey: .vpc)
     }

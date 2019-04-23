@@ -435,7 +435,7 @@ public class QueryLiveDomainDetailResult:NSObject,JdCloudResult
     }
 }
 public extension QueryLiveDomainDetailResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryLiveDomainDetailResultCodingKeys.self)
         try encoderContainer.encode(domainType, forKey: .domainType)
         try encoderContainer.encode(playDomain, forKey: .playDomain)

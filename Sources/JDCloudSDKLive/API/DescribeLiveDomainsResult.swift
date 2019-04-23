@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -36,7 +36,7 @@ public class DescribeLiveDomainsResult:NSObject,JdCloudResult
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
     /// 域名信息集合
     var domainDetails:[DomainDetails?]?
@@ -66,7 +66,7 @@ public class DescribeLiveDomainsResult:NSObject,JdCloudResult
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.domainDetails)
         {
@@ -75,7 +75,7 @@ public class DescribeLiveDomainsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeLiveDomainsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLiveDomainsResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

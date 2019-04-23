@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,8 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询录制模板列表
+///  查询用户定义水印模板列表
+      /// 
 public class DescribeCustomLiveStreamWatermarkTemplatesExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

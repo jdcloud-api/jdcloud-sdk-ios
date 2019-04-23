@@ -45,6 +45,8 @@ public class DeploymentBaseInfo:NSObject,Codable{
     var createdTime:String?
     /// 更新时间
     var updatedTime:String?
+    /// 最近一次操作
+    var lastOperation:String?
 
 
 
@@ -62,6 +64,7 @@ public class DeploymentBaseInfo:NSObject,Codable{
         case userId
         case createdTime
         case updatedTime
+        case lastOperation
     }
 
 
@@ -103,10 +106,14 @@ public class DeploymentBaseInfo:NSObject,Codable{
         {
             self.updatedTime = try decoderContainer.decode(String?.self, forKey: .updatedTime)
         }
+        if decoderContainer.contains(.lastOperation)
+        {
+            self.lastOperation = try decoderContainer.decode(String?.self, forKey: .lastOperation)
+        }
     }
 }
 public extension DeploymentBaseInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentBaseInfoCodingKeys.self)
          try encoderContainer.encode(cloudId, forKey: .cloudId)
          try encoderContainer.encode(version, forKey: .version)
@@ -117,5 +124,6 @@ public extension DeploymentBaseInfo{
          try encoderContainer.encode(userId, forKey: .userId)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
          try encoderContainer.encode(updatedTime, forKey: .updatedTime)
+         try encoderContainer.encode(lastOperation, forKey: .lastOperation)
     }
 }

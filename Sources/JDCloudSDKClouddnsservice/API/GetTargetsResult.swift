@@ -51,7 +51,7 @@ public class GetTargetsResult:NSObject,JdCloudResult
     }
 }
 public extension GetTargetsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTargetsResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

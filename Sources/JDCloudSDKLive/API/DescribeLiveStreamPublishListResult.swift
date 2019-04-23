@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查看域名下推流记录
+/// 查看推流历史记录
 @objc(DescribeLiveStreamPublishListResult)
 public class DescribeLiveStreamPublishListResult:NSObject,JdCloudResult
 {
@@ -36,9 +36,9 @@ public class DescribeLiveStreamPublishListResult:NSObject,JdCloudResult
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
-    /// 在线推流集合
+    /// 推流历史集合
     var liveStreamPublishInfos:[LiveStreamPublishInfo?]?
 
 
@@ -66,7 +66,7 @@ public class DescribeLiveStreamPublishListResult:NSObject,JdCloudResult
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.liveStreamPublishInfos)
         {
@@ -75,7 +75,7 @@ public class DescribeLiveStreamPublishListResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeLiveStreamPublishListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLiveStreamPublishListResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

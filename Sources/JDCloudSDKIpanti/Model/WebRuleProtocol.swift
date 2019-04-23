@@ -54,7 +54,7 @@ public class WebRuleProtocol:NSObject,Codable{
     }
 }
 public extension WebRuleProtocol{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WebRuleProtocolCodingKeys.self)
          try encoderContainer.encode(http, forKey: .http)
          try encoderContainer.encode(https, forKey: .https)

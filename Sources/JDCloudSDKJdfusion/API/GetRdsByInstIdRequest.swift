@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  根据云提供商查询对应的RDS实例信息
+///  查询指定ID的RDS实例信息
 @objc(GetRdsByInstIdRequest)
 public class GetRdsByInstIdRequest:JdCloudRequest
 {

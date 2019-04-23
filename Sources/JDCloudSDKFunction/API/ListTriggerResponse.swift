@@ -49,7 +49,7 @@ public class ListTriggerResponse:NSObject,Codable
 }
 
 public extension ListTriggerResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListTriggerResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

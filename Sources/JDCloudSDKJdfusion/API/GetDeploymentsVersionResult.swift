@@ -51,7 +51,7 @@ public class GetDeploymentsVersionResult:NSObject,JdCloudResult
     }
 }
 public extension GetDeploymentsVersionResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDeploymentsVersionResultCodingKeys.self)
         try encoderContainer.encode(deployment, forKey: .deployment)
     }

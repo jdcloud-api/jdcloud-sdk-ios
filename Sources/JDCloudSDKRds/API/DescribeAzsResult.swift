@@ -51,7 +51,7 @@ public class DescribeAzsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAzsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAzsResultCodingKeys.self)
         try encoderContainer.encode(azs, forKey: .azs)
     }

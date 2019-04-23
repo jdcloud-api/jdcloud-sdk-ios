@@ -51,7 +51,7 @@ public class GetTransferTasksResult:NSObject,JdCloudResult
     }
 }
 public extension GetTransferTasksResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTransferTasksResultCodingKeys.self)
         try encoderContainer.encode(tasks, forKey: .tasks)
     }

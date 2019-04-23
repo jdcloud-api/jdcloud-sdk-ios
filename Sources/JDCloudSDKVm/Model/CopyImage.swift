@@ -57,7 +57,7 @@ public class CopyImage:NSObject,Codable{
     }
 }
 public extension CopyImage{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CopyImageCodingKeys.self)
          try encoderContainer.encode(destinationImageId, forKey: .destinationImageId)
          try encoderContainer.encode(sourceImageId, forKey: .sourceImageId)

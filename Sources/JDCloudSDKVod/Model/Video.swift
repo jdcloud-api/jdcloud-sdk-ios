@@ -186,7 +186,7 @@ public class Video:NSObject,Codable{
     }
 }
 public extension Video{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VideoCodingKeys.self)
          try encoderContainer.encode(mid, forKey: .mid)
          try encoderContainer.encode(videoName, forKey: .videoName)

@@ -64,7 +64,7 @@ public class SiteMonitorUdpOption:NSObject,Codable{
     }
 }
 public extension SiteMonitorUdpOption{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SiteMonitorUdpOptionCodingKeys.self)
          try encoderContainer.encode(reqContent, forKey: .reqContent)
          try encoderContainer.encode(resCheck, forKey: .resCheck)

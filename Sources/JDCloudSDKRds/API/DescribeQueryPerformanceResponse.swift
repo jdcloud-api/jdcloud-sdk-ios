@@ -49,7 +49,7 @@ public class DescribeQueryPerformanceResponse:NSObject,Codable
 }
 
 public extension DescribeQueryPerformanceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeQueryPerformanceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

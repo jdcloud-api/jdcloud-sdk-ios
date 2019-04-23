@@ -62,7 +62,7 @@ public class DescribeImagesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeImagesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeImagesResultCodingKeys.self)
         try encoderContainer.encode(images, forKey: .images)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

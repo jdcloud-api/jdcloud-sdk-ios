@@ -51,7 +51,7 @@ public class GetVpcSubnetsResult:NSObject,JdCloudResult
     }
 }
 public extension GetVpcSubnetsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcSubnetsResultCodingKeys.self)
         try encoderContainer.encode(subnets, forKey: .subnets)
     }

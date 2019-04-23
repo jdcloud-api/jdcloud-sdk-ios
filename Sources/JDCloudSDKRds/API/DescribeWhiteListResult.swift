@@ -51,7 +51,7 @@ public class DescribeWhiteListResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeWhiteListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeWhiteListResultCodingKeys.self)
         try encoderContainer.encode(whiteLists, forKey: .whiteLists)
     }

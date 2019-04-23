@@ -57,7 +57,7 @@ public class ModifyNetworkAclSpec:NSObject,Codable{
     }
 }
 public extension ModifyNetworkAclSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyNetworkAclSpecCodingKeys.self)
          try encoderContainer.encode(networkAclName, forKey: .networkAclName)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

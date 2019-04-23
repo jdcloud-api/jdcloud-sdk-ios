@@ -57,7 +57,7 @@ public class CNameQueryResult:NSObject,Codable{
     }
 }
 public extension CNameQueryResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CNameQueryResultCodingKeys.self)
          try encoderContainer.encode(totalCount, forKey: .totalCount)
          try encoderContainer.encode(resultList, forKey: .resultList)

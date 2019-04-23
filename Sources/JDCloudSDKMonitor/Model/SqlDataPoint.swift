@@ -132,7 +132,7 @@ public class SqlDataPoint:NSObject,Codable{
     }
 }
 public extension SqlDataPoint{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SqlDataPointCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)

@@ -78,7 +78,7 @@ public class RouteTableRule:NSObject,Codable{
     }
 }
 public extension RouteTableRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RouteTableRuleCodingKeys.self)
          try encoderContainer.encode(ruleId, forKey: .ruleId)
          try encoderContainer.encode(priority, forKey: .priority)

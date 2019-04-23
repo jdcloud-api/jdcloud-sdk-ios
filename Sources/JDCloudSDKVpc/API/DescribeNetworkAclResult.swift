@@ -51,7 +51,7 @@ public class DescribeNetworkAclResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeNetworkAclResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeNetworkAclResultCodingKeys.self)
         try encoderContainer.encode(networkAcl, forKey: .networkAcl)
     }

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   设备生命周期管理
+   DeviceManager
    用于完成设备全生命周期管理
 
    OpenAPI spec version: v1
@@ -52,7 +52,7 @@ public class QueryDeviceCommandsResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDeviceCommandsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDeviceCommandsResultCodingKeys.self)
         try encoderContainer.encode(commands, forKey: .commands)
     }

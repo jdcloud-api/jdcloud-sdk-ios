@@ -57,7 +57,7 @@ public class AccessPoint:NSObject,Codable{
     }
 }
 public extension AccessPoint{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AccessPointCodingKeys.self)
          try encoderContainer.encode(sdkAddress, forKey: .sdkAddress)
          try encoderContainer.encode(httpAddress, forKey: .httpAddress)

@@ -49,7 +49,7 @@ public class DescribeKeypairsResponse:NSObject,Codable
 }
 
 public extension DescribeKeypairsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeKeypairsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

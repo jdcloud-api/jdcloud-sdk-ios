@@ -57,7 +57,7 @@ public class ConfirmDeliveryInfo:NSObject,Codable{
     }
 }
 public extension ConfirmDeliveryInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConfirmDeliveryInfoCodingKeys.self)
          try encoderContainer.encode(deliverNumber, forKey: .deliverNumber)
          try encoderContainer.encode(remark, forKey: .remark)

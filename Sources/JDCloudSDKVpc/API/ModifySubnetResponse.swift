@@ -49,7 +49,7 @@ public class ModifySubnetResponse:NSObject,Codable
 }
 
 public extension ModifySubnetResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifySubnetResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -49,7 +49,7 @@ public class DisableInternetAccessResponse:NSObject,Codable
 }
 
 public extension DisableInternetAccessResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisableInternetAccessResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -51,7 +51,7 @@ public class DecryptResult:NSObject,JdCloudResult
     }
 }
 public extension DecryptResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DecryptResultCodingKeys.self)
         try encoderContainer.encode(plaintext, forKey: .plaintext)
     }

@@ -49,7 +49,7 @@ public class DeleteAliasResponse:NSObject,Codable
 }
 
 public extension DeleteAliasResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteAliasResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -53,7 +53,7 @@ public class CreateStackChangeSetRequset:NSObject,Codable{
     }
 }
 public extension CreateStackChangeSetRequset{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateStackChangeSetRequsetCodingKeys.self)
          try encoderContainer.encode(environment, forKey: .environment)
     }

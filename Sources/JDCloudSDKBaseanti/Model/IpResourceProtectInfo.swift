@@ -71,7 +71,7 @@ public class IpResourceProtectInfo:NSObject,Codable{
     }
 }
 public extension IpResourceProtectInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpResourceProtectInfoCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(endTime, forKey: .endTime)

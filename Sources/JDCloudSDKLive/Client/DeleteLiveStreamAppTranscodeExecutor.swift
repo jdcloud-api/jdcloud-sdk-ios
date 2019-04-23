@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除APP转码配置
+///  删除应用级别转码模板配置
+      /// - 删除应用级别的转码模板配置,重新推流后生效
+      /// 
 public class DeleteLiveStreamAppTranscodeExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

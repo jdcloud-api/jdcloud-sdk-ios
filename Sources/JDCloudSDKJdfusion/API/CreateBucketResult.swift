@@ -51,7 +51,7 @@ public class CreateBucketResult:NSObject,JdCloudResult
     }
 }
 public extension CreateBucketResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateBucketResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

@@ -64,7 +64,7 @@ public class CreateCacheInstanceResult:NSObject,JdCloudResult
     }
 }
 public extension CreateCacheInstanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateCacheInstanceResultCodingKeys.self)
         try encoderContainer.encode(cacheInstanceId, forKey: .cacheInstanceId)
         try encoderContainer.encode(orderNum, forKey: .orderNum)

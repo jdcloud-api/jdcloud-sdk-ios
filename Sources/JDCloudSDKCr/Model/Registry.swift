@@ -78,7 +78,7 @@ public class Registry:NSObject,Codable{
     }
 }
 public extension Registry{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegistryCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(registryUri, forKey: .registryUri)

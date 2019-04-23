@@ -78,7 +78,7 @@ public class Binlog:NSObject,Codable{
     }
 }
 public extension Binlog{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BinlogCodingKeys.self)
          try encoderContainer.encode(binlogBackupId, forKey: .binlogBackupId)
          try encoderContainer.encode(binlogName, forKey: .binlogName)

@@ -27,13 +27,13 @@ import Foundation
 ///  pageinfoVO
 @objc(PageinfoVO)
 public class PageinfoVO:NSObject,Codable{
-    /// PageSize
+    /// 每页显示条数
     var pageSize:Int?
-    /// NowPage
+    /// 当前页数
     var nowPage:Int?
-    /// TotalSize
+    /// 总记录数
     var totalSize:Int?
-    /// TotalPage
+    /// 总页数
     var totalPage:Int?
 
 
@@ -71,7 +71,7 @@ public class PageinfoVO:NSObject,Codable{
     }
 }
 public extension PageinfoVO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PageinfoVOCodingKeys.self)
          try encoderContainer.encode(pageSize, forKey: .pageSize)
          try encoderContainer.encode(nowPage, forKey: .nowPage)

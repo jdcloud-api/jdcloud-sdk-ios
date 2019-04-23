@@ -31,6 +31,8 @@ public class DeploymentAssociateEip:NSObject,Codable{
     var eipId:String?
     /// 云产品的实例ID
     var instanceId:String?
+    /// 要解绑的资源类型  虚拟机：vm 负载均衡：slb
+    var instanceType:String?
 
 
 
@@ -41,6 +43,7 @@ public class DeploymentAssociateEip:NSObject,Codable{
     enum DeploymentAssociateEipCodingKeys: String, CodingKey {
         case eipId
         case instanceId
+        case instanceType
     }
 
 
@@ -54,12 +57,17 @@ public class DeploymentAssociateEip:NSObject,Codable{
         {
             self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
     }
 }
 public extension DeploymentAssociateEip{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentAssociateEipCodingKeys.self)
          try encoderContainer.encode(eipId, forKey: .eipId)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
     }
 }

@@ -75,7 +75,7 @@ public class DescribeActiveQueryPerformanceResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeActiveQueryPerformanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeActiveQueryPerformanceResultCodingKeys.self)
         try encoderContainer.encode(activeQueryPerformanceResult, forKey: .activeQueryPerformanceResult)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

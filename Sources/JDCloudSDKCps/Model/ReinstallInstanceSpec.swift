@@ -98,7 +98,7 @@ public class ReinstallInstanceSpec:NSObject,Codable{
     }
 }
 public extension ReinstallInstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReinstallInstanceSpecCodingKeys.self)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(imageType, forKey: .imageType)

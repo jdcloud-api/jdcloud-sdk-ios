@@ -148,7 +148,7 @@ public class DicDetail:NSObject,Codable{
     }
 }
 public extension DicDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DicDetailCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(codeType, forKey: .codeType)

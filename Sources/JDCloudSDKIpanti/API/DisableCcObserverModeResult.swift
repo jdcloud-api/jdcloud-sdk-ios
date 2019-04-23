@@ -59,7 +59,7 @@ public class DisableCCObserverModeResult:NSObject,JdCloudResult
     }
 }
 public extension DisableCCObserverModeResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisableCCObserverModeResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

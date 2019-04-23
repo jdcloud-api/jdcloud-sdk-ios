@@ -92,7 +92,7 @@ public class WidgetPosition:NSObject,Codable{
     }
 }
 public extension WidgetPosition{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetPositionCodingKeys.self)
          try encoderContainer.encode(col, forKey: .col)
          try encoderContainer.encode(createdTime, forKey: .createdTime)

@@ -57,7 +57,7 @@ public class DeploymentInfo:NSObject,Codable{
     }
 }
 public extension DeploymentInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeploymentInfoCodingKeys.self)
          try encoderContainer.encode(info, forKey: .info)
          try encoderContainer.encode(content, forKey: .content)

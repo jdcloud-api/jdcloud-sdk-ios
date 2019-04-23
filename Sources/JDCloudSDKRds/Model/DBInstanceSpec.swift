@@ -105,7 +105,7 @@ public class DBInstanceSpec:NSObject,Codable{
     }
 }
 public extension DBInstanceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DBInstanceSpecCodingKeys.self)
          try encoderContainer.encode(instanceName, forKey: .instanceName)
          try encoderContainer.encode(engine, forKey: .engine)

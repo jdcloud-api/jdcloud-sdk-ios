@@ -49,7 +49,7 @@ public class QueryIpBlackListResponse:NSObject,Codable
 }
 
 public extension QueryIpBlackListResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryIpBlackListResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

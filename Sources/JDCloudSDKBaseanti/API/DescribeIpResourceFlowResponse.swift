@@ -49,7 +49,7 @@ public class DescribeIpResourceFlowResponse:NSObject,Codable
 }
 
 public extension DescribeIpResourceFlowResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeIpResourceFlowResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

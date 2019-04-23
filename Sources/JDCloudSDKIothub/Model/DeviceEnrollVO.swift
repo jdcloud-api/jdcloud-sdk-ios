@@ -71,7 +71,7 @@ public class DeviceEnrollVO:NSObject,Codable{
     }
 }
 public extension DeviceEnrollVO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeviceEnrollVOCodingKeys.self)
          try encoderContainer.encode(deviceIds, forKey: .deviceIds)
          try encoderContainer.encode(modelName, forKey: .modelName)

@@ -61,7 +61,7 @@ public class ImportKeypairResult:NSObject,JdCloudResult
     }
 }
 public extension ImportKeypairResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ImportKeypairResultCodingKeys.self)
         try encoderContainer.encode(keyName, forKey: .keyName)
         try encoderContainer.encode(keyFingerprint, forKey: .keyFingerprint)

@@ -50,7 +50,7 @@ public class VpcVServerGroupCollection:NSObject,Codable{
     }
 }
 public extension VpcVServerGroupCollection{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcVServerGroupCollectionCodingKeys.self)
          try encoderContainer.encode(vserverGroups, forKey: .vserverGroups)
     }

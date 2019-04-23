@@ -48,7 +48,7 @@ public class ModifyElasticIpSpec:NSObject,Codable{
     }
 }
 public extension ModifyElasticIpSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyElasticIpSpecCodingKeys.self)
          try encoderContainer.encode(bandwidthMbps, forKey: .bandwidthMbps)
     }

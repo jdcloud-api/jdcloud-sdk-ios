@@ -92,7 +92,7 @@ public class Tasks:NSObject,Codable{
     }
 }
 public extension Tasks{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TasksCodingKeys.self)
          try encoderContainer.encode(taskId, forKey: .taskId)
          try encoderContainer.encode(name, forKey: .name)

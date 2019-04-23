@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,9 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 添加域名直播截图配置
+/// 添加域名截图配置
+      ///       /// - 添加域名级别的截图模板配置
+      ///       /// 
 @objc(AddLiveStreamDomainSnapshotResult)
 public class AddLiveStreamDomainSnapshotResult:NSObject,JdCloudResult
 {

@@ -29,9 +29,9 @@ import Foundation
 public class LiveRecordConfig:NSObject,Codable{
     /// 推流域名
     var publishDomain:String?
-    /// 推流域名
+    /// 应用名称
     var appName:String?
-    /// 直播流名称
+    /// 流名称
     var streamName:String?
     /// RecordConfig
     var recordConfig:String?
@@ -71,7 +71,7 @@ public class LiveRecordConfig:NSObject,Codable{
     }
 }
 public extension LiveRecordConfig{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LiveRecordConfigCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(appName, forKey: .appName)

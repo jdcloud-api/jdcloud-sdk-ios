@@ -49,7 +49,7 @@ public class DescribeKeyListResponse:NSObject,Codable
 }
 
 public extension DescribeKeyListResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeKeyListResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

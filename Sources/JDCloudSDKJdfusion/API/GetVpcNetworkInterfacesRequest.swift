@@ -30,4 +30,19 @@ import JDCloudSDKCore
 @objc(GetVpcNetworkInterfacesRequest)
 public class GetVpcNetworkInterfacesRequest:JdCloudRequest
 {
+    /// 云主机id
+    var vmId:String?
+
+
+
+
+    enum GetVpcNetworkInterfacesRequestRequestCodingKeys: String, CodingKey {
+        case vmId
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: GetVpcNetworkInterfacesRequestRequestCodingKeys.self)
+        try encoderContainer.encode(vmId, forKey: .vmId)
+
+    }
 }

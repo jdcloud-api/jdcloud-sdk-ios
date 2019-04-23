@@ -57,7 +57,7 @@ public class ServiceMetricAggregateItem:NSObject,Codable{
     }
 }
 public extension ServiceMetricAggregateItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ServiceMetricAggregateItemCodingKeys.self)
          try encoderContainer.encode(aggregate, forKey: .aggregate)
          try encoderContainer.encode(name, forKey: .name)

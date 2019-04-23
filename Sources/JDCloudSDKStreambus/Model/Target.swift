@@ -64,7 +64,7 @@ public class Target:NSObject,Codable{
     }
 }
 public extension Target{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TargetCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(recordSize, forKey: .recordSize)

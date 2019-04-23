@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,6 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 /// 删除截图回调配置
+      ///       /// 
 @objc(DeleteLiveStreamSnapshotNotifyConfigResult)
 public class DeleteLiveStreamSnapshotNotifyConfigResult:NSObject,JdCloudResult
 {

@@ -59,7 +59,7 @@ public class CheckNameResult:NSObject,JdCloudResult
     }
 }
 public extension CheckNameResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CheckNameResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

@@ -57,7 +57,7 @@ public class AccountId:NSObject,Codable{
     }
 }
 public extension AccountId{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AccountIdCodingKeys.self)
          try encoderContainer.encode(userPin, forKey: .userPin)
          try encoderContainer.encode(accountIdValue, forKey: .accountIdValue)

@@ -50,7 +50,7 @@ public class ICP:NSObject,Codable{
     }
 }
 public extension ICP{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ICPCodingKeys.self)
          try encoderContainer.encode(icp, forKey: .icp)
     }

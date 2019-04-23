@@ -50,7 +50,7 @@ public class TestOpenApiReq:NSObject,Codable{
     }
 }
 public extension TestOpenApiReq{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TestOpenApiReqCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
     }

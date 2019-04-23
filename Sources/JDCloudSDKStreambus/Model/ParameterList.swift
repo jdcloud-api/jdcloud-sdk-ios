@@ -57,7 +57,7 @@ public class ParameterList:NSObject,Codable{
     }
 }
 public extension ParameterList{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ParameterListCodingKeys.self)
          try encoderContainer.encode(pKey, forKey: .pKey)
          try encoderContainer.encode(pValue, forKey: .pValue)

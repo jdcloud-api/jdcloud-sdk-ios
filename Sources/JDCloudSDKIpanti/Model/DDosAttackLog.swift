@@ -92,7 +92,7 @@ public class DDosAttackLog:NSObject,Codable{
     }
 }
 public extension DDosAttackLog{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DDosAttackLogCodingKeys.self)
          try encoderContainer.encode(attackTraffic, forKey: .attackTraffic)
          try encoderContainer.encode(blackHole, forKey: .blackHole)

@@ -51,7 +51,7 @@ public class DescribeSecretVersionListResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeSecretVersionListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSecretVersionListResultCodingKeys.self)
         try encoderContainer.encode(secretDetail, forKey: .secretDetail)
     }

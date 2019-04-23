@@ -64,7 +64,7 @@ public class Chart:NSObject,Codable{
     }
 }
 public extension Chart{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ChartCodingKeys.self)
          try encoderContainer.encode(chartName, forKey: .chartName)
          try encoderContainer.encode(chartUnit, forKey: .chartUnit)

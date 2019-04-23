@@ -50,7 +50,7 @@ public class DescribeSqlserverBlockProcessOut:NSObject,Codable{
     }
 }
 public extension DescribeSqlserverBlockProcessOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSqlserverBlockProcessOutCodingKeys.self)
          try encoderContainer.encode(list, forKey: .list)
     }

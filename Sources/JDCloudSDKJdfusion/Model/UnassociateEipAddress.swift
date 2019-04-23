@@ -31,8 +31,6 @@ public class UnassociateEipAddress:NSObject,Codable{
     var instanceId:String?
     /// 要解绑的资源类型
     var instanceType:String?
-    /// 是否强制解绑
-    var force:Bool?
 
 
 
@@ -43,7 +41,6 @@ public class UnassociateEipAddress:NSObject,Codable{
     enum UnassociateEipAddressCodingKeys: String, CodingKey {
         case instanceId
         case instanceType
-        case force
     }
 
 
@@ -57,17 +54,12 @@ public class UnassociateEipAddress:NSObject,Codable{
         {
             self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
         }
-        if decoderContainer.contains(.force)
-        {
-            self.force = try decoderContainer.decode(Bool?.self, forKey: .force)
-        }
     }
 }
 public extension UnassociateEipAddress{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UnassociateEipAddressCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(instanceType, forKey: .instanceType)
-         try encoderContainer.encode(force, forKey: .force)
     }
 }

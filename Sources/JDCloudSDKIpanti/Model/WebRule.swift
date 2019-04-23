@@ -207,7 +207,7 @@ public class WebRule:NSObject,Codable{
     }
 }
 public extension WebRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WebRuleCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

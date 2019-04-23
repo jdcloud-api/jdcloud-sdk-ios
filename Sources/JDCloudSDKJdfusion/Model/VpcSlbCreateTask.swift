@@ -50,7 +50,7 @@ public class VpcSlbCreateTask:NSObject,Codable{
     }
 }
 public extension VpcSlbCreateTask{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcSlbCreateTaskCodingKeys.self)
          try encoderContainer.encode(task, forKey: .task)
     }

@@ -64,7 +64,7 @@ public class BackSourceInfo:NSObject,Codable{
     }
 }
 public extension BackSourceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackSourceInfoCodingKeys.self)
          try encoderContainer.encode(ips, forKey: .ips)
          try encoderContainer.encode(domain, forKey: .domain)

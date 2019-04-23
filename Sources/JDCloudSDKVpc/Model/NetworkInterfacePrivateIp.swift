@@ -64,7 +64,7 @@ public class NetworkInterfacePrivateIp:NSObject,Codable{
     }
 }
 public extension NetworkInterfacePrivateIp{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetworkInterfacePrivateIpCodingKeys.self)
          try encoderContainer.encode(privateIpAddress, forKey: .privateIpAddress)
          try encoderContainer.encode(elasticIpId, forKey: .elasticIpId)

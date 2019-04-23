@@ -51,7 +51,7 @@ public class GetStorageListResult:NSObject,JdCloudResult
     }
 }
 public extension GetStorageListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetStorageListResultCodingKeys.self)
         try encoderContainer.encode(storageList, forKey: .storageList)
     }

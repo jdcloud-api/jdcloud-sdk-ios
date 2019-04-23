@@ -108,7 +108,7 @@ public class ImageDetail:NSObject,Codable{
     }
 }
 public extension ImageDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ImageDetailCodingKeys.self)
          try encoderContainer.encode(registryName, forKey: .registryName)
          try encoderContainer.encode(repositoryName, forKey: .repositoryName)

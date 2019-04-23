@@ -99,7 +99,7 @@ public class AlarmConfigSpec:NSObject,Codable{
     }
 }
 public extension AlarmConfigSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AlarmConfigSpecCodingKeys.self)
          try encoderContainer.encode(blackHoleAlarmEmailStatus, forKey: .blackHoleAlarmEmailStatus)
          try encoderContainer.encode(blackHoleAlarmSmsStatus, forKey: .blackHoleAlarmSmsStatus)

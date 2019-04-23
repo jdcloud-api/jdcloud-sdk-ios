@@ -49,7 +49,7 @@ public class DescribeSubnetResponse:NSObject,Codable
 }
 
 public extension DescribeSubnetResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSubnetResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

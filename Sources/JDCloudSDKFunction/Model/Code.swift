@@ -71,7 +71,7 @@ public class Code:NSObject,Codable{
     }
 }
 public extension Code{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CodeCodingKeys.self)
          try encoderContainer.encode(zipFile, forKey: .zipFile)
          try encoderContainer.encode(onlineCode, forKey: .onlineCode)

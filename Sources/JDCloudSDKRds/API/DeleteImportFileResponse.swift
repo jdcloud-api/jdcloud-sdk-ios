@@ -49,7 +49,7 @@ public class DeleteImportFileResponse:NSObject,Codable
 }
 
 public extension DeleteImportFileResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteImportFileResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

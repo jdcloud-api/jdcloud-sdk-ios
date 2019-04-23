@@ -85,7 +85,7 @@ public class BackSourceRule:NSObject,Codable{
     }
 }
 public extension BackSourceRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackSourceRuleCodingKeys.self)
          try encoderContainer.encode(backSourceType, forKey: .backSourceType)
          try encoderContainer.encode(condition, forKey: .condition)

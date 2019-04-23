@@ -49,7 +49,7 @@ public class GetTransferTaskFailedFilesResponse:NSObject,Codable
 }
 
 public extension GetTransferTaskFailedFilesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTransferTaskFailedFilesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

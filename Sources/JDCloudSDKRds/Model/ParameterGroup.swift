@@ -99,7 +99,7 @@ public class ParameterGroup:NSObject,Codable{
     }
 }
 public extension ParameterGroup{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ParameterGroupCodingKeys.self)
          try encoderContainer.encode(parameterGroupId, forKey: .parameterGroupId)
          try encoderContainer.encode(parameterGroupName, forKey: .parameterGroupName)

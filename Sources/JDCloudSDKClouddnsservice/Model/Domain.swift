@@ -27,17 +27,21 @@ import Foundation
 ///  domain
 @objc(Domain)
 public class Domain:NSObject,Codable{
-    /// 域名的唯一ID
+    /// 域名在云解析里唯一的ID
     var id:Int?
     /// 域名字符串
     var domainName:String?
-    /// 创建时间，格式Unix timestamp，时间单位：毫秒
+    /// 域名的创建时间，Unix timestamp格式，时间单位：毫秒
     var createTime:Int64?
-    /// 过期时间，格式Unix timestamp，时间单位：毫秒
+    /// 域名的过期时间，Unix timestamp格式，时间单位：毫秒
     var expirationDate:Int64?
-    /// 套餐类型，0-&gt;免费 1-&gt;企业版 2-&gt;企业高级版
+    /// 域名的套餐类型，0-&gt;免费 1-&gt;企业版 2-&gt;企业高级版  
+      /// 不同套餐的描述，请查阅&lt;a href&#x3D;&quot;https://docs.jdcloud.com/cn/jd-cloud-dns/price-overview&quot;&gt;文档&lt;/a&gt;
+      /// 
     var packId:Int?
     /// 域名的锁定状态，0:未锁定， 1:已锁定
+      /// 锁定的含义，请查阅&lt;a href&#x3D;&quot;https://docs.jdcloud.com/cn/jd-cloud-dns/lock-domain&quot;&gt;文档&lt;/a&gt;
+      /// 
     var lockStatus:Int?
 
 
@@ -85,7 +89,7 @@ public class Domain:NSObject,Codable{
     }
 }
 public extension Domain{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DomainCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(domainName, forKey: .domainName)

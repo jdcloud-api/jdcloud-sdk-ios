@@ -49,7 +49,7 @@ public class ModifyEPBResponse:NSObject,Codable
 }
 
 public extension ModifyEPBResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyEPBResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

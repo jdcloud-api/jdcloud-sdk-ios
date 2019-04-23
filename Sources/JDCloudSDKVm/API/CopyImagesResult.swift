@@ -53,7 +53,7 @@ public class CopyImagesResult:NSObject,JdCloudResult
     }
 }
 public extension CopyImagesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CopyImagesResultCodingKeys.self)
         try encoderContainer.encode(copyImages, forKey: .copyImages)
     }

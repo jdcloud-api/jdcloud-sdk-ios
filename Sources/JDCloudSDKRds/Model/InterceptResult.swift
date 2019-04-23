@@ -85,7 +85,7 @@ public class InterceptResult:NSObject,Codable{
     }
 }
 public extension InterceptResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InterceptResultCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(ip, forKey: .ip)

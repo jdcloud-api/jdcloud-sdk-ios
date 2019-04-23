@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加域名的解析记录
+///  添加主域名的解析记录
 public class AddRRExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

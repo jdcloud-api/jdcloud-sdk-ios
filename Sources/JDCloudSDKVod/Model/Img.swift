@@ -78,7 +78,7 @@ public class Img:NSObject,Codable{
     }
 }
 public extension Img{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ImgCodingKeys.self)
          try encoderContainer.encode(imgId, forKey: .imgId)
          try encoderContainer.encode(imgUrl, forKey: .imgUrl)

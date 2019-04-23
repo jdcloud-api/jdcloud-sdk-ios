@@ -51,7 +51,7 @@ public class CreateNetworkSecurityGroupResult:NSObject,JdCloudResult
     }
 }
 public extension CreateNetworkSecurityGroupResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateNetworkSecurityGroupResultCodingKeys.self)
         try encoderContainer.encode(networkSecurityGroupId, forKey: .networkSecurityGroupId)
     }

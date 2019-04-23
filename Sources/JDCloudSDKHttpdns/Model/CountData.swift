@@ -57,7 +57,7 @@ public class CountData:NSObject,Codable{
     }
 }
 public extension CountData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CountDataCodingKeys.self)
          try encoderContainer.encode(time, forKey: .time)
          try encoderContainer.encode(count, forKey: .count)

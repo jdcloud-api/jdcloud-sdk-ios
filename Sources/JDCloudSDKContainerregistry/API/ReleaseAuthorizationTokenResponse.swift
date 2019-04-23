@@ -49,7 +49,7 @@ public class ReleaseAuthorizationTokenResponse:NSObject,Codable
 }
 
 public extension ReleaseAuthorizationTokenResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReleaseAuthorizationTokenResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

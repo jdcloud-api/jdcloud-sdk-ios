@@ -53,7 +53,7 @@ public class DescribeInstanceVncUrlResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeInstanceVncUrlResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstanceVncUrlResultCodingKeys.self)
         try encoderContainer.encode(vncUrl, forKey: .vncUrl)
     }

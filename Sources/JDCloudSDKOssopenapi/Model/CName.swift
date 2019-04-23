@@ -106,7 +106,7 @@ public class CName:NSObject,Codable{
     }
 }
 public extension CName{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CNameCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(pin, forKey: .pin)

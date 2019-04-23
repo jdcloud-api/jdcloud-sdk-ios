@@ -50,7 +50,7 @@ public class GetWidgetMetricOut:NSObject,Codable{
     }
 }
 public extension GetWidgetMetricOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetWidgetMetricOutCodingKeys.self)
          try encoderContainer.encode(list, forKey: .list)
     }

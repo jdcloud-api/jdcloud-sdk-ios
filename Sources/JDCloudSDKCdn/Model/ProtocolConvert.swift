@@ -57,7 +57,7 @@ public class ProtocolConvert:NSObject,Codable{
     }
 }
 public extension ProtocolConvert{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProtocolConvertCodingKeys.self)
          try encoderContainer.encode(sourceProtocol, forKey: .sourceProtocol)
          try encoderContainer.encode(targetProtocol, forKey: .targetProtocol)

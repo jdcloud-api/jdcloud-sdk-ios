@@ -99,7 +99,7 @@ public class ProbeInfo:NSObject,Codable{
     }
 }
 public extension ProbeInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProbeInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(privateIp, forKey: .privateIp)

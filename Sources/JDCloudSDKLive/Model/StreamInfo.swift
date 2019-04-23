@@ -27,16 +27,17 @@ import Foundation
 ///  streamInfo
 @objc(StreamInfo)
 public class StreamInfo:NSObject,Codable{
-    /// 直播流的音频帧率
-    var audioFrameRate:Double?
-    /// 直播流的 URL
-    var streamUrl:String?
-    /// 直播流的码率
-    var bitRate:Double?
-    /// 直播流的视频帧率
-    var videoFrameRate:Double?
-    /// 统计时刻
-    var time:String?
+    /// 推流域名
+    var publishDomain:String?
+    /// 应用名称
+    var appName:String?
+    /// 流名称
+    var streamName:String?
+    /// 流状态
+      ///   on: 推流中
+      ///   off: 推流中断
+      /// 
+    var status:String?
 
 
 
@@ -45,45 +46,39 @@ public class StreamInfo:NSObject,Codable{
     }
 
     enum StreamInfoCodingKeys: String, CodingKey {
-        case audioFrameRate
-        case streamUrl
-        case bitRate
-        case videoFrameRate
-        case time
+        case publishDomain
+        case appName
+        case streamName
+        case status
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: StreamInfoCodingKeys.self)
-        if decoderContainer.contains(.audioFrameRate)
+        if decoderContainer.contains(.publishDomain)
         {
-            self.audioFrameRate = try decoderContainer.decode(Double?.self, forKey: .audioFrameRate)
+            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
         }
-        if decoderContainer.contains(.streamUrl)
+        if decoderContainer.contains(.appName)
         {
-            self.streamUrl = try decoderContainer.decode(String?.self, forKey: .streamUrl)
+            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
         }
-        if decoderContainer.contains(.bitRate)
+        if decoderContainer.contains(.streamName)
         {
-            self.bitRate = try decoderContainer.decode(Double?.self, forKey: .bitRate)
+            self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
         }
-        if decoderContainer.contains(.videoFrameRate)
+        if decoderContainer.contains(.status)
         {
-            self.videoFrameRate = try decoderContainer.decode(Double?.self, forKey: .videoFrameRate)
-        }
-        if decoderContainer.contains(.time)
-        {
-            self.time = try decoderContainer.decode(String?.self, forKey: .time)
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
         }
     }
 }
 public extension StreamInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StreamInfoCodingKeys.self)
-         try encoderContainer.encode(audioFrameRate, forKey: .audioFrameRate)
-         try encoderContainer.encode(streamUrl, forKey: .streamUrl)
-         try encoderContainer.encode(bitRate, forKey: .bitRate)
-         try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)
-         try encoderContainer.encode(time, forKey: .time)
+         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
+         try encoderContainer.encode(appName, forKey: .appName)
+         try encoderContainer.encode(streamName, forKey: .streamName)
+         try encoderContainer.encode(status, forKey: .status)
     }
 }

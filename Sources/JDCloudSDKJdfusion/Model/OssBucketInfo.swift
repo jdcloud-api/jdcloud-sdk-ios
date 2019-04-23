@@ -64,7 +64,7 @@ public class OssBucketInfo:NSObject,Codable{
     }
 }
 public extension OssBucketInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OssBucketInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(creationDate, forKey: .creationDate)

@@ -71,7 +71,7 @@ public class DataDiskAttachment:NSObject,Codable{
     }
 }
 public extension DataDiskAttachment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataDiskAttachmentCodingKeys.self)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)
          try encoderContainer.encode(dataDisk, forKey: .dataDisk)

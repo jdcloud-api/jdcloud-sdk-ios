@@ -51,7 +51,7 @@ public class DescribeProtectionRuleOfForwardRuleResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeProtectionRuleOfForwardRuleResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeProtectionRuleOfForwardRuleResultCodingKeys.self)
         try encoderContainer.encode(protectionRule, forKey: .protectionRule)
     }

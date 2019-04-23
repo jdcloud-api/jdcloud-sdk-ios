@@ -59,7 +59,7 @@ public class DescribeElasticIpsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeElasticIpsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeElasticIpsResultCodingKeys.self)
         try encoderContainer.encode(elasticIps, forKey: .elasticIps)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

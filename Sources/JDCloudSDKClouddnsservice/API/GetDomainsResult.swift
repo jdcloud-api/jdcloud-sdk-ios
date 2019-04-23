@@ -25,8 +25,9 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询用户名下的主域名列表。&lt;br&gt;    
-      ///       /// 请在调用域名相关的API之前，调用此API获取相关的domainId和domainName。
+/// 获取用户所属的主域名列表。   
+      ///       /// 请在调用域名相关的接口之前，调用此接口获取相关的domainId和domainName。  
+      ///       /// 主域名的相关概念，请查阅&lt;a href&#x3D;&quot;https://docs.jdcloud.com/cn/jd-cloud-dns/product-overview&quot;&gt;云解析文档&lt;/a&gt;
       ///       /// 
 @objc(GetDomainsResult)
 public class GetDomainsResult:NSObject,JdCloudResult
@@ -77,7 +78,7 @@ public class GetDomainsResult:NSObject,JdCloudResult
     }
 }
 public extension GetDomainsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainsResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(currentCount, forKey: .currentCount)

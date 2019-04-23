@@ -59,7 +59,7 @@ public class AppsResult:NSObject,JdCloudResult
     }
 }
 public extension AppsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AppsResultCodingKeys.self)
         try encoderContainer.encode(pagination, forKey: .pagination)
         try encoderContainer.encode(result, forKey: .result)

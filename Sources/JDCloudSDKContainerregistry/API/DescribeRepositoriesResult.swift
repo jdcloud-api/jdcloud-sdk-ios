@@ -60,7 +60,7 @@ public class DescribeRepositoriesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeRepositoriesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeRepositoriesResultCodingKeys.self)
         try encoderContainer.encode(repositories, forKey: .repositories)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

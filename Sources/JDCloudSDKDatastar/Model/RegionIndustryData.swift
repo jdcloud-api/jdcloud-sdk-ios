@@ -120,7 +120,7 @@ public class RegionIndustryData:NSObject,Codable{
     }
 }
 public extension RegionIndustryData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegionIndustryDataCodingKeys.self)
          try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(industry, forKey: .industry)

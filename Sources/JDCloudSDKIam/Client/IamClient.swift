@@ -81,27 +81,6 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func getSessionTokenAsync(request:GetSessionTokenRequest,requestComplation:@escaping (NSNumber?,GetSessionTokenResponse?,NSError?,NSString?)->()) throws {
-        iamJDCloudClient = self
-        try GetSessionTokenExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetSessionTokenResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func describeSubUserPermissionsAsync(request:DescribeSubUserPermissionsRequest,requestComplation:@escaping (NSNumber?,DescribeSubUserPermissionsResponse?,NSError?,NSString?)->()) throws {
         iamJDCloudClient = self
         try DescribeSubUserPermissionsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -186,14 +165,14 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func verifySessionTokenAsync(request:VerifySessionTokenRequest,requestComplation:@escaping (NSNumber?,VerifySessionTokenResponse?,NSError?,NSString?)->()) throws {
+    public func createSubUserAsync(request:CreateSubUserRequest,requestComplation:@escaping (NSNumber?,CreateSubUserResponse?,NSError?,NSString?)->()) throws {
         iamJDCloudClient = self
-        try VerifySessionTokenExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try CreateSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(VerifySessionTokenResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(CreateSubUserResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -278,27 +257,6 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(AddPermissionsToSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func createSubuserAsync(request:CreateSubuserRequest,requestComplation:@escaping (NSNumber?,CreateSubuserResponse?,NSError?,NSString?)->()) throws {
-        iamJDCloudClient = self
-        try CreateSubuserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSubuserResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -400,7 +358,7 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
 
 public extension IamJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

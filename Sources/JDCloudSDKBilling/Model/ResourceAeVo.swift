@@ -169,7 +169,7 @@ public class ResourceAeVo:NSObject,Codable{
     }
 }
 public extension ResourceAeVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceAeVoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(site, forKey: .site)

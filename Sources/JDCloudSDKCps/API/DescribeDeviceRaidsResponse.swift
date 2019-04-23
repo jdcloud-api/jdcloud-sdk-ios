@@ -49,7 +49,7 @@ public class DescribeDeviceRaidsResponse:NSObject,Codable
 }
 
 public extension DescribeDeviceRaidsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDeviceRaidsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

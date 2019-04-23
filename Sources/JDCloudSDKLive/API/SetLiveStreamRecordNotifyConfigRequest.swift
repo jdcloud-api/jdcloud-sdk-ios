@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,14 +26,17 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置录制回调通知
+///  设置直播录制回调通知
+      ///       /// 
 @objc(SetLiveStreamRecordNotifyConfigRequest)
 public class SetLiveStreamRecordNotifyConfigRequest:JdCloudRequest
 {
-    /// 您的推流加速域名
+    /// 推流域名
     var publishDomain:String
 
-    /// 设置直播流信息推送到的 URL 地址
+    /// 录制回调通知的URL地址
+      /// - 以 http:// 开头,外网可访问的地址
+      /// 
     var notifyUrl:String
 
 

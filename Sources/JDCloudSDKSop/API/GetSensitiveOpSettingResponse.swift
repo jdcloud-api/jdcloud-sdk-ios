@@ -49,7 +49,7 @@ public class GetSensitiveOpSettingResponse:NSObject,Codable
 }
 
 public extension GetSensitiveOpSettingResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetSensitiveOpSettingResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

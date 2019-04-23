@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询水印配置
+///  查询直播水印配置
+      /// - 水印模板配置按照 域名,应用,流 3级配置添加,以最小的粒度配置生效
+      /// - 域名、应用、流 依次粒度递减 即: 域名&gt;应用&gt;流
+      /// - 该查询旨在查询域名、应用、流最终生效的水印模板配置,并非各级的模板绑定情况
+      /// 
 public class DescribeCustomLiveStreamWatermarkConfigExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

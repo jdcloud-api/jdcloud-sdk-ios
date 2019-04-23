@@ -64,7 +64,7 @@ public class VserverGroupInfo:NSObject,Codable{
     }
 }
 public extension VserverGroupInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VserverGroupInfoCodingKeys.self)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
          try encoderContainer.encode(vserverGroupId, forKey: .vserverGroupId)

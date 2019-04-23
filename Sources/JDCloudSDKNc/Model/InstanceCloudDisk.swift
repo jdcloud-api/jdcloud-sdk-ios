@@ -99,7 +99,7 @@ public class InstanceCloudDisk:NSObject,Codable{
     }
 }
 public extension InstanceCloudDisk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceCloudDiskCodingKeys.self)
          try encoderContainer.encode(diskId, forKey: .diskId)
          try encoderContainer.encode(az, forKey: .az)

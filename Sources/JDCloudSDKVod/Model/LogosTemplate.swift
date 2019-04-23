@@ -113,7 +113,7 @@ public class LogosTemplate:NSObject,Codable{
     }
 }
 public extension LogosTemplate{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LogosTemplateCodingKeys.self)
          try encoderContainer.encode(logoId, forKey: .logoId)
          try encoderContainer.encode(name, forKey: .name)

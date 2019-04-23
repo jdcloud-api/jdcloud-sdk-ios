@@ -51,7 +51,7 @@ public class GetRdsDatabasesByInstIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetRdsDatabasesByInstIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetRdsDatabasesByInstIdResultCodingKeys.self)
         try encoderContainer.encode(dbs, forKey: .dbs)
     }

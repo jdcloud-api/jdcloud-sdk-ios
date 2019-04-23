@@ -57,7 +57,7 @@ public class AzIdSpec:NSObject,Codable{
     }
 }
 public extension AzIdSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AzIdSpecCodingKeys.self)
          try encoderContainer.encode(master, forKey: .master)
          try encoderContainer.encode(slave, forKey: .slave)

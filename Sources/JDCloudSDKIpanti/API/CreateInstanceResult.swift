@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 新购或升级高防实例, 新购或升级成功时, 需根据订单 id 完成支付流程, 新购或升级实例才会生效
+/// 新购或升级高防实例
 @objc(CreateInstanceResult)
 public class CreateInstanceResult:NSObject,JdCloudResult
 {
@@ -59,7 +59,7 @@ public class CreateInstanceResult:NSObject,JdCloudResult
     }
 }
 public extension CreateInstanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateInstanceResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

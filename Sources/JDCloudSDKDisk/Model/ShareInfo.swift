@@ -57,7 +57,7 @@ public class ShareInfo:NSObject,Codable{
     }
 }
 public extension ShareInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ShareInfoCodingKeys.self)
          try encoderContainer.encode(shareTo, forKey: .shareTo)
          try encoderContainer.encode(shareTime, forKey: .shareTime)

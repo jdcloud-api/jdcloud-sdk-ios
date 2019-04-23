@@ -78,7 +78,7 @@ public class Os:NSObject,Codable{
     }
 }
 public extension Os{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OsCodingKeys.self)
          try encoderContainer.encode(osTypeId, forKey: .osTypeId)
          try encoderContainer.encode(osName, forKey: .osName)

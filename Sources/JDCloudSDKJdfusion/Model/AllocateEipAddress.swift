@@ -60,7 +60,7 @@ public class AllocateEipAddress:NSObject,Codable{
     }
 }
 public extension AllocateEipAddress{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AllocateEipAddressCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(bandwidth, forKey: .bandwidth)

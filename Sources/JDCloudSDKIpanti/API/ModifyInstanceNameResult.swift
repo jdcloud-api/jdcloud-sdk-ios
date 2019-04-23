@@ -59,7 +59,7 @@ public class ModifyInstanceNameResult:NSObject,JdCloudResult
     }
 }
 public extension ModifyInstanceNameResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyInstanceNameResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

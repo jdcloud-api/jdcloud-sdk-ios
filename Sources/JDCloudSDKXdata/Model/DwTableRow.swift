@@ -71,7 +71,7 @@ public class DwTableRow:NSObject,Codable{
     }
 }
 public extension DwTableRow{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DwTableRowCodingKeys.self)
          try encoderContainer.encode(columnName, forKey: .columnName)
          try encoderContainer.encode(columnType, forKey: .columnType)

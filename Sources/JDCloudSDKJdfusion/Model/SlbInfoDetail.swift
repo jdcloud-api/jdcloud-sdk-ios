@@ -148,7 +148,7 @@ public class SlbInfoDetail:NSObject,Codable{
     }
 }
 public extension SlbInfoDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SlbInfoDetailCodingKeys.self)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
          try encoderContainer.encode(id, forKey: .id)

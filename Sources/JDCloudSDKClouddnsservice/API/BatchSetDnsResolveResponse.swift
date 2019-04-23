@@ -49,7 +49,7 @@ public class BatchSetDnsResolveResponse:NSObject,Codable
 }
 
 public extension BatchSetDnsResolveResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchSetDnsResolveResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

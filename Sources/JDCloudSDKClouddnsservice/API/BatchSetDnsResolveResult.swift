@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 同一个主域名下，批量新增、更新导入解析记录&lt;br&gt;
+/// 同一个主域名下，批量新增或者批量更新导入解析记录。
       ///       /// 如果解析记录的ID为0，是新增解析记录，如果不为0，则是更新解析记录。
       ///       /// 
 @objc(BatchSetDnsResolveResult)
@@ -53,7 +53,7 @@ public class BatchSetDnsResolveResult:NSObject,JdCloudResult
     }
 }
 public extension BatchSetDnsResolveResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchSetDnsResolveResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

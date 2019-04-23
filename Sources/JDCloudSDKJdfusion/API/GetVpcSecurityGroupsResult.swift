@@ -51,7 +51,7 @@ public class GetVpcSecurityGroupsResult:NSObject,JdCloudResult
     }
 }
 public extension GetVpcSecurityGroupsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcSecurityGroupsResultCodingKeys.self)
         try encoderContainer.encode(securityGroups, forKey: .securityGroups)
     }

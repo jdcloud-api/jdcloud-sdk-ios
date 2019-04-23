@@ -49,7 +49,7 @@ public class AssignSecondaryIpsResponse:NSObject,Codable
 }
 
 public extension AssignSecondaryIpsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AssignSecondaryIpsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -94,7 +94,7 @@ public class InstanceTemplateSpec:NSObject,Codable{
     }
 }
 public extension InstanceTemplateSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTemplateSpecCodingKeys.self)
          try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(imageId, forKey: .imageId)

@@ -59,7 +59,7 @@ public class DescribeDeadLetterNumbersResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeDeadLetterNumbersResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDeadLetterNumbersResultCodingKeys.self)
         try encoderContainer.encode(deadLetterNumbers, forKey: .deadLetterNumbers)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

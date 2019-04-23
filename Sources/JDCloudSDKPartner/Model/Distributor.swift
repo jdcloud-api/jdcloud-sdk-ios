@@ -190,7 +190,7 @@ public class Distributor:NSObject,Codable{
     }
 }
 public extension Distributor{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DistributorCodingKeys.self)
          try encoderContainer.encode(distributorId, forKey: .distributorId)
          try encoderContainer.encode(distributorName, forKey: .distributorName)

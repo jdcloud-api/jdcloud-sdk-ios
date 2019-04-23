@@ -149,7 +149,7 @@ public class CacheInstance:NSObject,Codable{
     }
 }
 public extension CacheInstance{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CacheInstanceCodingKeys.self)
          try encoderContainer.encode(cacheInstanceId, forKey: .cacheInstanceId)
          try encoderContainer.encode(cacheInstanceName, forKey: .cacheInstanceName)

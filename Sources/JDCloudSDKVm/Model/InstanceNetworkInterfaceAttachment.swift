@@ -64,7 +64,7 @@ public class InstanceNetworkInterfaceAttachment:NSObject,Codable{
     }
 }
 public extension InstanceNetworkInterfaceAttachment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceNetworkInterfaceAttachmentCodingKeys.self)
          try encoderContainer.encode(deviceIndex, forKey: .deviceIndex)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)

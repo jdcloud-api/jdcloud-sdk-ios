@@ -49,7 +49,7 @@ public class DescribeCCGraphResponse:NSObject,Codable
 }
 
 public extension DescribeCCGraphResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCCGraphResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

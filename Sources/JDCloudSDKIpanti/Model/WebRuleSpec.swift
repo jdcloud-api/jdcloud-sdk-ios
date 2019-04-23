@@ -157,7 +157,7 @@ public class WebRuleSpec:NSObject,Codable{
     }
 }
 public extension WebRuleSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WebRuleSpecCodingKeys.self)
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)

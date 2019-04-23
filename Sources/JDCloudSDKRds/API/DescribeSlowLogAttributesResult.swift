@@ -59,7 +59,7 @@ public class DescribeSlowLogAttributesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeSlowLogAttributesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSlowLogAttributesResultCodingKeys.self)
         try encoderContainer.encode(slowLogsAttributes, forKey: .slowLogsAttributes)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

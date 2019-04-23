@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询主域名的解析记录。&lt;br&gt;
+/// 查询主域名的解析记录。  
       ///       /// 在使用解析记录相关的接口之前，请调用此接口获取解析记录的列表。
       ///       /// 
 @objc(SearchRRResult)
@@ -77,7 +77,7 @@ public class SearchRRResult:NSObject,JdCloudResult
     }
 }
 public extension SearchRRResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SearchRRResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

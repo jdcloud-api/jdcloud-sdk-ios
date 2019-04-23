@@ -51,7 +51,7 @@ public class QueryNamespacesResult:NSObject,JdCloudResult
     }
 }
 public extension QueryNamespacesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryNamespacesResultCodingKeys.self)
         try encoderContainer.encode(namespaces, forKey: .namespaces)
     }

@@ -96,7 +96,7 @@ public class Backup:NSObject,Codable{
     }
 }
 public extension Backup{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackupCodingKeys.self)
          try encoderContainer.encode(baseId, forKey: .baseId)
          try encoderContainer.encode(backupFileName, forKey: .backupFileName)

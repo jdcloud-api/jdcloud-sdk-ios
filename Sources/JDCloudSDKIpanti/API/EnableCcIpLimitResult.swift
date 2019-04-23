@@ -59,7 +59,7 @@ public class EnableCCIpLimitResult:NSObject,JdCloudResult
     }
 }
 public extension EnableCCIpLimitResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableCCIpLimitResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

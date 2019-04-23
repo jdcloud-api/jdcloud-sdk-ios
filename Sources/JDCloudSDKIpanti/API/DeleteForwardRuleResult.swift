@@ -59,7 +59,7 @@ public class DeleteForwardRuleResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteForwardRuleResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteForwardRuleResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

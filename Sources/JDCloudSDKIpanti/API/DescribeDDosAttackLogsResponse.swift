@@ -49,7 +49,7 @@ public class DescribeDDoSAttackLogsResponse:NSObject,Codable
 }
 
 public extension DescribeDDoSAttackLogsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDDoSAttackLogsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

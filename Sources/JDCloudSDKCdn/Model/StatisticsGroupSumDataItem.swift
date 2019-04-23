@@ -64,7 +64,7 @@ public class StatisticsGroupSumDataItem:NSObject,Codable{
     }
 }
 public extension StatisticsGroupSumDataItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsGroupSumDataItemCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(endTime, forKey: .endTime)

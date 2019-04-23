@@ -92,7 +92,7 @@ public class AuditResult:NSObject,Codable{
     }
 }
 public extension AuditResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AuditResultCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(ip, forKey: .ip)

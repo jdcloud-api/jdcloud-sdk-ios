@@ -51,7 +51,7 @@ public class GetTaskInfoHistoryByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetTaskInfoHistoryByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetTaskInfoHistoryByIdResultCodingKeys.self)
         try encoderContainer.encode(tasks, forKey: .tasks)
     }

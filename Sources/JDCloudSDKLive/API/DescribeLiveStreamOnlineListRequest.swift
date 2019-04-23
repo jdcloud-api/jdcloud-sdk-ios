@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,17 +26,21 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查看域名下所有的正在推的流的信息
+///  查询直播中的流的信息
 @objc(DescribeLiveStreamOnlineListRequest)
 public class DescribeLiveStreamOnlineListRequest:JdCloudRequest
 {
-    /// 页码；默认为1；取值范围[1, 100000]
+    /// 页码
+      /// - 取值范围[1, 100000]
+      /// 
     var pageNum:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小
+      /// - 取值范围[10, 100]
+      /// 
     var pageSize:Int?
 
-    /// 应用名称（APP）
+    /// 应用名称
     var appName:String?
 
     /// 推流域名

@@ -57,7 +57,7 @@ public class BackSourceRuleCondition:NSObject,Codable{
     }
 }
 public extension BackSourceRuleCondition{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackSourceRuleConditionCodingKeys.self)
          try encoderContainer.encode(keyPrefixEquals, forKey: .keyPrefixEquals)
          try encoderContainer.encode(httpErrorCodeReturnedEquals, forKey: .httpErrorCodeReturnedEquals)

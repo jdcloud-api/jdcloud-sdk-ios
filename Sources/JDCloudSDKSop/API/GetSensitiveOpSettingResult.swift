@@ -67,7 +67,7 @@ public class GetSensitiveOpSettingResult:NSObject,JdCloudResult
     }
 }
 public extension GetSensitiveOpSettingResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetSensitiveOpSettingResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(type, forKey: .type)

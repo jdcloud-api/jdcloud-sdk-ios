@@ -57,7 +57,7 @@ public class A:NSObject,Codable{
     }
 }
 public extension A{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ACodingKeys.self)
          try encoderContainer.encode(code, forKey: .code)
          try encoderContainer.encode(message, forKey: .message)

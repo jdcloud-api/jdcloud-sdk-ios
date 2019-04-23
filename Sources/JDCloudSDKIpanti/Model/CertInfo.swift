@@ -85,7 +85,7 @@ public class CertInfo:NSObject,Codable{
     }
 }
 public extension CertInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CertInfoCodingKeys.self)
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(from, forKey: .from)

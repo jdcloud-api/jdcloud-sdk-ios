@@ -59,7 +59,7 @@ public class GetPySparkExecuteResultResult:NSObject,JdCloudResult
     }
 }
 public extension GetPySparkExecuteResultResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetPySparkExecuteResultResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

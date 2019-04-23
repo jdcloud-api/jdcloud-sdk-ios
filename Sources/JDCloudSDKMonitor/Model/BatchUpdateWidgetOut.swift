@@ -57,7 +57,7 @@ public class BatchUpdateWidgetOut:NSObject,Codable{
     }
 }
 public extension BatchUpdateWidgetOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchUpdateWidgetOutCodingKeys.self)
          try encoderContainer.encode(errors, forKey: .errors)
          try encoderContainer.encode(suc, forKey: .suc)

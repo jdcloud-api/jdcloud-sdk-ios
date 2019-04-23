@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,6 +26,10 @@ import Foundation
 import JDCloudSDKCore
 
 /// 查询直播截图配置
+      ///       /// - 截图模板配置按照 域名,应用,流 3级配置添加,以最小的粒度配置生效
+      ///       /// - 域名、应用、流 依次粒度递减 即: 域名&gt;应用&gt;流
+      ///       /// - 该查询旨在查询域名、应用、流最终生效的截图模板配置,并非各级的模板绑定情况
+      ///       /// 
 @objc(DescribeCustomLiveStreamSnapshotConfigResult)
 public class DescribeCustomLiveStreamSnapshotConfigResult:NSObject,JdCloudResult
 {
@@ -36,9 +40,9 @@ public class DescribeCustomLiveStreamSnapshotConfigResult:NSObject,JdCloudResult
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
-    /// 码率信息
+    /// 截图配置集合
     var snapshotConfigs:[SnapshotConfig?]?
 
 
@@ -66,7 +70,7 @@ public class DescribeCustomLiveStreamSnapshotConfigResult:NSObject,JdCloudResult
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.snapshotConfigs)
         {
@@ -75,7 +79,7 @@ public class DescribeCustomLiveStreamSnapshotConfigResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeCustomLiveStreamSnapshotConfigResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamSnapshotConfigResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

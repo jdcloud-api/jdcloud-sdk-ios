@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查看域名下所有的正在推的流的信息
+/// 查询直播中的流的信息
 @objc(DescribeLiveStreamOnlineListResult)
 public class DescribeLiveStreamOnlineListResult:NSObject,JdCloudResult
 {
@@ -36,7 +36,7 @@ public class DescribeLiveStreamOnlineListResult:NSObject,JdCloudResult
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
     /// 在线推流集合
     var onlineStreamInfos:[OnlineStreamInfo?]?
@@ -66,7 +66,7 @@ public class DescribeLiveStreamOnlineListResult:NSObject,JdCloudResult
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.onlineStreamInfos)
         {
@@ -75,7 +75,7 @@ public class DescribeLiveStreamOnlineListResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeLiveStreamOnlineListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLiveStreamOnlineListResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

@@ -57,7 +57,7 @@ public class GeoBlack:NSObject,Codable{
     }
 }
 public extension GeoBlack{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GeoBlackCodingKeys.self)
          try encoderContainer.encode(label, forKey: .label)
          try encoderContainer.encode(value, forKey: .value)

@@ -63,7 +63,7 @@ public class QueryIpBlackListResult:NSObject,JdCloudResult
     }
 }
 public extension QueryIpBlackListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryIpBlackListResultCodingKeys.self)
         try encoderContainer.encode(domain, forKey: .domain)
         try encoderContainer.encode(status, forKey: .status)

@@ -47,6 +47,10 @@ public class SubnetInfo:NSObject,Codable{
     var startIp:String?
     /// 所属云提供商ID
     var cloudID:String?
+    /// 可用区
+    var az:String?
+    /// 子网创建时间
+    var createdTime:String?
 
 
 
@@ -65,6 +69,8 @@ public class SubnetInfo:NSObject,Codable{
         case routeTableId
         case startIp
         case cloudID
+        case az
+        case createdTime
     }
 
 
@@ -110,10 +116,18 @@ public class SubnetInfo:NSObject,Codable{
         {
             self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
         }
+        if decoderContainer.contains(.az)
+        {
+            self.az = try decoderContainer.decode(String?.self, forKey: .az)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension SubnetInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SubnetInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
@@ -125,5 +139,7 @@ public extension SubnetInfo{
          try encoderContainer.encode(routeTableId, forKey: .routeTableId)
          try encoderContainer.encode(startIp, forKey: .startIp)
          try encoderContainer.encode(cloudID, forKey: .cloudID)
+         try encoderContainer.encode(az, forKey: .az)
+         try encoderContainer.encode(createdTime, forKey: .createdTime)
     }
 }

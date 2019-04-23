@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 给RDS账号分配数据库权限
+/// 撤销RDS账号在指定数据库的所有权限
 @objc(RevokeRdsAccountResult)
 public class RevokeRdsAccountResult:NSObject,JdCloudResult
 {

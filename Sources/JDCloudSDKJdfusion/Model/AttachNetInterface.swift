@@ -48,7 +48,7 @@ public class AttachNetInterface:NSObject,Codable{
     }
 }
 public extension AttachNetInterface{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AttachNetInterfaceCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
     }

@@ -106,7 +106,7 @@ public class CCProtectionConfig:NSObject,Codable{
     }
 }
 public extension CCProtectionConfig{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCProtectionConfigCodingKeys.self)
          try encoderContainer.encode(enable, forKey: .enable)
          try encoderContainer.encode(observerMode, forKey: .observerMode)

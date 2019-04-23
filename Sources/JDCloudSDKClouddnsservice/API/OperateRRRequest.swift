@@ -30,7 +30,7 @@ import JDCloudSDKCore
 @objc(OperateRRRequest)
 public class OperateRRRequest:JdCloudRequest
 {
-    /// 需要操作的解析记录ID
+    /// 需要操作的解析记录ID，请使用searchRR接口获取。
     var ids:[Int?]?
 
     /// 操作类型，on-&gt;启用 off-&gt;停用 del-&gt;删除

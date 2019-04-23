@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,10 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除APP
+///  删除应用
+      /// - 删除应用之前需要先停用应用
+      /// - 删除应用同时会删除此应用下的所有数据
+      /// 
 public class DeleteLiveAppExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

@@ -51,7 +51,7 @@ public class DescribeDeviceTypesResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeDeviceTypesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDeviceTypesResultCodingKeys.self)
         try encoderContainer.encode(deviceTypes, forKey: .deviceTypes)
     }

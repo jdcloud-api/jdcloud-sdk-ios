@@ -227,7 +227,7 @@ public class UpdateAppResult:NSObject,JdCloudResult
     }
 }
 public extension UpdateAppResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateAppResultCodingKeys.self)
         try encoderContainer.encode(clientId, forKey: .clientId)
         try encoderContainer.encode(clientName, forKey: .clientName)

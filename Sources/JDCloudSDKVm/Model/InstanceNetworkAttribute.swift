@@ -57,7 +57,7 @@ public class InstanceNetworkAttribute:NSObject,Codable{
     }
 }
 public extension InstanceNetworkAttribute{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceNetworkAttributeCodingKeys.self)
          try encoderContainer.encode(networkInterfaceId, forKey: .networkInterfaceId)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)

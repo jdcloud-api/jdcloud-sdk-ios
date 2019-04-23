@@ -49,7 +49,7 @@ public class SetCCIpLimitResponse:NSObject,Codable
 }
 
 public extension SetCCIpLimitResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetCCIpLimitResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

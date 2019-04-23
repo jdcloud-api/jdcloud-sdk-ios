@@ -54,7 +54,7 @@ public class BucketSpaceStatistic:NSObject,Codable{
     }
 }
 public extension BucketSpaceStatistic{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BucketSpaceStatisticCodingKeys.self)
          try encoderContainer.encode(bucketName, forKey: .bucketName)
          try encoderContainer.encode(space, forKey: .space)

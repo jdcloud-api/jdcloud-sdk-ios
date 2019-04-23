@@ -59,7 +59,7 @@ public class EnableInstanceCCResult:NSObject,JdCloudResult
     }
 }
 public extension EnableInstanceCCResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnableInstanceCCResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

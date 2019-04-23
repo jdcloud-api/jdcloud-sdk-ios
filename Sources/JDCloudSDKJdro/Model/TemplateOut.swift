@@ -85,7 +85,7 @@ public class TemplateOut:NSObject,Codable{
     }
 }
 public extension TemplateOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TemplateOutCodingKeys.self)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(describe, forKey: .describe)

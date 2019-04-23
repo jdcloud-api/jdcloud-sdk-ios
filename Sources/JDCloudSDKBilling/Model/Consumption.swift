@@ -92,7 +92,7 @@ public class Consumption:NSObject,Codable{
     }
 }
 public extension Consumption{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConsumptionCodingKeys.self)
          try encoderContainer.encode(billingType, forKey: .billingType)
          try encoderContainer.encode(payType, forKey: .payType)

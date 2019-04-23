@@ -49,7 +49,7 @@ public class DeleteNamespaceResponse:NSObject,Codable
 }
 
 public extension DeleteNamespaceResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteNamespaceResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

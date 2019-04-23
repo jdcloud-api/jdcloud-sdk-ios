@@ -120,7 +120,7 @@ public class Snapshot:NSObject,Codable{
     }
 }
 public extension Snapshot{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SnapshotCodingKeys.self)
          try encoderContainer.encode(snapshotId, forKey: .snapshotId)
          try encoderContainer.encode(snapshotSource, forKey: .snapshotSource)

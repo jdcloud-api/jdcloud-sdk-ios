@@ -92,7 +92,7 @@ public class Trigger:NSObject,Codable{
     }
 }
 public extension Trigger{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TriggerCodingKeys.self)
          try encoderContainer.encode(triggerId, forKey: .triggerId)
          try encoderContainer.encode(functionName, forKey: .functionName)

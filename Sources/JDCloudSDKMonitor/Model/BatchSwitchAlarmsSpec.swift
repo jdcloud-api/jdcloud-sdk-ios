@@ -48,7 +48,7 @@ public class BatchSwitchAlarmsSpec:NSObject,Codable{
     }
 }
 public extension BatchSwitchAlarmsSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchSwitchAlarmsSpecCodingKeys.self)
          try encoderContainer.encode(ids, forKey: .ids)
     }

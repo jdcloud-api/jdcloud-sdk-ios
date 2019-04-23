@@ -51,7 +51,7 @@ public class AddOrUpdateJobResult:NSObject,JdCloudResult
     }
 }
 public extension AddOrUpdateJobResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddOrUpdateJobResultCodingKeys.self)
         try encoderContainer.encode(okInfo, forKey: .okInfo)
     }

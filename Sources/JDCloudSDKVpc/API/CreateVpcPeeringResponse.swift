@@ -49,7 +49,7 @@ public class CreateVpcPeeringResponse:NSObject,Codable
 }
 
 public extension CreateVpcPeeringResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcPeeringResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

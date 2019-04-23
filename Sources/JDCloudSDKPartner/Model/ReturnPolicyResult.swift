@@ -190,7 +190,7 @@ public class ReturnPolicyResult:NSObject,Codable{
     }
 }
 public extension ReturnPolicyResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnPolicyResultCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(deptId, forKey: .deptId)

@@ -64,7 +64,7 @@ public class BatchUpdateWidgetError:NSObject,Codable{
     }
 }
 public extension BatchUpdateWidgetError{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchUpdateWidgetErrorCodingKeys.self)
          try encoderContainer.encode(dashboardId, forKey: .dashboardId)
          try encoderContainer.encode(error, forKey: .error)

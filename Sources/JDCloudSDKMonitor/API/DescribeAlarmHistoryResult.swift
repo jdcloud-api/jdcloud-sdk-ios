@@ -66,7 +66,7 @@ public class DescribeAlarmHistoryResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAlarmHistoryResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAlarmHistoryResultCodingKeys.self)
         try encoderContainer.encode(alarmHistoryList, forKey: .alarmHistoryList)
         try encoderContainer.encode(total, forKey: .total)

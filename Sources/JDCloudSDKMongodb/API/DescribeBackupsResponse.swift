@@ -49,7 +49,7 @@ public class DescribeBackupsResponse:NSObject,Codable
 }
 
 public extension DescribeBackupsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeBackupsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

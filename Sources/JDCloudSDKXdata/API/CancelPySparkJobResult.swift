@@ -59,7 +59,7 @@ public class CancelPySparkJobResult:NSObject,JdCloudResult
     }
 }
 public extension CancelPySparkJobResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CancelPySparkJobResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

@@ -28,14 +28,24 @@ import Foundation
 @objc(RecordTemplate)
 public class RecordTemplate:NSObject,Codable{
     /// 自动录制周期
+      /// - 取值:[15,360]
+      /// - 单位: 分钟
+      /// 
     var recordPeriod:Int?
-    /// null
+    /// 存储桶
     var saveBucket:String?
-    /// null
+    /// 存储地址
     var saveEndpoint:String?
     /// 录制文件格式
+      /// - 取值: ts,flv,mp4 (多种类型之前用;隔开)
+      /// - 不区分大小写
+      /// 
     var recordFileType:String?
-    /// 录制模板自定义名称
+    /// 录制模板
+      /// - 取值要求：数字、大小写字母或短横线(&quot;-&quot;),
+      ///           首尾不能有特殊字符(&quot;-&quot;)
+      /// - &lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
+      /// 
     var template:String?
 
 
@@ -78,7 +88,7 @@ public class RecordTemplate:NSObject,Codable{
     }
 }
 public extension RecordTemplate{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RecordTemplateCodingKeys.self)
          try encoderContainer.encode(recordPeriod, forKey: .recordPeriod)
          try encoderContainer.encode(saveBucket, forKey: .saveBucket)

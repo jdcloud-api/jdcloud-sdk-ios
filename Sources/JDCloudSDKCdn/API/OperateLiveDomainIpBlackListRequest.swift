@@ -30,29 +30,28 @@ import JDCloudSDKCore
 @objc(OperateLiveDomainIpBlackListRequest)
 public class OperateLiveDomainIpBlackListRequest:JdCloudRequest
 {
+    /// BlackIpsEnable
+    var blackIpsEnable:String?
+
     /// 用户域名
     var domain:String
 
-    /// BlackIpsEnable
-    var blackIpsEnable:String
 
-
-    public init(regionId: String,domain:String,blackIpsEnable:String){
+    public init(regionId: String,domain:String){
         self.domain = domain
-        self.blackIpsEnable = blackIpsEnable
         super.init(regionId: regionId)
     }
 
 
     enum OperateLiveDomainIpBlackListRequestRequestCodingKeys: String, CodingKey {
-        case domain
         case blackIpsEnable
+        case domain
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OperateLiveDomainIpBlackListRequestRequestCodingKeys.self)
-        try encoderContainer.encode(domain, forKey: .domain)
         try encoderContainer.encode(blackIpsEnable, forKey: .blackIpsEnable)
+        try encoderContainer.encode(domain, forKey: .domain)
 
     }
 }

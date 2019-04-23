@@ -71,7 +71,7 @@ public class SiteMonitorSource:NSObject,Codable{
     }
 }
 public extension SiteMonitorSource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SiteMonitorSourceCodingKeys.self)
          try encoderContainer.encode(sisp, forKey: .sisp)
          try encoderContainer.encode(sispName, forKey: .sispName)

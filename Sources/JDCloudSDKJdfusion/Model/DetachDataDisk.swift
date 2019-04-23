@@ -48,7 +48,7 @@ public class DetachDataDisk:NSObject,Codable{
     }
 }
 public extension DetachDataDisk{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DetachDataDiskCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
     }

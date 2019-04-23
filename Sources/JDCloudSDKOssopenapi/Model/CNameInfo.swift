@@ -68,7 +68,7 @@ public class CNameInfo:NSObject,Codable{
     }
 }
 public extension CNameInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CNameInfoCodingKeys.self)
          try encoderContainer.encode(cname, forKey: .cname)
          try encoderContainer.encode(protoType, forKey: .protoType)

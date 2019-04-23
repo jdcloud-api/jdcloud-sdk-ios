@@ -51,7 +51,7 @@ public class DescribeStreamsInputResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeStreamsInputResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeStreamsInputResultCodingKeys.self)
         try encoderContainer.encode(streamInputDatas, forKey: .streamInputDatas)
     }

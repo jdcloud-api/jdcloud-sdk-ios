@@ -57,7 +57,7 @@ public class StatisticsTopIpData:NSObject,Codable{
     }
 }
 public extension StatisticsTopIpData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsTopIpDataCodingKeys.self)
          try encoderContainer.encode(count, forKey: .count)
          try encoderContainer.encode(ips, forKey: .ips)

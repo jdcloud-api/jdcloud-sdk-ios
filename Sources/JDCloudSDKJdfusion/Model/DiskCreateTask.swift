@@ -50,7 +50,7 @@ public class DiskCreateTask:NSObject,Codable{
     }
 }
 public extension DiskCreateTask{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DiskCreateTaskCodingKeys.self)
          try encoderContainer.encode(task, forKey: .task)
     }

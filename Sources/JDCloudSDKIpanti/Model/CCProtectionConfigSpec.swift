@@ -83,7 +83,7 @@ public class CCProtectionConfigSpec:NSObject,Codable{
     }
 }
 public extension CCProtectionConfigSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCProtectionConfigSpecCodingKeys.self)
          try encoderContainer.encode(level, forKey: .level)
          try encoderContainer.encode(ccThreshold, forKey: .ccThreshold)

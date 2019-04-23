@@ -60,7 +60,7 @@ public class Soldout:NSObject,Codable{
     }
 }
 public extension Soldout{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SoldoutCodingKeys.self)
          try encoderContainer.encode(azName, forKey: .azName)
          try encoderContainer.encode(mediaType, forKey: .mediaType)

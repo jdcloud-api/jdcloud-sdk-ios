@@ -49,7 +49,7 @@ public class DescribeAlarmHistoryAllRegionResponse:NSObject,Codable
 }
 
 public extension DescribeAlarmHistoryAllRegionResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAlarmHistoryAllRegionResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

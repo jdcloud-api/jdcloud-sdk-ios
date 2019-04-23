@@ -54,7 +54,7 @@ public class KeyRotateCfg:NSObject,Codable{
     }
 }
 public extension KeyRotateCfg{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeyRotateCfgCodingKeys.self)
          try encoderContainer.encode(autoRotate, forKey: .autoRotate)
          try encoderContainer.encode(rotationCycle, forKey: .rotationCycle)

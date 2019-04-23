@@ -115,7 +115,7 @@ public class ForwardProtectionRuleSpec:NSObject,Codable{
     }
 }
 public extension ForwardProtectionRuleSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ForwardProtectionRuleSpecCodingKeys.self)
          try encoderContainer.encode(spoofIpEnable, forKey: .spoofIpEnable)
          try encoderContainer.encode(srcNewConnLimitEnable, forKey: .srcNewConnLimitEnable)

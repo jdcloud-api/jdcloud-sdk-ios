@@ -121,7 +121,7 @@ public class ElasticIp:NSObject,Codable{
     }
 }
 public extension ElasticIp{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ElasticIpCodingKeys.self)
          try encoderContainer.encode(elasticIpId, forKey: .elasticIpId)
          try encoderContainer.encode(elasticIpAddress, forKey: .elasticIpAddress)

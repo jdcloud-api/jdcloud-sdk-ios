@@ -54,7 +54,7 @@ public class Resource:NSObject,Codable{
     }
 }
 public extension Resource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceCodingKeys.self)
          try encoderContainer.encode(ids, forKey: .ids)
          try encoderContainer.encode(type, forKey: .type)

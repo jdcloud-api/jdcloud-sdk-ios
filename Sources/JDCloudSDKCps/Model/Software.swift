@@ -71,7 +71,7 @@ public class Software:NSObject,Codable{
     }
 }
 public extension Software{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SoftwareCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(version, forKey: .version)

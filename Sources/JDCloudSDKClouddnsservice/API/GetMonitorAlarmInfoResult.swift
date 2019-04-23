@@ -75,7 +75,7 @@ public class GetMonitorAlarmInfoResult:NSObject,JdCloudResult
     }
 }
 public extension GetMonitorAlarmInfoResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetMonitorAlarmInfoResultCodingKeys.self)
         try encoderContainer.encode(currentCount, forKey: .currentCount)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

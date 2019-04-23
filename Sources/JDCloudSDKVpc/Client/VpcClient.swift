@@ -1303,7 +1303,7 @@ public class VpcJDCloudClient:NSObject,JDCloudClient{
 
 public extension VpcJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

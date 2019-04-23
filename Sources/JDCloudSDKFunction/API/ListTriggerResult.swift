@@ -51,7 +51,7 @@ public class ListTriggerResult:NSObject,JdCloudResult
     }
 }
 public extension ListTriggerResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListTriggerResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

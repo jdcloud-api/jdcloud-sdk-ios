@@ -57,7 +57,7 @@ public class DescribedNoticeContacts:NSObject,Codable{
     }
 }
 public extension DescribedNoticeContacts{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribedNoticeContactsCodingKeys.self)
          try encoderContainer.encode(referenceId, forKey: .referenceId)
          try encoderContainer.encode(referenceType, forKey: .referenceType)

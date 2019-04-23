@@ -51,7 +51,7 @@ public class CreateSubnetResult:NSObject,JdCloudResult
     }
 }
 public extension CreateSubnetResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateSubnetResultCodingKeys.self)
         try encoderContainer.encode(subnetId, forKey: .subnetId)
     }

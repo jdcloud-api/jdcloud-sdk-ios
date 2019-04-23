@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询域名的自定义解析线路的IP段
+///  查询主域名的自定义解析线路的IP段
 @objc(GetUserViewIPRequest)
 public class GetUserViewIPRequest:JdCloudRequest
 {
@@ -37,7 +37,7 @@ public class GetUserViewIPRequest:JdCloudRequest
     var viewId:Int
 
     /// 自定义线路名称, 最多64个字符
-    var viewName:Int?
+    var viewName:String?
 
     /// 分页参数，页的序号, 默认为1
     var pageNumber:Int

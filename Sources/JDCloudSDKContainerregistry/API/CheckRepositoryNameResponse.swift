@@ -49,7 +49,7 @@ public class CheckRepositoryNameResponse:NSObject,Codable
 }
 
 public extension CheckRepositoryNameResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CheckRepositoryNameResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

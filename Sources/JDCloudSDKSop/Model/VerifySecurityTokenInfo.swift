@@ -48,7 +48,7 @@ public class VerifySecurityTokenInfo:NSObject,Codable{
     }
 }
 public extension VerifySecurityTokenInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VerifySecurityTokenInfoCodingKeys.self)
          try encoderContainer.encode(action, forKey: .action)
     }

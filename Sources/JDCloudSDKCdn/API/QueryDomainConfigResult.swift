@@ -155,7 +155,7 @@ public class QueryDomainConfigResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDomainConfigResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDomainConfigResultCodingKeys.self)
         try encoderContainer.encode(ignoreQueryString, forKey: .ignoreQueryString)
         try encoderContainer.encode(range, forKey: .range)

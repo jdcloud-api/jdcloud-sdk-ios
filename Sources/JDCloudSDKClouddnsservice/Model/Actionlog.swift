@@ -106,7 +106,7 @@ public class Actionlog:NSObject,Codable{
     }
 }
 public extension Actionlog{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ActionlogCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(userPin, forKey: .userPin)

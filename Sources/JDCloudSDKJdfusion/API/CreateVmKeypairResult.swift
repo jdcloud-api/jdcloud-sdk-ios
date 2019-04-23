@@ -51,7 +51,7 @@ public class CreateVmKeypairResult:NSObject,JdCloudResult
     }
 }
 public extension CreateVmKeypairResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVmKeypairResultCodingKeys.self)
         try encoderContainer.encode(tasks, forKey: .tasks)
     }

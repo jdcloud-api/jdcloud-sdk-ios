@@ -57,7 +57,7 @@ public class AccountPrivilege:NSObject,Codable{
     }
 }
 public extension AccountPrivilege{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AccountPrivilegeCodingKeys.self)
          try encoderContainer.encode(dbName, forKey: .dbName)
          try encoderContainer.encode(privilege, forKey: .privilege)

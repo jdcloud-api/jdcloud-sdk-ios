@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -28,16 +28,25 @@ import JDCloudSDKCommon
 
 
 ///  查询用户自定义转码模板列表
+      ///       /// 
 @objc(DescribeCustomLiveStreamTranscodeTemplatesRequest)
 public class DescribeCustomLiveStreamTranscodeTemplatesRequest:JdCloudRequest
 {
-    /// 页码；默认为1；取值范围[1, 100000]
+    /// 页码
+      /// - 取值范围 [1, 100000]
+      /// 
     var pageNum:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小
+      /// - 取值范围 [10, 100]
+      /// 
     var pageSize:Int?
 
-    /// 转码模板查询过滤条件, 不传递分页参数时默认返回10条
+    /// 转码模板查询过滤条件:
+      ///   - name:   template 录制模板自定义名称
+      ///   - value:  如果参数为空，则查询全部
+      ///   - 如果为空,则表示查询该用下所有自定义的转码模板
+      /// 
     var filters:[Filter?]?
 
 

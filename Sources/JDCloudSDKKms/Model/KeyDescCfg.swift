@@ -54,7 +54,7 @@ public class KeyDescCfg:NSObject,Codable{
     }
 }
 public extension KeyDescCfg{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeyDescCfgCodingKeys.self)
          try encoderContainer.encode(keyName, forKey: .keyName)
          try encoderContainer.encode(keyDesc, forKey: .keyDesc)

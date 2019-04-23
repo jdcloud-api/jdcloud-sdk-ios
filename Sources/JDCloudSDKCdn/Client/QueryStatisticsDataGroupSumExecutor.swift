@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class QueryStatisticsDataGroupSumExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/statistics:groupSum")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/vodStatistics:groupSum")
     }
     
 }

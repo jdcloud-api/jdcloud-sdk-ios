@@ -183,7 +183,7 @@ public class ReturnPolicyDTO:NSObject,Codable{
     }
 }
 public extension ReturnPolicyDTO{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnPolicyDTOCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(deptId, forKey: .deptId)

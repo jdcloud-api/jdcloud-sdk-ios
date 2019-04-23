@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -30,13 +30,14 @@ import JDCloudSDKCore
 @objc(DeleteLiveStreamAppSnapshotRequest)
 public class DeleteLiveStreamAppSnapshotRequest:JdCloudRequest
 {
-    /// 推流加速域名
+    /// 推流域名
     var publishDomain:String
 
-    /// 直播流所属应用名称
+    /// 应用名称
     var appName:String
 
-    /// 录制模板自定义名称
+    /// 截图模板
+      /// 
     var template:String
 
 

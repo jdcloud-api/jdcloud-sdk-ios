@@ -49,7 +49,7 @@ public class QueryMonitorResponse:NSObject,Codable
 }
 
 public extension QueryMonitorResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryMonitorResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

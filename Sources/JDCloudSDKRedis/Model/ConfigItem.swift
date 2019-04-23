@@ -76,7 +76,7 @@ public class ConfigItem:NSObject,Codable{
     }
 }
 public extension ConfigItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ConfigItemCodingKeys.self)
          try encoderContainer.encode(configName, forKey: .configName)
          try encoderContainer.encode(configValue, forKey: .configValue)

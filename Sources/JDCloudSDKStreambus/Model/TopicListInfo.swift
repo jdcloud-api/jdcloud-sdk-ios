@@ -148,7 +148,7 @@ public class TopicListInfo:NSObject,Codable{
     }
 }
 public extension TopicListInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopicListInfoCodingKeys.self)
          try encoderContainer.encode(archived, forKey: .archived)
          try encoderContainer.encode(createdTime, forKey: .createdTime)

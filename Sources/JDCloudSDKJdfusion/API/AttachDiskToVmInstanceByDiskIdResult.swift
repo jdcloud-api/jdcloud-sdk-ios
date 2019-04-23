@@ -51,7 +51,7 @@ public class AttachDiskToVmInstanceByDiskIdResult:NSObject,JdCloudResult
     }
 }
 public extension AttachDiskToVmInstanceByDiskIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AttachDiskToVmInstanceByDiskIdResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

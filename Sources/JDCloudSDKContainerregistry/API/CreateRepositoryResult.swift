@@ -54,7 +54,7 @@ public class CreateRepositoryResult:NSObject,JdCloudResult
     }
 }
 public extension CreateRepositoryResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRepositoryResultCodingKeys.self)
         try encoderContainer.encode(repository, forKey: .repository)
     }

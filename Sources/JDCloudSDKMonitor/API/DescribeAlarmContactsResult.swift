@@ -59,7 +59,7 @@ public class DescribeAlarmContactsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAlarmContactsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAlarmContactsResultCodingKeys.self)
         try encoderContainer.encode(contactsList, forKey: .contactsList)
         try encoderContainer.encode(total, forKey: .total)

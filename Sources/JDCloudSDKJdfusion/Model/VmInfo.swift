@@ -59,6 +59,10 @@ public class VmInfo:NSObject,Codable{
     var status:String?
     /// 创建时间
     var createdTime:String?
+    /// 镜像ID
+    var imageId:String?
+    /// 安全组ID
+    var securityGroupIds:[String?]?
 
 
 
@@ -83,6 +87,8 @@ public class VmInfo:NSObject,Codable{
         case privateIpAddress
         case status
         case createdTime
+        case imageId
+        case securityGroupIds
     }
 
 
@@ -152,10 +158,18 @@ public class VmInfo:NSObject,Codable{
         {
             self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
         }
+        if decoderContainer.contains(.imageId)
+        {
+            self.imageId = try decoderContainer.decode(String?.self, forKey: .imageId)
+        }
+        if decoderContainer.contains(.securityGroupIds)
+        {
+            self.securityGroupIds = try decoderContainer.decode([String?]?.self, forKey: .securityGroupIds)
+        }
     }
 }
 public extension VmInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VmInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(region, forKey: .region)
@@ -173,5 +187,7 @@ public extension VmInfo{
          try encoderContainer.encode(privateIpAddress, forKey: .privateIpAddress)
          try encoderContainer.encode(status, forKey: .status)
          try encoderContainer.encode(createdTime, forKey: .createdTime)
+         try encoderContainer.encode(imageId, forKey: .imageId)
+         try encoderContainer.encode(securityGroupIds, forKey: .securityGroupIds)
     }
 }

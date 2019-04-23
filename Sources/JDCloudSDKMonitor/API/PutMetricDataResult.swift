@@ -59,7 +59,7 @@ public class PutMetricDataResult:NSObject,JdCloudResult
     }
 }
 public extension PutMetricDataResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PutMetricDataResultCodingKeys.self)
         try encoderContainer.encode(success, forKey: .success)
         try encoderContainer.encode(errMetricDataList, forKey: .errMetricDataList)

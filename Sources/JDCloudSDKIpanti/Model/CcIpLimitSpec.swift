@@ -54,7 +54,7 @@ public class CcIpLimitSpec:NSObject,Codable{
     }
 }
 public extension CcIpLimitSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CcIpLimitSpecCodingKeys.self)
          try encoderContainer.encode(ccSpeedLimit, forKey: .ccSpeedLimit)
          try encoderContainer.encode(ccSpeedPeriod, forKey: .ccSpeedPeriod)

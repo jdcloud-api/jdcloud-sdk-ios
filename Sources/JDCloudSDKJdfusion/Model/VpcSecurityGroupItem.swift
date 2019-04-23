@@ -50,7 +50,7 @@ public class VpcSecurityGroupItem:NSObject,Codable{
     }
 }
 public extension VpcSecurityGroupItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcSecurityGroupItemCodingKeys.self)
          try encoderContainer.encode(securityGroup, forKey: .securityGroup)
     }

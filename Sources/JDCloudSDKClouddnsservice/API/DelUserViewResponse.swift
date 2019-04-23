@@ -49,7 +49,7 @@ public class DelUserViewResponse:NSObject,Codable
 }
 
 public extension DelUserViewResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DelUserViewResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

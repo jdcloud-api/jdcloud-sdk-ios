@@ -64,7 +64,7 @@ public class BackendServer2:NSObject,Codable{
     }
 }
 public extension BackendServer2{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackendServer2CodingKeys.self)
          try encoderContainer.encode(serverId, forKey: .serverId)
          try encoderContainer.encode(weight, forKey: .weight)

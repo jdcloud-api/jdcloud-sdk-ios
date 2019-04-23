@@ -49,7 +49,7 @@ public class ExecuteRasQueryResponse:NSObject,Codable
 }
 
 public extension ExecuteRasQueryResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ExecuteRasQueryResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

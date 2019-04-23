@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   用户管理接口
-   用户管理接口
+   User Management
+   User Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -51,7 +51,7 @@ public class DescribeUserAccessKeysResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeUserAccessKeysResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeUserAccessKeysResultCodingKeys.self)
         try encoderContainer.encode(userAccessKeys, forKey: .userAccessKeys)
     }

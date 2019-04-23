@@ -68,7 +68,7 @@ public class Environment:NSObject,Codable{
     }
 }
 public extension Environment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnvironmentCodingKeys.self)
          try encoderContainer.encode(disableRollback, forKey: .disableRollback)
          try encoderContainer.encode(name, forKey: .name)

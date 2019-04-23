@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查看域名下推流记录
+///  查看推流历史记录
 public class DescribeLiveStreamPublishListExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

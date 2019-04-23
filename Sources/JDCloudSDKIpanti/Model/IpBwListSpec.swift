@@ -54,7 +54,7 @@ public class IpBwListSpec:NSObject,Codable{
     }
 }
 public extension IpBwListSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpBwListSpecCodingKeys.self)
          try encoderContainer.encode(ipList, forKey: .ipList)
          try encoderContainer.encode(tryFlag, forKey: .tryFlag)

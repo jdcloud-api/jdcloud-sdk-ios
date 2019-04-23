@@ -59,7 +59,7 @@ public class ModifyAlarmConfigResult:NSObject,JdCloudResult
     }
 }
 public extension ModifyAlarmConfigResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyAlarmConfigResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

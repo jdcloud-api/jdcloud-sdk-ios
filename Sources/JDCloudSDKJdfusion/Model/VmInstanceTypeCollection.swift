@@ -50,7 +50,7 @@ public class VmInstanceTypeCollection:NSObject,Codable{
     }
 }
 public extension VmInstanceTypeCollection{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VmInstanceTypeCollectionCodingKeys.self)
          try encoderContainer.encode(instanceTypes, forKey: .instanceTypes)
     }

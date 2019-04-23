@@ -66,7 +66,7 @@ public class KeyVersionItem:NSObject,Codable{
     }
 }
 public extension KeyVersionItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeyVersionItemCodingKeys.self)
          try encoderContainer.encode(keyVersion, forKey: .keyVersion)
          try encoderContainer.encode(createTime, forKey: .createTime)

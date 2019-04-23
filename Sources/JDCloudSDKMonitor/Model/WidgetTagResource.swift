@@ -71,7 +71,7 @@ public class WidgetTagResource:NSObject,Codable{
     }
 }
 public extension WidgetTagResource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WidgetTagResourceCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(key, forKey: .key)

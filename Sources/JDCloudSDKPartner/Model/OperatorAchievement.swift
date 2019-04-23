@@ -176,7 +176,7 @@ public class OperatorAchievement:NSObject,Codable{
     }
 }
 public extension OperatorAchievement{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OperatorAchievementCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(name, forKey: .name)

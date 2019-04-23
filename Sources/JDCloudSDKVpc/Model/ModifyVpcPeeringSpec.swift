@@ -57,7 +57,7 @@ public class ModifyVpcPeeringSpec:NSObject,Codable{
     }
 }
 public extension ModifyVpcPeeringSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyVpcPeeringSpecCodingKeys.self)
          try encoderContainer.encode(vpcPeeringName, forKey: .vpcPeeringName)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

@@ -78,7 +78,7 @@ public class TransferTaskProgressInfo:NSObject,Codable{
     }
 }
 public extension TransferTaskProgressInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TransferTaskProgressInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(status, forKey: .status)

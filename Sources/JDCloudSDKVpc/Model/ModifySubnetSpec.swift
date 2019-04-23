@@ -57,7 +57,7 @@ public class ModifySubnetSpec:NSObject,Codable{
     }
 }
 public extension ModifySubnetSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifySubnetSpecCodingKeys.self)
          try encoderContainer.encode(subnetName, forKey: .subnetName)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

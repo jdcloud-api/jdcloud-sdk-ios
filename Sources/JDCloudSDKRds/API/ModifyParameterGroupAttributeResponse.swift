@@ -49,7 +49,7 @@ public class ModifyParameterGroupAttributeResponse:NSObject,Codable
 }
 
 public extension ModifyParameterGroupAttributeResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyParameterGroupAttributeResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

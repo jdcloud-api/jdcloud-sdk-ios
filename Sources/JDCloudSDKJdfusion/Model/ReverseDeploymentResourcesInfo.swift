@@ -141,7 +141,7 @@ public class ReverseDeploymentResourcesInfo:NSObject,Codable{
     }
 }
 public extension ReverseDeploymentResourcesInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReverseDeploymentResourcesInfoCodingKeys.self)
          try encoderContainer.encode(vmIds, forKey: .vmIds)
          try encoderContainer.encode(eipIds, forKey: .eipIds)

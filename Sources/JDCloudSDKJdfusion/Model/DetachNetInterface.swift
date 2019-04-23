@@ -48,7 +48,7 @@ public class DetachNetInterface:NSObject,Codable{
     }
 }
 public extension DetachNetInterface{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DetachNetInterfaceCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
     }

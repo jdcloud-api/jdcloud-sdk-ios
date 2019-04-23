@@ -67,7 +67,7 @@ public class DescribeAttackStatisticsResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAttackStatisticsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAttackStatisticsResultCodingKeys.self)
         try encoderContainer.encode(flow, forKey: .flow)
         try encoderContainer.encode(count, forKey: .count)

@@ -61,6 +61,16 @@ public class ProductServiceVo:NSObject,Codable{
     var extraInfo:String?
     /// 交付单备注
     var remark:String?
+    /// 订单金额
+    var orderTotalFee:String?
+    /// 订单实付金额
+    var orderActualFee:String?
+    /// 订单支付时间
+    var paymentDt:String?
+    /// 额外计费项信息
+    var extraChargeInfo:String?
+    /// 额外计费详情信息
+    var orderItemExtraChargeInfos:[OrderItemExtraChargeInfo?]?
 
 
 
@@ -86,6 +96,11 @@ public class ProductServiceVo:NSObject,Codable{
         case failureDt
         case extraInfo
         case remark
+        case orderTotalFee
+        case orderActualFee
+        case paymentDt
+        case extraChargeInfo
+        case orderItemExtraChargeInfos
     }
 
 
@@ -159,10 +174,30 @@ public class ProductServiceVo:NSObject,Codable{
         {
             self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
         }
+        if decoderContainer.contains(.orderTotalFee)
+        {
+            self.orderTotalFee = try decoderContainer.decode(String?.self, forKey: .orderTotalFee)
+        }
+        if decoderContainer.contains(.orderActualFee)
+        {
+            self.orderActualFee = try decoderContainer.decode(String?.self, forKey: .orderActualFee)
+        }
+        if decoderContainer.contains(.paymentDt)
+        {
+            self.paymentDt = try decoderContainer.decode(String?.self, forKey: .paymentDt)
+        }
+        if decoderContainer.contains(.extraChargeInfo)
+        {
+            self.extraChargeInfo = try decoderContainer.decode(String?.self, forKey: .extraChargeInfo)
+        }
+        if decoderContainer.contains(.orderItemExtraChargeInfos)
+        {
+            self.orderItemExtraChargeInfos = try decoderContainer.decode([OrderItemExtraChargeInfo?]?.self, forKey: .orderItemExtraChargeInfos)
+        }
     }
 }
 public extension ProductServiceVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ProductServiceVoCodingKeys.self)
          try encoderContainer.encode(deliverNumber, forKey: .deliverNumber)
          try encoderContainer.encode(orderNumber, forKey: .orderNumber)
@@ -181,5 +216,10 @@ public extension ProductServiceVo{
          try encoderContainer.encode(failureDt, forKey: .failureDt)
          try encoderContainer.encode(extraInfo, forKey: .extraInfo)
          try encoderContainer.encode(remark, forKey: .remark)
+         try encoderContainer.encode(orderTotalFee, forKey: .orderTotalFee)
+         try encoderContainer.encode(orderActualFee, forKey: .orderActualFee)
+         try encoderContainer.encode(paymentDt, forKey: .paymentDt)
+         try encoderContainer.encode(extraChargeInfo, forKey: .extraChargeInfo)
+         try encoderContainer.encode(orderItemExtraChargeInfos, forKey: .orderItemExtraChargeInfos)
     }
 }

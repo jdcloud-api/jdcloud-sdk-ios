@@ -69,7 +69,7 @@ public class CreateOSSBucket:NSObject,Codable{
     }
 }
 public extension CreateOSSBucket{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateOSSBucketCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(creationDate, forKey: .creationDate)

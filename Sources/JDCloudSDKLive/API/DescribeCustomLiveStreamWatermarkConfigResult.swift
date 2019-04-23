@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -25,7 +25,11 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询水印配置
+/// 查询直播水印配置
+      ///       /// - 水印模板配置按照 域名,应用,流 3级配置添加,以最小的粒度配置生效
+      ///       /// - 域名、应用、流 依次粒度递减 即: 域名&gt;应用&gt;流
+      ///       /// - 该查询旨在查询域名、应用、流最终生效的水印模板配置,并非各级的模板绑定情况
+      ///       /// 
 @objc(DescribeCustomLiveStreamWatermarkConfigResult)
 public class DescribeCustomLiveStreamWatermarkConfigResult:NSObject,JdCloudResult
 {
@@ -36,9 +40,9 @@ public class DescribeCustomLiveStreamWatermarkConfigResult:NSObject,JdCloudResul
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
-    /// 录制模板配置列表
+    /// 水印模板配置列表
     var watermarkConfigs:[LiveStreamRecordConfig?]?
 
 
@@ -66,7 +70,7 @@ public class DescribeCustomLiveStreamWatermarkConfigResult:NSObject,JdCloudResul
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.watermarkConfigs)
         {
@@ -75,7 +79,7 @@ public class DescribeCustomLiveStreamWatermarkConfigResult:NSObject,JdCloudResul
     }
 }
 public extension DescribeCustomLiveStreamWatermarkConfigResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamWatermarkConfigResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

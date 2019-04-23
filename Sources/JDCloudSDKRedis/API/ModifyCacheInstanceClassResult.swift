@@ -53,7 +53,7 @@ public class ModifyCacheInstanceClassResult:NSObject,JdCloudResult
     }
 }
 public extension ModifyCacheInstanceClassResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModifyCacheInstanceClassResultCodingKeys.self)
         try encoderContainer.encode(orderNum, forKey: .orderNum)
     }

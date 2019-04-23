@@ -169,7 +169,7 @@ public class RdsInstanceDetailInfo:NSObject,Codable{
     }
 }
 public extension RdsInstanceDetailInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RdsInstanceDetailInfoCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)

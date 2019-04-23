@@ -49,7 +49,7 @@ public class DeleteParameterGroupResponse:NSObject,Codable
 }
 
 public extension DeleteParameterGroupResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteParameterGroupResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

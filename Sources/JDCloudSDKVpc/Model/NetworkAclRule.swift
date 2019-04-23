@@ -113,7 +113,7 @@ public class NetworkAclRule:NSObject,Codable{
     }
 }
 public extension NetworkAclRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetworkAclRuleCodingKeys.self)
          try encoderContainer.encode(ruleId, forKey: .ruleId)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)

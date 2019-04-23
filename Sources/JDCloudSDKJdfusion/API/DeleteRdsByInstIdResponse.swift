@@ -49,7 +49,7 @@ public class DeleteRdsByInstIdResponse:NSObject,Codable
 }
 
 public extension DeleteRdsByInstIdResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteRdsByInstIdResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

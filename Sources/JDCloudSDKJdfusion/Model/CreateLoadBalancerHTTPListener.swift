@@ -120,7 +120,7 @@ public class CreateLoadBalancerHTTPListener:NSObject,Codable{
     }
 }
 public extension CreateLoadBalancerHTTPListener{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateLoadBalancerHTTPListenerCodingKeys.self)
          try encoderContainer.encode(loadBalancerId, forKey: .loadBalancerId)
          try encoderContainer.encode(listenerPort, forKey: .listenerPort)

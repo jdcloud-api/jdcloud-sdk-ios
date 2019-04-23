@@ -59,7 +59,7 @@ public class CreateForwardRuleResult:NSObject,JdCloudResult
     }
 }
 public extension CreateForwardRuleResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateForwardRuleResultCodingKeys.self)
         try encoderContainer.encode(code, forKey: .code)
         try encoderContainer.encode(message, forKey: .message)

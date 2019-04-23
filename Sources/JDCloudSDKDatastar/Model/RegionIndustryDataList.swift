@@ -50,7 +50,7 @@ public class RegionIndustryDataList:NSObject,Codable{
     }
 }
 public extension RegionIndustryDataList{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegionIndustryDataListCodingKeys.self)
          try encoderContainer.encode(dataList, forKey: .dataList)
     }

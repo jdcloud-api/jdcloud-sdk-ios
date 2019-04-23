@@ -75,7 +75,7 @@ public class QueryUserAgentResult:NSObject,JdCloudResult
     }
 }
 public extension QueryUserAgentResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryUserAgentResultCodingKeys.self)
         try encoderContainer.encode(domain, forKey: .domain)
         try encoderContainer.encode(userAgentType, forKey: .userAgentType)

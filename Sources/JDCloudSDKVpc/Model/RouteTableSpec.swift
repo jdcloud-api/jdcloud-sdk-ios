@@ -61,7 +61,7 @@ public class RouteTableSpec:NSObject,Codable{
     }
 }
 public extension RouteTableSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RouteTableSpecCodingKeys.self)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(routeTableName, forKey: .routeTableName)

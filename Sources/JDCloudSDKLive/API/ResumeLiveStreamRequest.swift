@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -30,34 +30,34 @@ import JDCloudSDKCore
 @objc(ResumeLiveStreamRequest)
 public class ResumeLiveStreamRequest:JdCloudRequest
 {
+    /// 推流域名
+    var publishDomain:String
+
     /// 应用名称
     var appName:String
-
-    /// 您的加速域名
-    var publishDomain:String
 
     /// 流名称
     var streamName:String
 
 
-    public init(regionId: String,appName:String,publishDomain:String,streamName:String){
-        self.appName = appName
+    public init(regionId: String,publishDomain:String,appName:String,streamName:String){
         self.publishDomain = publishDomain
+        self.appName = appName
         self.streamName = streamName
         super.init(regionId: regionId)
     }
 
 
     enum ResumeLiveStreamRequestRequestCodingKeys: String, CodingKey {
-        case appName
         case publishDomain
+        case appName
         case streamName
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResumeLiveStreamRequestRequestCodingKeys.self)
-        try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
+        try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(streamName, forKey: .streamName)
 
     }

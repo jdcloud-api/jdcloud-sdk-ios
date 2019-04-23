@@ -106,7 +106,7 @@ public class SecurityGroupRule:NSObject,Codable{
     }
 }
 public extension SecurityGroupRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecurityGroupRuleCodingKeys.self)
          try encoderContainer.encode(ruleId, forKey: .ruleId)
          try encoderContainer.encode(direction, forKey: .direction)

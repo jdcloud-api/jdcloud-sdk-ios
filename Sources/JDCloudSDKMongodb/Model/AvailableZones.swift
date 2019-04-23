@@ -57,7 +57,7 @@ public class AvailableZones:NSObject,Codable{
     }
 }
 public extension AvailableZones{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AvailableZonesCodingKeys.self)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(canSale, forKey: .canSale)

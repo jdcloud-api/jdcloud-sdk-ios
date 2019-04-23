@@ -51,7 +51,7 @@ public class StateResult:NSObject,JdCloudResult
     }
 }
 public extension StateResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StateResultCodingKeys.self)
         try encoderContainer.encode(states, forKey: .states)
     }

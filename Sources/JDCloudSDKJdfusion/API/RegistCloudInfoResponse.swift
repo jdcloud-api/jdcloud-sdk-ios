@@ -49,7 +49,7 @@ public class RegistCloudInfoResponse:NSObject,Codable
 }
 
 public extension RegistCloudInfoResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RegistCloudInfoResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

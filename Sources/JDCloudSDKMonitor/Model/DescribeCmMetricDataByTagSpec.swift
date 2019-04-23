@@ -97,7 +97,7 @@ public class DescribeCmMetricDataByTagSpec:NSObject,Codable{
     }
 }
 public extension DescribeCmMetricDataByTagSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCmMetricDataByTagSpecCodingKeys.self)
          try encoderContainer.encode(aggrType, forKey: .aggrType)
          try encoderContainer.encode(downSampleType, forKey: .downSampleType)

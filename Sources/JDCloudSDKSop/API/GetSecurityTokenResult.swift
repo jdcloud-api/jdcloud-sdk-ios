@@ -51,7 +51,7 @@ public class GetSecurityTokenResult:NSObject,JdCloudResult
     }
 }
 public extension GetSecurityTokenResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetSecurityTokenResultCodingKeys.self)
         try encoderContainer.encode(securityToken, forKey: .securityToken)
     }

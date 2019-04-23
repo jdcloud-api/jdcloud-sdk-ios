@@ -50,7 +50,7 @@ public class CreateDatasource:NSObject,Codable{
     }
 }
 public extension CreateDatasource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateDatasourceCodingKeys.self)
          try encoderContainer.encode(datasource, forKey: .datasource)
     }

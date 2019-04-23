@@ -64,7 +64,7 @@ public class KeypairInfo:NSObject,Codable{
     }
 }
 public extension KeypairInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeypairInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(keyFingerprint, forKey: .keyFingerprint)

@@ -59,7 +59,7 @@ public class DescribeParameterGroupAttachedInstancesResult:NSObject,JdCloudResul
     }
 }
 public extension DescribeParameterGroupAttachedInstancesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeParameterGroupAttachedInstancesResultCodingKeys.self)
         try encoderContainer.encode(instances, forKey: .instances)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

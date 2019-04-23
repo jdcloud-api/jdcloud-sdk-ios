@@ -51,7 +51,7 @@ public class DescribePermissionResult:NSObject,JdCloudResult
     }
 }
 public extension DescribePermissionResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribePermissionResultCodingKeys.self)
         try encoderContainer.encode(permissions, forKey: .permissions)
     }

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,14 +26,19 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加直播APP
+///  添加直播应用名
+      ///       /// - 需要提前在应用(app)级别绑定功能模板时才需要提前新建应用名
+      ///       /// - 新的应用名可以推流时自动创建
+      ///       /// 
 @objc(AddLiveAppRequest)
 public class AddLiveAppRequest:JdCloudRequest
 {
     /// 直播的推流域名
     var publishDomain:String
 
-    /// appName
+    /// 应用名称
+      /// - 取值: 数字字母中划线(&quot;-&quot;)下划线(&quot;_&quot;) 50个字符以内
+      /// 
     var appName:String
 
 

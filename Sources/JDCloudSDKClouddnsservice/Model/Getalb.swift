@@ -27,8 +27,8 @@ import Foundation
 ///  getalb
 @objc(Getalb)
 public class Getalb:NSObject,Codable{
-    /// 负载均衡的解析记录的列表中解析记录是否是相同的权重&lt;br&gt;
-      /// true: 均等负载&lt;br&gt;
+    /// 负载均衡的解析记录的列表中解析记录是否是相同的权重 
+      /// true: 均等负载 
       /// false: 按权重分配负载
       /// 
     var balance:Bool?
@@ -88,7 +88,7 @@ public class Getalb:NSObject,Codable{
     }
 }
 public extension Getalb{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetalbCodingKeys.self)
          try encoderContainer.encode(balance, forKey: .balance)
          try encoderContainer.encode(record, forKey: .record)

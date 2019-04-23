@@ -51,7 +51,7 @@ public class GetBucketsResult:NSObject,JdCloudResult
     }
 }
 public extension GetBucketsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetBucketsResultCodingKeys.self)
         try encoderContainer.encode(buckets, forKey: .buckets)
     }

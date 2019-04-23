@@ -49,7 +49,7 @@ public class DeleteSubnetResponse:NSObject,Codable
 }
 
 public extension DeleteSubnetResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteSubnetResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

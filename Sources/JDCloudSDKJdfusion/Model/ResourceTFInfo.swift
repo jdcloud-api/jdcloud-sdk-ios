@@ -106,7 +106,7 @@ public class ResourceTFInfo:NSObject,Codable{
     }
 }
 public extension ResourceTFInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ResourceTFInfoCodingKeys.self)
          try encoderContainer.encode(uuid, forKey: .uuid)
          try encoderContainer.encode(body, forKey: .body)

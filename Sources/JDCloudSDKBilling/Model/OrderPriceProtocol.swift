@@ -155,7 +155,7 @@ public class OrderPriceProtocol:NSObject,Codable{
     }
 }
 public extension OrderPriceProtocol{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderPriceProtocolCodingKeys.self)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
          try encoderContainer.encode(appCode, forKey: .appCode)

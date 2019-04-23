@@ -51,7 +51,7 @@ public class DeleteStorageResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteStorageResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteStorageResultCodingKeys.self)
         try encoderContainer.encode(message, forKey: .message)
     }

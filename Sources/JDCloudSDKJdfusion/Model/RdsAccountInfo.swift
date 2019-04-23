@@ -71,7 +71,7 @@ public class RdsAccountInfo:NSObject,Codable{
     }
 }
 public extension RdsAccountInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RdsAccountInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(status, forKey: .status)

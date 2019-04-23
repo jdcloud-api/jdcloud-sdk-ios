@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,11 +26,13 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  添加域名录制配置
+///  添加域名级别直播录制配置
+      ///       /// - 添加域名级别的直播录制模板配置
+      ///       /// 
 @objc(AddLiveStreamDomainRecordRequest)
 public class AddLiveStreamDomainRecordRequest:JdCloudRequest
 {
-    /// 您的推流加速域名
+    /// 推流域名
     var publishDomain:String
 
     /// 录制模版

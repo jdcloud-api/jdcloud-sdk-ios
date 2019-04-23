@@ -57,7 +57,7 @@ public class InstanceTypeState:NSObject,Codable{
     }
 }
 public extension InstanceTypeState{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceTypeStateCodingKeys.self)
          try encoderContainer.encode(az, forKey: .az)
          try encoderContainer.encode(inStock, forKey: .inStock)

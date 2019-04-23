@@ -60,7 +60,7 @@ public class LastDownsampleRespItem:NSObject,Codable{
     }
 }
 public extension LastDownsampleRespItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: LastDownsampleRespItemCodingKeys.self)
          try encoderContainer.encode(metric, forKey: .metric)
          try encoderContainer.encode(name, forKey: .name)

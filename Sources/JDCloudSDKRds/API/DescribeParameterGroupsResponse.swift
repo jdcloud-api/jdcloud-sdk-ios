@@ -49,7 +49,7 @@ public class DescribeParameterGroupsResponse:NSObject,Codable
 }
 
 public extension DescribeParameterGroupsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeParameterGroupsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

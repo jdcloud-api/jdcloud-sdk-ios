@@ -67,7 +67,7 @@ public class DescribeFwdGraphResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeFwdGraphResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeFwdGraphResultCodingKeys.self)
         try encoderContainer.encode(forwardRecord, forKey: .forwardRecord)
         try encoderContainer.encode(time, forKey: .time)

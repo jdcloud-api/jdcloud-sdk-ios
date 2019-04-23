@@ -71,7 +71,7 @@ public class DataMediaInfo:NSObject,Codable{
     }
 }
 public extension DataMediaInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataMediaInfoCodingKeys.self)
          try encoderContainer.encode(cloud, forKey: .cloud)
          try encoderContainer.encode(datasource, forKey: .datasource)

@@ -140,7 +140,7 @@ public class StackOut:NSObject,Codable{
     }
 }
 public extension StackOut{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StackOutCodingKeys.self)
          try encoderContainer.encode(action, forKey: .action)
          try encoderContainer.encode(canUpdate, forKey: .canUpdate)

@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   用户管理接口
-   用户管理接口
+   User Management
+   User Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -49,7 +49,7 @@ public class EnabledUserAccessKeyResponse:NSObject,Codable
 }
 
 public extension EnabledUserAccessKeyResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: EnabledUserAccessKeyResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -59,7 +59,7 @@ public class QueryMyCustomerListResult:NSObject,JdCloudResult
     }
 }
 public extension QueryMyCustomerListResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryMyCustomerListResultCodingKeys.self)
         try encoderContainer.encode(pagination, forKey: .pagination)
         try encoderContainer.encode(result, forKey: .result)

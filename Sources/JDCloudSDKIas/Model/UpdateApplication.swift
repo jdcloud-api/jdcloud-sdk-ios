@@ -169,7 +169,7 @@ public class UpdateApplication:NSObject,Codable{
     }
 }
 public extension UpdateApplication{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateApplicationCodingKeys.self)
          try encoderContainer.encode(clientName, forKey: .clientName)
          try encoderContainer.encode(tokenEndpointAuthMethod, forKey: .tokenEndpointAuthMethod)

@@ -49,7 +49,7 @@ public class DescribeDeadLetterNumbersWithTopicResponse:NSObject,Codable
 }
 
 public extension DescribeDeadLetterNumbersWithTopicResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeDeadLetterNumbersWithTopicResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

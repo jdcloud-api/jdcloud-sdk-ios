@@ -49,7 +49,7 @@ public class CloneDeploymentResponse:NSObject,Codable
 }
 
 public extension CloneDeploymentResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CloneDeploymentResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

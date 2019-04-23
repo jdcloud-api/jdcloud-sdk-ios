@@ -112,7 +112,7 @@ public class UpdateCmAlarmSpec:NSObject,Codable{
     }
 }
 public extension UpdateCmAlarmSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateCmAlarmSpecCodingKeys.self)
          try encoderContainer.encode(calculation, forKey: .calculation)
          try encoderContainer.encode(contactGroups, forKey: .contactGroups)

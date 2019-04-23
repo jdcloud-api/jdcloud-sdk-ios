@@ -62,7 +62,7 @@ public class VpcSpec:NSObject,Codable{
     }
 }
 public extension VpcSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcSpecCodingKeys.self)
          try encoderContainer.encode(vpcName, forKey: .vpcName)
          try encoderContainer.encode(addressPrefix, forKey: .addressPrefix)

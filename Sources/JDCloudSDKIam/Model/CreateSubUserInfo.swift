@@ -27,36 +27,36 @@ import Foundation
 ///  createSubUserInfo
 @objc(CreateSubUserInfo)
 public class CreateSubUserInfo:NSObject,Codable{
-    /// 子账号用户名，4~20位数字、字母、中文、下划线、中划线
+    /// 子用户名：支持4-20位的字母，数字以及-和_，以字母开头
     /// Required:true
     var name:String
     /// 描述，0~256个字符
     var descriptionValue:String?
-    /// 密码，6~20位，至少包含一个字母，至少包含一个数字或半角符号
+    /// 按照密码策略设置，默认8~20位，至少包含一个小写字母、大写字母和数字
     /// Required:true
     var password:String
-    /// 手机号码，区号-手机号，目前只支持0086-中国手机号码
+    /// 手机号码，区号-手机号
     /// Required:true
     var phone:String
     /// 邮箱
     /// Required:true
     var email:String
-    /// 确认密码
-    /// Required:true
-    var passwordConfirm:String
-    /// 是否创建accessKey
-    /// Required:true
-    var createAk:Bool
+    /// 是否创建accessKey，默认false
+    var createAk:Bool?
+    /// 子用户首次登录是否需要重置密码，默认false
+    var needResetPassword:Bool?
+    /// 子用户是否支持控制台登录，默认true
+    var consoleLogin:Bool?
+    /// 是否自动生成密码，默认false
+    var autoGeneratePassword:Bool?
 
 
 
-    public  init(name:String,password:String,phone:String,email:String,passwordConfirm:String,createAk:Bool){
+    public  init(name:String,password:String,phone:String,email:String){
              self.name = name
              self.password = password
              self.phone = phone
              self.email = email
-             self.passwordConfirm = passwordConfirm
-             self.createAk = createAk
     }
 
     enum CreateSubUserInfoCodingKeys: String, CodingKey {
@@ -65,8 +65,10 @@ public class CreateSubUserInfo:NSObject,Codable{
         case password
         case phone
         case email
-        case passwordConfirm
         case createAk
+        case needResetPassword
+        case consoleLogin
+        case autoGeneratePassword
     }
 
 
@@ -80,19 +82,35 @@ public class CreateSubUserInfo:NSObject,Codable{
         self.password = try decoderContainer.decode(String.self, forKey: .password)
         self.phone = try decoderContainer.decode(String.self, forKey: .phone)
         self.email = try decoderContainer.decode(String.self, forKey: .email)
-        self.passwordConfirm = try decoderContainer.decode(String.self, forKey: .passwordConfirm)
-        self.createAk = try decoderContainer.decode(Bool.self, forKey: .createAk)
+        if decoderContainer.contains(.createAk)
+        {
+            self.createAk = try decoderContainer.decode(Bool?.self, forKey: .createAk)
+        }
+        if decoderContainer.contains(.needResetPassword)
+        {
+            self.needResetPassword = try decoderContainer.decode(Bool?.self, forKey: .needResetPassword)
+        }
+        if decoderContainer.contains(.consoleLogin)
+        {
+            self.consoleLogin = try decoderContainer.decode(Bool?.self, forKey: .consoleLogin)
+        }
+        if decoderContainer.contains(.autoGeneratePassword)
+        {
+            self.autoGeneratePassword = try decoderContainer.decode(Bool?.self, forKey: .autoGeneratePassword)
+        }
     }
 }
 public extension CreateSubUserInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateSubUserInfoCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(password, forKey: .password)
          try encoderContainer.encode(phone, forKey: .phone)
          try encoderContainer.encode(email, forKey: .email)
-         try encoderContainer.encode(passwordConfirm, forKey: .passwordConfirm)
          try encoderContainer.encode(createAk, forKey: .createAk)
+         try encoderContainer.encode(needResetPassword, forKey: .needResetPassword)
+         try encoderContainer.encode(consoleLogin, forKey: .consoleLogin)
+         try encoderContainer.encode(autoGeneratePassword, forKey: .autoGeneratePassword)
     }
 }

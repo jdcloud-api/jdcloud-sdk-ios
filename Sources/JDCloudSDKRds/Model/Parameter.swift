@@ -27,15 +27,18 @@ import Foundation
 ///  parameter
 @objc(Parameter)
 public class Parameter:NSObject,Codable{
-    /// 参数名称,目前支持以下参数:max_worker_threads,max_degree_of_parallelism,max_server_memory_(MB)
-    var name:String?
+    /// 参数名称
+    /// Required:true
+    var name:String
     /// 参数修改值
-    var value:String?
+    /// Required:true
+    var value:String
 
 
 
-    public override init(){
-            super.init()
+    public  init(name:String,value:String){
+             self.name = name
+             self.value = value
     }
 
     enum ParameterCodingKeys: String, CodingKey {
@@ -46,18 +49,12 @@ public class Parameter:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ParameterCodingKeys.self)
-        if decoderContainer.contains(.name)
-        {
-            self.name = try decoderContainer.decode(String?.self, forKey: .name)
-        }
-        if decoderContainer.contains(.value)
-        {
-            self.value = try decoderContainer.decode(String?.self, forKey: .value)
-        }
+        self.name = try decoderContainer.decode(String.self, forKey: .name)
+        self.value = try decoderContainer.decode(String.self, forKey: .value)
     }
 }
 public extension Parameter{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ParameterCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(value, forKey: .value)

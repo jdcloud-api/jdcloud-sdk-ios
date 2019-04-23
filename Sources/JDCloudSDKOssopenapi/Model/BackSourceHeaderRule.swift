@@ -71,7 +71,7 @@ public class BackSourceHeaderRule:NSObject,Codable{
     }
 }
 public extension BackSourceHeaderRule{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackSourceHeaderRuleCodingKeys.self)
          try encoderContainer.encode(allowAllHeaders, forKey: .allowAllHeaders)
          try encoderContainer.encode(allowHeaders, forKey: .allowHeaders)

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -30,13 +30,20 @@ import JDCloudSDKCore
 @objc(DescribeLiveDomainsRequest)
 public class DescribeLiveDomainsRequest:JdCloudRequest
 {
-    /// 页码；默认为1；取值范围[1, 100000]
+    /// 页码
+      /// - 取值范围[1, 100000]
+      /// 
     var pageNum:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小
+      /// - 取值范围[10, 100]
+      /// 
     var pageSize:Int?
 
-    /// 域名
+    /// 推流域名
+      /// - 目前仅支持精确查询
+      /// - 为空时,查询用户所有直播域名
+      /// 
     var publishDomain:String?
 
 

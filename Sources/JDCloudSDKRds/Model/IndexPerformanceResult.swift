@@ -113,7 +113,7 @@ public class IndexPerformanceResult:NSObject,Codable{
     }
 }
 public extension IndexPerformanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IndexPerformanceResultCodingKeys.self)
          try encoderContainer.encode(db, forKey: .db)
          try encoderContainer.encode(table, forKey: .table)

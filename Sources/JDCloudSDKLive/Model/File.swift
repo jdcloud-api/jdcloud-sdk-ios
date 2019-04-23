@@ -27,18 +27,26 @@ import Foundation
 ///  file
 @objc(File)
 public class File:NSObject,Codable{
-    /// 流所属加速域名
+    /// 推流域名
     var publishDomain:String?
-    /// 流所属应用名称
+    /// 应用名称
     var appName:String?
-    /// 直播流名称
+    /// 流名称
     var streamName:String?
     /// 开始时间
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例:2018-10-21T10:00:00Z
+      /// 
     var startTime:String?
     /// 结束时间
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例:2018-10-21T10:00:00Z
+      /// 
     var endTime:String?
     /// 录制时长
-    var duration:Double?
+    var duration:Int64?
     /// 视频高
     var height:Int?
     /// 视频宽
@@ -95,7 +103,7 @@ public class File:NSObject,Codable{
         }
         if decoderContainer.contains(.duration)
         {
-            self.duration = try decoderContainer.decode(Double?.self, forKey: .duration)
+            self.duration = try decoderContainer.decode(Int64?.self, forKey: .duration)
         }
         if decoderContainer.contains(.height)
         {
@@ -120,7 +128,7 @@ public class File:NSObject,Codable{
     }
 }
 public extension File{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FileCodingKeys.self)
          try encoderContainer.encode(publishDomain, forKey: .publishDomain)
          try encoderContainer.encode(appName, forKey: .appName)

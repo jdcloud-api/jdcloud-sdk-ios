@@ -59,7 +59,7 @@ public class ListDeadLettersResult:NSObject,JdCloudResult
     }
 }
 public extension ListDeadLettersResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListDeadLettersResultCodingKeys.self)
         try encoderContainer.encode(deadLetters, forKey: .deadLetters)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

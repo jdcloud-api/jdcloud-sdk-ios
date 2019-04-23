@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 根据过滤条件，取得指定RDS实例上的账号信息
+/// 取得指定RDS实例上的指定账号信息
 @objc(GetRdsAccountsByInstIdAndAccountNameResult)
 public class GetRdsAccountsByInstIdAndAccountNameResult:NSObject,JdCloudResult
 {
@@ -51,7 +51,7 @@ public class GetRdsAccountsByInstIdAndAccountNameResult:NSObject,JdCloudResult
     }
 }
 public extension GetRdsAccountsByInstIdAndAccountNameResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetRdsAccountsByInstIdAndAccountNameResultCodingKeys.self)
         try encoderContainer.encode(account, forKey: .account)
     }

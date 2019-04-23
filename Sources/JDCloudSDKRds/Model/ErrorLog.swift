@@ -85,7 +85,7 @@ public class ErrorLog:NSObject,Codable{
     }
 }
 public extension ErrorLog{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ErrorLogCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(sizeByte, forKey: .sizeByte)

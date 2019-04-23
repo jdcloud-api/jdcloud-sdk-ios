@@ -72,7 +72,7 @@ public class SecretVersionItem:NSObject,Codable{
     }
 }
 public extension SecretVersionItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SecretVersionItemCodingKeys.self)
          try encoderContainer.encode(secretVersion, forKey: .secretVersion)
          try encoderContainer.encode(secretStatus, forKey: .secretStatus)

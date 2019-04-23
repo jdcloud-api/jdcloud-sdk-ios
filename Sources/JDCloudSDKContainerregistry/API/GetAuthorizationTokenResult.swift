@@ -70,7 +70,7 @@ public class GetAuthorizationTokenResult:NSObject,JdCloudResult
     }
 }
 public extension GetAuthorizationTokenResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetAuthorizationTokenResultCodingKeys.self)
         try encoderContainer.encode(authorizationToken, forKey: .authorizationToken)
         try encoderContainer.encode(loginCmdLine, forKey: .loginCmdLine)

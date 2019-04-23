@@ -59,7 +59,7 @@ public class DescribeResourceTypeSpecificationResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeResourceTypeSpecificationResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeResourceTypeSpecificationResultCodingKeys.self)
         try encoderContainer.encode(propertyTypes, forKey: .propertyTypes)
         try encoderContainer.encode(resourceTypes, forKey: .resourceTypes)

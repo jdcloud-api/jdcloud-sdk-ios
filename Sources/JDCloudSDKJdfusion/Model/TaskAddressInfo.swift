@@ -39,6 +39,8 @@ public class TaskAddressInfo:NSObject,Codable{
     var bucket:String?
     /// 源地址的Prefix，不能以/开头
     var prefix:String?
+    /// 云信息ID
+    var cloudID:String?
 
 
 
@@ -53,6 +55,7 @@ public class TaskAddressInfo:NSObject,Codable{
         case endpoint
         case bucket
         case prefix
+        case cloudID
     }
 
 
@@ -82,10 +85,14 @@ public class TaskAddressInfo:NSObject,Codable{
         {
             self.prefix = try decoderContainer.decode(String?.self, forKey: .prefix)
         }
+        if decoderContainer.contains(.cloudID)
+        {
+            self.cloudID = try decoderContainer.decode(String?.self, forKey: .cloudID)
+        }
     }
 }
 public extension TaskAddressInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TaskAddressInfoCodingKeys.self)
          try encoderContainer.encode(storageType, forKey: .storageType)
          try encoderContainer.encode(accessKey, forKey: .accessKey)
@@ -93,5 +100,6 @@ public extension TaskAddressInfo{
          try encoderContainer.encode(endpoint, forKey: .endpoint)
          try encoderContainer.encode(bucket, forKey: .bucket)
          try encoderContainer.encode(prefix, forKey: .prefix)
+         try encoderContainer.encode(cloudID, forKey: .cloudID)
     }
 }

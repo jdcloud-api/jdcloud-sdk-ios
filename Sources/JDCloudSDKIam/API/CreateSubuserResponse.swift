@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   用户管理接口
-   用户管理接口
+   SubUser Management
+   SubUser Management API
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,32 +25,32 @@
 import Foundation
 import JDCloudSDKCore
 
-@objc(CreateSubuserResponse)
-public class CreateSubuserResponse:NSObject,Codable
+@objc(CreateSubUserResponse)
+public class CreateSubUserResponse:NSObject,Codable
 {
     var requestId:String?;
 
     var error:ServiceError?;
 
-    var result:CreateSubuserResult?;
+    var result:CreateSubUserResult?;
 
-    enum CreateSubuserResponseCodingKeys: String, CodingKey {
+    enum CreateSubUserResponseCodingKeys: String, CodingKey {
         case requestId
         case error
         case result
     }
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: CreateSubuserResponseCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: CreateSubUserResponseCodingKeys.self)
         self.requestId = try decoderContainer.decodeIfPresent(String?.self, forKey: .requestId) ?? nil
         self.error = try decoderContainer.decodeIfPresent(ServiceError?.self, forKey: .error) ?? nil
-        self.result = try decoderContainer.decodeIfPresent(CreateSubuserResult?.self, forKey: .result) ?? nil
+        self.result = try decoderContainer.decodeIfPresent(CreateSubUserResult?.self, forKey: .result) ?? nil
     }
 }
 
-public extension CreateSubuserResponse{
-        public func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: CreateSubuserResponseCodingKeys.self)
+public extension CreateSubUserResponse{
+        func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: CreateSubUserResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)
         try encoderContainer.encode(result, forKey: .result)

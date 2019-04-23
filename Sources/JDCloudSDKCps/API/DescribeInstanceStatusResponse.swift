@@ -49,7 +49,7 @@ public class DescribeInstanceStatusResponse:NSObject,Codable
 }
 
 public extension DescribeInstanceStatusResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstanceStatusResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

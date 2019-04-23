@@ -84,7 +84,7 @@ public class KeyInfo:NSObject,Codable{
     }
 }
 public extension KeyInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: KeyInfoCodingKeys.self)
          try encoderContainer.encode(keyId, forKey: .keyId)
          try encoderContainer.encode(keyName, forKey: .keyName)

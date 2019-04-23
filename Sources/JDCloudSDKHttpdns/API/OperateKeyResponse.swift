@@ -49,7 +49,7 @@ public class OperateKeyResponse:NSObject,Codable
 }
 
 public extension OperateKeyResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OperateKeyResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -71,7 +71,7 @@ public class CCDefaultThresholds:NSObject,Codable{
     }
 }
 public extension CCDefaultThresholds{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CCDefaultThresholdsCodingKeys.self)
          try encoderContainer.encode(hostQps, forKey: .hostQps)
          try encoderContainer.encode(hostUrlQps, forKey: .hostUrlQps)

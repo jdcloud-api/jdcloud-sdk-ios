@@ -67,7 +67,7 @@ public class ListSaleServiceResult:NSObject,JdCloudResult
     }
 }
 public extension ListSaleServiceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListSaleServiceResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

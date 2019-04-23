@@ -29,8 +29,8 @@ import Foundation
 public class StatisticsWithAreaGroupDetailItem:NSObject,Codable{
     /// Area
     var area:String?
-    /// 查询结果,类型为HashMap&lt;String, Object&gt;
-    var ispStat:[String:String?]?
+    /// IspStat
+    var ispStat:[[String:String?]?]?
 
 
 
@@ -52,12 +52,12 @@ public class StatisticsWithAreaGroupDetailItem:NSObject,Codable{
         }
         if decoderContainer.contains(.ispStat)
         {
-            self.ispStat = try decoderContainer.decode([String:String?]?.self, forKey: .ispStat)
+            self.ispStat = try decoderContainer.decode([[String:String?]?]?.self, forKey: .ispStat)
         }
     }
 }
 public extension StatisticsWithAreaGroupDetailItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsWithAreaGroupDetailItemCodingKeys.self)
          try encoderContainer.encode(area, forKey: .area)
          try encoderContainer.encode(ispStat, forKey: .ispStat)

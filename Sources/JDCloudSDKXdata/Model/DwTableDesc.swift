@@ -119,7 +119,7 @@ public class DwTableDesc:NSObject,Codable{
     }
 }
 public extension DwTableDesc{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DwTableDescCodingKeys.self)
          try encoderContainer.encode(dbName, forKey: .dbName)
          try encoderContainer.encode(tableName, forKey: .tableName)

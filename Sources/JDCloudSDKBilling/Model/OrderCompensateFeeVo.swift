@@ -106,7 +106,7 @@ public class OrderCompensateFeeVo:NSObject,Codable{
     }
 }
 public extension OrderCompensateFeeVo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderCompensateFeeVoCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(appCode, forKey: .appCode)

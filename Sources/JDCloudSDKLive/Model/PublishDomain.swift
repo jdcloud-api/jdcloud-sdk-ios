@@ -29,13 +29,26 @@ import Foundation
 public class PublishDomain:NSObject,Codable{
     /// 推流域名
     var publishDomainValue:String?
-    /// 推流域名(Cname)
+    /// 推流域名Cname
     var publishDomainCname:String?
     /// 直播域名状态
+      ///   online: 启用
+      ///   offline: 停用
+      ///   configuring: 配置中
+      ///   configure_failed: 配置失败
+      ///   checking: 正在审核
+      ///   check_failed: 审核失败
+      /// 
     var domainStatus:String?
-    /// 创建时间
+    /// 域名创建时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var createTime:String?
-    /// 更新时间
+    /// 域名更新时间
+      /// - UTC时间
+      ///   格式: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      /// 
     var updateTime:String?
 
 
@@ -78,7 +91,7 @@ public class PublishDomain:NSObject,Codable{
     }
 }
 public extension PublishDomain{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PublishDomainCodingKeys.self)
          try encoderContainer.encode(publishDomainValue, forKey: .publishDomainValue)
          try encoderContainer.encode(publishDomainCname, forKey: .publishDomainCname)

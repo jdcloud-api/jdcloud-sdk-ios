@@ -49,7 +49,7 @@ public class DescribeAuditFilesResponse:NSObject,Codable
 }
 
 public extension DescribeAuditFilesResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAuditFilesResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

@@ -85,7 +85,7 @@ public class MonitorAlarmInfo:NSObject,Codable{
     }
 }
 public extension MonitorAlarmInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MonitorAlarmInfoCodingKeys.self)
          try encoderContainer.encode(domainId, forKey: .domainId)
          try encoderContainer.encode(subDomainName, forKey: .subDomainName)

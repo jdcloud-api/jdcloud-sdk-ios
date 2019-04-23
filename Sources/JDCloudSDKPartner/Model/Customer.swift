@@ -190,7 +190,7 @@ public class Customer:NSObject,Codable{
     }
 }
 public extension Customer{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CustomerCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(pin, forKey: .pin)

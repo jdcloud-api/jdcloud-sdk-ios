@@ -67,7 +67,7 @@ public class ReturnErrorInfo:NSObject,Codable{
     }
 }
 public extension ReturnErrorInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnErrorInfoCodingKeys.self)
          try encoderContainer.encode(code, forKey: .code)
          try encoderContainer.encode(msg, forKey: .msg)

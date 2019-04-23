@@ -49,7 +49,7 @@ public class CreateTransferTaskResponse:NSObject,Codable
 }
 
 public extension CreateTransferTaskResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateTransferTaskResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

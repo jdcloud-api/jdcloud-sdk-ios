@@ -59,7 +59,7 @@ public class UpdateTopicResult:NSObject,JdCloudResult
     }
 }
 public extension UpdateTopicResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateTopicResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

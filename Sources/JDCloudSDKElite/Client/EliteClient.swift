@@ -102,6 +102,27 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func getStoreServiceAsync(request:GetStoreServiceRequest,requestComplation:@escaping (NSNumber?,GetStoreServiceResponse?,NSError?,NSString?)->()) throws {
+        eliteJDCloudClient = self
+        try GetStoreServiceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetStoreServiceResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func confirmSaleServiceDeliveryAsync(request:ConfirmSaleServiceDeliveryRequest,requestComplation:@escaping (NSNumber?,ConfirmSaleServiceDeliveryResponse?,NSError?,NSString?)->()) throws {
         eliteJDCloudClient = self
         try ConfirmSaleServiceDeliveryExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -148,7 +169,7 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
 
 public extension EliteJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

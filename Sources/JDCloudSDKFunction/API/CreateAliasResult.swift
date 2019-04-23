@@ -51,7 +51,7 @@ public class CreateAliasResult:NSObject,JdCloudResult
     }
 }
 public extension CreateAliasResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateAliasResultCodingKeys.self)
         try encoderContainer.encode(data, forKey: .data)
     }

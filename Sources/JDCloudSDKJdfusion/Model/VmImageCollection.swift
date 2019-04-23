@@ -50,7 +50,7 @@ public class VmImageCollection:NSObject,Codable{
     }
 }
 public extension VmImageCollection{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VmImageCollectionCodingKeys.self)
          try encoderContainer.encode(images, forKey: .images)
     }

@@ -166,7 +166,7 @@ public class CreateAlarmParam:NSObject,Codable{
     }
 }
 public extension CreateAlarmParam{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateAlarmParamCodingKeys.self)
          try encoderContainer.encode(calculateUnit, forKey: .calculateUnit)
          try encoderContainer.encode(calculation, forKey: .calculation)

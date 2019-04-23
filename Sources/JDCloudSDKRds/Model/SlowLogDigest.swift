@@ -106,7 +106,7 @@ public class SlowLogDigest:NSObject,Codable{
     }
 }
 public extension SlowLogDigest{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SlowLogDigestCodingKeys.self)
          try encoderContainer.encode(dbName, forKey: .dbName)
          try encoderContainer.encode(sql, forKey: .sql)

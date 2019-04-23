@@ -51,7 +51,7 @@ public class CreateVpcPeeringResult:NSObject,JdCloudResult
     }
 }
 public extension CreateVpcPeeringResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcPeeringResultCodingKeys.self)
         try encoderContainer.encode(vpcPeering, forKey: .vpcPeering)
     }

@@ -57,7 +57,7 @@ public class BackupSpec:NSObject,Codable{
     }
 }
 public extension BackupSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BackupSpecCodingKeys.self)
          try encoderContainer.encode(backupName, forKey: .backupName)
          try encoderContainer.encode(dbNames, forKey: .dbNames)

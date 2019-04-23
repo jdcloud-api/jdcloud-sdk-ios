@@ -225,7 +225,7 @@ public class DistributorResult:NSObject,Codable{
     }
 }
 public extension DistributorResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DistributorResultCodingKeys.self)
          try encoderContainer.encode(distributorId, forKey: .distributorId)
          try encoderContainer.encode(distributorName, forKey: .distributorName)

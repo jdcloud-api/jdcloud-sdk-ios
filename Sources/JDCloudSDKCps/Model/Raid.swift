@@ -85,7 +85,7 @@ public class Raid:NSObject,Codable{
     }
 }
 public extension Raid{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RaidCodingKeys.self)
          try encoderContainer.encode(volumeType, forKey: .volumeType)
          try encoderContainer.encode(volumeDetail, forKey: .volumeDetail)

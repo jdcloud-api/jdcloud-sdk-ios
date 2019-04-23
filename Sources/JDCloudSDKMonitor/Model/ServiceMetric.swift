@@ -57,7 +57,7 @@ public class ServiceMetric:NSObject,Codable{
     }
 }
 public extension ServiceMetric{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ServiceMetricCodingKeys.self)
          try encoderContainer.encode(metric, forKey: .metric)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)

@@ -204,7 +204,7 @@ public class OperatorPrePayAchievement:NSObject,Codable{
     }
 }
 public extension OperatorPrePayAchievement{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OperatorPrePayAchievementCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(name, forKey: .name)

@@ -259,7 +259,7 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
     }
 }
 public extension GetDomainDetailResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainDetailResultCodingKeys.self)
         try encoderContainer.encode(allStatus, forKey: .allStatus)
         try encoderContainer.encode(allowNoReferHeader, forKey: .allowNoReferHeader)

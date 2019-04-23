@@ -49,7 +49,7 @@ public class DisableInterceptResponse:NSObject,Codable
 }
 
 public extension DisableInterceptResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisableInterceptResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

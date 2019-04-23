@@ -64,7 +64,7 @@ public class StatisticsWithAreaGroupDetail:NSObject,Codable{
     }
 }
 public extension StatisticsWithAreaGroupDetail{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsWithAreaGroupDetailCodingKeys.self)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(endTime, forKey: .endTime)

@@ -49,7 +49,7 @@ public class DescribeImageConstraintsBatchResponse:NSObject,Codable
 }
 
 public extension DescribeImageConstraintsBatchResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeImageConstraintsBatchResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

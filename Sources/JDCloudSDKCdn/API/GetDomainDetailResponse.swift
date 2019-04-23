@@ -49,7 +49,7 @@ public class GetDomainDetailResponse:NSObject,Codable
 }
 
 public extension GetDomainDetailResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetDomainDetailResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

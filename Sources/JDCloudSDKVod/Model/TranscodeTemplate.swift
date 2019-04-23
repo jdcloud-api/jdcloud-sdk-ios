@@ -113,7 +113,7 @@ public class TranscodeTemplate:NSObject,Codable{
     }
 }
 public extension TranscodeTemplate{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TranscodeTemplateCodingKeys.self)
          try encoderContainer.encode(coderateId, forKey: .coderateId)
          try encoderContainer.encode(name, forKey: .name)

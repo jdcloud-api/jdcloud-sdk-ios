@@ -27,25 +27,57 @@ import Foundation
 ///  transcodeInfo
 @objc(TranscodeInfo)
 public class TranscodeInfo:NSObject,Codable{
-    /// 转码输出的码率值
+    /// 转码输出的码率值:
+      ///   - 取值: [200,3000]
+      ///   - 单位: kpbs
+      /// 
     var videoCodeRate:Int?
-    /// 转码输出的帧率值
+    /// 转码输出的帧率值:
+      ///   - 取值: 15/1、25/1、30/1、60/1
+      /// 
     var videoFrameRate:String?
-    /// 转码输出视频宽度
+    /// 转码输出视频宽度:
+      ///   - 取值: [100,1920]
+      ///   - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
+      ///   - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
+      /// 
     var width:Int?
-    /// 转码输出视频宽度
+    /// 转码输出视频宽度:
+      ///   - 取值: [100,1920]
+      ///   - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
+      ///   - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
+      /// 
     var height:Int?
-    /// 转码模板自定义名称
+    /// 转码模板自定义名称:
+      ///   - 自定义模板: 枚举类型校验，忽略大小写，自动删除空格,
+      ///               取值要求：数字、大小写字母或短横线(&quot;-&quot;),
+      ///               首尾不能有特殊字符(&quot;-&quot;)
+      ///   - 注意: 不能与标准的转码模板和已定义命名重复
+      /// 
     var template:String?
-    /// 转码输出音频编码格式
+    /// 转码输出音频编码格式:
+      ///   - 取值: aac、mp3
+      ///   - 不区分大小写
+      /// 
     var audioCodec:String?
-    /// 转码输出音频格式
+    /// 转码输出音频格式:
+      ///   - 取值: aac_lc，aac_low，aac_he，aac_he_v2
+      ///   - 不区分大小写
+      /// 
     var audioFormat:String?
-    /// 转码输出音频采样率
+    /// 转码输出音频采样率:
+      ///   - 取值: [44100,48000]
+      /// 
     var audioSampleRate:Int?
-    /// 转码输出音频通道数
+    /// 转码输出音频通道数:
+      ///   - 1  单声道
+      ///   - 2  双声道
+      /// 
     var audioChannel:Int?
-    /// 转码输出音频码率
+    /// 转码输出音频码率:
+      ///   - 取值: [16,128]
+      ///   - 单位: kbps
+      /// 
     var audioCodeRate:Int?
 
 
@@ -113,7 +145,7 @@ public class TranscodeInfo:NSObject,Codable{
     }
 }
 public extension TranscodeInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TranscodeInfoCodingKeys.self)
          try encoderContainer.encode(videoCodeRate, forKey: .videoCodeRate)
          try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)

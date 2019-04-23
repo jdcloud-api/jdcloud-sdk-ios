@@ -59,7 +59,7 @@ public class DescribeInstancePrivateIpAddressResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeInstancePrivateIpAddressResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstancePrivateIpAddressResultCodingKeys.self)
         try encoderContainer.encode(instancePrivateIpAddress, forKey: .instancePrivateIpAddress)
         try encoderContainer.encode(totalCount, forKey: .totalCount)

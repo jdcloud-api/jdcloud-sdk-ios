@@ -104,7 +104,7 @@ public class NetworkInterfaceSpec:NSObject,Codable{
     }
 }
 public extension NetworkInterfaceSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetworkInterfaceSpecCodingKeys.self)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(az, forKey: .az)

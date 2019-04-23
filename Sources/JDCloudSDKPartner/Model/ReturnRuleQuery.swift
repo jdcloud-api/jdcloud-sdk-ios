@@ -148,7 +148,7 @@ public class ReturnRuleQuery:NSObject,Codable{
     }
 }
 public extension ReturnRuleQuery{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ReturnRuleQueryCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(deptId, forKey: .deptId)

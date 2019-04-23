@@ -220,7 +220,7 @@ public class CreateVm:NSObject,Codable{
     }
 }
 public extension CreateVm{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVmCodingKeys.self)
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(region, forKey: .region)

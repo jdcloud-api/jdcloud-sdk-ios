@@ -207,6 +207,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func getDeploymentsResultsByIdRecordAsync(request:GetDeploymentsResultsByIdRecordRequest,requestComplation:@escaping (NSNumber?,GetDeploymentsResultsByIdRecordResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GetDeploymentsResultsByIdRecordExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetDeploymentsResultsByIdRecordResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func rollbackDeploymentsVersionAsync(request:RollbackDeploymentsVersionRequest,requestComplation:@escaping (NSNumber?,RollbackDeploymentsVersionResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try RollbackDeploymentsVersionExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -320,6 +341,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(GetVpcNetworkInterfaceByIdResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func deleteSecurityGroupsRuleAsync(request:DeleteSecurityGroupsRuleRequest,requestComplation:@escaping (NSNumber?,DeleteSecurityGroupsRuleResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try DeleteSecurityGroupsRuleExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteSecurityGroupsRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -501,6 +543,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func stopSlbListenerAsync(request:StopSlbListenerRequest,requestComplation:@escaping (NSNumber?,StopSlbListenerResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try StopSlbListenerExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(StopSlbListenerResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func getDeploymentsByIdAsync(request:GetDeploymentsByIdRequest,requestComplation:@escaping (NSNumber?,GetDeploymentsByIdResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try GetDeploymentsByIdExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -543,6 +606,48 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func getRdsSpecificationAsync(request:GetRdsSpecificationRequest,requestComplation:@escaping (NSNumber?,GetRdsSpecificationResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GetRdsSpecificationExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetRdsSpecificationResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func validCloudInfoAsync(request:ValidCloudInfoRequest,requestComplation:@escaping (NSNumber?,ValidCloudInfoResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try ValidCloudInfoExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ValidCloudInfoResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func startChannelAsync(request:StartChannelRequest,requestComplation:@escaping (NSNumber?,StartChannelResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try StartChannelExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -551,6 +656,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(StartChannelResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func deleteVserverGroupAsync(request:DeleteVserverGroupRequest,requestComplation:@escaping (NSNumber?,DeleteVserverGroupResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try DeleteVserverGroupExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteVserverGroupResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -740,6 +866,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(StopTransferTaskResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func getVserverGroupsByIdAsync(request:GetVserverGroupsByIdRequest,requestComplation:@escaping (NSNumber?,GetVserverGroupsByIdResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GetVserverGroupsByIdExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetVserverGroupsByIdResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1194,6 +1341,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func getLbHttpListenerAsync(request:GetLbHttpListenerRequest,requestComplation:@escaping (NSNumber?,GetLbHttpListenerResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GetLbHttpListenerExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetLbHttpListenerResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func dryrunDeploymentAsync(request:DryrunDeploymentRequest,requestComplation:@escaping (NSNumber?,DryrunDeploymentResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try DryrunDeploymentExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1236,6 +1404,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func getRegionsAvailableZonesAsync(request:GetRegionsAvailableZonesRequest,requestComplation:@escaping (NSNumber?,GetRegionsAvailableZonesResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GetRegionsAvailableZonesExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetRegionsAvailableZonesResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func detachDiskToVmInstanceByDiskIdAsync(request:DetachDiskToVmInstanceByDiskIdRequest,requestComplation:@escaping (NSNumber?,DetachDiskToVmInstanceByDiskIdResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try DetachDiskToVmInstanceByDiskIdExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1244,6 +1433,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DetachDiskToVmInstanceByDiskIdResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func startSlbListenerAsync(request:StartSlbListenerRequest,requestComplation:@escaping (NSNumber?,StartSlbListenerResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try StartSlbListenerExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(StartSlbListenerResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1433,6 +1643,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(GetVpcSecurityGroupsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func createSecurityGroupsRuleAsync(request:CreateSecurityGroupsRuleRequest,requestComplation:@escaping (NSNumber?,CreateSecurityGroupsRuleResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try CreateSecurityGroupsRuleExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateSecurityGroupsRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1782,6 +2013,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func startSlbAsync(request:StartSlbRequest,requestComplation:@escaping (NSNumber?,StartSlbResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try StartSlbExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(StartSlbResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func getVmInstancesByIdAsync(request:GetVmInstancesByIdRequest,requestComplation:@escaping (NSNumber?,GetVmInstancesByIdResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try GetVmInstancesByIdExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1790,6 +2042,48 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(GetVmInstancesByIdResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func getRegionsAsync(request:GetRegionsRequest,requestComplation:@escaping (NSNumber?,GetRegionsResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GetRegionsExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetRegionsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func stopSlbAsync(request:StopSlbRequest,requestComplation:@escaping (NSNumber?,StopSlbResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try StopSlbExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(StopSlbResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1971,6 +2265,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func grantRdsAccountsByTaskAsync(request:GrantRdsAccountsByTaskRequest,requestComplation:@escaping (NSNumber?,GrantRdsAccountsByTaskResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try GrantRdsAccountsByTaskExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GrantRdsAccountsByTaskResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func getDisksAsync(request:GetDisksRequest,requestComplation:@escaping (NSNumber?,GetDisksResponse?,NSError?,NSString?)->()) throws {
         jdfusionJDCloudClient = self
         try GetDisksExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -2021,6 +2336,27 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(CreateVmInstanceResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func deleteSlbsListenerAsync(request:DeleteSlbsListenerRequest,requestComplation:@escaping (NSNumber?,DeleteSlbsListenerResponse?,NSError?,NSString?)->()) throws {
+        jdfusionJDCloudClient = self
+        try DeleteSlbsListenerExecutor(jdCloudClient: jdfusionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteSlbsListenerResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -2290,7 +2626,7 @@ public class JdfusionJDCloudClient:NSObject,JDCloudClient{
 
 public extension JdfusionJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

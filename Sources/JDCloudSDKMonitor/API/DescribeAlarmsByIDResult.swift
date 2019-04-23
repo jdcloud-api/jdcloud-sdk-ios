@@ -51,7 +51,7 @@ public class DescribeAlarmsByIDResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeAlarmsByIDResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAlarmsByIDResultCodingKeys.self)
         try encoderContainer.encode(alarm, forKey: .alarm)
     }

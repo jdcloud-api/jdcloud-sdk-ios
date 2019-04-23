@@ -85,7 +85,7 @@ public class GroupInfo:NSObject,Codable{
     }
 }
 public extension GroupInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GroupInfoCodingKeys.self)
          try encoderContainer.encode(charts, forKey: .charts)
          try encoderContainer.encode(groupCode, forKey: .groupCode)

@@ -274,7 +274,7 @@ public class Monitor:NSObject,Codable{
     }
 }
 public extension Monitor{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MonitorCodingKeys.self)
          try encoderContainer.encode(alarmLimit, forKey: .alarmLimit)
          try encoderContainer.encode(canRecover, forKey: .canRecover)

@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -30,38 +30,64 @@ import JDCloudSDKCore
 @objc(AddCustomLiveStreamSnapshotTemplateRequest)
 public class AddCustomLiveStreamSnapshotTemplateRequest:JdCloudRequest
 {
-    /// 图片格式
+    /// 截图格式
+      /// - 取值: jpg, png
+      /// - 不区分大小写
+      /// 
     var format:String
 
-    /// 图片宽度
-    var width:Int
+    /// 截图宽度
+      /// - 取值: [8,8192]
+      /// - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出截图
+      /// - 如果(width,height)都不设置，则按源流大小输出截图
+      /// 
+    var width:Int?
 
-    /// 范围
-    var height:Int
+    /// 截图高度
+      /// - 取值: [8,8192]
+      /// - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出截图
+      /// - 如果(width,height)都不设置，则按源流大小输出截图
+      /// 
+    var height:Int?
 
     /// 截图与设定的宽高不匹配时的处理规则
+      ///   1: 拉伸
+      ///   2: 留黑
+      ///   3: 留白
+      ///   4: 高斯模糊
+      /// - 1是按照设定宽高拉伸
+      /// - 2,3,4是等比例的缩放多余或不足处按调置处理
+      /// 
     var fillType:Int
 
     /// 截图周期
+      /// - 取值范围 [5,3600]
+      /// - 单位: 秒
+      /// 
     var snapshotInterval:Int
 
     /// 存储模式
+      ///   1: 覆盖存储
+      ///   2: 顺序存储
+      /// 
     var saveMode:Int
 
-    /// 保存bucket
+    /// 存储桶
     var saveBucket:String
 
-    /// 保存endPoint
+    /// 存储地址
     var saveEndpoint:String
 
-    /// 录制模板自定义名称
+    /// 截图模板自定义名称:
+      /// - 取值要求: 数字、大小写字母或短横线(&quot;-&quot;),
+      ///   首尾不能有特殊字符(&quot;-&quot;)
+      /// - &lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
+      /// 
     var template:String
 
 
-    public init(regionId: String,format:String,width:Int,height:Int,fillType:Int,snapshotInterval:Int,saveMode:Int,saveBucket:String,saveEndpoint:String,template:String){
+    public init(regionId: String,format:String,fillType:Int,snapshotInterval:Int,saveMode:Int,saveBucket:String,saveEndpoint:String,template:String){
         self.format = format
-        self.width = width
-        self.height = height
         self.fillType = fillType
         self.snapshotInterval = snapshotInterval
         self.saveMode = saveMode

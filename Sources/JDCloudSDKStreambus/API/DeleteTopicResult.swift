@@ -59,7 +59,7 @@ public class DeleteTopicResult:NSObject,JdCloudResult
     }
 }
 public extension DeleteTopicResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeleteTopicResultCodingKeys.self)
         try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(message, forKey: .message)

@@ -61,7 +61,7 @@ public class SnapshotSpec:NSObject,Codable{
     }
 }
 public extension SnapshotSpec{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SnapshotSpecCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

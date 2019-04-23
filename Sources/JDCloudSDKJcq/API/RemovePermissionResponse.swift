@@ -49,7 +49,7 @@ public class RemovePermissionResponse:NSObject,Codable
 }
 
 public extension RemovePermissionResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RemovePermissionResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

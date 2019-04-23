@@ -51,7 +51,7 @@ public class GetVmInstancesResult:NSObject,JdCloudResult
     }
 }
 public extension GetVmInstancesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVmInstancesResultCodingKeys.self)
         try encoderContainer.encode(vms, forKey: .vms)
     }

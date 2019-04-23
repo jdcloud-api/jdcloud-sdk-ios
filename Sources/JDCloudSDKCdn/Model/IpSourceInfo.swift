@@ -64,7 +64,7 @@ public class IpSourceInfo:NSObject,Codable{
     }
 }
 public extension IpSourceInfo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpSourceInfoCodingKeys.self)
          try encoderContainer.encode(master, forKey: .master)
          try encoderContainer.encode(ip, forKey: .ip)

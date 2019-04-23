@@ -49,7 +49,7 @@ public class GetVmKeypairsResponse:NSObject,Codable
 }
 
 public extension GetVmKeypairsResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVmKeypairsResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

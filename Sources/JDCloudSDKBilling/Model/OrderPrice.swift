@@ -99,7 +99,7 @@ public class OrderPrice:NSObject,Codable{
     }
 }
 public extension OrderPrice{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OrderPriceCodingKeys.self)
          try encoderContainer.encode(totalPrice, forKey: .totalPrice)
          try encoderContainer.encode(totalPriceScale4, forKey: .totalPriceScale4)

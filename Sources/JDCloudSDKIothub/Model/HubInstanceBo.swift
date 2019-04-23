@@ -71,7 +71,7 @@ public class HubInstanceBo:NSObject,Codable{
     }
 }
 public extension HubInstanceBo{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: HubInstanceBoCodingKeys.self)
          try encoderContainer.encode(instanceUuid, forKey: .instanceUuid)
          try encoderContainer.encode(instanceId, forKey: .instanceId)

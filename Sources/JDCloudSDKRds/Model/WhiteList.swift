@@ -57,7 +57,7 @@ public class WhiteList:NSObject,Codable{
     }
 }
 public extension WhiteList{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WhiteListCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(ips, forKey: .ips)

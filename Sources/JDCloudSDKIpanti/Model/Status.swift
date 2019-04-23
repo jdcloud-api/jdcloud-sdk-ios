@@ -64,7 +64,7 @@ public class Status:NSObject,Codable{
     }
 }
 public extension Status{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatusCodingKeys.self)
          try encoderContainer.encode(retcode, forKey: .retcode)
          try encoderContainer.encode(code, forKey: .code)

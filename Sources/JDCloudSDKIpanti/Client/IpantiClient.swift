@@ -501,27 +501,6 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func deleteCCProtectionRuleOfWebRuleAsync(request:DeleteCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DeleteCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try DeleteCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func modifyInstanceCCAsync(request:ModifyInstanceCCRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceCCResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try ModifyInstanceCCExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1387,7 +1366,7 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 public extension IpantiJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

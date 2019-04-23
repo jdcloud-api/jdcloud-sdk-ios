@@ -49,7 +49,7 @@ public class DescribeAlarmConfigResponse:NSObject,Codable
 }
 
 public extension DescribeAlarmConfigResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeAlarmConfigResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

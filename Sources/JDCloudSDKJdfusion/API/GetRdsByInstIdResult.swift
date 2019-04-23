@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 根据云提供商查询对应的RDS实例信息
+/// 查询指定ID的RDS实例信息
 @objc(GetRdsByInstIdResult)
 public class GetRdsByInstIdResult:NSObject,JdCloudResult
 {
@@ -51,7 +51,7 @@ public class GetRdsByInstIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetRdsByInstIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetRdsByInstIdResultCodingKeys.self)
         try encoderContainer.encode(instance, forKey: .instance)
     }

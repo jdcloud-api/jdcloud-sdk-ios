@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class CreateTransferTaskRequest:JdCloudRequest
 {
     /// 
-    var task:TransferTaskInfo?
+    var task:TransferSimpleTaskInfo?
 
 
 

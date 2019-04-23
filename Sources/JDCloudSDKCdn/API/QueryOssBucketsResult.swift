@@ -55,7 +55,7 @@ public class QueryOssBucketsResult:NSObject,JdCloudResult
     }
 }
 public extension QueryOssBucketsResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryOssBucketsResultCodingKeys.self)
         try encoderContainer.encode(total, forKey: .total)
     }

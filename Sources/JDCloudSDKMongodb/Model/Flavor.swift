@@ -92,7 +92,7 @@ public class Flavor:NSObject,Codable{
     }
 }
 public extension Flavor{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FlavorCodingKeys.self)
          try encoderContainer.encode(cpu, forKey: .cpu)
          try encoderContainer.encode(memory, forKey: .memory)

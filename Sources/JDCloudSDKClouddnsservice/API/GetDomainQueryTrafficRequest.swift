@@ -30,13 +30,13 @@ import JDCloudSDKCore
 @objc(GetDomainQueryTrafficRequest)
 public class GetDomainQueryTrafficRequest:JdCloudRequest
 {
-    /// 域名
+    /// 主域名，请使用getDomains接口获取
     var domainName:String
 
-    /// 起始时间, UTC时间例如2017-11-10T23:00:00Z
+    /// 时间段的起始时间, UTC时间，例如2017-11-10T23:00:00Z
     var start:String
 
-    /// 终止时间, UTC时间例如2017-11-10T23:00:00Z
+    /// 时间段的终止时间, UTC时间，例如2017-11-10T23:00:00Z
     var end:String
 
     /// 域名ID，请使用getDomains接口获取。

@@ -176,7 +176,7 @@ public class DeviceType:NSObject,Codable{
     }
 }
 public extension DeviceType{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeviceTypeCodingKeys.self)
          try encoderContainer.encode(nameEN, forKey: .nameEN)
          try encoderContainer.encode(nameZH, forKey: .nameZH)

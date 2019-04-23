@@ -57,7 +57,7 @@ public class IpResourceFlow:NSObject,Codable{
     }
 }
 public extension IpResourceFlow{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpResourceFlowCodingKeys.self)
          try encoderContainer.encode(bps, forKey: .bps)
          try encoderContainer.encode(pps, forKey: .pps)

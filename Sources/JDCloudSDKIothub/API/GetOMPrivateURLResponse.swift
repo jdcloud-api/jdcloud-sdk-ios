@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   物模型管理
+   OMManager
    用于完成物模型管理
 
    OpenAPI spec version: v1
@@ -49,7 +49,7 @@ public class GetOMPrivateURLResponse:NSObject,Codable
 }
 
 public extension GetOMPrivateURLResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetOMPrivateURLResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

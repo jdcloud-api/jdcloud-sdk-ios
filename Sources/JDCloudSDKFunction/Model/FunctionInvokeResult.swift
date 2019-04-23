@@ -92,7 +92,7 @@ public class FunctionInvokeResult:NSObject,Codable{
     }
 }
 public extension FunctionInvokeResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FunctionInvokeResultCodingKeys.self)
          try encoderContainer.encode(result, forKey: .result)
          try encoderContainer.encode(codeCheckSum, forKey: .codeCheckSum)

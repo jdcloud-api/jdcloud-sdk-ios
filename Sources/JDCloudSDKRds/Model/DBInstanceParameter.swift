@@ -85,7 +85,7 @@ public class DBInstanceParameter:NSObject,Codable{
     }
 }
 public extension DBInstanceParameter{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DBInstanceParameterCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)

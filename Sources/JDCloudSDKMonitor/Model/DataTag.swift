@@ -64,7 +64,7 @@ public class DataTag:NSObject,Codable{
     }
 }
 public extension DataTag{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DataTagCodingKeys.self)
          try encoderContainer.encode(operation, forKey: .operation)
          try encoderContainer.encode(tagKey, forKey: .tagKey)

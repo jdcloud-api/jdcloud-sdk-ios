@@ -120,7 +120,7 @@ public class Achievement:NSObject,Codable{
     }
 }
 public extension Achievement{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AchievementCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(name, forKey: .name)

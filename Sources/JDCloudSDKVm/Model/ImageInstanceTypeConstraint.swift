@@ -57,7 +57,7 @@ public class ImageInstanceTypeConstraint:NSObject,Codable{
     }
 }
 public extension ImageInstanceTypeConstraint{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ImageInstanceTypeConstraintCodingKeys.self)
          try encoderContainer.encode(constraintsType, forKey: .constraintsType)
          try encoderContainer.encode(instanceTypes, forKey: .instanceTypes)

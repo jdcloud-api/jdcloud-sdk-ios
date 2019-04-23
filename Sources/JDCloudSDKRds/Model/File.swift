@@ -57,7 +57,7 @@ public class File:NSObject,Codable{
     }
 }
 public extension File{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: FileCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(sizeByte, forKey: .sizeByte)

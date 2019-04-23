@@ -1089,6 +1089,27 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func exchangeInstanceDnsAsync(request:ExchangeInstanceDnsRequest,requestComplation:@escaping (NSNumber?,ExchangeInstanceDnsResponse?,NSError?,NSString?)->()) throws {
+        rdsJDCloudClient = self
+        try ExchangeInstanceDnsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ExchangeInstanceDnsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func disableAuditAsync(request:DisableAuditRequest,requestComplation:@escaping (NSNumber?,DisableAuditResponse?,NSError?,NSString?)->()) throws {
         rdsJDCloudClient = self
         try DisableAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1723,7 +1744,7 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
 
 public extension RdsJDCloudClient{
 
-    @objc public convenience init(credential: Credential) {
+    @objc convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -50,7 +50,7 @@ public class ArrayDiskAttachment:NSObject,Codable{
     }
 }
 public extension ArrayDiskAttachment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ArrayDiskAttachmentCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
     }

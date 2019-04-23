@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -36,9 +36,9 @@ public class DescribeCustomLiveStreamSnapshotTemplatesResult:NSObject,JdCloudRes
     var pageSize:Int?
 
     /// 查询总数
-    var totalCount:Double?
+    var totalCount:Int?
 
-    /// 码率信息
+    /// 截图模板集合
     var snapshotTemplates:[SnapshotTemplate?]?
 
 
@@ -66,7 +66,7 @@ public class DescribeCustomLiveStreamSnapshotTemplatesResult:NSObject,JdCloudRes
         }
         if decoderContainer.contains(.totalCount)
         {
-            self.totalCount = try decoderContainer.decode(Double?.self, forKey: .totalCount)
+            self.totalCount = try decoderContainer.decode(Int?.self, forKey: .totalCount)
         }
         if decoderContainer.contains(.snapshotTemplates)
         {
@@ -75,7 +75,7 @@ public class DescribeCustomLiveStreamSnapshotTemplatesResult:NSObject,JdCloudRes
     }
 }
 public extension DescribeCustomLiveStreamSnapshotTemplatesResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamSnapshotTemplatesResultCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)

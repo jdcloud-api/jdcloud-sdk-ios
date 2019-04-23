@@ -49,7 +49,7 @@ public class QueryStatisticsDataGroupSumResponse:NSObject,Codable
 }
 
 public extension QueryStatisticsDataGroupSumResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryStatisticsDataGroupSumResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)

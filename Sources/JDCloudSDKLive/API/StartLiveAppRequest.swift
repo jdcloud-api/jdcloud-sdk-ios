@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,14 +26,16 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  启用APP
+///  启用应用
+      ///       /// - 启用 停用 状态的应用
+      ///       /// 
 @objc(StartLiveAppRequest)
 public class StartLiveAppRequest:JdCloudRequest
 {
     /// 直播的推流域名
     var publishDomain:String
 
-    /// appName
+    /// 应用名称
     var appName:String
 
 

@@ -64,7 +64,7 @@ public class Account:NSObject,Codable{
     }
 }
 public extension Account{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AccountCodingKeys.self)
          try encoderContainer.encode(accountName, forKey: .accountName)
          try encoderContainer.encode(accountStatus, forKey: .accountStatus)

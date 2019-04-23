@@ -51,7 +51,7 @@ public class CreateVpcLBHttpListenerResult:NSObject,JdCloudResult
     }
 }
 public extension CreateVpcLBHttpListenerResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateVpcLBHttpListenerResultCodingKeys.self)
         try encoderContainer.encode(task, forKey: .task)
     }

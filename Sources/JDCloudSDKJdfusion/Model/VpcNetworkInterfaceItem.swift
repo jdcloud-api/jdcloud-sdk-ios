@@ -50,7 +50,7 @@ public class VpcNetworkInterfaceItem:NSObject,Codable{
     }
 }
 public extension VpcNetworkInterfaceItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: VpcNetworkInterfaceItemCodingKeys.self)
          try encoderContainer.encode(netInterface, forKey: .netInterface)
     }

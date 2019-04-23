@@ -51,7 +51,7 @@ public class GetVpcEipByIdResult:NSObject,JdCloudResult
     }
 }
 public extension GetVpcEipByIdResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVpcEipByIdResultCodingKeys.self)
         try encoderContainer.encode(eipAddress, forKey: .eipAddress)
     }

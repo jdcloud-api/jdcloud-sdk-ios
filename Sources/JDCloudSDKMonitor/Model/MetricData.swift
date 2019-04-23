@@ -64,7 +64,7 @@ public class MetricData:NSObject,Codable{
     }
 }
 public extension MetricData{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MetricDataCodingKeys.self)
          try encoderContainer.encode(data, forKey: .data)
          try encoderContainer.encode(metric, forKey: .metric)

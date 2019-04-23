@@ -64,7 +64,7 @@ public class IpResource:NSObject,Codable{
     }
 }
 public extension IpResource{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpResourceCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(bandwidth, forKey: .bandwidth)

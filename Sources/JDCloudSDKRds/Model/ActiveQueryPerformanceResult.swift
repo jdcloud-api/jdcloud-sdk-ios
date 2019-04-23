@@ -92,7 +92,7 @@ public class ActiveQueryPerformanceResult:NSObject,Codable{
     }
 }
 public extension ActiveQueryPerformanceResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ActiveQueryPerformanceResultCodingKeys.self)
          try encoderContainer.encode(sql, forKey: .sql)
          try encoderContainer.encode(startTime, forKey: .startTime)

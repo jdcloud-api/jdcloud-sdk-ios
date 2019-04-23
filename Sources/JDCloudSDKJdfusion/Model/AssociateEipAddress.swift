@@ -57,7 +57,7 @@ public class AssociateEipAddress:NSObject,Codable{
     }
 }
 public extension AssociateEipAddress{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AssociateEipAddressCodingKeys.self)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(instanceType, forKey: .instanceType)

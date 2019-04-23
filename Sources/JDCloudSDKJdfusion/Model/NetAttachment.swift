@@ -64,7 +64,7 @@ public class NetAttachment:NSObject,Codable{
     }
 }
 public extension NetAttachment{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NetAttachmentCodingKeys.self)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)
          try encoderContainer.encode(deviceIndex, forKey: .deviceIndex)

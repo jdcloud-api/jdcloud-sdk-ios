@@ -54,7 +54,7 @@ public class NoticeLevel:NSObject,Codable{
     }
 }
 public extension NoticeLevel{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: NoticeLevelCodingKeys.self)
          try encoderContainer.encode(custom, forKey: .custom)
          try encoderContainer.encode(levels, forKey: .levels)

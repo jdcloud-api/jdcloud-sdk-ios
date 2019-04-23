@@ -71,7 +71,7 @@ public class StatisticsTopIpItem:NSObject,Codable{
     }
 }
 public extension StatisticsTopIpItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: StatisticsTopIpItemCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(rank, forKey: .rank)

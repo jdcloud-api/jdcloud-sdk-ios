@@ -27,24 +27,29 @@ import Foundation
 ///  snapshot
 @objc(Snapshot)
 public class Snapshot:NSObject,Codable{
-    /// 推流域名
-    var publishDomain:String?
-    /// 流所属应用名称
-    var appName:String?
-    /// 直播流名称
-    var streamName:String?
-    /// 截图时间
-    var snapshotTime:String?
-    /// 图片高
-    var height:Int?
-    /// 图片宽
+    /// 截图ID
+      /// 
+    var imgId:String?
+    /// 截图格式
+      /// 
+    var format:String?
+    /// 截图宽度
+      /// - 单位: 像素
+      /// 
     var width:Int?
-    /// OSSBucket的名称
-    var ossBucket:String?
-    /// OSSEndpoint域名
-    var ossEndpoint:String?
-    /// OSSObject
-    var ossObject:String?
+    /// 截图高度
+      /// - 单位: 像素
+      /// 
+    var height:Int?
+    /// 截图时间点
+      /// 
+    var snapshotTime:String?
+    /// 截图文件大小
+      /// 
+    var size:Int?
+    /// 截图地址
+      /// 
+    var imgUrl:String?
 
 
 
@@ -53,69 +58,57 @@ public class Snapshot:NSObject,Codable{
     }
 
     enum SnapshotCodingKeys: String, CodingKey {
-        case publishDomain
-        case appName
-        case streamName
-        case snapshotTime
-        case height
+        case imgId
+        case format
         case width
-        case ossBucket
-        case ossEndpoint
-        case ossObject
+        case height
+        case snapshotTime
+        case size
+        case imgUrl
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SnapshotCodingKeys.self)
-        if decoderContainer.contains(.publishDomain)
+        if decoderContainer.contains(.imgId)
         {
-            self.publishDomain = try decoderContainer.decode(String?.self, forKey: .publishDomain)
+            self.imgId = try decoderContainer.decode(String?.self, forKey: .imgId)
         }
-        if decoderContainer.contains(.appName)
+        if decoderContainer.contains(.format)
         {
-            self.appName = try decoderContainer.decode(String?.self, forKey: .appName)
-        }
-        if decoderContainer.contains(.streamName)
-        {
-            self.streamName = try decoderContainer.decode(String?.self, forKey: .streamName)
-        }
-        if decoderContainer.contains(.snapshotTime)
-        {
-            self.snapshotTime = try decoderContainer.decode(String?.self, forKey: .snapshotTime)
-        }
-        if decoderContainer.contains(.height)
-        {
-            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
+            self.format = try decoderContainer.decode(String?.self, forKey: .format)
         }
         if decoderContainer.contains(.width)
         {
             self.width = try decoderContainer.decode(Int?.self, forKey: .width)
         }
-        if decoderContainer.contains(.ossBucket)
+        if decoderContainer.contains(.height)
         {
-            self.ossBucket = try decoderContainer.decode(String?.self, forKey: .ossBucket)
+            self.height = try decoderContainer.decode(Int?.self, forKey: .height)
         }
-        if decoderContainer.contains(.ossEndpoint)
+        if decoderContainer.contains(.snapshotTime)
         {
-            self.ossEndpoint = try decoderContainer.decode(String?.self, forKey: .ossEndpoint)
+            self.snapshotTime = try decoderContainer.decode(String?.self, forKey: .snapshotTime)
         }
-        if decoderContainer.contains(.ossObject)
+        if decoderContainer.contains(.size)
         {
-            self.ossObject = try decoderContainer.decode(String?.self, forKey: .ossObject)
+            self.size = try decoderContainer.decode(Int?.self, forKey: .size)
+        }
+        if decoderContainer.contains(.imgUrl)
+        {
+            self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
         }
     }
 }
 public extension Snapshot{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SnapshotCodingKeys.self)
-         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
-         try encoderContainer.encode(appName, forKey: .appName)
-         try encoderContainer.encode(streamName, forKey: .streamName)
-         try encoderContainer.encode(snapshotTime, forKey: .snapshotTime)
-         try encoderContainer.encode(height, forKey: .height)
+         try encoderContainer.encode(imgId, forKey: .imgId)
+         try encoderContainer.encode(format, forKey: .format)
          try encoderContainer.encode(width, forKey: .width)
-         try encoderContainer.encode(ossBucket, forKey: .ossBucket)
-         try encoderContainer.encode(ossEndpoint, forKey: .ossEndpoint)
-         try encoderContainer.encode(ossObject, forKey: .ossObject)
+         try encoderContainer.encode(height, forKey: .height)
+         try encoderContainer.encode(snapshotTime, forKey: .snapshotTime)
+         try encoderContainer.encode(size, forKey: .size)
+         try encoderContainer.encode(imgUrl, forKey: .imgUrl)
     }
 }

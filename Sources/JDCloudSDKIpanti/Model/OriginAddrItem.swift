@@ -64,7 +64,7 @@ public class OriginAddrItem:NSObject,Codable{
     }
 }
 public extension OriginAddrItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: OriginAddrItemCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(weight, forKey: .weight)

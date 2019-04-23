@@ -51,7 +51,7 @@ public class CreateChannelResult:NSObject,JdCloudResult
     }
 }
 public extension CreateChannelResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateChannelResultCodingKeys.self)
         try encoderContainer.encode(channel, forKey: .channel)
     }

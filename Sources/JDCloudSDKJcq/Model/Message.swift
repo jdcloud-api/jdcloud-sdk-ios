@@ -78,7 +78,7 @@ public class Message:NSObject,Codable{
     }
 }
 public extension Message{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: MessageCodingKeys.self)
          try encoderContainer.encode(messageId, forKey: .messageId)
          try encoderContainer.encode(body, forKey: .body)

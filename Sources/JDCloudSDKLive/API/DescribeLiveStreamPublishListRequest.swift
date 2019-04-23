@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Live API
+   Live-Video
    直播管理API
 
    OpenAPI spec version: v1
@@ -26,26 +26,41 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查看域名下推流记录
+///  查看推流历史记录
 @objc(DescribeLiveStreamPublishListRequest)
 public class DescribeLiveStreamPublishListRequest:JdCloudRequest
 {
-    /// 页码；默认为1；取值范围[1, 100000]
+    /// 页码&lt;br&gt;
+      /// - 取值范围[1, 100000]
+      /// 
     var pageNum:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小&lt;br&gt;
+      /// - 取值范围[10, 100]
+      /// 
     var pageSize:Int?
 
-    /// 直播流所属应用名称
+    /// 应用名称
     var appName:String?
 
-    /// 直播流名称
+    /// 流名称
     var streamName:String?
 
-    /// 起始时间
+    /// 推流起始时间&lt;br&gt;
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例:2018-10-21T10:00:00Z
+      /// - 最大支持最近90天内的流历史查询
+      /// 
     var startTime:String
 
-    /// 结束时间
+    /// 推流结束时间&lt;br&gt;
+      /// - UTC时间
+      ///   格式:yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;
+      ///   示例:2018-10-21T10:00:00Z
+      /// - 最大支持最近90天内的流历史查询
+      /// - 结束时间为空默认为当前时间
+      /// 
     var endTime:String?
 
     /// 推流域名

@@ -59,7 +59,7 @@ public class QueryDefaultHttpHeaderKeyResult:NSObject,JdCloudResult
     }
 }
 public extension QueryDefaultHttpHeaderKeyResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: QueryDefaultHttpHeaderKeyResultCodingKeys.self)
         try encoderContainer.encode(reqDefaultHttpHeaderKey, forKey: .reqDefaultHttpHeaderKey)
         try encoderContainer.encode(respDefaultHttpHeaderKey, forKey: .respDefaultHttpHeaderKey)

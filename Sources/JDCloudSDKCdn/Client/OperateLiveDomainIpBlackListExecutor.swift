@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class OperateLiveDomainIpBlackListExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/liveDomain/{domain}/ipBlackList:{blackIpsEnable}")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/liveDomain/{domain}/ipBlackList:operate")
     }
     
 }

@@ -71,7 +71,7 @@ public class DomainGroupItem:NSObject,Codable{
     }
 }
 public extension DomainGroupItem{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DomainGroupItemCodingKeys.self)
          try encoderContainer.encode(domains, forKey: .domains)
          try encoderContainer.encode(primaryDomain, forKey: .primaryDomain)

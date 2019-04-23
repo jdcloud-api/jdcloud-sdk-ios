@@ -51,7 +51,7 @@ public class DescribeGeoAreasResult:NSObject,JdCloudResult
     }
 }
 public extension DescribeGeoAreasResult{
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeGeoAreasResultCodingKeys.self)
         try encoderContainer.encode(dataList, forKey: .dataList)
     }

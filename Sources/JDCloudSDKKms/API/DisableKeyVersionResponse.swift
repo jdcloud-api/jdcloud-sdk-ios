@@ -49,7 +49,7 @@ public class DisableKeyVersionResponse:NSObject,Codable
 }
 
 public extension DisableKeyVersionResponse{
-        public func encode(to encoder: Encoder) throws {
+        func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DisableKeyVersionResponseCodingKeys.self)
         try encoderContainer.encode(requestId, forKey: .requestId)
         try encoderContainer.encode(error, forKey: .error)
