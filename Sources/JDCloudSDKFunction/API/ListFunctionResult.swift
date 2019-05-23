@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class ListFunctionResult:NSObject,JdCloudResult
 {
     /// Data
-    var data:[FunctionSpec?]?
+    var data:ListFunctionResult?
 
 
 
@@ -46,7 +46,7 @@ public class ListFunctionResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: ListFunctionResultCodingKeys.self)
         if decoderContainer.contains(.data)
         {
-            self.data = try decoderContainer.decode([FunctionSpec?]?.self, forKey: .data)
+            self.data = try decoderContainer.decode(ListFunctionResult?.self, forKey: .data)
         }
     }
 }

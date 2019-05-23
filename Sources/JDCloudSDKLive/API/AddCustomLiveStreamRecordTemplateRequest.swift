@@ -39,11 +39,11 @@ public class AddCustomLiveStreamRecordTemplateRequest:JdCloudRequest
 
     /// 存储桶
       /// 
-    var saveBucket:String
+    var saveBucket:String?
 
     /// endpoint
       /// 
-    var saveEndpoint:String
+    var saveEndpoint:String?
 
     /// 录制文件格式:
       /// - 取值: ts,flv,mp4 (多种类型之间用;隔开)
@@ -52,16 +52,15 @@ public class AddCustomLiveStreamRecordTemplateRequest:JdCloudRequest
     var recordFileType:String
 
     /// 录制模板自定义名称:
-      ///  - 取值要求：数字、大小写字母或短横线(&quot;-&quot;)
+      ///  - 取值要求：数字、大小写字母或短横线(&quot;-&quot;)、下划线(&quot;_&quot;),
+      ///    最大长度50个字符
       ///  - &lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
       /// 
     var template:String
 
 
-    public init(regionId: String,recordPeriod:Int,saveBucket:String,saveEndpoint:String,recordFileType:String,template:String){
+    public init(regionId: String,recordPeriod:Int,recordFileType:String,template:String){
         self.recordPeriod = recordPeriod
-        self.saveBucket = saveBucket
-        self.saveEndpoint = saveEndpoint
         self.recordFileType = recordFileType
         self.template = template
         super.init(regionId: regionId)

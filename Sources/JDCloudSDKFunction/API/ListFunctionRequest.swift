@@ -31,20 +31,39 @@ import JDCloudSDKCommon
 @objc(ListFunctionRequest)
 public class ListFunctionRequest:JdCloudRequest
 {
+    /// 是否返回所有函数
+    var listAll:Bool
+
+    /// 页码
+    var pageNumber:Int?
+
+    /// 分页大小
+    var pageSize:Int?
+
     /// functionId -函数ID，精确匹配，支持多个
       /// functionName  - 函数名称，模糊匹配，支持单个
       /// 
     var filters:[Filter?]?
 
 
+    public init(regionId: String,listAll:Bool){
+        self.listAll = listAll
+        super.init(regionId: regionId)
+    }
 
 
     enum ListFunctionRequestRequestCodingKeys: String, CodingKey {
+        case listAll
+        case pageNumber
+        case pageSize
         case filters
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListFunctionRequestRequestCodingKeys.self)
+        try encoderContainer.encode(listAll, forKey: .listAll)
+        try encoderContainer.encode(pageNumber, forKey: .pageNumber)
+        try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(filters, forKey: .filters)
 
     }

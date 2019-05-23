@@ -36,7 +36,7 @@ public class InstanceSpec:NSObject,Codable{
     var deviceType:String
     /// 主机名
     var hostname:String?
-    /// 镜像类型, 取值范围：standard、standard_app
+    /// 镜像类型, 取值范围：standard
     /// Required:true
     var imageType:String
     /// 操作系统类型ID
@@ -54,11 +54,13 @@ public class InstanceSpec:NSObject,Codable{
     var enableInternet:String?
     /// 是否启用IPv6，取值范围：yes、no
     var enableIpv6:String?
-    /// 网络类型，目前只支持basic
+    /// 网络类型，取值范围：basic、vpc
     /// Required:true
     var networkType:String
     /// 网络CIDR
     var cidr:String?
+    /// 内网IP
+    var privateIp:String?
     /// 外网链路类型, 目前只支持bgp
     var lineType:String?
     /// 外网带宽, 范围[1,200] 单位Mbps
@@ -77,8 +79,6 @@ public class InstanceSpec:NSObject,Codable{
     /// 计费配置
     /// Required:true
     var charge:ChargeSpec
-    /// Softwares
-    var softwares:[Software?]?
 
 
 
@@ -109,6 +109,7 @@ public class InstanceSpec:NSObject,Codable{
         case enableIpv6
         case networkType
         case cidr
+        case privateIp
         case lineType
         case bandwidth
         case name
@@ -116,7 +117,6 @@ public class InstanceSpec:NSObject,Codable{
         case password
         case count
         case charge
-        case softwares
     }
 
 
@@ -149,6 +149,10 @@ public class InstanceSpec:NSObject,Codable{
         {
             self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
         }
+        if decoderContainer.contains(.privateIp)
+        {
+            self.privateIp = try decoderContainer.decode(String?.self, forKey: .privateIp)
+        }
         if decoderContainer.contains(.lineType)
         {
             self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
@@ -165,10 +169,6 @@ public class InstanceSpec:NSObject,Codable{
         self.password = try decoderContainer.decode(String.self, forKey: .password)
         self.count = try decoderContainer.decode(Int.self, forKey: .count)
         self.charge = try decoderContainer.decode(ChargeSpec.self, forKey: .charge)
-        if decoderContainer.contains(.softwares)
-        {
-            self.softwares = try decoderContainer.decode([Software?]?.self, forKey: .softwares)
-        }
     }
 }
 public extension InstanceSpec{
@@ -186,6 +186,7 @@ public extension InstanceSpec{
          try encoderContainer.encode(enableIpv6, forKey: .enableIpv6)
          try encoderContainer.encode(networkType, forKey: .networkType)
          try encoderContainer.encode(cidr, forKey: .cidr)
+         try encoderContainer.encode(privateIp, forKey: .privateIp)
          try encoderContainer.encode(lineType, forKey: .lineType)
          try encoderContainer.encode(bandwidth, forKey: .bandwidth)
          try encoderContainer.encode(name, forKey: .name)
@@ -193,6 +194,5 @@ public extension InstanceSpec{
          try encoderContainer.encode(password, forKey: .password)
          try encoderContainer.encode(count, forKey: .count)
          try encoderContainer.encode(charge, forKey: .charge)
-         try encoderContainer.encode(softwares, forKey: .softwares)
     }
 }

@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询跨地域备份同步服务列表。&lt;br&gt;- 仅支持MySQL
+///  查询跨地域备份同步服务列表。
 @objc(DescribeBackupSynchronicitiesRequest)
 public class DescribeBackupSynchronicitiesRequest:JdCloudRequest
 {

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeLivePornDataResult:NSObject,JdCloudResult
 {
     /// PornData
-    var pornData:[PornData?]?
+    var pornData:[PornCountStatisticResult?]?
 
 
 
@@ -46,7 +46,7 @@ public class DescribeLivePornDataResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: DescribeLivePornDataResultCodingKeys.self)
         if decoderContainer.contains(.pornData)
         {
-            self.pornData = try decoderContainer.decode([PornData?]?.self, forKey: .pornData)
+            self.pornData = try decoderContainer.decode([PornCountStatisticResult?]?.self, forKey: .pornData)
         }
     }
 }

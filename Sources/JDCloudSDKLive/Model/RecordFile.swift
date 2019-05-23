@@ -47,10 +47,10 @@ public class RecordFile:NSObject,Codable{
     /// 录制结束时间
       /// 
     var endTime:String?
-    /// 视频时长
+    /// 视频时长，单位：毫秒
       /// 
     var duration:Int?
-    /// 文件大小
+    /// 文件大小，单位：B
       /// 
     var size:Int?
     /// 码率
@@ -61,7 +61,7 @@ public class RecordFile:NSObject,Codable{
     var fps:Int?
     /// 文件地址
       /// 
-    var imgUrl:String?
+    var fileUrl:String?
     /// 创建时间
       /// 
     var createTime:String?
@@ -83,7 +83,7 @@ public class RecordFile:NSObject,Codable{
         case size
         case bitrate
         case fps
-        case imgUrl
+        case fileUrl
         case createTime
     }
 
@@ -130,9 +130,9 @@ public class RecordFile:NSObject,Codable{
         {
             self.fps = try decoderContainer.decode(Int?.self, forKey: .fps)
         }
-        if decoderContainer.contains(.imgUrl)
+        if decoderContainer.contains(.fileUrl)
         {
-            self.imgUrl = try decoderContainer.decode(String?.self, forKey: .imgUrl)
+            self.fileUrl = try decoderContainer.decode(String?.self, forKey: .fileUrl)
         }
         if decoderContainer.contains(.createTime)
         {
@@ -153,7 +153,7 @@ public extension RecordFile{
          try encoderContainer.encode(size, forKey: .size)
          try encoderContainer.encode(bitrate, forKey: .bitrate)
          try encoderContainer.encode(fps, forKey: .fps)
-         try encoderContainer.encode(imgUrl, forKey: .imgUrl)
+         try encoderContainer.encode(fileUrl, forKey: .fileUrl)
          try encoderContainer.encode(createTime, forKey: .createTime)
     }
 }

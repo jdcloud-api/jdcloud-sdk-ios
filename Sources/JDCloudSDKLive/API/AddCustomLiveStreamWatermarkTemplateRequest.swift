@@ -54,12 +54,16 @@ public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
     var height:Int
 
     /// 自定义水印模板名称
-      /// -&amp;ensp;取值要求: 数字、大小写字母或短横线(&quot;-&quot;),
+      /// -&amp;ensp;取值要求: 数字、大小写字母、短横线(&quot;-&quot;)、下划线(&quot;_&quot;),
       /// &amp;ensp;&amp;ensp;首尾不能有特殊字符(&quot;-&quot;),
       /// &amp;ensp;&amp;ensp;不超过50字符,utf-8格式
       /// -&amp;ensp;&lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
       /// 
     var template:String
+
+    /// 创建上传任务时返回的uploadId参数，当通过接口上传水印图片时，uploadId必填
+      /// 
+    var uploadId:String?
 
     /// 水印地址&lt;br&gt;-&amp;ensp;以&amp;ensp;http:// 开头,可公开访问地址&lt;br&gt;
     var url:String
@@ -82,6 +86,7 @@ public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
         case width
         case height
         case template
+        case uploadId
         case url
     }
 
@@ -92,6 +97,7 @@ public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
         try encoderContainer.encode(width, forKey: .width)
         try encoderContainer.encode(height, forKey: .height)
         try encoderContainer.encode(template, forKey: .template)
+        try encoderContainer.encode(uploadId, forKey: .uploadId)
         try encoderContainer.encode(url, forKey: .url)
 
     }

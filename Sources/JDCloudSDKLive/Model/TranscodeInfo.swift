@@ -55,6 +55,9 @@ public class TranscodeInfo:NSObject,Codable{
       ///   - 注意: 不能与标准的转码模板和已定义命名重复
       /// 
     var template:String?
+    /// 转码模板名称
+      /// 
+    var templateName:String?
     /// 转码输出音频编码格式:
       ///   - 取值: aac、mp3
       ///   - 不区分大小写
@@ -92,6 +95,7 @@ public class TranscodeInfo:NSObject,Codable{
         case width
         case height
         case template
+        case templateName
         case audioCodec
         case audioFormat
         case audioSampleRate
@@ -121,6 +125,10 @@ public class TranscodeInfo:NSObject,Codable{
         if decoderContainer.contains(.template)
         {
             self.template = try decoderContainer.decode(String?.self, forKey: .template)
+        }
+        if decoderContainer.contains(.templateName)
+        {
+            self.templateName = try decoderContainer.decode(String?.self, forKey: .templateName)
         }
         if decoderContainer.contains(.audioCodec)
         {
@@ -152,6 +160,7 @@ public extension TranscodeInfo{
          try encoderContainer.encode(width, forKey: .width)
          try encoderContainer.encode(height, forKey: .height)
          try encoderContainer.encode(template, forKey: .template)
+         try encoderContainer.encode(templateName, forKey: .templateName)
          try encoderContainer.encode(audioCodec, forKey: .audioCodec)
          try encoderContainer.encode(audioFormat, forKey: .audioFormat)
          try encoderContainer.encode(audioSampleRate, forKey: .audioSampleRate)

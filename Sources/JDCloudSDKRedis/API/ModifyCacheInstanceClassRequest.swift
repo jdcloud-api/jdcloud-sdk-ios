@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   缓存Redis实例接口
-   缓存Redis实例相关接口
+   Redis Instance API
+   缓存Redis实例的创建、删除、修改基本信息、设置密码、变配、列表查询、备份、配置参数接口
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,16 +26,16 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  变更缓存Redis实例配置，只能变更运行状态的实例配置，变更配置的规格不能与之前的相同
-      ///       /// 预付费用户，从集群版变配到主从版，新规格的内存大小要大于老规格的内存大小，从主从版到集群版，新规格的内存大小要不小于老规格的内存大小
+///  变更缓存Redis实例规格（变配），只能变更运行状态的实例规格，变更的规格不能与之前的相同。
+      ///       /// 预付费用户，从集群版变配到主从版，新规格的内存大小要大于老规格的内存大小，从主从版到集群版，新规格的内存大小要不小于老规格的内存大小。
       ///       /// 
 @objc(ModifyCacheInstanceClassRequest)
 public class ModifyCacheInstanceClassRequest:JdCloudRequest
 {
-    /// 变更后的缓存Redis规格，详细参见：&lt;a href&#x3D;&quot;https://www.jdcloud.com/help/detail/411/isCatalog/1&quot;&gt;实例规格代码&lt;/a&gt;
+    /// 变更后的实例规格
     var cacheInstanceClass:String
 
-    /// 缓存Redis实例ID，是访问实例的唯一标识。
+    /// 缓存Redis实例ID，是访问实例的唯一标识
     var cacheInstanceId:String
 
 

@@ -31,9 +31,9 @@ public class IpResourceProtectInfo:NSObject,Codable{
     var startTime:String?
     /// 攻击结束时间
     var endTime:String?
-    /// 状态，0-&gt;完成，1-&gt;清洗，2-&gt;黑洞
+    /// 安全状态, 0: 安全, 1: 清洗, 2: 黑洞
     var status:Int?
-    /// 触发原因，0-&gt;未知，1-&gt;四层，2-&gt;七层，3-&gt;四和7层
+    /// 触发原因，0-&gt;未知 1-&gt;四层 2-&gt;七层 3-&gt;四和7层
     var cause:Int?
 
 

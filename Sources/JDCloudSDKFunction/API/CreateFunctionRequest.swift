@@ -31,25 +31,25 @@ import JDCloudSDKCore
 public class CreateFunctionRequest:JdCloudRequest
 {
     /// 函数名称
-    var name:String
+    var name:String?
 
     /// 函数描述信息
     var descriptionValue:String?
 
     /// 函数入口，格式为入口文件.入口函数名
-    var entrance:String
+    var entrance:String?
 
     /// 函数运行最大内存
-    var memory:Int
+    var memory:Int?
 
     /// 函数运行环境
-    var runTime:String
+    var runTime:String?
 
     /// 函数运行超时时间
-    var overTime:Int
+    var overTime:Int?
 
     /// 函数代码包
-    var code:Code
+    var code:Code?
 
     /// 函数运行时环境变量
     var environment:Env?
@@ -67,15 +67,6 @@ public class CreateFunctionRequest:JdCloudRequest
     var subnetId:String?
 
 
-    public init(regionId: String,name:String,entrance:String,memory:Int,runTime:String,overTime:Int,code:Code){
-        self.name = name
-        self.entrance = entrance
-        self.memory = memory
-        self.runTime = runTime
-        self.overTime = overTime
-        self.code = code
-        super.init(regionId: regionId)
-    }
 
 
     enum CreateFunctionRequestRequestCodingKeys: String, CodingKey {

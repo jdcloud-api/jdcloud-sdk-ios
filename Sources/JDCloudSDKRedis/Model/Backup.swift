@@ -24,7 +24,7 @@
 
 import Foundation
 
-///  backup
+///  缓存Redis实例的一个备份文件对象
 @objc(Backup)
 public class Backup:NSObject,Codable{
     /// 备份操作ID
@@ -33,34 +33,34 @@ public class Backup:NSObject,Codable{
     /// 备份文件的名称
     /// Required:true
     var backupFileName:String
-    /// 备份实例ID
+    /// 备份文件对应的实例ID
     /// Required:true
-    var spaceId:String
-    /// 备份开始时间
+    var cacheInstanceId:String
+    /// 备份开始时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
     /// Required:true
     var backupStartTime:String
-    /// 备份结束时间
+    /// 备份结束时间（ISO 8601标准的UTC时间，格式为：YYYY-MM-DDTHH:mm:ssZ）
     /// Required:true
     var backupEndTime:String
     /// 备份类型，1表示手动备份，0表示自动备份
     /// Required:true
     var backupType:Int
-    /// 备份文件大小，如果实例是集群版，则表示每个分片备份文件大小的总和
+    /// 备份文件总字节大小，如果实例是集群版，则表示每个分片备份文件大小的总和
     /// Required:true
-    var backupSize:Int
-    /// 备份任务状态状态，1表示失败，2表示成功
+    var backupSize:Int64
+    /// 备份任务状态状态，0表示备份中，1表示失败，2表示成功
     /// Required:true
     var backupStatus:Int
-    /// 备份文件下载的URL地址，集群版有多个URL地址
+    /// 备份文件下载地址，已置空，需要调用获取备份文件下载地址接口获取
     /// Required:true
     var backupDownloadURL:String
 
 
 
-    public  init(baseId:String,backupFileName:String,spaceId:String,backupStartTime:String,backupEndTime:String,backupType:Int,backupSize:Int,backupStatus:Int,backupDownloadURL:String){
+    public  init(baseId:String,backupFileName:String,cacheInstanceId:String,backupStartTime:String,backupEndTime:String,backupType:Int,backupSize:Int64,backupStatus:Int,backupDownloadURL:String){
              self.baseId = baseId
              self.backupFileName = backupFileName
-             self.spaceId = spaceId
+             self.cacheInstanceId = cacheInstanceId
              self.backupStartTime = backupStartTime
              self.backupEndTime = backupEndTime
              self.backupType = backupType
@@ -72,7 +72,7 @@ public class Backup:NSObject,Codable{
     enum BackupCodingKeys: String, CodingKey {
         case baseId
         case backupFileName
-        case spaceId
+        case cacheInstanceId
         case backupStartTime
         case backupEndTime
         case backupType
@@ -86,11 +86,11 @@ public class Backup:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: BackupCodingKeys.self)
         self.baseId = try decoderContainer.decode(String.self, forKey: .baseId)
         self.backupFileName = try decoderContainer.decode(String.self, forKey: .backupFileName)
-        self.spaceId = try decoderContainer.decode(String.self, forKey: .spaceId)
+        self.cacheInstanceId = try decoderContainer.decode(String.self, forKey: .cacheInstanceId)
         self.backupStartTime = try decoderContainer.decode(String.self, forKey: .backupStartTime)
         self.backupEndTime = try decoderContainer.decode(String.self, forKey: .backupEndTime)
         self.backupType = try decoderContainer.decode(Int.self, forKey: .backupType)
-        self.backupSize = try decoderContainer.decode(Int.self, forKey: .backupSize)
+        self.backupSize = try decoderContainer.decode(Int64.self, forKey: .backupSize)
         self.backupStatus = try decoderContainer.decode(Int.self, forKey: .backupStatus)
         self.backupDownloadURL = try decoderContainer.decode(String.self, forKey: .backupDownloadURL)
     }
@@ -100,7 +100,7 @@ public extension Backup{
         var encoderContainer = encoder.container(keyedBy: BackupCodingKeys.self)
          try encoderContainer.encode(baseId, forKey: .baseId)
          try encoderContainer.encode(backupFileName, forKey: .backupFileName)
-         try encoderContainer.encode(spaceId, forKey: .spaceId)
+         try encoderContainer.encode(cacheInstanceId, forKey: .cacheInstanceId)
          try encoderContainer.encode(backupStartTime, forKey: .backupStartTime)
          try encoderContainer.encode(backupEndTime, forKey: .backupEndTime)
          try encoderContainer.encode(backupType, forKey: .backupType)

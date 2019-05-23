@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   DDoS基础防护相关接口
-   DDoS基础防护相关接口
+   IP Resource APIs
+   Anti DDoS Basic IP Resource APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,14 +26,18 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询公网Ip的监控流量
+///  查询公网 IP 的 endTime 之前 15 分钟内监控流量, 仅支持 ipv4. (已废弃, 建议使用 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-basic/api/describeipmonitorflow&quot;&gt;describeIpMonitorFlow&lt;/a&gt; 接口)
+      ///       /// 
 @objc(DescribeIpResourceFlowRequest)
 public class DescribeIpResourceFlowRequest:JdCloudRequest
 {
-    /// 查询的结束时间，UTC时间，格式：yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
+    /// 查询的结束时间, UTC时间, 格式: yyyy-MM-dd&#39;T&#39;HH:mm:ssZ, 为空时查询当前时间之前 15 分钟内监控流量
     var endTime:String?
 
-    /// 公网ip
+    /// 基础防护已防护的公网 IP, 仅支持 ipv4 格式
+      /// - 使用 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-basic/api/describeelasticipresources&quot;&gt;describeElasticIpResources&lt;/a&gt; 接口查询基础防护已防护的私有网络弹性公网 IP
+      /// - 使用 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-basic/api/describecpsipresources&quot;&gt;describeCpsIpResources&lt;/a&gt; 接口查询基础防护已防护的云物理服务器公网IP 和 弹性公网 IP
+      /// 
     var ip:String
 
 

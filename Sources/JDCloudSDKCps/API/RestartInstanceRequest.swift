@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  重启单个云物理服务器，只能重启running状态的服务器
+///  重启单台云物理服务器，只能重启running状态的服务器
 @objc(RestartInstanceRequest)
 public class RestartInstanceRequest:JdCloudRequest
 {

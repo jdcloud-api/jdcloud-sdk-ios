@@ -31,54 +31,43 @@ import JDCloudSDKCore
 public class UpdateFunctionRequest:JdCloudRequest
 {
     /// 函数描述信息
-    var descriptionValue:String
+    var descriptionValue:String?
 
     /// 函数入口，格式为入口文件.入口函数名
-    var entrance:String
+    var entrance:String?
 
     /// 函数运行最大内存
-    var memory:Int
+    var memory:Int?
 
     /// 函数运行环境
-    var runTime:String
+    var runTime:String?
 
     /// 函数运行超时时间
-    var overTime:Int
+    var overTime:Int?
 
     /// 函数代码包
-    var code:Code
+    var code:Code?
 
     /// 函数运行时环境变量
-    var environment:Env
+    var environment:Env?
 
     /// 函数指定的日志集Id
-    var logSetId:String
+    var logSetId:String?
 
     /// 函数指定的日志主题Id
-    var logTopicId:String
+    var logTopicId:String?
 
     /// 函数配置的VPCId
-    var vpcId:String
+    var vpcId:String?
 
     /// 函数配置的子网Id
-    var subnetId:String
+    var subnetId:String?
 
     /// 函数名称
     var functionName:String
 
 
-    public init(regionId: String,descriptionValue:String,entrance:String,memory:Int,runTime:String,overTime:Int,code:Code,environment:Env,logSetId:String,logTopicId:String,vpcId:String,subnetId:String,functionName:String){
-        self.descriptionValue = descriptionValue
-        self.entrance = entrance
-        self.memory = memory
-        self.runTime = runTime
-        self.overTime = overTime
-        self.code = code
-        self.environment = environment
-        self.logSetId = logSetId
-        self.logTopicId = logTopicId
-        self.vpcId = vpcId
-        self.subnetId = subnetId
+    public init(regionId: String,functionName:String){
         self.functionName = functionName
         super.init(regionId: regionId)
     }

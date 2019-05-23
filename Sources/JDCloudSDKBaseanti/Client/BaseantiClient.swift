@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   京东云DDoS基础防护相关接口
-   京东云DDoS基础防护相关接口
+   Anti-DDoS Basic APIs
+   DDoS 基础防护防护 IP、攻击记录相关接口
 
    OpenAPI spec version: v1
    Contact: 
@@ -81,14 +81,56 @@ public class BaseantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func setCleanThresholdAsync(request:SetCleanThresholdRequest,requestComplation:@escaping (NSNumber?,SetCleanThresholdResponse?,NSError?,NSString?)->()) throws {
+    public func describeIpSafetyInfoAsync(request:DescribeIpSafetyInfoRequest,requestComplation:@escaping (NSNumber?,DescribeIpSafetyInfoResponse?,NSError?,NSString?)->()) throws {
         baseantiJDCloudClient = self
-        try SetCleanThresholdExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeIpSafetyInfoExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetCleanThresholdResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeIpSafetyInfoResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func setIpCleanThresholdAsync(request:SetIpCleanThresholdRequest,requestComplation:@escaping (NSNumber?,SetIpCleanThresholdResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try SetIpCleanThresholdExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(SetIpCleanThresholdResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeIpMonitorFlowAsync(request:DescribeIpMonitorFlowRequest,requestComplation:@escaping (NSNumber?,DescribeIpMonitorFlowResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeIpMonitorFlowExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeIpMonitorFlowResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -123,14 +165,77 @@ public class BaseantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func describeIpResourceFlowAsync(request:DescribeIpResourceFlowRequest,requestComplation:@escaping (NSNumber?,DescribeIpResourceFlowResponse?,NSError?,NSString?)->()) throws {
+    public func describeAttackStatisticsAsync(request:DescribeAttackStatisticsRequest,requestComplation:@escaping (NSNumber?,DescribeAttackStatisticsResponse?,NSError?,NSString?)->()) throws {
         baseantiJDCloudClient = self
-        try DescribeIpResourceFlowExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeAttackStatisticsExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeIpResourceFlowResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeAttackStatisticsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeElasticIpResourcesAsync(request:DescribeElasticIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeElasticIpResourcesResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeElasticIpResourcesExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeElasticIpResourcesResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeIpCleanThresholdRangeAsync(request:DescribeIpCleanThresholdRangeRequest,requestComplation:@escaping (NSNumber?,DescribeIpCleanThresholdRangeResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeIpCleanThresholdRangeExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeIpCleanThresholdRangeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeAttackTypeCountAsync(request:DescribeAttackTypeCountRequest,requestComplation:@escaping (NSNumber?,DescribeAttackTypeCountResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeAttackTypeCountExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeAttackTypeCountResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -165,6 +270,69 @@ public class BaseantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeCpsIpResourcesAsync(request:DescribeCpsIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeCpsIpResourcesResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeCpsIpResourcesExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeCpsIpResourcesResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func setCleanThresholdAsync(request:SetCleanThresholdRequest,requestComplation:@escaping (NSNumber?,SetCleanThresholdResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try SetCleanThresholdExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(SetCleanThresholdResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeIpResourceFlowAsync(request:DescribeIpResourceFlowRequest,requestComplation:@escaping (NSNumber?,DescribeIpResourceFlowResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeIpResourceFlowExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeIpResourceFlowResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeIpResourceInfoAsync(request:DescribeIpResourceInfoRequest,requestComplation:@escaping (NSNumber?,DescribeIpResourceInfoResponse?,NSError?,NSString?)->()) throws {
         baseantiJDCloudClient = self
         try DescribeIpResourceInfoExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -173,6 +341,27 @@ public class BaseantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeIpResourceInfoResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeAttackLogsAsync(request:DescribeAttackLogsRequest,requestComplation:@escaping (NSNumber?,DescribeAttackLogsResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeAttackLogsExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeAttackLogsResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

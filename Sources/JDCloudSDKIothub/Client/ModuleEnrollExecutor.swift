@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   ModuleManager
-   用于完成设备全生命周期管理
+   EdgeManager
+   edge管理模块
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,12 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  客户用该接口可以登记模块
-      /// 
+///  计算模块登记
 public class ModuleEnrollExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/module/{moduleName}/enroll")
+        super.init(jdCloudClient: jdCloudClient, method: "POST", url: "/edge/{edgeId}/module:enroll")
     }
     
 }

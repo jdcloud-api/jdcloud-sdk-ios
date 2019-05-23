@@ -51,6 +51,8 @@ public class NodeGroup:NSObject,Codable{
     var instanceTemplateId:String?
     /// 状态  [pending,running,resizing,reconciling,deleting,deleted,error,running_with_error(部分节点有问题)]
     var state:String?
+    /// Tags
+    var tags:[Tag?]?
     /// 更新时间
     var updateTime:String?
     /// 状态变更原因
@@ -79,6 +81,7 @@ public class NodeGroup:NSObject,Codable{
         case agId
         case instanceTemplateId
         case state
+        case tags
         case updateTime
         case stateMessage
         case autoRepair
@@ -136,6 +139,10 @@ public class NodeGroup:NSObject,Codable{
         {
             self.state = try decoderContainer.decode(String?.self, forKey: .state)
         }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
         if decoderContainer.contains(.updateTime)
         {
             self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
@@ -169,6 +176,7 @@ public extension NodeGroup{
          try encoderContainer.encode(agId, forKey: .agId)
          try encoderContainer.encode(instanceTemplateId, forKey: .instanceTemplateId)
          try encoderContainer.encode(state, forKey: .state)
+         try encoderContainer.encode(tags, forKey: .tags)
          try encoderContainer.encode(updateTime, forKey: .updateTime)
          try encoderContainer.encode(stateMessage, forKey: .stateMessage)
          try encoderContainer.encode(autoRepair, forKey: .autoRepair)

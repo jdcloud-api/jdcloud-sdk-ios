@@ -24,7 +24,7 @@
 
 import Foundation
 
-///  缓存Redis实例所在区域可用区ID信息
+///  创建缓存Redis实例时，用户输入的可用区ID信息
 @objc(AzIdSpec)
 public class AzIdSpec:NSObject,Codable{
     /// 缓存Redis主实例所在区域可用区ID

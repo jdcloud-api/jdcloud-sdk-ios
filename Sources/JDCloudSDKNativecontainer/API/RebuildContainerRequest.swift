@@ -59,7 +59,7 @@ public class RebuildContainerRequest:JdCloudRequest
     var workingDir:String?
 
     /// 容器执行的环境变量；如果和镜像中的环境变量Key相同，会覆盖镜像中的值；&lt;/br&gt; 最大10对
-    var evns:[String?]?
+    var envs:[EnvVar?]?
 
     /// Container ID
     var containerId:String
@@ -78,7 +78,7 @@ public class RebuildContainerRequest:JdCloudRequest
         case args
         case tty
         case workingDir
-        case evns
+        case envs
         case containerId
     }
 
@@ -90,7 +90,7 @@ public class RebuildContainerRequest:JdCloudRequest
         try encoderContainer.encode(args, forKey: .args)
         try encoderContainer.encode(tty, forKey: .tty)
         try encoderContainer.encode(workingDir, forKey: .workingDir)
-        try encoderContainer.encode(evns, forKey: .evns)
+        try encoderContainer.encode(envs, forKey: .envs)
         try encoderContainer.encode(containerId, forKey: .containerId)
 
     }

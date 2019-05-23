@@ -207,27 +207,6 @@ public class FunctionJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func listTriggerAsync(request:ListTriggerRequest,requestComplation:@escaping (NSNumber?,ListTriggerResponse?,NSError?,NSString?)->()) throws {
-        functionJDCloudClient = self
-        try ListTriggerExecutor(jdCloudClient: functionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListTriggerResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func listVersionAsync(request:ListVersionRequest,requestComplation:@escaping (NSNumber?,ListVersionResponse?,NSError?,NSString?)->()) throws {
         functionJDCloudClient = self
         try ListVersionExecutor(jdCloudClient: functionJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

@@ -31,12 +31,26 @@ public class Subnet:NSObject,Codable{
     var region:String?
     /// 可用区, 如cn-east-1a
     var az:String?
-    /// 子网CIDR
-    var cidr:String?
     /// 子网ID
     var subnetId:String?
+    /// 子网名称
+    var name:String?
+    /// 子网CIDR
+    var cidr:String?
+    /// 私有网络Id
+    var vpcId:String?
+    /// 私有网络名称
+    var vpcName:String?
+    /// 可用ip数量
+    var availableIpCount:Int?
+    /// 总ip数量
+    var totalIpCount:Int?
     /// 网络类型
     var networkType:String?
+    /// 描述
+    var descriptionValue:String?
+    /// 创建时间
+    var createTime:String?
 
 
 
@@ -47,9 +61,16 @@ public class Subnet:NSObject,Codable{
     enum SubnetCodingKeys: String, CodingKey {
         case region
         case az
-        case cidr
         case subnetId
+        case name
+        case cidr
+        case vpcId
+        case vpcName
+        case availableIpCount
+        case totalIpCount
         case networkType
+        case descriptionValue = "description"
+        case createTime
     }
 
 
@@ -63,17 +84,45 @@ public class Subnet:NSObject,Codable{
         {
             self.az = try decoderContainer.decode(String?.self, forKey: .az)
         }
-        if decoderContainer.contains(.cidr)
-        {
-            self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
-        }
         if decoderContainer.contains(.subnetId)
         {
             self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
         }
+        if decoderContainer.contains(.name)
+        {
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+        }
+        if decoderContainer.contains(.cidr)
+        {
+            self.cidr = try decoderContainer.decode(String?.self, forKey: .cidr)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.vpcName)
+        {
+            self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
+        }
+        if decoderContainer.contains(.availableIpCount)
+        {
+            self.availableIpCount = try decoderContainer.decode(Int?.self, forKey: .availableIpCount)
+        }
+        if decoderContainer.contains(.totalIpCount)
+        {
+            self.totalIpCount = try decoderContainer.decode(Int?.self, forKey: .totalIpCount)
+        }
         if decoderContainer.contains(.networkType)
         {
             self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
+        }
+        if decoderContainer.contains(.descriptionValue)
+        {
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.createTime)
+        {
+            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
         }
     }
 }
@@ -82,8 +131,15 @@ public extension Subnet{
         var encoderContainer = encoder.container(keyedBy: SubnetCodingKeys.self)
          try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(az, forKey: .az)
-         try encoderContainer.encode(cidr, forKey: .cidr)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
+         try encoderContainer.encode(name, forKey: .name)
+         try encoderContainer.encode(cidr, forKey: .cidr)
+         try encoderContainer.encode(vpcId, forKey: .vpcId)
+         try encoderContainer.encode(vpcName, forKey: .vpcName)
+         try encoderContainer.encode(availableIpCount, forKey: .availableIpCount)
+         try encoderContainer.encode(totalIpCount, forKey: .totalIpCount)
          try encoderContainer.encode(networkType, forKey: .networkType)
+         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
+         try encoderContainer.encode(createTime, forKey: .createTime)
     }
 }

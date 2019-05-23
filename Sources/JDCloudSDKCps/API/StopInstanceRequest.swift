@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  对单个云物理服务器执行关机操作，只能停止running状态的服务器
+///  对单台云物理服务器执行关机操作，只能停止running状态的服务器
 @objc(StopInstanceRequest)
 public class StopInstanceRequest:JdCloudRequest
 {

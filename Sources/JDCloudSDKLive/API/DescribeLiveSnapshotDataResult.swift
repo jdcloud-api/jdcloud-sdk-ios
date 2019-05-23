@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeLiveSnapshotDataResult:NSObject,JdCloudResult
 {
     /// SnapshotData
-    var snapshotData:[SnapshotData?]?
+    var snapshotData:[SnapshotCountStatisticResult?]?
 
 
 
@@ -46,7 +46,7 @@ public class DescribeLiveSnapshotDataResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: DescribeLiveSnapshotDataResultCodingKeys.self)
         if decoderContainer.contains(.snapshotData)
         {
-            self.snapshotData = try decoderContainer.decode([SnapshotData?]?.self, forKey: .snapshotData)
+            self.snapshotData = try decoderContainer.decode([SnapshotCountStatisticResult?]?.self, forKey: .snapshotData)
         }
     }
 }

@@ -312,6 +312,48 @@ public class NativecontainerJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func execCreateAsync(request:ExecCreateRequest,requestComplation:@escaping (NSNumber?,ExecCreateResponse?,NSError?,NSString?)->()) throws {
+        nativecontainerJDCloudClient = self
+        try ExecCreateExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ExecCreateResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func execGetExitCodeAsync(request:ExecGetExitCodeRequest,requestComplation:@escaping (NSNumber?,ExecGetExitCodeResponse?,NSError?,NSString?)->()) throws {
+        nativecontainerJDCloudClient = self
+        try ExecGetExitCodeExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ExecGetExitCodeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func createContainersAsync(request:CreateContainersRequest,requestComplation:@escaping (NSNumber?,CreateContainersResponse?,NSError?,NSString?)->()) throws {
         nativecontainerJDCloudClient = self
         try CreateContainersExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -383,6 +425,27 @@ public class NativecontainerJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(ModifyContainerAttributeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func resizeTTYAsync(request:ResizeTTYRequest,requestComplation:@escaping (NSNumber?,ResizeTTYResponse?,NSError?,NSString?)->()) throws {
+        nativecontainerJDCloudClient = self
+        try ResizeTTYExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ResizeTTYResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

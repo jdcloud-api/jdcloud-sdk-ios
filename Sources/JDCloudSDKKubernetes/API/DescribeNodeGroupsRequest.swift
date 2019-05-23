@@ -37,6 +37,9 @@ public class DescribeNodeGroupsRequest:JdCloudRequest
     /// 分页大小；默认为20；取值范围[10, 100]
     var pageSize:Int?
 
+    /// Tag筛选条件
+    var tags:[TagFilter?]?
+
     /// name - 节点组名称，模糊匹配，支持单个      
       /// id - 节点组 id，支持多个     
       /// clusterId - 根据clusterId查询        
@@ -50,6 +53,7 @@ public class DescribeNodeGroupsRequest:JdCloudRequest
     enum DescribeNodeGroupsRequestRequestCodingKeys: String, CodingKey {
         case pageNumber
         case pageSize
+        case tags
         case filters
     }
 
@@ -57,6 +61,7 @@ public class DescribeNodeGroupsRequest:JdCloudRequest
         var encoderContainer = encoder.container(keyedBy: DescribeNodeGroupsRequestRequestCodingKeys.self)
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(tags, forKey: .tags)
         try encoderContainer.encode(filters, forKey: .filters)
 
     }

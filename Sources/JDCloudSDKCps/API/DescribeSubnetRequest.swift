@@ -26,27 +26,27 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询子网
+///  查询子网详情
 @objc(DescribeSubnetRequest)
 public class DescribeSubnetRequest:JdCloudRequest
 {
-    /// 可用区, 如cn-east-1a；可调用接口（describeRegiones）获取云物理服务器在该地域支持的可用区
-    var az:String
+    /// 子网ID
+    var subnetId:String
 
 
-    public init(regionId: String,az:String){
-        self.az = az
+    public init(regionId: String,subnetId:String){
+        self.subnetId = subnetId
         super.init(regionId: regionId)
     }
 
 
     enum DescribeSubnetRequestRequestCodingKeys: String, CodingKey {
-        case az
+        case subnetId
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeSubnetRequestRequestCodingKeys.self)
-        try encoderContainer.encode(az, forKey: .az)
+        try encoderContainer.encode(subnetId, forKey: .subnetId)
 
     }
 }

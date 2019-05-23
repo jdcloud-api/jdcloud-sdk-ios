@@ -30,4 +30,19 @@ import JDCloudSDKCore
 @objc(DescribeRegionesRequest)
 public class DescribeRegionesRequest:JdCloudRequest
 {
+    /// 网络类型basic/vpc, 默认basic
+    var networkType:String?
+
+
+
+
+    enum DescribeRegionesRequestRequestCodingKeys: String, CodingKey {
+        case networkType
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: DescribeRegionesRequestRequestCodingKeys.self)
+        try encoderContainer.encode(networkType, forKey: .networkType)
+
+    }
 }

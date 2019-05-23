@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   ModuleManager
-   用于完成设备全生命周期管理
+   EdgeManager
+   edge管理模块
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,48 +26,52 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  客户用该接口可以登记模块
-      ///       /// 
+///  计算模块登记
 @objc(ModuleEnrollRequest)
 public class ModuleEnrollRequest:JdCloudRequest
 {
-    /// InstanceId
-    var instanceId:String?
+    /// 待添加的设备编号
+    var deviceId:String?
 
-    /// ModelName
-    var modelName:String?
+    /// 边缘计算模块名称
+    var moduleId:String?
 
-    /// ParentDeviceName
-    var parentDeviceName:String?
+    /// 边缘计算模块类型编号
+    var moduleTypeId:String?
 
-    /// Name
-    var name:String?
+    /// 边缘计算模块配置编号
+    var moduleConfId:String?
 
-    /// moduleName 唯一标识
-    var moduleName:String
+    /// 是否立即部署[0-立即部署,1-暂不部署]
+    var isDeploy:Int?
+
+    /// 边缘计算节点编号
+    var edgeId:String
 
 
-    public init(regionId: String,moduleName:String){
-        self.moduleName = moduleName
+    public init(regionId: String,edgeId:String){
+        self.edgeId = edgeId
         super.init(regionId: regionId)
     }
 
 
     enum ModuleEnrollRequestRequestCodingKeys: String, CodingKey {
-        case instanceId
-        case modelName
-        case parentDeviceName
-        case name
-        case moduleName
+        case deviceId
+        case moduleId
+        case moduleTypeId
+        case moduleConfId
+        case isDeploy
+        case edgeId
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ModuleEnrollRequestRequestCodingKeys.self)
-        try encoderContainer.encode(instanceId, forKey: .instanceId)
-        try encoderContainer.encode(modelName, forKey: .modelName)
-        try encoderContainer.encode(parentDeviceName, forKey: .parentDeviceName)
-        try encoderContainer.encode(name, forKey: .name)
-        try encoderContainer.encode(moduleName, forKey: .moduleName)
+        try encoderContainer.encode(deviceId, forKey: .deviceId)
+        try encoderContainer.encode(moduleId, forKey: .moduleId)
+        try encoderContainer.encode(moduleTypeId, forKey: .moduleTypeId)
+        try encoderContainer.encode(moduleConfId, forKey: .moduleConfId)
+        try encoderContainer.encode(isDeploy, forKey: .isDeploy)
+        try encoderContainer.encode(edgeId, forKey: .edgeId)
 
     }
 }

@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   缓存Redis实例接口
-   缓存Redis实例相关接口
+   Redis Instance API
+   缓存Redis实例的创建、删除、修改基本信息、设置密码、变配、列表查询、备份、配置参数接口
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,11 +25,11 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询单个缓存Redis实例详情
+/// 查询缓存Redis实例的详细信息
 @objc(DescribeCacheInstanceResult)
 public class DescribeCacheInstanceResult:NSObject,JdCloudResult
 {
-    /// 要查询目标缓存实例的信息
+    /// 该实例的详细信息
     var cacheInstance:CacheInstance?
 
 

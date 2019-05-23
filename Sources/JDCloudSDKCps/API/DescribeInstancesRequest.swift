@@ -28,7 +28,7 @@ import JDCloudSDKCommon
 
 
 ///  批量查询云物理服务器详细信息&lt;br/&gt;
-      ///       /// 支持分页查询，默认每页10条&lt;br/&gt;
+      ///       /// 支持分页查询，默认每页20条&lt;br/&gt;
       ///       /// 
 @objc(DescribeInstancesRequest)
 public class DescribeInstancesRequest:JdCloudRequest
@@ -36,7 +36,7 @@ public class DescribeInstancesRequest:JdCloudRequest
     /// 页码；默认为1
     var pageNumber:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小；默认为20；取值范围[20, 100]
     var pageSize:Int?
 
     /// 可用区，精确匹配
@@ -45,16 +45,21 @@ public class DescribeInstancesRequest:JdCloudRequest
     /// 云物理服务器名称，支持模糊匹配
     var name:String?
 
-    /// 网络类型，精确匹配，目前只支持basic
+    /// 网络类型，精确匹配，支持basic，vpc
     var networkType:String?
 
     /// 实例类型，精确匹配，调用接口（describeDeviceTypes）获取实例类型
     var deviceType:String?
 
-    /// 云物理服务器状态，参考云物理服务器状态
-    var status:String?
+    /// 子网ID
+    var subnetId:String?
 
-    /// instanceId - 云物理服务器ID，精确匹配，支持多个
+    /// 是否启用外网, yes/no
+    var enableInternet:String?
+
+    /// instanceId - 云物理服务器ID，精确匹配，支持多个&lt;br/&gt;
+      /// privateIp - 云物理服务器内网IP，精确匹配，支持多个&lt;br/&gt;
+      /// status - 云物理服务器状态，参考云物理服务器状态，精确匹配，支持多个
       /// 
     var filters:[Filter?]?
 
@@ -68,7 +73,8 @@ public class DescribeInstancesRequest:JdCloudRequest
         case name
         case networkType
         case deviceType
-        case status
+        case subnetId
+        case enableInternet
         case filters
     }
 
@@ -80,7 +86,8 @@ public class DescribeInstancesRequest:JdCloudRequest
         try encoderContainer.encode(name, forKey: .name)
         try encoderContainer.encode(networkType, forKey: .networkType)
         try encoderContainer.encode(deviceType, forKey: .deviceType)
-        try encoderContainer.encode(status, forKey: .status)
+        try encoderContainer.encode(subnetId, forKey: .subnetId)
+        try encoderContainer.encode(enableInternet, forKey: .enableInternet)
         try encoderContainer.encode(filters, forKey: .filters)
 
     }

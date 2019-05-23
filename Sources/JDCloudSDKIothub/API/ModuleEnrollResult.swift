@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   ModuleManager
-   用于完成设备全生命周期管理
+   EdgeManager
+   edge管理模块
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,35 +25,8 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 客户用该接口可以登记模块
-      ///       /// 
+/// 计算模块登记
 @objc(ModuleEnrollResult)
 public class ModuleEnrollResult:NSObject,JdCloudResult
 {
-    /// Data
-    var data:String?
-
-
-
-    public override init(){
-        super.init()
-    }
-
-    enum ModuleEnrollResultCodingKeys: String, CodingKey {
-        case data
-    }
-
-    required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: ModuleEnrollResultCodingKeys.self)
-        if decoderContainer.contains(.data)
-        {
-            self.data = try decoderContainer.decode(String?.self, forKey: .data)
-        }
-    }
-}
-public extension ModuleEnrollResult{
-    func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: ModuleEnrollResultCodingKeys.self)
-        try encoderContainer.encode(data, forKey: .data)
-    }
 }

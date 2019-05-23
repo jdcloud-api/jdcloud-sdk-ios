@@ -40,6 +40,14 @@ public class DescribeLivePublishStreamNumRequest:JdCloudRequest
       /// 
     var protocolType:String?
 
+    /// 运营商
+      /// 
+    var ispName:String?
+
+    /// 查询的区域，如beijing,shanghai。多个用逗号分隔
+      /// 
+    var locationName:String?
+
     /// 查询周期，当前取值范围：“oneMin,fiveMin,halfHour,hour,twoHour,sixHour,day,followTime”，分别表示1min，5min，半小时，1小时，2小时，6小时，1天，跟随时间。默认为空，表示fiveMin。当传入followTime时，表示按Endtime-StartTime的周期，只返回一个点
       /// 
     var period:String?
@@ -70,6 +78,8 @@ public class DescribeLivePublishStreamNumRequest:JdCloudRequest
         case domainName
         case appName
         case protocolType
+        case ispName
+        case locationName
         case period
         case startTime
         case endTime
@@ -80,6 +90,8 @@ public class DescribeLivePublishStreamNumRequest:JdCloudRequest
         try encoderContainer.encode(domainName, forKey: .domainName)
         try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(protocolType, forKey: .protocolType)
+        try encoderContainer.encode(ispName, forKey: .ispName)
+        try encoderContainer.encode(locationName, forKey: .locationName)
         try encoderContainer.encode(period, forKey: .period)
         try encoderContainer.encode(startTime, forKey: .startTime)
         try encoderContainer.encode(endTime, forKey: .endTime)

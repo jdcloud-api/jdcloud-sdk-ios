@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   缓存Redis实例规格接口
-   缓存Redis实例规格相关接口
+   Redis Class API
+   缓存Redis实例规格查询、修改接口
 
    OpenAPI spec version: v1
    Contact: 

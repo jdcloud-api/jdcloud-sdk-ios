@@ -121,27 +121,6 @@ public class PortalJDCloudClient:NSObject,JDCloudClient{
         }
     }
 
-
-    @objc
-    public func describeProductsAsync(request:DescribeProductsRequest,requestComplation:@escaping (NSNumber?,DescribeProductsResponse?,NSError?,NSString?)->()) throws {
-        portalJDCloudClient = self
-        try DescribeProductsExecutor(jdCloudClient: portalJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeProductsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
     
 }
 

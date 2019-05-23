@@ -81,6 +81,27 @@ public class IothubJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func deployModuleAsync(request:DeployModuleRequest,requestComplation:@escaping (NSNumber?,DeployModuleResponse?,NSError?,NSString?)->()) throws {
+        iothubJDCloudClient = self
+        try DeployModuleExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeployModuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func omEnrollAsync(request:OmEnrollRequest,requestComplation:@escaping (NSNumber?,OmEnrollResponse?,NSError?,NSString?)->()) throws {
         iothubJDCloudClient = self
         try OmEnrollExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -228,6 +249,48 @@ public class IothubJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func edgeEnrollAsync(request:EdgeEnrollRequest,requestComplation:@escaping (NSNumber?,EdgeEnrollResponse?,NSError?,NSString?)->()) throws {
+        iothubJDCloudClient = self
+        try EdgeEnrollExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EdgeEnrollResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func checkDeviceIdAsync(request:CheckDeviceIdRequest,requestComplation:@escaping (NSNumber?,CheckDeviceIdResponse?,NSError?,NSString?)->()) throws {
+        iothubJDCloudClient = self
+        try CheckDeviceIdExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CheckDeviceIdResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func omEnrollbyFileAsync(request:OmEnrollbyFileRequest,requestComplation:@escaping (NSNumber?,OmEnrollbyFileResponse?,NSError?,NSString?)->()) throws {
         iothubJDCloudClient = self
         try OmEnrollbyFileExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -291,14 +354,35 @@ public class IothubJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func getOMPrivateURLAsync(request:GetOMPrivateURLRequest,requestComplation:@escaping (NSNumber?,GetOMPrivateURLResponse?,NSError?,NSString?)->()) throws {
+    public func moduleEnrollmentAsync(request:ModuleEnrollmentRequest,requestComplation:@escaping (NSNumber?,ModuleEnrollmentResponse?,NSError?,NSString?)->()) throws {
         iothubJDCloudClient = self
-        try GetOMPrivateURLExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try ModuleEnrollmentExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetOMPrivateURLResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(ModuleEnrollmentResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func deleteEdgeAsync(request:DeleteEdgeRequest,requestComplation:@escaping (NSNumber?,DeleteEdgeResponse?,NSError?,NSString?)->()) throws {
+        iothubJDCloudClient = self
+        try DeleteEdgeExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteEdgeResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -320,6 +404,48 @@ public class IothubJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(QueryDeviceCommandsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func getOMPrivateURLAsync(request:GetOMPrivateURLRequest,requestComplation:@escaping (NSNumber?,GetOMPrivateURLResponse?,NSError?,NSString?)->()) throws {
+        iothubJDCloudClient = self
+        try GetOMPrivateURLExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(GetOMPrivateURLResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func deleteModuleAsync(request:DeleteModuleRequest,requestComplation:@escaping (NSNumber?,DeleteModuleResponse?,NSError?,NSString?)->()) throws {
+        iothubJDCloudClient = self
+        try DeleteModuleExecutor(jdCloudClient: iothubJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteModuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

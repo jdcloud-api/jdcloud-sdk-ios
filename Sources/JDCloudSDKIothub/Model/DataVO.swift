@@ -45,7 +45,7 @@ public class DataVO:NSObject,Codable{
     var pubDomain:String?
     /// 内网域名
     var priDomain:String?
-    /// 实例状态
+    /// 实例状态[0-创建中，1-运行中，2-停止]
     var status:String?
     /// 资费形式
     var feetype:String?

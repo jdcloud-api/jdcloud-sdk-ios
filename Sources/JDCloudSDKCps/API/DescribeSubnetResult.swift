@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询子网
+/// 查询子网详情
 @objc(DescribeSubnetResult)
 public class DescribeSubnetResult:NSObject,JdCloudResult
 {

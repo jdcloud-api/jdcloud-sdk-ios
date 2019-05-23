@@ -24,16 +24,16 @@
 
 import Foundation
 
-///  订单状态
+///  Redis实例的订单结果
 @objc(OrderStatus)
 public class OrderStatus:NSObject,Codable{
     /// 订单总数
     var total:Int?
-    /// 成功数
+    /// 成功的订单数
     var success:Int?
-    /// 失败数
+    /// 失败的订单数
     var fail:Int?
-    /// 正在处理数
+    /// 正在处理的订单数
     var inProcess:Int?
     /// 成功的资源Id
     var resourceIds:[String?]?

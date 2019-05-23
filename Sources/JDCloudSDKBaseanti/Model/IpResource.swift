@@ -27,11 +27,36 @@ import Foundation
 ///  ipResource
 @objc(IpResource)
 public class IpResource:NSObject,Codable{
-    /// 公网IP
+    /// 公网 IP 所在区域编码
+    var region:String?
+    /// 公网 IP 类型或绑定资源类型:
+      ///   0: 未知类型,
+      ///   1: 弹性公网 IP(IP 为弹性公网 IP, 绑定资源类型未知),
+      ///   10: 弹性公网 IP(IP 为弹性公网 IP, 但未绑定资源),
+      ///   11: 云主机,
+      ///   12: 负载均衡,
+      ///   13: 原生容器实例,
+      ///   14: 原生容器 Pod,
+      ///   2: 云物理服务器,
+      /// 
+    var resourceType:Int?
+    /// 公网 IP 地址
     var ip:String?
-    /// 带宽上限，单位Mbps
-    var bandwidth:Int?
-    /// 0-&gt;安全 1-&gt;清洗 2-&gt;黑洞
+    /// 带宽上限, 单位 Mbps
+    var bandwidth:Int64?
+    /// 每秒请求流量
+    var cleanThresholdBps:Int64?
+    /// 每秒报文请求数
+    var cleanThresholdPps:Int64?
+    /// 黑洞阈值
+    var blackHoleThreshold:Int64?
+    /// 绑定防护包 ID, 为 0 时表示未绑定防护包
+    var instanceId:Int64?
+    /// 绑定防护包名称, 为空字符串时表示未绑定防护包
+    var instanceName:String?
+    /// 套餐类型, 1: 独享 IP, 2: 共享 IP, 为 0 时未绑定防护包
+    var instanceType:Int?
+    /// 安全状态, 0: 安全, 1: 清洗, 2: 黑洞
     var safeStatus:Int?
 
 
@@ -41,21 +66,61 @@ public class IpResource:NSObject,Codable{
     }
 
     enum IpResourceCodingKeys: String, CodingKey {
+        case region
+        case resourceType
         case ip
         case bandwidth
+        case cleanThresholdBps
+        case cleanThresholdPps
+        case blackHoleThreshold
+        case instanceId
+        case instanceName
+        case instanceType
         case safeStatus
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpResourceCodingKeys.self)
+        if decoderContainer.contains(.region)
+        {
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
+        }
+        if decoderContainer.contains(.resourceType)
+        {
+            self.resourceType = try decoderContainer.decode(Int?.self, forKey: .resourceType)
+        }
         if decoderContainer.contains(.ip)
         {
             self.ip = try decoderContainer.decode(String?.self, forKey: .ip)
         }
         if decoderContainer.contains(.bandwidth)
         {
-            self.bandwidth = try decoderContainer.decode(Int?.self, forKey: .bandwidth)
+            self.bandwidth = try decoderContainer.decode(Int64?.self, forKey: .bandwidth)
+        }
+        if decoderContainer.contains(.cleanThresholdBps)
+        {
+            self.cleanThresholdBps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdBps)
+        }
+        if decoderContainer.contains(.cleanThresholdPps)
+        {
+            self.cleanThresholdPps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdPps)
+        }
+        if decoderContainer.contains(.blackHoleThreshold)
+        {
+            self.blackHoleThreshold = try decoderContainer.decode(Int64?.self, forKey: .blackHoleThreshold)
+        }
+        if decoderContainer.contains(.instanceId)
+        {
+            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+        }
+        if decoderContainer.contains(.instanceName)
+        {
+            self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(Int?.self, forKey: .instanceType)
         }
         if decoderContainer.contains(.safeStatus)
         {
@@ -66,8 +131,16 @@ public class IpResource:NSObject,Codable{
 public extension IpResource{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpResourceCodingKeys.self)
+         try encoderContainer.encode(region, forKey: .region)
+         try encoderContainer.encode(resourceType, forKey: .resourceType)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(bandwidth, forKey: .bandwidth)
+         try encoderContainer.encode(cleanThresholdBps, forKey: .cleanThresholdBps)
+         try encoderContainer.encode(cleanThresholdPps, forKey: .cleanThresholdPps)
+         try encoderContainer.encode(blackHoleThreshold, forKey: .blackHoleThreshold)
+         try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(instanceName, forKey: .instanceName)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(safeStatus, forKey: .safeStatus)
     }
 }

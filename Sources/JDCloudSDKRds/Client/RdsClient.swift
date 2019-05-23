@@ -1656,6 +1656,27 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func createROInstanceAsync(request:CreateROInstanceRequest,requestComplation:@escaping (NSNumber?,CreateROInstanceResponse?,NSError?,NSString?)->()) throws {
+        rdsJDCloudClient = self
+        try CreateROInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateROInstanceResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeAuditOptionsAsync(request:DescribeAuditOptionsRequest,requestComplation:@escaping (NSNumber?,DescribeAuditOptionsResponse?,NSError?,NSString?)->()) throws {
         rdsJDCloudClient = self
         try DescribeAuditOptionsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1706,6 +1727,27 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(ModifyParameterGroupParametersResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func createInstanceByTimeInCrossRegionAsync(request:CreateInstanceByTimeInCrossRegionRequest,requestComplation:@escaping (NSNumber?,CreateInstanceByTimeInCrossRegionResponse?,NSError?,NSString?)->()) throws {
+        rdsJDCloudClient = self
+        try CreateInstanceByTimeInCrossRegionExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateInstanceByTimeInCrossRegionResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

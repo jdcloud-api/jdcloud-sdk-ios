@@ -102,6 +102,27 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func jdxQueryPriceAsync(request:JdxQueryPriceRequest,requestComplation:@escaping (NSNumber?,JdxQueryPriceResponse?,NSError?,NSString?)->()) throws {
+        eliteJDCloudClient = self
+        try JdxQueryPriceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(JdxQueryPriceResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func getStoreServiceAsync(request:GetStoreServiceRequest,requestComplation:@escaping (NSNumber?,GetStoreServiceResponse?,NSError?,NSString?)->()) throws {
         eliteJDCloudClient = self
         try GetStoreServiceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -131,6 +152,27 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(ConfirmSaleServiceDeliveryResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func jdxReportOrderAsync(request:JdxReportOrderRequest,requestComplation:@escaping (NSNumber?,JdxReportOrderResponse?,NSError?,NSString?)->()) throws {
+        eliteJDCloudClient = self
+        try JdxReportOrderExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(JdxReportOrderResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

@@ -24,28 +24,32 @@
 
 import Foundation
 
-///  cacheInstanceSpec
+///  创建缓存Redis实例时，用户输入的参数
 @objc(CacheInstanceSpec)
 public class CacheInstanceSpec:NSObject,Codable{
-    /// 缓存redis实例所属的私有网络ID
+    /// 缓存Redis实例所属的私有网络ID
     /// Required:true
     var vpcId:String
-    /// 缓存redis实例在私有网络下所属的子网ID
+    /// 缓存Redis实例在私有网络下所属的子网ID
     /// Required:true
     var subnetId:String
-    /// 缓存redis实例名称，只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
+    /// 缓存Redis实例名称，只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
     /// Required:true
     var cacheInstanceName:String
-    /// 缓存redis实例规格代码，参见实例规格代码表&lt;a href&#x3D;&quot;https://www.jdcloud.com/help/detail/411/isCatalog/1&quot;&gt;实例规格代码&lt;/a&gt;。
+    /// 缓存Redis实例的规格代码，参考 https://docs.jdcloud.com/cn/jcs-for-redis/specifications
     /// Required:true
     var cacheInstanceClass:String
-    /// 密码，为空即为免密，包含且只支持字母及数字，不少于8字符不超过16字符
+    /// 缓存Redis实例的连接密码，为空即为免密，包含且只支持字母及数字，不少于8字符不超过16字符
     var password:String?
-    /// 缓存Redis实例所在区域可用区ID信息
+    /// 缓存Redis实例所在区域的可用区ID
     /// Required:true
     var azId:AzIdSpec
-    /// 缓存Redis实例描述，不能超过256个字符
+    /// 缓存Redis实例的描述，不能超过256个字符
     var cacheInstanceDescription:String?
+    /// 支持的缓存Redis引擎主次版本号：目前支持2.8和4.0，默认为2.8
+    var redisVersion:String?
+    /// 是否支持IPv6，0或空表示不支持，1表示支持IPv6，注意不是所有区域都支持IPv6
+    var ipv6On:Int?
 
 
 
@@ -65,6 +69,8 @@ public class CacheInstanceSpec:NSObject,Codable{
         case password
         case azId
         case cacheInstanceDescription
+        case redisVersion
+        case ipv6On
     }
 
 
@@ -83,6 +89,14 @@ public class CacheInstanceSpec:NSObject,Codable{
         {
             self.cacheInstanceDescription = try decoderContainer.decode(String?.self, forKey: .cacheInstanceDescription)
         }
+        if decoderContainer.contains(.redisVersion)
+        {
+            self.redisVersion = try decoderContainer.decode(String?.self, forKey: .redisVersion)
+        }
+        if decoderContainer.contains(.ipv6On)
+        {
+            self.ipv6On = try decoderContainer.decode(Int?.self, forKey: .ipv6On)
+        }
     }
 }
 public extension CacheInstanceSpec{
@@ -95,5 +109,7 @@ public extension CacheInstanceSpec{
          try encoderContainer.encode(password, forKey: .password)
          try encoderContainer.encode(azId, forKey: .azId)
          try encoderContainer.encode(cacheInstanceDescription, forKey: .cacheInstanceDescription)
+         try encoderContainer.encode(redisVersion, forKey: .redisVersion)
+         try encoderContainer.encode(ipv6On, forKey: .ipv6On)
     }
 }

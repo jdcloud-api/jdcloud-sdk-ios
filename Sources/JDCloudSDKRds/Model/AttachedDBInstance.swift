@@ -29,7 +29,7 @@ import Foundation
 public class AttachedDBInstance:NSObject,Codable{
     /// 实例ID
     var instanceId:String?
-    /// 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+    /// 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
     var instanceName:String?
     /// 实例类型，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var instanceType:String?

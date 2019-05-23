@@ -73,26 +73,25 @@ public class AddCustomLiveStreamSnapshotTemplateRequest:JdCloudRequest
     var saveMode:Int
 
     /// 存储桶
-    var saveBucket:String
+    var saveBucket:String?
 
     /// 存储地址
-    var saveEndpoint:String
+    var saveEndpoint:String?
 
     /// 截图模板自定义名称:
-      /// - 取值要求: 数字、大小写字母或短横线(&quot;-&quot;),
+      /// - 取值要求: 数字、大小写字母或短横线(&quot;-&quot;)、下划线(&quot;_&quot;),
       ///   首尾不能有特殊字符(&quot;-&quot;)
+      ///   最大长度50个字符
       /// - &lt;b&gt;注意: 不能与已定义命名重复&lt;/b&gt;
       /// 
     var template:String
 
 
-    public init(regionId: String,format:String,fillType:Int,snapshotInterval:Int,saveMode:Int,saveBucket:String,saveEndpoint:String,template:String){
+    public init(regionId: String,format:String,fillType:Int,snapshotInterval:Int,saveMode:Int,template:String){
         self.format = format
         self.fillType = fillType
         self.snapshotInterval = snapshotInterval
         self.saveMode = saveMode
-        self.saveBucket = saveBucket
-        self.saveEndpoint = saveEndpoint
         self.template = template
         super.init(regionId: regionId)
     }

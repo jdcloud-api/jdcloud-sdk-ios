@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   DDoS基础防护相关接口
-   DDoS基础防护相关接口
+   IP Resource APIs
+   Anti DDoS Basic IP Resource APIs
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,12 +25,16 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询公网Ip的监控流量
+/// 查询公网 IP 的 endTime 之前 15 分钟内监控流量, 仅支持 ipv4. (已废弃, 建议使用 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-basic/api/describeipmonitorflow&quot;&gt;describeIpMonitorFlow&lt;/a&gt; 接口)
+      ///       /// 
 @objc(DescribeIpResourceFlowResult)
 public class DescribeIpResourceFlowResult:NSObject,JdCloudResult
 {
-    /// Data
-    var data:IpResourceFlow?
+    /// Bps
+    var bps:IpResourceFlow?
+
+    /// Pps
+    var pps:IpResourceFlow?
 
 
 
@@ -39,20 +43,26 @@ public class DescribeIpResourceFlowResult:NSObject,JdCloudResult
     }
 
     enum DescribeIpResourceFlowResultCodingKeys: String, CodingKey {
-        case data
+        case bps
+        case pps
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeIpResourceFlowResultCodingKeys.self)
-        if decoderContainer.contains(.data)
+        if decoderContainer.contains(.bps)
         {
-            self.data = try decoderContainer.decode(IpResourceFlow?.self, forKey: .data)
+            self.bps = try decoderContainer.decode(IpResourceFlow?.self, forKey: .bps)
+        }
+        if decoderContainer.contains(.pps)
+        {
+            self.pps = try decoderContainer.decode(IpResourceFlow?.self, forKey: .pps)
         }
     }
 }
 public extension DescribeIpResourceFlowResult{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeIpResourceFlowResultCodingKeys.self)
-        try encoderContainer.encode(data, forKey: .data)
+        try encoderContainer.encode(bps, forKey: .bps)
+        try encoderContainer.encode(pps, forKey: .pps)
     }
 }

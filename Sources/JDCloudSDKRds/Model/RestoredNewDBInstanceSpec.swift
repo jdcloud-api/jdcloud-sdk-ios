@@ -28,7 +28,7 @@ import JDCloudSDKCharge
 ///  restoredNewDBInstanceSpec
 @objc(RestoredNewDBInstanceSpec)
 public class RestoredNewDBInstanceSpec:NSObject,Codable{
-    /// 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+    /// 数据库实例名，名称的限制可参考[帮助中心文档](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
     var instanceName:String?
     /// 实例规格代码，可以查看文档[MySQL 实例规格](../Instance-Specifications/Instance-Specifications-MySQL.md)、[SQL Server实例规格](../Instance-Specifications/Instance-Specifications-SQLServer.md)
     /// Required:true
@@ -50,6 +50,12 @@ public class RestoredNewDBInstanceSpec:NSObject,Codable{
     /// 计费规格，包括计费类型，计费周期等
     /// Required:true
     var chargeSpec:ChargeSpec
+    /// 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md), 缺省值为：LOCAL_SSD&lt;br&gt;- 仅支持MySQL
+    var instanceStorageType:String?
+    /// 实例数据加密(存储类型为云硬盘才支持数据加密)。false：不加密，true：加密，缺省为false&lt;br&gt;- 仅支持MySQL
+    var storageEncrypted:Bool?
+    /// 实例的高可用架构。standalone：单机，cluster：主备双机架构，缺省为cluster&lt;br&gt;- 仅支持SQL Server
+    var instanceType:String?
 
 
 
@@ -71,6 +77,9 @@ public class RestoredNewDBInstanceSpec:NSObject,Codable{
         case subnetId
         case parameterGroup
         case chargeSpec
+        case instanceStorageType
+        case storageEncrypted
+        case instanceType
     }
 
 
@@ -90,6 +99,18 @@ public class RestoredNewDBInstanceSpec:NSObject,Codable{
             self.parameterGroup = try decoderContainer.decode(String?.self, forKey: .parameterGroup)
         }
         self.chargeSpec = try decoderContainer.decode(ChargeSpec.self, forKey: .chargeSpec)
+        if decoderContainer.contains(.instanceStorageType)
+        {
+            self.instanceStorageType = try decoderContainer.decode(String?.self, forKey: .instanceStorageType)
+        }
+        if decoderContainer.contains(.storageEncrypted)
+        {
+            self.storageEncrypted = try decoderContainer.decode(Bool?.self, forKey: .storageEncrypted)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
+        }
     }
 }
 public extension RestoredNewDBInstanceSpec{
@@ -103,5 +124,8 @@ public extension RestoredNewDBInstanceSpec{
          try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(parameterGroup, forKey: .parameterGroup)
          try encoderContainer.encode(chargeSpec, forKey: .chargeSpec)
+         try encoderContainer.encode(instanceStorageType, forKey: .instanceStorageType)
+         try encoderContainer.encode(storageEncrypted, forKey: .storageEncrypted)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
     }
 }

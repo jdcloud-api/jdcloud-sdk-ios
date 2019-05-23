@@ -102,6 +102,48 @@ public class KubernetesJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeNodeVersionAsync(request:DescribeNodeVersionRequest,requestComplation:@escaping (NSNumber?,DescribeNodeVersionResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try DescribeNodeVersionExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeNodeVersionResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func rollbackNodeGroupUpgradeAsync(request:RollbackNodeGroupUpgradeRequest,requestComplation:@escaping (NSNumber?,RollbackNodeGroupUpgradeResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try RollbackNodeGroupUpgradeExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(RollbackNodeGroupUpgradeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeNodeGroupsAsync(request:DescribeNodeGroupsRequest,requestComplation:@escaping (NSNumber?,DescribeNodeGroupsResponse?,NSError?,NSString?)->()) throws {
         kubernetesJDCloudClient = self
         try DescribeNodeGroupsExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -110,6 +152,69 @@ public class KubernetesJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeNodeGroupsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeUpgradableNodeVersionsAsync(request:DescribeUpgradableNodeVersionsRequest,requestComplation:@escaping (NSNumber?,DescribeUpgradableNodeVersionsResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try DescribeUpgradableNodeVersionsExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeUpgradableNodeVersionsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func abortUpgradeAsync(request:AbortUpgradeRequest,requestComplation:@escaping (NSNumber?,AbortUpgradeResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try AbortUpgradeExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(AbortUpgradeResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeUpgradableMasterVersionsAsync(request:DescribeUpgradableMasterVersionsRequest,requestComplation:@escaping (NSNumber?,DescribeUpgradableMasterVersionsResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try DescribeUpgradableMasterVersionsExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeUpgradableMasterVersionsResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -207,14 +312,14 @@ public class KubernetesJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func describeImagesAsync(request:DescribeImagesRequest,requestComplation:@escaping (NSNumber?,DescribeImagesResponse?,NSError?,NSString?)->()) throws {
+    public func setAutoUpgradeAsync(request:SetAutoUpgradeRequest,requestComplation:@escaping (NSNumber?,SetAutoUpgradeResponse?,NSError?,NSString?)->()) throws {
         kubernetesJDCloudClient = self
-        try DescribeImagesExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try SetAutoUpgradeExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeImagesResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(SetAutoUpgradeResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -333,6 +438,27 @@ public class KubernetesJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func upgradeClusterAsync(request:UpgradeClusterRequest,requestComplation:@escaping (NSNumber?,UpgradeClusterResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try UpgradeClusterExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(UpgradeClusterResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeVersionsAsync(request:DescribeVersionsRequest,requestComplation:@escaping (NSNumber?,DescribeVersionsResponse?,NSError?,NSString?)->()) throws {
         kubernetesJDCloudClient = self
         try DescribeVersionsExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -425,6 +551,27 @@ public class KubernetesJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeNodeGroupResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeProgressAsync(request:DescribeProgressRequest,requestComplation:@escaping (NSNumber?,DescribeProgressResponse?,NSError?,NSString?)->()) throws {
+        kubernetesJDCloudClient = self
+        try DescribeProgressExecutor(jdCloudClient: kubernetesJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeProgressResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

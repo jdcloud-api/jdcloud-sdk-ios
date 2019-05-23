@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class DescribeLiveSnapshotDataRequest:JdCloudRequest
 {
     /// 推流域名
-    var publishDomain:String
+    var publishDomain:String?
 
     /// 应用名称
     var appName:String?
@@ -56,8 +56,7 @@ public class DescribeLiveSnapshotDataRequest:JdCloudRequest
     var endTime:String?
 
 
-    public init(regionId: String,publishDomain:String,startTime:String){
-        self.publishDomain = publishDomain
+    public init(regionId: String,startTime:String){
         self.startTime = startTime
         super.init(regionId: regionId)
     }

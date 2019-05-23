@@ -27,16 +27,12 @@ import Foundation
 ///  deviceType
 @objc(DeviceType)
 public class DeviceType:NSObject,Codable{
-    /// 实例类型英文名称, 如 cps.c.normal
-    var nameEN:String?
-    /// 实例类型中文名称, 如 计算型
-    var nameZH:String?
+    /// 实例类型, 如 cps.c.normal
+    var deviceTypeValue:String?
+    /// 实例类型名称, 如 标准计算型
+    var name:String?
     /// 实例所属规格系列，如 计算、存储、GPU
     var family:String?
-    /// 镜像类型英文描述, 如 standard
-    var useTypeEN:String?
-    /// 镜像类型中文描述, 如 标准型
-    var useTypeZH:String?
     /// 区域代码, 如 cn-east-1
     var region:String?
     /// CPU概要描述
@@ -51,18 +47,22 @@ public class DeviceType:NSObject,Codable{
     var ifConcise:String?
     /// 网口详细信息
     var ifDetail:String?
-    /// 系统磁盘概要信息
-    var systemDiskConcise:String?
-    /// 系统磁盘详细信息
-    var systemDiskDetail:String?
-    /// 数据磁盘概要信息
-    var dataDiskConcise:String?
-    /// 数据磁盘详细信息
-    var dataDiskDetail:String?
     /// GPU概要信息
     var gpuConcise:String?
     /// GPU详细信息
     var gpuDetail:String?
+    /// 系统盘数量
+    var systemDiskAmount:Int?
+    /// 系统盘单盘大小（GB）
+    var systemDiskSize:Int?
+    /// 系统盘规格
+    var systemDiskModel:String?
+    /// 数据盘数量
+    var dataDiskAmount:Int?
+    /// 数据盘单盘大小（GB）
+    var dataDiskSize:Int?
+    /// 数据盘规格
+    var dataDiskModel:String?
     /// 售罄状态
     var isSoldOut:Bool?
 
@@ -73,11 +73,9 @@ public class DeviceType:NSObject,Codable{
     }
 
     enum DeviceTypeCodingKeys: String, CodingKey {
-        case nameEN
-        case nameZH
+        case deviceTypeValue = "deviceType"
+        case name
         case family
-        case useTypeEN
-        case useTypeZH
         case region
         case cpuConcise
         case cpuDetail
@@ -85,37 +83,31 @@ public class DeviceType:NSObject,Codable{
         case memDetail
         case ifConcise
         case ifDetail
-        case systemDiskConcise
-        case systemDiskDetail
-        case dataDiskConcise
-        case dataDiskDetail
         case gpuConcise
         case gpuDetail
+        case systemDiskAmount
+        case systemDiskSize
+        case systemDiskModel
+        case dataDiskAmount
+        case dataDiskSize
+        case dataDiskModel
         case isSoldOut
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DeviceTypeCodingKeys.self)
-        if decoderContainer.contains(.nameEN)
+        if decoderContainer.contains(.deviceTypeValue)
         {
-            self.nameEN = try decoderContainer.decode(String?.self, forKey: .nameEN)
+            self.deviceTypeValue = try decoderContainer.decode(String?.self, forKey: .deviceTypeValue)
         }
-        if decoderContainer.contains(.nameZH)
+        if decoderContainer.contains(.name)
         {
-            self.nameZH = try decoderContainer.decode(String?.self, forKey: .nameZH)
+            self.name = try decoderContainer.decode(String?.self, forKey: .name)
         }
         if decoderContainer.contains(.family)
         {
             self.family = try decoderContainer.decode(String?.self, forKey: .family)
-        }
-        if decoderContainer.contains(.useTypeEN)
-        {
-            self.useTypeEN = try decoderContainer.decode(String?.self, forKey: .useTypeEN)
-        }
-        if decoderContainer.contains(.useTypeZH)
-        {
-            self.useTypeZH = try decoderContainer.decode(String?.self, forKey: .useTypeZH)
         }
         if decoderContainer.contains(.region)
         {
@@ -145,22 +137,6 @@ public class DeviceType:NSObject,Codable{
         {
             self.ifDetail = try decoderContainer.decode(String?.self, forKey: .ifDetail)
         }
-        if decoderContainer.contains(.systemDiskConcise)
-        {
-            self.systemDiskConcise = try decoderContainer.decode(String?.self, forKey: .systemDiskConcise)
-        }
-        if decoderContainer.contains(.systemDiskDetail)
-        {
-            self.systemDiskDetail = try decoderContainer.decode(String?.self, forKey: .systemDiskDetail)
-        }
-        if decoderContainer.contains(.dataDiskConcise)
-        {
-            self.dataDiskConcise = try decoderContainer.decode(String?.self, forKey: .dataDiskConcise)
-        }
-        if decoderContainer.contains(.dataDiskDetail)
-        {
-            self.dataDiskDetail = try decoderContainer.decode(String?.self, forKey: .dataDiskDetail)
-        }
         if decoderContainer.contains(.gpuConcise)
         {
             self.gpuConcise = try decoderContainer.decode(String?.self, forKey: .gpuConcise)
@@ -168,6 +144,30 @@ public class DeviceType:NSObject,Codable{
         if decoderContainer.contains(.gpuDetail)
         {
             self.gpuDetail = try decoderContainer.decode(String?.self, forKey: .gpuDetail)
+        }
+        if decoderContainer.contains(.systemDiskAmount)
+        {
+            self.systemDiskAmount = try decoderContainer.decode(Int?.self, forKey: .systemDiskAmount)
+        }
+        if decoderContainer.contains(.systemDiskSize)
+        {
+            self.systemDiskSize = try decoderContainer.decode(Int?.self, forKey: .systemDiskSize)
+        }
+        if decoderContainer.contains(.systemDiskModel)
+        {
+            self.systemDiskModel = try decoderContainer.decode(String?.self, forKey: .systemDiskModel)
+        }
+        if decoderContainer.contains(.dataDiskAmount)
+        {
+            self.dataDiskAmount = try decoderContainer.decode(Int?.self, forKey: .dataDiskAmount)
+        }
+        if decoderContainer.contains(.dataDiskSize)
+        {
+            self.dataDiskSize = try decoderContainer.decode(Int?.self, forKey: .dataDiskSize)
+        }
+        if decoderContainer.contains(.dataDiskModel)
+        {
+            self.dataDiskModel = try decoderContainer.decode(String?.self, forKey: .dataDiskModel)
         }
         if decoderContainer.contains(.isSoldOut)
         {
@@ -178,11 +178,9 @@ public class DeviceType:NSObject,Codable{
 public extension DeviceType{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DeviceTypeCodingKeys.self)
-         try encoderContainer.encode(nameEN, forKey: .nameEN)
-         try encoderContainer.encode(nameZH, forKey: .nameZH)
+         try encoderContainer.encode(deviceTypeValue, forKey: .deviceTypeValue)
+         try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(family, forKey: .family)
-         try encoderContainer.encode(useTypeEN, forKey: .useTypeEN)
-         try encoderContainer.encode(useTypeZH, forKey: .useTypeZH)
          try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(cpuConcise, forKey: .cpuConcise)
          try encoderContainer.encode(cpuDetail, forKey: .cpuDetail)
@@ -190,12 +188,14 @@ public extension DeviceType{
          try encoderContainer.encode(memDetail, forKey: .memDetail)
          try encoderContainer.encode(ifConcise, forKey: .ifConcise)
          try encoderContainer.encode(ifDetail, forKey: .ifDetail)
-         try encoderContainer.encode(systemDiskConcise, forKey: .systemDiskConcise)
-         try encoderContainer.encode(systemDiskDetail, forKey: .systemDiskDetail)
-         try encoderContainer.encode(dataDiskConcise, forKey: .dataDiskConcise)
-         try encoderContainer.encode(dataDiskDetail, forKey: .dataDiskDetail)
          try encoderContainer.encode(gpuConcise, forKey: .gpuConcise)
          try encoderContainer.encode(gpuDetail, forKey: .gpuDetail)
+         try encoderContainer.encode(systemDiskAmount, forKey: .systemDiskAmount)
+         try encoderContainer.encode(systemDiskSize, forKey: .systemDiskSize)
+         try encoderContainer.encode(systemDiskModel, forKey: .systemDiskModel)
+         try encoderContainer.encode(dataDiskAmount, forKey: .dataDiskAmount)
+         try encoderContainer.encode(dataDiskSize, forKey: .dataDiskSize)
+         try encoderContainer.encode(dataDiskModel, forKey: .dataDiskModel)
          try encoderContainer.encode(isSoldOut, forKey: .isSoldOut)
     }
 }

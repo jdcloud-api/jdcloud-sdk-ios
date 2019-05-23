@@ -117,7 +117,7 @@
 		<key>JDCloudSDKCr iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
 		</dict>
 		<key>JDCloudSDKDatastar MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -157,7 +157,7 @@
 		<key>JDCloudSDKElite iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>10</integer>
 		</dict>
 		<key>JDCloudSDKFunction MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -197,7 +197,7 @@
 		<key>JDCloudSDKIas iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>50</integer>
+			<integer>51</integer>
 		</dict>
 		<key>JDCloudSDKIothub MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -217,7 +217,7 @@
 		<key>JDCloudSDKIpanti iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>54</integer>
+			<integer>55</integer>
 		</dict>
 		<key>JDCloudSDKJcq MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -227,7 +227,7 @@
 		<key>JDCloudSDKJcq iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>51</integer>
+			<integer>50</integer>
 		</dict>
 		<key>JDCloudSDKJdfusion MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -247,7 +247,7 @@
 		<key>JDCloudSDKJdro iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>44</integer>
+			<integer>45</integer>
 		</dict>
 		<key>JDCloudSDKJdw MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -277,7 +277,7 @@
 		<key>JDCloudSDKKms iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>45</integer>
+			<integer>44</integer>
 		</dict>
 		<key>JDCloudSDKKubernetes MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -287,7 +287,7 @@
 		<key>JDCloudSDKKubernetes iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>96</integer>
+			<integer>97</integer>
 		</dict>
 		<key>JDCloudSDKLive MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -297,7 +297,7 @@
 		<key>JDCloudSDKLive iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>34</integer>
+			<integer>35</integer>
 		</dict>
 		<key>JDCloudSDKMongodb MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -307,7 +307,7 @@
 		<key>JDCloudSDKMongodb iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>55</integer>
+			<integer>54</integer>
 		</dict>
 		<key>JDCloudSDKMonitor MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -337,7 +337,7 @@
 		<key>JDCloudSDKNativecontainer iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>38</integer>
+			<integer>39</integer>
 		</dict>
 		<key>JDCloudSDKNc MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -357,7 +357,7 @@
 		<key>JDCloudSDKOss iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>88</integer>
+			<integer>89</integer>
 		</dict>
 		<key>JDCloudSDKOssopenapi MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -417,7 +417,7 @@
 		<key>JDCloudSDKRedis iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>89</integer>
+			<integer>88</integer>
 		</dict>
 		<key>JDCloudSDKRms MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -427,7 +427,7 @@
 		<key>JDCloudSDKRms iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>97</integer>
+			<integer>96</integer>
 		</dict>
 		<key>JDCloudSDKSop MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -477,7 +477,7 @@
 		<key>JDCloudSDKVod iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>39</integer>
+			<integer>38</integer>
 		</dict>
 		<key>JDCloudSDKVpc MacOS.xcscheme_^#shared#^_</key>
 		<dict>
@@ -507,7 +507,7 @@
 		<key>JDCloudSDKZfs iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>35</integer>
+			<integer>34</integer>
 		</dict>
 	</dict>
 </dict>

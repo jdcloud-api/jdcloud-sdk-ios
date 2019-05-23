@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 对单个云物理服务器执行开机操作，只能启动stopped状态的服务器
+/// 对单台云物理服务器执行开机操作，只能启动stopped状态的服务器
 @objc(StartInstanceResult)
 public class StartInstanceResult:NSObject,JdCloudResult
 {

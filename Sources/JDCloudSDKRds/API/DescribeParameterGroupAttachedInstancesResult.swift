@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查看参数的修改历史&lt;br&gt;- 仅支持MySQL
+/// 查看参数组绑定的云数据库实例&lt;br&gt;- 仅支持MySQL
 @objc(DescribeParameterGroupAttachedInstancesResult)
 public class DescribeParameterGroupAttachedInstancesResult:NSObject,JdCloudResult
 {

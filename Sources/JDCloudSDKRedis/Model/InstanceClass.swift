@@ -24,20 +24,22 @@
 
 import Foundation
 
-///  某缓存Redis实例规格信息
+///  缓存Redis实例的规格信息
 @objc(InstanceClass)
 public class InstanceClass:NSObject,Codable{
-    /// 实例规格代码,参见实例规格代码表
+    /// 规格代码：redis 2.8与redis 4.0的规格码不同，具体参考 https://docs.jdcloud.com/cn/jcs-for-redis/specifications
     var instanceClassValue:String?
-    /// cpu
+    /// 规格类型：master-slave表示主从版，cluster表示集群版
+    var instanceType:String?
+    /// cpu核数
     var cpu:Int?
-    /// 内存
+    /// 内存总容量（MB）
     var memoryMB:Int?
-    /// 磁盘
+    /// 磁盘总容量（GB）
     var diskGB:Int?
-    /// 最大链接数
-    var maxConnetction:Int?
-    /// 带宽
+    /// 最大连接数
+    var maxConnection:Int?
+    /// 内网带宽（MBps）
     var bandwidthMbps:Int?
 
 
@@ -48,10 +50,11 @@ public class InstanceClass:NSObject,Codable{
 
     enum InstanceClassCodingKeys: String, CodingKey {
         case instanceClassValue = "instanceClass"
+        case instanceType
         case cpu
         case memoryMB
         case diskGB
-        case maxConnetction
+        case maxConnection
         case bandwidthMbps
     }
 
@@ -61,6 +64,10 @@ public class InstanceClass:NSObject,Codable{
         if decoderContainer.contains(.instanceClassValue)
         {
             self.instanceClassValue = try decoderContainer.decode(String?.self, forKey: .instanceClassValue)
+        }
+        if decoderContainer.contains(.instanceType)
+        {
+            self.instanceType = try decoderContainer.decode(String?.self, forKey: .instanceType)
         }
         if decoderContainer.contains(.cpu)
         {
@@ -74,9 +81,9 @@ public class InstanceClass:NSObject,Codable{
         {
             self.diskGB = try decoderContainer.decode(Int?.self, forKey: .diskGB)
         }
-        if decoderContainer.contains(.maxConnetction)
+        if decoderContainer.contains(.maxConnection)
         {
-            self.maxConnetction = try decoderContainer.decode(Int?.self, forKey: .maxConnetction)
+            self.maxConnection = try decoderContainer.decode(Int?.self, forKey: .maxConnection)
         }
         if decoderContainer.contains(.bandwidthMbps)
         {
@@ -88,10 +95,11 @@ public extension InstanceClass{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: InstanceClassCodingKeys.self)
          try encoderContainer.encode(instanceClassValue, forKey: .instanceClassValue)
+         try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(cpu, forKey: .cpu)
          try encoderContainer.encode(memoryMB, forKey: .memoryMB)
          try encoderContainer.encode(diskGB, forKey: .diskGB)
-         try encoderContainer.encode(maxConnetction, forKey: .maxConnetction)
+         try encoderContainer.encode(maxConnection, forKey: .maxConnection)
          try encoderContainer.encode(bandwidthMbps, forKey: .bandwidthMbps)
     }
 }

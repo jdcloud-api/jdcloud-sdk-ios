@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   京东云DDoS基础防护相关接口
-   京东云DDoS基础防护相关接口
+   Anti-DDoS Basic APIs
+   DDoS 基础防护防护 IP、攻击记录相关接口
 
    OpenAPI spec version: v1
    Contact: 

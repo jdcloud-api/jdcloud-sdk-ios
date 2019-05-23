@@ -31,14 +31,15 @@ import JDCloudSDKCore
 @objc(OmEnrollbyFileRequest)
 public class OmEnrollbyFileRequest:JdCloudRequest
 {
-    /// InstanceId
-    var instanceId:String?
+    /// 待上传物模型的IoT Hub实例编号
+    var instanceId:String
 
-    /// FileName
+    /// 物模型文件名称
     var fileName:String
 
 
-    public init(regionId: String,fileName:String){
+    public init(regionId: String,instanceId:String,fileName:String){
+        self.instanceId = instanceId
         self.fileName = fileName
         super.init(regionId: regionId)
     }

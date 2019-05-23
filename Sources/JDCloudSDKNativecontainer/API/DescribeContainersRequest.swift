@@ -46,6 +46,7 @@ public class DescribeContainersRequest:JdCloudRequest
       /// status - 容器状态，精确匹配，支持多个
       /// name - 实例名称，模糊匹配，支持单个
       /// subnetId - 镜像ID，模糊匹配，支持单个
+      /// securityGroups - 安全组 id，精确匹配，支持多个
       /// 
     var filters:[Filter?]?
 

@@ -30,7 +30,7 @@ import JDCloudSDKCore
 @objc(CreateDatabaseRequest)
 public class CreateDatabaseRequest:JdCloudRequest
 {
-    /// 数据库名，数据库名称的限制请参考[帮助中心文档](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+    /// 数据库名，数据库名称的限制请参考[帮助中心文档](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
     var dbName:String
 
     /// 数据库的字符集名，当前支持的字符集请查看[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)

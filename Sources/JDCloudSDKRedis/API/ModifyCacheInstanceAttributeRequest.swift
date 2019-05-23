@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   缓存Redis实例接口
-   缓存Redis实例相关接口
+   Redis Instance API
+   缓存Redis实例的创建、删除、修改基本信息、设置密码、变配、列表查询、备份、配置参数接口
 
    OpenAPI spec version: v1
    Contact: 
@@ -26,17 +26,17 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  修改缓存Redis实例的资源名称、描述，二者至少选一
+///  修改缓存Redis实例的资源名称或描述，二者至少选一
 @objc(ModifyCacheInstanceAttributeRequest)
 public class ModifyCacheInstanceAttributeRequest:JdCloudRequest
 {
-    /// 缓存Redis实例资源名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
+    /// 实例的名称，名称只支持数字、字母、英文下划线、中文，且不少于2字符不超过32字符
     var cacheInstanceName:String?
 
-    /// 缓存Redis实例资源描述，不能超过256个字符
+    /// 实例的描述，不能超过256个字符
     var cacheInstanceDescription:String?
 
-    /// 缓存Redis实例ID，是访问实例的唯一标识。
+    /// 缓存Redis实例ID，是访问实例的唯一标识
     var cacheInstanceId:String
 
 

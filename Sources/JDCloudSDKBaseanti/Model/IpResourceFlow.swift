@@ -27,10 +27,14 @@ import Foundation
 ///  ipResourceFlow
 @objc(IpResourceFlow)
 public class IpResourceFlow:NSObject,Codable{
-    /// Bps
-    var bps:IpResourceFlowDetail?
-    /// Pps
-    var pps:IpResourceFlowDetail?
+    /// UTC 时间, 格式: yyyy-MM-dd&#39;T&#39;HH:mm:ssZ
+    var time:[String?]?
+    /// 防护后流量
+    var postProtect:[Double?]?
+    /// 防护前流量
+    var preProtect:[Double?]?
+    /// 流量单位
+    var unit:String?
 
 
 
@@ -39,27 +43,39 @@ public class IpResourceFlow:NSObject,Codable{
     }
 
     enum IpResourceFlowCodingKeys: String, CodingKey {
-        case bps
-        case pps
+        case time
+        case postProtect
+        case preProtect
+        case unit
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: IpResourceFlowCodingKeys.self)
-        if decoderContainer.contains(.bps)
+        if decoderContainer.contains(.time)
         {
-            self.bps = try decoderContainer.decode(IpResourceFlowDetail?.self, forKey: .bps)
+            self.time = try decoderContainer.decode([String?]?.self, forKey: .time)
         }
-        if decoderContainer.contains(.pps)
+        if decoderContainer.contains(.postProtect)
         {
-            self.pps = try decoderContainer.decode(IpResourceFlowDetail?.self, forKey: .pps)
+            self.postProtect = try decoderContainer.decode([Double?]?.self, forKey: .postProtect)
+        }
+        if decoderContainer.contains(.preProtect)
+        {
+            self.preProtect = try decoderContainer.decode([Double?]?.self, forKey: .preProtect)
+        }
+        if decoderContainer.contains(.unit)
+        {
+            self.unit = try decoderContainer.decode(String?.self, forKey: .unit)
         }
     }
 }
 public extension IpResourceFlow{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: IpResourceFlowCodingKeys.self)
-         try encoderContainer.encode(bps, forKey: .bps)
-         try encoderContainer.encode(pps, forKey: .pps)
+         try encoderContainer.encode(time, forKey: .time)
+         try encoderContainer.encode(postProtect, forKey: .postProtect)
+         try encoderContainer.encode(preProtect, forKey: .preProtect)
+         try encoderContainer.encode(unit, forKey: .unit)
     }
 }

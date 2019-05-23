@@ -30,7 +30,7 @@ import JDCloudSDKCharge
 public class DBInstanceAttribute:NSObject,Codable{
     /// 实例ID
     var instanceId:String?
-    /// 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+    /// 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
     var instanceName:String?
     /// 实例类型，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var instanceType:String?
@@ -40,6 +40,10 @@ public class DBInstanceAttribute:NSObject,Codable{
     var engineVersion:String?
     /// 实例规格代码
     var instanceClass:String?
+    /// 存储类型，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+    var instanceStorageType:String?
+    /// 实例数据加密. false：不加密; true：加密
+    var storageEncrypted:Bool?
     /// 磁盘，单位GB
     var instanceStorageGB:Int?
     /// CPU核数
@@ -54,6 +58,12 @@ public class DBInstanceAttribute:NSObject,Codable{
     var vpcId:String?
     /// 子网的ID
     var subnetId:String?
+    /// 参数组的ID
+    var parameterGroupId:String?
+    /// 参数组的名称
+    var parameterGroupName:String?
+    /// 参数的状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
+    var parameterStatus:String?
     /// 实例内网域名
     var internalDomainName:String?
     /// 实例公网域名
@@ -70,6 +80,10 @@ public class DBInstanceAttribute:NSObject,Codable{
     var createTime:String?
     /// 计费配置
     var charge:Charge?
+    /// MySQL只读实例对应的主实例ID
+    var sourceInstanceId:String?
+    /// 只读实例ID列表
+    var roInstanceIds:[String?]?
     /// 高可用集群中主节点的信息&lt;br&gt;- 仅支持SQL Server
     var primaryNode:DBInstanceNode?
     /// 高可用集群中从节点的信息&lt;br&gt;- 仅支持SQL Server
@@ -90,6 +104,8 @@ public class DBInstanceAttribute:NSObject,Codable{
         case engine
         case engineVersion
         case instanceClass
+        case instanceStorageType
+        case storageEncrypted
         case instanceStorageGB
         case instanceCPU
         case instanceMemoryMB
@@ -97,6 +113,9 @@ public class DBInstanceAttribute:NSObject,Codable{
         case azId
         case vpcId
         case subnetId
+        case parameterGroupId
+        case parameterGroupName
+        case parameterStatus
         case internalDomainName
         case publicDomainName
         case instancePort
@@ -105,6 +124,8 @@ public class DBInstanceAttribute:NSObject,Codable{
         case instanceStatus
         case createTime
         case charge
+        case sourceInstanceId
+        case roInstanceIds
         case primaryNode
         case secondaryNode
         case tags
@@ -137,6 +158,14 @@ public class DBInstanceAttribute:NSObject,Codable{
         {
             self.instanceClass = try decoderContainer.decode(String?.self, forKey: .instanceClass)
         }
+        if decoderContainer.contains(.instanceStorageType)
+        {
+            self.instanceStorageType = try decoderContainer.decode(String?.self, forKey: .instanceStorageType)
+        }
+        if decoderContainer.contains(.storageEncrypted)
+        {
+            self.storageEncrypted = try decoderContainer.decode(Bool?.self, forKey: .storageEncrypted)
+        }
         if decoderContainer.contains(.instanceStorageGB)
         {
             self.instanceStorageGB = try decoderContainer.decode(Int?.self, forKey: .instanceStorageGB)
@@ -164,6 +193,18 @@ public class DBInstanceAttribute:NSObject,Codable{
         if decoderContainer.contains(.subnetId)
         {
             self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
+        }
+        if decoderContainer.contains(.parameterGroupId)
+        {
+            self.parameterGroupId = try decoderContainer.decode(String?.self, forKey: .parameterGroupId)
+        }
+        if decoderContainer.contains(.parameterGroupName)
+        {
+            self.parameterGroupName = try decoderContainer.decode(String?.self, forKey: .parameterGroupName)
+        }
+        if decoderContainer.contains(.parameterStatus)
+        {
+            self.parameterStatus = try decoderContainer.decode(String?.self, forKey: .parameterStatus)
         }
         if decoderContainer.contains(.internalDomainName)
         {
@@ -197,6 +238,14 @@ public class DBInstanceAttribute:NSObject,Codable{
         {
             self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
         }
+        if decoderContainer.contains(.sourceInstanceId)
+        {
+            self.sourceInstanceId = try decoderContainer.decode(String?.self, forKey: .sourceInstanceId)
+        }
+        if decoderContainer.contains(.roInstanceIds)
+        {
+            self.roInstanceIds = try decoderContainer.decode([String?]?.self, forKey: .roInstanceIds)
+        }
         if decoderContainer.contains(.primaryNode)
         {
             self.primaryNode = try decoderContainer.decode(DBInstanceNode?.self, forKey: .primaryNode)
@@ -220,6 +269,8 @@ public extension DBInstanceAttribute{
          try encoderContainer.encode(engine, forKey: .engine)
          try encoderContainer.encode(engineVersion, forKey: .engineVersion)
          try encoderContainer.encode(instanceClass, forKey: .instanceClass)
+         try encoderContainer.encode(instanceStorageType, forKey: .instanceStorageType)
+         try encoderContainer.encode(storageEncrypted, forKey: .storageEncrypted)
          try encoderContainer.encode(instanceStorageGB, forKey: .instanceStorageGB)
          try encoderContainer.encode(instanceCPU, forKey: .instanceCPU)
          try encoderContainer.encode(instanceMemoryMB, forKey: .instanceMemoryMB)
@@ -227,6 +278,9 @@ public extension DBInstanceAttribute{
          try encoderContainer.encode(azId, forKey: .azId)
          try encoderContainer.encode(vpcId, forKey: .vpcId)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
+         try encoderContainer.encode(parameterGroupId, forKey: .parameterGroupId)
+         try encoderContainer.encode(parameterGroupName, forKey: .parameterGroupName)
+         try encoderContainer.encode(parameterStatus, forKey: .parameterStatus)
          try encoderContainer.encode(internalDomainName, forKey: .internalDomainName)
          try encoderContainer.encode(publicDomainName, forKey: .publicDomainName)
          try encoderContainer.encode(instancePort, forKey: .instancePort)
@@ -235,6 +289,8 @@ public extension DBInstanceAttribute{
          try encoderContainer.encode(instanceStatus, forKey: .instanceStatus)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(charge, forKey: .charge)
+         try encoderContainer.encode(sourceInstanceId, forKey: .sourceInstanceId)
+         try encoderContainer.encode(roInstanceIds, forKey: .roInstanceIds)
          try encoderContainer.encode(primaryNode, forKey: .primaryNode)
          try encoderContainer.encode(secondaryNode, forKey: .secondaryNode)
          try encoderContainer.encode(tags, forKey: .tags)

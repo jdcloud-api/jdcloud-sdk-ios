@@ -48,7 +48,7 @@ public class Instance:NSObject,Codable{
     var enableIpv6:String?
     /// 带宽, 单位Mbps
     var bandwidth:Int?
-    /// 镜像类型, 如 standard/standard_app
+    /// 镜像类型, 如 standard
     var imageType:String?
     /// 操作系统类型ID
     var osTypeId:String?
@@ -66,14 +66,22 @@ public class Instance:NSObject,Codable{
     var dataRaidTypeId:String?
     /// 数据盘RAID类型, 如 NORAID, RAID0, RAID1
     var dataRaidType:String?
-    /// 网络类型, 如 basic
+    /// 网络类型, 如 basic, vpc
     var networkType:String?
-    /// 外网链路类型, 如 bgp
-    var lineType:String?
+    /// 私有网络ID
+    var vpcId:String?
+    /// 私有网络名称
+    var vpcName:String?
     /// 子网编号
     var subnetId:String?
+    /// 子网名称
+    var subnetName:String?
     /// 内网IP
     var privateIp:String?
+    /// 外网链路类型, 如 bgp
+    var lineType:String?
+    /// 弹性公网IPID
+    var elasticIpId:String?
     /// 公网IP
     var publicIp:String?
     /// 公网IPv6
@@ -108,9 +116,13 @@ public class Instance:NSObject,Codable{
         case dataRaidTypeId
         case dataRaidType
         case networkType
-        case lineType
+        case vpcId
+        case vpcName
         case subnetId
+        case subnetName
         case privateIp
+        case lineType
+        case elasticIpId
         case publicIp
         case publicIpv6
         case charge
@@ -199,17 +211,33 @@ public class Instance:NSObject,Codable{
         {
             self.networkType = try decoderContainer.decode(String?.self, forKey: .networkType)
         }
-        if decoderContainer.contains(.lineType)
+        if decoderContainer.contains(.vpcId)
         {
-            self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.vpcName)
+        {
+            self.vpcName = try decoderContainer.decode(String?.self, forKey: .vpcName)
         }
         if decoderContainer.contains(.subnetId)
         {
             self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
         }
+        if decoderContainer.contains(.subnetName)
+        {
+            self.subnetName = try decoderContainer.decode(String?.self, forKey: .subnetName)
+        }
         if decoderContainer.contains(.privateIp)
         {
             self.privateIp = try decoderContainer.decode(String?.self, forKey: .privateIp)
+        }
+        if decoderContainer.contains(.lineType)
+        {
+            self.lineType = try decoderContainer.decode(String?.self, forKey: .lineType)
+        }
+        if decoderContainer.contains(.elasticIpId)
+        {
+            self.elasticIpId = try decoderContainer.decode(String?.self, forKey: .elasticIpId)
         }
         if decoderContainer.contains(.publicIp)
         {
@@ -248,9 +276,13 @@ public extension Instance{
          try encoderContainer.encode(dataRaidTypeId, forKey: .dataRaidTypeId)
          try encoderContainer.encode(dataRaidType, forKey: .dataRaidType)
          try encoderContainer.encode(networkType, forKey: .networkType)
-         try encoderContainer.encode(lineType, forKey: .lineType)
+         try encoderContainer.encode(vpcId, forKey: .vpcId)
+         try encoderContainer.encode(vpcName, forKey: .vpcName)
          try encoderContainer.encode(subnetId, forKey: .subnetId)
+         try encoderContainer.encode(subnetName, forKey: .subnetName)
          try encoderContainer.encode(privateIp, forKey: .privateIp)
+         try encoderContainer.encode(lineType, forKey: .lineType)
+         try encoderContainer.encode(elasticIpId, forKey: .elasticIpId)
          try encoderContainer.encode(publicIp, forKey: .publicIp)
          try encoderContainer.encode(publicIpv6, forKey: .publicIpv6)
          try encoderContainer.encode(charge, forKey: .charge)

@@ -27,9 +27,9 @@ import Foundation
 ///  缓存Redis实例所在区域可用区ID信息
 @objc(AzId)
 public class AzId:NSObject,Codable{
-    /// 缓存Redis主实例所在区域可用区ID
+    /// 缓存Redis主实例所在区域的可用区ID
     var master:String?
-    /// 缓存Redis从实例所在区域可用区ID
+    /// 缓存Redis从实例所在区域的可用区ID
     var slave:String?
 
 

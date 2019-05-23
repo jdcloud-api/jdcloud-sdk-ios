@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 /// 批量查询云物理服务器详细信息&lt;br/&gt;
-      ///       /// 支持分页查询，默认每页10条&lt;br/&gt;
+      ///       /// 支持分页查询，默认每页20条&lt;br/&gt;
       ///       /// 
 @objc(DescribeInstancesResult)
 public class DescribeInstancesResult:NSObject,JdCloudResult
@@ -37,7 +37,7 @@ public class DescribeInstancesResult:NSObject,JdCloudResult
     /// 页码；默认为1
     var pageNumber:Int?
 
-    /// 分页大小；默认为10；取值范围[10, 100]
+    /// 分页大小；默认为20；取值范围[20, 100]
     var pageSize:Int?
 
     /// 查询结果总数

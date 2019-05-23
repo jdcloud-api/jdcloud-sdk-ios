@@ -33,6 +33,9 @@ public class DescribeOSRequest:JdCloudRequest
     /// 实例类型，可调用接口（describeDeviceTypes）获取指定地域的实例类型，例如：cps.c.normal
     var deviceType:String
 
+    /// 操作系统类型，取值范围：CentOS、Ubuntu
+    var osType:String?
+
 
     public init(regionId: String,deviceType:String){
         self.deviceType = deviceType
@@ -42,11 +45,13 @@ public class DescribeOSRequest:JdCloudRequest
 
     enum DescribeOSRequestRequestCodingKeys: String, CodingKey {
         case deviceType
+        case osType
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeOSRequestRequestCodingKeys.self)
         try encoderContainer.encode(deviceType, forKey: .deviceType)
+        try encoderContainer.encode(osType, forKey: .osType)
 
     }
 }

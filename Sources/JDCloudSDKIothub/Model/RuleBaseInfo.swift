@@ -27,12 +27,16 @@ import Foundation
 ///  ruleBaseInfo
 @objc(RuleBaseInfo)
 public class RuleBaseInfo:NSObject,Codable{
-    /// Id
+    /// 规则Id
     var id:String?
-    /// Name
+    /// 规则名称
     var name:String?
-    /// Desc
+    /// 规则说明
     var desc:String?
+    /// 状态，停止:disable,启动:enable
+    var status:String?
+    /// 创建时间，精确到毫秒
+    var createdTime:String?
 
 
 
@@ -44,6 +48,8 @@ public class RuleBaseInfo:NSObject,Codable{
         case id
         case name
         case desc
+        case status
+        case createdTime
     }
 
 
@@ -61,6 +67,14 @@ public class RuleBaseInfo:NSObject,Codable{
         {
             self.desc = try decoderContainer.decode(String?.self, forKey: .desc)
         }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
+        }
+        if decoderContainer.contains(.createdTime)
+        {
+            self.createdTime = try decoderContainer.decode(String?.self, forKey: .createdTime)
+        }
     }
 }
 public extension RuleBaseInfo{
@@ -69,5 +83,7 @@ public extension RuleBaseInfo{
          try encoderContainer.encode(id, forKey: .id)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(desc, forKey: .desc)
+         try encoderContainer.encode(status, forKey: .status)
+         try encoderContainer.encode(createdTime, forKey: .createdTime)
     }
 }

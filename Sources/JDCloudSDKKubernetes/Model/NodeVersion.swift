@@ -27,7 +27,7 @@ import Foundation
 ///  nodeVersion
 @objc(NodeVersion)
 public class NodeVersion:NSObject,Codable{
-    /// 节点版本号
+    /// 节点版本
     var version:String?
     /// 镜像操作系统
     var imageOs:String?

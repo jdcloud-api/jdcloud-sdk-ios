@@ -27,15 +27,20 @@ import Foundation
 ///  cleanThresholdSpec
 @objc(CleanThresholdSpec)
 public class CleanThresholdSpec:NSObject,Codable{
-    /// 触发清洗的流量速率，单位bps，范围是10000000到300000000
-    var cleanThresholdBps:Int64?
-    /// 触发清洗的包速率，单位pps，范围是2000到70000
-    var cleanThresholdPps:Int64?
+    /// 触发清洗的流量速率, 单位 bps. 取值范围由 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-basic/api/describeipcleanthresholdrange&quot;&gt;describeIpCleanThresholdRange&lt;/a&gt; 接口查询可知
+      /// 
+    /// Required:true
+    var cleanThresholdBps:Int64
+    /// 触发清洗的报文流量速率, 单位 bps. 取值范围由 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-basic/api/describeipcleanthresholdrange&quot;&gt;describeIpCleanThresholdRange&lt;/a&gt; 接口查询可知
+      /// 
+    /// Required:true
+    var cleanThresholdPps:Int64
 
 
 
-    public override init(){
-            super.init()
+    public  init(cleanThresholdBps:Int64,cleanThresholdPps:Int64){
+             self.cleanThresholdBps = cleanThresholdBps
+             self.cleanThresholdPps = cleanThresholdPps
     }
 
     enum CleanThresholdSpecCodingKeys: String, CodingKey {
@@ -46,14 +51,8 @@ public class CleanThresholdSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CleanThresholdSpecCodingKeys.self)
-        if decoderContainer.contains(.cleanThresholdBps)
-        {
-            self.cleanThresholdBps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdBps)
-        }
-        if decoderContainer.contains(.cleanThresholdPps)
-        {
-            self.cleanThresholdPps = try decoderContainer.decode(Int64?.self, forKey: .cleanThresholdPps)
-        }
+        self.cleanThresholdBps = try decoderContainer.decode(Int64.self, forKey: .cleanThresholdBps)
+        self.cleanThresholdPps = try decoderContainer.decode(Int64.self, forKey: .cleanThresholdPps)
     }
 }
 public extension CleanThresholdSpec{

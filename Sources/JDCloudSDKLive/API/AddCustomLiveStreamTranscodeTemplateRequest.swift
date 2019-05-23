@@ -37,6 +37,11 @@ import JDCloudSDKCore
 @objc(AddCustomLiveStreamTranscodeTemplateRequest)
 public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
 {
+    /// 转码模板名称
+      /// - 长度范围：[1,50]
+      /// 
+    var templateName:String?
+
     /// 转码输出的码率值
       /// - 取值范围: [200,3000]
       /// - 单位: kpbs
@@ -44,7 +49,7 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
     var videoCodeRate:Int
 
     /// 转码输出的帧率值
-      /// - 取值：15、25、30、60
+      /// - 取值：[1,30]
       /// 
     var videoFrameRate:String
 
@@ -117,6 +122,7 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
 
 
     enum AddCustomLiveStreamTranscodeTemplateRequestRequestCodingKeys: String, CodingKey {
+        case templateName
         case videoCodeRate
         case videoFrameRate
         case width
@@ -131,6 +137,7 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddCustomLiveStreamTranscodeTemplateRequestRequestCodingKeys.self)
+        try encoderContainer.encode(templateName, forKey: .templateName)
         try encoderContainer.encode(videoCodeRate, forKey: .videoCodeRate)
         try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)
         try encoderContainer.encode(width, forKey: .width)

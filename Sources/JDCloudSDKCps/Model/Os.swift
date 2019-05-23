@@ -35,7 +35,7 @@ public class Os:NSObject,Codable{
     var osType:String?
     /// 操作系统版本, 如 14.04/16.04
     var osVersion:String?
-    /// 实例类型, 如 cps.c.normal,
+    /// 实例类型, 如 cps.c.normal
     var deviceType:String?
 
 

@@ -26,11 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询子网
+///  查询子网详情
 public class DescribeSubnetExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/subnet")
+        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/subnets/{subnetId}")
     }
     
 }

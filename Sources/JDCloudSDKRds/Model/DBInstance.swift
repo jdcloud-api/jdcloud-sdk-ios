@@ -30,7 +30,7 @@ import JDCloudSDKCharge
 public class DBInstance:NSObject,Codable{
     /// 实例ID
     var instanceId:String?
-    /// 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Cloud-Database-and-Cache/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
+    /// 实例名称，具体规则可参见帮助中心文档:[名称及密码限制](../../../documentation/Database-and-Cache-Service/RDS/Introduction/Restrictions/SQLServer-Restrictions.md)
     var instanceName:String?
     /// 实例类别，例如主实例，只读实例等，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var instanceType:String?
@@ -38,10 +38,22 @@ public class DBInstance:NSObject,Codable{
     var engine:String?
     /// 实例引擎版本，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var engineVersion:String?
+    /// 实例规格代码
+    var instanceClass:String?
+    /// 磁盘，单位GB
+    var instanceStorageGB:Int?
+    /// CPU核数
+    var instanceCPU:Int?
+    /// 内存，单位MB
+    var instanceMemoryMB:Int?
     /// 地域ID，参见[地域及可用区对照表](../Enum-Definitions/Regions-AZ.md)
     var regionId:String?
     /// 可用区ID，第一个为主实例在的可用区，参见[地域及可用区对照表](../Enum-Definitions/Regions-AZ.md)
     var azId:[String?]?
+    /// VPC的ID
+    var vpcId:String?
+    /// 子网的ID
+    var subnetId:String?
     /// 实例状态，参见[枚举参数定义](../Enum-Definitions/Enum-Definitions.md)
     var instanceStatus:String?
     /// 实例创建时间
@@ -50,6 +62,8 @@ public class DBInstance:NSObject,Codable{
     var charge:Charge?
     /// 标签信息
     var tags:[Tag?]?
+    /// MySQL只读实例对应的主实例ID
+    var sourceInstanceId:String?
 
 
 
@@ -63,12 +77,19 @@ public class DBInstance:NSObject,Codable{
         case instanceType
         case engine
         case engineVersion
+        case instanceClass
+        case instanceStorageGB
+        case instanceCPU
+        case instanceMemoryMB
         case regionId
         case azId
+        case vpcId
+        case subnetId
         case instanceStatus
         case createTime
         case charge
         case tags
+        case sourceInstanceId
     }
 
 
@@ -94,6 +115,22 @@ public class DBInstance:NSObject,Codable{
         {
             self.engineVersion = try decoderContainer.decode(String?.self, forKey: .engineVersion)
         }
+        if decoderContainer.contains(.instanceClass)
+        {
+            self.instanceClass = try decoderContainer.decode(String?.self, forKey: .instanceClass)
+        }
+        if decoderContainer.contains(.instanceStorageGB)
+        {
+            self.instanceStorageGB = try decoderContainer.decode(Int?.self, forKey: .instanceStorageGB)
+        }
+        if decoderContainer.contains(.instanceCPU)
+        {
+            self.instanceCPU = try decoderContainer.decode(Int?.self, forKey: .instanceCPU)
+        }
+        if decoderContainer.contains(.instanceMemoryMB)
+        {
+            self.instanceMemoryMB = try decoderContainer.decode(Int?.self, forKey: .instanceMemoryMB)
+        }
         if decoderContainer.contains(.regionId)
         {
             self.regionId = try decoderContainer.decode(String?.self, forKey: .regionId)
@@ -101,6 +138,14 @@ public class DBInstance:NSObject,Codable{
         if decoderContainer.contains(.azId)
         {
             self.azId = try decoderContainer.decode([String?]?.self, forKey: .azId)
+        }
+        if decoderContainer.contains(.vpcId)
+        {
+            self.vpcId = try decoderContainer.decode(String?.self, forKey: .vpcId)
+        }
+        if decoderContainer.contains(.subnetId)
+        {
+            self.subnetId = try decoderContainer.decode(String?.self, forKey: .subnetId)
         }
         if decoderContainer.contains(.instanceStatus)
         {
@@ -118,6 +163,10 @@ public class DBInstance:NSObject,Codable{
         {
             self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
         }
+        if decoderContainer.contains(.sourceInstanceId)
+        {
+            self.sourceInstanceId = try decoderContainer.decode(String?.self, forKey: .sourceInstanceId)
+        }
     }
 }
 public extension DBInstance{
@@ -128,11 +177,18 @@ public extension DBInstance{
          try encoderContainer.encode(instanceType, forKey: .instanceType)
          try encoderContainer.encode(engine, forKey: .engine)
          try encoderContainer.encode(engineVersion, forKey: .engineVersion)
+         try encoderContainer.encode(instanceClass, forKey: .instanceClass)
+         try encoderContainer.encode(instanceStorageGB, forKey: .instanceStorageGB)
+         try encoderContainer.encode(instanceCPU, forKey: .instanceCPU)
+         try encoderContainer.encode(instanceMemoryMB, forKey: .instanceMemoryMB)
          try encoderContainer.encode(regionId, forKey: .regionId)
          try encoderContainer.encode(azId, forKey: .azId)
+         try encoderContainer.encode(vpcId, forKey: .vpcId)
+         try encoderContainer.encode(subnetId, forKey: .subnetId)
          try encoderContainer.encode(instanceStatus, forKey: .instanceStatus)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(tags, forKey: .tags)
+         try encoderContainer.encode(sourceInstanceId, forKey: .sourceInstanceId)
     }
 }

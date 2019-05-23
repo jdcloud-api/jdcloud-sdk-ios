@@ -40,10 +40,10 @@ public class AddLiveRecordTaskRequest:JdCloudRequest
     var recordTimes:[RecordTime?]?
 
     /// 存储桶
-    var saveBucket:String
+    var saveBucket:String?
 
     /// 存储地址
-    var saveEndpoint:String
+    var saveEndpoint:String?
 
     /// 录制文件类型:
       /// - 取值: ts,flv,mp4 (多种类型之前用;隔开)
@@ -70,10 +70,8 @@ public class AddLiveRecordTaskRequest:JdCloudRequest
     var streamName:String
 
 
-    public init(regionId: String,recordTimes:[RecordTime?]?,saveBucket:String,saveEndpoint:String,recordFileType:String,publishDomain:String,appName:String,streamName:String){
+    public init(regionId: String,recordTimes:[RecordTime?]?,recordFileType:String,publishDomain:String,appName:String,streamName:String){
         self.recordTimes = recordTimes
-        self.saveBucket = saveBucket
-        self.saveEndpoint = saveEndpoint
         self.recordFileType = recordFileType
         self.publishDomain = publishDomain
         self.appName = appName
