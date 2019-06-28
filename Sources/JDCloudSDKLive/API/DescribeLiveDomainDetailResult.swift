@@ -29,6 +29,9 @@ import JDCloudSDKCore
 @objc(DescribeLiveDomainDetailResult)
 public class DescribeLiveDomainDetailResult:NSObject,JdCloudResult
 {
+    /// SourceID
+    var sourceId:Int64?
+
     /// 推流域名集合
     var publishDomains:[PublishDomain?]?
 
@@ -42,12 +45,17 @@ public class DescribeLiveDomainDetailResult:NSObject,JdCloudResult
     }
 
     enum DescribeLiveDomainDetailResultCodingKeys: String, CodingKey {
+        case sourceId
         case publishDomains
         case playDomains
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeLiveDomainDetailResultCodingKeys.self)
+        if decoderContainer.contains(.sourceId)
+        {
+            self.sourceId = try decoderContainer.decode(Int64?.self, forKey: .sourceId)
+        }
         if decoderContainer.contains(.publishDomains)
         {
             self.publishDomains = try decoderContainer.decode([PublishDomain?]?.self, forKey: .publishDomains)
@@ -61,6 +69,7 @@ public class DescribeLiveDomainDetailResult:NSObject,JdCloudResult
 public extension DescribeLiveDomainDetailResult{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeLiveDomainDetailResultCodingKeys.self)
+        try encoderContainer.encode(sourceId, forKey: .sourceId)
         try encoderContainer.encode(publishDomains, forKey: .publishDomains)
         try encoderContainer.encode(playDomains, forKey: .playDomains)
     }

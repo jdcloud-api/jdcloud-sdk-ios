@@ -27,12 +27,6 @@ import Foundation
 ///  sendBatchMsg
 @objc(SendBatchMsg)
 public class SendBatchMsg:NSObject,Codable{
-    /// 请求状态
-    var status:Bool?
-    /// 错误码
-    var code:String?
-    /// 错误消息
-    var message:String?
     /// 本次发送请求的序列号
     var sequenceNumber:String?
 
@@ -43,27 +37,12 @@ public class SendBatchMsg:NSObject,Codable{
     }
 
     enum SendBatchMsgCodingKeys: String, CodingKey {
-        case status
-        case code
-        case message
         case sequenceNumber
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SendBatchMsgCodingKeys.self)
-        if decoderContainer.contains(.status)
-        {
-            self.status = try decoderContainer.decode(Bool?.self, forKey: .status)
-        }
-        if decoderContainer.contains(.code)
-        {
-            self.code = try decoderContainer.decode(String?.self, forKey: .code)
-        }
-        if decoderContainer.contains(.message)
-        {
-            self.message = try decoderContainer.decode(String?.self, forKey: .message)
-        }
         if decoderContainer.contains(.sequenceNumber)
         {
             self.sequenceNumber = try decoderContainer.decode(String?.self, forKey: .sequenceNumber)
@@ -73,9 +52,6 @@ public class SendBatchMsg:NSObject,Codable{
 public extension SendBatchMsg{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SendBatchMsgCodingKeys.self)
-         try encoderContainer.encode(status, forKey: .status)
-         try encoderContainer.encode(code, forKey: .code)
-         try encoderContainer.encode(message, forKey: .message)
          try encoderContainer.encode(sequenceNumber, forKey: .sequenceNumber)
     }
 }

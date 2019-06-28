@@ -31,7 +31,7 @@ public class PolicyDetail:NSObject,Codable{
     var policyId:String?
     /// 策略名称
     var name:String?
-    /// jrn描述
+    /// 京东云资源标识(jrn)
     var jrn:String?
     /// 描述
     var descriptionValue:String?

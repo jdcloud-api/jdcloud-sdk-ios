@@ -31,8 +31,8 @@ public class OribandwidthTopItem:NSObject,Codable{
     var name:String?
     /// Total
     var total:Double?
-    /// Detail
-    var detail:[OriBandwithDetailItem?]?
+    /// Details
+    var details:[OriBandwithDetailItem?]?
 
 
 
@@ -43,7 +43,7 @@ public class OribandwidthTopItem:NSObject,Codable{
     enum OribandwidthTopItemCodingKeys: String, CodingKey {
         case name
         case total
-        case detail
+        case details
     }
 
 
@@ -57,9 +57,9 @@ public class OribandwidthTopItem:NSObject,Codable{
         {
             self.total = try decoderContainer.decode(Double?.self, forKey: .total)
         }
-        if decoderContainer.contains(.detail)
+        if decoderContainer.contains(.details)
         {
-            self.detail = try decoderContainer.decode([OriBandwithDetailItem?]?.self, forKey: .detail)
+            self.details = try decoderContainer.decode([OriBandwithDetailItem?]?.self, forKey: .details)
         }
     }
 }
@@ -68,6 +68,6 @@ public extension OribandwidthTopItem{
         var encoderContainer = encoder.container(keyedBy: OribandwidthTopItemCodingKeys.self)
          try encoderContainer.encode(name, forKey: .name)
          try encoderContainer.encode(total, forKey: .total)
-         try encoderContainer.encode(detail, forKey: .detail)
+         try encoderContainer.encode(details, forKey: .details)
     }
 }

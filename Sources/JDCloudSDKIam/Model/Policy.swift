@@ -31,11 +31,11 @@ public class Policy:NSObject,Codable{
     var policyId:String?
     /// 策略名称
     var name:String?
-    /// jrn描述
+    /// 京东云资源标识(jrn)
     var jrn:String?
     /// 描述
     var descriptionValue:String?
-    /// 策略类型:0-系统策略，1-用户策略
+    /// 策略类型：0-系统策略，1-用户策略
     var policyType:String?
     /// 策略版本号
     var version:String?

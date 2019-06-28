@@ -33,8 +33,10 @@ public class HitrationTableItem:NSObject,Codable{
     var domainType:String?
     /// Pv
     var pv:Int64?
-    /// Hitpv
-    var hitpv:Int64?
+    /// HitPv
+    var hitPv:Int64?
+    /// OriPV
+    var oriPV:Int64?
     /// HitRatio
     var hitRatio:String?
 
@@ -48,7 +50,8 @@ public class HitrationTableItem:NSObject,Codable{
         case domain
         case domainType
         case pv
-        case hitpv
+        case hitPv
+        case oriPV
         case hitRatio
     }
 
@@ -67,9 +70,13 @@ public class HitrationTableItem:NSObject,Codable{
         {
             self.pv = try decoderContainer.decode(Int64?.self, forKey: .pv)
         }
-        if decoderContainer.contains(.hitpv)
+        if decoderContainer.contains(.hitPv)
         {
-            self.hitpv = try decoderContainer.decode(Int64?.self, forKey: .hitpv)
+            self.hitPv = try decoderContainer.decode(Int64?.self, forKey: .hitPv)
+        }
+        if decoderContainer.contains(.oriPV)
+        {
+            self.oriPV = try decoderContainer.decode(Int64?.self, forKey: .oriPV)
         }
         if decoderContainer.contains(.hitRatio)
         {
@@ -83,7 +90,8 @@ public extension HitrationTableItem{
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(domainType, forKey: .domainType)
          try encoderContainer.encode(pv, forKey: .pv)
-         try encoderContainer.encode(hitpv, forKey: .hitpv)
+         try encoderContainer.encode(hitPv, forKey: .hitPv)
+         try encoderContainer.encode(oriPV, forKey: .oriPV)
          try encoderContainer.encode(hitRatio, forKey: .hitRatio)
     }
 }

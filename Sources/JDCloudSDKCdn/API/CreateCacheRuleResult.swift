@@ -29,7 +29,7 @@ import JDCloudSDKCore
 @objc(CreateCacheRuleResult)
 public class CreateCacheRuleResult:NSObject,JdCloudResult
 {
-    /// ConfigId
+    /// 缓存规则配置ID
     var configId:Int64?
 
 

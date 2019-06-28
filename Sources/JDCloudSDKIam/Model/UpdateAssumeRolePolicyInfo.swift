@@ -27,7 +27,7 @@ import Foundation
 ///  updateAssumeRolePolicyInfo
 @objc(UpdateAssumeRolePolicyInfo)
 public class UpdateAssumeRolePolicyInfo:NSObject,Codable{
-    /// 角色代入policy
+    /// 信任实体信息
     var assumeRolePolicyDocument:String?
 
 

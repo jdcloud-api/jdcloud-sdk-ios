@@ -27,9 +27,7 @@ import Foundation
 ///  createRoleInfo
 @objc(CreateRoleInfo)
 public class CreateRoleInfo:NSObject,Codable{
-    /// 角色路径
-    var path:String?
-    /// 角色名：支持4-64位的字母，数字以及-和_, 以字母开头
+    /// 角色名，支持4~64位的字母，数字以及-和_, 以字母开头
     /// Required:true
     var roleName:String
     /// 角色类型，3-服务角色，4-用户角色
@@ -52,7 +50,6 @@ public class CreateRoleInfo:NSObject,Codable{
     }
 
     enum CreateRoleInfoCodingKeys: String, CodingKey {
-        case path
         case roleName
         case type
         case assumeRolePolicyDocument
@@ -63,10 +60,6 @@ public class CreateRoleInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: CreateRoleInfoCodingKeys.self)
-        if decoderContainer.contains(.path)
-        {
-            self.path = try decoderContainer.decode(String?.self, forKey: .path)
-        }
         self.roleName = try decoderContainer.decode(String.self, forKey: .roleName)
         self.type = try decoderContainer.decode(Int.self, forKey: .type)
         self.assumeRolePolicyDocument = try decoderContainer.decode(String.self, forKey: .assumeRolePolicyDocument)
@@ -83,7 +76,6 @@ public class CreateRoleInfo:NSObject,Codable{
 public extension CreateRoleInfo{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateRoleInfoCodingKeys.self)
-         try encoderContainer.encode(path, forKey: .path)
          try encoderContainer.encode(roleName, forKey: .roleName)
          try encoderContainer.encode(type, forKey: .type)
          try encoderContainer.encode(assumeRolePolicyDocument, forKey: .assumeRolePolicyDocument)

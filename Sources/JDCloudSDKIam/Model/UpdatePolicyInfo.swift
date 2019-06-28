@@ -27,7 +27,7 @@ import Foundation
 ///  updatePolicyInfo
 @objc(UpdatePolicyInfo)
 public class UpdatePolicyInfo:NSObject,Codable{
-    /// 策略信息详情，最多2048个字符
+    /// 策略信息详情，最多6144个字符
     /// Required:true
     var content:String
 

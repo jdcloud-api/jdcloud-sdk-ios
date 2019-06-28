@@ -27,13 +27,17 @@ import Foundation
 ///  transcodeInfo
 @objc(TranscodeInfo)
 public class TranscodeInfo:NSObject,Codable{
+    /// 视频编码格式
+      ///   - 取值：h264,h265，默认h264
+      /// 
+    var videoCodec:String?
     /// 转码输出的码率值:
       ///   - 取值: [200,3000]
       ///   - 单位: kpbs
       /// 
     var videoCodeRate:Int?
     /// 转码输出的帧率值:
-      ///   - 取值: 15/1、25/1、30/1、60/1
+      ///   - 取值：[1,30]
       /// 
     var videoFrameRate:String?
     /// 转码输出视频宽度:
@@ -90,6 +94,7 @@ public class TranscodeInfo:NSObject,Codable{
     }
 
     enum TranscodeInfoCodingKeys: String, CodingKey {
+        case videoCodec
         case videoCodeRate
         case videoFrameRate
         case width
@@ -106,6 +111,10 @@ public class TranscodeInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: TranscodeInfoCodingKeys.self)
+        if decoderContainer.contains(.videoCodec)
+        {
+            self.videoCodec = try decoderContainer.decode(String?.self, forKey: .videoCodec)
+        }
         if decoderContainer.contains(.videoCodeRate)
         {
             self.videoCodeRate = try decoderContainer.decode(Int?.self, forKey: .videoCodeRate)
@@ -155,6 +164,7 @@ public class TranscodeInfo:NSObject,Codable{
 public extension TranscodeInfo{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TranscodeInfoCodingKeys.self)
+         try encoderContainer.encode(videoCodec, forKey: .videoCodec)
          try encoderContainer.encode(videoCodeRate, forKey: .videoCodeRate)
          try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)
          try encoderContainer.encode(width, forKey: .width)

@@ -1,0 +1,10 @@
+framework module JDCloudSDKCore {
+  umbrella header "JDCloudSDKCore.h"
+
+  export *
+  module * { export * }
+}
+
+module JDCloudSDKCore.__Swift {
+    exclude header "JDCloudSDKCore-Swift.h"
+}

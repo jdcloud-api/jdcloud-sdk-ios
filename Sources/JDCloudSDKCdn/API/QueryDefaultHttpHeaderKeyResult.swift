@@ -29,10 +29,10 @@ import JDCloudSDKCore
 @objc(QueryDefaultHttpHeaderKeyResult)
 public class QueryDefaultHttpHeaderKeyResult:NSObject,JdCloudResult
 {
-    /// ReqDefaultHttpHeaderKey
+    /// 默认的http请求头
     var reqDefaultHttpHeaderKey:[String?]?
 
-    /// RespDefaultHttpHeaderKey
+    /// 默认的http响应头
     var respDefaultHttpHeaderKey:[String?]?
 
 

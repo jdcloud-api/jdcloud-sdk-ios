@@ -29,13 +29,13 @@ import JDCloudSDKCore
 @objc(QueryIpBlackListResult)
 public class QueryIpBlackListResult:NSObject,JdCloudResult
 {
-    /// Domain
+    /// 域名
     var domain:String?
 
-    /// Ips
+    /// 黑名单列表
     var ips:[AnyObject?]?
 
-    /// Status
+    /// 黑名单状态,on:开启,off:关闭
     var status:String?
 
 

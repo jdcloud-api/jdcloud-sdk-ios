@@ -32,13 +32,15 @@ public class ForbiddenStreamHistoryItem:NSObject,Codable{
     /// 封禁推流的app
     var app:String?
     /// 禁播类型:forever永不禁播limit限时禁播
-    var type:String?
+    var forbiddenType:String?
     /// 禁播时长
     var ttl:Int64?
     /// 开始禁播时间
     var startTime:String?
     /// 结束禁播时间
     var endTime:String?
+    /// 禁播类型说明
+    var forbiddenTypeDesc:String?
 
 
 
@@ -49,10 +51,11 @@ public class ForbiddenStreamHistoryItem:NSObject,Codable{
     enum ForbiddenStreamHistoryItemCodingKeys: String, CodingKey {
         case stream
         case app
-        case type
+        case forbiddenType
         case ttl
         case startTime
         case endTime
+        case forbiddenTypeDesc
     }
 
 
@@ -66,9 +69,9 @@ public class ForbiddenStreamHistoryItem:NSObject,Codable{
         {
             self.app = try decoderContainer.decode(String?.self, forKey: .app)
         }
-        if decoderContainer.contains(.type)
+        if decoderContainer.contains(.forbiddenType)
         {
-            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+            self.forbiddenType = try decoderContainer.decode(String?.self, forKey: .forbiddenType)
         }
         if decoderContainer.contains(.ttl)
         {
@@ -82,6 +85,10 @@ public class ForbiddenStreamHistoryItem:NSObject,Codable{
         {
             self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
         }
+        if decoderContainer.contains(.forbiddenTypeDesc)
+        {
+            self.forbiddenTypeDesc = try decoderContainer.decode(String?.self, forKey: .forbiddenTypeDesc)
+        }
     }
 }
 public extension ForbiddenStreamHistoryItem{
@@ -89,9 +96,10 @@ public extension ForbiddenStreamHistoryItem{
         var encoderContainer = encoder.container(keyedBy: ForbiddenStreamHistoryItemCodingKeys.self)
          try encoderContainer.encode(stream, forKey: .stream)
          try encoderContainer.encode(app, forKey: .app)
-         try encoderContainer.encode(type, forKey: .type)
+         try encoderContainer.encode(forbiddenType, forKey: .forbiddenType)
          try encoderContainer.encode(ttl, forKey: .ttl)
          try encoderContainer.encode(startTime, forKey: .startTime)
          try encoderContainer.encode(endTime, forKey: .endTime)
+         try encoderContainer.encode(forbiddenTypeDesc, forKey: .forbiddenTypeDesc)
     }
 }

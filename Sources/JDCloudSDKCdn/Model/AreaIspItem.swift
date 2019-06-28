@@ -27,8 +27,8 @@ import Foundation
 ///  areaIspItem
 @objc(AreaIspItem)
 public class AreaIspItem:NSObject,Codable{
-    /// Name
-    var name:String?
+    /// Description
+    var descriptionValue:String?
     /// Code
     var code:String?
 
@@ -39,16 +39,16 @@ public class AreaIspItem:NSObject,Codable{
     }
 
     enum AreaIspItemCodingKeys: String, CodingKey {
-        case name
+        case descriptionValue = "description"
         case code
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AreaIspItemCodingKeys.self)
-        if decoderContainer.contains(.name)
+        if decoderContainer.contains(.descriptionValue)
         {
-            self.name = try decoderContainer.decode(String?.self, forKey: .name)
+            self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
         }
         if decoderContainer.contains(.code)
         {
@@ -59,7 +59,7 @@ public class AreaIspItem:NSObject,Codable{
 public extension AreaIspItem{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AreaIspItemCodingKeys.self)
-         try encoderContainer.encode(name, forKey: .name)
+         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(code, forKey: .code)
     }
 }

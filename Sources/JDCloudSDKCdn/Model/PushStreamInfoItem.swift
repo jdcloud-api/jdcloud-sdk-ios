@@ -27,14 +27,18 @@ import Foundation
 ///  pushStreamInfoItem
 @objc(PushStreamInfoItem)
 public class PushStreamInfoItem:NSObject,Codable{
+    /// App
+    var app:String?
     /// Stream
     var stream:String?
     /// ClientIp
     var clientIp:String?
-    /// StartTimeStamp
-    var startTimeStamp:Int64?
-    /// EndTimeStamp
-    var endTimeStamp:Int64?
+    /// NodeIp
+    var nodeIp:String?
+    /// 任务创建时间,UTC时间
+    var startTime:String?
+    /// 任务创建时间,UTC时间
+    var endTime:String?
     /// Duration
     var duration:Int64?
 
@@ -45,16 +49,22 @@ public class PushStreamInfoItem:NSObject,Codable{
     }
 
     enum PushStreamInfoItemCodingKeys: String, CodingKey {
+        case app
         case stream
         case clientIp
-        case startTimeStamp
-        case endTimeStamp
+        case nodeIp
+        case startTime
+        case endTime
         case duration
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: PushStreamInfoItemCodingKeys.self)
+        if decoderContainer.contains(.app)
+        {
+            self.app = try decoderContainer.decode(String?.self, forKey: .app)
+        }
         if decoderContainer.contains(.stream)
         {
             self.stream = try decoderContainer.decode(String?.self, forKey: .stream)
@@ -63,13 +73,17 @@ public class PushStreamInfoItem:NSObject,Codable{
         {
             self.clientIp = try decoderContainer.decode(String?.self, forKey: .clientIp)
         }
-        if decoderContainer.contains(.startTimeStamp)
+        if decoderContainer.contains(.nodeIp)
         {
-            self.startTimeStamp = try decoderContainer.decode(Int64?.self, forKey: .startTimeStamp)
+            self.nodeIp = try decoderContainer.decode(String?.self, forKey: .nodeIp)
         }
-        if decoderContainer.contains(.endTimeStamp)
+        if decoderContainer.contains(.startTime)
         {
-            self.endTimeStamp = try decoderContainer.decode(Int64?.self, forKey: .endTimeStamp)
+            self.startTime = try decoderContainer.decode(String?.self, forKey: .startTime)
+        }
+        if decoderContainer.contains(.endTime)
+        {
+            self.endTime = try decoderContainer.decode(String?.self, forKey: .endTime)
         }
         if decoderContainer.contains(.duration)
         {
@@ -80,10 +94,12 @@ public class PushStreamInfoItem:NSObject,Codable{
 public extension PushStreamInfoItem{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: PushStreamInfoItemCodingKeys.self)
+         try encoderContainer.encode(app, forKey: .app)
          try encoderContainer.encode(stream, forKey: .stream)
          try encoderContainer.encode(clientIp, forKey: .clientIp)
-         try encoderContainer.encode(startTimeStamp, forKey: .startTimeStamp)
-         try encoderContainer.encode(endTimeStamp, forKey: .endTimeStamp)
+         try encoderContainer.encode(nodeIp, forKey: .nodeIp)
+         try encoderContainer.encode(startTime, forKey: .startTime)
+         try encoderContainer.encode(endTime, forKey: .endTime)
          try encoderContainer.encode(duration, forKey: .duration)
     }
 }

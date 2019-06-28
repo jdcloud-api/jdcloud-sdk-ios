@@ -27,7 +27,7 @@ import Foundation
 ///  createSubUserInfo
 @objc(CreateSubUserInfo)
 public class CreateSubUserInfo:NSObject,Codable{
-    /// 子用户名：支持4-20位的字母，数字以及-和_，以字母开头
+    /// 子用户名，支持4~20位的字母，数字以及-和_，以字母开头
     /// Required:true
     var name:String
     /// 描述，0~256个字符

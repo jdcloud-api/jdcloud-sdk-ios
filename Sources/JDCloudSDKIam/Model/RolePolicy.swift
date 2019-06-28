@@ -27,13 +27,13 @@ import Foundation
 ///  rolePolicy
 @objc(RolePolicy)
 public class RolePolicy:NSObject,Codable{
-    /// 权限名称
+    /// 策略名称
     var policyName:String?
     /// 描述
     var descriptionValue:String?
-    /// 权限类型
+    /// 策略类型：0-系统策略，1-用户策略
     var type:String?
-    /// 权限资源描
+    /// 京东云策略资源描述
     var policyJrn:String?
 
 

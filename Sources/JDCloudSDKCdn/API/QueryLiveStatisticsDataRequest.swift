@@ -40,10 +40,10 @@ public class QueryLiveStatisticsDataRequest:JdCloudRequest
     var domain:String?
 
     /// app名
-    var appname:String?
+    var appName:String?
 
     /// 流名
-    var streamname:String?
+    var streamName:String?
 
     /// 子域名
     var subDomain:String?
@@ -73,8 +73,8 @@ public class QueryLiveStatisticsDataRequest:JdCloudRequest
         case startTime
         case endTime
         case domain
-        case appname
-        case streamname
+        case appName
+        case streamName
         case subDomain
         case fields
         case area
@@ -89,8 +89,8 @@ public class QueryLiveStatisticsDataRequest:JdCloudRequest
         try encoderContainer.encode(startTime, forKey: .startTime)
         try encoderContainer.encode(endTime, forKey: .endTime)
         try encoderContainer.encode(domain, forKey: .domain)
-        try encoderContainer.encode(appname, forKey: .appname)
-        try encoderContainer.encode(streamname, forKey: .streamname)
+        try encoderContainer.encode(appName, forKey: .appName)
+        try encoderContainer.encode(streamName, forKey: .streamName)
         try encoderContainer.encode(subDomain, forKey: .subDomain)
         try encoderContainer.encode(fields, forKey: .fields)
         try encoderContainer.encode(area, forKey: .area)

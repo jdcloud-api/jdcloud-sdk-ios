@@ -27,21 +27,19 @@ import Foundation
 ///  roleInfo
 @objc(RoleInfo)
 public class RoleInfo:NSObject,Codable{
-    /// 角色路径
-    var path:String?
     /// 角色ID
     var roleId:String?
     /// 角色名称
     var roleName:String?
     /// 角色类型，2-服务相关角色，3-服务角色，4-用户角色
     var type:Int?
-    /// 角色代入policy
+    /// 信任实体信息
     var assumeRolePolicyDocument:String?
     /// 描述，0~256个字符
     var descriptionValue:String?
     /// 最大会话时长3600~43200秒，默认3600秒
     var maxSessionDuration:Int?
-    /// 资源描述
+    /// 京东云资源标识(jrn)
     var jrn:String?
     /// 创建角色的时间
     var createTime:String?
@@ -55,7 +53,6 @@ public class RoleInfo:NSObject,Codable{
     }
 
     enum RoleInfoCodingKeys: String, CodingKey {
-        case path
         case roleId
         case roleName
         case type
@@ -70,10 +67,6 @@ public class RoleInfo:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RoleInfoCodingKeys.self)
-        if decoderContainer.contains(.path)
-        {
-            self.path = try decoderContainer.decode(String?.self, forKey: .path)
-        }
         if decoderContainer.contains(.roleId)
         {
             self.roleId = try decoderContainer.decode(String?.self, forKey: .roleId)
@@ -115,7 +108,6 @@ public class RoleInfo:NSObject,Codable{
 public extension RoleInfo{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RoleInfoCodingKeys.self)
-         try encoderContainer.encode(path, forKey: .path)
          try encoderContainer.encode(roleId, forKey: .roleId)
          try encoderContainer.encode(roleName, forKey: .roleName)
          try encoderContainer.encode(type, forKey: .type)

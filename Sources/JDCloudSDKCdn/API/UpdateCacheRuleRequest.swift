@@ -42,7 +42,7 @@ public class UpdateCacheRuleRequest:JdCloudRequest
     /// 缓存方式：0、不缓存，1自定义
     var cacheType:Int32?
 
-    /// 配置id
+    /// 缓存规则配置ID
     var configId:Int64?
 
     /// 用户域名

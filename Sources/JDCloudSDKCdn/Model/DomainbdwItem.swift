@@ -31,8 +31,14 @@ public class DomainbdwItem:NSObject,Codable{
     var domain:String?
     /// DomainType
     var domainType:String?
-    /// TimeStamp
-    var timeStamp:Int64?
+    /// TopTimeStamp
+    var topTimeStamp:Int64?
+    /// Pv
+    var pv:Int64?
+    /// Flow
+    var flow:Double?
+    /// Avgbandwidth
+    var avgbandwidth:Double?
 
 
 
@@ -43,7 +49,10 @@ public class DomainbdwItem:NSObject,Codable{
     enum DomainbdwItemCodingKeys: String, CodingKey {
         case domain
         case domainType
-        case timeStamp
+        case topTimeStamp
+        case pv
+        case flow
+        case avgbandwidth
     }
 
 
@@ -57,9 +66,21 @@ public class DomainbdwItem:NSObject,Codable{
         {
             self.domainType = try decoderContainer.decode(String?.self, forKey: .domainType)
         }
-        if decoderContainer.contains(.timeStamp)
+        if decoderContainer.contains(.topTimeStamp)
         {
-            self.timeStamp = try decoderContainer.decode(Int64?.self, forKey: .timeStamp)
+            self.topTimeStamp = try decoderContainer.decode(Int64?.self, forKey: .topTimeStamp)
+        }
+        if decoderContainer.contains(.pv)
+        {
+            self.pv = try decoderContainer.decode(Int64?.self, forKey: .pv)
+        }
+        if decoderContainer.contains(.flow)
+        {
+            self.flow = try decoderContainer.decode(Double?.self, forKey: .flow)
+        }
+        if decoderContainer.contains(.avgbandwidth)
+        {
+            self.avgbandwidth = try decoderContainer.decode(Double?.self, forKey: .avgbandwidth)
         }
     }
 }
@@ -68,6 +89,9 @@ public extension DomainbdwItem{
         var encoderContainer = encoder.container(keyedBy: DomainbdwItemCodingKeys.self)
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(domainType, forKey: .domainType)
-         try encoderContainer.encode(timeStamp, forKey: .timeStamp)
+         try encoderContainer.encode(topTimeStamp, forKey: .topTimeStamp)
+         try encoderContainer.encode(pv, forKey: .pv)
+         try encoderContainer.encode(flow, forKey: .flow)
+         try encoderContainer.encode(avgbandwidth, forKey: .avgbandwidth)
     }
 }

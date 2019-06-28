@@ -30,19 +30,25 @@ public class AvgspeedItem:NSObject,Codable{
     /// Area
     var area:String?
     /// Avgspeed
-    var avgspeed:Int64?
+    var avgspeed:Double?
+    /// AvgspeedUnit
+    var avgspeedUnit:String?
     /// Firstpkgtime
     var firstpkgtime:Double?
+    /// FirstpkgtimeUnit
+    var firstpkgtimeUnit:String?
     /// ErrorRatio
     var errorRatio:Double?
     /// Flow
     var flow:Double?
+    /// FlowUnit
+    var flowUnit:String?
     /// FlowPercent
     var flowPercent:Double?
     /// Pv
     var pv:Int64?
     /// HitRatio
-    var hitRatio:Int?
+    var hitRatio:Double?
 
 
 
@@ -53,9 +59,12 @@ public class AvgspeedItem:NSObject,Codable{
     enum AvgspeedItemCodingKeys: String, CodingKey {
         case area
         case avgspeed
+        case avgspeedUnit
         case firstpkgtime
+        case firstpkgtimeUnit
         case errorRatio
         case flow
+        case flowUnit
         case flowPercent
         case pv
         case hitRatio
@@ -70,11 +79,19 @@ public class AvgspeedItem:NSObject,Codable{
         }
         if decoderContainer.contains(.avgspeed)
         {
-            self.avgspeed = try decoderContainer.decode(Int64?.self, forKey: .avgspeed)
+            self.avgspeed = try decoderContainer.decode(Double?.self, forKey: .avgspeed)
+        }
+        if decoderContainer.contains(.avgspeedUnit)
+        {
+            self.avgspeedUnit = try decoderContainer.decode(String?.self, forKey: .avgspeedUnit)
         }
         if decoderContainer.contains(.firstpkgtime)
         {
             self.firstpkgtime = try decoderContainer.decode(Double?.self, forKey: .firstpkgtime)
+        }
+        if decoderContainer.contains(.firstpkgtimeUnit)
+        {
+            self.firstpkgtimeUnit = try decoderContainer.decode(String?.self, forKey: .firstpkgtimeUnit)
         }
         if decoderContainer.contains(.errorRatio)
         {
@@ -83,6 +100,10 @@ public class AvgspeedItem:NSObject,Codable{
         if decoderContainer.contains(.flow)
         {
             self.flow = try decoderContainer.decode(Double?.self, forKey: .flow)
+        }
+        if decoderContainer.contains(.flowUnit)
+        {
+            self.flowUnit = try decoderContainer.decode(String?.self, forKey: .flowUnit)
         }
         if decoderContainer.contains(.flowPercent)
         {
@@ -94,7 +115,7 @@ public class AvgspeedItem:NSObject,Codable{
         }
         if decoderContainer.contains(.hitRatio)
         {
-            self.hitRatio = try decoderContainer.decode(Int?.self, forKey: .hitRatio)
+            self.hitRatio = try decoderContainer.decode(Double?.self, forKey: .hitRatio)
         }
     }
 }
@@ -103,9 +124,12 @@ public extension AvgspeedItem{
         var encoderContainer = encoder.container(keyedBy: AvgspeedItemCodingKeys.self)
          try encoderContainer.encode(area, forKey: .area)
          try encoderContainer.encode(avgspeed, forKey: .avgspeed)
+         try encoderContainer.encode(avgspeedUnit, forKey: .avgspeedUnit)
          try encoderContainer.encode(firstpkgtime, forKey: .firstpkgtime)
+         try encoderContainer.encode(firstpkgtimeUnit, forKey: .firstpkgtimeUnit)
          try encoderContainer.encode(errorRatio, forKey: .errorRatio)
          try encoderContainer.encode(flow, forKey: .flow)
+         try encoderContainer.encode(flowUnit, forKey: .flowUnit)
          try encoderContainer.encode(flowPercent, forKey: .flowPercent)
          try encoderContainer.encode(pv, forKey: .pv)
          try encoderContainer.encode(hitRatio, forKey: .hitRatio)

@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 创建AccessKey
+/// 创建主账号AccessKey
 @objc(CreateUserAccessKeyResult)
 public class CreateUserAccessKeyResult:NSObject,JdCloudResult
 {

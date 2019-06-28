@@ -29,13 +29,13 @@ import JDCloudSDKCore
 @objc(QueryMonitorResult)
 public class QueryMonitorResult:NSObject,JdCloudResult
 {
-    /// Domain
+    /// 域名
     var domain:String?
 
-    /// Cycle
+    /// 探测周期，单位分钟
     var cycle:Int32?
 
-    /// MonitorPath
+    /// 探测路径
     var monitorPath:String?
 
     /// 查询结果,类型为HashMap&lt;String, Object&gt;

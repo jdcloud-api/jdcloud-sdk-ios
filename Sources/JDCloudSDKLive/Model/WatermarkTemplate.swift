@@ -27,6 +27,10 @@ import Foundation
 ///  watermarkTemplate
 @objc(WatermarkTemplate)
 public class WatermarkTemplate:NSObject,Codable{
+    /// 水印位置
+      /// - 取值范围：左上：1，右上：3， 左下：7，右下：9，默认：1
+      /// 
+    var position:Int?
     /// x轴偏移量
       /// - 单位: 像素
       /// 
@@ -57,6 +61,7 @@ public class WatermarkTemplate:NSObject,Codable{
     }
 
     enum WatermarkTemplateCodingKeys: String, CodingKey {
+        case position
         case offSetX
         case offSetY
         case width
@@ -68,6 +73,10 @@ public class WatermarkTemplate:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: WatermarkTemplateCodingKeys.self)
+        if decoderContainer.contains(.position)
+        {
+            self.position = try decoderContainer.decode(Int?.self, forKey: .position)
+        }
         if decoderContainer.contains(.offSetX)
         {
             self.offSetX = try decoderContainer.decode(Int?.self, forKey: .offSetX)
@@ -97,6 +106,7 @@ public class WatermarkTemplate:NSObject,Codable{
 public extension WatermarkTemplate{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: WatermarkTemplateCodingKeys.self)
+         try encoderContainer.encode(position, forKey: .position)
          try encoderContainer.encode(offSetX, forKey: .offSetX)
          try encoderContainer.encode(offSetY, forKey: .offSetY)
          try encoderContainer.encode(width, forKey: .width)

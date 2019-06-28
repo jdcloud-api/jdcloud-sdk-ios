@@ -39,7 +39,7 @@ public class AddCustomLiveStreamRecordTemplateRequest:JdCloudRequest
 
     /// 存储桶
       /// 
-    var saveBucket:String?
+    var saveBucket:String
 
     /// endpoint
       /// 
@@ -59,8 +59,9 @@ public class AddCustomLiveStreamRecordTemplateRequest:JdCloudRequest
     var template:String
 
 
-    public init(regionId: String,recordPeriod:Int,recordFileType:String,template:String){
+    public init(regionId: String,recordPeriod:Int,saveBucket:String,recordFileType:String,template:String){
         self.recordPeriod = recordPeriod
+        self.saveBucket = saveBucket
         self.recordFileType = recordFileType
         self.template = template
         super.init(regionId: regionId)

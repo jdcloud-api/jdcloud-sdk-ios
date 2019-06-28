@@ -33,16 +33,16 @@ public class GetDomainListByFilterRequest:JdCloudRequest
     /// 根据关键字进行模糊匹配
     var keyWord:String?
 
-    /// pageNumber
+    /// pageNumber,默认值为1
     var pageNumber:Int32?
 
-    /// pageSize
+    /// pageSize,默认值为20,最大值为50
     var pageSize:Int32?
 
     /// 根据域名状态查询, 可选值[offline, online, configuring, auditing, audit_reject]
     var status:String?
 
-    /// type
+    /// 域名类型，(web:静态小文件，download:大文件加速，vod:视频加速，live:直播加速),不传查所有
     var type:String?
 
     /// 标签过滤条件

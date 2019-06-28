@@ -36,7 +36,7 @@ public class SetMonitorRequest:JdCloudRequest
     /// 探测路径
     var monitorPath:String?
 
-    /// HttpRequestHeader
+    /// http请求头
     var httpRequestHeader:[String:String?]?
 
     /// 用户域名

@@ -29,7 +29,7 @@ import Foundation
 public class UpdateSubUserInfo:NSObject,Codable{
     /// 描述，0~256个字符
     var descriptionValue:String?
-    /// 手机号码，区号-手机号，目前只支持0086-中国手机号码
+    /// 手机号码，区号-手机号
     var phone:String?
     /// 邮箱
     var email:String?

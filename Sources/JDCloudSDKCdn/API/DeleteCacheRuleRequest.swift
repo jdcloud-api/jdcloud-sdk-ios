@@ -30,7 +30,7 @@ import JDCloudSDKCore
 @objc(DeleteCacheRuleRequest)
 public class DeleteCacheRuleRequest:JdCloudRequest
 {
-    /// 缓存规则id
+    /// 缓存规则配置ID
     var configId:Int64?
 
     /// 用户域名

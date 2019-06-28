@@ -36,6 +36,18 @@ public class SetProtocolConvertRequest:JdCloudRequest
     /// https私钥，转https格式时必传
     var rsaKey:String?
 
+    /// 证书来源有两种类型：default,ssl
+    var certFrom:String?
+
+    /// ssl证书id
+    var sslCertId:String?
+
+    /// 是否同步到ssl,boolean值，取值true或者false
+    var syncToSsl:Bool?
+
+    /// syncToSsl是true时，certName是必填项
+    var certName:String?
+
     /// ProtocolConverts
     var protocolConverts:[ProtocolConvert?]?
 
@@ -52,6 +64,10 @@ public class SetProtocolConvertRequest:JdCloudRequest
     enum SetProtocolConvertRequestRequestCodingKeys: String, CodingKey {
         case certificate
         case rsaKey
+        case certFrom
+        case sslCertId
+        case syncToSsl
+        case certName
         case protocolConverts
         case domain
     }
@@ -60,6 +76,10 @@ public class SetProtocolConvertRequest:JdCloudRequest
         var encoderContainer = encoder.container(keyedBy: SetProtocolConvertRequestRequestCodingKeys.self)
         try encoderContainer.encode(certificate, forKey: .certificate)
         try encoderContainer.encode(rsaKey, forKey: .rsaKey)
+        try encoderContainer.encode(certFrom, forKey: .certFrom)
+        try encoderContainer.encode(sslCertId, forKey: .sslCertId)
+        try encoderContainer.encode(syncToSsl, forKey: .syncToSsl)
+        try encoderContainer.encode(certName, forKey: .certName)
         try encoderContainer.encode(protocolConverts, forKey: .protocolConverts)
         try encoderContainer.encode(domain, forKey: .domain)
 

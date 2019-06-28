@@ -30,33 +30,33 @@ public class CodeDetailItem:NSObject,Codable{
     /// TimeStamp
     var timeStamp:Int64?
     /// Ok
-    var ok:Int64?
+    var ok:Double?
     /// BadGateway
-    var badGateway:Int64?
+    var badGateway:Double?
     /// BadRequest
-    var badRequest:Int64?
+    var badRequest:Double?
     /// Forbidden
-    var forbidden:Int64?
+    var forbidden:Double?
     /// Found
-    var found:Int64?
+    var found:Double?
     /// GatewayTimeout
-    var gatewayTimeout:Int64?
+    var gatewayTimeout:Double?
     /// InternalServerError
-    var internalServerError:Int64?
+    var internalServerError:Double?
     /// MovedPermanently
-    var movedPermanently:Int64?
+    var movedPermanently:Double?
     /// NotFound
-    var notFound:Int64?
+    var notFound:Double?
     /// NotModified
-    var notModified:Int64?
+    var notModified:Double?
     /// PartialContent
-    var partialContent:Int64?
+    var partialContent:Double?
     /// RequestedRangeNotSuitable
-    var requestedRangeNotSuitable:Int64?
+    var requestedRangeNotSuitable:Double?
     /// Other
-    var other:Int64?
+    var other:Double?
     /// ServiceUnavailable
-    var serviceUnavailable:Int64?
+    var serviceUnavailable:Double?
 
 
 
@@ -91,59 +91,59 @@ public class CodeDetailItem:NSObject,Codable{
         }
         if decoderContainer.contains(.ok)
         {
-            self.ok = try decoderContainer.decode(Int64?.self, forKey: .ok)
+            self.ok = try decoderContainer.decode(Double?.self, forKey: .ok)
         }
         if decoderContainer.contains(.badGateway)
         {
-            self.badGateway = try decoderContainer.decode(Int64?.self, forKey: .badGateway)
+            self.badGateway = try decoderContainer.decode(Double?.self, forKey: .badGateway)
         }
         if decoderContainer.contains(.badRequest)
         {
-            self.badRequest = try decoderContainer.decode(Int64?.self, forKey: .badRequest)
+            self.badRequest = try decoderContainer.decode(Double?.self, forKey: .badRequest)
         }
         if decoderContainer.contains(.forbidden)
         {
-            self.forbidden = try decoderContainer.decode(Int64?.self, forKey: .forbidden)
+            self.forbidden = try decoderContainer.decode(Double?.self, forKey: .forbidden)
         }
         if decoderContainer.contains(.found)
         {
-            self.found = try decoderContainer.decode(Int64?.self, forKey: .found)
+            self.found = try decoderContainer.decode(Double?.self, forKey: .found)
         }
         if decoderContainer.contains(.gatewayTimeout)
         {
-            self.gatewayTimeout = try decoderContainer.decode(Int64?.self, forKey: .gatewayTimeout)
+            self.gatewayTimeout = try decoderContainer.decode(Double?.self, forKey: .gatewayTimeout)
         }
         if decoderContainer.contains(.internalServerError)
         {
-            self.internalServerError = try decoderContainer.decode(Int64?.self, forKey: .internalServerError)
+            self.internalServerError = try decoderContainer.decode(Double?.self, forKey: .internalServerError)
         }
         if decoderContainer.contains(.movedPermanently)
         {
-            self.movedPermanently = try decoderContainer.decode(Int64?.self, forKey: .movedPermanently)
+            self.movedPermanently = try decoderContainer.decode(Double?.self, forKey: .movedPermanently)
         }
         if decoderContainer.contains(.notFound)
         {
-            self.notFound = try decoderContainer.decode(Int64?.self, forKey: .notFound)
+            self.notFound = try decoderContainer.decode(Double?.self, forKey: .notFound)
         }
         if decoderContainer.contains(.notModified)
         {
-            self.notModified = try decoderContainer.decode(Int64?.self, forKey: .notModified)
+            self.notModified = try decoderContainer.decode(Double?.self, forKey: .notModified)
         }
         if decoderContainer.contains(.partialContent)
         {
-            self.partialContent = try decoderContainer.decode(Int64?.self, forKey: .partialContent)
+            self.partialContent = try decoderContainer.decode(Double?.self, forKey: .partialContent)
         }
         if decoderContainer.contains(.requestedRangeNotSuitable)
         {
-            self.requestedRangeNotSuitable = try decoderContainer.decode(Int64?.self, forKey: .requestedRangeNotSuitable)
+            self.requestedRangeNotSuitable = try decoderContainer.decode(Double?.self, forKey: .requestedRangeNotSuitable)
         }
         if decoderContainer.contains(.other)
         {
-            self.other = try decoderContainer.decode(Int64?.self, forKey: .other)
+            self.other = try decoderContainer.decode(Double?.self, forKey: .other)
         }
         if decoderContainer.contains(.serviceUnavailable)
         {
-            self.serviceUnavailable = try decoderContainer.decode(Int64?.self, forKey: .serviceUnavailable)
+            self.serviceUnavailable = try decoderContainer.decode(Double?.self, forKey: .serviceUnavailable)
         }
     }
 }

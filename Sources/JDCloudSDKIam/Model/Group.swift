@@ -31,7 +31,7 @@ public class Group:NSObject,Codable{
     var groupId:String?
     /// 用户组名
     var name:String?
-    /// jrn描述
+    /// 京东云资源标识(jrn)
     var jrn:String?
     /// 用户组描述
     var descriptionValue:String?

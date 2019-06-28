@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询AccessKey列表
+/// 查询主账号AccessKey列表
 @objc(DescribeUserAccessKeysResult)
 public class DescribeUserAccessKeysResult:NSObject,JdCloudResult
 {

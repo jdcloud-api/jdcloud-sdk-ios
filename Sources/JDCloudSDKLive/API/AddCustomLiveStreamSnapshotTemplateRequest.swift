@@ -73,7 +73,7 @@ public class AddCustomLiveStreamSnapshotTemplateRequest:JdCloudRequest
     var saveMode:Int
 
     /// 存储桶
-    var saveBucket:String?
+    var saveBucket:String
 
     /// 存储地址
     var saveEndpoint:String?
@@ -87,11 +87,12 @@ public class AddCustomLiveStreamSnapshotTemplateRequest:JdCloudRequest
     var template:String
 
 
-    public init(regionId: String,format:String,fillType:Int,snapshotInterval:Int,saveMode:Int,template:String){
+    public init(regionId: String,format:String,fillType:Int,snapshotInterval:Int,saveMode:Int,saveBucket:String,template:String){
         self.format = format
         self.fillType = fillType
         self.snapshotInterval = snapshotInterval
         self.saveMode = saveMode
+        self.saveBucket = saveBucket
         self.template = template
         super.init(regionId: regionId)
     }

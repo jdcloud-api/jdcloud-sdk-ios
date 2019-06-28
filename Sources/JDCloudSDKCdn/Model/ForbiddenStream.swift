@@ -32,9 +32,11 @@ public class ForbiddenStream:NSObject,Codable{
     /// 封禁推流的app
     var app:String?
     /// 禁播类型:forever永不禁播limit限时禁播
-    var type:String?
+    var forbiddenType:String?
     /// 禁播时长
     var ttl:Int64?
+    /// 禁播类型说明
+    var forbiddenTypeDesc:String?
 
 
 
@@ -45,8 +47,9 @@ public class ForbiddenStream:NSObject,Codable{
     enum ForbiddenStreamCodingKeys: String, CodingKey {
         case stream
         case app
-        case type
+        case forbiddenType
         case ttl
+        case forbiddenTypeDesc
     }
 
 
@@ -60,13 +63,17 @@ public class ForbiddenStream:NSObject,Codable{
         {
             self.app = try decoderContainer.decode(String?.self, forKey: .app)
         }
-        if decoderContainer.contains(.type)
+        if decoderContainer.contains(.forbiddenType)
         {
-            self.type = try decoderContainer.decode(String?.self, forKey: .type)
+            self.forbiddenType = try decoderContainer.decode(String?.self, forKey: .forbiddenType)
         }
         if decoderContainer.contains(.ttl)
         {
             self.ttl = try decoderContainer.decode(Int64?.self, forKey: .ttl)
+        }
+        if decoderContainer.contains(.forbiddenTypeDesc)
+        {
+            self.forbiddenTypeDesc = try decoderContainer.decode(String?.self, forKey: .forbiddenTypeDesc)
         }
     }
 }
@@ -75,7 +82,8 @@ public extension ForbiddenStream{
         var encoderContainer = encoder.container(keyedBy: ForbiddenStreamCodingKeys.self)
          try encoderContainer.encode(stream, forKey: .stream)
          try encoderContainer.encode(app, forKey: .app)
-         try encoderContainer.encode(type, forKey: .type)
+         try encoderContainer.encode(forbiddenType, forKey: .forbiddenType)
          try encoderContainer.encode(ttl, forKey: .ttl)
+         try encoderContainer.encode(forbiddenTypeDesc, forKey: .forbiddenTypeDesc)
     }
 }

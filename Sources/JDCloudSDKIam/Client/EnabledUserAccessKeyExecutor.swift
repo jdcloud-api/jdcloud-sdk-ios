@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  启用AccessKey
+///  启用主账号AccessKey
 public class EnabledUserAccessKeyExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

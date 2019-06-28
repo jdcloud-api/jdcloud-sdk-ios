@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  禁用AccessKey
+///  禁用主账号AccessKey
 public class DisabledUserAccessKeyExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

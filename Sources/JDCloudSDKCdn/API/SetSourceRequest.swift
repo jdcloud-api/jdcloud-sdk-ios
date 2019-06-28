@@ -42,10 +42,10 @@ public class SetSourceRequest:JdCloudRequest
     /// DomainSource
     var domainSource:[DomainSourceInfo?]?
 
-    /// OssSource
+    /// oss回源域名
     var ossSource:String?
 
-    /// DefaultSourceHost
+    /// 默认回源host
     var defaultSourceHost:String?
 
     /// 用户域名

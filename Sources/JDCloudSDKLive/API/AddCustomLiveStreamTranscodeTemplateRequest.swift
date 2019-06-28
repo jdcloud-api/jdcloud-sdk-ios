@@ -30,9 +30,13 @@ import JDCloudSDKCore
       ///       /// - 系统为您预设了标准转码模板,如果不能满足您的转码需求,可以通过此接口添加自定义转码模板
       ///       /// - 系统标准转码模板
       ///       ///     ld (h.264/640*360/15f)
-      ///       ///     sd (h.264/854*480/24f)
+      ///       ///     sd (h.264/960*540/24f)
       ///       ///     hd (h.264/1280*720/25f)
       ///       ///     shd (h.264/1920*1080/30f)
+      ///       ///     ld.265 (h.265/640*360/15f)
+      ///       ///     sd.265 (h.265/960*540/24f)
+      ///       ///     hd.265 (h.265/1280*720/25f)
+      ///       ///     shd.265 (h.265/1920*1080/30f)
       ///       /// 
 @objc(AddCustomLiveStreamTranscodeTemplateRequest)
 public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
@@ -42,8 +46,12 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
       /// 
     var templateName:String?
 
+    /// 视频编码格式，取值：h264,h265，默认h264
+      /// 
+    var videoCodec:String?
+
     /// 转码输出的码率值
-      /// - 取值范围: [200,3000]
+      /// - 取值范围: [1,6000]
       /// - 单位: kpbs
       /// 
     var videoCodeRate:Int
@@ -54,14 +62,14 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
     var videoFrameRate:String
 
     /// 转码输出视频宽度
-      /// - 取值: [100,1920]
+      /// - 取值: [128,1920]
       /// - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
       /// - 如果(width,height)都不设置，则按源流大小输出转码
       /// 
     var width:Int?
 
     /// 转码输出视频宽度
-      /// - 取值: [100,1920]
+      /// - 取值: [128,1920]
       /// - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
       /// - 如果(width,height)都不设置，则按源流大小输出转码
       /// 
@@ -72,9 +80,13 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
       /// - &lt;b&gt;注意: 不能与系统的标准的转码模板和当前用户已自定义命名重复&lt;/b&gt;
       /// - 系统标准转码模板
       ///   ld (h.264/640*360/15f)
-      ///   sd (h.264/854*480/24f)
+      ///   sd (h.264/960*540/24f)
       ///   hd (h.264/1280*720/25f)
       ///   shd (h.264/1920*1080/30f)
+      ///   ld.265 (h.265/640*360/15f)
+      ///   sd.265 (h.265/960*540/24f)
+      ///   hd.265 (h.265/1280*720/25f)
+      ///   shd.265 (h.265/1920*1080/30f)
       /// 
     var template:String
 
@@ -123,6 +135,7 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
 
     enum AddCustomLiveStreamTranscodeTemplateRequestRequestCodingKeys: String, CodingKey {
         case templateName
+        case videoCodec
         case videoCodeRate
         case videoFrameRate
         case width
@@ -138,6 +151,7 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddCustomLiveStreamTranscodeTemplateRequestRequestCodingKeys.self)
         try encoderContainer.encode(templateName, forKey: .templateName)
+        try encoderContainer.encode(videoCodec, forKey: .videoCodec)
         try encoderContainer.encode(videoCodeRate, forKey: .videoCodeRate)
         try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)
         try encoderContainer.encode(width, forKey: .width)

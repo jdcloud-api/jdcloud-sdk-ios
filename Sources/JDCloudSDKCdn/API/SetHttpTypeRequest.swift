@@ -42,6 +42,18 @@ public class SetHttpTypeRequest:JdCloudRequest
     /// 有三种类型：default、http、https
     var jumpType:String?
 
+    /// 证书来源有两种类型：default,ssl
+    var certFrom:String?
+
+    /// ssl证书id
+    var sslCertId:String?
+
+    /// 是否同步到ssl,boolean值，取值true或者false
+    var syncToSsl:Bool?
+
+    /// syncToSsl是true时，certName是必填项
+    var certName:String?
+
     /// 用户域名
     var domain:String
 
@@ -57,6 +69,10 @@ public class SetHttpTypeRequest:JdCloudRequest
         case certificate
         case rsaKey
         case jumpType
+        case certFrom
+        case sslCertId
+        case syncToSsl
+        case certName
         case domain
     }
 
@@ -66,6 +82,10 @@ public class SetHttpTypeRequest:JdCloudRequest
         try encoderContainer.encode(certificate, forKey: .certificate)
         try encoderContainer.encode(rsaKey, forKey: .rsaKey)
         try encoderContainer.encode(jumpType, forKey: .jumpType)
+        try encoderContainer.encode(certFrom, forKey: .certFrom)
+        try encoderContainer.encode(sslCertId, forKey: .sslCertId)
+        try encoderContainer.encode(syncToSsl, forKey: .syncToSsl)
+        try encoderContainer.encode(certName, forKey: .certName)
         try encoderContainer.encode(domain, forKey: .domain)
 
     }

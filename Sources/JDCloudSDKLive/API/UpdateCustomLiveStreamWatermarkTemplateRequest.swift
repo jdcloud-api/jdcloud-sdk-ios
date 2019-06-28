@@ -31,6 +31,11 @@ import JDCloudSDKCore
 @objc(UpdateCustomLiveStreamWatermarkTemplateRequest)
 public class UpdateCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
 {
+    /// 水印位置
+      /// - 取值范围：左上：1，右上：3， 左下：7，右下：9，默认：1
+      /// 
+    var position:Int?
+
     /// x轴偏移量
       /// - 单位: 像素
       /// 
@@ -81,6 +86,7 @@ public class UpdateCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
 
 
     enum UpdateCustomLiveStreamWatermarkTemplateRequestRequestCodingKeys: String, CodingKey {
+        case position
         case offsetX
         case offsetY
         case width
@@ -92,6 +98,7 @@ public class UpdateCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateCustomLiveStreamWatermarkTemplateRequestRequestCodingKeys.self)
+        try encoderContainer.encode(position, forKey: .position)
         try encoderContainer.encode(offsetX, forKey: .offsetX)
         try encoderContainer.encode(offsetY, forKey: .offsetY)
         try encoderContainer.encode(width, forKey: .width)

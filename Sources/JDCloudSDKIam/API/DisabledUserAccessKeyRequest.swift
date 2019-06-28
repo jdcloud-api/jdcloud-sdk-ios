@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  禁用AccessKey
+///  禁用主账号AccessKey
 @objc(DisabledUserAccessKeyRequest)
 public class DisabledUserAccessKeyRequest:JdCloudRequest
 {

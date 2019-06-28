@@ -32,13 +32,13 @@ public class QueryUserAgentResult:NSObject,JdCloudResult
     /// Domain
     var domain:String?
 
-    /// UserAgentType
+    /// userAgent类型,取值：block（黑名单）,allow（白名单）,默认为block
     var userAgentType:String?
 
-    /// UserAgentList
+    /// UA列表
     var userAgentList:[String?]?
 
-    /// AllowNoUserAgentHeader
+    /// 是否允许空userAgent访问,默认为“on”
     var allowNoUserAgentHeader:String?
 
 

@@ -31,7 +31,7 @@ public class LoginProfile:NSObject,Codable{
     var name:String?
     /// 要求下次登录时重设密码
     var passwordResetRequired:Bool?
-    /// 要求必须绑定多因素认证设备
+    /// 要求必须绑定虚拟MFA设备
     var mFABindRequired:Bool?
 
 

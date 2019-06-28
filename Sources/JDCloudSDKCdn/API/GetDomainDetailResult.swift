@@ -29,7 +29,7 @@ import JDCloudSDKCore
 @objc(GetDomainDetailResult)
 public class GetDomainDetailResult:NSObject,JdCloudResult
 {
-    /// AllStatus
+    /// null
     var allStatus:String?
 
     /// AllowNoReferHeader
@@ -110,6 +110,24 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
     /// JumpType
     var jumpType:String?
 
+    /// CertFrom
+    var certFrom:String?
+
+    /// SslCertId
+    var sslCertId:String?
+
+    /// CertName
+    var certName:String?
+
+    /// CertType
+    var certType:String?
+
+    /// SslCertStartTime
+    var sslCertStartTime:String?
+
+    /// SslCertEndTime
+    var sslCertEndTime:String?
+
 
 
     public override init(){
@@ -144,6 +162,12 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
         case certificate
         case rsaKey
         case jumpType
+        case certFrom
+        case sslCertId
+        case certName
+        case certType
+        case sslCertStartTime
+        case sslCertEndTime
     }
 
     required public init(from decoder: Decoder) throws {
@@ -256,6 +280,30 @@ public class GetDomainDetailResult:NSObject,JdCloudResult
         {
             self.jumpType = try decoderContainer.decode(String?.self, forKey: .jumpType)
         }
+        if decoderContainer.contains(.certFrom)
+        {
+            self.certFrom = try decoderContainer.decode(String?.self, forKey: .certFrom)
+        }
+        if decoderContainer.contains(.sslCertId)
+        {
+            self.sslCertId = try decoderContainer.decode(String?.self, forKey: .sslCertId)
+        }
+        if decoderContainer.contains(.certName)
+        {
+            self.certName = try decoderContainer.decode(String?.self, forKey: .certName)
+        }
+        if decoderContainer.contains(.certType)
+        {
+            self.certType = try decoderContainer.decode(String?.self, forKey: .certType)
+        }
+        if decoderContainer.contains(.sslCertStartTime)
+        {
+            self.sslCertStartTime = try decoderContainer.decode(String?.self, forKey: .sslCertStartTime)
+        }
+        if decoderContainer.contains(.sslCertEndTime)
+        {
+            self.sslCertEndTime = try decoderContainer.decode(String?.self, forKey: .sslCertEndTime)
+        }
     }
 }
 public extension GetDomainDetailResult{
@@ -288,5 +336,11 @@ public extension GetDomainDetailResult{
         try encoderContainer.encode(certificate, forKey: .certificate)
         try encoderContainer.encode(rsaKey, forKey: .rsaKey)
         try encoderContainer.encode(jumpType, forKey: .jumpType)
+        try encoderContainer.encode(certFrom, forKey: .certFrom)
+        try encoderContainer.encode(sslCertId, forKey: .sslCertId)
+        try encoderContainer.encode(certName, forKey: .certName)
+        try encoderContainer.encode(certType, forKey: .certType)
+        try encoderContainer.encode(sslCertStartTime, forKey: .sslCertStartTime)
+        try encoderContainer.encode(sslCertEndTime, forKey: .sslCertEndTime)
     }
 }

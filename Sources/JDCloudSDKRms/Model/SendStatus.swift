@@ -31,15 +31,15 @@ public class SendStatus:NSObject,Codable{
     var pin:String?
     /// 应用ID
     var appId:String?
-    /// 任务ID
-    var taskId:String?
+    /// 任务序列号
+    var sequenceNumber:String?
     /// 短信ID
     var templateId:String?
     /// 手机号
     var mobileNum:String?
     /// 发送状态 -1：初始状态；0：成功发送到网关；1：下载成功；2：发送失败；3：未发送至网关，过期失败；4：发送到网关，过期失败
     var stateFlag:Int?
-    /// 发送时间
+    /// 发送时间 yyyy-MM-dd HH:mm:ss
     var sendTime:String?
 
 
@@ -51,7 +51,7 @@ public class SendStatus:NSObject,Codable{
     enum SendStatusCodingKeys: String, CodingKey {
         case pin
         case appId
-        case taskId
+        case sequenceNumber
         case templateId
         case mobileNum
         case stateFlag
@@ -69,9 +69,9 @@ public class SendStatus:NSObject,Codable{
         {
             self.appId = try decoderContainer.decode(String?.self, forKey: .appId)
         }
-        if decoderContainer.contains(.taskId)
+        if decoderContainer.contains(.sequenceNumber)
         {
-            self.taskId = try decoderContainer.decode(String?.self, forKey: .taskId)
+            self.sequenceNumber = try decoderContainer.decode(String?.self, forKey: .sequenceNumber)
         }
         if decoderContainer.contains(.templateId)
         {
@@ -96,7 +96,7 @@ public extension SendStatus{
         var encoderContainer = encoder.container(keyedBy: SendStatusCodingKeys.self)
          try encoderContainer.encode(pin, forKey: .pin)
          try encoderContainer.encode(appId, forKey: .appId)
-         try encoderContainer.encode(taskId, forKey: .taskId)
+         try encoderContainer.encode(sequenceNumber, forKey: .sequenceNumber)
          try encoderContainer.encode(templateId, forKey: .templateId)
          try encoderContainer.encode(mobileNum, forKey: .mobileNum)
          try encoderContainer.encode(stateFlag, forKey: .stateFlag)

@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  创建AccessKey
+///  创建主账号AccessKey
 public class CreateUserAccessKeyExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

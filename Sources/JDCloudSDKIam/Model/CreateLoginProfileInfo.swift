@@ -33,7 +33,7 @@ public class CreateLoginProfileInfo:NSObject,Codable{
     var password:String?
     /// 是否自动生成密码，默认false
     var autoGeneratePassword:Bool?
-    /// 指定子用户在下次登录时是否必须绑定多因素认证器
+    /// 指定子用户在下次登录时是否必须绑定虚拟MFA设备
     var mFABindRequired:Bool?
 
 

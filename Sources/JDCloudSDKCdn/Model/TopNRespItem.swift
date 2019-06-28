@@ -31,10 +31,10 @@ public class TopNRespItem:NSObject,Codable{
     var topKey:String?
     /// TopValue
     var topValue:AnyObject?
-    /// TopFlowValue
-    var topFlowValue:Double?
-    /// TopFlowPercent
-    var topFlowPercent:String?
+    /// TopDataValue
+    var topDataValue:Double?
+    /// TopDataPercent
+    var topDataPercent:String?
     /// Details
     var details:[TopNRespItemDetail?]?
 
@@ -47,8 +47,8 @@ public class TopNRespItem:NSObject,Codable{
     enum TopNRespItemCodingKeys: String, CodingKey {
         case topKey
         case topValue
-        case topFlowValue
-        case topFlowPercent
+        case topDataValue
+        case topDataPercent
         case details
     }
 
@@ -59,13 +59,13 @@ public class TopNRespItem:NSObject,Codable{
         {
             self.topKey = try decoderContainer.decode(String?.self, forKey: .topKey)
         }
-        if decoderContainer.contains(.topFlowValue)
+        if decoderContainer.contains(.topDataValue)
         {
-            self.topFlowValue = try decoderContainer.decode(Double?.self, forKey: .topFlowValue)
+            self.topDataValue = try decoderContainer.decode(Double?.self, forKey: .topDataValue)
         }
-        if decoderContainer.contains(.topFlowPercent)
+        if decoderContainer.contains(.topDataPercent)
         {
-            self.topFlowPercent = try decoderContainer.decode(String?.self, forKey: .topFlowPercent)
+            self.topDataPercent = try decoderContainer.decode(String?.self, forKey: .topDataPercent)
         }
         if decoderContainer.contains(.details)
         {
@@ -77,8 +77,8 @@ public extension TopNRespItem{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: TopNRespItemCodingKeys.self)
          try encoderContainer.encode(topKey, forKey: .topKey)
-         try encoderContainer.encode(topFlowValue, forKey: .topFlowValue)
-         try encoderContainer.encode(topFlowPercent, forKey: .topFlowPercent)
+         try encoderContainer.encode(topDataValue, forKey: .topDataValue)
+         try encoderContainer.encode(topDataPercent, forKey: .topDataPercent)
          try encoderContainer.encode(details, forKey: .details)
     }
 }

@@ -38,7 +38,7 @@ public class GetDomainListResult:NSObject,JdCloudResult
     /// PageNumber
     var pageNumber:Int32?
 
-    /// Domains
+    /// 域名列表
     var domains:[ListDomainItem?]?
 
 

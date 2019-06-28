@@ -27,11 +27,11 @@ import Foundation
 ///  subUserInfo
 @objc(SubUserInfo)
 public class SubUserInfo:NSObject,Codable{
-    /// 用户名
+    /// 子用户名
     var name:String?
     /// 描述信息
     var descriptionValue:String?
-    /// 用户更新时间
+    /// 用户创建时间
     var createTime:String?
 
 
