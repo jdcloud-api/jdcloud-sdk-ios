@@ -30,22 +30,24 @@ import JDCloudSDKCore
 @objc(UpdateWatermarkRequest)
 public class UpdateWatermarkRequest:JdCloudRequest
 {
-    /// 水印ID
-    var id:Int64?
-
     /// 水印名称
     var name:String?
 
     /// 图片地址
     var imgUrl:String?
 
-    /// 宽度
+    /// 水印宽度
     var width:Int?
 
-    /// 高度
+    /// 水印高度
     var height:Int?
 
-    /// 水印位置
+    /// 水印位置。取值范围：
+      ///   LT - 左上
+      ///   RT - 右上
+      ///   LB - 左下
+      ///   RB - 右下
+      /// 
     var position:String?
 
     /// 偏移单位
@@ -68,7 +70,6 @@ public class UpdateWatermarkRequest:JdCloudRequest
 
 
     enum UpdateWatermarkRequestRequestCodingKeys: String, CodingKey {
-        case id
         case name
         case imgUrl
         case width
@@ -82,7 +83,6 @@ public class UpdateWatermarkRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateWatermarkRequestRequestCodingKeys.self)
-        try encoderContainer.encode(id, forKey: .id)
         try encoderContainer.encode(name, forKey: .name)
         try encoderContainer.encode(imgUrl, forKey: .imgUrl)
         try encoderContainer.encode(width, forKey: .width)

@@ -28,13 +28,15 @@ import Foundation
 @objc(WebRule)
 public class WebRule:NSObject,Codable{
     /// 规则 Id
-    var id:Int64?
+    var id:String?
     /// 实例 Id
-    var instanceId:Int64?
+    var instanceId:String?
     /// 子域名
     var domain:String?
-    /// 规则的 cname
+    /// 规则的 CNAME
     var cname:String?
+    /// CNAME 解析状态, 0: 解析异常, 1: 解析正常
+    var cnameStatus:Int?
     /// Protocol
     var protocolValue:WebRuleProtocol?
     /// 是否为自定义端口号, 0: 为默认, 1: 为自定义
@@ -58,7 +60,7 @@ public class WebRule:NSObject,Codable{
     /// 证书状态, 0: 异常, 1: 正常, 2: 证书未上传
     var httpCertStatus:Int?
     /// 证书 Id
-    var certId:Int64?
+    var certId:String?
     /// 证书名称
     var certName:String?
     /// 证书内容
@@ -74,8 +76,12 @@ public class WebRule:NSObject,Codable{
     var algorithm:String?
     /// CC 状态, 0: CC 关闭, 1: CC 开启
     var ccStatus:Int?
-    /// webSocketStatus, 0: 关闭, 1: 开启
+    /// webSocket 状态, 0: 关闭, 1: 开启
     var webSocketStatus:Int?
+    /// 黑名单状态, 0: 关闭, 1: 开启
+    var blackListEnable:Int?
+    /// 白名单状态, 0: 关闭, 1: 开启
+    var whiteListEnable:Int?
 
 
 
@@ -88,6 +94,7 @@ public class WebRule:NSObject,Codable{
         case instanceId
         case domain
         case cname
+        case cnameStatus
         case protocolValue = "protocol"
         case customPortStatus
         case port
@@ -107,6 +114,8 @@ public class WebRule:NSObject,Codable{
         case algorithm
         case ccStatus
         case webSocketStatus
+        case blackListEnable
+        case whiteListEnable
     }
 
 
@@ -114,11 +123,11 @@ public class WebRule:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: WebRuleCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.instanceId)
         {
-            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
         if decoderContainer.contains(.domain)
         {
@@ -127,6 +136,10 @@ public class WebRule:NSObject,Codable{
         if decoderContainer.contains(.cname)
         {
             self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.cnameStatus)
+        {
+            self.cnameStatus = try decoderContainer.decode(Int?.self, forKey: .cnameStatus)
         }
         if decoderContainer.contains(.protocolValue)
         {
@@ -174,7 +187,7 @@ public class WebRule:NSObject,Codable{
         }
         if decoderContainer.contains(.certId)
         {
-            self.certId = try decoderContainer.decode(Int64?.self, forKey: .certId)
+            self.certId = try decoderContainer.decode(String?.self, forKey: .certId)
         }
         if decoderContainer.contains(.certName)
         {
@@ -204,6 +217,14 @@ public class WebRule:NSObject,Codable{
         {
             self.webSocketStatus = try decoderContainer.decode(Int?.self, forKey: .webSocketStatus)
         }
+        if decoderContainer.contains(.blackListEnable)
+        {
+            self.blackListEnable = try decoderContainer.decode(Int?.self, forKey: .blackListEnable)
+        }
+        if decoderContainer.contains(.whiteListEnable)
+        {
+            self.whiteListEnable = try decoderContainer.decode(Int?.self, forKey: .whiteListEnable)
+        }
     }
 }
 public extension WebRule{
@@ -213,6 +234,7 @@ public extension WebRule{
          try encoderContainer.encode(instanceId, forKey: .instanceId)
          try encoderContainer.encode(domain, forKey: .domain)
          try encoderContainer.encode(cname, forKey: .cname)
+         try encoderContainer.encode(cnameStatus, forKey: .cnameStatus)
          try encoderContainer.encode(protocolValue, forKey: .protocolValue)
          try encoderContainer.encode(customPortStatus, forKey: .customPortStatus)
          try encoderContainer.encode(port, forKey: .port)
@@ -232,5 +254,7 @@ public extension WebRule{
          try encoderContainer.encode(algorithm, forKey: .algorithm)
          try encoderContainer.encode(ccStatus, forKey: .ccStatus)
          try encoderContainer.encode(webSocketStatus, forKey: .webSocketStatus)
+         try encoderContainer.encode(blackListEnable, forKey: .blackListEnable)
+         try encoderContainer.encode(whiteListEnable, forKey: .whiteListEnable)
     }
 }

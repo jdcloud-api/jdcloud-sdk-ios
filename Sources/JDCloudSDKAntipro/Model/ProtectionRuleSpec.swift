@@ -50,7 +50,12 @@ public class ProtectionRuleSpec:NSObject,Codable{
     /// 报文最大长度, 取值范围 (datagramRangeMin, 1518]
     var datagramRangeMax:Int64?
     /// geo 拦截地域编码列表. 查询 &lt;a href&#x3D;&quot;http://docs.jdcloud.com/anti-ddos-protection-package/api/describegeoareas&quot;&gt;describeGeoAreas&lt;/a&gt; 接口获取可设置的地域编码列表
+      /// 
     var geoBlackList:[String?]?
+    /// IP 黑名单列表
+    var ipBlackList:[String?]?
+    /// IP 白名单列表
+    var ipWhiteList:[String?]?
 
 
 
@@ -71,6 +76,8 @@ public class ProtectionRuleSpec:NSObject,Codable{
         case datagramRangeMin
         case datagramRangeMax
         case geoBlackList
+        case ipBlackList
+        case ipWhiteList
     }
 
 
@@ -124,6 +131,14 @@ public class ProtectionRuleSpec:NSObject,Codable{
         {
             self.geoBlackList = try decoderContainer.decode([String?]?.self, forKey: .geoBlackList)
         }
+        if decoderContainer.contains(.ipBlackList)
+        {
+            self.ipBlackList = try decoderContainer.decode([String?]?.self, forKey: .ipBlackList)
+        }
+        if decoderContainer.contains(.ipWhiteList)
+        {
+            self.ipWhiteList = try decoderContainer.decode([String?]?.self, forKey: .ipWhiteList)
+        }
     }
 }
 public extension ProtectionRuleSpec{
@@ -141,5 +156,7 @@ public extension ProtectionRuleSpec{
          try encoderContainer.encode(datagramRangeMin, forKey: .datagramRangeMin)
          try encoderContainer.encode(datagramRangeMax, forKey: .datagramRangeMax)
          try encoderContainer.encode(geoBlackList, forKey: .geoBlackList)
+         try encoderContainer.encode(ipBlackList, forKey: .ipBlackList)
+         try encoderContainer.encode(ipWhiteList, forKey: .ipWhiteList)
     }
 }

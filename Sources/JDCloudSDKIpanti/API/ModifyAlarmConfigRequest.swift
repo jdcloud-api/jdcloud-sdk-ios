@@ -34,10 +34,10 @@ public class ModifyAlarmConfigRequest:JdCloudRequest
     var alarmConfigSpec:AlarmConfigSpec
 
     /// 实例 ID
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,alarmConfigSpec:AlarmConfigSpec,instanceId:Int64){
+    public init(regionId: String,alarmConfigSpec:AlarmConfigSpec,instanceId:String){
         self.alarmConfigSpec = alarmConfigSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)

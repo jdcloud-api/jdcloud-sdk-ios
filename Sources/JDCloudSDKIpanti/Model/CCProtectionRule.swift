@@ -28,11 +28,11 @@ import Foundation
 @objc(CCProtectionRule)
 public class CCProtectionRule:NSObject,Codable{
     /// CC 防护规则 ID
-    var id:Int64?
+    var id:String?
     /// CC 防护规则对应的网站规则 ID
-    var webRuleId:Int64?
+    var webRuleId:String?
     /// CC 防护规则对应的实例 ID
-    var instanceId:Int64?
+    var instanceId:String?
     /// CC 防护规则名称, 30 字符以内
     var name:String?
     /// CC 防护规则状态: 0: 关闭, 1: 开启
@@ -47,7 +47,7 @@ public class CCProtectionRule:NSObject,Codable{
     var singleIpLimit:Int64?
     /// 阻断类型, 1: 封禁, 2: 人机交互
     var blockType:Int?
-    /// 阻断持续时间, 单位为分钟, 取值范围[1, 1440]
+    /// 阻断持续时间, 单位为秒, 取值范围[10, 86400]
     var blockTime:Int64?
 
 
@@ -75,15 +75,15 @@ public class CCProtectionRule:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: CCProtectionRuleCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.webRuleId)
         {
-            self.webRuleId = try decoderContainer.decode(Int64?.self, forKey: .webRuleId)
+            self.webRuleId = try decoderContainer.decode(String?.self, forKey: .webRuleId)
         }
         if decoderContainer.contains(.instanceId)
         {
-            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
         if decoderContainer.contains(.name)
         {

@@ -291,6 +291,27 @@ public class PodJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func rebuildPodAsync(request:RebuildPodRequest,requestComplation:@escaping (NSNumber?,RebuildPodResponse?,NSError?,NSString?)->()) throws {
+        podJDCloudClient = self
+        try RebuildPodExecutor(jdCloudClient: podJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(RebuildPodResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func execStartAsync(request:ExecStartRequest,requestComplation:@escaping (NSNumber?,ExecStartResponse?,NSError?,NSString?)->()) throws {
         podJDCloudClient = self
         try ExecStartExecutor(jdCloudClient: podJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

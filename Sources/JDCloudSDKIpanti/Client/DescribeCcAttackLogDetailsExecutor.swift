@@ -26,11 +26,13 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询 CC 攻击日志详情
+///  查询 CC 攻击日志详情.
+      /// - 参数 attackId 优先级高于 instanceId, attackId 不为空时, 忽略 instanceId
+      /// 
 public class DescribeCCAttackLogDetailsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:CCDetail")
+        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:describeCCAttackLogDetails")
     }
     
 }

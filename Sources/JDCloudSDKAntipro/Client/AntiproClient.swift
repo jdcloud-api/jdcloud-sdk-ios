@@ -102,6 +102,27 @@ public class AntiproJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeCcsIpResourcesAsync(request:DescribeCcsIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeCcsIpResourcesResponse?,NSError?,NSString?)->()) throws {
+        antiproJDCloudClient = self
+        try DescribeCcsIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeCcsIpResourcesResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func deleteProtectedIpAsync(request:DeleteProtectedIpRequest,requestComplation:@escaping (NSNumber?,DeleteProtectedIpResponse?,NSError?,NSString?)->()) throws {
         antiproJDCloudClient = self
         try DeleteProtectedIpExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

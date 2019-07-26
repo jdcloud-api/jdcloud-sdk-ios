@@ -40,7 +40,7 @@ public class InstanceTemplateData:NSObject,Codable{
     /// 数据盘信息，本地盘(local类型)做系统盘的云主机可挂载8块数据盘，云硬盘(cloud类型)做系统盘的云主机可挂载7块数据盘。
     var dataDisks:[InstanceTemplateDiskAttachment?]?
     /// 主网卡信息
-    var primaryNetworkInterface:InstanceTemplateNetworkInterfaceAttachmentSpec?
+    var primaryNetworkInterface:InstanceTemplateNetworkInterfaceAttachment?
     /// 主网卡主IP关联的弹性IP规格
     var elasticIp:InstanceTemplateElasticIp?
     /// 密钥对名称；当前只支持一个
@@ -93,7 +93,7 @@ public class InstanceTemplateData:NSObject,Codable{
         }
         if decoderContainer.contains(.primaryNetworkInterface)
         {
-            self.primaryNetworkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceAttachmentSpec?.self, forKey: .primaryNetworkInterface)
+            self.primaryNetworkInterface = try decoderContainer.decode(InstanceTemplateNetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
         }
         if decoderContainer.contains(.elasticIp)
         {

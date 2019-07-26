@@ -33,42 +33,40 @@ public class RenewInstanceParam:NSObject,Codable{
     /// 产品线
     /// Required:true
     var serviceCode:String
-    /// 时间单位 1:小时 2:天 3:月 4:年
-    /// Required:true
-    var timeUnit:Int
-    /// 时长
+    /// 续费时长(timeUnit&#x3D;MONTH时只能传1、2、3、4、5、6、7、8、9,timeUnit&#x3D;YEAR时只能传1、2、3)
     /// Required:true
     var timeSpan:Int
-    /// 签名 md5(pin+serviceCode+key)
+    /// 时间单位(MONTH-月,YEAR-年)
     /// Required:true
-    var sign:String
-    /// 待续费资源id列表,英文逗号分隔
+    var timeUnit:String
+    /// 待续费资源ID列表,英文逗号分隔
     /// Required:true
     var instanceIds:String
-    /// 是否统一续费到期日续费 1-是 0-否（默认为0）
-    var unifyDate:Int?
-    /// 回调地址
+    /// 续费至统一续费到期日(YES-是,NO-否)
+    var unifyDate:String?
+    /// 是否自动支付
+    var autoPay:Bool?
+    /// 支付成功后的回调地址
     var returnURL:String?
 
 
 
-    public  init(appCode:String,serviceCode:String,timeUnit:Int,timeSpan:Int,sign:String,instanceIds:String){
+    public  init(appCode:String,serviceCode:String,timeSpan:Int,timeUnit:String,instanceIds:String){
              self.appCode = appCode
              self.serviceCode = serviceCode
-             self.timeUnit = timeUnit
              self.timeSpan = timeSpan
-             self.sign = sign
+             self.timeUnit = timeUnit
              self.instanceIds = instanceIds
     }
 
     enum RenewInstanceParamCodingKeys: String, CodingKey {
         case appCode
         case serviceCode
-        case timeUnit
         case timeSpan
-        case sign
+        case timeUnit
         case instanceIds
         case unifyDate
+        case autoPay
         case returnURL
     }
 
@@ -77,13 +75,16 @@ public class RenewInstanceParam:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: RenewInstanceParamCodingKeys.self)
         self.appCode = try decoderContainer.decode(String.self, forKey: .appCode)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        self.timeUnit = try decoderContainer.decode(Int.self, forKey: .timeUnit)
         self.timeSpan = try decoderContainer.decode(Int.self, forKey: .timeSpan)
-        self.sign = try decoderContainer.decode(String.self, forKey: .sign)
+        self.timeUnit = try decoderContainer.decode(String.self, forKey: .timeUnit)
         self.instanceIds = try decoderContainer.decode(String.self, forKey: .instanceIds)
         if decoderContainer.contains(.unifyDate)
         {
-            self.unifyDate = try decoderContainer.decode(Int?.self, forKey: .unifyDate)
+            self.unifyDate = try decoderContainer.decode(String?.self, forKey: .unifyDate)
+        }
+        if decoderContainer.contains(.autoPay)
+        {
+            self.autoPay = try decoderContainer.decode(Bool?.self, forKey: .autoPay)
         }
         if decoderContainer.contains(.returnURL)
         {
@@ -96,11 +97,11 @@ public extension RenewInstanceParam{
         var encoderContainer = encoder.container(keyedBy: RenewInstanceParamCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)
-         try encoderContainer.encode(timeUnit, forKey: .timeUnit)
          try encoderContainer.encode(timeSpan, forKey: .timeSpan)
-         try encoderContainer.encode(sign, forKey: .sign)
+         try encoderContainer.encode(timeUnit, forKey: .timeUnit)
          try encoderContainer.encode(instanceIds, forKey: .instanceIds)
          try encoderContainer.encode(unifyDate, forKey: .unifyDate)
+         try encoderContainer.encode(autoPay, forKey: .autoPay)
          try encoderContainer.encode(returnURL, forKey: .returnURL)
     }
 }

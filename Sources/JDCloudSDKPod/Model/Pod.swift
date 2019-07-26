@@ -50,7 +50,7 @@ public class Pod:NSObject,Codable{
     var subnetId:String?
     /// 主网卡主IP地址
     var privateIpAddress:String?
-    /// pod内容器的/etc/resolv.conf配置 [DnsConfig](DnsConfig.md)      pod内容器的/etc/resolv.conf配置
+    /// pod内容器的/etc/resolv.conf配置
     var dnsConfig:DnsConfig?
     /// 容器日志配置信息；默认会在本地分配10MB的存储空间
     var logConfig:LogConfig?
@@ -66,6 +66,8 @@ public class Pod:NSObject,Codable{
     var elasticIp:ElasticIp?
     /// 主网卡配置信息
     var primaryNetworkInterface:NetworkInterfaceAttachment?
+    /// Tags
+    var tags:[Tag?]?
     /// 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
     var charge:Charge?
     /// Pod创建时间
@@ -97,6 +99,7 @@ public class Pod:NSObject,Codable{
         case podStatus
         case elasticIp
         case primaryNetworkInterface
+        case tags
         case charge
         case createTime
     }
@@ -180,6 +183,10 @@ public class Pod:NSObject,Codable{
         {
             self.primaryNetworkInterface = try decoderContainer.decode(NetworkInterfaceAttachment?.self, forKey: .primaryNetworkInterface)
         }
+        if decoderContainer.contains(.tags)
+        {
+            self.tags = try decoderContainer.decode([Tag?]?.self, forKey: .tags)
+        }
         if decoderContainer.contains(.charge)
         {
             self.charge = try decoderContainer.decode(Charge?.self, forKey: .charge)
@@ -212,6 +219,7 @@ public extension Pod{
          try encoderContainer.encode(podStatus, forKey: .podStatus)
          try encoderContainer.encode(elasticIp, forKey: .elasticIp)
          try encoderContainer.encode(primaryNetworkInterface, forKey: .primaryNetworkInterface)
+         try encoderContainer.encode(tags, forKey: .tags)
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(createTime, forKey: .createTime)
     }

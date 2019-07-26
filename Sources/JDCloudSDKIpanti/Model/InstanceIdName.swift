@@ -28,7 +28,7 @@ import Foundation
 @objc(InstanceIdName)
 public class InstanceIdName:NSObject,Codable{
     /// 实例id
-    var id:Int64?
+    var id:String?
     /// 实例名称
     var name:String?
 
@@ -48,7 +48,7 @@ public class InstanceIdName:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: InstanceIdNameCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.name)
         {

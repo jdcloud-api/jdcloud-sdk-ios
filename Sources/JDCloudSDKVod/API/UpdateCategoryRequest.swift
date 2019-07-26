@@ -30,16 +30,11 @@ import JDCloudSDKCore
 @objc(UpdateCategoryRequest)
 public class UpdateCategoryRequest:JdCloudRequest
 {
-    /// 分类ID
-    var id:Int64?
-
     /// 分类名称
     var name:String?
 
-    /// 分类级别
-    var level:Int?
-
-    /// 父分类ID
+    /// 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+      /// 
     var parentId:Int64?
 
     /// 分类描述信息
@@ -56,9 +51,7 @@ public class UpdateCategoryRequest:JdCloudRequest
 
 
     enum UpdateCategoryRequestRequestCodingKeys: String, CodingKey {
-        case id
         case name
-        case level
         case parentId
         case descriptionValue = "description"
         case categoryId
@@ -66,9 +59,7 @@ public class UpdateCategoryRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateCategoryRequestRequestCodingKeys.self)
-        try encoderContainer.encode(id, forKey: .id)
         try encoderContainer.encode(name, forKey: .name)
-        try encoderContainer.encode(level, forKey: .level)
         try encoderContainer.encode(parentId, forKey: .parentId)
         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
         try encoderContainer.encode(categoryId, forKey: .categoryId)

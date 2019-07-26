@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 设置CDN域名IP规则
+/// 设置CDN域名IP黑名单规则
 @objc(SetIPRuleResult)
 public class SetIPRuleResult:NSObject,JdCloudResult
 {

@@ -34,10 +34,10 @@ public class ModifyEPBRequest:JdCloudRequest
     var modifyInstanceEPBSpec:ModifyInstanceEPBSpec
 
     /// 实例 ID
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,modifyInstanceEPBSpec:ModifyInstanceEPBSpec,instanceId:Int64){
+    public init(regionId: String,modifyInstanceEPBSpec:ModifyInstanceEPBSpec,instanceId:String){
         self.modifyInstanceEPBSpec = modifyInstanceEPBSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)

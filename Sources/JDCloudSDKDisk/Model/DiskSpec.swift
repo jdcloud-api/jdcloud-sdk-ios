@@ -39,9 +39,11 @@ public class DiskSpec:NSObject,Codable{
     /// 云硬盘类型，取值为ssd、premium-hdd、ssd.gp1、ssd.io1、hdd.std1之一
     /// Required:true
     var diskType:String
-    /// 云硬盘大小，单位为 GiB，ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G
+    /// 云硬盘大小，单位为 GiB，ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G, ssd.gp1, ssd.io1, hdd.std1 类型取值均是范围[20,16000]GB，步长为10G
     /// Required:true
     var diskSizeGB:Int
+    /// 云硬盘IOPS的大小，当且仅当云盘类型是ssd.io1型的云盘有效，步长是10.
+    var iops:Int?
     /// 用于创建云硬盘的快照ID
     var snapshotId:String?
     /// 计费配置；如不指定，默认计费类型是后付费-按使用时常付费
@@ -66,6 +68,7 @@ public class DiskSpec:NSObject,Codable{
         case descriptionValue = "description"
         case diskType
         case diskSizeGB
+        case iops
         case snapshotId
         case charge
         case multiAttachable
@@ -83,6 +86,10 @@ public class DiskSpec:NSObject,Codable{
         }
         self.diskType = try decoderContainer.decode(String.self, forKey: .diskType)
         self.diskSizeGB = try decoderContainer.decode(Int.self, forKey: .diskSizeGB)
+        if decoderContainer.contains(.iops)
+        {
+            self.iops = try decoderContainer.decode(Int?.self, forKey: .iops)
+        }
         if decoderContainer.contains(.snapshotId)
         {
             self.snapshotId = try decoderContainer.decode(String?.self, forKey: .snapshotId)
@@ -109,6 +116,7 @@ public extension DiskSpec{
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
          try encoderContainer.encode(diskType, forKey: .diskType)
          try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)
+         try encoderContainer.encode(iops, forKey: .iops)
          try encoderContainer.encode(snapshotId, forKey: .snapshotId)
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(multiAttachable, forKey: .multiAttachable)

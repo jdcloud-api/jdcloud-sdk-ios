@@ -31,10 +31,10 @@ import JDCloudSDKCore
 public class DescribeInstanceRequest:JdCloudRequest
 {
     /// 实例 ID
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,instanceId:Int64){
+    public init(regionId: String,instanceId:String){
         self.instanceId = instanceId
         super.init(regionId: regionId)
     }

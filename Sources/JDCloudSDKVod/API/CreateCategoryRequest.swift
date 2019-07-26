@@ -27,27 +27,29 @@ import JDCloudSDKCore
 
 
 ///  添加分类
+      ///       /// 
 @objc(CreateCategoryRequest)
 public class CreateCategoryRequest:JdCloudRequest
 {
     /// 分类名称
-    var name:String?
+    var name:String
 
-    /// 分类级别
-    var level:Int?
-
-    /// 父分类ID
+    /// 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+      /// 
     var parentId:Int64?
 
     /// 分类描述信息
     var descriptionValue:String?
 
 
+    public init(regionId: String,name:String){
+        self.name = name
+        super.init(regionId: regionId)
+    }
 
 
     enum CreateCategoryRequestRequestCodingKeys: String, CodingKey {
         case name
-        case level
         case parentId
         case descriptionValue = "description"
     }
@@ -55,7 +57,6 @@ public class CreateCategoryRequest:JdCloudRequest
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: CreateCategoryRequestRequestCodingKeys.self)
         try encoderContainer.encode(name, forKey: .name)
-        try encoderContainer.encode(level, forKey: .level)
         try encoderContainer.encode(parentId, forKey: .parentId)
         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
 

@@ -29,4 +29,66 @@ import JDCloudSDKCore
 @objc(ListVideosResult)
 public class ListVideosResult:NSObject,JdCloudResult
 {
+    /// 当前页码
+    var pageNumber:Int?
+
+    /// 每页数量
+    var pageSize:Int?
+
+    /// 查询总数
+    var totalElements:Int?
+
+    /// 总页数
+    var totalPages:Int?
+
+    /// 分页内容
+    var content:[VideoObject?]?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum ListVideosResultCodingKeys: String, CodingKey {
+        case pageNumber
+        case pageSize
+        case totalElements
+        case totalPages
+        case content
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: ListVideosResultCodingKeys.self)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalElements)
+        {
+            self.totalElements = try decoderContainer.decode(Int?.self, forKey: .totalElements)
+        }
+        if decoderContainer.contains(.totalPages)
+        {
+            self.totalPages = try decoderContainer.decode(Int?.self, forKey: .totalPages)
+        }
+        if decoderContainer.contains(.content)
+        {
+            self.content = try decoderContainer.decode([VideoObject?]?.self, forKey: .content)
+        }
+    }
+}
+public extension ListVideosResult{
+    func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: ListVideosResultCodingKeys.self)
+        try encoderContainer.encode(pageNumber, forKey: .pageNumber)
+        try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(totalElements, forKey: .totalElements)
+        try encoderContainer.encode(totalPages, forKey: .totalPages)
+        try encoderContainer.encode(content, forKey: .content)
+    }
 }

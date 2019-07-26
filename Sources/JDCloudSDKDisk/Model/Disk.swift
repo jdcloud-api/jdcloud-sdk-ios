@@ -55,7 +55,7 @@ public class Disk:NSObject,Codable{
     /// 云盘是否为加密盘
     var encrypted:Bool?
     /// 云盘是否被暂停（IOPS限制为极低）
-    var enable:Bool?
+    var enabled:Bool?
     /// 创建云硬盘时间
     var createTime:String?
     /// 云硬盘计费配置信息
@@ -83,7 +83,7 @@ public class Disk:NSObject,Codable{
         case snapshotId
         case multiAttachable
         case encrypted
-        case enable
+        case enabled
         case createTime
         case charge
         case tags
@@ -144,9 +144,9 @@ public class Disk:NSObject,Codable{
         {
             self.encrypted = try decoderContainer.decode(Bool?.self, forKey: .encrypted)
         }
-        if decoderContainer.contains(.enable)
+        if decoderContainer.contains(.enabled)
         {
-            self.enable = try decoderContainer.decode(Bool?.self, forKey: .enable)
+            self.enabled = try decoderContainer.decode(Bool?.self, forKey: .enabled)
         }
         if decoderContainer.contains(.createTime)
         {
@@ -178,7 +178,7 @@ public extension Disk{
          try encoderContainer.encode(snapshotId, forKey: .snapshotId)
          try encoderContainer.encode(multiAttachable, forKey: .multiAttachable)
          try encoderContainer.encode(encrypted, forKey: .encrypted)
-         try encoderContainer.encode(enable, forKey: .enable)
+         try encoderContainer.encode(enabled, forKey: .enabled)
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(charge, forKey: .charge)
          try encoderContainer.encode(tags, forKey: .tags)

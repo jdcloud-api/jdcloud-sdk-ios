@@ -33,20 +33,22 @@ public class QueryInstanceParam:NSObject,Codable{
     /// 产品线
     /// Required:true
     var serviceCode:String
-    /// 当前页码
-    var pageNumber:Int?
-    /// 每页条数
-    var pageSize:Int?
-    /// 资源续费状态 0:手动续费资源 1:全部资源 2:自动续费资源,默认全部
-    var renewStatus:Int?
-    /// 到期时间 0:已过期,n:n天内到期,-1:全部,-2:未到期,默认全部
-    var expireTime:String?
     /// 资源名称
     var instanceName:String?
     /// 资源ID
     var instanceId:String?
-    /// 资源计费类型 1:按配置,3:包年包月,默认不筛选
+    /// 资源续费状态(AUTO-开通自动续费资源,MANUAL-未开通自动续费资源,ALL-全部资源)
+    var renewStatus:String?
+    /// 资源计费类型(CONFIG-按配置,FLOW-按用量,MONTHLY-包年包月)，不传显示全部资源
     var billingType:String?
+    /// 资源到期类型(EXPIRED-已到期,UNEXPIRED-未到期,ONE-1天内到期,THREE-3天内到期,SEVEN-7天内到期,ALL_TIME-全部)
+    var expireType:String?
+    /// 主机绑定的内网IP地址
+    var ipAddress:String?
+    /// 当前页码，不传默认为1
+    var pageNumber:Int?
+    /// 每页条数，不传默认为10
+    var pageSize:Int?
 
 
 
@@ -58,13 +60,14 @@ public class QueryInstanceParam:NSObject,Codable{
     enum QueryInstanceParamCodingKeys: String, CodingKey {
         case appCode
         case serviceCode
-        case pageNumber
-        case pageSize
-        case renewStatus
-        case expireTime
         case instanceName
         case instanceId
+        case renewStatus
         case billingType
+        case expireType
+        case ipAddress
+        case pageNumber
+        case pageSize
     }
 
 
@@ -72,22 +75,6 @@ public class QueryInstanceParam:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: QueryInstanceParamCodingKeys.self)
         self.appCode = try decoderContainer.decode(String.self, forKey: .appCode)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
-        if decoderContainer.contains(.pageNumber)
-        {
-            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
-        }
-        if decoderContainer.contains(.pageSize)
-        {
-            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
-        }
-        if decoderContainer.contains(.renewStatus)
-        {
-            self.renewStatus = try decoderContainer.decode(Int?.self, forKey: .renewStatus)
-        }
-        if decoderContainer.contains(.expireTime)
-        {
-            self.expireTime = try decoderContainer.decode(String?.self, forKey: .expireTime)
-        }
         if decoderContainer.contains(.instanceName)
         {
             self.instanceName = try decoderContainer.decode(String?.self, forKey: .instanceName)
@@ -96,9 +83,29 @@ public class QueryInstanceParam:NSObject,Codable{
         {
             self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
+        if decoderContainer.contains(.renewStatus)
+        {
+            self.renewStatus = try decoderContainer.decode(String?.self, forKey: .renewStatus)
+        }
         if decoderContainer.contains(.billingType)
         {
             self.billingType = try decoderContainer.decode(String?.self, forKey: .billingType)
+        }
+        if decoderContainer.contains(.expireType)
+        {
+            self.expireType = try decoderContainer.decode(String?.self, forKey: .expireType)
+        }
+        if decoderContainer.contains(.ipAddress)
+        {
+            self.ipAddress = try decoderContainer.decode(String?.self, forKey: .ipAddress)
+        }
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
         }
     }
 }
@@ -107,12 +114,13 @@ public extension QueryInstanceParam{
         var encoderContainer = encoder.container(keyedBy: QueryInstanceParamCodingKeys.self)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)
-         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
-         try encoderContainer.encode(pageSize, forKey: .pageSize)
-         try encoderContainer.encode(renewStatus, forKey: .renewStatus)
-         try encoderContainer.encode(expireTime, forKey: .expireTime)
          try encoderContainer.encode(instanceName, forKey: .instanceName)
          try encoderContainer.encode(instanceId, forKey: .instanceId)
+         try encoderContainer.encode(renewStatus, forKey: .renewStatus)
          try encoderContainer.encode(billingType, forKey: .billingType)
+         try encoderContainer.encode(expireType, forKey: .expireType)
+         try encoderContainer.encode(ipAddress, forKey: .ipAddress)
+         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
+         try encoderContainer.encode(pageSize, forKey: .pageSize)
     }
 }

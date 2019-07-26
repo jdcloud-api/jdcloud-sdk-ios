@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Video Transcode Template Management
-   水印管理
+   Transcode Template
+   转码模板管理
 
    OpenAPI spec version: v1
    Contact: 
@@ -24,18 +24,18 @@
 
 import Foundation
 
-///  视频参数
+///  视频参数配置
 @objc(Video)
 public class Video:NSObject,Codable{
-    /// 视频编码
+    /// 视频编码。取值范围：h265、h264
     var codec:String?
-    /// 码率
+    /// 视频码率。取值范围 [128、10000]，单位为 Kbps
     var bitrate:Int?
-    /// 帧率
+    /// 视频帧率。取值范围为 [1、60]，单位为 fps
     var fps:Int?
-    /// 宽度
+    /// 视频输出宽度。取值范围 [128，4096]，取值需为2的倍数
     var width:Int?
-    /// 高度
+    /// 视频输出高度。取值范围 [128，4096]，取值需为2的倍数
     var height:Int?
 
 

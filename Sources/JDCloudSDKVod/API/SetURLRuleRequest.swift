@@ -26,31 +26,29 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置CDN域名URL规则
+///  设置CDN域名URL鉴权规则
 @objc(SetURLRuleRequest)
 public class SetURLRuleRequest:JdCloudRequest
 {
-    /// 规则类型，取值 &#39;url&#39;
-    var ruleType:String?
-
-    /// 规则配置对象
-    var config:Config?
+    /// URL鉴权规则配置对象
+    var config:URLRuleConfigObject
 
     /// 是否启用该规则
-    var enabled:Bool?
+    var enabled:Bool
 
     /// 域名ID
     var domainId:Int64
 
 
-    public init(regionId: String,domainId:Int64){
+    public init(regionId: String,config:URLRuleConfigObject,enabled:Bool,domainId:Int64){
+        self.config = config
+        self.enabled = enabled
         self.domainId = domainId
         super.init(regionId: regionId)
     }
 
 
     enum SetURLRuleRequestRequestCodingKeys: String, CodingKey {
-        case ruleType
         case config
         case enabled
         case domainId
@@ -58,7 +56,6 @@ public class SetURLRuleRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetURLRuleRequestRequestCodingKeys.self)
-        try encoderContainer.encode(ruleType, forKey: .ruleType)
         try encoderContainer.encode(config, forKey: .config)
         try encoderContainer.encode(enabled, forKey: .enabled)
         try encoderContainer.encode(domainId, forKey: .domainId)

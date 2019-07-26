@@ -186,6 +186,27 @@ public class VodJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func createVideoUploadTaskAsync(request:CreateVideoUploadTaskRequest,requestComplation:@escaping (NSNumber?,CreateVideoUploadTaskResponse?,NSError?,NSString?)->()) throws {
+        vodJDCloudClient = self
+        try CreateVideoUploadTaskExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateVideoUploadTaskResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func updateCategoryAsync(request:UpdateCategoryRequest,requestComplation:@escaping (NSNumber?,UpdateCategoryResponse?,NSError?,NSString?)->()) throws {
         vodJDCloudClient = self
         try UpdateCategoryExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -236,27 +257,6 @@ public class VodJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(GetURLRuleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func getTranscodeTaskAsync(request:GetTranscodeTaskRequest,requestComplation:@escaping (NSNumber?,GetTranscodeTaskResponse?,NSError?,NSString?)->()) throws {
-        vodJDCloudClient = self
-        try GetTranscodeTaskExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetTranscodeTaskResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -522,6 +522,27 @@ public class VodJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func refreshVideoUploadTaskAsync(request:RefreshVideoUploadTaskRequest,requestComplation:@escaping (NSNumber?,RefreshVideoUploadTaskResponse?,NSError?,NSString?)->()) throws {
+        vodJDCloudClient = self
+        try RefreshVideoUploadTaskExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(RefreshVideoUploadTaskResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func submitTranscodeJobAsync(request:SubmitTranscodeJobRequest,requestComplation:@escaping (NSNumber?,SubmitTranscodeJobResponse?,NSError?,NSString?)->()) throws {
         vodJDCloudClient = self
         try SubmitTranscodeJobExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -627,6 +648,27 @@ public class VodJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func createImageUploadTaskAsync(request:CreateImageUploadTaskRequest,requestComplation:@escaping (NSNumber?,CreateImageUploadTaskResponse?,NSError?,NSString?)->()) throws {
+        vodJDCloudClient = self
+        try CreateImageUploadTaskExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateImageUploadTaskResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func createWatermarkAsync(request:CreateWatermarkRequest,requestComplation:@escaping (NSNumber?,CreateWatermarkResponse?,NSError?,NSString?)->()) throws {
         vodJDCloudClient = self
         try CreateWatermarkExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -719,27 +761,6 @@ public class VodJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(EnableDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func verifyDomainAsync(request:VerifyDomainRequest,requestComplation:@escaping (NSNumber?,VerifyDomainResponse?,NSError?,NSString?)->()) throws {
-        vodJDCloudClient = self
-        try VerifyDomainExecutor(jdCloudClient: vodJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(VerifyDomainResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

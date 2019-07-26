@@ -26,18 +26,18 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除非网站规则
+///  删除非网站规则, 批量操作时, 返回 result.code 为 1 表示操作成功, 为 0 时可能全部失败, 也可能部分失败
 @objc(DeleteForwardRuleRequest)
 public class DeleteForwardRuleRequest:JdCloudRequest
 {
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
     /// 转发规则 Id
-    var forwardRuleId:Int64
+    var forwardRuleId:String
 
 
-    public init(regionId: String,instanceId:Int64,forwardRuleId:Int64){
+    public init(regionId: String,instanceId:String,forwardRuleId:String){
         self.instanceId = instanceId
         self.forwardRuleId = forwardRuleId
         super.init(regionId: regionId)

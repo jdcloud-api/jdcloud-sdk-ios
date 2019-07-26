@@ -31,6 +31,7 @@ public class LiveTranscodeStreamResult:NSObject,Codable{
       /// 
     var streamName:String?
     /// 流状态
+      /// 
     var status:String?
 
 

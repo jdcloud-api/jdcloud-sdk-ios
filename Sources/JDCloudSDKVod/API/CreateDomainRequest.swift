@@ -31,9 +31,13 @@ import JDCloudSDKCore
 public class CreateDomainRequest:JdCloudRequest
 {
     /// 域名名称
-    var name:String?
+    var name:String
 
 
+    public init(regionId: String,name:String){
+        self.name = name
+        super.init(regionId: regionId)
+    }
 
 
     enum CreateDomainRequestRequestCodingKeys: String, CodingKey {

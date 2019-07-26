@@ -81,14 +81,14 @@ public class SmsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func sendBatchSmsAsync(request:SendBatchSmsRequest,requestComplation:@escaping (NSNumber?,SendBatchSmsResponse?,NSError?,NSString?)->()) throws {
+    public func batchSendAsync(request:BatchSendRequest,requestComplation:@escaping (NSNumber?,BatchSendResponse?,NSError?,NSString?)->()) throws {
         smsJDCloudClient = self
-        try SendBatchSmsExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try BatchSendExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SendBatchSmsResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(BatchSendResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -102,14 +102,35 @@ public class SmsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func pullMtMsgByMobileAsync(request:PullMtMsgByMobileRequest,requestComplation:@escaping (NSNumber?,PullMtMsgByMobileResponse?,NSError?,NSString?)->()) throws {
+    public func statusReportAsync(request:StatusReportRequest,requestComplation:@escaping (NSNumber?,StatusReportResponse?,NSError?,NSString?)->()) throws {
         smsJDCloudClient = self
-        try PullMtMsgByMobileExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try StatusReportExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(PullMtMsgByMobileResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(StatusReportResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func replyAsync(request:ReplyRequest,requestComplation:@escaping (NSNumber?,ReplyResponse?,NSError?,NSString?)->()) throws {
+        smsJDCloudClient = self
+        try ReplyExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ReplyResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

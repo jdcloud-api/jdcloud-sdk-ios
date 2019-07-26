@@ -34,10 +34,10 @@ public class CreateWebRuleRequest:JdCloudRequest
     var webRuleSpec:WebRuleSpec
 
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,webRuleSpec:WebRuleSpec,instanceId:Int64){
+    public init(regionId: String,webRuleSpec:WebRuleSpec,instanceId:String){
         self.webRuleSpec = webRuleSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)

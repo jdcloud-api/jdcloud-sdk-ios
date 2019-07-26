@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeCCAttackLogsResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:[DDosAttackLog?]?
+    var dataList:[CCAttackLog?]?
 
     /// 当前页数量
     var currentCount:Int?
@@ -58,7 +58,7 @@ public class DescribeCCAttackLogsResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: DescribeCCAttackLogsResultCodingKeys.self)
         if decoderContainer.contains(.dataList)
         {
-            self.dataList = try decoderContainer.decode([DDosAttackLog?]?.self, forKey: .dataList)
+            self.dataList = try decoderContainer.decode([CCAttackLog?]?.self, forKey: .dataList)
         }
         if decoderContainer.contains(.currentCount)
         {

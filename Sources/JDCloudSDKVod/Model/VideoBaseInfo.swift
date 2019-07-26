@@ -42,7 +42,7 @@ public class VideoBaseInfo:NSObject,Codable{
     /// 视频时长
     var duration:Int64?
     /// 封面地址
-    var coverImgUrl:String?
+    var coverUrl:String?
 
 
 
@@ -58,7 +58,7 @@ public class VideoBaseInfo:NSObject,Codable{
         case categoryName
         case tags
         case duration
-        case coverImgUrl
+        case coverUrl
     }
 
 
@@ -92,9 +92,9 @@ public class VideoBaseInfo:NSObject,Codable{
         {
             self.duration = try decoderContainer.decode(Int64?.self, forKey: .duration)
         }
-        if decoderContainer.contains(.coverImgUrl)
+        if decoderContainer.contains(.coverUrl)
         {
-            self.coverImgUrl = try decoderContainer.decode(String?.self, forKey: .coverImgUrl)
+            self.coverUrl = try decoderContainer.decode(String?.self, forKey: .coverUrl)
         }
     }
 }
@@ -108,6 +108,6 @@ public extension VideoBaseInfo{
          try encoderContainer.encode(categoryName, forKey: .categoryName)
          try encoderContainer.encode(tags, forKey: .tags)
          try encoderContainer.encode(duration, forKey: .duration)
-         try encoderContainer.encode(coverImgUrl, forKey: .coverImgUrl)
+         try encoderContainer.encode(coverUrl, forKey: .coverUrl)
     }
 }

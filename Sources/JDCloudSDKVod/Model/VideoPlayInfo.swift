@@ -27,14 +27,20 @@ import Foundation
 ///  视频播放信息
 @objc(VideoPlayInfo)
 public class VideoPlayInfo:NSObject,Codable{
-    /// 生成播放信息的任务ID
+    /// 生成播放信息的转码任务ID
     var taskId:String?
-    /// 清晰度规格
+    /// 清晰度规格标记。取值范围：
+      ///   SD - 标清
+      ///   HD - 高清
+      ///   FHD - 超清
+      ///   2K
+      ///   4K
+      /// 
     var definition:String?
     /// 媒体类型
     var mediaType:Int?
-    /// 播放信息状态，目前只有完成状态
-    var status:Int?
+    /// 播放信息状态，目前只有正常状态(normal)
+    var status:String?
     /// CDN地址，原始地址或者鉴权地址
     var url:String?
     /// Size
@@ -47,11 +53,11 @@ public class VideoPlayInfo:NSObject,Codable{
     var codec:String?
     /// 封装格式
     var format:String?
-    /// 宽度
+    /// 视频宽度
     var width:Int?
-    /// 高度
+    /// 视频高度
     var height:Int?
-    /// 帧率
+    /// 视频帧率
     var fps:String?
     /// CreateTime
     var createTime:String?
@@ -99,7 +105,7 @@ public class VideoPlayInfo:NSObject,Codable{
         }
         if decoderContainer.contains(.status)
         {
-            self.status = try decoderContainer.decode(Int?.self, forKey: .status)
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
         }
         if decoderContainer.contains(.url)
         {

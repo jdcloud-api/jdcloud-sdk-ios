@@ -34,13 +34,13 @@ public class ModifyWebRuleRequest:JdCloudRequest
     var webRuleSpec:WebRuleSpec
 
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
     /// 网站规则 Id
-    var webRuleId:Int64
+    var webRuleId:String
 
 
-    public init(regionId: String,webRuleSpec:WebRuleSpec,instanceId:Int64,webRuleId:Int64){
+    public init(regionId: String,webRuleSpec:WebRuleSpec,instanceId:String,webRuleId:String){
         self.webRuleSpec = webRuleSpec
         self.instanceId = instanceId
         self.webRuleId = webRuleId

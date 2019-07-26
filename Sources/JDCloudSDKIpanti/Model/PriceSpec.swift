@@ -46,7 +46,7 @@ public class PriceSpec:NSObject,Codable{
     /// Required:true
     var ep:Int
     /// 实例 Id, 升级高防实例查询价格时必传
-    var id:Int64?
+    var id:String?
     /// 购买防护包时长, 新购高防实例时必传
       /// - timeUnit 为 3 时, 可取值 1-9
       /// - timeUnit 为 4 时, 可取值 1-3
@@ -91,7 +91,7 @@ public class PriceSpec:NSObject,Codable{
         self.ep = try decoderContainer.decode(Int.self, forKey: .ep)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.timeSpan)
         {

@@ -34,10 +34,10 @@ public class SubmitTranscodeJobRequest:JdCloudRequest
     var videoId:String?
 
     /// 转码模板ID列表
-    var templateIds:[String?]?
+    var templateIds:[Double?]?
 
     /// 水印ID列表
-    var watermarkIds:String?
+    var watermarkIds:[Double?]?
 
 
 

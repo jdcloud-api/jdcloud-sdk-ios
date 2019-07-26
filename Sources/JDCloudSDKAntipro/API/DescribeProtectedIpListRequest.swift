@@ -39,7 +39,7 @@ public class DescribeProtectedIpListRequest:JdCloudRequest
     /// 实例 Id, 缺省时查询用户所有已防护 IP
     var instanceId:Int?
 
-    /// 被防护 IP类型: 0: 全部, 1: 弹性公网 IP, 2: 云物理服务器公网 IP
+    /// 被防护 IP类型: 0: 全部, 1: 弹性公网 IP, 2: 云物理服务器公网 IP, 4: 托管区公网 IP
     var type:Int
 
     /// 被防护 IP, 支持模糊查询

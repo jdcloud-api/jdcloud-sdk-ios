@@ -38,7 +38,7 @@ public class CreateImageRequest:JdCloudRequest
     var name:String
 
     /// 镜像描述，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/general_parameters&quot;&gt;参考公共参数规范&lt;/a&gt;。
-    var descriptionValue:String
+    var descriptionValue:String?
 
     /// 数据盘列表，可以在实例已挂载数据盘的基础上，额外增加新的快照、空盘、或排除云主机中的数据盘。
     var dataDisks:[InstanceDiskAttachmentSpec?]?
@@ -47,9 +47,8 @@ public class CreateImageRequest:JdCloudRequest
     var instanceId:String
 
 
-    public init(regionId: String,name:String,descriptionValue:String,instanceId:String){
+    public init(regionId: String,name:String,instanceId:String){
         self.name = name
-        self.descriptionValue = descriptionValue
         self.instanceId = instanceId
         super.init(regionId: regionId)
     }

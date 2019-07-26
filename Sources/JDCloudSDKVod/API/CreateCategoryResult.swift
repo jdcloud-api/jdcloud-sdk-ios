@@ -26,6 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 /// 添加分类
+      ///       /// 
 @objc(CreateCategoryResult)
 public class CreateCategoryResult:NSObject,JdCloudResult
 {
@@ -35,10 +36,12 @@ public class CreateCategoryResult:NSObject,JdCloudResult
     /// 分类名称
     var name:String?
 
-    /// 分类级别
+    /// 分类级别。取值范围为 [0, 3]，取值为 0 时为虚拟根节点
+      /// 
     var level:Int?
 
-    /// 父分类ID
+    /// 父分类ID，取值为 0 或 null 时，表示该分类为一级分类
+      /// 
     var parentId:Int64?
 
     /// 分类描述信息

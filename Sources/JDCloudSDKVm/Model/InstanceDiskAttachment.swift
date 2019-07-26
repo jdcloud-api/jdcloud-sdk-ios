@@ -42,7 +42,7 @@ public class InstanceDiskAttachment:NSObject,Codable{
     var localDisk:LocalDisk?
     /// 云硬盘配置
     var cloudDisk:Disk?
-    /// 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi
+    /// 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm
     var deviceName:String?
     /// 数据盘挂载状态，取值范围：attaching,detaching,attached,detached,error_attach,error_detach
     var status:String?

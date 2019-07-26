@@ -81,90 +81,6 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func getImageStyleAsync(request:GetImageStyleRequest,requestComplation:@escaping (NSNumber?,GetImageStyleResponse?,NSError?,NSString?)->()) throws {
-        mpsJDCloudClient = self
-        try GetImageStyleExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetImageStyleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func updateImageStyleAsync(request:UpdateImageStyleRequest,requestComplation:@escaping (NSNumber?,UpdateImageStyleResponse?,NSError?,NSString?)->()) throws {
-        mpsJDCloudClient = self
-        try UpdateImageStyleExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateImageStyleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func deleteImageStyleAsync(request:DeleteImageStyleRequest,requestComplation:@escaping (NSNumber?,DeleteImageStyleResponse?,NSError?,NSString?)->()) throws {
-        mpsJDCloudClient = self
-        try DeleteImageStyleExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteImageStyleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func countImageStyleAsync(request:CountImageStyleRequest,requestComplation:@escaping (NSNumber?,CountImageStyleResponse?,NSError?,NSString?)->()) throws {
-        mpsJDCloudClient = self
-        try CountImageStyleExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CountImageStyleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func createThumbnailTaskAsync(request:CreateThumbnailTaskRequest,requestComplation:@escaping (NSNumber?,CreateThumbnailTaskResponse?,NSError?,NSString?)->()) throws {
         mpsJDCloudClient = self
         try CreateThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -320,48 +236,6 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(GetStyleDelimiterResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func createImageStyleAsync(request:CreateImageStyleRequest,requestComplation:@escaping (NSNumber?,CreateImageStyleResponse?,NSError?,NSString?)->()) throws {
-        mpsJDCloudClient = self
-        try CreateImageStyleExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateImageStyleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func listImageStyleAsync(request:ListImageStyleRequest,requestComplation:@escaping (NSNumber?,ListImageStyleResponse?,NSError?,NSString?)->()) throws {
-        mpsJDCloudClient = self
-        try ListImageStyleExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListImageStyleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

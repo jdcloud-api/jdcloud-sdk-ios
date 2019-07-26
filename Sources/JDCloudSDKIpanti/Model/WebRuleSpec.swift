@@ -71,7 +71,7 @@ public class WebRuleSpec:NSObject,Codable{
     /// 证书 Id
       ///   - 如果传 certId, 请确认已经上传了相应的证书
       ///   - certId 缺省时网站规则将使用 httpsCertContent, httpsRsaKey 对应的证书
-    var certId:Int64?
+    var certId:String?
 
 
 
@@ -152,7 +152,7 @@ public class WebRuleSpec:NSObject,Codable{
         }
         if decoderContainer.contains(.certId)
         {
-            self.certId = try decoderContainer.decode(Int64?.self, forKey: .certId)
+            self.certId = try decoderContainer.decode(String?.self, forKey: .certId)
         }
     }
 }

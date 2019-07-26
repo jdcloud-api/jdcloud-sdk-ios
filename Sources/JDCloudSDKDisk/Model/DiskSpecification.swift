@@ -49,6 +49,10 @@ public class DiskSpecification:NSObject,Codable{
     var stepThroughput:Double?
     /// 最大吞吐量
     var maxThroughput:Int?
+    /// 是否开启IOPS可调整
+    var scalableIOPS:Bool?
+    /// 最大iops步长
+    var maxStepIOPS:Int?
 
 
 
@@ -68,6 +72,8 @@ public class DiskSpecification:NSObject,Codable{
         case defaultThroughput
         case stepThroughput
         case maxThroughput
+        case scalableIOPS
+        case maxStepIOPS
     }
 
 
@@ -117,6 +123,14 @@ public class DiskSpecification:NSObject,Codable{
         {
             self.maxThroughput = try decoderContainer.decode(Int?.self, forKey: .maxThroughput)
         }
+        if decoderContainer.contains(.scalableIOPS)
+        {
+            self.scalableIOPS = try decoderContainer.decode(Bool?.self, forKey: .scalableIOPS)
+        }
+        if decoderContainer.contains(.maxStepIOPS)
+        {
+            self.maxStepIOPS = try decoderContainer.decode(Int?.self, forKey: .maxStepIOPS)
+        }
     }
 }
 public extension DiskSpecification{
@@ -133,5 +147,7 @@ public extension DiskSpecification{
          try encoderContainer.encode(defaultThroughput, forKey: .defaultThroughput)
          try encoderContainer.encode(stepThroughput, forKey: .stepThroughput)
          try encoderContainer.encode(maxThroughput, forKey: .maxThroughput)
+         try encoderContainer.encode(scalableIOPS, forKey: .scalableIOPS)
+         try encoderContainer.encode(maxStepIOPS, forKey: .maxStepIOPS)
     }
 }

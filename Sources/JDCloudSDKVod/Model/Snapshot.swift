@@ -31,9 +31,9 @@ public class Snapshot:NSObject,Codable{
     var imgId:Int64?
     /// 截图URL
     var imgUrl:String?
-    /// 宽度
+    /// 截图宽度
     var width:Int?
-    /// 高度
+    /// 截图高度
     var height:Int?
 
 

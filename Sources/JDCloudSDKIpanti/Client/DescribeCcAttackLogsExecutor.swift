@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeCCAttackLogsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:CC")
+        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:describeCCAttackLogs")
     }
     
 }

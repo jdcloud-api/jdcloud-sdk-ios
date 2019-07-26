@@ -43,10 +43,10 @@ public class DescribeForwardRulesRequest:JdCloudRequest
     var searchValue:String?
 
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,instanceId:Int64){
+    public init(regionId: String,instanceId:String){
         self.instanceId = instanceId
         super.init(regionId: regionId)
     }

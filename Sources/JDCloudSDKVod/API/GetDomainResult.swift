@@ -38,16 +38,27 @@ public class GetDomainResult:NSObject,JdCloudResult
     /// 域名CNAME
     var cname:String?
 
-    /// 域名来源：系统生成 | 用户自建
+    /// 域名状态。取值范围：
+      ///   init - 初始状态
+      ///   configuring - 配置中
+      ///   normal - 正常
+      ///   stopped - 已停用
+      /// 
+    var status:String?
+
+    /// 域名来源。取值范围：
+      ///   system - 系统生成
+      ///   custom - 用户自建
+      /// 
     var source:String?
 
     /// 是否默认域名
     var asDefault:Bool?
 
-    /// CreateTime
+    /// 创建时间
     var createTime:String?
 
-    /// UpdateTime
+    /// 修改时间
     var updateTime:String?
 
 
@@ -60,6 +71,7 @@ public class GetDomainResult:NSObject,JdCloudResult
         case id
         case name
         case cname
+        case status
         case source
         case asDefault
         case createTime
@@ -79,6 +91,10 @@ public class GetDomainResult:NSObject,JdCloudResult
         if decoderContainer.contains(.cname)
         {
             self.cname = try decoderContainer.decode(String?.self, forKey: .cname)
+        }
+        if decoderContainer.contains(.status)
+        {
+            self.status = try decoderContainer.decode(String?.self, forKey: .status)
         }
         if decoderContainer.contains(.source)
         {
@@ -104,6 +120,7 @@ public extension GetDomainResult{
         try encoderContainer.encode(id, forKey: .id)
         try encoderContainer.encode(name, forKey: .name)
         try encoderContainer.encode(cname, forKey: .cname)
+        try encoderContainer.encode(status, forKey: .status)
         try encoderContainer.encode(source, forKey: .source)
         try encoderContainer.encode(asDefault, forKey: .asDefault)
         try encoderContainer.encode(createTime, forKey: .createTime)

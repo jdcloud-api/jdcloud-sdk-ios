@@ -28,7 +28,7 @@ import Foundation
 @objc(CreateInstanceSpec)
 public class CreateInstanceSpec:NSObject,Codable{
     /// 实例 Id, 升级时必传
-    var id:Int64?
+    var id:String?
     /// 实例名称, 新购时必传
     var name:String?
     /// 购买类型：1新购 3升级
@@ -41,8 +41,7 @@ public class CreateInstanceSpec:NSObject,Codable{
       /// - 0: IPV4,
       /// - 1: IPV4/IPV6
       /// 
-    /// Required:true
-    var ipType:Int
+    var ipType:Int?
     /// 保底带宽：单位Gbps
     /// Required:true
     var bp:Int
@@ -67,10 +66,9 @@ public class CreateInstanceSpec:NSObject,Codable{
 
 
 
-    public  init(buyType:Int,carrier:Int,ipType:Int,bp:Int,ep:Int,bw:Int){
+    public  init(buyType:Int,carrier:Int,bp:Int,ep:Int,bw:Int){
              self.buyType = buyType
              self.carrier = carrier
-             self.ipType = ipType
              self.bp = bp
              self.ep = ep
              self.bw = bw
@@ -95,7 +93,7 @@ public class CreateInstanceSpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: CreateInstanceSpecCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.name)
         {
@@ -103,7 +101,10 @@ public class CreateInstanceSpec:NSObject,Codable{
         }
         self.buyType = try decoderContainer.decode(Int.self, forKey: .buyType)
         self.carrier = try decoderContainer.decode(Int.self, forKey: .carrier)
-        self.ipType = try decoderContainer.decode(Int.self, forKey: .ipType)
+        if decoderContainer.contains(.ipType)
+        {
+            self.ipType = try decoderContainer.decode(Int?.self, forKey: .ipType)
+        }
         self.bp = try decoderContainer.decode(Int.self, forKey: .bp)
         self.ep = try decoderContainer.decode(Int.self, forKey: .ep)
         self.bw = try decoderContainer.decode(Int.self, forKey: .bw)

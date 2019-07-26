@@ -31,6 +31,16 @@ public class VpcIpResource:NSObject,Codable{
     var ip:String?
     /// 是否绑定
     var binded:Bool?
+    /// 公网 IP 类型或绑定资源类型:
+      ///   0: 未知类型
+      ///   1: 弹性公网 IP(IP 为弹性公网 IP, 绑定资源类型未知)
+      ///   10: 弹性公网 IP(IP 为弹性公网 IP, 但未绑定资源)
+      ///   11: 弹性公网 IP, 绑定了云主机
+      ///   12: 弹性公网 IP, 绑定了负载均衡
+      ///   13: 弹性公网 IP, 绑定了原生容器实例
+      ///   14: 弹性公网 IP, 绑定了原生容器 Pod
+      ///   2: 云物理服务器公网 IP
+    var resourceType:Int?
 
 
 
@@ -41,6 +51,7 @@ public class VpcIpResource:NSObject,Codable{
     enum VpcIpResourceCodingKeys: String, CodingKey {
         case ip
         case binded
+        case resourceType
     }
 
 
@@ -54,6 +65,10 @@ public class VpcIpResource:NSObject,Codable{
         {
             self.binded = try decoderContainer.decode(Bool?.self, forKey: .binded)
         }
+        if decoderContainer.contains(.resourceType)
+        {
+            self.resourceType = try decoderContainer.decode(Int?.self, forKey: .resourceType)
+        }
     }
 }
 public extension VpcIpResource{
@@ -61,5 +76,6 @@ public extension VpcIpResource{
         var encoderContainer = encoder.container(keyedBy: VpcIpResourceCodingKeys.self)
          try encoderContainer.encode(ip, forKey: .ip)
          try encoderContainer.encode(binded, forKey: .binded)
+         try encoderContainer.encode(resourceType, forKey: .resourceType)
     }
 }

@@ -31,30 +31,45 @@ import JDCloudSDKCore
 public class CreateWatermarkRequest:JdCloudRequest
 {
     /// 水印名称
-    var name:String?
+    var name:String
 
     /// 图片地址
-    var imgUrl:String?
+    var imgUrl:String
 
-    /// 宽度
-    var width:Int?
+    /// 水印宽度
+    var width:Int
 
-    /// 高度
-    var height:Int?
+    /// 水印高度
+    var height:Int
 
-    /// 水印位置
-    var position:String?
+    /// 水印位置。取值范围：
+      ///   LT - 左上
+      ///   RT - 右上
+      ///   LB - 左下
+      ///   RB - 右下
+      /// 
+    var position:String
 
     /// 偏移单位
     var unit:String?
 
     /// 水平偏移
-    var offsetX:Int?
+    var offsetX:Int
 
     /// 竖直偏移
-    var offsetY:Int?
+    var offsetY:Int
 
 
+    public init(regionId: String,name:String,imgUrl:String,width:Int,height:Int,position:String,offsetX:Int,offsetY:Int){
+        self.name = name
+        self.imgUrl = imgUrl
+        self.width = width
+        self.height = height
+        self.position = position
+        self.offsetX = offsetX
+        self.offsetY = offsetY
+        super.init(regionId: regionId)
+    }
 
 
     enum CreateWatermarkRequestRequestCodingKeys: String, CodingKey {

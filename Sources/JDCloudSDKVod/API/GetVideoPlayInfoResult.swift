@@ -29,10 +29,10 @@ import JDCloudSDKCore
 @objc(GetVideoPlayInfoResult)
 public class GetVideoPlayInfoResult:NSObject,JdCloudResult
 {
-    /// VideoInfo
-    var videoInfo:VideoBaseInfo?
+    /// 视频基础信息
+    var baseInfo:VideoBaseInfo?
 
-    /// 播放信息列表
+    /// 视频播放信息列表
     var playInfoList:[VideoPlayInfo?]?
 
 
@@ -42,15 +42,15 @@ public class GetVideoPlayInfoResult:NSObject,JdCloudResult
     }
 
     enum GetVideoPlayInfoResultCodingKeys: String, CodingKey {
-        case videoInfo
+        case baseInfo
         case playInfoList
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: GetVideoPlayInfoResultCodingKeys.self)
-        if decoderContainer.contains(.videoInfo)
+        if decoderContainer.contains(.baseInfo)
         {
-            self.videoInfo = try decoderContainer.decode(VideoBaseInfo?.self, forKey: .videoInfo)
+            self.baseInfo = try decoderContainer.decode(VideoBaseInfo?.self, forKey: .baseInfo)
         }
         if decoderContainer.contains(.playInfoList)
         {
@@ -61,7 +61,7 @@ public class GetVideoPlayInfoResult:NSObject,JdCloudResult
 public extension GetVideoPlayInfoResult{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: GetVideoPlayInfoResultCodingKeys.self)
-        try encoderContainer.encode(videoInfo, forKey: .videoInfo)
+        try encoderContainer.encode(baseInfo, forKey: .baseInfo)
         try encoderContainer.encode(playInfoList, forKey: .playInfoList)
     }
 }

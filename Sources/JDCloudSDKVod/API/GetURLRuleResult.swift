@@ -25,24 +25,18 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询CDN域名URL规则
+/// 查询CDN域名URL鉴权规则配置
 @objc(GetURLRuleResult)
 public class GetURLRuleResult:NSObject,JdCloudResult
 {
     /// 规则类型，取值 &#39;url&#39;
     var ruleType:String?
 
-    /// 规则配置对象
-    var config:Config?
+    /// URL鉴权规则配置对象
+    var config:URLRuleConfigObject?
 
     /// 是否启用该规则
     var enabled:Bool?
-
-    /// CreateTime
-    var createTime:String?
-
-    /// UpdateTime
-    var updateTime:String?
 
 
 
@@ -54,8 +48,6 @@ public class GetURLRuleResult:NSObject,JdCloudResult
         case ruleType
         case config
         case enabled
-        case createTime
-        case updateTime
     }
 
     required public init(from decoder: Decoder) throws {
@@ -66,19 +58,11 @@ public class GetURLRuleResult:NSObject,JdCloudResult
         }
         if decoderContainer.contains(.config)
         {
-            self.config = try decoderContainer.decode(Config?.self, forKey: .config)
+            self.config = try decoderContainer.decode(URLRuleConfigObject?.self, forKey: .config)
         }
         if decoderContainer.contains(.enabled)
         {
             self.enabled = try decoderContainer.decode(Bool?.self, forKey: .enabled)
-        }
-        if decoderContainer.contains(.createTime)
-        {
-            self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
-        }
-        if decoderContainer.contains(.updateTime)
-        {
-            self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
         }
     }
 }
@@ -88,7 +72,5 @@ public extension GetURLRuleResult{
         try encoderContainer.encode(ruleType, forKey: .ruleType)
         try encoderContainer.encode(config, forKey: .config)
         try encoderContainer.encode(enabled, forKey: .enabled)
-        try encoderContainer.encode(createTime, forKey: .createTime)
-        try encoderContainer.encode(updateTime, forKey: .updateTime)
     }
 }

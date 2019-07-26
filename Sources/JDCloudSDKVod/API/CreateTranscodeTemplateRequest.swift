@@ -13,7 +13,7 @@
    limitations under the License.
 
    Transcode Template
-   模板管理 - 视频转码模板
+   转码模板管理
 
    OpenAPI spec version: v1
    Contact: 
@@ -31,21 +31,41 @@ import JDCloudSDKCore
 public class CreateTranscodeTemplateRequest:JdCloudRequest
 {
     /// 模板名称
-    var name:String?
+    var name:String
 
-    /// 视频参数
-    var video:Video?
+    /// 视频参数配置
+    var video:Video
 
-    /// 音频参数
-    var audio:Audio?
+    /// 音频参数配置
+    var audio:Audio
 
     /// 封装配置
-    var encapsulation:Encapsulation?
+    var encapsulation:Encapsulation
 
-    /// 清晰度规格
-    var definition:String?
+    /// 清晰度规格标记。取值范围：
+      ///   SD - 标清
+      ///   HD - 高清
+      ///   FHD - 超清
+      ///   2K
+      ///   4K
+      /// 
+    var definition:String
+
+    /// 模板类型。取值范围：
+      ///   jdchd - 京享超清
+      ///   jdchs - 极速转码
+      /// 
+    var templateType:String?
 
 
+    public init(regionId: String,name:String,video:Video,audio:Audio,encapsulation:Encapsulation,definition:String){
+        self.name = name
+        self.video = video
+        self.audio = audio
+        self.encapsulation = encapsulation
+        self.definition = definition
+        super.init(regionId: regionId)
+    }
 
 
     enum CreateTranscodeTemplateRequestRequestCodingKeys: String, CodingKey {
@@ -54,6 +74,7 @@ public class CreateTranscodeTemplateRequest:JdCloudRequest
         case audio
         case encapsulation
         case definition
+        case templateType
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -63,6 +84,7 @@ public class CreateTranscodeTemplateRequest:JdCloudRequest
         try encoderContainer.encode(audio, forKey: .audio)
         try encoderContainer.encode(encapsulation, forKey: .encapsulation)
         try encoderContainer.encode(definition, forKey: .definition)
+        try encoderContainer.encode(templateType, forKey: .templateType)
 
     }
 }

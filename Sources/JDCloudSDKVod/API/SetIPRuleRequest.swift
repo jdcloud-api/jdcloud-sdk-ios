@@ -26,31 +26,29 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置CDN域名IP规则
+///  设置CDN域名IP黑名单规则
 @objc(SetIPRuleRequest)
 public class SetIPRuleRequest:JdCloudRequest
 {
-    /// 规则类型，取值 &#39;ip&#39;
-    var ruleType:String?
-
-    /// 规则配置对象
-    var config:Config?
+    /// IP黑名单规则配置对象
+    var config:IPRuleConfigObject
 
     /// 是否启用该规则
-    var enabled:Bool?
+    var enabled:Bool
 
     /// 域名ID
     var domainId:Int64
 
 
-    public init(regionId: String,domainId:Int64){
+    public init(regionId: String,config:IPRuleConfigObject,enabled:Bool,domainId:Int64){
+        self.config = config
+        self.enabled = enabled
         self.domainId = domainId
         super.init(regionId: regionId)
     }
 
 
     enum SetIPRuleRequestRequestCodingKeys: String, CodingKey {
-        case ruleType
         case config
         case enabled
         case domainId
@@ -58,7 +56,6 @@ public class SetIPRuleRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetIPRuleRequestRequestCodingKeys.self)
-        try encoderContainer.encode(ruleType, forKey: .ruleType)
         try encoderContainer.encode(config, forKey: .config)
         try encoderContainer.encode(enabled, forKey: .enabled)
         try encoderContainer.encode(domainId, forKey: .domainId)

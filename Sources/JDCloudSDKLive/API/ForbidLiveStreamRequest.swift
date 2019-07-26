@@ -39,6 +39,9 @@ public class ForbidLiveStreamRequest:JdCloudRequest
     /// 流名称
     var streamName:String
 
+    /// 禁流时长,单位:s 0表示永久禁流;大于0为限时禁流,超过时长自动解禁
+    var forbidTime:Int64?
+
 
     public init(regionId: String,publishDomain:String,appName:String,streamName:String){
         self.publishDomain = publishDomain
@@ -52,6 +55,7 @@ public class ForbidLiveStreamRequest:JdCloudRequest
         case publishDomain
         case appName
         case streamName
+        case forbidTime
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -59,6 +63,7 @@ public class ForbidLiveStreamRequest:JdCloudRequest
         try encoderContainer.encode(publishDomain, forKey: .publishDomain)
         try encoderContainer.encode(appName, forKey: .appName)
         try encoderContainer.encode(streamName, forKey: .streamName)
+        try encoderContainer.encode(forbidTime, forKey: .forbidTime)
 
     }
 }

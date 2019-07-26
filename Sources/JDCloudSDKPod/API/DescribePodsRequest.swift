@@ -49,6 +49,9 @@ public class DescribePodsRequest:JdCloudRequest
       /// 
     var filters:[Filter?]?
 
+    /// Tag筛选条件
+    var tags:[TagFilter?]?
+
 
 
 
@@ -56,6 +59,7 @@ public class DescribePodsRequest:JdCloudRequest
         case pageNumber
         case pageSize
         case filters
+        case tags
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -63,6 +67,7 @@ public class DescribePodsRequest:JdCloudRequest
         try encoderContainer.encode(pageNumber, forKey: .pageNumber)
         try encoderContainer.encode(pageSize, forKey: .pageSize)
         try encoderContainer.encode(filters, forKey: .filters)
+        try encoderContainer.encode(tags, forKey: .tags)
 
     }
 }

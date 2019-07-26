@@ -38,16 +38,21 @@ public class UpdateWatermarkResult:NSObject,JdCloudResult
     /// 图片地址
     var imgUrl:String?
 
-    /// 宽度
+    /// 水印宽度
     var width:Int?
 
-    /// 高度
+    /// 水印高度
     var height:Int?
 
-    /// 水印位置
+    /// 水印位置。取值范围：
+      ///   LT - 左上
+      ///   RT - 右上
+      ///   LB - 左下
+      ///   RB - 右下
+      /// 
     var position:String?
 
-    /// 偏移单位
+    /// 偏移单位，目前仅支持像素
     var unit:String?
 
     /// 水平偏移
@@ -56,10 +61,10 @@ public class UpdateWatermarkResult:NSObject,JdCloudResult
     /// 竖直偏移
     var offsetY:Int?
 
-    /// CreateTime
+    /// 创建时间
     var createTime:String?
 
-    /// UpdateTime
+    /// 修改时间
     var updateTime:String?
 
 

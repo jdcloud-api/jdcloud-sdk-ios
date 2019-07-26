@@ -13,7 +13,7 @@
    limitations under the License.
 
    Transcode Template
-   模板管理 - 视频转码模板
+   转码模板管理
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,8 +25,77 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询转码模板列表
+/// 查询转码模板列表。允许通过条件过滤查询，支持的过滤字段如下：
+      ///       /// - source 模板来源。枚举值，取值范围为：
+      ///       ///   - system 系统预置
+      ///       ///   - custom 用户自建
+      ///       /// - templateType 模板类型。枚举值，取值范围：
+      ///       ///   - jdchd 京享超清
+      ///       ///   - jdchs 极速转码
+      ///       /// 
 @objc(ListTranscodeTemplatesResult)
 public class ListTranscodeTemplatesResult:NSObject,JdCloudResult
 {
+    /// 当前页码
+    var pageNumber:Int?
+
+    /// 每页数量
+    var pageSize:Int?
+
+    /// 查询总数
+    var totalElements:Int?
+
+    /// 总页数
+    var totalPages:Int?
+
+    /// 分页内容
+    var content:[TranscodeTemplateObject?]?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum ListTranscodeTemplatesResultCodingKeys: String, CodingKey {
+        case pageNumber
+        case pageSize
+        case totalElements
+        case totalPages
+        case content
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: ListTranscodeTemplatesResultCodingKeys.self)
+        if decoderContainer.contains(.pageNumber)
+        {
+            self.pageNumber = try decoderContainer.decode(Int?.self, forKey: .pageNumber)
+        }
+        if decoderContainer.contains(.pageSize)
+        {
+            self.pageSize = try decoderContainer.decode(Int?.self, forKey: .pageSize)
+        }
+        if decoderContainer.contains(.totalElements)
+        {
+            self.totalElements = try decoderContainer.decode(Int?.self, forKey: .totalElements)
+        }
+        if decoderContainer.contains(.totalPages)
+        {
+            self.totalPages = try decoderContainer.decode(Int?.self, forKey: .totalPages)
+        }
+        if decoderContainer.contains(.content)
+        {
+            self.content = try decoderContainer.decode([TranscodeTemplateObject?]?.self, forKey: .content)
+        }
+    }
+}
+public extension ListTranscodeTemplatesResult{
+    func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: ListTranscodeTemplatesResultCodingKeys.self)
+        try encoderContainer.encode(pageNumber, forKey: .pageNumber)
+        try encoderContainer.encode(pageSize, forKey: .pageSize)
+        try encoderContainer.encode(totalElements, forKey: .totalElements)
+        try encoderContainer.encode(totalPages, forKey: .totalPages)
+        try encoderContainer.encode(content, forKey: .content)
+    }
 }

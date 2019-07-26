@@ -144,6 +144,27 @@ public class RedisJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeClusterInfoAsync(request:DescribeClusterInfoRequest,requestComplation:@escaping (NSNumber?,DescribeClusterInfoResponse?,NSError?,NSString?)->()) throws {
+        redisJDCloudClient = self
+        try DescribeClusterInfoExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeClusterInfoResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func modifyCacheInstanceAttributeAsync(request:ModifyCacheInstanceAttributeRequest,requestComplation:@escaping (NSNumber?,ModifyCacheInstanceAttributeResponse?,NSError?,NSString?)->()) throws {
         redisJDCloudClient = self
         try ModifyCacheInstanceAttributeExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

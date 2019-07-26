@@ -31,7 +31,7 @@ public class CertInfoModifySpec:NSObject,Codable{
       /// - 如果传 certId, 请确认已经上传了相应的证书
       /// - certId 缺省时网站规则将使用 httpsCertContent, httpsRsaKey 对应的证书
       /// 
-    var certId:Int64?
+    var certId:String?
     /// 证书内容
     var httpsCertContent:String?
     /// 私钥
@@ -54,7 +54,7 @@ public class CertInfoModifySpec:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: CertInfoModifySpecCodingKeys.self)
         if decoderContainer.contains(.certId)
         {
-            self.certId = try decoderContainer.decode(Int64?.self, forKey: .certId)
+            self.certId = try decoderContainer.decode(String?.self, forKey: .certId)
         }
         if decoderContainer.contains(.httpsCertContent)
         {

@@ -37,7 +37,7 @@ public class DescribeDDoSGraphRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例 Id 列表
-    var instanceId:[Int64?]?
+    var instanceId:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){

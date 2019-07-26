@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除视频码流信息
+///  删除视频转码流
 public class DeleteVideoStreamsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

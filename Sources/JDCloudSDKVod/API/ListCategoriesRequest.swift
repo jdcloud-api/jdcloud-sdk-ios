@@ -26,14 +26,15 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询分类列表
+///  查询分类列表，按照分页方式，返回分类列表信息
+      ///       /// 
 @objc(ListCategoriesRequest)
 public class ListCategoriesRequest:JdCloudRequest
 {
-    /// 页码；默认值为1
+    /// 页码；默认值为 1
     var pageNumber:Int?
 
-    /// 分页大小；默认值为10；取值范围[10, 100]
+    /// 分页大小；默认值为 10；取值范围 [10, 100]
     var pageSize:Int?
 
     /// Sorts

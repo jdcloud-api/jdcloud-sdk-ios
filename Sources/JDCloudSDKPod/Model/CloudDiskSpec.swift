@@ -39,6 +39,8 @@ public class CloudDiskSpec:NSObject,Codable{
     var sizeGB:Int?
     /// 指定volume文件系统类型，目前支持[xfs, ext4]；如果新创建的盘，不指定文件系统类型默认格式化成xfs
     var fsType:String?
+    /// 云盘的 iops 值，目前只有 ssd.io1 类型有效
+    var iops:Int?
     /// 是否随pod删除。默认：true
     var autoDelete:Bool?
 
@@ -55,6 +57,7 @@ public class CloudDiskSpec:NSObject,Codable{
         case diskType
         case sizeGB
         case fsType
+        case iops
         case autoDelete
     }
 
@@ -85,6 +88,10 @@ public class CloudDiskSpec:NSObject,Codable{
         {
             self.fsType = try decoderContainer.decode(String?.self, forKey: .fsType)
         }
+        if decoderContainer.contains(.iops)
+        {
+            self.iops = try decoderContainer.decode(Int?.self, forKey: .iops)
+        }
         if decoderContainer.contains(.autoDelete)
         {
             self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
@@ -100,6 +107,7 @@ public extension CloudDiskSpec{
          try encoderContainer.encode(diskType, forKey: .diskType)
          try encoderContainer.encode(sizeGB, forKey: .sizeGB)
          try encoderContainer.encode(fsType, forKey: .fsType)
+         try encoderContainer.encode(iops, forKey: .iops)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)
     }
 }

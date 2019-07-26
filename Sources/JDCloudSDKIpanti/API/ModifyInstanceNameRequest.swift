@@ -34,10 +34,10 @@ public class ModifyInstanceNameRequest:JdCloudRequest
     var renameInstanceSpec:RenameInstanceSpec
 
     /// 实例 ID
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,renameInstanceSpec:RenameInstanceSpec,instanceId:Int64){
+    public init(regionId: String,renameInstanceSpec:RenameInstanceSpec,instanceId:String){
         self.renameInstanceSpec = renameInstanceSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)

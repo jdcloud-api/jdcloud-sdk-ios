@@ -24,9 +24,9 @@
 
 import Foundation
 
-///  dDosAttackLog
-@objc(DDosAttackLog)
-public class DDosAttackLog:NSObject,Codable{
+///  dDoSAttackLog
+@objc(DDoSAttackLog)
+public class DDoSAttackLog:NSObject,Codable{
     /// 攻击流量大小
     var attackTraffic:Double?
     /// 是否触发黑洞，0否 1是
@@ -38,7 +38,7 @@ public class DDosAttackLog:NSObject,Codable{
     /// 流量单位，bps、Kbps、Mbps、Gbps
     var unit:String?
     /// 高防实例id
-    var instanceId:Int64?
+    var instanceId:String?
     /// 高防实例名称
     var name:String?
 
@@ -48,7 +48,7 @@ public class DDosAttackLog:NSObject,Codable{
             super.init()
     }
 
-    enum DDosAttackLogCodingKeys: String, CodingKey {
+    enum DDoSAttackLogCodingKeys: String, CodingKey {
         case attackTraffic
         case blackHole
         case startTime
@@ -60,7 +60,7 @@ public class DDosAttackLog:NSObject,Codable{
 
 
     required public init(from decoder: Decoder) throws {
-        let decoderContainer = try decoder.container(keyedBy: DDosAttackLogCodingKeys.self)
+        let decoderContainer = try decoder.container(keyedBy: DDoSAttackLogCodingKeys.self)
         if decoderContainer.contains(.attackTraffic)
         {
             self.attackTraffic = try decoderContainer.decode(Double?.self, forKey: .attackTraffic)
@@ -83,7 +83,7 @@ public class DDosAttackLog:NSObject,Codable{
         }
         if decoderContainer.contains(.instanceId)
         {
-            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
         if decoderContainer.contains(.name)
         {
@@ -91,9 +91,9 @@ public class DDosAttackLog:NSObject,Codable{
         }
     }
 }
-public extension DDosAttackLog{
+public extension DDoSAttackLog{
     func encode(to encoder: Encoder) throws {
-        var encoderContainer = encoder.container(keyedBy: DDosAttackLogCodingKeys.self)
+        var encoderContainer = encoder.container(keyedBy: DDoSAttackLogCodingKeys.self)
          try encoderContainer.encode(attackTraffic, forKey: .attackTraffic)
          try encoderContainer.encode(blackHole, forKey: .blackHole)
          try encoderContainer.encode(startTime, forKey: .startTime)

@@ -37,10 +37,18 @@ public class DomainTemplateConfig:NSObject,Codable{
     var templateName:String?
     /// 水印地址
     var url:String?
+    /// 偏移量单位
+      /// - 取值: percent,pixel
+      /// 
+    var offsetUnit:String?
     /// 水平偏移
     var offsetX:Int?
     /// 垂直偏移
     var offsetY:Int?
+    /// 水印大小单位
+      /// - 取值: percent,pixel
+      /// 
+    var sizeUnit:String?
     /// 宽
     var width:Int?
     /// 高
@@ -60,8 +68,10 @@ public class DomainTemplateConfig:NSObject,Codable{
         case templateId
         case templateName
         case url
+        case offsetUnit
         case offsetX
         case offsetY
+        case sizeUnit
         case width
         case height
         case createTime
@@ -90,6 +100,10 @@ public class DomainTemplateConfig:NSObject,Codable{
         {
             self.url = try decoderContainer.decode(String?.self, forKey: .url)
         }
+        if decoderContainer.contains(.offsetUnit)
+        {
+            self.offsetUnit = try decoderContainer.decode(String?.self, forKey: .offsetUnit)
+        }
         if decoderContainer.contains(.offsetX)
         {
             self.offsetX = try decoderContainer.decode(Int?.self, forKey: .offsetX)
@@ -97,6 +111,10 @@ public class DomainTemplateConfig:NSObject,Codable{
         if decoderContainer.contains(.offsetY)
         {
             self.offsetY = try decoderContainer.decode(Int?.self, forKey: .offsetY)
+        }
+        if decoderContainer.contains(.sizeUnit)
+        {
+            self.sizeUnit = try decoderContainer.decode(String?.self, forKey: .sizeUnit)
         }
         if decoderContainer.contains(.width)
         {
@@ -120,8 +138,10 @@ public extension DomainTemplateConfig{
          try encoderContainer.encode(templateId, forKey: .templateId)
          try encoderContainer.encode(templateName, forKey: .templateName)
          try encoderContainer.encode(url, forKey: .url)
+         try encoderContainer.encode(offsetUnit, forKey: .offsetUnit)
          try encoderContainer.encode(offsetX, forKey: .offsetX)
          try encoderContainer.encode(offsetY, forKey: .offsetY)
+         try encoderContainer.encode(sizeUnit, forKey: .sizeUnit)
          try encoderContainer.encode(width, forKey: .width)
          try encoderContainer.encode(height, forKey: .height)
          try encoderContainer.encode(createTime, forKey: .createTime)

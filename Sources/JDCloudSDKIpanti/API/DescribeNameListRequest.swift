@@ -31,7 +31,7 @@ import JDCloudSDKCore
 public class DescribeNameListRequest:JdCloudRequest
 {
     /// 高防实例 ID, 为空则查询所有实例名称
-    var id:Int64?
+    var id:String?
 
     /// 实例名称, 可模糊匹配
     var name:String?

@@ -26,9 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  为一台云主机挂载一块数据盘(云硬盘)，云主机和云硬盘没有正在进行中的的任务时才可挂载。&lt;br&gt;
+///  为一台云主机挂载一块云硬盘，云主机和云硬盘没有正在进行中的的任务时才可挂载。&lt;br&gt;
       ///       /// 云主机状态必须是&lt;b&gt;running&lt;/b&gt;或&lt;b&gt;stopped&lt;/b&gt;状态。&lt;br&gt;
-      ///       /// 本地盘(local类型)做系统盘的云主机可挂载8块数据盘，云硬盘(cloud类型)做系统盘的云主机可挂载7块数据盘。
+      ///       /// 本地盘(local类型)做系统盘的云主机可挂载8块云硬盘，云硬盘(cloud类型)做系统盘的云主机可挂载除系统盘外7块云硬盘。
       ///       /// 
 @objc(AttachDiskRequest)
 public class AttachDiskRequest:JdCloudRequest
@@ -36,10 +36,10 @@ public class AttachDiskRequest:JdCloudRequest
     /// 云硬盘ID
     var diskId:String
 
-    /// 数据盘的逻辑挂载点[vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi]，挂载系统盘时vda必传
+    /// 设备名[vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm]，挂载系统盘时必传，且需传vda
     var deviceName:String?
 
-    /// 自动随主机删除此云硬盘，默认为False。仅按配置计费云硬盘支持修改此参数，包年包月云硬盘默认为False且不可修改。如果是共享型云硬盘，此参数无效。
+    /// 随云主机删除自动删除此云硬盘，默认为False。仅按配置计费云硬盘支持修改此参数，包年包月云硬盘不可修改。
     var autoDelete:Bool?
 
     /// 云主机ID

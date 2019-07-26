@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询配额，支持：云主机、镜像、密钥、模板、镜像共享
+///  查询配额，支持的类型：云主机、镜像、密钥、模板、镜像共享。
       /// 
 public class DescribeQuotasExecutor:JDCloudExecutor {
     

@@ -32,6 +32,9 @@ import JDCloudSDKCommon
 @objc(DescribeInstanceTypesRequest)
 public class DescribeInstanceTypesRequest:JdCloudRequest
 {
+    /// 服务类型，取值为{vm、nc}，vm代表虚机、nc代表原生容器
+    var serviceName:String?
+
     /// instanceTypes - 实例规格，精确匹配，支持多个
       /// az - 可用区，精确匹配，支持多个
       /// 
@@ -41,11 +44,13 @@ public class DescribeInstanceTypesRequest:JdCloudRequest
 
 
     enum DescribeInstanceTypesRequestRequestCodingKeys: String, CodingKey {
+        case serviceName
         case filters
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeInstanceTypesRequestRequestCodingKeys.self)
+        try encoderContainer.encode(serviceName, forKey: .serviceName)
         try encoderContainer.encode(filters, forKey: .filters)
 
     }

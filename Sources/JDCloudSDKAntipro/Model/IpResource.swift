@@ -50,7 +50,7 @@ public class IpResource:NSObject,Codable{
     var cleanThresholdPps:Int64?
     /// 黑洞阈值
     var balckHoleThreshold:Int64?
-    /// 绑定防护包 ID, 为 0 时表示未绑定防护包
+    /// 绑定防护包 ID, 为空字符时表示未绑定防护包
     var instanceId:String?
     /// 绑定防护包名称, 为空字符串时表示未绑定防护包
     var instanceName:String?

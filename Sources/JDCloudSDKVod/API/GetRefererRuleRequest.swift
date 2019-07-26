@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询CDN域名Referer规则
+///  查询CDN域名Referer防盗链规则配置
 @objc(GetRefererRuleRequest)
 public class GetRefererRuleRequest:JdCloudRequest
 {

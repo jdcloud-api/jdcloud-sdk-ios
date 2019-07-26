@@ -81,6 +81,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func createInstanceTemplateAsync(request:CreateInstanceTemplateRequest,requestComplation:@escaping (NSNumber?,CreateInstanceTemplateResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try CreateInstanceTemplateExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateInstanceTemplateResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeImageMembersAsync(request:DescribeImageMembersRequest,requestComplation:@escaping (NSNumber?,DescribeImageMembersResponse?,NSError?,NSString?)->()) throws {
         vmJDCloudClient = self
         try DescribeImageMembersExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -236,6 +257,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(StartInstanceResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeInstanceTemplateAsync(request:DescribeInstanceTemplateRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceTemplateResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try DescribeInstanceTemplateExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeInstanceTemplateResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -417,6 +459,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func updateInstanceTemplateAsync(request:UpdateInstanceTemplateRequest,requestComplation:@escaping (NSNumber?,UpdateInstanceTemplateResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try UpdateInstanceTemplateExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(UpdateInstanceTemplateResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func attachDiskAsync(request:AttachDiskRequest,requestComplation:@escaping (NSNumber?,AttachDiskResponse?,NSError?,NSString?)->()) throws {
         vmJDCloudClient = self
         try AttachDiskExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -543,6 +606,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func deleteInstanceTemplateAsync(request:DeleteInstanceTemplateRequest,requestComplation:@escaping (NSNumber?,DeleteInstanceTemplateResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try DeleteInstanceTemplateExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteInstanceTemplateResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func detachNetworkInterfaceAsync(request:DetachNetworkInterfaceRequest,requestComplation:@escaping (NSNumber?,DetachNetworkInterfaceResponse?,NSError?,NSString?)->()) throws {
         vmJDCloudClient = self
         try DetachNetworkInterfaceExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -593,6 +677,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(ImportKeypairResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeInstanceTemplatesAsync(request:DescribeInstanceTemplatesRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceTemplatesResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try DescribeInstanceTemplatesExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeInstanceTemplatesResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -774,6 +879,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func imageTasksAsync(request:ImageTasksRequest,requestComplation:@escaping (NSNumber?,ImageTasksResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try ImageTasksExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ImageTasksResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeKeypairsAsync(request:DescribeKeypairsRequest,requestComplation:@escaping (NSNumber?,DescribeKeypairsResponse?,NSError?,NSString?)->()) throws {
         vmJDCloudClient = self
         try DescribeKeypairsExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -837,6 +963,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func importImageAsync(request:ImportImageRequest,requestComplation:@escaping (NSNumber?,ImportImageResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try ImportImageExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ImportImageResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func deleteInstanceAsync(request:DeleteInstanceRequest,requestComplation:@escaping (NSNumber?,DeleteInstanceResponse?,NSError?,NSString?)->()) throws {
         vmJDCloudClient = self
         try DeleteInstanceExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -887,6 +1034,27 @@ public class VmJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeInstancesResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func verifyInstanceTemplateAsync(request:VerifyInstanceTemplateRequest,requestComplation:@escaping (NSNumber?,VerifyInstanceTemplateResponse?,NSError?,NSString?)->()) throws {
+        vmJDCloudClient = self
+        try VerifyInstanceTemplateExecutor(jdCloudClient: vmJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(VerifyInstanceTemplateResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

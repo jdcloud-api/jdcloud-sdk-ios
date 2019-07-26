@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class BatchSubmitTranscodeJobsResult:NSObject,JdCloudResult
 {
     /// Tasks
-    var tasks:[TranscodeTask?]?
+    var tasks:[SubmittedTranscodeTask?]?
 
 
 
@@ -46,7 +46,7 @@ public class BatchSubmitTranscodeJobsResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: BatchSubmitTranscodeJobsResultCodingKeys.self)
         if decoderContainer.contains(.tasks)
         {
-            self.tasks = try decoderContainer.decode([TranscodeTask?]?.self, forKey: .tasks)
+            self.tasks = try decoderContainer.decode([SubmittedTranscodeTask?]?.self, forKey: .tasks)
         }
     }
 }

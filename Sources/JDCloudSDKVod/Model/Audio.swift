@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Video Transcode Template Management
-   水印管理
+   Transcode Template
+   转码模板管理
 
    OpenAPI spec version: v1
    Contact: 
@@ -24,17 +24,19 @@
 
 import Foundation
 
-///  音频参数
+///  音频参数配置
 @objc(Audio)
 public class Audio:NSObject,Codable{
-    /// 音频编码
+    /// 音频编码。取值范围：aac
     var codec:String?
-    /// 码率
+    /// 音频目标码率。取值范围：[8，1000]，单位为 Kbps
     var bitrate:Int?
-    /// 采样率
+    /// 音频采样率。取值范围：8000、11025、12000、16000、22050、24000、32000、44100、48000、64000、88200、96000
     var sampleRate:Int?
-    /// 声道数
+    /// 音频声道数：1、2
     var channels:Int?
+    /// 是否开启舒适音频：true、false
+    var comfortable:Bool?
 
 
 
@@ -47,6 +49,7 @@ public class Audio:NSObject,Codable{
         case bitrate
         case sampleRate
         case channels
+        case comfortable
     }
 
 
@@ -68,6 +71,10 @@ public class Audio:NSObject,Codable{
         {
             self.channels = try decoderContainer.decode(Int?.self, forKey: .channels)
         }
+        if decoderContainer.contains(.comfortable)
+        {
+            self.comfortable = try decoderContainer.decode(Bool?.self, forKey: .comfortable)
+        }
     }
 }
 public extension Audio{
@@ -77,5 +84,6 @@ public extension Audio{
          try encoderContainer.encode(bitrate, forKey: .bitrate)
          try encoderContainer.encode(sampleRate, forKey: .sampleRate)
          try encoderContainer.encode(channels, forKey: .channels)
+         try encoderContainer.encode(comfortable, forKey: .comfortable)
     }
 }

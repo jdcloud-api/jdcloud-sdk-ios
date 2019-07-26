@@ -13,7 +13,7 @@
    limitations under the License.
 
    Transcode Template
-   模板管理 - 视频转码模板
+   转码模板管理
 
    OpenAPI spec version: v1
    Contact: 
@@ -35,25 +35,40 @@ public class GetTranscodeTemplateResult:NSObject,JdCloudResult
     /// 模板名称
     var name:String?
 
-    /// 视频参数
+    /// 视频参数配置
     var video:Video?
 
-    /// 音频参数
+    /// 音频参数配置
     var audio:Audio?
 
     /// 封装配置
     var encapsulation:Encapsulation?
 
-    /// 清晰度规格
+    /// 清晰度规格标记。取值范围：
+      ///   SD - 标清
+      ///   HD - 高清
+      ///   FHD - 超清
+      ///   2K
+      ///   4K
+      /// 
     var definition:String?
 
-    /// 模板来源
+    /// 模板来源。取值范围：
+      ///   system - 系统预置
+      ///   custom - 用户自建
+      /// 
     var source:String?
 
-    /// CreateTime
+    /// 模板类型。取值范围：
+      ///   jdchd - 京享超清
+      ///   jdchs - 极速转码
+      /// 
+    var templateType:String?
+
+    /// 创建时间
     var createTime:String?
 
-    /// UpdateTime
+    /// 修改时间
     var updateTime:String?
 
 
@@ -70,6 +85,7 @@ public class GetTranscodeTemplateResult:NSObject,JdCloudResult
         case encapsulation
         case definition
         case source
+        case templateType
         case createTime
         case updateTime
     }
@@ -104,6 +120,10 @@ public class GetTranscodeTemplateResult:NSObject,JdCloudResult
         {
             self.source = try decoderContainer.decode(String?.self, forKey: .source)
         }
+        if decoderContainer.contains(.templateType)
+        {
+            self.templateType = try decoderContainer.decode(String?.self, forKey: .templateType)
+        }
         if decoderContainer.contains(.createTime)
         {
             self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
@@ -124,6 +144,7 @@ public extension GetTranscodeTemplateResult{
         try encoderContainer.encode(encapsulation, forKey: .encapsulation)
         try encoderContainer.encode(definition, forKey: .definition)
         try encoderContainer.encode(source, forKey: .source)
+        try encoderContainer.encode(templateType, forKey: .templateType)
         try encoderContainer.encode(createTime, forKey: .createTime)
         try encoderContainer.encode(updateTime, forKey: .updateTime)
     }

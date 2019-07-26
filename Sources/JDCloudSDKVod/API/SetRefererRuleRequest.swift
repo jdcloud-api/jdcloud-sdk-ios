@@ -26,31 +26,29 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置CDN域名Referer规则
+///  设置CDN域名Referer防盗链规则
 @objc(SetRefererRuleRequest)
 public class SetRefererRuleRequest:JdCloudRequest
 {
-    /// 规则类型，取值 &#39;referer&#39;
-    var ruleType:String?
-
-    /// 规则配置对象
-    var config:Config?
+    /// Referer防盗链规则配置对象
+    var config:RefererRuleConfigObject
 
     /// 是否启用该规则
-    var enabled:Bool?
+    var enabled:Bool
 
     /// 域名ID
     var domainId:Int64
 
 
-    public init(regionId: String,domainId:Int64){
+    public init(regionId: String,config:RefererRuleConfigObject,enabled:Bool,domainId:Int64){
+        self.config = config
+        self.enabled = enabled
         self.domainId = domainId
         super.init(regionId: regionId)
     }
 
 
     enum SetRefererRuleRequestRequestCodingKeys: String, CodingKey {
-        case ruleType
         case config
         case enabled
         case domainId
@@ -58,7 +56,6 @@ public class SetRefererRuleRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetRefererRuleRequestRequestCodingKeys.self)
-        try encoderContainer.encode(ruleType, forKey: .ruleType)
         try encoderContainer.encode(config, forKey: .config)
         try encoderContainer.encode(enabled, forKey: .enabled)
         try encoderContainer.encode(domainId, forKey: .domainId)

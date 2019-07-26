@@ -37,9 +37,9 @@ public class DescribeAttackStatisticsRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例 ID
-    var instanceId:[Int64?]?
+    var instanceId:[String?]?
 
-    /// 攻击类型, 0 为 DDos, 1 为 CC
+    /// 攻击类型, 0 为 DDoS, 1 为 CC
     var type:Int
 
 

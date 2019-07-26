@@ -30,20 +30,31 @@ import JDCloudSDKCore
 @objc(SetHeaderRequest)
 public class SetHeaderRequest:JdCloudRequest
 {
-    /// 头参数名
-    var headerName:String?
+    /// 头参数名。当前支持的访问头参数取值范围：
+      ///   Content-Disposition
+      ///   Content-Language
+      ///   Expires
+      ///   Access-Control-Allow-Origin
+      ///   Access-Control-Allow-Methods
+      ///   Access-Control-Max-Age
+      ///   Access-Control-Expose-Headers
+      /// 
+    var headerName:String
 
     /// 头参数值
-    var headerValue:String?
+    var headerValue:String
 
-    /// 头参数类型
-    var headerType:String?
+    /// 头参数类型，取值范围：req、resp
+    var headerType:String
 
     /// 域名ID
     var domainId:Int64
 
 
-    public init(regionId: String,domainId:Int64){
+    public init(regionId: String,headerName:String,headerValue:String,headerType:String,domainId:Int64){
+        self.headerName = headerName
+        self.headerValue = headerValue
+        self.headerType = headerType
         self.domainId = domainId
         super.init(regionId: regionId)
     }

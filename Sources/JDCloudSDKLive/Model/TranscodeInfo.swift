@@ -32,7 +32,7 @@ public class TranscodeInfo:NSObject,Codable{
       /// 
     var videoCodec:String?
     /// 转码输出的码率值:
-      ///   - 取值: [200,3000]
+      ///   - 取值: [128,15000]
       ///   - 单位: kpbs
       /// 
     var videoCodeRate:Int?
@@ -41,13 +41,13 @@ public class TranscodeInfo:NSObject,Codable{
       /// 
     var videoFrameRate:String?
     /// 转码输出视频宽度:
-      ///   - 取值: [100,1920]
+      ///   - 取值: [128,4096]
       ///   - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
       ///   - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
       /// 
     var width:Int?
-    /// 转码输出视频宽度:
-      ///   - 取值: [100,1920]
+    /// 转码输出视频高度:
+      ///   - 取值: [128,4096]
       ///   - 等比: 如果只填写一个参数,则按参数比例调节输出转码视频
       ///   - 随源: 如果两个参数都不填写，则按照源比例输出转码视频
       /// 
@@ -86,6 +86,14 @@ public class TranscodeInfo:NSObject,Codable{
       ///   - 单位: kbps
       /// 
     var audioCodeRate:Int?
+    /// 京享超清
+      /// - 取值: jdchd-1.0,off
+      /// 
+    var jdchd:String?
+    /// 舒适音频
+      /// - 取值: on,off
+      /// 
+    var audioComfort:String?
 
 
 
@@ -106,6 +114,8 @@ public class TranscodeInfo:NSObject,Codable{
         case audioSampleRate
         case audioChannel
         case audioCodeRate
+        case jdchd
+        case audioComfort
     }
 
 
@@ -159,6 +169,14 @@ public class TranscodeInfo:NSObject,Codable{
         {
             self.audioCodeRate = try decoderContainer.decode(Int?.self, forKey: .audioCodeRate)
         }
+        if decoderContainer.contains(.jdchd)
+        {
+            self.jdchd = try decoderContainer.decode(String?.self, forKey: .jdchd)
+        }
+        if decoderContainer.contains(.audioComfort)
+        {
+            self.audioComfort = try decoderContainer.decode(String?.self, forKey: .audioComfort)
+        }
     }
 }
 public extension TranscodeInfo{
@@ -176,5 +194,7 @@ public extension TranscodeInfo{
          try encoderContainer.encode(audioSampleRate, forKey: .audioSampleRate)
          try encoderContainer.encode(audioChannel, forKey: .audioChannel)
          try encoderContainer.encode(audioCodeRate, forKey: .audioCodeRate)
+         try encoderContainer.encode(jdchd, forKey: .jdchd)
+         try encoderContainer.encode(audioComfort, forKey: .audioComfort)
     }
 }

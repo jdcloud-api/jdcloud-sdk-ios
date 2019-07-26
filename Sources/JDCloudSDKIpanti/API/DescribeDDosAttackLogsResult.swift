@@ -25,12 +25,12 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询 DDos 攻击日志
+/// 查询 DDoS 攻击日志
 @objc(DescribeDDoSAttackLogsResult)
 public class DescribeDDoSAttackLogsResult:NSObject,JdCloudResult
 {
     /// DataList
-    var dataList:[DDosAttackLog?]?
+    var dataList:[DDoSAttackLog?]?
 
     /// 当前页数量
     var currentCount:Int?
@@ -58,7 +58,7 @@ public class DescribeDDoSAttackLogsResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: DescribeDDoSAttackLogsResultCodingKeys.self)
         if decoderContainer.contains(.dataList)
         {
-            self.dataList = try decoderContainer.decode([DDosAttackLog?]?.self, forKey: .dataList)
+            self.dataList = try decoderContainer.decode([DDoSAttackLog?]?.self, forKey: .dataList)
         }
         if decoderContainer.contains(.currentCount)
         {

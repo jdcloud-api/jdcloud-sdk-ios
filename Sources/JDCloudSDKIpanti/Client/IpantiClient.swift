@@ -81,6 +81,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func enableBlackListRuleOfForwardRuleAsync(request:EnableBlackListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,EnableBlackListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableBlackListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableBlackListRuleOfForwardRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeAlarmConfigAsync(request:DescribeAlarmConfigRequest,requestComplation:@escaping (NSNumber?,DescribeAlarmConfigResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try DescribeAlarmConfigExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -89,6 +110,48 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeAlarmConfigResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func createIpSetAsync(request:CreateIpSetRequest,requestComplation:@escaping (NSNumber?,CreateIpSetResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try CreateIpSetExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateIpSetResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeWebRuleBlackListUsageAsync(request:DescribeWebRuleBlackListUsageRequest,requestComplation:@escaping (NSNumber?,DescribeWebRuleBlackListUsageResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeWebRuleBlackListUsageExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeWebRuleBlackListUsageResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -123,6 +186,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func createCCProtectionRuleOfWebRuleAsync(request:CreateCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,CreateCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try CreateCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func modifyEPBAsync(request:ModifyEPBRequest,requestComplation:@escaping (NSNumber?,ModifyEPBResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try ModifyEPBExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -144,14 +228,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func enableInstanceIpWhiteListAsync(request:EnableInstanceIpWhiteListRequest,requestComplation:@escaping (NSNumber?,EnableInstanceIpWhiteListResponse?,NSError?,NSString?)->()) throws {
+    public func describeCCProtectionDefaultConfigOfWebRuleAsync(request:DescribeCCProtectionDefaultConfigOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeCCProtectionDefaultConfigOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try EnableInstanceIpWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeCCProtectionDefaultConfigOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableInstanceIpWhiteListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeCCProtectionDefaultConfigOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -165,56 +249,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func disableCCObserverModeAsync(request:DisableCCObserverModeRequest,requestComplation:@escaping (NSNumber?,DisableCCObserverModeResponse?,NSError?,NSString?)->()) throws {
+    public func modifyWhiteListRuleOfWebRuleAsync(request:ModifyWhiteListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,ModifyWhiteListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DisableCCObserverModeExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try ModifyWhiteListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableCCObserverModeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func enableCCIpLimitAsync(request:EnableCCIpLimitRequest,requestComplation:@escaping (NSNumber?,EnableCCIpLimitResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try EnableCCIpLimitExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableCCIpLimitResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func setCCIpLimitAsync(request:SetCCIpLimitRequest,requestComplation:@escaping (NSNumber?,SetCCIpLimitResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try SetCCIpLimitExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetCCIpLimitResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(ModifyWhiteListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -236,6 +278,153 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(ModifyWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func enableWebRuleBlackListAsync(request:EnableWebRuleBlackListRequest,requestComplation:@escaping (NSNumber?,EnableWebRuleBlackListResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableWebRuleBlackListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableWebRuleBlackListResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func enableBlackListRuleOfWebRuleAsync(request:EnableBlackListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,EnableBlackListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableBlackListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableBlackListRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeIpSetsAsync(request:DescribeIpSetsRequest,requestComplation:@escaping (NSNumber?,DescribeIpSetsResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeIpSetsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeIpSetsResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func enableWhiteListRuleOfWebRuleAsync(request:EnableWhiteListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,EnableWhiteListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableWhiteListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableWhiteListRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func deleteWhiteListRuleOfWebRuleAsync(request:DeleteWhiteListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DeleteWhiteListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DeleteWhiteListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DeleteWhiteListRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func disableWebRuleWhiteListAsync(request:DisableWebRuleWhiteListRequest,requestComplation:@escaping (NSNumber?,DisableWebRuleWhiteListResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DisableWebRuleWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DisableWebRuleWhiteListResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeIpSetAsync(request:DescribeIpSetRequest,requestComplation:@escaping (NSNumber?,DescribeIpSetResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeIpSetExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeIpSetResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -312,14 +501,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func modifyInstanceIpBlackListAsync(request:ModifyInstanceIpBlackListRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceIpBlackListResponse?,NSError?,NSString?)->()) throws {
+    public func createInstanceAsync(request:CreateInstanceRequest,requestComplation:@escaping (NSNumber?,CreateInstanceResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try ModifyInstanceIpBlackListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try CreateInstanceExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceIpBlackListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(CreateInstanceResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -333,14 +522,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func createInstanceAsync(request:CreateInstanceRequest,requestComplation:@escaping (NSNumber?,CreateInstanceResponse?,NSError?,NSString?)->()) throws {
+    public func describeCpsIpListAsync(request:DescribeCpsIpListRequest,requestComplation:@escaping (NSNumber?,DescribeCpsIpListResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try CreateInstanceExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeCpsIpListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstanceResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeCpsIpListResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -396,6 +585,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeBlackListRuleOfForwardRuleAsync(request:DescribeBlackListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,DescribeBlackListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeBlackListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeBlackListRuleOfForwardRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeAttackTypeCountAsync(request:DescribeAttackTypeCountRequest,requestComplation:@escaping (NSNumber?,DescribeAttackTypeCountResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try DescribeAttackTypeCountExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -404,6 +614,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeAttackTypeCountResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func disableCCProtectionRuleOfWebRuleAsync(request:DisableCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DisableCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DisableCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DisableCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -459,27 +690,6 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func describeCCDefaultThresholdsAsync(request:DescribeCCDefaultThresholdsRequest,requestComplation:@escaping (NSNumber?,DescribeCCDefaultThresholdsResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try DescribeCCDefaultThresholdsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCCDefaultThresholdsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func describeCCAttackLogsAsync(request:DescribeCCAttackLogsRequest,requestComplation:@escaping (NSNumber?,DescribeCCAttackLogsResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try DescribeCCAttackLogsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -501,14 +711,35 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func modifyInstanceCCAsync(request:ModifyInstanceCCRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceCCResponse?,NSError?,NSString?)->()) throws {
+    public func deleteCCProtectionRuleOfWebRuleAsync(request:DeleteCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DeleteCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try ModifyInstanceCCExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DeleteCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceCCResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DeleteCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func disableWebRuleCCObserverModeAsync(request:DisableWebRuleCCObserverModeRequest,requestComplation:@escaping (NSNumber?,DisableWebRuleCCObserverModeResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DisableWebRuleCCObserverModeExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DisableWebRuleCCObserverModeResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -627,14 +858,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func disableCCIpLimitAsync(request:DisableCCIpLimitRequest,requestComplation:@escaping (NSNumber?,DisableCCIpLimitResponse?,NSError?,NSString?)->()) throws {
+    public func modifyBlackListRuleOfWebRuleAsync(request:ModifyBlackListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,ModifyBlackListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DisableCCIpLimitExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try ModifyBlackListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableCCIpLimitResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(ModifyBlackListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -648,14 +879,56 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func disableInstanceIpBlackListAsync(request:DisableInstanceIpBlackListRequest,requestComplation:@escaping (NSNumber?,DisableInstanceIpBlackListResponse?,NSError?,NSString?)->()) throws {
+    public func deleteIpSetAsync(request:DeleteIpSetRequest,requestComplation:@escaping (NSNumber?,DeleteIpSetResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DisableInstanceIpBlackListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DeleteIpSetExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableInstanceIpBlackListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DeleteIpSetResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func enableWebRuleWhiteListAsync(request:EnableWebRuleWhiteListRequest,requestComplation:@escaping (NSNumber?,EnableWebRuleWhiteListResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableWebRuleWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableWebRuleWhiteListResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeWebRuleWhiteListUsageAsync(request:DescribeWebRuleWhiteListUsageRequest,requestComplation:@escaping (NSNumber?,DescribeWebRuleWhiteListUsageResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeWebRuleWhiteListUsageExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeWebRuleWhiteListUsageResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -711,48 +984,6 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func disableInstanceUrlWhiteListAsync(request:DisableInstanceUrlWhiteListRequest,requestComplation:@escaping (NSNumber?,DisableInstanceUrlWhiteListResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try DisableInstanceUrlWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableInstanceUrlWhiteListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
-    public func modifyInstanceUrlWhiteListAsync(request:ModifyInstanceUrlWhiteListRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceUrlWhiteListResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try ModifyInstanceUrlWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceUrlWhiteListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func modifyAlarmConfigAsync(request:ModifyAlarmConfigRequest,requestComplation:@escaping (NSNumber?,ModifyAlarmConfigResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try ModifyAlarmConfigExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -774,14 +1005,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func modifyInstanceIpWhiteListAsync(request:ModifyInstanceIpWhiteListRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceIpWhiteListResponse?,NSError?,NSString?)->()) throws {
+    public func describeWebRuleWhiteListGeoAreasAsync(request:DescribeWebRuleWhiteListGeoAreasRequest,requestComplation:@escaping (NSNumber?,DescribeWebRuleWhiteListGeoAreasResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try ModifyInstanceIpWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeWebRuleWhiteListGeoAreasExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceIpWhiteListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeWebRuleWhiteListGeoAreasResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -795,14 +1026,35 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func describeCertInfoAsync(request:DescribeCertInfoRequest,requestComplation:@escaping (NSNumber?,DescribeCertInfoResponse?,NSError?,NSString?)->()) throws {
+    public func modifyBlackListRuleOfForwardRuleAsync(request:ModifyBlackListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,ModifyBlackListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DescribeCertInfoExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try ModifyBlackListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCertInfoResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(ModifyBlackListRuleOfForwardRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func disableWebRuleBlackListAsync(request:DisableWebRuleBlackListRequest,requestComplation:@escaping (NSNumber?,DisableWebRuleBlackListResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DisableWebRuleBlackListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DisableWebRuleBlackListResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -837,14 +1089,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func downloadDDoSAttackLogsAsync(request:DownloadDDoSAttackLogsRequest,requestComplation:@escaping (NSNumber?,DownloadDDoSAttackLogsResponse?,NSError?,NSString?)->()) throws {
+    public func deleteBlackListRuleOfWebRuleAsync(request:DeleteBlackListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DeleteBlackListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DownloadDDoSAttackLogsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DeleteBlackListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DownloadDDoSAttackLogsResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DeleteBlackListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -858,14 +1110,35 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func enableInstanceUrlWhiteListAsync(request:EnableInstanceUrlWhiteListRequest,requestComplation:@escaping (NSNumber?,EnableInstanceUrlWhiteListResponse?,NSError?,NSString?)->()) throws {
+    public func describeCCProtectionRuleOfWebRuleAsync(request:DescribeCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try EnableInstanceUrlWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableInstanceUrlWhiteListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func disableBlackListRuleOfWebRuleAsync(request:DisableBlackListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DisableBlackListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DisableBlackListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DisableBlackListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -900,14 +1173,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func disableInstanceCCAsync(request:DisableInstanceCCRequest,requestComplation:@escaping (NSNumber?,DisableInstanceCCResponse?,NSError?,NSString?)->()) throws {
+    public func describeWhiteListRuleOfWebRuleAsync(request:DescribeWhiteListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeWhiteListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DisableInstanceCCExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeWhiteListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableInstanceCCResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeWhiteListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -921,14 +1194,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func downloadCCAttackLogsAsync(request:DownloadCCAttackLogsRequest,requestComplation:@escaping (NSNumber?,DownloadCCAttackLogsResponse?,NSError?,NSString?)->()) throws {
+    public func describeBlackListRuleOfWebRuleAsync(request:DescribeBlackListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeBlackListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DownloadCCAttackLogsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DescribeBlackListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DownloadCCAttackLogsResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DescribeBlackListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -963,6 +1236,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeBlackListRulesOfWebRuleAsync(request:DescribeBlackListRulesOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeBlackListRulesOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeBlackListRulesOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeBlackListRulesOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeDDoSAttackLogsAsync(request:DescribeDDoSAttackLogsRequest,requestComplation:@escaping (NSNumber?,DescribeDDoSAttackLogsResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try DescribeDDoSAttackLogsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -984,14 +1278,14 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func enableCCObserverModeAsync(request:EnableCCObserverModeRequest,requestComplation:@escaping (NSNumber?,EnableCCObserverModeResponse?,NSError?,NSString?)->()) throws {
+    public func enableWhiteListRuleOfForwardRuleAsync(request:EnableWhiteListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,EnableWhiteListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try EnableCCObserverModeExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try EnableWhiteListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableCCObserverModeResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(EnableWhiteListRuleOfForwardRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1005,14 +1299,35 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func enableInstanceIpBlackListAsync(request:EnableInstanceIpBlackListRequest,requestComplation:@escaping (NSNumber?,EnableInstanceIpBlackListResponse?,NSError?,NSString?)->()) throws {
+    public func disableWhiteListRuleOfWebRuleAsync(request:DisableWhiteListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DisableWhiteListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try EnableInstanceIpBlackListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DisableWhiteListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableInstanceIpBlackListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DisableWhiteListRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func modifyWhiteListRuleOfForwardRuleAsync(request:ModifyWhiteListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,ModifyWhiteListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try ModifyWhiteListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ModifyWhiteListRuleOfForwardRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1047,14 +1362,56 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func disableInstanceIpWhiteListAsync(request:DisableInstanceIpWhiteListRequest,requestComplation:@escaping (NSNumber?,DisableInstanceIpWhiteListResponse?,NSError?,NSString?)->()) throws {
+    public func modifyCCProtectionRuleOfWebRuleAsync(request:ModifyCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,ModifyCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try DisableInstanceIpWhiteListExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try ModifyCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableInstanceIpWhiteListResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(ModifyCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeCCProtectionConfigOfWebRuleAsync(request:DescribeCCProtectionConfigOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeCCProtectionConfigOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeCCProtectionConfigOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeCCProtectionConfigOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeCCProtectionRulesOfWebRuleAsync(request:DescribeCCProtectionRulesOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeCCProtectionRulesOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeCCProtectionRulesOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeCCProtectionRulesOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1076,6 +1433,48 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DisableWebRuleCCResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func createWhiteListRuleOfWebRuleAsync(request:CreateWhiteListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,CreateWhiteListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try CreateWhiteListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateWhiteListRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func createBlackListRuleOfWebRuleAsync(request:CreateBlackListRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,CreateBlackListRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try CreateBlackListRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(CreateBlackListRuleOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1131,14 +1530,119 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func enableInstanceCCAsync(request:EnableInstanceCCRequest,requestComplation:@escaping (NSNumber?,EnableInstanceCCResponse?,NSError?,NSString?)->()) throws {
+    public func disableBlackListRuleOfForwardRuleAsync(request:DisableBlackListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,DisableBlackListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
-        try EnableInstanceCCExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+        try DisableBlackListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
             if( resultString != nil )
             {
                 do{
                     let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableInstanceCCResponse.self, from: responseData!)
+                    let result = try JSONDecoder().decode(DisableBlackListRuleOfForwardRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeIpSetUsageAsync(request:DescribeIpSetUsageRequest,requestComplation:@escaping (NSNumber?,DescribeIpSetUsageResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeIpSetUsageExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeIpSetUsageResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func modifyCCProtectionConfigOfWebRuleAsync(request:ModifyCCProtectionConfigOfWebRuleRequest,requestComplation:@escaping (NSNumber?,ModifyCCProtectionConfigOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try ModifyCCProtectionConfigOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(ModifyCCProtectionConfigOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func disableWhiteListRuleOfForwardRuleAsync(request:DisableWhiteListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,DisableWhiteListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DisableWhiteListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DisableWhiteListRuleOfForwardRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func enableCCProtectionRuleOfWebRuleAsync(request:EnableCCProtectionRuleOfWebRuleRequest,requestComplation:@escaping (NSNumber?,EnableCCProtectionRuleOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableCCProtectionRuleOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableCCProtectionRuleOfWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeWhiteListRulesOfWebRuleAsync(request:DescribeWhiteListRulesOfWebRuleRequest,requestComplation:@escaping (NSNumber?,DescribeWhiteListRulesOfWebRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeWhiteListRulesOfWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeWhiteListRulesOfWebRuleResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1160,6 +1664,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeWebRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func describeWebRuleBlackListGeoAreasAsync(request:DescribeWebRuleBlackListGeoAreasRequest,requestComplation:@escaping (NSNumber?,DescribeWebRuleBlackListGeoAreasResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeWebRuleBlackListGeoAreasExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeWebRuleBlackListGeoAreasResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
@@ -1236,27 +1761,6 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
-    public func downloadCCAttackLogDetailsAsync(request:DownloadCCAttackLogDetailsRequest,requestComplation:@escaping (NSNumber?,DownloadCCAttackLogDetailsResponse?,NSError?,NSString?)->()) throws {
-        ipantiJDCloudClient = self
-        try DownloadCCAttackLogDetailsExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DownloadCCAttackLogDetailsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
-
-        }
-    }
-
-
-    @objc
     public func deleteWebRuleAsync(request:DeleteWebRuleRequest,requestComplation:@escaping (NSNumber?,DeleteWebRuleResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try DeleteWebRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1320,6 +1824,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeWhiteListRuleOfForwardRuleAsync(request:DescribeWhiteListRuleOfForwardRuleRequest,requestComplation:@escaping (NSNumber?,DescribeWhiteListRuleOfForwardRuleResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try DescribeWhiteListRuleOfForwardRuleExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeWhiteListRuleOfForwardRuleResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeCCGraphAsync(request:DescribeCCGraphRequest,requestComplation:@escaping (NSNumber?,DescribeCCGraphResponse?,NSError?,NSString?)->()) throws {
         ipantiJDCloudClient = self
         try DescribeCCGraphExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
@@ -1349,6 +1874,27 @@ public class IpantiJDCloudClient:NSObject,JDCloudClient{
                 do{
                     let responseData = resultString!.data(using: .utf8)
                     let result = try JSONDecoder().decode(DescribeInstanceResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
+    public func enableWebRuleCCObserverModeAsync(request:EnableWebRuleCCObserverModeRequest,requestComplation:@escaping (NSNumber?,EnableWebRuleCCObserverModeResponse?,NSError?,NSString?)->()) throws {
+        ipantiJDCloudClient = self
+        try EnableWebRuleCCObserverModeExecutor(jdCloudClient: ipantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(EnableWebRuleCCObserverModeResponse.self, from: responseData!)
                     requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
                 }catch{
                     requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)

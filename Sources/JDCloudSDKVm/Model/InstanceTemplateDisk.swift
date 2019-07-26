@@ -27,9 +27,9 @@ import Foundation
 ///  instanceTemplateDisk
 @objc(InstanceTemplateDisk)
 public class InstanceTemplateDisk:NSObject,Codable{
-    /// 云硬盘类型，取值为 ssd 或 premium-hdd
+    /// 云硬盘类型，取值为 ssd、premium-hdd、hdd.std1、ssd.gp1、ssd.io1
     var diskType:String?
-    /// 云硬盘大小，单位为 GiB；ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G
+    /// 云硬盘大小，单位为 GiB；ssd 类型取值范围[20,1000]GB，步长为10G，premium-hdd 类型取值范围[20,3000]GB，步长为10G，hdd.std1、ssd.gp1、ssd.io1 类型取值范围[20-16000]GB，步长为10GB
     var diskSizeGB:Int?
     /// 用于创建云硬盘的快照ID
     var snapshotId:String?

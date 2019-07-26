@@ -207,6 +207,27 @@ public class BaseantiJDCloudClient:NSObject,JDCloudClient{
 
 
     @objc
+    public func describeCcsIpResourcesAsync(request:DescribeCcsIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeCcsIpResourcesResponse?,NSError?,NSString?)->()) throws {
+        baseantiJDCloudClient = self
+        try DescribeCcsIpResourcesExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
+            if( resultString != nil )
+            {
+                do{
+                    let responseData = resultString!.data(using: .utf8)
+                    let result = try JSONDecoder().decode(DescribeCcsIpResourcesResponse.self, from: responseData!)
+                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
+                }catch{
+                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+                }
+            }else{
+                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
+            }
+
+        }
+    }
+
+
+    @objc
     public func describeIpCleanThresholdRangeAsync(request:DescribeIpCleanThresholdRangeRequest,requestComplation:@escaping (NSNumber?,DescribeIpCleanThresholdRangeResponse?,NSError?,NSString?)->()) throws {
         baseantiJDCloudClient = self
         try DescribeIpCleanThresholdRangeExecutor(jdCloudClient: baseantiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in

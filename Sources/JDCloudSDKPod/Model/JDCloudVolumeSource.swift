@@ -42,6 +42,8 @@ public class JDCloudVolumeSource:NSObject,Codable{
     var fsType:String
     /// 随容器自动创建的新盘，会自动格式化成指定的文件系统类型；挂载已有的盘，默认不会格式化，只会按照指定的fsType去挂载；如果希望格式化，必须设置此字段为true
     var formatVolume:Bool?
+    /// 云盘的 iops 值，目前只有 ssd.io1 类型有效
+    var iops:Int?
     /// 是否随pod删除。默认：true
     var autoDelete:Bool?
 
@@ -59,6 +61,7 @@ public class JDCloudVolumeSource:NSObject,Codable{
         case sizeGB
         case fsType
         case formatVolume
+        case iops
         case autoDelete
     }
 
@@ -90,6 +93,10 @@ public class JDCloudVolumeSource:NSObject,Codable{
         {
             self.formatVolume = try decoderContainer.decode(Bool?.self, forKey: .formatVolume)
         }
+        if decoderContainer.contains(.iops)
+        {
+            self.iops = try decoderContainer.decode(Int?.self, forKey: .iops)
+        }
         if decoderContainer.contains(.autoDelete)
         {
             self.autoDelete = try decoderContainer.decode(Bool?.self, forKey: .autoDelete)
@@ -106,6 +113,7 @@ public extension JDCloudVolumeSource{
          try encoderContainer.encode(sizeGB, forKey: .sizeGB)
          try encoderContainer.encode(fsType, forKey: .fsType)
          try encoderContainer.encode(formatVolume, forKey: .formatVolume)
+         try encoderContainer.encode(iops, forKey: .iops)
          try encoderContainer.encode(autoDelete, forKey: .autoDelete)
     }
 }

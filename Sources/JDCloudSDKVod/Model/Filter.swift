@@ -27,12 +27,12 @@ import Foundation
 ///  filter
 @objc(Filter)
 public class Filter:NSObject,Codable{
-    /// 筛选属性名
+    /// 过滤器属性名
     /// Required:true
     var name:String
-    /// 筛选操作符，默认eq
+    /// 过滤器操作符，默认值为 eq
     var operatorValue:String?
-    /// 筛选值列表
+    /// 过滤器属性值
     /// Required:true
     var values:[String?]
 

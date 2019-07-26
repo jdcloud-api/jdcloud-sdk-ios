@@ -60,8 +60,27 @@ public class InstanceSpec:NSObject,Codable{
       /// 打包创建弹性公网IP的情况下，若公网IP的计费方式没有指定为按用量计费，那么公网IP计费方式只能与云主机保持一致。
       /// 
     var charge:ChargeSpec?
+    /// 元数据信息，目前只支持传入一个key为&quot;launch-script&quot;，表示首次启动脚本。value为base64格式。
+      /// launch-script：linux系统支持bash和python，编码前须分别以 #!/bin/bash 和 #!/usr/bin/env python 作为内容首行;
+      /// launch-script：windows系统支持bat和powershell，编码前须分别以 &lt;cmd&gt;&lt;/cmd&gt; 和 &lt;powershell&gt;&lt;/powershell&gt; 作为内容首、尾行。
+      /// 
+    var userdata:[Userdata?]?
     /// 主机描述，&lt;a href&#x3D;&quot;http://docs.jdcloud.com/virtual-machines/api/general_parameters&quot;&gt;参考公共参数规范&lt;/a&gt;。
     var descriptionValue:String?
+    /// 不使用模板中的密码。
+      /// 仅当不使用Ag，并且使用了模板，并且password参数为空时，此参数(值为true)生效。
+      /// 若使用模板创建虚机时，又指定了password参数时，此参数无效，以新指定的为准。
+      /// 
+    var noPassword:Bool?
+    /// 不使用模板中的密钥。
+      /// 仅当不使用Ag，并且使用了模板，并且keynames参数为空时，此参数(值为true)生效。
+      /// 若使用模板创建虚机时，又指定了keynames参数时，此参数无效，以新指定的为准。
+      /// 
+    var noKeyNames:Bool?
+    /// 不使用模板中的弹性公网IP。
+      /// 仅当不使用Ag，并且使用了模板，并且elasticIp参数为空时，此参数(值为true)生效。
+      /// 若使用模板创建虚机时，又指定了elasticIp参数时，此参数无效，以新指定的为准。
+    var noElasticIp:Bool?
 
 
 
@@ -83,7 +102,11 @@ public class InstanceSpec:NSObject,Codable{
         case systemDisk
         case dataDisks
         case charge
+        case userdata
         case descriptionValue = "description"
+        case noPassword
+        case noKeyNames
+        case noElasticIp
     }
 
 
@@ -138,9 +161,25 @@ public class InstanceSpec:NSObject,Codable{
         {
             self.charge = try decoderContainer.decode(ChargeSpec?.self, forKey: .charge)
         }
+        if decoderContainer.contains(.userdata)
+        {
+            self.userdata = try decoderContainer.decode([Userdata?]?.self, forKey: .userdata)
+        }
         if decoderContainer.contains(.descriptionValue)
         {
             self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
+        }
+        if decoderContainer.contains(.noPassword)
+        {
+            self.noPassword = try decoderContainer.decode(Bool?.self, forKey: .noPassword)
+        }
+        if decoderContainer.contains(.noKeyNames)
+        {
+            self.noKeyNames = try decoderContainer.decode(Bool?.self, forKey: .noKeyNames)
+        }
+        if decoderContainer.contains(.noElasticIp)
+        {
+            self.noElasticIp = try decoderContainer.decode(Bool?.self, forKey: .noElasticIp)
         }
     }
 }
@@ -160,6 +199,10 @@ public extension InstanceSpec{
          try encoderContainer.encode(systemDisk, forKey: .systemDisk)
          try encoderContainer.encode(dataDisks, forKey: .dataDisks)
          try encoderContainer.encode(charge, forKey: .charge)
+         try encoderContainer.encode(userdata, forKey: .userdata)
          try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
+         try encoderContainer.encode(noPassword, forKey: .noPassword)
+         try encoderContainer.encode(noKeyNames, forKey: .noKeyNames)
+         try encoderContainer.encode(noElasticIp, forKey: .noElasticIp)
     }
 }

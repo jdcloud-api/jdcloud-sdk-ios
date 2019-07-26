@@ -34,13 +34,13 @@ public class ModifyCertInfoRequest:JdCloudRequest
     var certInfoModifySpec:CertInfoModifySpec
 
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
     /// 网站规则 Id
-    var webRuleId:Int64
+    var webRuleId:String
 
 
-    public init(regionId: String,certInfoModifySpec:CertInfoModifySpec,instanceId:Int64,webRuleId:Int64){
+    public init(regionId: String,certInfoModifySpec:CertInfoModifySpec,instanceId:String,webRuleId:String){
         self.certInfoModifySpec = certInfoModifySpec
         self.instanceId = instanceId
         self.webRuleId = webRuleId

@@ -49,6 +49,10 @@ public class ProtectionRule:NSObject,Codable{
     var datagramRangeMax:Int64?
     /// geo 拦截地域列表
     var geoBlackList:[GeoBlack?]?
+    /// IP 黑名单列表
+    var ipBlackList:[String?]?
+    /// IP 白名单列表
+    var ipWhiteList:[String?]?
 
 
 
@@ -68,6 +72,8 @@ public class ProtectionRule:NSObject,Codable{
         case datagramRangeMin
         case datagramRangeMax
         case geoBlackList
+        case ipBlackList
+        case ipWhiteList
     }
 
 
@@ -117,6 +123,14 @@ public class ProtectionRule:NSObject,Codable{
         {
             self.geoBlackList = try decoderContainer.decode([GeoBlack?]?.self, forKey: .geoBlackList)
         }
+        if decoderContainer.contains(.ipBlackList)
+        {
+            self.ipBlackList = try decoderContainer.decode([String?]?.self, forKey: .ipBlackList)
+        }
+        if decoderContainer.contains(.ipWhiteList)
+        {
+            self.ipWhiteList = try decoderContainer.decode([String?]?.self, forKey: .ipWhiteList)
+        }
     }
 }
 public extension ProtectionRule{
@@ -133,5 +147,7 @@ public extension ProtectionRule{
          try encoderContainer.encode(datagramRangeMin, forKey: .datagramRangeMin)
          try encoderContainer.encode(datagramRangeMax, forKey: .datagramRangeMax)
          try encoderContainer.encode(geoBlackList, forKey: .geoBlackList)
+         try encoderContainer.encode(ipBlackList, forKey: .ipBlackList)
+         try encoderContainer.encode(ipWhiteList, forKey: .ipWhiteList)
     }
 }

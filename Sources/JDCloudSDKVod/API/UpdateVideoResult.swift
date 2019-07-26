@@ -41,19 +41,24 @@ public class UpdateVideoResult:NSObject,JdCloudResult
     /// 封面图地址
     var coverUrl:String?
 
-    /// 视频状态
+    /// 视频状态。取值范围：
+      ///   transcoding - 转码中
+      ///   transcode_failed - 转码失败
+      ///   normal - 正常
+      ///   uploaded - 上传完成（未转码）
+      /// 
     var status:String?
 
-    /// 文件大小，单位字节
+    /// 文件大小，单位为 Byte
     var fileSize:Int64?
 
-    /// 文件校验和
+    /// 文件MD5校验和
     var checksum:String?
 
     /// 视频时长
     var duration:Int64?
 
-    /// 标签
+    /// 标签集合
     var tags:[String?]?
 
     /// 分类ID
@@ -62,13 +67,13 @@ public class UpdateVideoResult:NSObject,JdCloudResult
     /// 分类名称
     var categoryName:String?
 
-    /// Snapshots
+    /// 转码截图
     var snapshots:[Snapshot?]?
 
-    /// CreateTime
+    /// 创建时间
     var createTime:String?
 
-    /// UpdateTime
+    /// 修改时间
     var updateTime:String?
 
 

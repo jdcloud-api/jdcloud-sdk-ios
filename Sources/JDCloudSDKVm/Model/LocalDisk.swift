@@ -27,7 +27,7 @@ import Foundation
 ///  描述实例的本地磁盘
 @objc(LocalDisk)
 public class LocalDisk:NSObject,Codable{
-    /// 磁盘类型，取值范围{premium-hdd, ssd}
+    /// 磁盘类型，取值范围{ssd、premium-hdd、hdd.std1、ssd.gp1、ssd.io1}
     var diskType:String?
     /// 磁盘大小
     var diskSizeGB:Int?

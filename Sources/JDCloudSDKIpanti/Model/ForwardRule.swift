@@ -28,9 +28,9 @@ import Foundation
 @objc(ForwardRule)
 public class ForwardRule:NSObject,Codable{
     /// 规则id
-    var id:Int64?
+    var id:String?
     /// 实例id
-    var instanceId:Int64?
+    var instanceId:String?
     /// TCP或UDP
     var protocolValue:String?
     /// 规则的cname
@@ -41,7 +41,6 @@ public class ForwardRule:NSObject,Codable{
     var port:Int?
     /// 转发规则
       /// - wrr 带权重的轮询
-      /// - wlc 加权最小连接
       /// - rr  不带权重的轮询
       /// - sh  源地址hash
       /// 
@@ -83,11 +82,11 @@ public class ForwardRule:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: ForwardRuleCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.instanceId)
         {
-            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
         if decoderContainer.contains(.protocolValue)
         {

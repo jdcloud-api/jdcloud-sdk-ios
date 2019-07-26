@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除网站规则
+///  删除网站规则。支持批量操作, 批量操作时 webRuleId 传多个, 以 &#39;,&#39; 分隔, 返回 result.code 为 1 表示操作成功, 为 0 时可能全部失败, 也可能部分失败
 public class DeleteWebRuleExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

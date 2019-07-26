@@ -30,7 +30,7 @@ import JDCloudSDKCore
 @objc(DescribeLiveStatisticGroupByStreamRequest)
 public class DescribeLiveStatisticGroupByStreamRequest:JdCloudRequest
 {
-    /// 推流域名
+    /// 播放域名
     var domainName:String
 
     /// 应用名称

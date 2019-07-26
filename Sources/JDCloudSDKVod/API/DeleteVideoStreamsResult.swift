@@ -25,8 +25,52 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 删除视频码流信息
+/// 删除视频转码流
 @objc(DeleteVideoStreamsResult)
 public class DeleteVideoStreamsResult:NSObject,JdCloudResult
 {
+    /// 删除成功的转码任务ID列表
+    var okTaskIds:[Double?]?
+
+    /// 未找到的转码任务ID列表
+    var notFoundTaskIds:[Double?]?
+
+    /// 删除失败的转码任务ID列表
+    var failedTaskIds:[Double?]?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum DeleteVideoStreamsResultCodingKeys: String, CodingKey {
+        case okTaskIds
+        case notFoundTaskIds
+        case failedTaskIds
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: DeleteVideoStreamsResultCodingKeys.self)
+        if decoderContainer.contains(.okTaskIds)
+        {
+            self.okTaskIds = try decoderContainer.decode([Double?]?.self, forKey: .okTaskIds)
+        }
+        if decoderContainer.contains(.notFoundTaskIds)
+        {
+            self.notFoundTaskIds = try decoderContainer.decode([Double?]?.self, forKey: .notFoundTaskIds)
+        }
+        if decoderContainer.contains(.failedTaskIds)
+        {
+            self.failedTaskIds = try decoderContainer.decode([Double?]?.self, forKey: .failedTaskIds)
+        }
+    }
+}
+public extension DeleteVideoStreamsResult{
+    func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: DeleteVideoStreamsResultCodingKeys.self)
+        try encoderContainer.encode(okTaskIds, forKey: .okTaskIds)
+        try encoderContainer.encode(notFoundTaskIds, forKey: .notFoundTaskIds)
+        try encoderContainer.encode(failedTaskIds, forKey: .failedTaskIds)
+    }
 }

@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询 DDos 攻击日志
+///  查询 DDoS 攻击日志
 @objc(DescribeDDoSAttackLogsRequest)
 public class DescribeDDoSAttackLogsRequest:JdCloudRequest
 {
@@ -43,7 +43,7 @@ public class DescribeDDoSAttackLogsRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例 ID
-    var instanceId:[Int64?]?
+    var instanceId:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){

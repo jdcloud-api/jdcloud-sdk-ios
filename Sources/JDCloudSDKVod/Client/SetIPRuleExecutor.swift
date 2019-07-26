@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  设置CDN域名IP规则
+///  设置CDN域名IP黑名单规则
 public class SetIPRuleExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

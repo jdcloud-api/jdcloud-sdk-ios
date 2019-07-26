@@ -27,15 +27,18 @@ import Foundation
 ///  创建缓存Redis实例时，用户输入的可用区ID信息
 @objc(AzIdSpec)
 public class AzIdSpec:NSObject,Codable{
-    /// 缓存Redis主实例所在区域可用区ID
-    var master:String?
-    /// 缓存Redis从实例所在区域可用区ID
-    var slave:String?
+    /// 缓存Redis主实例所在的可用区ID
+    /// Required:true
+    var master:String
+    /// 缓存Redis从实例所在的可用区ID
+    /// Required:true
+    var slave:String
 
 
 
-    public override init(){
-            super.init()
+    public  init(master:String,slave:String){
+             self.master = master
+             self.slave = slave
     }
 
     enum AzIdSpecCodingKeys: String, CodingKey {
@@ -46,14 +49,8 @@ public class AzIdSpec:NSObject,Codable{
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: AzIdSpecCodingKeys.self)
-        if decoderContainer.contains(.master)
-        {
-            self.master = try decoderContainer.decode(String?.self, forKey: .master)
-        }
-        if decoderContainer.contains(.slave)
-        {
-            self.slave = try decoderContainer.decode(String?.self, forKey: .slave)
-        }
+        self.master = try decoderContainer.decode(String.self, forKey: .master)
+        self.slave = try decoderContainer.decode(String.self, forKey: .slave)
     }
 }
 public extension AzIdSpec{

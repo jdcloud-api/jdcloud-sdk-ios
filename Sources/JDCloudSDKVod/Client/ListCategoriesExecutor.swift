@@ -26,7 +26,8 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询分类列表
+///  查询分类列表，按照分页方式，返回分类列表信息
+      /// 
 public class ListCategoriesExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

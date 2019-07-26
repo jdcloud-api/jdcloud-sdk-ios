@@ -25,15 +25,18 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 批量删除视频信息，调用该接口会同时删除与指定视频相关的所有信息
+/// 批量删除视频，调用该接口会同时删除与指定视频相关的所有信息，包括转码任务信息、转码流数据等，同时清除云存储中相关文件资源。
 @objc(BatchDeleteVideosResult)
 public class BatchDeleteVideosResult:NSObject,JdCloudResult
 {
-    /// DeletedVideoIds
-    var deletedVideoIds:[String?]?
+    /// 删除成功的视频ID集合
+    var okVideoIds:[String?]?
 
-    /// NotFoundVideoIds
+    /// 未找到的视频ID集合
     var notFoundVideoIds:[String?]?
+
+    /// 删除失败的视频ID集合
+    var failedVideoIds:[String?]?
 
 
 
@@ -42,26 +45,32 @@ public class BatchDeleteVideosResult:NSObject,JdCloudResult
     }
 
     enum BatchDeleteVideosResultCodingKeys: String, CodingKey {
-        case deletedVideoIds
+        case okVideoIds
         case notFoundVideoIds
+        case failedVideoIds
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchDeleteVideosResultCodingKeys.self)
-        if decoderContainer.contains(.deletedVideoIds)
+        if decoderContainer.contains(.okVideoIds)
         {
-            self.deletedVideoIds = try decoderContainer.decode([String?]?.self, forKey: .deletedVideoIds)
+            self.okVideoIds = try decoderContainer.decode([String?]?.self, forKey: .okVideoIds)
         }
         if decoderContainer.contains(.notFoundVideoIds)
         {
             self.notFoundVideoIds = try decoderContainer.decode([String?]?.self, forKey: .notFoundVideoIds)
+        }
+        if decoderContainer.contains(.failedVideoIds)
+        {
+            self.failedVideoIds = try decoderContainer.decode([String?]?.self, forKey: .failedVideoIds)
         }
     }
 }
 public extension BatchDeleteVideosResult{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchDeleteVideosResultCodingKeys.self)
-        try encoderContainer.encode(deletedVideoIds, forKey: .deletedVideoIds)
+        try encoderContainer.encode(okVideoIds, forKey: .okVideoIds)
         try encoderContainer.encode(notFoundVideoIds, forKey: .notFoundVideoIds)
+        try encoderContainer.encode(failedVideoIds, forKey: .failedVideoIds)
     }
 }

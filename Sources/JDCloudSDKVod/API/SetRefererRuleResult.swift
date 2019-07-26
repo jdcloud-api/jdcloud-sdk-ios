@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 设置CDN域名Referer规则
+/// 设置CDN域名Referer防盗链规则
 @objc(SetRefererRuleResult)
 public class SetRefererRuleResult:NSObject,JdCloudResult
 {

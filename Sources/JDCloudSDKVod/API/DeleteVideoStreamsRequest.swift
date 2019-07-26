@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  删除视频码流信息
+///  删除视频转码流
 @objc(DeleteVideoStreamsRequest)
 public class DeleteVideoStreamsRequest:JdCloudRequest
 {
@@ -37,7 +37,8 @@ public class DeleteVideoStreamsRequest:JdCloudRequest
     var videoId:String
 
 
-    public init(regionId: String,videoId:String){
+    public init(regionId: String,taskIds:[Int64?]?,videoId:String){
+        self.taskIds = taskIds
         self.videoId = videoId
         super.init(regionId: regionId)
     }

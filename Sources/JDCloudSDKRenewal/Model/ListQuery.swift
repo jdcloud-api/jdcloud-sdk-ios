@@ -27,30 +27,30 @@ import Foundation
 ///  listQuery
 @objc(ListQuery)
 public class ListQuery:NSObject,Codable{
-    /// 到期时间
-    var expireTime:String?
+    /// 业务线
+    var appCode:String?
     /// 产品线
     var serviceCode:String?
-    /// 倒计时
-    var lastTime:Int?
-    /// 资源名称
-    var resourceName:String?
     /// 资源ID
     var resourceId:String?
+    /// 资源名称
+    var resourceName:String?
     /// 地域
-    var dataCenter:String?
-    /// 计费类型
-    var billingType:Int?
-    /// 是否开通自动续费(0:未开通,1:已开通)
-    var autoRenew:Int?
-    /// 1:关联包年包月资源一并自动续费 2：关联包年包月资源不自动续费
-    var associateResource:Int?
-    /// 续费周期
-    var renewTime:Int?
-    /// 数据库类型
-    var databaseType:String?
-    /// 特殊需求
-    var remark:String?
+    var region:String?
+    /// 资源计费类型(CONFIG-按配置,FLOW-按用量,MONTHLY-包年包月)，不传显示全部资源
+    var billingType:String?
+    /// 资源到期时间
+    var expireTime:String?
+    /// 倒计时
+    var lastTime:Int?
+    /// 自动续费状态(UNOPENED-未开通,OPENED-已开通)
+    var autoRenewStatus:String?
+    /// 自动续费周期，单位为月
+    var autoRenewPeriod:String?
+    /// 是否绑定关联资源一并续费(BIND-是,UNBIND-否)
+    var associateResource:String?
+    /// 扩展字段，包括数据库类型、资源特殊说明等
+    var extendField:String?
     /// 绑定资源列表
     var relationList:[RelationResource?]?
 
@@ -61,71 +61,71 @@ public class ListQuery:NSObject,Codable{
     }
 
     enum ListQueryCodingKeys: String, CodingKey {
-        case expireTime
+        case appCode
         case serviceCode
-        case lastTime
-        case resourceName
         case resourceId
-        case dataCenter
+        case resourceName
+        case region
         case billingType
-        case autoRenew
+        case expireTime
+        case lastTime
+        case autoRenewStatus
+        case autoRenewPeriod
         case associateResource
-        case renewTime
-        case databaseType
-        case remark
+        case extendField
         case relationList
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: ListQueryCodingKeys.self)
-        if decoderContainer.contains(.expireTime)
+        if decoderContainer.contains(.appCode)
         {
-            self.expireTime = try decoderContainer.decode(String?.self, forKey: .expireTime)
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
         }
         if decoderContainer.contains(.serviceCode)
         {
             self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
         }
-        if decoderContainer.contains(.lastTime)
+        if decoderContainer.contains(.resourceId)
         {
-            self.lastTime = try decoderContainer.decode(Int?.self, forKey: .lastTime)
+            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
         }
         if decoderContainer.contains(.resourceName)
         {
             self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
         }
-        if decoderContainer.contains(.resourceId)
+        if decoderContainer.contains(.region)
         {
-            self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
-        }
-        if decoderContainer.contains(.dataCenter)
-        {
-            self.dataCenter = try decoderContainer.decode(String?.self, forKey: .dataCenter)
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
         }
         if decoderContainer.contains(.billingType)
         {
-            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+            self.billingType = try decoderContainer.decode(String?.self, forKey: .billingType)
         }
-        if decoderContainer.contains(.autoRenew)
+        if decoderContainer.contains(.expireTime)
         {
-            self.autoRenew = try decoderContainer.decode(Int?.self, forKey: .autoRenew)
+            self.expireTime = try decoderContainer.decode(String?.self, forKey: .expireTime)
+        }
+        if decoderContainer.contains(.lastTime)
+        {
+            self.lastTime = try decoderContainer.decode(Int?.self, forKey: .lastTime)
+        }
+        if decoderContainer.contains(.autoRenewStatus)
+        {
+            self.autoRenewStatus = try decoderContainer.decode(String?.self, forKey: .autoRenewStatus)
+        }
+        if decoderContainer.contains(.autoRenewPeriod)
+        {
+            self.autoRenewPeriod = try decoderContainer.decode(String?.self, forKey: .autoRenewPeriod)
         }
         if decoderContainer.contains(.associateResource)
         {
-            self.associateResource = try decoderContainer.decode(Int?.self, forKey: .associateResource)
+            self.associateResource = try decoderContainer.decode(String?.self, forKey: .associateResource)
         }
-        if decoderContainer.contains(.renewTime)
+        if decoderContainer.contains(.extendField)
         {
-            self.renewTime = try decoderContainer.decode(Int?.self, forKey: .renewTime)
-        }
-        if decoderContainer.contains(.databaseType)
-        {
-            self.databaseType = try decoderContainer.decode(String?.self, forKey: .databaseType)
-        }
-        if decoderContainer.contains(.remark)
-        {
-            self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
+            self.extendField = try decoderContainer.decode(String?.self, forKey: .extendField)
         }
         if decoderContainer.contains(.relationList)
         {
@@ -136,18 +136,18 @@ public class ListQuery:NSObject,Codable{
 public extension ListQuery{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ListQueryCodingKeys.self)
-         try encoderContainer.encode(expireTime, forKey: .expireTime)
+         try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)
-         try encoderContainer.encode(lastTime, forKey: .lastTime)
-         try encoderContainer.encode(resourceName, forKey: .resourceName)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
-         try encoderContainer.encode(dataCenter, forKey: .dataCenter)
+         try encoderContainer.encode(resourceName, forKey: .resourceName)
+         try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(billingType, forKey: .billingType)
-         try encoderContainer.encode(autoRenew, forKey: .autoRenew)
+         try encoderContainer.encode(expireTime, forKey: .expireTime)
+         try encoderContainer.encode(lastTime, forKey: .lastTime)
+         try encoderContainer.encode(autoRenewStatus, forKey: .autoRenewStatus)
+         try encoderContainer.encode(autoRenewPeriod, forKey: .autoRenewPeriod)
          try encoderContainer.encode(associateResource, forKey: .associateResource)
-         try encoderContainer.encode(renewTime, forKey: .renewTime)
-         try encoderContainer.encode(databaseType, forKey: .databaseType)
-         try encoderContainer.encode(remark, forKey: .remark)
+         try encoderContainer.encode(extendField, forKey: .extendField)
          try encoderContainer.encode(relationList, forKey: .relationList)
     }
 }

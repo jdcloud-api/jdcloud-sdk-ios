@@ -30,14 +30,11 @@ import JDCloudSDKCore
 @objc(UpdateVideoRequest)
 public class UpdateVideoRequest:JdCloudRequest
 {
-    /// 视频ID
-    var id:String?
-
     /// 视频名称
     var name:String?
 
     /// 分类ID
-    var categoryId:Int64?
+    var categoryId:Double?
 
     /// 标签
     var tags:[String?]?
@@ -45,7 +42,7 @@ public class UpdateVideoRequest:JdCloudRequest
     /// 封面地址
     var coverUrl:String?
 
-    /// 视频描述
+    /// 视频描述信息
     var descriptionValue:String?
 
     /// 视频ID
@@ -59,7 +56,6 @@ public class UpdateVideoRequest:JdCloudRequest
 
 
     enum UpdateVideoRequestRequestCodingKeys: String, CodingKey {
-        case id
         case name
         case categoryId
         case tags
@@ -70,7 +66,6 @@ public class UpdateVideoRequest:JdCloudRequest
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: UpdateVideoRequestRequestCodingKeys.self)
-        try encoderContainer.encode(id, forKey: .id)
         try encoderContainer.encode(name, forKey: .name)
         try encoderContainer.encode(categoryId, forKey: .categoryId)
         try encoderContainer.encode(tags, forKey: .tags)

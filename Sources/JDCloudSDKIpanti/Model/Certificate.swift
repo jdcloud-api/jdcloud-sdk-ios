@@ -28,7 +28,7 @@ import Foundation
 @objc(Certificate)
 public class Certificate:NSObject,Codable{
     /// 证书 Id
-    var id:Int64?
+    var id:String?
     /// 证书名称
     var name:String?
     /// 证书
@@ -81,7 +81,7 @@ public class Certificate:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: CertificateCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.name)
         {

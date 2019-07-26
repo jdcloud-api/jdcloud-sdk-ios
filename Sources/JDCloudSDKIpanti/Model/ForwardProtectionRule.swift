@@ -50,7 +50,7 @@ public class ForwardProtectionRule:NSObject,Codable{
     /// 报文最大长度
     var datagramRangeMax:Int64?
     /// geo 拦截地域列表
-    var geoBlackList:[GeoBlack?]?
+    var geoBlackList:[Geo?]?
 
 
 
@@ -122,7 +122,7 @@ public class ForwardProtectionRule:NSObject,Codable{
         }
         if decoderContainer.contains(.geoBlackList)
         {
-            self.geoBlackList = try decoderContainer.decode([GeoBlack?]?.self, forKey: .geoBlackList)
+            self.geoBlackList = try decoderContainer.decode([Geo?]?.self, forKey: .geoBlackList)
         }
     }
 }

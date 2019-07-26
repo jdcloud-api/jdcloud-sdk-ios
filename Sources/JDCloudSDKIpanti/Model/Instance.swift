@@ -27,13 +27,13 @@ import Foundation
 ///  instance
 @objc(Instance)
 public class Instance:NSObject,Codable{
-    /// 实例 Id
-    var id:Int64?
+    /// 实例 ID
+    var id:String?
     /// 实例名称
     var name:String?
     /// 链路类型, 1: 电信, 2: 电信、联通, 3: 电信、联通和移动
     var carrier:Int?
-    /// 可防护 ip 类型, 目前仅电信线路支持 IPV6 线路:
+    /// 可防护 IP 类型, 目前仅电信线路支持 IPV6 线路:
       /// - 0: IPV4,
       /// - 1: IPV4/IPV6
       /// 
@@ -48,8 +48,10 @@ public class Instance:NSObject,Codable{
     var resilientBitslimit:Int?
     /// 业务带宽大小
     var businessBitslimit:Int?
-    /// cc阈值大小
+    /// CC 阈值大小
     var ccThreshold:Int?
+    /// CC 防护峰值, 单位: QPS
+    var ccPeakQPS:Int?
     /// 非网站类规则数
     var ruleCount:Int?
     /// 网站类规则数
@@ -62,23 +64,42 @@ public class Instance:NSObject,Codable{
     var createTime:String?
     /// 实例的过期时间
     var expireTime:String?
-    /// 资源id，升级和续费时使用
+    /// 资源 ID, 升级和续费时使用
     var resourceId:String?
-    /// cc防护模式，0正常、1紧急、2宽松、3自定义
+    /// CC 防护观察者模式.
+      /// - 0: 关闭
+      /// - 1: 开启
+      /// 
+    var ccObserveMode:Int?
+    /// CC 防护模式.
+      /// - 0: 正常
+      /// - 1: 紧急
+      /// - 2: 宽松
+      /// - 3: 自定义
+      /// 
     var ccProtectMode:Int?
-    /// cc开关状态，0关闭，1开启
+    /// CC 开关状态.
+      /// - 0: 关闭
+      /// - 1: 开启
+      /// 
     var ccProtectStatus:Int?
-    /// cc防护模式为自定义时的限速大小
+    /// CC 防护模式为自定义时的限速大小
     var ccSpeedLimit:Int?
-    /// cc防护模式为自定义时的限速周期
+    /// CC 防护模式为自定义时的限速周期
     var ccSpeedPeriod:Int?
-    /// ip黑名单列表
+    /// IP 黑名单列表
     var ipBlackList:[String?]?
-    /// ip黑名单状态，0关闭，1开启
+    /// IP 黑名单状态.
+      /// - 0: 关闭
+      /// - 1: 开启
+      /// 
     var ipBlackStatus:Int?
-    /// ip白名单列表
+    /// IP 白名单列表
     var ipWhiteList:[String?]?
-    /// ip白名单状态，0关闭，1开启
+    /// IP 白名单状态.
+      /// - 0: 关闭
+      /// - 1: 开启
+      /// 
     var ipWhiteStatus:Int?
     /// url白名单列表
     var urlWhitelist:[String?]?
@@ -110,6 +131,7 @@ public class Instance:NSObject,Codable{
         case resilientBitslimit
         case businessBitslimit
         case ccThreshold
+        case ccPeakQPS
         case ruleCount
         case webRuleCount
         case chargeStatus
@@ -117,6 +139,7 @@ public class Instance:NSObject,Codable{
         case createTime
         case expireTime
         case resourceId
+        case ccObserveMode
         case ccProtectMode
         case ccProtectStatus
         case ccSpeedLimit
@@ -138,7 +161,7 @@ public class Instance:NSObject,Codable{
         let decoderContainer = try decoder.container(keyedBy: InstanceCodingKeys.self)
         if decoderContainer.contains(.id)
         {
-            self.id = try decoderContainer.decode(Int64?.self, forKey: .id)
+            self.id = try decoderContainer.decode(String?.self, forKey: .id)
         }
         if decoderContainer.contains(.name)
         {
@@ -176,6 +199,10 @@ public class Instance:NSObject,Codable{
         {
             self.ccThreshold = try decoderContainer.decode(Int?.self, forKey: .ccThreshold)
         }
+        if decoderContainer.contains(.ccPeakQPS)
+        {
+            self.ccPeakQPS = try decoderContainer.decode(Int?.self, forKey: .ccPeakQPS)
+        }
         if decoderContainer.contains(.ruleCount)
         {
             self.ruleCount = try decoderContainer.decode(Int?.self, forKey: .ruleCount)
@@ -203,6 +230,10 @@ public class Instance:NSObject,Codable{
         if decoderContainer.contains(.resourceId)
         {
             self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
+        }
+        if decoderContainer.contains(.ccObserveMode)
+        {
+            self.ccObserveMode = try decoderContainer.decode(Int?.self, forKey: .ccObserveMode)
         }
         if decoderContainer.contains(.ccProtectMode)
         {
@@ -275,6 +306,7 @@ public extension Instance{
          try encoderContainer.encode(resilientBitslimit, forKey: .resilientBitslimit)
          try encoderContainer.encode(businessBitslimit, forKey: .businessBitslimit)
          try encoderContainer.encode(ccThreshold, forKey: .ccThreshold)
+         try encoderContainer.encode(ccPeakQPS, forKey: .ccPeakQPS)
          try encoderContainer.encode(ruleCount, forKey: .ruleCount)
          try encoderContainer.encode(webRuleCount, forKey: .webRuleCount)
          try encoderContainer.encode(chargeStatus, forKey: .chargeStatus)
@@ -282,6 +314,7 @@ public extension Instance{
          try encoderContainer.encode(createTime, forKey: .createTime)
          try encoderContainer.encode(expireTime, forKey: .expireTime)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
+         try encoderContainer.encode(ccObserveMode, forKey: .ccObserveMode)
          try encoderContainer.encode(ccProtectMode, forKey: .ccProtectMode)
          try encoderContainer.encode(ccProtectStatus, forKey: .ccProtectStatus)
          try encoderContainer.encode(ccSpeedLimit, forKey: .ccSpeedLimit)

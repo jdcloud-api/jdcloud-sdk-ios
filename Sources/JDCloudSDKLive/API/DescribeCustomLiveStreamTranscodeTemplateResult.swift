@@ -32,14 +32,18 @@ import JDCloudSDKCore
       ///       ///       sd (h.264/960*540/24f)
       ///       ///       hd (h.264/1280*720/25f)
       ///       ///       shd (h.264/1920*1080/30f)
-      ///       ///       ld.265 (h.265/640*360/15f)
-      ///       ///       sd.265 (h.265/960*540/24f)
-      ///       ///       hd.265 (h.265/1280*720/25f)
-      ///       ///       shd.265 (h.265/1920*1080/30f)
+      ///       ///       ld-265 (h.265/640*360/15f)
+      ///       ///       sd-265 (h.265/960*540/24f)
+      ///       ///       hd-265 (h.265/1280*720/25f)
+      ///       ///       shd-265 (h.265/1920*1080/30f)
       ///       /// 
 @objc(DescribeCustomLiveStreamTranscodeTemplateResult)
 public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudResult
 {
+    /// 视频编码格式，取值：h264,h265，默认h264
+      /// 
+    var videoCodec:String?
+
     /// 转码输出的码率值
       /// - 单位: kpbs
       /// 
@@ -53,7 +57,7 @@ public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudRes
       /// 
     var width:Int?
 
-    /// 转码输出视频宽度
+    /// 转码输出视频高度
       /// 
     var height:Int?
 
@@ -84,6 +88,16 @@ public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudRes
       /// 
     var audioCodeRate:Int?
 
+    /// 京享超清
+      /// - 取值: jdchd-1.0,off
+      /// 
+    var jdchd:String?
+
+    /// 舒适音频
+      /// - 取值: on,off
+      /// 
+    var audioComfort:String?
+
 
 
     public override init(){
@@ -91,6 +105,7 @@ public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudRes
     }
 
     enum DescribeCustomLiveStreamTranscodeTemplateResultCodingKeys: String, CodingKey {
+        case videoCodec
         case videoCodeRate
         case videoFrameRate
         case width
@@ -101,10 +116,16 @@ public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudRes
         case audioSampleRate
         case audioChannel
         case audioCodeRate
+        case jdchd
+        case audioComfort
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: DescribeCustomLiveStreamTranscodeTemplateResultCodingKeys.self)
+        if decoderContainer.contains(.videoCodec)
+        {
+            self.videoCodec = try decoderContainer.decode(String?.self, forKey: .videoCodec)
+        }
         if decoderContainer.contains(.videoCodeRate)
         {
             self.videoCodeRate = try decoderContainer.decode(Int?.self, forKey: .videoCodeRate)
@@ -145,11 +166,20 @@ public class DescribeCustomLiveStreamTranscodeTemplateResult:NSObject,JdCloudRes
         {
             self.audioCodeRate = try decoderContainer.decode(Int?.self, forKey: .audioCodeRate)
         }
+        if decoderContainer.contains(.jdchd)
+        {
+            self.jdchd = try decoderContainer.decode(String?.self, forKey: .jdchd)
+        }
+        if decoderContainer.contains(.audioComfort)
+        {
+            self.audioComfort = try decoderContainer.decode(String?.self, forKey: .audioComfort)
+        }
     }
 }
 public extension DescribeCustomLiveStreamTranscodeTemplateResult{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: DescribeCustomLiveStreamTranscodeTemplateResultCodingKeys.self)
+        try encoderContainer.encode(videoCodec, forKey: .videoCodec)
         try encoderContainer.encode(videoCodeRate, forKey: .videoCodeRate)
         try encoderContainer.encode(videoFrameRate, forKey: .videoFrameRate)
         try encoderContainer.encode(width, forKey: .width)
@@ -160,5 +190,7 @@ public extension DescribeCustomLiveStreamTranscodeTemplateResult{
         try encoderContainer.encode(audioSampleRate, forKey: .audioSampleRate)
         try encoderContainer.encode(audioChannel, forKey: .audioChannel)
         try encoderContainer.encode(audioCodeRate, forKey: .audioCodeRate)
+        try encoderContainer.encode(jdchd, forKey: .jdchd)
+        try encoderContainer.encode(audioComfort, forKey: .audioComfort)
     }
 }

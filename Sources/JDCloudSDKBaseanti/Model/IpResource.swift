@@ -50,8 +50,8 @@ public class IpResource:NSObject,Codable{
     var cleanThresholdPps:Int64?
     /// 黑洞阈值
     var blackHoleThreshold:Int64?
-    /// 绑定防护包 ID, 为 0 时表示未绑定防护包
-    var instanceId:Int64?
+    /// 绑定防护包 ID, 为空字符串时表示未绑定防护包
+    var instanceId:String?
     /// 绑定防护包名称, 为空字符串时表示未绑定防护包
     var instanceName:String?
     /// 套餐类型, 1: 独享 IP, 2: 共享 IP, 为 0 时未绑定防护包
@@ -112,7 +112,7 @@ public class IpResource:NSObject,Codable{
         }
         if decoderContainer.contains(.instanceId)
         {
-            self.instanceId = try decoderContainer.decode(Int64?.self, forKey: .instanceId)
+            self.instanceId = try decoderContainer.decode(String?.self, forKey: .instanceId)
         }
         if decoderContainer.contains(.instanceName)
         {

@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 设置CDN域名URL规则
+/// 设置CDN域名URL鉴权规则
 @objc(SetURLRuleResult)
 public class SetURLRuleResult:NSObject,JdCloudResult
 {

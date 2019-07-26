@@ -25,7 +25,7 @@
 import Foundation
 import JDCloudSDKCore
 
-/// 查询用户的京东云 IP 资源
+/// 查询用户可设置为网站类规则回源 IP 的京东云云内弹性公网 IP 资源
 @objc(DescribeVpcIpListResult)
 public class DescribeVpcIpListResult:NSObject,JdCloudResult
 {

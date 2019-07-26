@@ -34,13 +34,13 @@ public class ModifyForwardRuleRequest:JdCloudRequest
     var forwardRuleSpec:ForwardRuleSpec
 
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
     /// 转发规则 Id
-    var forwardRuleId:Int64
+    var forwardRuleId:String
 
 
-    public init(regionId: String,forwardRuleSpec:ForwardRuleSpec,instanceId:Int64,forwardRuleId:Int64){
+    public init(regionId: String,forwardRuleSpec:ForwardRuleSpec,instanceId:String,forwardRuleId:String){
         self.forwardRuleSpec = forwardRuleSpec
         self.instanceId = instanceId
         self.forwardRuleId = forwardRuleId

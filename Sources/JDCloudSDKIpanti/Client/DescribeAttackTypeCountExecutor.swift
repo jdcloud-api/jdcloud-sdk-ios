@@ -30,7 +30,7 @@ import JDCloudSDKCore
 public class DescribeAttackTypeCountExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog/describeAttackTypeCount")
+        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:describeAttackTypeCount")
     }
     
 }

@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询CDN域名IP规则
+///  查询CDN域名IP黑名单规则配置
 @objc(GetIPRuleRequest)
 public class GetIPRuleRequest:JdCloudRequest
 {

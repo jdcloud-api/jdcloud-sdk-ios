@@ -30,13 +30,13 @@ import JDCloudSDKCore
       ///       /// - 系统为您预设了标准转码模板,如果不能满足您的转码需求,可以通过此接口添加自定义转码模板
       ///       /// - 系统标准转码模板
       ///       ///     ld (h.264/640*360/15f)
-      ///       ///     sd (h.264/960*540/24f)
+      ///       ///     sd (h.264/960*540/25f)
       ///       ///     hd (h.264/1280*720/25f)
       ///       ///     shd (h.264/1920*1080/30f)
-      ///       ///     ld.265 (h.265/640*360/15f)
-      ///       ///     sd.265 (h.265/960*540/24f)
-      ///       ///     hd.265 (h.265/1280*720/25f)
-      ///       ///     shd.265 (h.265/1920*1080/30f)
+      ///       ///     ld-265 (h.265/640*360/15f)
+      ///       ///     sd-265 (h.265/960*540/25f)
+      ///       ///     hd-265 (h.265/1280*720/25f)
+      ///       ///     shd-265 (h.265/1920*1080/30f)
       ///       /// 
 @objc(AddCustomLiveStreamTranscodeTemplateRequest)
 public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
@@ -47,11 +47,13 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
     var templateName:String?
 
     /// 视频编码格式，取值：h264,h265，默认h264
+      /// - h264时,分辨率小于等于1080p
+      /// - h265时,分辨率小于等于4k
       /// 
     var videoCodec:String?
 
     /// 转码输出的码率值
-      /// - 取值范围: [1,6000]
+      /// - 取值范围: [128,15000]
       /// - 单位: kpbs
       /// 
     var videoCodeRate:Int
@@ -62,14 +64,14 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
     var videoFrameRate:String
 
     /// 转码输出视频宽度
-      /// - 取值: [128,1920]
+      /// - 取值: [128,4096]
       /// - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
       /// - 如果(width,height)都不设置，则按源流大小输出转码
       /// 
     var width:Int?
 
-    /// 转码输出视频宽度
-      /// - 取值: [128,1920]
+    /// 转码输出视频高度
+      /// - 取值: [128,4096]
       /// - 如果(width,height)只设置其中之一,则按所设置参数项等比缩放另一项输出转码
       /// - 如果(width,height)都不设置，则按源流大小输出转码
       /// 
@@ -80,13 +82,13 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
       /// - &lt;b&gt;注意: 不能与系统的标准的转码模板和当前用户已自定义命名重复&lt;/b&gt;
       /// - 系统标准转码模板
       ///   ld (h.264/640*360/15f)
-      ///   sd (h.264/960*540/24f)
+      ///   sd (h.264/960*540/25f)
       ///   hd (h.264/1280*720/25f)
       ///   shd (h.264/1920*1080/30f)
-      ///   ld.265 (h.265/640*360/15f)
-      ///   sd.265 (h.265/960*540/24f)
-      ///   hd.265 (h.265/1280*720/25f)
-      ///   shd.265 (h.265/1920*1080/30f)
+      ///   ld-265 (h.265/640*360/15f)
+      ///   sd-265 (h.265/960*540/25f)
+      ///   hd-265 (h.265/1280*720/25f)
+      ///   shd-265 (h.265/1920*1080/30f)
       /// 
     var template:String
 
@@ -97,10 +99,10 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
     var audioCodec:String
 
     /// 转码输出音频格式
-      /// - 取值: aac_lc，aac_low，aac_he，aac_he_v2
+      /// - 取值: aac_lc,aac_low,aac_he,aac_he_v2; 默认:aac_he
       /// - 不区分大小写
       /// 
-    var audioFormat:String
+    var audioFormat:String?
 
     /// 转码输出音频采样率
       /// - 取值: [44100,48000]
@@ -119,13 +121,23 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
       /// 
     var audioCodeRate:Int
 
+    /// 京享超清开关
+      /// - 取值: jdchd-1.0,off
+      /// - 京享超清暂时只支持h.264
+      /// 
+    var jdchd:String?
 
-    public init(regionId: String,videoCodeRate:Int,videoFrameRate:String,template:String,audioCodec:String,audioFormat:String,audioSampleRate:Int,audioChannel:Int,audioCodeRate:Int){
+    /// 舒适音频
+      /// - 取值: on,off
+      /// 
+    var audioComfort:String?
+
+
+    public init(regionId: String,videoCodeRate:Int,videoFrameRate:String,template:String,audioCodec:String,audioSampleRate:Int,audioChannel:Int,audioCodeRate:Int){
         self.videoCodeRate = videoCodeRate
         self.videoFrameRate = videoFrameRate
         self.template = template
         self.audioCodec = audioCodec
-        self.audioFormat = audioFormat
         self.audioSampleRate = audioSampleRate
         self.audioChannel = audioChannel
         self.audioCodeRate = audioCodeRate
@@ -146,6 +158,8 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
         case audioSampleRate
         case audioChannel
         case audioCodeRate
+        case jdchd
+        case audioComfort
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -162,6 +176,8 @@ public class AddCustomLiveStreamTranscodeTemplateRequest:JdCloudRequest
         try encoderContainer.encode(audioSampleRate, forKey: .audioSampleRate)
         try encoderContainer.encode(audioChannel, forKey: .audioChannel)
         try encoderContainer.encode(audioCodeRate, forKey: .audioCodeRate)
+        try encoderContainer.encode(jdchd, forKey: .jdchd)
+        try encoderContainer.encode(audioComfort, forKey: .audioComfort)
 
     }
 }

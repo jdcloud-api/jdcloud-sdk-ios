@@ -41,14 +41,14 @@ public class GetCategoryWithChildrenResult:NSObject,JdCloudResult
     /// 分类描述
     var descriptionValue:String?
 
+    /// 下级分类
+    var children:[SubCategory?]?
+
     /// 创建时间
     var createTime:String?
 
     /// 修改时间
     var updateTime:String?
-
-    /// Children
-    var children:[Children?]?
 
 
 
@@ -61,9 +61,9 @@ public class GetCategoryWithChildrenResult:NSObject,JdCloudResult
         case name
         case level
         case descriptionValue = "description"
+        case children
         case createTime
         case updateTime
-        case children
     }
 
     required public init(from decoder: Decoder) throws {
@@ -84,6 +84,10 @@ public class GetCategoryWithChildrenResult:NSObject,JdCloudResult
         {
             self.descriptionValue = try decoderContainer.decode(String?.self, forKey: .descriptionValue)
         }
+        if decoderContainer.contains(.children)
+        {
+            self.children = try decoderContainer.decode([SubCategory?]?.self, forKey: .children)
+        }
         if decoderContainer.contains(.createTime)
         {
             self.createTime = try decoderContainer.decode(String?.self, forKey: .createTime)
@@ -91,10 +95,6 @@ public class GetCategoryWithChildrenResult:NSObject,JdCloudResult
         if decoderContainer.contains(.updateTime)
         {
             self.updateTime = try decoderContainer.decode(String?.self, forKey: .updateTime)
-        }
-        if decoderContainer.contains(.children)
-        {
-            self.children = try decoderContainer.decode([Children?]?.self, forKey: .children)
         }
     }
 }
@@ -105,8 +105,8 @@ public extension GetCategoryWithChildrenResult{
         try encoderContainer.encode(name, forKey: .name)
         try encoderContainer.encode(level, forKey: .level)
         try encoderContainer.encode(descriptionValue, forKey: .descriptionValue)
+        try encoderContainer.encode(children, forKey: .children)
         try encoderContainer.encode(createTime, forKey: .createTime)
         try encoderContainer.encode(updateTime, forKey: .updateTime)
-        try encoderContainer.encode(children, forKey: .children)
     }
 }

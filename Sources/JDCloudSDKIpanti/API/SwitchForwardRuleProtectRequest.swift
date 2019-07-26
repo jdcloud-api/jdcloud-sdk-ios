@@ -31,13 +31,13 @@ import JDCloudSDKCore
 public class SwitchForwardRuleProtectRequest:JdCloudRequest
 {
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
     /// 转发规则 Id
-    var forwardRuleId:Int64
+    var forwardRuleId:String
 
 
-    public init(regionId: String,instanceId:Int64,forwardRuleId:Int64){
+    public init(regionId: String,instanceId:String,forwardRuleId:String){
         self.instanceId = instanceId
         self.forwardRuleId = forwardRuleId
         super.init(regionId: regionId)

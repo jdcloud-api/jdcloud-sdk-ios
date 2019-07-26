@@ -35,6 +35,9 @@ public class ExtendDiskRequest:JdCloudRequest
     /// 扩容后的云硬盘大小，单位为GiB
     var diskSizeGB:Int
 
+    /// 修改ssd.io1型云硬盘的iops数量，当且仅当ssd.io1型的云盘类型有效，步长是10.
+    var iops:Int?
+
     /// 云硬盘ID
     var diskId:String
 
@@ -48,12 +51,14 @@ public class ExtendDiskRequest:JdCloudRequest
 
     enum ExtendDiskRequestRequestCodingKeys: String, CodingKey {
         case diskSizeGB
+        case iops
         case diskId
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: ExtendDiskRequestRequestCodingKeys.self)
         try encoderContainer.encode(diskSizeGB, forKey: .diskSizeGB)
+        try encoderContainer.encode(iops, forKey: .iops)
         try encoderContainer.encode(diskId, forKey: .diskId)
 
     }

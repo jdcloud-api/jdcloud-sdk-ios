@@ -27,49 +27,47 @@ import Foundation
 ///  setRenewalParam
 @objc(SetRenewalParam)
 public class SetRenewalParam:NSObject,Codable{
-    /// 资源id列表,英文逗号分隔
-    /// Required:true
-    var instanceIds:String
-    /// 自动续费状态 0-关闭自动续费,1-开通或修改自动续费
-    /// Required:true
-    var autoRenewStatus:Int
     /// 业务线
     /// Required:true
     var appCode:String
     /// 产品线
     /// Required:true
     var serviceCode:String
-    /// 续费周期（autoRenewStatus&#x3D;1时必传）
+    /// 续费时长
     var timeSpan:Int?
-    /// 时间单位 1-小时 2-天 3-月 4-年（autoRenewStatus&#x3D;1时必传）
-    var timeUnit:Int?
-    /// 是否绑定关联资源一并续费 0-不绑定,1-绑定（autoRenewStatus&#x3D;1时必传）
-    var allAutoPay:Int?
+    /// 时间单位(MONTH-月,YEAR-年)
+    var timeUnit:String?
+    /// 资源ID列表,英文逗号分隔
+    /// Required:true
+    var instanceIds:String
+    /// 自动续费状态(OPEN-开通自动续费,CLOSE-关闭自动续费,MODIFY-修改自动续费)
+    /// Required:true
+    var autoRenewStatus:String
+    /// 是否绑定关联资源一并自动续费(AUTO_RENEW-是,UN_AUTO_RENEW-否)
+    var allAutoPay:String?
 
 
 
-    public  init(instanceIds:String,autoRenewStatus:Int,appCode:String,serviceCode:String){
-             self.instanceIds = instanceIds
-             self.autoRenewStatus = autoRenewStatus
+    public  init(appCode:String,serviceCode:String,instanceIds:String,autoRenewStatus:String){
              self.appCode = appCode
              self.serviceCode = serviceCode
+             self.instanceIds = instanceIds
+             self.autoRenewStatus = autoRenewStatus
     }
 
     enum SetRenewalParamCodingKeys: String, CodingKey {
-        case instanceIds
-        case autoRenewStatus
         case appCode
         case serviceCode
         case timeSpan
         case timeUnit
+        case instanceIds
+        case autoRenewStatus
         case allAutoPay
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: SetRenewalParamCodingKeys.self)
-        self.instanceIds = try decoderContainer.decode(String.self, forKey: .instanceIds)
-        self.autoRenewStatus = try decoderContainer.decode(Int.self, forKey: .autoRenewStatus)
         self.appCode = try decoderContainer.decode(String.self, forKey: .appCode)
         self.serviceCode = try decoderContainer.decode(String.self, forKey: .serviceCode)
         if decoderContainer.contains(.timeSpan)
@@ -78,23 +76,25 @@ public class SetRenewalParam:NSObject,Codable{
         }
         if decoderContainer.contains(.timeUnit)
         {
-            self.timeUnit = try decoderContainer.decode(Int?.self, forKey: .timeUnit)
+            self.timeUnit = try decoderContainer.decode(String?.self, forKey: .timeUnit)
         }
+        self.instanceIds = try decoderContainer.decode(String.self, forKey: .instanceIds)
+        self.autoRenewStatus = try decoderContainer.decode(String.self, forKey: .autoRenewStatus)
         if decoderContainer.contains(.allAutoPay)
         {
-            self.allAutoPay = try decoderContainer.decode(Int?.self, forKey: .allAutoPay)
+            self.allAutoPay = try decoderContainer.decode(String?.self, forKey: .allAutoPay)
         }
     }
 }
 public extension SetRenewalParam{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: SetRenewalParamCodingKeys.self)
-         try encoderContainer.encode(instanceIds, forKey: .instanceIds)
-         try encoderContainer.encode(autoRenewStatus, forKey: .autoRenewStatus)
          try encoderContainer.encode(appCode, forKey: .appCode)
          try encoderContainer.encode(serviceCode, forKey: .serviceCode)
          try encoderContainer.encode(timeSpan, forKey: .timeSpan)
          try encoderContainer.encode(timeUnit, forKey: .timeUnit)
+         try encoderContainer.encode(instanceIds, forKey: .instanceIds)
+         try encoderContainer.encode(autoRenewStatus, forKey: .autoRenewStatus)
          try encoderContainer.encode(allAutoPay, forKey: .allAutoPay)
     }
 }

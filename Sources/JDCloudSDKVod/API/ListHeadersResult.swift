@@ -29,4 +29,30 @@ import JDCloudSDKCore
 @objc(ListHeadersResult)
 public class ListHeadersResult:NSObject,JdCloudResult
 {
+    /// 头参数列表
+    var headers:[GetHeaderResultObject?]?
+
+
+
+    public override init(){
+        super.init()
+    }
+
+    enum ListHeadersResultCodingKeys: String, CodingKey {
+        case headers
+    }
+
+    required public init(from decoder: Decoder) throws {
+        let decoderContainer = try decoder.container(keyedBy: ListHeadersResultCodingKeys.self)
+        if decoderContainer.contains(.headers)
+        {
+            self.headers = try decoderContainer.decode([GetHeaderResultObject?]?.self, forKey: .headers)
+        }
+    }
+}
+public extension ListHeadersResult{
+    func encode(to encoder: Encoder) throws {
+        var encoderContainer = encoder.container(keyedBy: ListHeadersResultCodingKeys.self)
+        try encoderContainer.encode(headers, forKey: .headers)
+    }
 }

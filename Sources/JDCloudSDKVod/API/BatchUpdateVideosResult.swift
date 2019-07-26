@@ -29,11 +29,14 @@ import JDCloudSDKCore
 @objc(BatchUpdateVideosResult)
 public class BatchUpdateVideosResult:NSObject,JdCloudResult
 {
-    /// UpdateVideoIds
-    var updateVideoIds:[String?]?
+    /// 更新成功的视频ID列表
+    var okVideoIds:[String?]?
 
-    /// NotFoundVideoIds
+    /// 未找到的视频ID列表
     var notFoundVideoIds:[String?]?
+
+    /// 更新失败的视频ID列表
+    var failedVideoIds:[String?]?
 
 
 
@@ -42,26 +45,32 @@ public class BatchUpdateVideosResult:NSObject,JdCloudResult
     }
 
     enum BatchUpdateVideosResultCodingKeys: String, CodingKey {
-        case updateVideoIds
+        case okVideoIds
         case notFoundVideoIds
+        case failedVideoIds
     }
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: BatchUpdateVideosResultCodingKeys.self)
-        if decoderContainer.contains(.updateVideoIds)
+        if decoderContainer.contains(.okVideoIds)
         {
-            self.updateVideoIds = try decoderContainer.decode([String?]?.self, forKey: .updateVideoIds)
+            self.okVideoIds = try decoderContainer.decode([String?]?.self, forKey: .okVideoIds)
         }
         if decoderContainer.contains(.notFoundVideoIds)
         {
             self.notFoundVideoIds = try decoderContainer.decode([String?]?.self, forKey: .notFoundVideoIds)
+        }
+        if decoderContainer.contains(.failedVideoIds)
+        {
+            self.failedVideoIds = try decoderContainer.decode([String?]?.self, forKey: .failedVideoIds)
         }
     }
 }
 public extension BatchUpdateVideosResult{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchUpdateVideosResultCodingKeys.self)
-        try encoderContainer.encode(updateVideoIds, forKey: .updateVideoIds)
+        try encoderContainer.encode(okVideoIds, forKey: .okVideoIds)
         try encoderContainer.encode(notFoundVideoIds, forKey: .notFoundVideoIds)
+        try encoderContainer.encode(failedVideoIds, forKey: .failedVideoIds)
     }
 }

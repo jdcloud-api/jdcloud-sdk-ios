@@ -37,7 +37,7 @@ public class DescribeAttackTypeCountRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例 ID
-    var instanceId:[Int64?]?
+    var instanceId:[String?]?
 
 
     public init(regionId: String,startTime:String,endTime:String){

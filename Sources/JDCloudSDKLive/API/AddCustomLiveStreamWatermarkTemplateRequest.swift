@@ -36,25 +36,43 @@ public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
       /// 
     var position:Int?
 
+    /// 偏移量单位
+      /// - 取值: percent,pixel
+      /// - percent:按百分比; pixel:像素 默认:pixel
+      /// 
+    var offsetUnit:String?
+
     /// x轴偏移量
-      /// - 单位: 像素
+      /// - 取值范围
+      ///   percent: (0,100]
+      ///   pixel: (0,1920]
       /// 
     var offsetX:Int
 
     /// y轴偏移量:
-      /// - 单位: 像素
+      /// - 取值范围
+      ///   percent: (0,100]
+      ///   pixel: (0,1920]
       /// 
     var offsetY:Int
 
+    /// 水印大小单位
+      /// - 取值: percent,pixel
+      /// - percent:按百分比; pixel:像素 默认:pixel
+      /// 
+    var sizeUnit:String?
+
     /// 水印宽度:
-      /// - 取值: [0,1920]
-      /// - 单位: 像素
+      /// - 取值范围
+      ///   percent: (0,100]
+      ///   pixel: (0,1920]
       /// 
     var width:Int
 
     /// 水印高度:
-      /// - 取值: [0,1920]
-      /// - 单位: 像素
+      /// - 取值范围
+      ///   percent: (0,100]
+      ///   pixel: (0,1920]
       /// 
     var height:Int
 
@@ -87,8 +105,10 @@ public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
 
     enum AddCustomLiveStreamWatermarkTemplateRequestRequestCodingKeys: String, CodingKey {
         case position
+        case offsetUnit
         case offsetX
         case offsetY
+        case sizeUnit
         case width
         case height
         case template
@@ -99,8 +119,10 @@ public class AddCustomLiveStreamWatermarkTemplateRequest:JdCloudRequest
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: AddCustomLiveStreamWatermarkTemplateRequestRequestCodingKeys.self)
         try encoderContainer.encode(position, forKey: .position)
+        try encoderContainer.encode(offsetUnit, forKey: .offsetUnit)
         try encoderContainer.encode(offsetX, forKey: .offsetX)
         try encoderContainer.encode(offsetY, forKey: .offsetY)
+        try encoderContainer.encode(sizeUnit, forKey: .sizeUnit)
         try encoderContainer.encode(width, forKey: .width)
         try encoderContainer.encode(height, forKey: .height)
         try encoderContainer.encode(template, forKey: .template)

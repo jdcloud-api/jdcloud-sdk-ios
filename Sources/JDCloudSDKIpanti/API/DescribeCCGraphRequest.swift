@@ -37,7 +37,7 @@ public class DescribeCCGraphRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例 Id 列表
-    var instanceId:[Int64?]?
+    var instanceId:[String?]?
 
     /// 规则域名列表
     var subDomain:[String?]?

@@ -26,7 +26,9 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询 CC 攻击日志详情
+///  查询 CC 攻击日志详情.
+      ///       /// - 参数 attackId 优先级高于 instanceId, attackId 不为空时, 忽略 instanceId
+      ///       /// 
 @objc(DescribeCCAttackLogDetailsRequest)
 public class DescribeCCAttackLogDetailsRequest:JdCloudRequest
 {
@@ -43,16 +45,18 @@ public class DescribeCCAttackLogDetailsRequest:JdCloudRequest
     var endTime:String
 
     /// 高防实例 ID
-    var instanceId:Int64
+    var instanceId:String?
 
-    /// 子域名
+    /// 查询的子域名，只有选中某一个实例后才能多选子域名
     var subDomain:[String?]?
 
+    /// CC 攻击记录Id
+    var attackId:String?
 
-    public init(regionId: String,startTime:String,endTime:String,instanceId:Int64){
+
+    public init(regionId: String,startTime:String,endTime:String){
         self.startTime = startTime
         self.endTime = endTime
-        self.instanceId = instanceId
         super.init(regionId: regionId)
     }
 
@@ -64,6 +68,7 @@ public class DescribeCCAttackLogDetailsRequest:JdCloudRequest
         case endTime
         case instanceId
         case subDomain
+        case attackId
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -74,6 +79,7 @@ public class DescribeCCAttackLogDetailsRequest:JdCloudRequest
         try encoderContainer.encode(endTime, forKey: .endTime)
         try encoderContainer.encode(instanceId, forKey: .instanceId)
         try encoderContainer.encode(subDomain, forKey: .subDomain)
+        try encoderContainer.encode(attackId, forKey: .attackId)
 
     }
 }

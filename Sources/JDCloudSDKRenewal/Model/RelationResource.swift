@@ -27,24 +27,26 @@ import Foundation
 ///  relationResource
 @objc(RelationResource)
 public class RelationResource:NSObject,Codable{
+    /// 业务线
+    var appCode:String?
+    /// 产品线
+    var serviceCode:String?
     /// 资源ID
     var resourceId:String?
     /// 资源名称
     var resourceName:String?
-    /// 产品线
-    var serviceCode:String?
-    /// 计费类型
-    var billingType:Int?
-    /// 到期时间
-    var expireTime:String?
     /// 地域
-    var dataCenter:String?
-    /// 是否开通自动续费(0:未开通,1:已开通)
-    var autoRenew:Int?
+    var region:String?
+    /// 资源计费类型(CONFIG-按配置,FLOW-按用量,MONTHLY-包年包月)，不传显示全部资源
+    var billingType:String?
+    /// 资源到期时间
+    var expireTime:String?
     /// 倒计时
     var lastTime:Int?
-    /// 关联资源特殊需求
-    var remark:String?
+    /// 自动续费状态(UNOPENED-未开通,OPENED-已开通)
+    var autoRenewStatus:String?
+    /// 扩展字段，包括数据库类型、资源特殊说明等
+    var extendField:String?
 
 
 
@@ -53,20 +55,29 @@ public class RelationResource:NSObject,Codable{
     }
 
     enum RelationResourceCodingKeys: String, CodingKey {
+        case appCode
+        case serviceCode
         case resourceId
         case resourceName
-        case serviceCode
+        case region
         case billingType
         case expireTime
-        case dataCenter
-        case autoRenew
         case lastTime
-        case remark
+        case autoRenewStatus
+        case extendField
     }
 
 
     required public init(from decoder: Decoder) throws {
         let decoderContainer = try decoder.container(keyedBy: RelationResourceCodingKeys.self)
+        if decoderContainer.contains(.appCode)
+        {
+            self.appCode = try decoderContainer.decode(String?.self, forKey: .appCode)
+        }
+        if decoderContainer.contains(.serviceCode)
+        {
+            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+        }
         if decoderContainer.contains(.resourceId)
         {
             self.resourceId = try decoderContainer.decode(String?.self, forKey: .resourceId)
@@ -75,47 +86,44 @@ public class RelationResource:NSObject,Codable{
         {
             self.resourceName = try decoderContainer.decode(String?.self, forKey: .resourceName)
         }
-        if decoderContainer.contains(.serviceCode)
+        if decoderContainer.contains(.region)
         {
-            self.serviceCode = try decoderContainer.decode(String?.self, forKey: .serviceCode)
+            self.region = try decoderContainer.decode(String?.self, forKey: .region)
         }
         if decoderContainer.contains(.billingType)
         {
-            self.billingType = try decoderContainer.decode(Int?.self, forKey: .billingType)
+            self.billingType = try decoderContainer.decode(String?.self, forKey: .billingType)
         }
         if decoderContainer.contains(.expireTime)
         {
             self.expireTime = try decoderContainer.decode(String?.self, forKey: .expireTime)
         }
-        if decoderContainer.contains(.dataCenter)
-        {
-            self.dataCenter = try decoderContainer.decode(String?.self, forKey: .dataCenter)
-        }
-        if decoderContainer.contains(.autoRenew)
-        {
-            self.autoRenew = try decoderContainer.decode(Int?.self, forKey: .autoRenew)
-        }
         if decoderContainer.contains(.lastTime)
         {
             self.lastTime = try decoderContainer.decode(Int?.self, forKey: .lastTime)
         }
-        if decoderContainer.contains(.remark)
+        if decoderContainer.contains(.autoRenewStatus)
         {
-            self.remark = try decoderContainer.decode(String?.self, forKey: .remark)
+            self.autoRenewStatus = try decoderContainer.decode(String?.self, forKey: .autoRenewStatus)
+        }
+        if decoderContainer.contains(.extendField)
+        {
+            self.extendField = try decoderContainer.decode(String?.self, forKey: .extendField)
         }
     }
 }
 public extension RelationResource{
     func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: RelationResourceCodingKeys.self)
+         try encoderContainer.encode(appCode, forKey: .appCode)
+         try encoderContainer.encode(serviceCode, forKey: .serviceCode)
          try encoderContainer.encode(resourceId, forKey: .resourceId)
          try encoderContainer.encode(resourceName, forKey: .resourceName)
-         try encoderContainer.encode(serviceCode, forKey: .serviceCode)
+         try encoderContainer.encode(region, forKey: .region)
          try encoderContainer.encode(billingType, forKey: .billingType)
          try encoderContainer.encode(expireTime, forKey: .expireTime)
-         try encoderContainer.encode(dataCenter, forKey: .dataCenter)
-         try encoderContainer.encode(autoRenew, forKey: .autoRenew)
          try encoderContainer.encode(lastTime, forKey: .lastTime)
-         try encoderContainer.encode(remark, forKey: .remark)
+         try encoderContainer.encode(autoRenewStatus, forKey: .autoRenewStatus)
+         try encoderContainer.encode(extendField, forKey: .extendField)
     }
 }

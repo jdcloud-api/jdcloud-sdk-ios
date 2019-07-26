@@ -35,7 +35,7 @@ public class CategoryTreeNode:NSObject,Codable{
     var level:Int?
     /// 分类描述信息
     var descriptionValue:String?
-    /// Children
+    /// 子分类
     var children:[CategoryTreeNode?]?
     /// 创建时间
     var createTime:String?

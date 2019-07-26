@@ -30,19 +30,19 @@ import JDCloudSDKCore
 @objc(BatchSubmitTranscodeJobsRequest)
 public class BatchSubmitTranscodeJobsRequest:JdCloudRequest
 {
-    /// Jobs
-    var jobs:[SubmitTranscodeJobReq?]?
+    /// BulkItems
+    var bulkItems:[SubmitTranscodeJobRequestObject?]?
 
 
 
 
     enum BatchSubmitTranscodeJobsRequestRequestCodingKeys: String, CodingKey {
-        case jobs
+        case bulkItems
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchSubmitTranscodeJobsRequestRequestCodingKeys.self)
-        try encoderContainer.encode(jobs, forKey: .jobs)
+        try encoderContainer.encode(bulkItems, forKey: .bulkItems)
 
     }
 }

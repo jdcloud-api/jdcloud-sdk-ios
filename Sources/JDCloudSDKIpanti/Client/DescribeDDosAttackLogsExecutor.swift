@@ -26,11 +26,11 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  查询 DDos 攻击日志
+///  查询 DDoS 攻击日志
 public class DescribeDDoSAttackLogsExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
-        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:DDoS")
+        super.init(jdCloudClient: jdCloudClient, method: "GET", url: "/regions/{regionId}/attacklog:describeDDoSAttackLogs")
     }
     
 }

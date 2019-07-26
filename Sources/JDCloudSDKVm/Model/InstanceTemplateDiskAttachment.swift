@@ -39,7 +39,7 @@ public class InstanceTemplateDiskAttachment:NSObject,Codable{
     var autoDelete:Bool?
     /// 数据盘配置
     var instanceTemplateDisk:InstanceTemplateDisk?
-    /// 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi。系统盘不需要使用，数据盘时才能够使用。
+    /// 数据盘逻辑挂载点，取值范围：vda,vdb,vdc,vdd,vde,vdf,vdg,vdh,vdi,vmj,vdk,vdl,vdm。系统盘不需要使用，数据盘时才能够使用。
     var deviceName:String?
     /// 排除设备，使用此参数noDevice配合deviceName一起使用。
       /// 创建整机镜像：如deviceName:vdb、noDevice:true，则表示云主机中的数据盘vdb不参与创建镜像。

@@ -34,10 +34,10 @@ public class CreateForwardRuleRequest:JdCloudRequest
     var forwardRuleSpec:ForwardRuleSpec
 
     /// 高防实例 Id
-    var instanceId:Int64
+    var instanceId:String
 
 
-    public init(regionId: String,forwardRuleSpec:ForwardRuleSpec,instanceId:Int64){
+    public init(regionId: String,forwardRuleSpec:ForwardRuleSpec,instanceId:String){
         self.forwardRuleSpec = forwardRuleSpec
         self.instanceId = instanceId
         super.init(regionId: regionId)

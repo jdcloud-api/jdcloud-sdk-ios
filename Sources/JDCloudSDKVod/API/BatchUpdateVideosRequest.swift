@@ -30,19 +30,23 @@ import JDCloudSDKCore
 @objc(BatchUpdateVideosRequest)
 public class BatchUpdateVideosRequest:JdCloudRequest
 {
-    /// Contents
-    var contents:[Contents?]?
+    /// 批量更新视频的条目集合
+    var bulkItems:[BatchUpdateVideosBulkItem?]?
 
 
+    public init(regionId: String,bulkItems:[BatchUpdateVideosBulkItem?]?){
+        self.bulkItems = bulkItems
+        super.init(regionId: regionId)
+    }
 
 
     enum BatchUpdateVideosRequestRequestCodingKeys: String, CodingKey {
-        case contents
+        case bulkItems
     }
 
     public override func encode(to encoder: Encoder) throws {
         var encoderContainer = encoder.container(keyedBy: BatchUpdateVideosRequestRequestCodingKeys.self)
-        try encoderContainer.encode(contents, forKey: .contents)
+        try encoderContainer.encode(bulkItems, forKey: .bulkItems)
 
     }
 }

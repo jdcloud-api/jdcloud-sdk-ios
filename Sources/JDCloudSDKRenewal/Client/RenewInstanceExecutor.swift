@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   JDCLOUD Renewal API v2
-   API related to Renewal
+   Renew Management APIs
+   续费管理相关接口
 
    OpenAPI spec version: v2
    Contact: 
@@ -26,7 +26,7 @@ import Foundation
 import JDCloudSDKCore
 
 
-///  实例续费
+///  对相关实例进行续费。调用该接口会创建一个续费订单，并自动扣除您账户可用代金券和余额完成支付，如因为某些原因支付失败，订单会自动取消。
 public class RenewInstanceExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {

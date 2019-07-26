@@ -29,8 +29,8 @@ import JDCloudSDKCore
 @objc(SubmitTranscodeJobResult)
 public class SubmitTranscodeJobResult:NSObject,JdCloudResult
 {
-    /// Tasks
-    var tasks:[TranscodeTask?]?
+    /// 已提交的转码任务
+    var tasks:[SubmittedTranscodeTask?]?
 
 
 
@@ -46,7 +46,7 @@ public class SubmitTranscodeJobResult:NSObject,JdCloudResult
         let decoderContainer = try decoder.container(keyedBy: SubmitTranscodeJobResultCodingKeys.self)
         if decoderContainer.contains(.tasks)
         {
-            self.tasks = try decoderContainer.decode([TranscodeTask?]?.self, forKey: .tasks)
+            self.tasks = try decoderContainer.decode([SubmittedTranscodeTask?]?.self, forKey: .tasks)
         }
     }
 }

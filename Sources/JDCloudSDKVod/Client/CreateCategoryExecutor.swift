@@ -27,6 +27,7 @@ import JDCloudSDKCore
 
 
 ///  添加分类
+      /// 
 public class CreateCategoryExecutor:JDCloudExecutor {
     
     public init(jdCloudClient: JDCloudClient) {
