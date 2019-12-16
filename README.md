@@ -11,7 +11,7 @@
 
 * 代码兼容`swift package manage` 可以使用 swift 命令在 Mac OS 系统下编译，可以使用 `Swift package manage` 进行包管理
 
-* 目前已经有项目的解决方案文件和 `objc` 的头支持,支持 Objective-C 的项目引用，具体方法请查看 [Apple 官方开发文档](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_swift_into_objective-c)。如果要编写 Objective-c 的 framework， 推荐使用 [C++ 签名库](https://github.com/jdcloud-api/jdcloud-sdk-cpp-signer)，将代码包含到项目中进行编译。
+* 如果您需要使用 Objective-C 版本的SDK[请点击此处](https://github.com/jdcloud-api/jdcloud-sdk-ios-oc)。
 
 * 目前没有验证对 `linux（ubuntu 18.04 LTS and 16.04 LTS）`的编译和使用支持，如有需求遇到使用问题请在项目中提交Issues。
 
