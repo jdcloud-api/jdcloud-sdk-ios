@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(SmsJDCloudClient)
+
 public class SmsJDCloudClient:NSObject,JDCloudClient{
     
     private final var smsJDCloudClient:SmsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class SmsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class SmsJDCloudClient:NSObject,JDCloudClient{
         smsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "sms" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "sms/" + "v1"
     
     public let serviceName: String = "sms"
     
@@ -72,83 +72,47 @@ public class SmsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func batchSendAsync(request:BatchSendRequest,requestComplation:@escaping (NSNumber?,BatchSendResponse?,NSError?,NSString?)->()) throws {
+    
+    public func batchSendAsync(request:BatchSendRequest,requestComplation:@escaping ExecuteResult<BatchSendResult>) throws {
         smsJDCloudClient = self
-        try BatchSendExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(BatchSendResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try BatchSendExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func statusReportAsync(request:StatusReportRequest,requestComplation:@escaping (NSNumber?,StatusReportResponse?,NSError?,NSString?)->()) throws {
+    
+    public func statusReportAsync(request:StatusReportRequest,requestComplation:@escaping ExecuteResult<StatusReportResult>) throws {
         smsJDCloudClient = self
-        try StatusReportExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StatusReportResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StatusReportExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func replyAsync(request:ReplyRequest,requestComplation:@escaping (NSNumber?,ReplyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func replyAsync(request:ReplyRequest,requestComplation:@escaping ExecuteResult<ReplyResult>) throws {
         smsJDCloudClient = self
-        try ReplyExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ReplyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ReplyExecutor(jdCloudClient: smsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension SmsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

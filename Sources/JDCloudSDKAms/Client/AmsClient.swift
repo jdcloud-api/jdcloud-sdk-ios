@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(AmsJDCloudClient)
+
 public class AmsJDCloudClient:NSObject,JDCloudClient{
     
     private final var amsJDCloudClient:AmsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class AmsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class AmsJDCloudClient:NSObject,JDCloudClient{
         amsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "ams" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "ams/" + "v1"
     
     public let serviceName: String = "ams"
     
@@ -72,62 +72,38 @@ public class AmsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeAuthenticateAsync(request:DescribeAuthenticateRequest,requestComplation:@escaping (NSNumber?,DescribeAuthenticateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAuthenticateAsync(request:DescribeAuthenticateRequest,requestComplation:@escaping ExecuteResult<DescribeAuthenticateResult>) throws {
         amsJDCloudClient = self
-        try DescribeAuthenticateExecutor(jdCloudClient: amsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuthenticateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAuthenticateExecutor(jdCloudClient: amsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeStreamsInputAsync(request:DescribeStreamsInputRequest,requestComplation:@escaping (NSNumber?,DescribeStreamsInputResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStreamsInputAsync(request:DescribeStreamsInputRequest,requestComplation:@escaping ExecuteResult<DescribeStreamsInputResult>) throws {
         amsJDCloudClient = self
-        try DescribeStreamsInputExecutor(jdCloudClient: amsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStreamsInputResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStreamsInputExecutor(jdCloudClient: amsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension AmsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

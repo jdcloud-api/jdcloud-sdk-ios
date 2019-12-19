@@ -13,7 +13,7 @@
    limitations under the License.
 
    云数据库RDS
-   目前RDS OpenAPI支持云数据库 MySQL、Percona、MariaDB、SQL Server
+   目前RDS OpenAPI支持云数据库 MySQL、Percona、MariaDB、SQL Server、PostgreSQL
 
    OpenAPI spec version: v1
    Contact: 

@@ -29,11 +29,13 @@ public protocol JDCloudClient {
     
     var httpRequestProtocol:String { get set }
     
+    //var timeout:Int{ get set }
+    
     var contentType:String{ get }
     
     //添加自定义请求头
     func addCustomer(key:String,value:String) ;
     
 }
-
+    
 

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(CpsJDCloudClient)
+
 public class CpsJDCloudClient:NSObject,JDCloudClient{
     
     private final var cpsJDCloudClient:CpsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class CpsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class CpsJDCloudClient:NSObject,JDCloudClient{
         cpsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "cps" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "cps/" + "v1"
     
     public let serviceName: String = "cps"
     
@@ -72,713 +72,623 @@ public class CpsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeSubnetAsync(request:DescribeSubnetRequest,requestComplation:@escaping (NSNumber?,DescribeSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubnetAsync(request:DescribeSubnetRequest,requestComplation:@escaping ExecuteResult<DescribeSubnetResult>) throws {
         cpsJDCloudClient = self
-        try DescribeSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stopInstanceAsync(request:StopInstanceRequest,requestComplation:@escaping (NSNumber?,StopInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyListenerAsync(request:ModifyListenerRequest,requestComplation:@escaping ExecuteResult<ModifyListenerResult>) throws {
         cpsJDCloudClient = self
-        try StopInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyListenerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeVpcAsync(request:DescribeVpcRequest,requestComplation:@escaping (NSNumber?,DescribeVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func associateElasticIpLBAsync(request:AssociateElasticIpLBRequest,requestComplation:@escaping ExecuteResult<AssociateElasticIpLBResult>) throws {
         cpsJDCloudClient = self
-        try DescribeVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssociateElasticIpLBExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSubnetsAsync(request:DescribeSubnetsRequest,requestComplation:@escaping (NSNumber?,DescribeSubnetsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryListenerAsync(request:QueryListenerRequest,requestComplation:@escaping ExecuteResult<QueryListenerResult>) throws {
         cpsJDCloudClient = self
-        try DescribeSubnetsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubnetsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryListenerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteVpcAsync(request:DeleteVpcRequest,requestComplation:@escaping (NSNumber?,DeleteVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteVpcAsync(request:DeleteVpcRequest,requestComplation:@escaping ExecuteResult<DeleteVpcResult>) throws {
         cpsJDCloudClient = self
-        try DeleteVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceStatusAsync(request:DescribeInstanceStatusRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceStatusResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceStatusAsync(request:DescribeInstanceStatusRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceStatusResult>) throws {
         cpsJDCloudClient = self
-        try DescribeInstanceStatusExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceStatusResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceStatusExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func applyElasticIpsAsync(request:ApplyElasticIpsRequest,requestComplation:@escaping (NSNumber?,ApplyElasticIpsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addServersAsync(request:AddServersRequest,requestComplation:@escaping ExecuteResult<AddServersResult>) throws {
         cpsJDCloudClient = self
-        try ApplyElasticIpsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ApplyElasticIpsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddServersExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func reinstallInstanceAsync(request:ReinstallInstanceRequest,requestComplation:@escaping (NSNumber?,ReinstallInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func reinstallInstanceAsync(request:ReinstallInstanceRequest,requestComplation:@escaping ExecuteResult<ReinstallInstanceResult>) throws {
         cpsJDCloudClient = self
-        try ReinstallInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ReinstallInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ReinstallInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDeviceRaidsAsync(request:DescribeDeviceRaidsRequest,requestComplation:@escaping (NSNumber?,DescribeDeviceRaidsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteServerGroupAsync(request:DeleteServerGroupRequest,requestComplation:@escaping ExecuteResult<DeleteServerGroupResult>) throws {
         cpsJDCloudClient = self
-        try DescribeDeviceRaidsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDeviceRaidsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteServerGroupExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyVpcAsync(request:ModifyVpcRequest,requestComplation:@escaping (NSNumber?,ModifyVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDeviceRaidsAsync(request:DescribeDeviceRaidsRequest,requestComplation:@escaping ExecuteResult<DescribeDeviceRaidsResult>) throws {
         cpsJDCloudClient = self
-        try ModifyVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDeviceRaidsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceNameAsync(request:DescribeInstanceNameRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceNameResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disassociateElasticIpLBAsync(request:DisassociateElasticIpLBRequest,requestComplation:@escaping ExecuteResult<DisassociateElasticIpLBResult>) throws {
         cpsJDCloudClient = self
-        try DescribeInstanceNameExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisassociateElasticIpLBExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifySubnetAsync(request:ModifySubnetRequest,requestComplation:@escaping (NSNumber?,ModifySubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyVpcAsync(request:ModifyVpcRequest,requestComplation:@escaping ExecuteResult<ModifyVpcResult>) throws {
         cpsJDCloudClient = self
-        try ModifySubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifySubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeVpcsAsync(request:DescribeVpcsRequest,requestComplation:@escaping (NSNumber?,DescribeVpcsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryLoadBalancerAsync(request:QueryLoadBalancerRequest,requestComplation:@escaping ExecuteResult<QueryLoadBalancerResult>) throws {
         cpsJDCloudClient = self
-        try DescribeVpcsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeVpcsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryLoadBalancerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceRaidAsync(request:DescribeInstanceRaidRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceRaidResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryServersAsync(request:QueryServersRequest,requestComplation:@escaping ExecuteResult<QueryServersResult>) throws {
         cpsJDCloudClient = self
-        try DescribeInstanceRaidExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceRaidResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryServersExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRegionesAsync(request:DescribeRegionesRequest,requestComplation:@escaping (NSNumber?,DescribeRegionesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceNameAsync(request:DescribeInstanceNameRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceNameResult>) throws {
         cpsJDCloudClient = self
-        try DescribeRegionesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRegionesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceNameExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func startInstanceAsync(request:StartInstanceRequest,requestComplation:@escaping (NSNumber?,StartInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifySubnetAsync(request:ModifySubnetRequest,requestComplation:@escaping ExecuteResult<ModifySubnetResult>) throws {
         cpsJDCloudClient = self
-        try StartInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StartInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifySubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyInstanceAsync(request:ModifyInstanceRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeVpcsAsync(request:DescribeVpcsRequest,requestComplation:@escaping ExecuteResult<DescribeVpcsResult>) throws {
         cpsJDCloudClient = self
-        try ModifyInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeVpcsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSubnetAsync(request:CreateSubnetRequest,requestComplation:@escaping (NSNumber?,CreateSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryKeypairAsync(request:QueryKeypairRequest,requestComplation:@escaping ExecuteResult<QueryKeypairResult>) throws {
         cpsJDCloudClient = self
-        try CreateSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryKeypairExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDeviceTypesAsync(request:DescribeDeviceTypesRequest,requestComplation:@escaping (NSNumber?,DescribeDeviceTypesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceRaidAsync(request:DescribeInstanceRaidRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceRaidResult>) throws {
         cpsJDCloudClient = self
-        try DescribeDeviceTypesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDeviceTypesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceRaidExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disassociateElasticIpAsync(request:DisassociateElasticIpRequest,requestComplation:@escaping (NSNumber?,DisassociateElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRegionesAsync(request:DescribeRegionesRequest,requestComplation:@escaping ExecuteResult<DescribeRegionesResult>) throws {
         cpsJDCloudClient = self
-        try DisassociateElasticIpExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisassociateElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRegionesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeElasticIpAsync(request:DescribeElasticIpRequest,requestComplation:@escaping (NSNumber?,DescribeElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryLoadBalancersAsync(request:QueryLoadBalancersRequest,requestComplation:@escaping ExecuteResult<QueryLoadBalancersResult>) throws {
         cpsJDCloudClient = self
-        try DescribeElasticIpExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryLoadBalancersExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func restartInstanceAsync(request:RestartInstanceRequest,requestComplation:@escaping (NSNumber?,RestartInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyServerGroupAsync(request:ModifyServerGroupRequest,requestComplation:@escaping ExecuteResult<ModifyServerGroupResult>) throws {
         cpsJDCloudClient = self
-        try RestartInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RestartInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyServerGroupExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeElasticIpsAsync(request:DescribeElasticIpsRequest,requestComplation:@escaping (NSNumber?,DescribeElasticIpsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyInstanceAsync(request:ModifyInstanceRequest,requestComplation:@escaping ExecuteResult<ModifyInstanceResult>) throws {
         cpsJDCloudClient = self
-        try DescribeElasticIpsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeElasticIpsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeOSAsync(request:DescribeOSRequest,requestComplation:@escaping (NSNumber?,DescribeOSResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryKeypairsAsync(request:QueryKeypairsRequest,requestComplation:@escaping ExecuteResult<QueryKeypairsResult>) throws {
         cpsJDCloudClient = self
-        try DescribeOSExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeOSResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryKeypairsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyElasticIpBandwidthAsync(request:ModifyElasticIpBandwidthRequest,requestComplation:@escaping (NSNumber?,ModifyElasticIpBandwidthResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDeviceTypesAsync(request:DescribeDeviceTypesRequest,requestComplation:@escaping ExecuteResult<DescribeDeviceTypesResult>) throws {
         cpsJDCloudClient = self
-        try ModifyElasticIpBandwidthExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyElasticIpBandwidthResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDeviceTypesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceAsync(request:DescribeInstanceRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disassociateElasticIpAsync(request:DisassociateElasticIpRequest,requestComplation:@escaping ExecuteResult<DisassociateElasticIpResult>) throws {
         cpsJDCloudClient = self
-        try DescribeInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisassociateElasticIpExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyBandwidthAsync(request:ModifyBandwidthRequest,requestComplation:@escaping (NSNumber?,ModifyBandwidthResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeElasticIpAsync(request:DescribeElasticIpRequest,requestComplation:@escaping ExecuteResult<DescribeElasticIpResult>) throws {
         cpsJDCloudClient = self
-        try ModifyBandwidthExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyBandwidthResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeElasticIpExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstancesAsync(request:DescribeInstancesRequest,requestComplation:@escaping (NSNumber?,DescribeInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryRouteTablesAsync(request:QueryRouteTablesRequest,requestComplation:@escaping ExecuteResult<QueryRouteTablesResult>) throws {
         cpsJDCloudClient = self
-        try DescribeInstancesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryRouteTablesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createInstancesAsync(request:CreateInstancesRequest,requestComplation:@escaping (NSNumber?,CreateInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyLoadBalancerAsync(request:ModifyLoadBalancerRequest,requestComplation:@escaping ExecuteResult<ModifyLoadBalancerResult>) throws {
         cpsJDCloudClient = self
-        try CreateInstancesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyLoadBalancerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createVpcAsync(request:CreateVpcRequest,requestComplation:@escaping (NSNumber?,CreateVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func startLoadBalancerAsync(request:StartLoadBalancerRequest,requestComplation:@escaping ExecuteResult<StartLoadBalancerResult>) throws {
         cpsJDCloudClient = self
-        try CreateVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StartLoadBalancerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func associateElasticIpAsync(request:AssociateElasticIpRequest,requestComplation:@escaping (NSNumber?,AssociateElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopLoadBalancerAsync(request:StopLoadBalancerRequest,requestComplation:@escaping ExecuteResult<StopLoadBalancerResult>) throws {
         cpsJDCloudClient = self
-        try AssociateElasticIpExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssociateElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopLoadBalancerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSubnetAsync(request:DeleteSubnetRequest,requestComplation:@escaping (NSNumber?,DeleteSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceAsync(request:DescribeInstanceRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceResult>) throws {
         cpsJDCloudClient = self
-        try DeleteSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeBasicSubnetAsync(request:DescribeBasicSubnetRequest,requestComplation:@escaping (NSNumber?,DescribeBasicSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyBandwidthAsync(request:ModifyBandwidthRequest,requestComplation:@escaping ExecuteResult<ModifyBandwidthResult>) throws {
         cpsJDCloudClient = self
-        try DescribeBasicSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBasicSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyBandwidthExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func queryServerGroupsAsync(request:QueryServerGroupsRequest,requestComplation:@escaping ExecuteResult<QueryServerGroupsResult>) throws {
+        cpsJDCloudClient = self
+        try QueryServerGroupsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeInstanceMonitorInfoAsync(request:DescribeInstanceMonitorInfoRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceMonitorInfoResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeInstanceMonitorInfoExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createInstancesAsync(request:CreateInstancesRequest,requestComplation:@escaping ExecuteResult<CreateInstancesResult>) throws {
+        cpsJDCloudClient = self
+        try CreateInstancesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func resetPasswordAsync(request:ResetPasswordRequest,requestComplation:@escaping ExecuteResult<ResetPasswordResult>) throws {
+        cpsJDCloudClient = self
+        try ResetPasswordExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func associateElasticIpAsync(request:AssociateElasticIpRequest,requestComplation:@escaping ExecuteResult<AssociateElasticIpResult>) throws {
+        cpsJDCloudClient = self
+        try AssociateElasticIpExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func stopInstanceAsync(request:StopInstanceRequest,requestComplation:@escaping ExecuteResult<StopInstanceResult>) throws {
+        cpsJDCloudClient = self
+        try StopInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeVpcAsync(request:DescribeVpcRequest,requestComplation:@escaping ExecuteResult<DescribeVpcResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeSubnetsAsync(request:DescribeSubnetsRequest,requestComplation:@escaping ExecuteResult<DescribeSubnetsResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeSubnetsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func queryRouteTableAsync(request:QueryRouteTableRequest,requestComplation:@escaping ExecuteResult<QueryRouteTableResult>) throws {
+        cpsJDCloudClient = self
+        try QueryRouteTableExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteListenerAsync(request:DeleteListenerRequest,requestComplation:@escaping ExecuteResult<DeleteListenerResult>) throws {
+        cpsJDCloudClient = self
+        try DeleteListenerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func applyElasticIpsAsync(request:ApplyElasticIpsRequest,requestComplation:@escaping ExecuteResult<ApplyElasticIpsResult>) throws {
+        cpsJDCloudClient = self
+        try ApplyElasticIpsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createKeypairsAsync(request:CreateKeypairsRequest,requestComplation:@escaping ExecuteResult<CreateKeypairsResult>) throws {
+        cpsJDCloudClient = self
+        try CreateKeypairsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func removeServerAsync(request:RemoveServerRequest,requestComplation:@escaping ExecuteResult<RemoveServerResult>) throws {
+        cpsJDCloudClient = self
+        try RemoveServerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func importKeypairsAsync(request:ImportKeypairsRequest,requestComplation:@escaping ExecuteResult<ImportKeypairsResult>) throws {
+        cpsJDCloudClient = self
+        try ImportKeypairsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createServerGroupAsync(request:CreateServerGroupRequest,requestComplation:@escaping ExecuteResult<CreateServerGroupResult>) throws {
+        cpsJDCloudClient = self
+        try CreateServerGroupExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func startListenerAsync(request:StartListenerRequest,requestComplation:@escaping ExecuteResult<StartListenerResult>) throws {
+        cpsJDCloudClient = self
+        try StartListenerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func queryCPSLBRegionsAsync(request:QueryCPSLBRegionsRequest,requestComplation:@escaping ExecuteResult<QueryCPSLBRegionsResult>) throws {
+        cpsJDCloudClient = self
+        try QueryCPSLBRegionsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func queryServerGroupAsync(request:QueryServerGroupRequest,requestComplation:@escaping ExecuteResult<QueryServerGroupResult>) throws {
+        cpsJDCloudClient = self
+        try QueryServerGroupExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func startInstanceAsync(request:StartInstanceRequest,requestComplation:@escaping ExecuteResult<StartInstanceResult>) throws {
+        cpsJDCloudClient = self
+        try StartInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createSubnetAsync(request:CreateSubnetRequest,requestComplation:@escaping ExecuteResult<CreateSubnetResult>) throws {
+        cpsJDCloudClient = self
+        try CreateSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func restartInstanceAsync(request:RestartInstanceRequest,requestComplation:@escaping ExecuteResult<RestartInstanceResult>) throws {
+        cpsJDCloudClient = self
+        try RestartInstanceExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeElasticIpsAsync(request:DescribeElasticIpsRequest,requestComplation:@escaping ExecuteResult<DescribeElasticIpsResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeElasticIpsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeOSAsync(request:DescribeOSRequest,requestComplation:@escaping ExecuteResult<DescribeOSResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeOSExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createListenerAsync(request:CreateListenerRequest,requestComplation:@escaping ExecuteResult<CreateListenerResult>) throws {
+        cpsJDCloudClient = self
+        try CreateListenerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func modifyElasticIpBandwidthAsync(request:ModifyElasticIpBandwidthRequest,requestComplation:@escaping ExecuteResult<ModifyElasticIpBandwidthResult>) throws {
+        cpsJDCloudClient = self
+        try ModifyElasticIpBandwidthExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func queryListenersAsync(request:QueryListenersRequest,requestComplation:@escaping ExecuteResult<QueryListenersResult>) throws {
+        cpsJDCloudClient = self
+        try QueryListenersExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func modifyServerAsync(request:ModifyServerRequest,requestComplation:@escaping ExecuteResult<ModifyServerResult>) throws {
+        cpsJDCloudClient = self
+        try ModifyServerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeInstancesAsync(request:DescribeInstancesRequest,requestComplation:@escaping ExecuteResult<DescribeInstancesResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeInstancesExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createLoadBalancerAsync(request:CreateLoadBalancerRequest,requestComplation:@escaping ExecuteResult<CreateLoadBalancerResult>) throws {
+        cpsJDCloudClient = self
+        try CreateLoadBalancerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createVpcAsync(request:CreateVpcRequest,requestComplation:@escaping ExecuteResult<CreateVpcResult>) throws {
+        cpsJDCloudClient = self
+        try CreateVpcExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteKeypairsAsync(request:DeleteKeypairsRequest,requestComplation:@escaping ExecuteResult<DeleteKeypairsResult>) throws {
+        cpsJDCloudClient = self
+        try DeleteKeypairsExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func stopListenerAsync(request:StopListenerRequest,requestComplation:@escaping ExecuteResult<StopListenerResult>) throws {
+        cpsJDCloudClient = self
+        try StopListenerExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteSubnetAsync(request:DeleteSubnetRequest,requestComplation:@escaping ExecuteResult<DeleteSubnetResult>) throws {
+        cpsJDCloudClient = self
+        try DeleteSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeBasicSubnetAsync(request:DescribeBasicSubnetRequest,requestComplation:@escaping ExecuteResult<DescribeBasicSubnetResult>) throws {
+        cpsJDCloudClient = self
+        try DescribeBasicSubnetExecutor(jdCloudClient: cpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension CpsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

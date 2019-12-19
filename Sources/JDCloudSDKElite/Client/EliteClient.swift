@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(EliteJDCloudClient)
+
 public class EliteJDCloudClient:NSObject,JDCloudClient{
     
     private final var eliteJDCloudClient:EliteJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
         eliteJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "elite" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "elite/" + "v1"
     
     public let serviceName: String = "elite"
     
@@ -72,146 +72,101 @@ public class EliteJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func listSaleServiceAsync(request:ListSaleServiceRequest,requestComplation:@escaping (NSNumber?,ListSaleServiceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listSaleServiceAsync(request:ListSaleServiceRequest,requestComplation:@escaping ExecuteResult<ListSaleServiceResult>) throws {
         eliteJDCloudClient = self
-        try ListSaleServiceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListSaleServiceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListSaleServiceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func jdxQueryPriceAsync(request:JdxQueryPriceRequest,requestComplation:@escaping (NSNumber?,JdxQueryPriceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func jdxQueryPriceAsync(request:JdxQueryPriceRequest,requestComplation:@escaping ExecuteResult<JdxQueryPriceResult>) throws {
         eliteJDCloudClient = self
-        try JdxQueryPriceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(JdxQueryPriceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try JdxQueryPriceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getStoreServiceAsync(request:GetStoreServiceRequest,requestComplation:@escaping (NSNumber?,GetStoreServiceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func jdxQueryDeliveryInfoAsync(request:JdxQueryDeliveryInfoRequest,requestComplation:@escaping ExecuteResult<JdxQueryDeliveryInfoResult>) throws {
         eliteJDCloudClient = self
-        try GetStoreServiceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetStoreServiceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try JdxQueryDeliveryInfoExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func confirmSaleServiceDeliveryAsync(request:ConfirmSaleServiceDeliveryRequest,requestComplation:@escaping (NSNumber?,ConfirmSaleServiceDeliveryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getStoreServiceAsync(request:GetStoreServiceRequest,requestComplation:@escaping ExecuteResult<GetStoreServiceResult>) throws {
         eliteJDCloudClient = self
-        try ConfirmSaleServiceDeliveryExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ConfirmSaleServiceDeliveryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetStoreServiceExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func jdxReportOrderAsync(request:JdxReportOrderRequest,requestComplation:@escaping (NSNumber?,JdxReportOrderResponse?,NSError?,NSString?)->()) throws {
+    
+    public func jdxReportOrderAsync(request:JdxReportOrderRequest,requestComplation:@escaping ExecuteResult<JdxReportOrderResult>) throws {
         eliteJDCloudClient = self
-        try JdxReportOrderExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(JdxReportOrderResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try JdxReportOrderExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getSaleServiceByDeliverNumberAsync(request:GetSaleServiceByDeliverNumberRequest,requestComplation:@escaping (NSNumber?,GetSaleServiceByDeliverNumberResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getSaleServiceByDeliverNumberAsync(request:GetSaleServiceByDeliverNumberRequest,requestComplation:@escaping ExecuteResult<GetSaleServiceByDeliverNumberResult>) throws {
         eliteJDCloudClient = self
-        try GetSaleServiceByDeliverNumberExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetSaleServiceByDeliverNumberResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetSaleServiceByDeliverNumberExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func jdxCreateOrderAsync(request:JdxCreateOrderRequest,requestComplation:@escaping ExecuteResult<JdxCreateOrderResult>) throws {
+        eliteJDCloudClient = self
+        try JdxCreateOrderExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func jdxQueryProductAsync(request:JdxQueryProductRequest,requestComplation:@escaping ExecuteResult<JdxQueryProductResult>) throws {
+        eliteJDCloudClient = self
+        try JdxQueryProductExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func confirmSaleServiceDeliveryAsync(request:ConfirmSaleServiceDeliveryRequest,requestComplation:@escaping ExecuteResult<ConfirmSaleServiceDeliveryResult>) throws {
+        eliteJDCloudClient = self
+        try ConfirmSaleServiceDeliveryExecutor(jdCloudClient: eliteJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension EliteJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

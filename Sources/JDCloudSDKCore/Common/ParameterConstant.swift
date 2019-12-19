@@ -48,6 +48,8 @@ public let CONTENT_LENGTH:String = "content-length"
 
 public let JDCLOUD2_SIGNING_AKGORITHM:String = "JDCLOUD2-HMAC-SHA256"
 
+public let JDCLOUD3_SIGNING_ALGORITHM:String = "JDCLOUD3-HMAC-SHA256"
+
 public let X_JDCLOUD_EXPIRES:String = "x-jdcloud-expires"
 
 public let X_JDCLOUD_SIGNED_HEADER:String = "x-jdcloud-signedheaders"
@@ -59,6 +61,8 @@ public let AUTHORIZATION:String = "Authorization"
 public let LINE_SEPARATOR:String = "\n"
 
 public let JDCLOUD_TERMINATOR:String = "jdcloud2_request"
+
+public let JDCLOUD_TERMINATOR_V3:String = "jdcloud3_request"
 
 public let HOST:String = "Host"
 
@@ -83,6 +87,19 @@ public let SIGN_SHA256 = "HMACSHA256"
 public let LIST_OF_HEADERS_TO_IGNORE_IN_LOWER_CASE:[String] = ["connection" , "x-jdcloud-trace-id"]
 
 public let HEADER_USER_AGENT = "user-agent"
+
+/// request allow method
+public let REQUEST_METHOD:[String] = ["GET","POST","HEAD","PATCH","DELETE","CONNECT","OPTIONS","TRACE","ANY"];
+
+/// not sign header key
+public let NOT_SIGN_REQUEST_HEAD:[String] = [ "cache-control","content-type","content-length",
+"host","expect","max-forwards","pragma","range","te","if-match","if-none-match","if-modified-since","if-unmodified-since","if-range",
+"accept","authorization","proxy-authorization","from","referer","user-agent","x-jdcloud-request-id","connection"];
+
+public let NOT_SIGN_REQUEST_HEAD_START:[String] = [ "x-b3-" ];
+
+
+
 
 
 

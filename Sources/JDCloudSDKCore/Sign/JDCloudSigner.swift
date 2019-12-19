@@ -8,7 +8,7 @@
 import Foundation
 
 
-public class JDCloudSigner
+public class JDCloudSigner:JDCloudSignProtocol
 {
     var serviceName:String
     var regionId:String
@@ -37,18 +37,19 @@ public class JDCloudSigner
         let scope = try generateScope(dateString: formattedSigningDate, serviceName: self.serviceName, regionId: self.regionId)
         
         var requestHeader = requestInfo.requestHeader;
-        requestHeader[X_JDCLOUD_DATE] = formattedSigningDateTime
+        requestHeader[X_JDCLOUD_DATE] = formattedSigningDateTime 
         requestHeader[X_JDCLOUD_NONCE] = nonceId
         requestHeader = processContentType(header: requestHeader,  requestInfo: requestInfo)
-        let jdcloudContentSha256 = requestHeader[X_JDCLOUD_CONTENT_SHA256]
-        var contentSHA256 = "";
-        if(jdcloudContentSha256 != nil && jdcloudContentSha256 != "")
-        {
-            contentSHA256  = jdcloudContentSha256!;
-        }else{
-            contentSHA256 = calculateContentHash(requestBody: requestInfo.requestBodyContent)
-        } 
-        
+       var contentSHA256 = ""
+        if(requestHeader.keys.contains(X_JDCLOUD_CONTENT_SHA256)){
+            let configContentSHA256 = requestHeader[X_JDCLOUD_CONTENT_SHA256]
+            if(configContentSHA256 != nil){
+                contentSHA256 = configContentSHA256!;
+            }
+        }
+        if( contentSHA256 == ""){
+            contentSHA256 =  calculateContentHash(requestBody: requestInfo.requestBodyContent)
+        }
         let canonicalRequest = try createCanonicalRequest(contentSHA256: contentSHA256, requestInfo: requestInfo,requestHeader:requestHeader)
         let stringToSign = createStringToSign(canonicalRequest: canonicalRequest, formattedSigningDateTime: formattedSigningDateTime, scope: scope)
         
@@ -63,7 +64,7 @@ public class JDCloudSigner
         let credential = "Credential=" + signingCredentials;
         let signerHeaders = "SignedHeaders=" + getSignedHeaderString(requestHeader: requestHeader);
         let signatureHeader = "Signature=" + signature;
-        var authorizationHeader = JDCLOUD2_SIGNING_AKGORITHM
+        var authorizationHeader = JDCLOUD2_SIGNING_AKGORITHM 
         authorizationHeader.append(" ")
         authorizationHeader.append(credential)
         authorizationHeader.append(", ")
@@ -143,7 +144,7 @@ public class JDCloudSigner
             relativePath  = relativePath + path
         }else{
             relativePath = relativePath + "/"
-        }
+        } 
         
         let canonicalRequest = requestInfo.requestMethod.uppercased() +
             LINE_SEPARATOR +
@@ -155,7 +156,7 @@ public class JDCloudSigner
             LINE_SEPARATOR +
             getSignedHeaderString(requestHeader: requestHeader) +
             LINE_SEPARATOR +
-        contentSHA256
+            contentSHA256
         
         return canonicalRequest;
     }
@@ -187,10 +188,10 @@ public class JDCloudSigner
         {
             for key in header.keys.sorted(by: <)
             {
-                if(LIST_OF_HEADERS_TO_IGNORE_IN_LOWER_CASE.contains(key))
-                {
+               if(LIST_OF_HEADERS_TO_IGNORE_IN_LOWER_CASE.contains(key))
+               {
                     continue
-                }
+               }
                 result.append(key.lowercased().appendCompactedString())
                 result.append(":")
                 if(header[key] != nil)
@@ -215,12 +216,12 @@ public class JDCloudSigner
                 let encodePath = path.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
                 if(encodePath == nil)
                 {
-                    value = path
+                     value = path
                 }else{
                     value = encodePath!
                 }
             }else{
-                value = path
+               value = path
             }
             if(value.starts(with: "/"))
             {

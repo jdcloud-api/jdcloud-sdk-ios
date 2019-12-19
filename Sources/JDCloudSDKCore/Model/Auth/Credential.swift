@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-@objc(Credential)
-public class Credential:NSObject{
+public struct Credential{
     
     var accessKeyId:String;
     

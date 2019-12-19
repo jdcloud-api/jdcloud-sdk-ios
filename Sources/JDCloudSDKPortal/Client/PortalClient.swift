@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(PortalJDCloudClient)
+
 public class PortalJDCloudClient:NSObject,JDCloudClient{
     
     private final var portalJDCloudClient:PortalJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class PortalJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class PortalJDCloudClient:NSObject,JDCloudClient{
         portalJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "portal" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "portal/" + "v1"
     
     public let serviceName: String = "portal"
     
@@ -72,62 +72,38 @@ public class PortalJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeProductAsync(request:DescribeProductRequest,requestComplation:@escaping (NSNumber?,DescribeProductResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeProductAsync(request:DescribeProductRequest,requestComplation:@escaping ExecuteResult<DescribeProductResult>) throws {
         portalJDCloudClient = self
-        try DescribeProductExecutor(jdCloudClient: portalJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeProductResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeProductExecutor(jdCloudClient: portalJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeProductsByIdAsync(request:DescribeProductsByIdRequest,requestComplation:@escaping (NSNumber?,DescribeProductsByIdResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeProductsByIdAsync(request:DescribeProductsByIdRequest,requestComplation:@escaping ExecuteResult<DescribeProductsByIdResult>) throws {
         portalJDCloudClient = self
-        try DescribeProductsByIdExecutor(jdCloudClient: portalJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeProductsByIdResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeProductsByIdExecutor(jdCloudClient: portalJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension PortalJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

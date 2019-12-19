@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(DeployJDCloudClient)
+
 public class DeployJDCloudClient:NSObject,JDCloudClient{
     
     private final var deployJDCloudClient:DeployJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class DeployJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class DeployJDCloudClient:NSObject,JDCloudClient{
         deployJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "deploy" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "deploy/" + "v1"
     
     public let serviceName: String = "deploy"
     
@@ -72,146 +72,74 @@ public class DeployJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeAppAsync(request:DescribeAppRequest,requestComplation:@escaping (NSNumber?,DescribeAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAppAsync(request:DescribeAppRequest,requestComplation:@escaping ExecuteResult<DescribeAppResult>) throws {
         deployJDCloudClient = self
-        try DescribeAppExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAppExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createDeployAsync(request:CreateDeployRequest,requestComplation:@escaping (NSNumber?,CreateDeployResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createDeployAsync(request:CreateDeployRequest,requestComplation:@escaping ExecuteResult<CreateDeployResult>) throws {
         deployJDCloudClient = self
-        try CreateDeployExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateDeployResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateDeployExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDeployAsync(request:DescribeDeployRequest,requestComplation:@escaping (NSNumber?,DescribeDeployResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDeployAsync(request:DescribeDeployRequest,requestComplation:@escaping ExecuteResult<DescribeDeployResult>) throws {
         deployJDCloudClient = self
-        try DescribeDeployExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDeployResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDeployExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAppsAsync(request:DescribeAppsRequest,requestComplation:@escaping (NSNumber?,DescribeAppsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAppsAsync(request:DescribeAppsRequest,requestComplation:@escaping ExecuteResult<DescribeAppsResult>) throws {
         deployJDCloudClient = self
-        try DescribeAppsExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAppsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAppsExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeGroupsAsync(request:DescribeGroupsRequest,requestComplation:@escaping (NSNumber?,DescribeGroupsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeGroupsAsync(request:DescribeGroupsRequest,requestComplation:@escaping ExecuteResult<DescribeGroupsResult>) throws {
         deployJDCloudClient = self
-        try DescribeGroupsExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeGroupsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeGroupsExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeGroupAsync(request:DescribeGroupRequest,requestComplation:@escaping (NSNumber?,DescribeGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeGroupAsync(request:DescribeGroupRequest,requestComplation:@escaping ExecuteResult<DescribeGroupResult>) throws {
         deployJDCloudClient = self
-        try DescribeGroupExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeGroupExecutor(jdCloudClient: deployJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension DeployJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

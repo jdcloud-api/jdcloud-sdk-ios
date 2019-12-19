@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(StreamcomputerJDCloudClient)
+
 public class StreamcomputerJDCloudClient:NSObject,JDCloudClient{
     
     private final var streamcomputerJDCloudClient:StreamcomputerJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class StreamcomputerJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class StreamcomputerJDCloudClient:NSObject,JDCloudClient{
         streamcomputerJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "streamcomputer" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "streamcomputer/" + "v1"
     
     public let serviceName: String = "streamcomputer"
     
@@ -72,335 +72,155 @@ public class StreamcomputerJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func queryNamespaceDetailAsync(request:QueryNamespaceDetailRequest,requestComplation:@escaping (NSNumber?,QueryNamespaceDetailResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryNamespaceDetailAsync(request:QueryNamespaceDetailRequest,requestComplation:@escaping ExecuteResult<QueryNamespaceDetailResult>) throws {
         streamcomputerJDCloudClient = self
-        try QueryNamespaceDetailExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryNamespaceDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryNamespaceDetailExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeJobAsync(request:DescribeJobRequest,requestComplation:@escaping (NSNumber?,DescribeJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeJobAsync(request:DescribeJobRequest,requestComplation:@escaping ExecuteResult<DescribeJobResult>) throws {
         streamcomputerJDCloudClient = self
-        try DescribeJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeStorageAsync(request:DescribeStorageRequest,requestComplation:@escaping (NSNumber?,DescribeStorageResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStorageAsync(request:DescribeStorageRequest,requestComplation:@escaping ExecuteResult<DescribeStorageResult>) throws {
         streamcomputerJDCloudClient = self
-        try DescribeStorageExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStorageResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStorageExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteJobAsync(request:DeleteJobRequest,requestComplation:@escaping (NSNumber?,DeleteJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteJobAsync(request:DeleteJobRequest,requestComplation:@escaping ExecuteResult<DeleteJobResult>) throws {
         streamcomputerJDCloudClient = self
-        try DeleteJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addOrUpdateJobAsync(request:AddOrUpdateJobRequest,requestComplation:@escaping (NSNumber?,AddOrUpdateJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addOrUpdateJobAsync(request:AddOrUpdateJobRequest,requestComplation:@escaping ExecuteResult<AddOrUpdateJobResult>) throws {
         streamcomputerJDCloudClient = self
-        try AddOrUpdateJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddOrUpdateJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddOrUpdateJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func queryNamespacesAsync(request:QueryNamespacesRequest,requestComplation:@escaping (NSNumber?,QueryNamespacesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryNamespacesAsync(request:QueryNamespacesRequest,requestComplation:@escaping ExecuteResult<QueryNamespacesResult>) throws {
         streamcomputerJDCloudClient = self
-        try QueryNamespacesExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryNamespacesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryNamespacesExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func startJobAsync(request:StartJobRequest,requestComplation:@escaping (NSNumber?,StartJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func startJobAsync(request:StartJobRequest,requestComplation:@escaping ExecuteResult<StartJobResult>) throws {
         streamcomputerJDCloudClient = self
-        try StartJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StartJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StartJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addOrUpdateStorageAsync(request:AddOrUpdateStorageRequest,requestComplation:@escaping (NSNumber?,AddOrUpdateStorageResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addOrUpdateStorageAsync(request:AddOrUpdateStorageRequest,requestComplation:@escaping ExecuteResult<AddOrUpdateStorageResult>) throws {
         streamcomputerJDCloudClient = self
-        try AddOrUpdateStorageExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddOrUpdateStorageResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddOrUpdateStorageExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getJobListAsync(request:GetJobListRequest,requestComplation:@escaping (NSNumber?,GetJobListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getJobListAsync(request:GetJobListRequest,requestComplation:@escaping ExecuteResult<GetJobListResult>) throws {
         streamcomputerJDCloudClient = self
-        try GetJobListExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetJobListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetJobListExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteNamespaceAsync(request:DeleteNamespaceRequest,requestComplation:@escaping (NSNumber?,DeleteNamespaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteNamespaceAsync(request:DeleteNamespaceRequest,requestComplation:@escaping ExecuteResult<DeleteNamespaceResult>) throws {
         streamcomputerJDCloudClient = self
-        try DeleteNamespaceExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteNamespaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteNamespaceExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stopJobAsync(request:StopJobRequest,requestComplation:@escaping (NSNumber?,StopJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopJobAsync(request:StopJobRequest,requestComplation:@escaping ExecuteResult<StopJobResult>) throws {
         streamcomputerJDCloudClient = self
-        try StopJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopJobExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createNamespaceAsync(request:CreateNamespaceRequest,requestComplation:@escaping (NSNumber?,CreateNamespaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createNamespaceAsync(request:CreateNamespaceRequest,requestComplation:@escaping ExecuteResult<CreateNamespaceResult>) throws {
         streamcomputerJDCloudClient = self
-        try CreateNamespaceExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateNamespaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateNamespaceExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getStorageListAsync(request:GetStorageListRequest,requestComplation:@escaping (NSNumber?,GetStorageListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getStorageListAsync(request:GetStorageListRequest,requestComplation:@escaping ExecuteResult<GetStorageListResult>) throws {
         streamcomputerJDCloudClient = self
-        try GetStorageListExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetStorageListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetStorageListExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateNamespaceAsync(request:UpdateNamespaceRequest,requestComplation:@escaping (NSNumber?,UpdateNamespaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateNamespaceAsync(request:UpdateNamespaceRequest,requestComplation:@escaping ExecuteResult<UpdateNamespaceResult>) throws {
         streamcomputerJDCloudClient = self
-        try UpdateNamespaceExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateNamespaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateNamespaceExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteStorageAsync(request:DeleteStorageRequest,requestComplation:@escaping (NSNumber?,DeleteStorageResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteStorageAsync(request:DeleteStorageRequest,requestComplation:@escaping ExecuteResult<DeleteStorageResult>) throws {
         streamcomputerJDCloudClient = self
-        try DeleteStorageExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteStorageResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteStorageExecutor(jdCloudClient: streamcomputerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension StreamcomputerJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

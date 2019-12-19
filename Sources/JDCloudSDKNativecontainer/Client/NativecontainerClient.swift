@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(NativecontainerJDCloudClient)
+
 public class NativecontainerJDCloudClient:NSObject,JDCloudClient{
     
     private final var nativecontainerJDCloudClient:NativecontainerJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class NativecontainerJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class NativecontainerJDCloudClient:NSObject,JDCloudClient{
         nativecontainerJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "nativecontainer" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "nativecontainer/" + "v1"
     
     public let serviceName: String = "nativecontainer"
     
@@ -72,419 +72,209 @@ public class NativecontainerJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func createSecretAsync(request:CreateSecretRequest,requestComplation:@escaping (NSNumber?,CreateSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceTypesAsync(request:DescribeInstanceTypesRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceTypesResult>) throws {
         nativecontainerJDCloudClient = self
-        try CreateSecretExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceTypesExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSecretAsync(request:DeleteSecretRequest,requestComplation:@escaping (NSNumber?,DeleteSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSecretAsync(request:CreateSecretRequest,requestComplation:@escaping ExecuteResult<CreateSecretResult>) throws {
         nativecontainerJDCloudClient = self
-        try DeleteSecretExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSecretExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeContainerAsync(request:DescribeContainerRequest,requestComplation:@escaping (NSNumber?,DescribeContainerResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSecretAsync(request:DeleteSecretRequest,requestComplation:@escaping ExecuteResult<DeleteSecretResult>) throws {
         nativecontainerJDCloudClient = self
-        try DescribeContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeContainerResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSecretExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteContainerAsync(request:DeleteContainerRequest,requestComplation:@escaping (NSNumber?,DeleteContainerResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeContainerAsync(request:DescribeContainerRequest,requestComplation:@escaping ExecuteResult<DescribeContainerResult>) throws {
         nativecontainerJDCloudClient = self
-        try DeleteContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteContainerResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeQuotaAsync(request:DescribeQuotaRequest,requestComplation:@escaping (NSNumber?,DescribeQuotaResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteContainerAsync(request:DeleteContainerRequest,requestComplation:@escaping ExecuteResult<DeleteContainerResult>) throws {
         nativecontainerJDCloudClient = self
-        try DescribeQuotaExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeQuotaResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSecretAsync(request:DescribeSecretRequest,requestComplation:@escaping (NSNumber?,DescribeSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func resizeContainerAsync(request:ResizeContainerRequest,requestComplation:@escaping ExecuteResult<ResizeContainerResult>) throws {
         nativecontainerJDCloudClient = self
-        try DescribeSecretExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ResizeContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stopContainerAsync(request:StopContainerRequest,requestComplation:@escaping (NSNumber?,StopContainerResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeQuotaAsync(request:DescribeQuotaRequest,requestComplation:@escaping ExecuteResult<DescribeQuotaResult>) throws {
         nativecontainerJDCloudClient = self
-        try StopContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopContainerResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeQuotaExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disassociateElasticIpAsync(request:DisassociateElasticIpRequest,requestComplation:@escaping (NSNumber?,DisassociateElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSecretAsync(request:DescribeSecretRequest,requestComplation:@escaping ExecuteResult<DescribeSecretResult>) throws {
         nativecontainerJDCloudClient = self
-        try DisassociateElasticIpExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisassociateElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSecretExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getLogsAsync(request:GetLogsRequest,requestComplation:@escaping (NSNumber?,GetLogsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopContainerAsync(request:StopContainerRequest,requestComplation:@escaping ExecuteResult<StopContainerResult>) throws {
         nativecontainerJDCloudClient = self
-        try GetLogsExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetLogsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func rebuildContainerAsync(request:RebuildContainerRequest,requestComplation:@escaping (NSNumber?,RebuildContainerResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disassociateElasticIpAsync(request:DisassociateElasticIpRequest,requestComplation:@escaping ExecuteResult<DisassociateElasticIpResult>) throws {
         nativecontainerJDCloudClient = self
-        try RebuildContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RebuildContainerResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisassociateElasticIpExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func associateElasticIpAsync(request:AssociateElasticIpRequest,requestComplation:@escaping (NSNumber?,AssociateElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getLogsAsync(request:GetLogsRequest,requestComplation:@escaping ExecuteResult<GetLogsResult>) throws {
         nativecontainerJDCloudClient = self
-        try AssociateElasticIpExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssociateElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetLogsExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func execCreateAsync(request:ExecCreateRequest,requestComplation:@escaping (NSNumber?,ExecCreateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func rebuildContainerAsync(request:RebuildContainerRequest,requestComplation:@escaping ExecuteResult<RebuildContainerResult>) throws {
         nativecontainerJDCloudClient = self
-        try ExecCreateExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExecCreateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RebuildContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func execGetExitCodeAsync(request:ExecGetExitCodeRequest,requestComplation:@escaping (NSNumber?,ExecGetExitCodeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func associateElasticIpAsync(request:AssociateElasticIpRequest,requestComplation:@escaping ExecuteResult<AssociateElasticIpResult>) throws {
         nativecontainerJDCloudClient = self
-        try ExecGetExitCodeExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExecGetExitCodeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssociateElasticIpExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createContainersAsync(request:CreateContainersRequest,requestComplation:@escaping (NSNumber?,CreateContainersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func execCreateAsync(request:ExecCreateRequest,requestComplation:@escaping ExecuteResult<ExecCreateResult>) throws {
         nativecontainerJDCloudClient = self
-        try CreateContainersExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateContainersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExecCreateExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func startContainerAsync(request:StartContainerRequest,requestComplation:@escaping (NSNumber?,StartContainerResponse?,NSError?,NSString?)->()) throws {
+    
+    public func execGetExitCodeAsync(request:ExecGetExitCodeRequest,requestComplation:@escaping ExecuteResult<ExecGetExitCodeResult>) throws {
         nativecontainerJDCloudClient = self
-        try StartContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StartContainerResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExecGetExitCodeExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSecretsAsync(request:DescribeSecretsRequest,requestComplation:@escaping (NSNumber?,DescribeSecretsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createContainersAsync(request:CreateContainersRequest,requestComplation:@escaping ExecuteResult<CreateContainersResult>) throws {
         nativecontainerJDCloudClient = self
-        try DescribeSecretsExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSecretsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateContainersExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyContainerAttributeAsync(request:ModifyContainerAttributeRequest,requestComplation:@escaping (NSNumber?,ModifyContainerAttributeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func startContainerAsync(request:StartContainerRequest,requestComplation:@escaping ExecuteResult<StartContainerResult>) throws {
         nativecontainerJDCloudClient = self
-        try ModifyContainerAttributeExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyContainerAttributeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StartContainerExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func resizeTTYAsync(request:ResizeTTYRequest,requestComplation:@escaping (NSNumber?,ResizeTTYResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSecretsAsync(request:DescribeSecretsRequest,requestComplation:@escaping ExecuteResult<DescribeSecretsResult>) throws {
         nativecontainerJDCloudClient = self
-        try ResizeTTYExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ResizeTTYResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSecretsExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeContainersAsync(request:DescribeContainersRequest,requestComplation:@escaping (NSNumber?,DescribeContainersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyContainerAttributeAsync(request:ModifyContainerAttributeRequest,requestComplation:@escaping ExecuteResult<ModifyContainerAttributeResult>) throws {
         nativecontainerJDCloudClient = self
-        try DescribeContainersExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeContainersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyContainerAttributeExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func resizeTTYAsync(request:ResizeTTYRequest,requestComplation:@escaping ExecuteResult<ResizeTTYResult>) throws {
+        nativecontainerJDCloudClient = self
+        try ResizeTTYExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeContainersAsync(request:DescribeContainersRequest,requestComplation:@escaping ExecuteResult<DescribeContainersResult>) throws {
+        nativecontainerJDCloudClient = self
+        try DescribeContainersExecutor(jdCloudClient: nativecontainerJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension NativecontainerJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

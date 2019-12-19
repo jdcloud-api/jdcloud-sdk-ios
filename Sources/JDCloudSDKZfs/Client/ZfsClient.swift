@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(ZfsJDCloudClient)
+
 public class ZfsJDCloudClient:NSObject,JDCloudClient{
     
     private final var zfsJDCloudClient:ZfsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class ZfsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class ZfsJDCloudClient:NSObject,JDCloudClient{
         zfsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "zfs" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "zfs/" + "v1"
     
     public let serviceName: String = "zfs"
     
@@ -72,209 +72,101 @@ public class ZfsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func createMountTargetAsync(request:CreateMountTargetRequest,requestComplation:@escaping (NSNumber?,CreateMountTargetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createMountTargetAsync(request:CreateMountTargetRequest,requestComplation:@escaping ExecuteResult<CreateMountTargetResult>) throws {
         zfsJDCloudClient = self
-        try CreateMountTargetExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateMountTargetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateMountTargetExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createFileSystemAsync(request:CreateFileSystemRequest,requestComplation:@escaping (NSNumber?,CreateFileSystemResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createFileSystemAsync(request:CreateFileSystemRequest,requestComplation:@escaping ExecuteResult<CreateFileSystemResult>) throws {
         zfsJDCloudClient = self
-        try CreateFileSystemExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateFileSystemResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateFileSystemExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeFileSystemAsync(request:DescribeFileSystemRequest,requestComplation:@escaping (NSNumber?,DescribeFileSystemResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeFileSystemAsync(request:DescribeFileSystemRequest,requestComplation:@escaping ExecuteResult<DescribeFileSystemResult>) throws {
         zfsJDCloudClient = self
-        try DescribeFileSystemExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeFileSystemResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeFileSystemExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteMountTargetAsync(request:DeleteMountTargetRequest,requestComplation:@escaping (NSNumber?,DeleteMountTargetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteMountTargetAsync(request:DeleteMountTargetRequest,requestComplation:@escaping ExecuteResult<DeleteMountTargetResult>) throws {
         zfsJDCloudClient = self
-        try DeleteMountTargetExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteMountTargetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteMountTargetExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeFileSystemsAsync(request:DescribeFileSystemsRequest,requestComplation:@escaping (NSNumber?,DescribeFileSystemsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeFileSystemsAsync(request:DescribeFileSystemsRequest,requestComplation:@escaping ExecuteResult<DescribeFileSystemsResult>) throws {
         zfsJDCloudClient = self
-        try DescribeFileSystemsExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeFileSystemsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeFileSystemsExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteFileSystemAsync(request:DeleteFileSystemRequest,requestComplation:@escaping (NSNumber?,DeleteFileSystemResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteFileSystemAsync(request:DeleteFileSystemRequest,requestComplation:@escaping ExecuteResult<DeleteFileSystemResult>) throws {
         zfsJDCloudClient = self
-        try DeleteFileSystemExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteFileSystemResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteFileSystemExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyFileSystemAttributeAsync(request:ModifyFileSystemAttributeRequest,requestComplation:@escaping (NSNumber?,ModifyFileSystemAttributeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyFileSystemAttributeAsync(request:ModifyFileSystemAttributeRequest,requestComplation:@escaping ExecuteResult<ModifyFileSystemAttributeResult>) throws {
         zfsJDCloudClient = self
-        try ModifyFileSystemAttributeExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyFileSystemAttributeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyFileSystemAttributeExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeMountTargetsAsync(request:DescribeMountTargetsRequest,requestComplation:@escaping (NSNumber?,DescribeMountTargetsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeMountTargetsAsync(request:DescribeMountTargetsRequest,requestComplation:@escaping ExecuteResult<DescribeMountTargetsResult>) throws {
         zfsJDCloudClient = self
-        try DescribeMountTargetsExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeMountTargetsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeMountTargetsExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeMountTargetAsync(request:DescribeMountTargetRequest,requestComplation:@escaping (NSNumber?,DescribeMountTargetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeMountTargetAsync(request:DescribeMountTargetRequest,requestComplation:@escaping ExecuteResult<DescribeMountTargetResult>) throws {
         zfsJDCloudClient = self
-        try DescribeMountTargetExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeMountTargetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeMountTargetExecutor(jdCloudClient: zfsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension ZfsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

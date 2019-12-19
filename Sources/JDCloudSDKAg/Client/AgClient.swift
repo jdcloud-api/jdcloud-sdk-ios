@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(AgJDCloudClient)
+
 public class AgJDCloudClient:NSObject,JDCloudClient{
     
     private final var agJDCloudClient:AgJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class AgJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class AgJDCloudClient:NSObject,JDCloudClient{
         agJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "ag" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "ag/" + "v1"
     
     public let serviceName: String = "ag"
     
@@ -72,188 +72,92 @@ public class AgJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func updateAgAsync(request:UpdateAgRequest,requestComplation:@escaping (NSNumber?,UpdateAgResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateAgAsync(request:UpdateAgRequest,requestComplation:@escaping ExecuteResult<UpdateAgResult>) throws {
         agJDCloudClient = self
-        try UpdateAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateAgResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteAgAsync(request:DeleteAgRequest,requestComplation:@escaping (NSNumber?,DeleteAgResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteAgAsync(request:DeleteAgRequest,requestComplation:@escaping ExecuteResult<DeleteAgResult>) throws {
         agJDCloudClient = self
-        try DeleteAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteAgResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setInstanceTemplateAsync(request:SetInstanceTemplateRequest,requestComplation:@escaping (NSNumber?,SetInstanceTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setInstanceTemplateAsync(request:SetInstanceTemplateRequest,requestComplation:@escaping ExecuteResult<SetInstanceTemplateResult>) throws {
         agJDCloudClient = self
-        try SetInstanceTemplateExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetInstanceTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetInstanceTemplateExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeQuotasAsync(request:DescribeQuotasRequest,requestComplation:@escaping (NSNumber?,DescribeQuotasResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeQuotasAsync(request:DescribeQuotasRequest,requestComplation:@escaping ExecuteResult<DescribeQuotasResult>) throws {
         agJDCloudClient = self
-        try DescribeQuotasExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeQuotasResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeQuotasExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func abandonInstancesAsync(request:AbandonInstancesRequest,requestComplation:@escaping (NSNumber?,AbandonInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func abandonInstancesAsync(request:AbandonInstancesRequest,requestComplation:@escaping ExecuteResult<AbandonInstancesResult>) throws {
         agJDCloudClient = self
-        try AbandonInstancesExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AbandonInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AbandonInstancesExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createAgAsync(request:CreateAgRequest,requestComplation:@escaping (NSNumber?,CreateAgResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createAgAsync(request:CreateAgRequest,requestComplation:@escaping ExecuteResult<CreateAgResult>) throws {
         agJDCloudClient = self
-        try CreateAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateAgResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAgAsync(request:DescribeAgRequest,requestComplation:@escaping (NSNumber?,DescribeAgResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAgAsync(request:DescribeAgRequest,requestComplation:@escaping ExecuteResult<DescribeAgResult>) throws {
         agJDCloudClient = self
-        try DescribeAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAgResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAgExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAgsAsync(request:DescribeAgsRequest,requestComplation:@escaping (NSNumber?,DescribeAgsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAgsAsync(request:DescribeAgsRequest,requestComplation:@escaping ExecuteResult<DescribeAgsResult>) throws {
         agJDCloudClient = self
-        try DescribeAgsExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAgsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAgsExecutor(jdCloudClient: agJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension AgJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(AntiproJDCloudClient)
+
 public class AntiproJDCloudClient:NSObject,JDCloudClient{
     
     private final var antiproJDCloudClient:AntiproJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class AntiproJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class AntiproJDCloudClient:NSObject,JDCloudClient{
         antiproJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "antipro" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "antipro/" + "v1"
     
     public let serviceName: String = "antipro"
     
@@ -72,482 +72,218 @@ public class AntiproJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func createInstanceAsync(request:CreateInstanceRequest,requestComplation:@escaping (NSNumber?,CreateInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createInstanceAsync(request:CreateInstanceRequest,requestComplation:@escaping ExecuteResult<CreateInstanceResult>) throws {
         antiproJDCloudClient = self
-        try CreateInstanceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateInstanceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCcsIpResourcesAsync(request:DescribeCcsIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeCcsIpResourcesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCcsIpResourcesAsync(request:DescribeCcsIpResourcesRequest,requestComplation:@escaping ExecuteResult<DescribeCcsIpResourcesResult>) throws {
         antiproJDCloudClient = self
-        try DescribeCcsIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCcsIpResourcesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCcsIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteProtectedIpAsync(request:DeleteProtectedIpRequest,requestComplation:@escaping (NSNumber?,DeleteProtectedIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteProtectedIpAsync(request:DeleteProtectedIpRequest,requestComplation:@escaping ExecuteResult<DeleteProtectedIpResult>) throws {
         antiproJDCloudClient = self
-        try DeleteProtectedIpExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteProtectedIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteProtectedIpExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceAsync(request:DescribeInstanceRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceAsync(request:DescribeInstanceRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceResult>) throws {
         antiproJDCloudClient = self
-        try DescribeInstanceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addProtectedIpAsync(request:AddProtectedIpRequest,requestComplation:@escaping (NSNumber?,AddProtectedIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addProtectedIpAsync(request:AddProtectedIpRequest,requestComplation:@escaping ExecuteResult<AddProtectedIpResult>) throws {
         antiproJDCloudClient = self
-        try AddProtectedIpExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddProtectedIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddProtectedIpExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeIpMonitorFlowAsync(request:DescribeIpMonitorFlowRequest,requestComplation:@escaping (NSNumber?,DescribeIpMonitorFlowResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeIpMonitorFlowAsync(request:DescribeIpMonitorFlowRequest,requestComplation:@escaping ExecuteResult<DescribeIpMonitorFlowResult>) throws {
         antiproJDCloudClient = self
-        try DescribeIpMonitorFlowExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeIpMonitorFlowResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeIpMonitorFlowExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCpsIpResourcesAsync(request:DescribeCpsIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeCpsIpResourcesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCpsIpResourcesAsync(request:DescribeCpsIpResourcesRequest,requestComplation:@escaping ExecuteResult<DescribeCpsIpResourcesResult>) throws {
         antiproJDCloudClient = self
-        try DescribeCpsIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCpsIpResourcesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCpsIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeGeoAreasAsync(request:DescribeGeoAreasRequest,requestComplation:@escaping (NSNumber?,DescribeGeoAreasResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeGeoAreasAsync(request:DescribeGeoAreasRequest,requestComplation:@escaping ExecuteResult<DescribeGeoAreasResult>) throws {
         antiproJDCloudClient = self
-        try DescribeGeoAreasExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeGeoAreasResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeGeoAreasExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAttackStatisticsAsync(request:DescribeAttackStatisticsRequest,requestComplation:@escaping (NSNumber?,DescribeAttackStatisticsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAttackStatisticsAsync(request:DescribeAttackStatisticsRequest,requestComplation:@escaping ExecuteResult<DescribeAttackStatisticsResult>) throws {
         antiproJDCloudClient = self
-        try DescribeAttackStatisticsExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAttackStatisticsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAttackStatisticsExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAttackSourceAsync(request:DescribeAttackSourceRequest,requestComplation:@escaping (NSNumber?,DescribeAttackSourceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAttackSourceAsync(request:DescribeAttackSourceRequest,requestComplation:@escaping ExecuteResult<DescribeAttackSourceResult>) throws {
         antiproJDCloudClient = self
-        try DescribeAttackSourceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAttackSourceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAttackSourceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyInstanceAsync(request:ModifyInstanceRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyInstanceAsync(request:ModifyInstanceRequest,requestComplation:@escaping ExecuteResult<ModifyInstanceResult>) throws {
         antiproJDCloudClient = self
-        try ModifyInstanceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyInstanceExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeProtectionOutlineAsync(request:DescribeProtectionOutlineRequest,requestComplation:@escaping (NSNumber?,DescribeProtectionOutlineResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeProtectionOutlineAsync(request:DescribeProtectionOutlineRequest,requestComplation:@escaping ExecuteResult<DescribeProtectionOutlineResult>) throws {
         antiproJDCloudClient = self
-        try DescribeProtectionOutlineExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeProtectionOutlineResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeProtectionOutlineExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeProtectionRuleAsync(request:DescribeProtectionRuleRequest,requestComplation:@escaping (NSNumber?,DescribeProtectionRuleResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeProtectionRuleAsync(request:DescribeProtectionRuleRequest,requestComplation:@escaping ExecuteResult<DescribeProtectionRuleResult>) throws {
         antiproJDCloudClient = self
-        try DescribeProtectionRuleExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeProtectionRuleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeProtectionRuleExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyInstanceNameAsync(request:ModifyInstanceNameRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceNameResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyInstanceNameAsync(request:ModifyInstanceNameRequest,requestComplation:@escaping ExecuteResult<ModifyInstanceNameResult>) throws {
         antiproJDCloudClient = self
-        try ModifyInstanceNameExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyInstanceNameExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeProtectedIpListAsync(request:DescribeProtectedIpListRequest,requestComplation:@escaping (NSNumber?,DescribeProtectedIpListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeProtectedIpListAsync(request:DescribeProtectedIpListRequest,requestComplation:@escaping ExecuteResult<DescribeProtectedIpListResult>) throws {
         antiproJDCloudClient = self
-        try DescribeProtectedIpListExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeProtectedIpListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeProtectedIpListExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstancesAsync(request:DescribeInstancesRequest,requestComplation:@escaping (NSNumber?,DescribeInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstancesAsync(request:DescribeInstancesRequest,requestComplation:@escaping ExecuteResult<DescribeInstancesResult>) throws {
         antiproJDCloudClient = self
-        try DescribeInstancesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstancesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAttackLogsAsync(request:DescribeAttackLogsRequest,requestComplation:@escaping (NSNumber?,DescribeAttackLogsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAttackLogsAsync(request:DescribeAttackLogsRequest,requestComplation:@escaping ExecuteResult<DescribeAttackLogsResult>) throws {
         antiproJDCloudClient = self
-        try DescribeAttackLogsExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAttackLogsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAttackLogsExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func checkInstanceNameAsync(request:CheckInstanceNameRequest,requestComplation:@escaping (NSNumber?,CheckInstanceNameResponse?,NSError?,NSString?)->()) throws {
+    
+    public func checkInstanceNameAsync(request:CheckInstanceNameRequest,requestComplation:@escaping ExecuteResult<CheckInstanceNameResult>) throws {
         antiproJDCloudClient = self
-        try CheckInstanceNameExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CheckInstanceNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CheckInstanceNameExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAttackTypeCountAsync(request:DescribeAttackTypeCountRequest,requestComplation:@escaping (NSNumber?,DescribeAttackTypeCountResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAttackTypeCountAsync(request:DescribeAttackTypeCountRequest,requestComplation:@escaping ExecuteResult<DescribeAttackTypeCountResult>) throws {
         antiproJDCloudClient = self
-        try DescribeAttackTypeCountExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAttackTypeCountResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAttackTypeCountExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyProtectionRuleAsync(request:ModifyProtectionRuleRequest,requestComplation:@escaping (NSNumber?,ModifyProtectionRuleResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyProtectionRuleAsync(request:ModifyProtectionRuleRequest,requestComplation:@escaping ExecuteResult<ModifyProtectionRuleResult>) throws {
         antiproJDCloudClient = self
-        try ModifyProtectionRuleExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyProtectionRuleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyProtectionRuleExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeElasticIpResourcesAsync(request:DescribeElasticIpResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeElasticIpResourcesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeElasticIpResourcesAsync(request:DescribeElasticIpResourcesRequest,requestComplation:@escaping ExecuteResult<DescribeElasticIpResourcesResult>) throws {
         antiproJDCloudClient = self
-        try DescribeElasticIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeElasticIpResourcesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeElasticIpResourcesExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeOperationRecordsAsync(request:DescribeOperationRecordsRequest,requestComplation:@escaping (NSNumber?,DescribeOperationRecordsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeOperationRecordsAsync(request:DescribeOperationRecordsRequest,requestComplation:@escaping ExecuteResult<DescribeOperationRecordsResult>) throws {
         antiproJDCloudClient = self
-        try DescribeOperationRecordsExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeOperationRecordsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeOperationRecordsExecutor(jdCloudClient: antiproJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension AntiproJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

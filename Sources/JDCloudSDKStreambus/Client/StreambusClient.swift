@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(StreambusJDCloudClient)
+
 public class StreambusJDCloudClient:NSObject,JDCloudClient{
     
     private final var streambusJDCloudClient:StreambusJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class StreambusJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class StreambusJDCloudClient:NSObject,JDCloudClient{
         streambusJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "streambus" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "streambus/" + "v1"
     
     public let serviceName: String = "streambus"
     
@@ -72,188 +72,92 @@ public class StreambusJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func updateTopicAsync(request:UpdateTopicRequest,requestComplation:@escaping (NSNumber?,UpdateTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateTopicAsync(request:UpdateTopicRequest,requestComplation:@escaping ExecuteResult<UpdateTopicResult>) throws {
         streambusJDCloudClient = self
-        try UpdateTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getConsumerGroupListAsync(request:GetConsumerGroupListRequest,requestComplation:@escaping (NSNumber?,GetConsumerGroupListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getConsumerGroupListAsync(request:GetConsumerGroupListRequest,requestComplation:@escaping ExecuteResult<GetConsumerGroupListResult>) throws {
         streambusJDCloudClient = self
-        try GetConsumerGroupListExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetConsumerGroupListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetConsumerGroupListExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getTopicListAsync(request:GetTopicListRequest,requestComplation:@escaping (NSNumber?,GetTopicListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getTopicListAsync(request:GetTopicListRequest,requestComplation:@escaping ExecuteResult<GetTopicListResult>) throws {
         streambusJDCloudClient = self
-        try GetTopicListExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetTopicListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetTopicListExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteConsumerGroupAsync(request:DeleteConsumerGroupRequest,requestComplation:@escaping (NSNumber?,DeleteConsumerGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteConsumerGroupAsync(request:DeleteConsumerGroupRequest,requestComplation:@escaping ExecuteResult<DeleteConsumerGroupResult>) throws {
         streambusJDCloudClient = self
-        try DeleteConsumerGroupExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteConsumerGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteConsumerGroupExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addTopicAsync(request:AddTopicRequest,requestComplation:@escaping (NSNumber?,AddTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addTopicAsync(request:AddTopicRequest,requestComplation:@escaping ExecuteResult<AddTopicResult>) throws {
         streambusJDCloudClient = self
-        try AddTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createConsumerGroupAsync(request:CreateConsumerGroupRequest,requestComplation:@escaping (NSNumber?,CreateConsumerGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createConsumerGroupAsync(request:CreateConsumerGroupRequest,requestComplation:@escaping ExecuteResult<CreateConsumerGroupResult>) throws {
         streambusJDCloudClient = self
-        try CreateConsumerGroupExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateConsumerGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateConsumerGroupExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeTopicAsync(request:DescribeTopicRequest,requestComplation:@escaping (NSNumber?,DescribeTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeTopicAsync(request:DescribeTopicRequest,requestComplation:@escaping ExecuteResult<DescribeTopicResult>) throws {
         streambusJDCloudClient = self
-        try DescribeTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteTopicAsync(request:DeleteTopicRequest,requestComplation:@escaping (NSNumber?,DeleteTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteTopicAsync(request:DeleteTopicRequest,requestComplation:@escaping ExecuteResult<DeleteTopicResult>) throws {
         streambusJDCloudClient = self
-        try DeleteTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteTopicExecutor(jdCloudClient: streambusJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension StreambusJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

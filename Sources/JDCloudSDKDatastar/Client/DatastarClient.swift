@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(DatastarJDCloudClient)
+
 public class DatastarJDCloudClient:NSObject,JDCloudClient{
     
     private final var datastarJDCloudClient:DatastarJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class DatastarJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class DatastarJDCloudClient:NSObject,JDCloudClient{
         datastarJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "datastar" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "datastar/" + "v1"
     
     public let serviceName: String = "datastar"
     
@@ -72,41 +72,29 @@ public class DatastarJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getLargeScreenDataAsync(request:GetLargeScreenDataRequest,requestComplation:@escaping (NSNumber?,GetLargeScreenDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getLargeScreenDataAsync(request:GetLargeScreenDataRequest,requestComplation:@escaping ExecuteResult<GetLargeScreenDataResult>) throws {
         datastarJDCloudClient = self
-        try GetLargeScreenDataExecutor(jdCloudClient: datastarJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetLargeScreenDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetLargeScreenDataExecutor(jdCloudClient: datastarJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension DatastarJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

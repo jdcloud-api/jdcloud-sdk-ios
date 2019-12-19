@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(OssJDCloudClient)
+
 public class OssJDCloudClient:NSObject,JDCloudClient{
     
     private final var ossJDCloudClient:OssJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class OssJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class OssJDCloudClient:NSObject,JDCloudClient{
         ossJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "oss" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "oss/" + "v1"
     
     public let serviceName: String = "oss"
     
@@ -72,104 +72,56 @@ public class OssJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func listBucketsAsync(request:ListBucketsRequest,requestComplation:@escaping (NSNumber?,ListBucketsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listBucketsAsync(request:ListBucketsRequest,requestComplation:@escaping ExecuteResult<ListBucketsResult>) throws {
         ossJDCloudClient = self
-        try ListBucketsExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListBucketsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListBucketsExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteBucketAsync(request:DeleteBucketRequest,requestComplation:@escaping (NSNumber?,DeleteBucketResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteBucketAsync(request:DeleteBucketRequest,requestComplation:@escaping ExecuteResult<DeleteBucketResult>) throws {
         ossJDCloudClient = self
-        try DeleteBucketExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteBucketResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteBucketExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func headBucketAsync(request:HeadBucketRequest,requestComplation:@escaping (NSNumber?,HeadBucketResponse?,NSError?,NSString?)->()) throws {
+    
+    public func headBucketAsync(request:HeadBucketRequest,requestComplation:@escaping ExecuteResult<HeadBucketResult>) throws {
         ossJDCloudClient = self
-        try HeadBucketExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(HeadBucketResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try HeadBucketExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func putBucketAsync(request:PutBucketRequest,requestComplation:@escaping (NSNumber?,PutBucketResponse?,NSError?,NSString?)->()) throws {
+    
+    public func putBucketAsync(request:PutBucketRequest,requestComplation:@escaping ExecuteResult<PutBucketResult>) throws {
         ossJDCloudClient = self
-        try PutBucketExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(PutBucketResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try PutBucketExecutor(jdCloudClient: ossJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension OssJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

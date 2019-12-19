@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(RedisJDCloudClient)
+
 public class RedisJDCloudClient:NSObject,JDCloudClient{
     
     private final var redisJDCloudClient:RedisJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class RedisJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class RedisJDCloudClient:NSObject,JDCloudClient{
         redisJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "redis" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "redis/" + "v1"
     
     public let serviceName: String = "redis"
     
@@ -72,230 +72,191 @@ public class RedisJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeUserQuotaAsync(request:DescribeUserQuotaRequest,requestComplation:@escaping (NSNumber?,DescribeUserQuotaResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyBackupPolicyAsync(request:ModifyBackupPolicyRequest,requestComplation:@escaping ExecuteResult<ModifyBackupPolicyResult>) throws {
         redisJDCloudClient = self
-        try DescribeUserQuotaExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeUserQuotaResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyBackupPolicyExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyCacheInstanceClassAsync(request:ModifyCacheInstanceClassRequest,requestComplation:@escaping (NSNumber?,ModifyCacheInstanceClassResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyCacheInstanceClassAsync(request:ModifyCacheInstanceClassRequest,requestComplation:@escaping ExecuteResult<ModifyCacheInstanceClassResult>) throws {
         redisJDCloudClient = self
-        try ModifyCacheInstanceClassExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyCacheInstanceClassResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyCacheInstanceClassExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCacheInstancesAsync(request:DescribeCacheInstancesRequest,requestComplation:@escaping (NSNumber?,DescribeCacheInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createBackupAsync(request:CreateBackupRequest,requestComplation:@escaping ExecuteResult<CreateBackupResult>) throws {
         redisJDCloudClient = self
-        try DescribeCacheInstancesExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCacheInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateBackupExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeClusterInfoAsync(request:DescribeClusterInfoRequest,requestComplation:@escaping (NSNumber?,DescribeClusterInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceConfigAsync(request:DescribeInstanceConfigRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceConfigResult>) throws {
         redisJDCloudClient = self
-        try DescribeClusterInfoExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeClusterInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceConfigExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyCacheInstanceAttributeAsync(request:ModifyCacheInstanceAttributeRequest,requestComplation:@escaping (NSNumber?,ModifyCacheInstanceAttributeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeBackupPolicyAsync(request:DescribeBackupPolicyRequest,requestComplation:@escaping ExecuteResult<DescribeBackupPolicyResult>) throws {
         redisJDCloudClient = self
-        try ModifyCacheInstanceAttributeExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyCacheInstanceAttributeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeBackupPolicyExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCacheInstanceAsync(request:DescribeCacheInstanceRequest,requestComplation:@escaping (NSNumber?,DescribeCacheInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCacheInstanceAsync(request:DeleteCacheInstanceRequest,requestComplation:@escaping ExecuteResult<DeleteCacheInstanceResult>) throws {
         redisJDCloudClient = self
-        try DescribeCacheInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCacheInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCacheInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteCacheInstanceAsync(request:DeleteCacheInstanceRequest,requestComplation:@escaping (NSNumber?,DeleteCacheInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func resetCacheInstancePasswordAsync(request:ResetCacheInstancePasswordRequest,requestComplation:@escaping ExecuteResult<ResetCacheInstancePasswordResult>) throws {
         redisJDCloudClient = self
-        try DeleteCacheInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCacheInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ResetCacheInstancePasswordExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func resetCacheInstancePasswordAsync(request:ResetCacheInstancePasswordRequest,requestComplation:@escaping (NSNumber?,ResetCacheInstancePasswordResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSlowLogAsync(request:DescribeSlowLogRequest,requestComplation:@escaping ExecuteResult<DescribeSlowLogResult>) throws {
         redisJDCloudClient = self
-        try ResetCacheInstancePasswordExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ResetCacheInstancePasswordResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSlowLogExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceClassAsync(request:DescribeInstanceClassRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceClassResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createCacheInstanceAsync(request:CreateCacheInstanceRequest,requestComplation:@escaping ExecuteResult<CreateCacheInstanceResult>) throws {
         redisJDCloudClient = self
-        try DescribeInstanceClassExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceClassResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateCacheInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createCacheInstanceAsync(request:CreateCacheInstanceRequest,requestComplation:@escaping (NSNumber?,CreateCacheInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func restoreInstanceAsync(request:RestoreInstanceRequest,requestComplation:@escaping ExecuteResult<RestoreInstanceResult>) throws {
         redisJDCloudClient = self
-        try CreateCacheInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateCacheInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RestoreInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeUserQuotaAsync(request:DescribeUserQuotaRequest,requestComplation:@escaping ExecuteResult<DescribeUserQuotaResult>) throws {
+        redisJDCloudClient = self
+        try DescribeUserQuotaExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeDownloadUrlAsync(request:DescribeDownloadUrlRequest,requestComplation:@escaping ExecuteResult<DescribeDownloadUrlResult>) throws {
+        redisJDCloudClient = self
+        try DescribeDownloadUrlExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeCacheInstancesAsync(request:DescribeCacheInstancesRequest,requestComplation:@escaping ExecuteResult<DescribeCacheInstancesResult>) throws {
+        redisJDCloudClient = self
+        try DescribeCacheInstancesExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeClusterInfoAsync(request:DescribeClusterInfoRequest,requestComplation:@escaping ExecuteResult<DescribeClusterInfoResult>) throws {
+        redisJDCloudClient = self
+        try DescribeClusterInfoExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func modifyCacheInstanceAttributeAsync(request:ModifyCacheInstanceAttributeRequest,requestComplation:@escaping ExecuteResult<ModifyCacheInstanceAttributeResult>) throws {
+        redisJDCloudClient = self
+        try ModifyCacheInstanceAttributeExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeBackupsAsync(request:DescribeBackupsRequest,requestComplation:@escaping ExecuteResult<DescribeBackupsResult>) throws {
+        redisJDCloudClient = self
+        try DescribeBackupsExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeCacheInstanceAsync(request:DescribeCacheInstanceRequest,requestComplation:@escaping ExecuteResult<DescribeCacheInstanceResult>) throws {
+        redisJDCloudClient = self
+        try DescribeCacheInstanceExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func modifyInstanceConfigAsync(request:ModifyInstanceConfigRequest,requestComplation:@escaping ExecuteResult<ModifyInstanceConfigResult>) throws {
+        redisJDCloudClient = self
+        try ModifyInstanceConfigExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeInstanceClassAsync(request:DescribeInstanceClassRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceClassResult>) throws {
+        redisJDCloudClient = self
+        try DescribeInstanceClassExecutor(jdCloudClient: redisJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension RedisJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(ClouddnsserviceJDCloudClient)
+
 public class ClouddnsserviceJDCloudClient:NSObject,JDCloudClient{
     
     private final var clouddnsserviceJDCloudClient:ClouddnsserviceJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class ClouddnsserviceJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class ClouddnsserviceJDCloudClient:NSObject,JDCloudClient{
         clouddnsserviceJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "clouddnsservice" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "clouddnsservice/" + "v1"
     
     public let serviceName: String = "clouddnsservice"
     
@@ -72,566 +72,254 @@ public class ClouddnsserviceJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func delDomainAsync(request:DelDomainRequest,requestComplation:@escaping (NSNumber?,DelDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func delDomainAsync(request:DelDomainRequest,requestComplation:@escaping ExecuteResult<DelDomainResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try DelDomainExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DelDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DelDomainExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getDomainQueryCountAsync(request:GetDomainQueryCountRequest,requestComplation:@escaping (NSNumber?,GetDomainQueryCountResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getDomainQueryCountAsync(request:GetDomainQueryCountRequest,requestComplation:@escaping ExecuteResult<GetDomainQueryCountResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetDomainQueryCountExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetDomainQueryCountResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetDomainQueryCountExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func batchSetDnsResolveAsync(request:BatchSetDnsResolveRequest,requestComplation:@escaping (NSNumber?,BatchSetDnsResolveResponse?,NSError?,NSString?)->()) throws {
+    
+    public func batchSetDnsResolveAsync(request:BatchSetDnsResolveRequest,requestComplation:@escaping ExecuteResult<BatchSetDnsResolveResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try BatchSetDnsResolveExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(BatchSetDnsResolveResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try BatchSetDnsResolveExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getActionLogAsync(request:GetActionLogRequest,requestComplation:@escaping (NSNumber?,GetActionLogResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getActionLogAsync(request:GetActionLogRequest,requestComplation:@escaping ExecuteResult<GetActionLogResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetActionLogExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetActionLogResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetActionLogExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getDomainQueryTrafficAsync(request:GetDomainQueryTrafficRequest,requestComplation:@escaping (NSNumber?,GetDomainQueryTrafficResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getDomainQueryTrafficAsync(request:GetDomainQueryTrafficRequest,requestComplation:@escaping ExecuteResult<GetDomainQueryTrafficResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetDomainQueryTrafficExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetDomainQueryTrafficResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetDomainQueryTrafficExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func operateMonitorAsync(request:OperateMonitorRequest,requestComplation:@escaping (NSNumber?,OperateMonitorResponse?,NSError?,NSString?)->()) throws {
+    
+    public func operateMonitorAsync(request:OperateMonitorRequest,requestComplation:@escaping ExecuteResult<OperateMonitorResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try OperateMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(OperateMonitorResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try OperateMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addUserViewIPAsync(request:AddUserViewIPRequest,requestComplation:@escaping (NSNumber?,AddUserViewIPResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addUserViewIPAsync(request:AddUserViewIPRequest,requestComplation:@escaping ExecuteResult<AddUserViewIPResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try AddUserViewIPExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddUserViewIPResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddUserViewIPExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addMonitorTargetAsync(request:AddMonitorTargetRequest,requestComplation:@escaping (NSNumber?,AddMonitorTargetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addMonitorTargetAsync(request:AddMonitorTargetRequest,requestComplation:@escaping ExecuteResult<AddMonitorTargetResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try AddMonitorTargetExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddMonitorTargetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddMonitorTargetExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addRRAsync(request:AddRRRequest,requestComplation:@escaping (NSNumber?,AddRRResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addRRAsync(request:AddRRRequest,requestComplation:@escaping ExecuteResult<AddRRResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try AddRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddRRResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func delUserViewAsync(request:DelUserViewRequest,requestComplation:@escaping (NSNumber?,DelUserViewResponse?,NSError?,NSString?)->()) throws {
+    
+    public func delUserViewAsync(request:DelUserViewRequest,requestComplation:@escaping ExecuteResult<DelUserViewResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try DelUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DelUserViewResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DelUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func operateRRAsync(request:OperateRRRequest,requestComplation:@escaping (NSNumber?,OperateRRResponse?,NSError?,NSString?)->()) throws {
+    
+    public func operateRRAsync(request:OperateRRRequest,requestComplation:@escaping ExecuteResult<OperateRRResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try OperateRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(OperateRRResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try OperateRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func delUserViewIPAsync(request:DelUserViewIPRequest,requestComplation:@escaping (NSNumber?,DelUserViewIPResponse?,NSError?,NSString?)->()) throws {
+    
+    public func delUserViewIPAsync(request:DelUserViewIPRequest,requestComplation:@escaping ExecuteResult<DelUserViewIPResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try DelUserViewIPExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DelUserViewIPResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DelUserViewIPExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getMonitorAsync(request:GetMonitorRequest,requestComplation:@escaping (NSNumber?,GetMonitorResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getMonitorAsync(request:GetMonitorRequest,requestComplation:@escaping ExecuteResult<GetMonitorResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetMonitorResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateMonitorAsync(request:UpdateMonitorRequest,requestComplation:@escaping (NSNumber?,UpdateMonitorResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateMonitorAsync(request:UpdateMonitorRequest,requestComplation:@escaping ExecuteResult<UpdateMonitorResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try UpdateMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateMonitorResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getUserViewIPAsync(request:GetUserViewIPRequest,requestComplation:@escaping (NSNumber?,GetUserViewIPResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getUserViewIPAsync(request:GetUserViewIPRequest,requestComplation:@escaping ExecuteResult<GetUserViewIPResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetUserViewIPExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetUserViewIPResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetUserViewIPExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getTargetsAsync(request:GetTargetsRequest,requestComplation:@escaping (NSNumber?,GetTargetsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getTargetsAsync(request:GetTargetsRequest,requestComplation:@escaping ExecuteResult<GetTargetsResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetTargetsExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetTargetsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetTargetsExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getMonitorAlarmInfoAsync(request:GetMonitorAlarmInfoRequest,requestComplation:@escaping (NSNumber?,GetMonitorAlarmInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getMonitorAlarmInfoAsync(request:GetMonitorAlarmInfoRequest,requestComplation:@escaping ExecuteResult<GetMonitorAlarmInfoResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetMonitorAlarmInfoExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetMonitorAlarmInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetMonitorAlarmInfoExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addMonitorAsync(request:AddMonitorRequest,requestComplation:@escaping (NSNumber?,AddMonitorResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addMonitorAsync(request:AddMonitorRequest,requestComplation:@escaping ExecuteResult<AddMonitorResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try AddMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddMonitorResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddMonitorExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateDomainAsync(request:UpdateDomainRequest,requestComplation:@escaping (NSNumber?,UpdateDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateDomainAsync(request:UpdateDomainRequest,requestComplation:@escaping ExecuteResult<UpdateDomainResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try UpdateDomainExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateDomainExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateRRAsync(request:UpdateRRRequest,requestComplation:@escaping (NSNumber?,UpdateRRResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateRRAsync(request:UpdateRRRequest,requestComplation:@escaping ExecuteResult<UpdateRRResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try UpdateRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateRRResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addUserViewAsync(request:AddUserViewRequest,requestComplation:@escaping (NSNumber?,AddUserViewResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addUserViewAsync(request:AddUserViewRequest,requestComplation:@escaping ExecuteResult<AddUserViewResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try AddUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddUserViewResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func searchRRAsync(request:SearchRRRequest,requestComplation:@escaping (NSNumber?,SearchRRResponse?,NSError?,NSString?)->()) throws {
+    
+    public func searchRRAsync(request:SearchRRRequest,requestComplation:@escaping ExecuteResult<SearchRRResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try SearchRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SearchRRResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SearchRRExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getUserViewAsync(request:GetUserViewRequest,requestComplation:@escaping (NSNumber?,GetUserViewResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getUserViewAsync(request:GetUserViewRequest,requestComplation:@escaping ExecuteResult<GetUserViewResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetUserViewResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetUserViewExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getDomainsAsync(request:GetDomainsRequest,requestComplation:@escaping (NSNumber?,GetDomainsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getDomainsAsync(request:GetDomainsRequest,requestComplation:@escaping ExecuteResult<GetDomainsResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetDomainsExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetDomainsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetDomainsExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addDomainAsync(request:AddDomainRequest,requestComplation:@escaping (NSNumber?,AddDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addDomainAsync(request:AddDomainRequest,requestComplation:@escaping ExecuteResult<AddDomainResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try AddDomainExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddDomainExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getViewTreeAsync(request:GetViewTreeRequest,requestComplation:@escaping (NSNumber?,GetViewTreeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getViewTreeAsync(request:GetViewTreeRequest,requestComplation:@escaping ExecuteResult<GetViewTreeResult>) throws {
         clouddnsserviceJDCloudClient = self
-        try GetViewTreeExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetViewTreeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetViewTreeExecutor(jdCloudClient: clouddnsserviceJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension ClouddnsserviceJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

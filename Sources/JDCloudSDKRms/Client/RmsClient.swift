@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(RmsJDCloudClient)
+
 public class RmsJDCloudClient:NSObject,JDCloudClient{
     
     private final var rmsJDCloudClient:RmsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class RmsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class RmsJDCloudClient:NSObject,JDCloudClient{
         rmsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "rms" + "v2"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "rms/" + "v2"
     
     public let serviceName: String = "rms"
     
@@ -72,146 +72,74 @@ public class RmsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func queryPackageRemainderAsync(request:QueryPackageRemainderRequest,requestComplation:@escaping (NSNumber?,QueryPackageRemainderResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryPackageRemainderAsync(request:QueryPackageRemainderRequest,requestComplation:@escaping ExecuteResult<QueryPackageRemainderResult>) throws {
         rmsJDCloudClient = self
-        try QueryPackageRemainderExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryPackageRemainderResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryPackageRemainderExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addTemplateAsync(request:AddTemplateRequest,requestComplation:@escaping (NSNumber?,AddTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addTemplateAsync(request:AddTemplateRequest,requestComplation:@escaping ExecuteResult<AddTemplateResult>) throws {
         rmsJDCloudClient = self
-        try AddTemplateExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddTemplateExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func sendBatchMsgAsync(request:SendBatchMsgRequest,requestComplation:@escaping (NSNumber?,SendBatchMsgResponse?,NSError?,NSString?)->()) throws {
+    
+    public func sendBatchMsgAsync(request:SendBatchMsgRequest,requestComplation:@escaping ExecuteResult<SendBatchMsgResult>) throws {
         rmsJDCloudClient = self
-        try SendBatchMsgExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SendBatchMsgResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SendBatchMsgExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func queryTemplateByIdAsync(request:QueryTemplateByIdRequest,requestComplation:@escaping (NSNumber?,QueryTemplateByIdResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryTemplateByIdAsync(request:QueryTemplateByIdRequest,requestComplation:@escaping ExecuteResult<QueryTemplateByIdResult>) throws {
         rmsJDCloudClient = self
-        try QueryTemplateByIdExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryTemplateByIdResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryTemplateByIdExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func queryTemplateListAsync(request:QueryTemplateListRequest,requestComplation:@escaping (NSNumber?,QueryTemplateListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryTemplateListAsync(request:QueryTemplateListRequest,requestComplation:@escaping ExecuteResult<QueryTemplateListResult>) throws {
         rmsJDCloudClient = self
-        try QueryTemplateListExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryTemplateListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryTemplateListExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func querySendStatusAsync(request:QuerySendStatusRequest,requestComplation:@escaping (NSNumber?,QuerySendStatusResponse?,NSError?,NSString?)->()) throws {
+    
+    public func querySendStatusAsync(request:QuerySendStatusRequest,requestComplation:@escaping ExecuteResult<QuerySendStatusResult>) throws {
         rmsJDCloudClient = self
-        try QuerySendStatusExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QuerySendStatusResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QuerySendStatusExecutor(jdCloudClient: rmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension RmsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

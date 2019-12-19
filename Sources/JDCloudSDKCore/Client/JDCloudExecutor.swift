@@ -8,9 +8,9 @@
 import Foundation
 
 
- 
+public typealias ExecuteResult<T:JdCloudResult> = (Int32?,JdCloudResponse<T>?,Error?,Data?)->()
 
-open class JDCloudExecutor:NSObject{
+open class JDCloudExecutor{
     
     var jdCloudClient:JDCloudClient;
     
@@ -31,28 +31,60 @@ open class JDCloudExecutor:NSObject{
     }
     
     
-    public func executeSync<T:JdCloudRequest>(request:T) throws -> (Int32?,Error?,String?)
+    public func executeSync<T:JdCloudRequest,P:JdCloudResult>(request:T) throws -> (JdCloudResponse<P>?,Data?)
     {
-        
+        var result:JdCloudResponse<P>?
         let (signedRequestInfo,requestInfo) = try executeSign(request: request)
         var requestHeader = signedRequestInfo.requestHead
         requestHeader["HEADER_USER_AGENT"] = jdCloudClient.userAgent
-        // requestHeader = processRequestHeader(requestHeader: requestHeader)
-        let (statusCode,data,error) = try httpRequestSync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method)
+       // requestHeader = processRequestHeader(requestHeader: requestHeader)
+        let (statusCode,data,error,responseData) = try httpRequestSync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method)
         if(error == nil)
-        { 
-           return (statusCode,error,data)
+        {
+            if(statusCode == 200 && data != nil  )
+            {
+                let responseData = data!.data(using: .utf8)
+                if(responseData != nil)
+                {
+                    result = try JSONDecoder().decode(JdCloudResponse<P>.self, from: responseData!)
+                }
+            }
         }else{
             throw error!
-        } 
+        }
+        return (result,responseData);
     }
     
-    public func executeAsync<T:JdCloudRequest>(request:T,executeComplation:@escaping (Int32?,Error?,String?)->()) throws{
+    public func executeAsync<T:JdCloudRequest,P:JdCloudResult>(request:T,executeComplation:@escaping ExecuteResult<P>) throws{
         let (signedRequestInfo,requestInfo) = try executeSign(request: request)
         var requestHeader = signedRequestInfo.requestHead
         requestHeader[HEADER_USER_AGENT] = jdCloudClient.userAgent
-        try httpRequestAsync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method, requestComplation: { (dataString, statusCode, requestError) in
-                executeComplation(statusCode,requestError,dataString)
+        try httpRequestAsync(urlStr: requestInfo.requestUrl, content: requestInfo.requestBodyContent, header: requestHeader, requestMethod: method, requestComplation: { (dataString, statusCode, requestError,responseDate) in
+            if(requestError == nil)
+            {
+                if(statusCode != nil)
+                {
+                    if(dataString != nil)
+                    {
+                        let responseData = dataString!.data(using: .utf8)
+                        if(responseData != nil)
+                        {
+                            do{
+                                let result = try JSONDecoder().decode(JdCloudResponse<P>.self, from: responseData!)
+                                executeComplation(statusCode,result,requestError,responseDate)
+                            }catch{
+                                 executeComplation(statusCode,nil,error,responseDate)
+                            }
+                        }
+                    }else{
+                          executeComplation(statusCode,nil,nil,responseDate)
+                    }
+                }else{
+                     executeComplation(statusCode,nil,requestError,responseDate)
+                }
+            }else{
+                 executeComplation(statusCode,nil,requestError,responseDate)
+            }
         })
     }
     
@@ -73,10 +105,16 @@ open class JDCloudExecutor:NSObject{
         let requestUrl = requestHost + requestPath + paramsString
         let requestHeader = processRequestHeader(requestHeader: jdCloudClient.customHeader)
         let requestInfo = RequestInfo(  requestUrl: requestUrl, requestBodyContent: requestBodyContent, requestParams: paramsString, requestPath: requestPath, requestMethod: method, requestHeader: requestHeader,contentType: jdCloudClient.contentType, signedHost: signHost, requestHost: requestHost)
-        let jdCloudSigner = JDCloudSigner(serviceName:jdCloudClient.serviceName , regionId: request.regionId, dateTime: Date(), credential: jdCloudClient.credential)
+        var jdCloudSigner:JDCloudSignProtocol
+        if GlobalConfig.getSignVersion() == .JDCLOUD_SIGN_V2{
+             jdCloudSigner = JDCloudSigner(serviceName:jdCloudClient.serviceName , regionId: request.regionId, dateTime: Date(), credential: jdCloudClient.credential)
+        }else{
+             jdCloudSigner = JDCloudSignerV3(serviceName:jdCloudClient.serviceName , regionId: request.regionId, dateTime: Date(), credential: jdCloudClient.credential)
+        }
+         
         
         let signResult:SignedRequestInfo = try jdCloudSigner.doSign(requestInfo: requestInfo)
-        
+         
         return (signResult,requestInfo);
     }
     
@@ -167,13 +205,13 @@ open class JDCloudExecutor:NSObject{
                     if(!url.contains(key) && key != "version")
                     {
                         param = param + "&" + key + "=" + (requestParams[key] ?? "")
-                    }
+                    } 
                 }
             }
             if(!param.isEmpty)
             {
                 param.removeFirst();
-                param = "?" + param
+                param = "?" + param 
             }
             return param
         }else{
@@ -204,11 +242,11 @@ open class JDCloudExecutor:NSObject{
         }
         else{
             if(value is String){
-                
+              
                 let stringValue = value as! String
                 if(!stringValue.isEmpty)
                 {
-                    paramDic[key!] = stringValue
+                     paramDic[key!] = stringValue
                 }
             }else if(value is Character)
             {
@@ -399,11 +437,11 @@ open class JDCloudExecutor:NSObject{
                 let boolValue = item as! Bool
                 if(!String(boolValue).isEmpty)
                 {
-                    paramDic[superName!+"."+String(i+1)] = String(boolValue)
+                     paramDic[superName!+"."+String(i+1)] = String(boolValue)
                 }
                 
             }
-            else if(item is Dictionary<String,Any> ||
+             else if(item is Dictionary<String,Any> ||
                 item is Dictionary<Character,Any> ||
                 item is Dictionary<Int,Any> ||
                 item is Dictionary<Int32,Any> ||
@@ -459,14 +497,14 @@ open class JDCloudExecutor:NSObject{
                         let stringValue = value as! String
                         if(!stringValue.isEmpty)
                         {
-                            paramDic[paramName]  = stringValue
+                             paramDic[paramName]  = stringValue
                         }
                     }else if(value is Character)
                     {
                         let characterValue = value as! Character
                         if(!String(characterValue).isEmpty)
                         {
-                            paramDic[paramName]  = String(characterValue)
+                             paramDic[paramName]  = String(characterValue)
                         }
                         
                     }else if(value is Double)
@@ -474,43 +512,43 @@ open class JDCloudExecutor:NSObject{
                         let doubleValue = value as! Double
                         if(!String(doubleValue).isEmpty)
                         {
-                            paramDic[paramName]  = String(doubleValue)
+                             paramDic[paramName]  = String(doubleValue)
                         }
                     }else if(value is Int ){
                         let intValue = value as! Int
                         if(!String(intValue).isEmpty)
                         {
-                            paramDic[paramName]  = String(intValue)
+                             paramDic[paramName]  = String(intValue)
                         }
                     }else if(value is Int8 ){
                         let int8Value = value as! Int8
                         if(!String(int8Value).isEmpty)
                         {
-                            paramDic[paramName]  = String(int8Value)
+                             paramDic[paramName]  = String(int8Value)
                         }
                     }else if(value is Int16 ){
                         let int16Value = value as! Int16
                         if(!String(int16Value).isEmpty)
                         {
-                            paramDic[paramName]  = String(int16Value)
+                             paramDic[paramName]  = String(int16Value)
                         }
                     }else if(value is Int32 ){
                         let int32Value = value as! Int32
                         if(!String(int32Value).isEmpty)
                         {
-                            paramDic[paramName]  = String(int32Value)
+                             paramDic[paramName]  = String(int32Value)
                         }
                     }else if(value is Int64 ){
                         let int64Value = value as! Int64
                         if(!String(int64Value).isEmpty)
                         {
-                            paramDic[paramName]  = String(int64Value)
+                             paramDic[paramName]  = String(int64Value)
                         }
                     }else if(value is Float ){
                         let floatValue = value as! Float
                         if(!String(floatValue).isEmpty)
                         {
-                            paramDic[paramName]  = String(floatValue)
+                             paramDic[paramName]  = String(floatValue)
                         }
                     }else if(value is Float32 ){
                         let float32Value = value as! Float32
@@ -522,14 +560,14 @@ open class JDCloudExecutor:NSObject{
                         let float64Value = value as! Float64
                         if(!String(float64Value).isEmpty)
                         {
-                            paramDic[paramName]  = String(float64Value)
+                             paramDic[paramName]  = String(float64Value)
                         }
                     } else if( value is Bool)
                     {
                         let boolValue = value as! Bool
                         if(!String(boolValue).isEmpty)
                         {
-                            paramDic[paramName] = String(boolValue)
+                             paramDic[paramName] = String(boolValue)
                         }
                         
                     } else if(value is Dictionary<String,Any> ||
@@ -584,7 +622,7 @@ open class JDCloudExecutor:NSObject{
     }
     
     //替换 url 内参数
-    public func repaceUrl(httpUrl:String,request:JdCloudRequest) -> String {
+   public func repaceUrl(httpUrl:String,request:JdCloudRequest) -> String {
         if(httpUrl.isEmpty)
         {
             return "";
@@ -598,7 +636,7 @@ open class JDCloudExecutor:NSObject{
         var resultHttpUrl = httpUrl as NSString
         let regex = try! NSRegularExpression(pattern: PATTERN, options: NSRegularExpression.Options.caseInsensitive)
         let res = regex.matches(in: httpUrl, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, httpUrl.count))
-        
+    
         for  rst in res {
             var replaceNSString = requestHttpUrl.substring(with: rst.range)
             let regexString = replaceNSString as String
@@ -651,7 +689,7 @@ open class JDCloudExecutor:NSObject{
                 return value as! String
             }
         }
-        
+       
         throw SDKError.paramRequestError("get path param error");
     }
     
@@ -702,7 +740,7 @@ open class JDCloudExecutor:NSObject{
             }
             return resultModel;
         }
-        return nil
+      return nil
     }
     
 }

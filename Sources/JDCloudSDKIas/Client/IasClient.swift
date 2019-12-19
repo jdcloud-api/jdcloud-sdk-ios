@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(IasJDCloudClient)
+
 public class IasJDCloudClient:NSObject,JDCloudClient{
     
     private final var iasJDCloudClient:IasJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class IasJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class IasJDCloudClient:NSObject,JDCloudClient{
         iasJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "ias" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "ias/" + "v1"
     
     public let serviceName: String = "ias"
     
@@ -72,188 +72,92 @@ public class IasJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getAppAsync(request:GetAppRequest,requestComplation:@escaping (NSNumber?,GetAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getAppAsync(request:GetAppRequest,requestComplation:@escaping ExecuteResult<GetAppResult>) throws {
         iasJDCloudClient = self
-        try GetAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stateAsync(request:StateRequest,requestComplation:@escaping (NSNumber?,StateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stateAsync(request:StateRequest,requestComplation:@escaping ExecuteResult<StateResult>) throws {
         iasJDCloudClient = self
-        try StateExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StateExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createAppAsync(request:CreateAppRequest,requestComplation:@escaping (NSNumber?,CreateAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createAppAsync(request:CreateAppRequest,requestComplation:@escaping ExecuteResult<CreateAppResult>) throws {
         iasJDCloudClient = self
-        try CreateAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getAppsAsync(request:GetAppsRequest,requestComplation:@escaping (NSNumber?,GetAppsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getAppsAsync(request:GetAppsRequest,requestComplation:@escaping ExecuteResult<GetAppsResult>) throws {
         iasJDCloudClient = self
-        try GetAppsExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetAppsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetAppsExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateAppAsync(request:UpdateAppRequest,requestComplation:@escaping (NSNumber?,UpdateAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateAppAsync(request:UpdateAppRequest,requestComplation:@escaping ExecuteResult<UpdateAppResult>) throws {
         iasJDCloudClient = self
-        try UpdateAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func appDetailAsync(request:AppDetailRequest,requestComplation:@escaping (NSNumber?,AppDetailResponse?,NSError?,NSString?)->()) throws {
+    
+    public func appDetailAsync(request:AppDetailRequest,requestComplation:@escaping ExecuteResult<AppDetailResult>) throws {
         iasJDCloudClient = self
-        try AppDetailExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AppDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AppDetailExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteAppAsync(request:DeleteAppRequest,requestComplation:@escaping (NSNumber?,DeleteAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteAppAsync(request:DeleteAppRequest,requestComplation:@escaping ExecuteResult<DeleteAppResult>) throws {
         iasJDCloudClient = self
-        try DeleteAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteAppExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func appsAsync(request:AppsRequest,requestComplation:@escaping (NSNumber?,AppsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func appsAsync(request:AppsRequest,requestComplation:@escaping ExecuteResult<AppsResult>) throws {
         iasJDCloudClient = self
-        try AppsExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AppsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AppsExecutor(jdCloudClient: iasJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension IasJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

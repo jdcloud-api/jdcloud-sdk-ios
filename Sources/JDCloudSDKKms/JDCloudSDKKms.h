@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   JDCLOUD 密钥管理服务(Key Management Service) API
+   密钥管理服务
    基于硬件保护密钥的安全数据托管服务
 
    OpenAPI spec version: v1

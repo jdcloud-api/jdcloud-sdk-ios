@@ -1,99 +1,81 @@
-//
-//  Updateable.swift
-//  Cryptor
-//
-//     Licensed under the Apache License, Version 2.0 (the "License");
-//     you may not use this file except in compliance with the License.
-//     You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-//     Unless required by applicable law or agreed to in writing, software
-//     distributed under the License is distributed on an "AS IS" BASIS,
-//     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//     See the License for the specific language governing permissions and
-//     limitations under the License.
-//
-import Foundation
-
-///
-/// A protocol for calculations that can be updated with incremental data buffers.
-///
 public protocol Updatable {
-    
-    /// Status of the calculation.
-    var status: Status { get }
-    
+    /// Update given bytes in chunks.
     ///
-    /// Low-level update routine.
-    /// Updates the calculation with the contents of a data buffer.
+    /// - parameter bytes: Bytes to process.
+    /// - parameter isLast: Indicate if given chunk is the last one. No more updates after this call.
+    /// - returns: Processed partial result data or empty array.
+    mutating func update(withBytes bytes: ArraySlice<UInt8>, isLast: Bool) throws -> Array<UInt8>
+    
+    /// Update given bytes in chunks.
     ///
     /// - Parameters:
-    ///        - buffer:         Pointer to the data buffer
-    ///     - byteCount:     Length of the buffer in bytes
-    ///
-    /// - Returns: `Self` if no error for optional chaining, nil otherwise
-    ///
-    func update(from buffer: UnsafeRawPointer, byteCount: size_t) -> Self?
+    ///   - bytes: Bytes to process.
+    ///   - isLast: Indicate if given chunk is the last one. No more updates after this call.
+    ///   - output: Resulting bytes callback.
+    /// - Returns: Processed partial result data or empty array.
+    mutating func update(withBytes bytes: ArraySlice<UInt8>, isLast: Bool, output: (_ bytes: Array<UInt8>) -> Void) throws
 }
 
-///
-/// Factors out common update code from Digest, HMAC and Cryptor.
-///
 extension Updatable {
-    ///
-    /// Updates the current calculation with data contained in an `NSData` object.
-    ///
-    /// - Parameter data: The `NSData` object
-    ///
-    /// - Returns: Optional `Self` or nil
-    ///
-    public func update(data: NSData) -> Self? {
-        
-        _ = update(from: data.bytes, byteCount: size_t(data.length))
-        return self.status == .success ? self : nil
-    }
-    
-    ///
-    /// Updates the current calculation with data contained in an `Data` object.
-    ///
-    /// - Parameters data: The `Data` object
-    ///
-    /// - Returns: Optional `Self` or nil
-    ///
-    public func update(data: Data) -> Self? {
-        
-        _ = data.withUnsafeBytes() { (buffer: UnsafePointer<UInt8>) in
-            
-            _ = update(from: buffer, byteCount: size_t(data.count))
+    public mutating func update(withBytes bytes: ArraySlice<UInt8>, isLast: Bool = false, output: (_ bytes: Array<UInt8>) -> Void) throws {
+        let processed = try update(withBytes: bytes, isLast: isLast)
+        if !processed.isEmpty {
+            output(processed)
         }
-        return self.status == .success ? self : nil
     }
     
-    ///
-    /// Updates the current calculation with data contained in a byte array.
-    ///
-    /// - Parameter byteArray: The byte array
-    ///
-    /// - Returns: Optional `Self` or nil
-    ///
-    public func update(byteArray: [UInt8]) -> Self? {
-        
-        _ = update(from: byteArray, byteCount: size_t(byteArray.count))
-        return self.status == .success ? self : nil
+    public mutating func update(withBytes bytes: ArraySlice<UInt8>, isLast: Bool = false) throws -> Array<UInt8> {
+        return try update(withBytes: bytes, isLast: isLast)
     }
     
+    public mutating func update(withBytes bytes: Array<UInt8>, isLast: Bool = false) throws -> Array<UInt8> {
+        return try update(withBytes: bytes.slice, isLast: isLast)
+    }
+    
+    public mutating func update(withBytes bytes: Array<UInt8>, isLast: Bool = false, output: (_ bytes: Array<UInt8>) -> Void) throws {
+        return try update(withBytes: bytes.slice, isLast: isLast, output: output)
+    }
+    
+    /// Finish updates. This may apply padding.
+    /// - parameter bytes: Bytes to process
+    /// - returns: Processed data.
+    public mutating func finish(withBytes bytes: ArraySlice<UInt8>) throws -> Array<UInt8> {
+        return try update(withBytes: bytes, isLast: true)
+    }
+    
+    public mutating func finish(withBytes bytes: Array<UInt8>) throws -> Array<UInt8> {
+        return try finish(withBytes: bytes.slice)
+    }
+    
+    
+    /// Finish updates. May add padding.
     ///
-    /// Updates the current calculation with data contained in a String.
-    /// The corresponding data will be generated using UTF8 encoding.
+    /// - Returns: Processed data
+    /// - Throws: Error
+    public mutating func finish() throws -> Array<UInt8> {
+        return try update(withBytes: [], isLast: true)
+    }
+    
+    /// Finish updates. This may apply padding.
+    /// - parameter bytes: Bytes to process
+    /// - parameter output: Resulting data
+    /// - returns: Processed data.
+    public mutating func finish(withBytes bytes: ArraySlice<UInt8>, output: (_ bytes: Array<UInt8>) -> Void) throws {
+        let processed = try update(withBytes: bytes, isLast: true)
+        if !processed.isEmpty {
+            output(processed)
+        }
+    }
+    
+    public mutating func finish(withBytes bytes: Array<UInt8>, output: (_ bytes: Array<UInt8>) -> Void) throws {
+        return try finish(withBytes: bytes.slice, output: output)
+    }
+    
+    /// Finish updates. May add padding.
     ///
-    /// - Parameter string: The string of data
-    ///
-    /// - Returns: Optional `Self` or nil
-    ///
-    public func update(string: String) -> Self? {
-        
-        _ = update(from: string, byteCount: size_t(string.utf8.count))
-        return self.status == .success ? self : nil
+    /// - Parameter output: Processed data
+    /// - Throws: Error
+    public mutating func finish(output: (Array<UInt8>) -> Void) throws {
+        try finish(withBytes: [], output: output)
     }
 }

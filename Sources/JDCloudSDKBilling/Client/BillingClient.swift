@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(BillingJDCloudClient)
+
 public class BillingJDCloudClient:NSObject,JDCloudClient{
     
     private final var billingJDCloudClient:BillingJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class BillingJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class BillingJDCloudClient:NSObject,JDCloudClient{
         billingJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "billing" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "billing/" + "v1"
     
     public let serviceName: String = "billing"
     
@@ -72,62 +72,47 @@ public class BillingJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func queryBillSummaryAsync(request:QueryBillSummaryRequest,requestComplation:@escaping (NSNumber?,QueryBillSummaryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func calculateTotalPriceAsync(request:CalculateTotalPriceRequest,requestComplation:@escaping ExecuteResult<CalculateTotalPriceResult>) throws {
         billingJDCloudClient = self
-        try QueryBillSummaryExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryBillSummaryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CalculateTotalPriceExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func queryBillDetailAsync(request:QueryBillDetailRequest,requestComplation:@escaping (NSNumber?,QueryBillDetailResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryBillSummaryAsync(request:QueryBillSummaryRequest,requestComplation:@escaping ExecuteResult<QueryBillSummaryResult>) throws {
         billingJDCloudClient = self
-        try QueryBillDetailExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryBillDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryBillSummaryExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func queryBillDetailAsync(request:QueryBillDetailRequest,requestComplation:@escaping ExecuteResult<QueryBillDetailResult>) throws {
+        billingJDCloudClient = self
+        try QueryBillDetailExecutor(jdCloudClient: billingJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension BillingJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

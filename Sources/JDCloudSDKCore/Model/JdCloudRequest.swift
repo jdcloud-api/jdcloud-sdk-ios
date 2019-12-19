@@ -8,20 +8,20 @@
 import Foundation
 
 
-open class  JdCloudRequest:NSObject,Encodable{
+open class  JdCloudRequest:Encodable{
     // 版本信息
-    var regionId:String;
+     var regionId:String;
     
-    var version:String?
+     var version:String?
     
     public init(regionId:String) {
         self.regionId = regionId
     }
-    
-    
+  
+
 }
 
-extension JdCloudRequest{
+ extension JdCloudRequest{
     public convenience init(regionId:String,version:String)
     {
         self.init(regionId: regionId)

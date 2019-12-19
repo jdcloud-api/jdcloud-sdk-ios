@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(HttpdnsJDCloudClient)
+
 public class HttpdnsJDCloudClient:NSObject,JDCloudClient{
     
     private final var httpdnsJDCloudClient:HttpdnsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class HttpdnsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class HttpdnsJDCloudClient:NSObject,JDCloudClient{
         httpdnsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "httpdns" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "httpdns/" + "v1"
     
     public let serviceName: String = "httpdns"
     
@@ -72,167 +72,83 @@ public class HttpdnsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getAccountInfoAsync(request:GetAccountInfoRequest,requestComplation:@escaping (NSNumber?,GetAccountInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getAccountInfoAsync(request:GetAccountInfoRequest,requestComplation:@escaping ExecuteResult<GetAccountInfoResult>) throws {
         httpdnsJDCloudClient = self
-        try GetAccountInfoExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetAccountInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetAccountInfoExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addDomainsAsync(request:AddDomainsRequest,requestComplation:@escaping (NSNumber?,AddDomainsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addDomainsAsync(request:AddDomainsRequest,requestComplation:@escaping ExecuteResult<AddDomainsResult>) throws {
         httpdnsJDCloudClient = self
-        try AddDomainsExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddDomainsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddDomainsExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func delDomainsAsync(request:DelDomainsRequest,requestComplation:@escaping (NSNumber?,DelDomainsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func delDomainsAsync(request:DelDomainsRequest,requestComplation:@escaping ExecuteResult<DelDomainsResult>) throws {
         httpdnsJDCloudClient = self
-        try DelDomainsExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DelDomainsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DelDomainsExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createAccountAsync(request:CreateAccountRequest,requestComplation:@escaping (NSNumber?,CreateAccountResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createAccountAsync(request:CreateAccountRequest,requestComplation:@escaping ExecuteResult<CreateAccountResult>) throws {
         httpdnsJDCloudClient = self
-        try CreateAccountExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateAccountResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateAccountExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getDomainsAsync(request:GetDomainsRequest,requestComplation:@escaping (NSNumber?,GetDomainsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getDomainsAsync(request:GetDomainsRequest,requestComplation:@escaping ExecuteResult<GetDomainsResult>) throws {
         httpdnsJDCloudClient = self
-        try GetDomainsExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetDomainsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetDomainsExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getAccountIdAsync(request:GetAccountIdRequest,requestComplation:@escaping (NSNumber?,GetAccountIdResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getAccountIdAsync(request:GetAccountIdRequest,requestComplation:@escaping ExecuteResult<GetAccountIdResult>) throws {
         httpdnsJDCloudClient = self
-        try GetAccountIdExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetAccountIdResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetAccountIdExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func operateKeyAsync(request:OperateKeyRequest,requestComplation:@escaping (NSNumber?,OperateKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func operateKeyAsync(request:OperateKeyRequest,requestComplation:@escaping ExecuteResult<OperateKeyResult>) throws {
         httpdnsJDCloudClient = self
-        try OperateKeyExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(OperateKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try OperateKeyExecutor(jdCloudClient: httpdnsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension HttpdnsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(MpsJDCloudClient)
+
 public class MpsJDCloudClient:NSObject,JDCloudClient{
     
     private final var mpsJDCloudClient:MpsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
         mpsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "mps" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "mps/" + "v1"
     
     public let serviceName: String = "mps"
     
@@ -72,188 +72,92 @@ public class MpsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func createThumbnailTaskAsync(request:CreateThumbnailTaskRequest,requestComplation:@escaping (NSNumber?,CreateThumbnailTaskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createThumbnailTaskAsync(request:CreateThumbnailTaskRequest,requestComplation:@escaping ExecuteResult<CreateThumbnailTaskResult>) throws {
         mpsJDCloudClient = self
-        try CreateThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateThumbnailTaskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func listThumbnailTaskAsync(request:ListThumbnailTaskRequest,requestComplation:@escaping (NSNumber?,ListThumbnailTaskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listThumbnailTaskAsync(request:ListThumbnailTaskRequest,requestComplation:@escaping ExecuteResult<ListThumbnailTaskResult>) throws {
         mpsJDCloudClient = self
-        try ListThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListThumbnailTaskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteStyleDelimiterAsync(request:DeleteStyleDelimiterRequest,requestComplation:@escaping (NSNumber?,DeleteStyleDelimiterResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteStyleDelimiterAsync(request:DeleteStyleDelimiterRequest,requestComplation:@escaping ExecuteResult<DeleteStyleDelimiterResult>) throws {
         mpsJDCloudClient = self
-        try DeleteStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteStyleDelimiterResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getNotificationAsync(request:GetNotificationRequest,requestComplation:@escaping (NSNumber?,GetNotificationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getNotificationAsync(request:GetNotificationRequest,requestComplation:@escaping ExecuteResult<GetNotificationResult>) throws {
         mpsJDCloudClient = self
-        try GetNotificationExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetNotificationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetNotificationExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getThumbnailTaskAsync(request:GetThumbnailTaskRequest,requestComplation:@escaping (NSNumber?,GetThumbnailTaskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getThumbnailTaskAsync(request:GetThumbnailTaskRequest,requestComplation:@escaping ExecuteResult<GetThumbnailTaskResult>) throws {
         mpsJDCloudClient = self
-        try GetThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetThumbnailTaskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetThumbnailTaskExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setNotificationAsync(request:SetNotificationRequest,requestComplation:@escaping (NSNumber?,SetNotificationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setNotificationAsync(request:SetNotificationRequest,requestComplation:@escaping ExecuteResult<SetNotificationResult>) throws {
         mpsJDCloudClient = self
-        try SetNotificationExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetNotificationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetNotificationExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setStyleDelimiterAsync(request:SetStyleDelimiterRequest,requestComplation:@escaping (NSNumber?,SetStyleDelimiterResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setStyleDelimiterAsync(request:SetStyleDelimiterRequest,requestComplation:@escaping ExecuteResult<SetStyleDelimiterResult>) throws {
         mpsJDCloudClient = self
-        try SetStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetStyleDelimiterResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getStyleDelimiterAsync(request:GetStyleDelimiterRequest,requestComplation:@escaping (NSNumber?,GetStyleDelimiterResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getStyleDelimiterAsync(request:GetStyleDelimiterRequest,requestComplation:@escaping ExecuteResult<GetStyleDelimiterResult>) throws {
         mpsJDCloudClient = self
-        try GetStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetStyleDelimiterResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetStyleDelimiterExecutor(jdCloudClient: mpsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension MpsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

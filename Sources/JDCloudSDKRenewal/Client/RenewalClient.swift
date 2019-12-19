@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(RenewalJDCloudClient)
+
 public class RenewalJDCloudClient:NSObject,JDCloudClient{
     
     private final var renewalJDCloudClient:RenewalJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class RenewalJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class RenewalJDCloudClient:NSObject,JDCloudClient{
         renewalJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "renewal" + "v2"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "renewal/" + "v2"
     
     public let serviceName: String = "renewal"
     
@@ -72,83 +72,47 @@ public class RenewalJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func setRenewalAsync(request:SetRenewalRequest,requestComplation:@escaping (NSNumber?,SetRenewalResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setRenewalAsync(request:SetRenewalRequest,requestComplation:@escaping ExecuteResult<SetRenewalResult>) throws {
         renewalJDCloudClient = self
-        try SetRenewalExecutor(jdCloudClient: renewalJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetRenewalResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetRenewalExecutor(jdCloudClient: renewalJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func renewInstanceAsync(request:RenewInstanceRequest,requestComplation:@escaping (NSNumber?,RenewInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func renewInstanceAsync(request:RenewInstanceRequest,requestComplation:@escaping ExecuteResult<RenewInstanceResult>) throws {
         renewalJDCloudClient = self
-        try RenewInstanceExecutor(jdCloudClient: renewalJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RenewInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RenewInstanceExecutor(jdCloudClient: renewalJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func queryInstanceAsync(request:QueryInstanceRequest,requestComplation:@escaping (NSNumber?,QueryInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryInstanceAsync(request:QueryInstanceRequest,requestComplation:@escaping ExecuteResult<QueryInstanceResult>) throws {
         renewalJDCloudClient = self
-        try QueryInstanceExecutor(jdCloudClient: renewalJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryInstanceExecutor(jdCloudClient: renewalJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension RenewalJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

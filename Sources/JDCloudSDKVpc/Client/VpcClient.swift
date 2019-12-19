@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(VpcJDCloudClient)
+
 public class VpcJDCloudClient:NSObject,JDCloudClient{
     
     private final var vpcJDCloudClient:VpcJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class VpcJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class VpcJDCloudClient:NSObject,JDCloudClient{
         vpcJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "vpc" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "vpc/" + "v1"
     
     public let serviceName: String = "vpc"
     
@@ -72,1238 +72,542 @@ public class VpcJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func deleteElasticIpAsync(request:DeleteElasticIpRequest,requestComplation:@escaping (NSNumber?,DeleteElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteElasticIpAsync(request:DeleteElasticIpRequest,requestComplation:@escaping ExecuteResult<DeleteElasticIpResult>) throws {
         vpcJDCloudClient = self
-        try DeleteElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyVpcPeeringAsync(request:ModifyVpcPeeringRequest,requestComplation:@escaping (NSNumber?,ModifyVpcPeeringResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyVpcPeeringAsync(request:ModifyVpcPeeringRequest,requestComplation:@escaping ExecuteResult<ModifyVpcPeeringResult>) throws {
         vpcJDCloudClient = self
-        try ModifyVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyVpcPeeringResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyNetworkAclRulesAsync(request:ModifyNetworkAclRulesRequest,requestComplation:@escaping (NSNumber?,ModifyNetworkAclRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyNetworkAclRulesAsync(request:ModifyNetworkAclRulesRequest,requestComplation:@escaping ExecuteResult<ModifyNetworkAclRulesResult>) throws {
         vpcJDCloudClient = self
-        try ModifyNetworkAclRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyNetworkAclRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyNetworkAclRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyElasticIpAsync(request:ModifyElasticIpRequest,requestComplation:@escaping (NSNumber?,ModifyElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyElasticIpAsync(request:ModifyElasticIpRequest,requestComplation:@escaping ExecuteResult<ModifyElasticIpResult>) throws {
         vpcJDCloudClient = self
-        try ModifyElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteNetworkAclAsync(request:DeleteNetworkAclRequest,requestComplation:@escaping (NSNumber?,DeleteNetworkAclResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteNetworkAclAsync(request:DeleteNetworkAclRequest,requestComplation:@escaping ExecuteResult<DeleteNetworkAclResult>) throws {
         vpcJDCloudClient = self
-        try DeleteNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteNetworkAclResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSubnetAsync(request:DeleteSubnetRequest,requestComplation:@escaping (NSNumber?,DeleteSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSubnetAsync(request:DeleteSubnetRequest,requestComplation:@escaping ExecuteResult<DeleteSubnetResult>) throws {
         vpcJDCloudClient = self
-        try DeleteSubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSubnetsAsync(request:DescribeSubnetsRequest,requestComplation:@escaping (NSNumber?,DescribeSubnetsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubnetsAsync(request:DescribeSubnetsRequest,requestComplation:@escaping ExecuteResult<DescribeSubnetsResult>) throws {
         vpcJDCloudClient = self
-        try DescribeSubnetsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubnetsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubnetsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeNetworkInterfacesAsync(request:DescribeNetworkInterfacesRequest,requestComplation:@escaping (NSNumber?,DescribeNetworkInterfacesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeNetworkInterfacesAsync(request:DescribeNetworkInterfacesRequest,requestComplation:@escaping ExecuteResult<DescribeNetworkInterfacesResult>) throws {
         vpcJDCloudClient = self
-        try DescribeNetworkInterfacesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeNetworkInterfacesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeNetworkInterfacesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func removeNetworkSecurityGroupRulesAsync(request:RemoveNetworkSecurityGroupRulesRequest,requestComplation:@escaping (NSNumber?,RemoveNetworkSecurityGroupRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func removeNetworkSecurityGroupRulesAsync(request:RemoveNetworkSecurityGroupRulesRequest,requestComplation:@escaping ExecuteResult<RemoveNetworkSecurityGroupRulesResult>) throws {
         vpcJDCloudClient = self
-        try RemoveNetworkSecurityGroupRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RemoveNetworkSecurityGroupRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RemoveNetworkSecurityGroupRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyNetworkSecurityGroupAsync(request:ModifyNetworkSecurityGroupRequest,requestComplation:@escaping (NSNumber?,ModifyNetworkSecurityGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyNetworkSecurityGroupAsync(request:ModifyNetworkSecurityGroupRequest,requestComplation:@escaping ExecuteResult<ModifyNetworkSecurityGroupResult>) throws {
         vpcJDCloudClient = self
-        try ModifyNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyNetworkSecurityGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addNetworkSecurityGroupRulesAsync(request:AddNetworkSecurityGroupRulesRequest,requestComplation:@escaping (NSNumber?,AddNetworkSecurityGroupRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addNetworkSecurityGroupRulesAsync(request:AddNetworkSecurityGroupRulesRequest,requestComplation:@escaping ExecuteResult<AddNetworkSecurityGroupRulesResult>) throws {
         vpcJDCloudClient = self
-        try AddNetworkSecurityGroupRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddNetworkSecurityGroupRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddNetworkSecurityGroupRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createNetworkAclAsync(request:CreateNetworkAclRequest,requestComplation:@escaping (NSNumber?,CreateNetworkAclResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createNetworkAclAsync(request:CreateNetworkAclRequest,requestComplation:@escaping ExecuteResult<CreateNetworkAclResult>) throws {
         vpcJDCloudClient = self
-        try CreateNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateNetworkAclResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeQuotaAsync(request:DescribeQuotaRequest,requestComplation:@escaping (NSNumber?,DescribeQuotaResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeQuotaAsync(request:DescribeQuotaRequest,requestComplation:@escaping ExecuteResult<DescribeQuotaResult>) throws {
         vpcJDCloudClient = self
-        try DescribeQuotaExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeQuotaResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeQuotaExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createRouteTableAsync(request:CreateRouteTableRequest,requestComplation:@escaping (NSNumber?,CreateRouteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createRouteTableAsync(request:CreateRouteTableRequest,requestComplation:@escaping ExecuteResult<CreateRouteTableResult>) throws {
         vpcJDCloudClient = self
-        try CreateRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateRouteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRouteTableAsync(request:DescribeRouteTableRequest,requestComplation:@escaping (NSNumber?,DescribeRouteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRouteTableAsync(request:DescribeRouteTableRequest,requestComplation:@escaping ExecuteResult<DescribeRouteTableResult>) throws {
         vpcJDCloudClient = self
-        try DescribeRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRouteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteNetworkSecurityGroupAsync(request:DeleteNetworkSecurityGroupRequest,requestComplation:@escaping (NSNumber?,DeleteNetworkSecurityGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteNetworkSecurityGroupAsync(request:DeleteNetworkSecurityGroupRequest,requestComplation:@escaping ExecuteResult<DeleteNetworkSecurityGroupResult>) throws {
         vpcJDCloudClient = self
-        try DeleteNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteNetworkSecurityGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeVpcPeeringsAsync(request:DescribeVpcPeeringsRequest,requestComplation:@escaping (NSNumber?,DescribeVpcPeeringsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeVpcPeeringsAsync(request:DescribeVpcPeeringsRequest,requestComplation:@escaping ExecuteResult<DescribeVpcPeeringsResult>) throws {
         vpcJDCloudClient = self
-        try DescribeVpcPeeringsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeVpcPeeringsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeVpcPeeringsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteVpcAsync(request:DeleteVpcRequest,requestComplation:@escaping (NSNumber?,DeleteVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteVpcAsync(request:DeleteVpcRequest,requestComplation:@escaping ExecuteResult<DeleteVpcResult>) throws {
         vpcJDCloudClient = self
-        try DeleteVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeNetworkAclsAsync(request:DescribeNetworkAclsRequest,requestComplation:@escaping (NSNumber?,DescribeNetworkAclsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeNetworkAclsAsync(request:DescribeNetworkAclsRequest,requestComplation:@escaping ExecuteResult<DescribeNetworkAclsResult>) throws {
         vpcJDCloudClient = self
-        try DescribeNetworkAclsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeNetworkAclsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeNetworkAclsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSubnetAsync(request:DescribeSubnetRequest,requestComplation:@escaping (NSNumber?,DescribeSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubnetAsync(request:DescribeSubnetRequest,requestComplation:@escaping ExecuteResult<DescribeSubnetResult>) throws {
         vpcJDCloudClient = self
-        try DescribeSubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeNetworkSecurityGroupAsync(request:DescribeNetworkSecurityGroupRequest,requestComplation:@escaping (NSNumber?,DescribeNetworkSecurityGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeNetworkSecurityGroupAsync(request:DescribeNetworkSecurityGroupRequest,requestComplation:@escaping ExecuteResult<DescribeNetworkSecurityGroupResult>) throws {
         vpcJDCloudClient = self
-        try DescribeNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeNetworkSecurityGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeNetworkSecurityGroupsAsync(request:DescribeNetworkSecurityGroupsRequest,requestComplation:@escaping (NSNumber?,DescribeNetworkSecurityGroupsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeNetworkSecurityGroupsAsync(request:DescribeNetworkSecurityGroupsRequest,requestComplation:@escaping ExecuteResult<DescribeNetworkSecurityGroupsResult>) throws {
         vpcJDCloudClient = self
-        try DescribeNetworkSecurityGroupsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeNetworkSecurityGroupsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeNetworkSecurityGroupsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeVpcAsync(request:DescribeVpcRequest,requestComplation:@escaping (NSNumber?,DescribeVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeVpcAsync(request:DescribeVpcRequest,requestComplation:@escaping ExecuteResult<DescribeVpcResult>) throws {
         vpcJDCloudClient = self
-        try DescribeVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disassociateNetworkAclAsync(request:DisassociateNetworkAclRequest,requestComplation:@escaping (NSNumber?,DisassociateNetworkAclResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disassociateNetworkAclAsync(request:DisassociateNetworkAclRequest,requestComplation:@escaping ExecuteResult<DisassociateNetworkAclResult>) throws {
         vpcJDCloudClient = self
-        try DisassociateNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisassociateNetworkAclResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisassociateNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func removeNetworkAclRulesAsync(request:RemoveNetworkAclRulesRequest,requestComplation:@escaping (NSNumber?,RemoveNetworkAclRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func removeNetworkAclRulesAsync(request:RemoveNetworkAclRulesRequest,requestComplation:@escaping ExecuteResult<RemoveNetworkAclRulesResult>) throws {
         vpcJDCloudClient = self
-        try RemoveNetworkAclRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RemoveNetworkAclRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RemoveNetworkAclRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func associateRouteTableAsync(request:AssociateRouteTableRequest,requestComplation:@escaping (NSNumber?,AssociateRouteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func associateRouteTableAsync(request:AssociateRouteTableRequest,requestComplation:@escaping ExecuteResult<AssociateRouteTableResult>) throws {
         vpcJDCloudClient = self
-        try AssociateRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssociateRouteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssociateRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeVpcsAsync(request:DescribeVpcsRequest,requestComplation:@escaping (NSNumber?,DescribeVpcsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeVpcsAsync(request:DescribeVpcsRequest,requestComplation:@escaping ExecuteResult<DescribeVpcsResult>) throws {
         vpcJDCloudClient = self
-        try DescribeVpcsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeVpcsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeVpcsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createNetworkSecurityGroupAsync(request:CreateNetworkSecurityGroupRequest,requestComplation:@escaping (NSNumber?,CreateNetworkSecurityGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createNetworkSecurityGroupAsync(request:CreateNetworkSecurityGroupRequest,requestComplation:@escaping ExecuteResult<CreateNetworkSecurityGroupResult>) throws {
         vpcJDCloudClient = self
-        try CreateNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateNetworkSecurityGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateNetworkSecurityGroupExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSubnetAsync(request:CreateSubnetRequest,requestComplation:@escaping (NSNumber?,CreateSubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSubnetAsync(request:CreateSubnetRequest,requestComplation:@escaping ExecuteResult<CreateSubnetResult>) throws {
         vpcJDCloudClient = self
-        try CreateSubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteRouteTableAsync(request:DeleteRouteTableRequest,requestComplation:@escaping (NSNumber?,DeleteRouteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteRouteTableAsync(request:DeleteRouteTableRequest,requestComplation:@escaping ExecuteResult<DeleteRouteTableResult>) throws {
         vpcJDCloudClient = self
-        try DeleteRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteRouteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeVpcPeeringAsync(request:DescribeVpcPeeringRequest,requestComplation:@escaping (NSNumber?,DescribeVpcPeeringResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeVpcPeeringAsync(request:DescribeVpcPeeringRequest,requestComplation:@escaping ExecuteResult<DescribeVpcPeeringResult>) throws {
         vpcJDCloudClient = self
-        try DescribeVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeVpcPeeringResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func removeRouteTableRulesAsync(request:RemoveRouteTableRulesRequest,requestComplation:@escaping (NSNumber?,RemoveRouteTableRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func removeRouteTableRulesAsync(request:RemoveRouteTableRulesRequest,requestComplation:@escaping ExecuteResult<RemoveRouteTableRulesResult>) throws {
         vpcJDCloudClient = self
-        try RemoveRouteTableRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RemoveRouteTableRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RemoveRouteTableRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createVpcPeeringAsync(request:CreateVpcPeeringRequest,requestComplation:@escaping (NSNumber?,CreateVpcPeeringResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createVpcPeeringAsync(request:CreateVpcPeeringRequest,requestComplation:@escaping ExecuteResult<CreateVpcPeeringResult>) throws {
         vpcJDCloudClient = self
-        try CreateVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateVpcPeeringResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRouteTablesAsync(request:DescribeRouteTablesRequest,requestComplation:@escaping (NSNumber?,DescribeRouteTablesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRouteTablesAsync(request:DescribeRouteTablesRequest,requestComplation:@escaping ExecuteResult<DescribeRouteTablesResult>) throws {
         vpcJDCloudClient = self
-        try DescribeRouteTablesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRouteTablesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRouteTablesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func assignSecondaryIpsAsync(request:AssignSecondaryIpsRequest,requestComplation:@escaping (NSNumber?,AssignSecondaryIpsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func assignSecondaryIpsAsync(request:AssignSecondaryIpsRequest,requestComplation:@escaping ExecuteResult<AssignSecondaryIpsResult>) throws {
         vpcJDCloudClient = self
-        try AssignSecondaryIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssignSecondaryIpsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssignSecondaryIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyNetworkInterfaceAsync(request:ModifyNetworkInterfaceRequest,requestComplation:@escaping (NSNumber?,ModifyNetworkInterfaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyNetworkInterfaceAsync(request:ModifyNetworkInterfaceRequest,requestComplation:@escaping ExecuteResult<ModifyNetworkInterfaceResult>) throws {
         vpcJDCloudClient = self
-        try ModifyNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyNetworkInterfaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyNetworkSecurityGroupRulesAsync(request:ModifyNetworkSecurityGroupRulesRequest,requestComplation:@escaping (NSNumber?,ModifyNetworkSecurityGroupRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyNetworkSecurityGroupRulesAsync(request:ModifyNetworkSecurityGroupRulesRequest,requestComplation:@escaping ExecuteResult<ModifyNetworkSecurityGroupRulesResult>) throws {
         vpcJDCloudClient = self
-        try ModifyNetworkSecurityGroupRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyNetworkSecurityGroupRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyNetworkSecurityGroupRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeElasticIpsAsync(request:DescribeElasticIpsRequest,requestComplation:@escaping (NSNumber?,DescribeElasticIpsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeElasticIpsAsync(request:DescribeElasticIpsRequest,requestComplation:@escaping ExecuteResult<DescribeElasticIpsResult>) throws {
         vpcJDCloudClient = self
-        try DescribeElasticIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeElasticIpsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeElasticIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeNetworkInterfaceAsync(request:DescribeNetworkInterfaceRequest,requestComplation:@escaping (NSNumber?,DescribeNetworkInterfaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeNetworkInterfaceAsync(request:DescribeNetworkInterfaceRequest,requestComplation:@escaping ExecuteResult<DescribeNetworkInterfaceResult>) throws {
         vpcJDCloudClient = self
-        try DescribeNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeNetworkInterfaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyNetworkAclAsync(request:ModifyNetworkAclRequest,requestComplation:@escaping (NSNumber?,ModifyNetworkAclResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyNetworkAclAsync(request:ModifyNetworkAclRequest,requestComplation:@escaping ExecuteResult<ModifyNetworkAclResult>) throws {
         vpcJDCloudClient = self
-        try ModifyNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyNetworkAclResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disassociateElasticIpAsync(request:DisassociateElasticIpRequest,requestComplation:@escaping (NSNumber?,DisassociateElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disassociateElasticIpAsync(request:DisassociateElasticIpRequest,requestComplation:@escaping ExecuteResult<DisassociateElasticIpResult>) throws {
         vpcJDCloudClient = self
-        try DisassociateElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisassociateElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisassociateElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteVpcPeeringAsync(request:DeleteVpcPeeringRequest,requestComplation:@escaping (NSNumber?,DeleteVpcPeeringResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteVpcPeeringAsync(request:DeleteVpcPeeringRequest,requestComplation:@escaping ExecuteResult<DeleteVpcPeeringResult>) throws {
         vpcJDCloudClient = self
-        try DeleteVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteVpcPeeringResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteVpcPeeringExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createNetworkInterfaceAsync(request:CreateNetworkInterfaceRequest,requestComplation:@escaping (NSNumber?,CreateNetworkInterfaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createNetworkInterfaceAsync(request:CreateNetworkInterfaceRequest,requestComplation:@escaping ExecuteResult<CreateNetworkInterfaceResult>) throws {
         vpcJDCloudClient = self
-        try CreateNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateNetworkInterfaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createVpcAsync(request:CreateVpcRequest,requestComplation:@escaping (NSNumber?,CreateVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createVpcAsync(request:CreateVpcRequest,requestComplation:@escaping ExecuteResult<CreateVpcResult>) throws {
         vpcJDCloudClient = self
-        try CreateVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyRouteTableRulesAsync(request:ModifyRouteTableRulesRequest,requestComplation:@escaping (NSNumber?,ModifyRouteTableRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyRouteTableRulesAsync(request:ModifyRouteTableRulesRequest,requestComplation:@escaping ExecuteResult<ModifyRouteTableRulesResult>) throws {
         vpcJDCloudClient = self
-        try ModifyRouteTableRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyRouteTableRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyRouteTableRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addRouteTableRulesAsync(request:AddRouteTableRulesRequest,requestComplation:@escaping (NSNumber?,AddRouteTableRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addRouteTableRulesAsync(request:AddRouteTableRulesRequest,requestComplation:@escaping ExecuteResult<AddRouteTableRulesResult>) throws {
         vpcJDCloudClient = self
-        try AddRouteTableRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddRouteTableRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddRouteTableRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyRouteTableAsync(request:ModifyRouteTableRequest,requestComplation:@escaping (NSNumber?,ModifyRouteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyRouteTableAsync(request:ModifyRouteTableRequest,requestComplation:@escaping ExecuteResult<ModifyRouteTableResult>) throws {
         vpcJDCloudClient = self
-        try ModifyRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyRouteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func unassignSecondaryIpsAsync(request:UnassignSecondaryIpsRequest,requestComplation:@escaping (NSNumber?,UnassignSecondaryIpsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func unassignSecondaryIpsAsync(request:UnassignSecondaryIpsRequest,requestComplation:@escaping ExecuteResult<UnassignSecondaryIpsResult>) throws {
         vpcJDCloudClient = self
-        try UnassignSecondaryIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UnassignSecondaryIpsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UnassignSecondaryIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeElasticIpAsync(request:DescribeElasticIpRequest,requestComplation:@escaping (NSNumber?,DescribeElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeElasticIpAsync(request:DescribeElasticIpRequest,requestComplation:@escaping ExecuteResult<DescribeElasticIpResult>) throws {
         vpcJDCloudClient = self
-        try DescribeElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func associateElasticIpAsync(request:AssociateElasticIpRequest,requestComplation:@escaping (NSNumber?,AssociateElasticIpResponse?,NSError?,NSString?)->()) throws {
+    
+    public func associateElasticIpAsync(request:AssociateElasticIpRequest,requestComplation:@escaping ExecuteResult<AssociateElasticIpResult>) throws {
         vpcJDCloudClient = self
-        try AssociateElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssociateElasticIpResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssociateElasticIpExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disassociateRouteTableAsync(request:DisassociateRouteTableRequest,requestComplation:@escaping (NSNumber?,DisassociateRouteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disassociateRouteTableAsync(request:DisassociateRouteTableRequest,requestComplation:@escaping ExecuteResult<DisassociateRouteTableResult>) throws {
         vpcJDCloudClient = self
-        try DisassociateRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisassociateRouteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisassociateRouteTableExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyVpcAsync(request:ModifyVpcRequest,requestComplation:@escaping (NSNumber?,ModifyVpcResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyVpcAsync(request:ModifyVpcRequest,requestComplation:@escaping ExecuteResult<ModifyVpcResult>) throws {
         vpcJDCloudClient = self
-        try ModifyVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyVpcResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyVpcExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func associateNetworkAclAsync(request:AssociateNetworkAclRequest,requestComplation:@escaping (NSNumber?,AssociateNetworkAclResponse?,NSError?,NSString?)->()) throws {
+    
+    public func associateNetworkAclAsync(request:AssociateNetworkAclRequest,requestComplation:@escaping ExecuteResult<AssociateNetworkAclResult>) throws {
         vpcJDCloudClient = self
-        try AssociateNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssociateNetworkAclResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssociateNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifySubnetAsync(request:ModifySubnetRequest,requestComplation:@escaping (NSNumber?,ModifySubnetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifySubnetAsync(request:ModifySubnetRequest,requestComplation:@escaping ExecuteResult<ModifySubnetResult>) throws {
         vpcJDCloudClient = self
-        try ModifySubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifySubnetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifySubnetExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createElasticIpsAsync(request:CreateElasticIpsRequest,requestComplation:@escaping (NSNumber?,CreateElasticIpsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createElasticIpsAsync(request:CreateElasticIpsRequest,requestComplation:@escaping ExecuteResult<CreateElasticIpsResult>) throws {
         vpcJDCloudClient = self
-        try CreateElasticIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateElasticIpsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateElasticIpsExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteNetworkInterfaceAsync(request:DeleteNetworkInterfaceRequest,requestComplation:@escaping (NSNumber?,DeleteNetworkInterfaceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteNetworkInterfaceAsync(request:DeleteNetworkInterfaceRequest,requestComplation:@escaping ExecuteResult<DeleteNetworkInterfaceResult>) throws {
         vpcJDCloudClient = self
-        try DeleteNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteNetworkInterfaceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteNetworkInterfaceExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeNetworkAclAsync(request:DescribeNetworkAclRequest,requestComplation:@escaping (NSNumber?,DescribeNetworkAclResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeNetworkAclAsync(request:DescribeNetworkAclRequest,requestComplation:@escaping ExecuteResult<DescribeNetworkAclResult>) throws {
         vpcJDCloudClient = self
-        try DescribeNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeNetworkAclResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeNetworkAclExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addNetworkAclRulesAsync(request:AddNetworkAclRulesRequest,requestComplation:@escaping (NSNumber?,AddNetworkAclRulesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addNetworkAclRulesAsync(request:AddNetworkAclRulesRequest,requestComplation:@escaping ExecuteResult<AddNetworkAclRulesResult>) throws {
         vpcJDCloudClient = self
-        try AddNetworkAclRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddNetworkAclRulesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddNetworkAclRulesExecutor(jdCloudClient: vpcJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension VpcJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(OssopenapiJDCloudClient)
+
 public class OssopenapiJDCloudClient:NSObject,JDCloudClient{
     
     private final var ossopenapiJDCloudClient:OssopenapiJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class OssopenapiJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class OssopenapiJDCloudClient:NSObject,JDCloudClient{
         ossopenapiJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "ossopenapi" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "ossopenapi/" + "v1"
     
     public let serviceName: String = "ossopenapi"
     
@@ -72,83 +72,56 @@ public class OssopenapiJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getBackSourceConfigurationAsync(request:GetBackSourceConfigurationRequest,requestComplation:@escaping (NSNumber?,GetBackSourceConfigurationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getSingleBucketCapacityAsync(request:GetSingleBucketCapacityRequest,requestComplation:@escaping ExecuteResult<GetSingleBucketCapacityResult>) throws {
         ossopenapiJDCloudClient = self
-        try GetBackSourceConfigurationExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetBackSourceConfigurationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetSingleBucketCapacityExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func putBackSourceConfigurationAsync(request:PutBackSourceConfigurationRequest,requestComplation:@escaping (NSNumber?,PutBackSourceConfigurationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getBackSourceConfigurationAsync(request:GetBackSourceConfigurationRequest,requestComplation:@escaping ExecuteResult<GetBackSourceConfigurationResult>) throws {
         ossopenapiJDCloudClient = self
-        try PutBackSourceConfigurationExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(PutBackSourceConfigurationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetBackSourceConfigurationExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteBackSourceConfigurationAsync(request:DeleteBackSourceConfigurationRequest,requestComplation:@escaping (NSNumber?,DeleteBackSourceConfigurationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func putBackSourceConfigurationAsync(request:PutBackSourceConfigurationRequest,requestComplation:@escaping ExecuteResult<PutBackSourceConfigurationResult>) throws {
         ossopenapiJDCloudClient = self
-        try DeleteBackSourceConfigurationExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteBackSourceConfigurationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try PutBackSourceConfigurationExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func deleteBackSourceConfigurationAsync(request:DeleteBackSourceConfigurationRequest,requestComplation:@escaping ExecuteResult<DeleteBackSourceConfigurationResult>) throws {
+        ossopenapiJDCloudClient = self
+        try DeleteBackSourceConfigurationExecutor(jdCloudClient: ossopenapiJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension OssopenapiJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

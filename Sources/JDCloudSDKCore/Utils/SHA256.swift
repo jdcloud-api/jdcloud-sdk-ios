@@ -46,9 +46,9 @@ public final class SHA256 {
         self.input = input
     }
     
-    //    public init(_ bytes: ByteString) {
-    //        self.input = bytes.contents
-    //    }
+//    public init(_ bytes: ByteString) {
+//        self.input = bytes.contents
+//    }
     
     public init(_ string: String) {
         self.input = [UInt8](string.utf8)

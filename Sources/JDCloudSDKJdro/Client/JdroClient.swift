@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(JdroJDCloudClient)
+
 public class JdroJDCloudClient:NSObject,JDCloudClient{
     
     private final var jdroJDCloudClient:JdroJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class JdroJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class JdroJDCloudClient:NSObject,JDCloudClient{
         jdroJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "jdro" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "jdro/" + "v1"
     
     public let serviceName: String = "jdro"
     
@@ -72,272 +72,128 @@ public class JdroJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeStacksAsync(request:DescribeStacksRequest,requestComplation:@escaping (NSNumber?,DescribeStacksResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStacksAsync(request:DescribeStacksRequest,requestComplation:@escaping ExecuteResult<DescribeStacksResult>) throws {
         jdroJDCloudClient = self
-        try DescribeStacksExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStacksResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStacksExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeStackEventsAsync(request:DescribeStackEventsRequest,requestComplation:@escaping (NSNumber?,DescribeStackEventsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStackEventsAsync(request:DescribeStackEventsRequest,requestComplation:@escaping ExecuteResult<DescribeStackEventsResult>) throws {
         jdroJDCloudClient = self
-        try DescribeStackEventsExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStackEventsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStackEventsExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeStackResourcesAsync(request:DescribeStackResourcesRequest,requestComplation:@escaping (NSNumber?,DescribeStackResourcesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStackResourcesAsync(request:DescribeStackResourcesRequest,requestComplation:@escaping ExecuteResult<DescribeStackResourcesResult>) throws {
         jdroJDCloudClient = self
-        try DescribeStackResourcesExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStackResourcesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStackResourcesExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createChangeSetAsync(request:CreateChangeSetRequest,requestComplation:@escaping (NSNumber?,CreateChangeSetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createChangeSetAsync(request:CreateChangeSetRequest,requestComplation:@escaping ExecuteResult<CreateChangeSetResult>) throws {
         jdroJDCloudClient = self
-        try CreateChangeSetExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateChangeSetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateChangeSetExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createStackAsync(request:CreateStackRequest,requestComplation:@escaping (NSNumber?,CreateStackResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createStackAsync(request:CreateStackRequest,requestComplation:@escaping ExecuteResult<CreateStackResult>) throws {
         jdroJDCloudClient = self
-        try CreateStackExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateStackResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateStackExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeStackAsync(request:DescribeStackRequest,requestComplation:@escaping (NSNumber?,DescribeStackResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStackAsync(request:DescribeStackRequest,requestComplation:@escaping ExecuteResult<DescribeStackResult>) throws {
         jdroJDCloudClient = self
-        try DescribeStackExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStackResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStackExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeStackTemplateAsync(request:DescribeStackTemplateRequest,requestComplation:@escaping (NSNumber?,DescribeStackTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeStackTemplateAsync(request:DescribeStackTemplateRequest,requestComplation:@escaping ExecuteResult<DescribeStackTemplateResult>) throws {
         jdroJDCloudClient = self
-        try DescribeStackTemplateExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeStackTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeStackTemplateExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func executeChangeSetAsync(request:ExecuteChangeSetRequest,requestComplation:@escaping (NSNumber?,ExecuteChangeSetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func executeChangeSetAsync(request:ExecuteChangeSetRequest,requestComplation:@escaping ExecuteResult<ExecuteChangeSetResult>) throws {
         jdroJDCloudClient = self
-        try ExecuteChangeSetExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExecuteChangeSetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExecuteChangeSetExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteStackAsync(request:DeleteStackRequest,requestComplation:@escaping (NSNumber?,DeleteStackResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteStackAsync(request:DeleteStackRequest,requestComplation:@escaping ExecuteResult<DeleteStackResult>) throws {
         jdroJDCloudClient = self
-        try DeleteStackExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteStackResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteStackExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func validateTemplateAsync(request:ValidateTemplateRequest,requestComplation:@escaping (NSNumber?,ValidateTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func validateTemplateAsync(request:ValidateTemplateRequest,requestComplation:@escaping ExecuteResult<ValidateTemplateResult>) throws {
         jdroJDCloudClient = self
-        try ValidateTemplateExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ValidateTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ValidateTemplateExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeResourceTypeSpecificationAsync(request:DescribeResourceTypeSpecificationRequest,requestComplation:@escaping (NSNumber?,DescribeResourceTypeSpecificationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeResourceTypeSpecificationAsync(request:DescribeResourceTypeSpecificationRequest,requestComplation:@escaping ExecuteResult<DescribeResourceTypeSpecificationResult>) throws {
         jdroJDCloudClient = self
-        try DescribeResourceTypeSpecificationExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeResourceTypeSpecificationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeResourceTypeSpecificationExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeResourceTypeListAsync(request:DescribeResourceTypeListRequest,requestComplation:@escaping (NSNumber?,DescribeResourceTypeListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeResourceTypeListAsync(request:DescribeResourceTypeListRequest,requestComplation:@escaping ExecuteResult<DescribeResourceTypeListResult>) throws {
         jdroJDCloudClient = self
-        try DescribeResourceTypeListExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeResourceTypeListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeResourceTypeListExecutor(jdCloudClient: jdroJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension JdroJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

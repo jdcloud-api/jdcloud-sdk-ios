@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(XdataJDCloudClient)
+
 public class XdataJDCloudClient:NSObject,JDCloudClient{
     
     private final var xdataJDCloudClient:XdataJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class XdataJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class XdataJDCloudClient:NSObject,JDCloudClient{
         xdataJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "xdata" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "xdata/" + "v1"
     
     public let serviceName: String = "xdata"
     
@@ -72,398 +72,182 @@ public class XdataJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func cancelRasQueryAsync(request:CancelRasQueryRequest,requestComplation:@escaping (NSNumber?,CancelRasQueryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func cancelRasQueryAsync(request:CancelRasQueryRequest,requestComplation:@escaping ExecuteResult<CancelRasQueryResult>) throws {
         xdataJDCloudClient = self
-        try CancelRasQueryExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CancelRasQueryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CancelRasQueryExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createDatabaseAsync(request:CreateDatabaseRequest,requestComplation:@escaping (NSNumber?,CreateDatabaseResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createDatabaseAsync(request:CreateDatabaseRequest,requestComplation:@escaping ExecuteResult<CreateDatabaseResult>) throws {
         xdataJDCloudClient = self
-        try CreateDatabaseExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateDatabaseResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateDatabaseExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getPySparkExecuteStateAsync(request:GetPySparkExecuteStateRequest,requestComplation:@escaping (NSNumber?,GetPySparkExecuteStateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPySparkExecuteStateAsync(request:GetPySparkExecuteStateRequest,requestComplation:@escaping ExecuteResult<GetPySparkExecuteStateResult>) throws {
         xdataJDCloudClient = self
-        try GetPySparkExecuteStateExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPySparkExecuteStateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPySparkExecuteStateExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func listDatabaseInfoAsync(request:ListDatabaseInfoRequest,requestComplation:@escaping (NSNumber?,ListDatabaseInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listDatabaseInfoAsync(request:ListDatabaseInfoRequest,requestComplation:@escaping ExecuteResult<ListDatabaseInfoResult>) throws {
         xdataJDCloudClient = self
-        try ListDatabaseInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListDatabaseInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListDatabaseInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getDatabaseInfoAsync(request:GetDatabaseInfoRequest,requestComplation:@escaping (NSNumber?,GetDatabaseInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getDatabaseInfoAsync(request:GetDatabaseInfoRequest,requestComplation:@escaping ExecuteResult<GetDatabaseInfoResult>) throws {
         xdataJDCloudClient = self
-        try GetDatabaseInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetDatabaseInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetDatabaseInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func listTableInfoAsync(request:ListTableInfoRequest,requestComplation:@escaping (NSNumber?,ListTableInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listTableInfoAsync(request:ListTableInfoRequest,requestComplation:@escaping ExecuteResult<ListTableInfoResult>) throws {
         xdataJDCloudClient = self
-        try ListTableInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListTableInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListTableInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getRasQueryStateAsync(request:GetRasQueryStateRequest,requestComplation:@escaping (NSNumber?,GetRasQueryStateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getRasQueryStateAsync(request:GetRasQueryStateRequest,requestComplation:@escaping ExecuteResult<GetRasQueryStateResult>) throws {
         xdataJDCloudClient = self
-        try GetRasQueryStateExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetRasQueryStateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetRasQueryStateExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func executeRasQueryAsync(request:ExecuteRasQueryRequest,requestComplation:@escaping (NSNumber?,ExecuteRasQueryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func executeRasQueryAsync(request:ExecuteRasQueryRequest,requestComplation:@escaping ExecuteResult<ExecuteRasQueryResult>) throws {
         xdataJDCloudClient = self
-        try ExecuteRasQueryExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExecuteRasQueryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExecuteRasQueryExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func cancelPySparkJobAsync(request:CancelPySparkJobRequest,requestComplation:@escaping (NSNumber?,CancelPySparkJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func cancelPySparkJobAsync(request:CancelPySparkJobRequest,requestComplation:@escaping ExecuteResult<CancelPySparkJobResult>) throws {
         xdataJDCloudClient = self
-        try CancelPySparkJobExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CancelPySparkJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CancelPySparkJobExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getPySparkExecuteResultAsync(request:GetPySparkExecuteResultRequest,requestComplation:@escaping (NSNumber?,GetPySparkExecuteResultResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPySparkExecuteResultAsync(request:GetPySparkExecuteResultRequest,requestComplation:@escaping ExecuteResult<GetPySparkExecuteResultResult>) throws {
         xdataJDCloudClient = self
-        try GetPySparkExecuteResultExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPySparkExecuteResultResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPySparkExecuteResultExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func listInstanceInfoAsync(request:ListInstanceInfoRequest,requestComplation:@escaping (NSNumber?,ListInstanceInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listInstanceInfoAsync(request:ListInstanceInfoRequest,requestComplation:@escaping ExecuteResult<ListInstanceInfoResult>) throws {
         xdataJDCloudClient = self
-        try ListInstanceInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListInstanceInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListInstanceInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteDatabaseAsync(request:DeleteDatabaseRequest,requestComplation:@escaping (NSNumber?,DeleteDatabaseResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteDatabaseAsync(request:DeleteDatabaseRequest,requestComplation:@escaping ExecuteResult<DeleteDatabaseResult>) throws {
         xdataJDCloudClient = self
-        try DeleteDatabaseExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteDatabaseResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteDatabaseExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getTableInfoAsync(request:GetTableInfoRequest,requestComplation:@escaping (NSNumber?,GetTableInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getTableInfoAsync(request:GetTableInfoRequest,requestComplation:@escaping ExecuteResult<GetTableInfoResult>) throws {
         xdataJDCloudClient = self
-        try GetTableInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetTableInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetTableInfoExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func executePySparkQueryAsync(request:ExecutePySparkQueryRequest,requestComplation:@escaping (NSNumber?,ExecutePySparkQueryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func executePySparkQueryAsync(request:ExecutePySparkQueryRequest,requestComplation:@escaping ExecuteResult<ExecutePySparkQueryResult>) throws {
         xdataJDCloudClient = self
-        try ExecutePySparkQueryExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExecutePySparkQueryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExecutePySparkQueryExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getRasQueryResultAsync(request:GetRasQueryResultRequest,requestComplation:@escaping (NSNumber?,GetRasQueryResultResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getRasQueryResultAsync(request:GetRasQueryResultRequest,requestComplation:@escaping ExecuteResult<GetRasQueryResultResult>) throws {
         xdataJDCloudClient = self
-        try GetRasQueryResultExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetRasQueryResultResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetRasQueryResultExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createTableAsync(request:CreateTableRequest,requestComplation:@escaping (NSNumber?,CreateTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createTableAsync(request:CreateTableRequest,requestComplation:@escaping ExecuteResult<CreateTableResult>) throws {
         xdataJDCloudClient = self
-        try CreateTableExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateTableExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getRasQueryLogAsync(request:GetRasQueryLogRequest,requestComplation:@escaping (NSNumber?,GetRasQueryLogResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getRasQueryLogAsync(request:GetRasQueryLogRequest,requestComplation:@escaping ExecuteResult<GetRasQueryLogResult>) throws {
         xdataJDCloudClient = self
-        try GetRasQueryLogExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetRasQueryLogResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetRasQueryLogExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteTableAsync(request:DeleteTableRequest,requestComplation:@escaping (NSNumber?,DeleteTableResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteTableAsync(request:DeleteTableRequest,requestComplation:@escaping ExecuteResult<DeleteTableResult>) throws {
         xdataJDCloudClient = self
-        try DeleteTableExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteTableResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteTableExecutor(jdCloudClient: xdataJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension XdataJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(CompileJDCloudClient)
+
 public class CompileJDCloudClient:NSObject,JDCloudClient{
     
     private final var compileJDCloudClient:CompileJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class CompileJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class CompileJDCloudClient:NSObject,JDCloudClient{
         compileJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "compile" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "compile/" + "v1"
     
     public let serviceName: String = "compile"
     
@@ -72,272 +72,128 @@ public class CompileJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getJobAsync(request:GetJobRequest,requestComplation:@escaping (NSNumber?,GetJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getJobAsync(request:GetJobRequest,requestComplation:@escaping ExecuteResult<GetJobResult>) throws {
         compileJDCloudClient = self
-        try GetJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func startJobAsync(request:StartJobRequest,requestComplation:@escaping (NSNumber?,StartJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func startJobAsync(request:StartJobRequest,requestComplation:@escaping ExecuteResult<StartJobResult>) throws {
         compileJDCloudClient = self
-        try StartJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StartJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StartJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getExternalLinkAsync(request:GetExternalLinkRequest,requestComplation:@escaping (NSNumber?,GetExternalLinkResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getExternalLinkAsync(request:GetExternalLinkRequest,requestComplation:@escaping ExecuteResult<GetExternalLinkResult>) throws {
         compileJDCloudClient = self
-        try GetExternalLinkExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetExternalLinkResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetExternalLinkExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stopBuildAsync(request:StopBuildRequest,requestComplation:@escaping (NSNumber?,StopBuildResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopBuildAsync(request:StopBuildRequest,requestComplation:@escaping ExecuteResult<StopBuildResult>) throws {
         compileJDCloudClient = self
-        try StopBuildExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopBuildResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopBuildExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createDemoAsync(request:CreateDemoRequest,requestComplation:@escaping (NSNumber?,CreateDemoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createDemoAsync(request:CreateDemoRequest,requestComplation:@escaping ExecuteResult<CreateDemoResult>) throws {
         compileJDCloudClient = self
-        try CreateDemoExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateDemoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateDemoExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getJobsAsync(request:GetJobsRequest,requestComplation:@escaping (NSNumber?,GetJobsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getJobsAsync(request:GetJobsRequest,requestComplation:@escaping ExecuteResult<GetJobsResult>) throws {
         compileJDCloudClient = self
-        try GetJobsExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetJobsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetJobsExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteJobAsync(request:DeleteJobRequest,requestComplation:@escaping (NSNumber?,DeleteJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteJobAsync(request:DeleteJobRequest,requestComplation:@escaping ExecuteResult<DeleteJobResult>) throws {
         compileJDCloudClient = self
-        try DeleteJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateJobAsync(request:UpdateJobRequest,requestComplation:@escaping (NSNumber?,UpdateJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateJobAsync(request:UpdateJobRequest,requestComplation:@escaping ExecuteResult<UpdateJobResult>) throws {
         compileJDCloudClient = self
-        try UpdateJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getBuildLogAsync(request:GetBuildLogRequest,requestComplation:@escaping (NSNumber?,GetBuildLogResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getBuildLogAsync(request:GetBuildLogRequest,requestComplation:@escaping ExecuteResult<GetBuildLogResult>) throws {
         compileJDCloudClient = self
-        try GetBuildLogExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetBuildLogResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetBuildLogExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createJobAsync(request:CreateJobRequest,requestComplation:@escaping (NSNumber?,CreateJobResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createJobAsync(request:CreateJobRequest,requestComplation:@escaping ExecuteResult<CreateJobResult>) throws {
         compileJDCloudClient = self
-        try CreateJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateJobResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateJobExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteJobsAsync(request:DeleteJobsRequest,requestComplation:@escaping (NSNumber?,DeleteJobsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteJobsAsync(request:DeleteJobsRequest,requestComplation:@escaping ExecuteResult<DeleteJobsResult>) throws {
         compileJDCloudClient = self
-        try DeleteJobsExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteJobsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteJobsExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getBuildStatusAsync(request:GetBuildStatusRequest,requestComplation:@escaping (NSNumber?,GetBuildStatusResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getBuildStatusAsync(request:GetBuildStatusRequest,requestComplation:@escaping ExecuteResult<GetBuildStatusResult>) throws {
         compileJDCloudClient = self
-        try GetBuildStatusExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetBuildStatusResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetBuildStatusExecutor(jdCloudClient: compileJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension CompileJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

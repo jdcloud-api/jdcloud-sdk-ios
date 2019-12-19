@@ -13,7 +13,7 @@
    limitations under the License.
 
    云数据库RDS
-   目前RDS OpenAPI支持云数据库 MySQL、Percona、MariaDB、SQL Server
+   目前RDS OpenAPI支持云数据库 MySQL、Percona、MariaDB、SQL Server、PostgreSQL
 
    OpenAPI spec version: v1
    Contact: 
@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(RdsJDCloudClient)
+
 public class RdsJDCloudClient:NSObject,JDCloudClient{
     
     private final var rdsJDCloudClient:RdsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
         rdsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "rds" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "rds/" + "v1"
     
     public let serviceName: String = "rds"
     
@@ -72,1721 +72,812 @@ public class RdsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeAuditDownloadURLAsync(request:DescribeAuditDownloadURLRequest,requestComplation:@escaping (NSNumber?,DescribeAuditDownloadURLResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAuditDownloadURLAsync(request:DescribeAuditDownloadURLRequest,requestComplation:@escaping ExecuteResult<DescribeAuditDownloadURLResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAuditDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuditDownloadURLResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAuditDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func clearBinlogsAsync(request:ClearBinlogsRequest,requestComplation:@escaping (NSNumber?,ClearBinlogsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func clearBinlogsAsync(request:ClearBinlogsRequest,requestComplation:@escaping ExecuteResult<ClearBinlogsResult>) throws {
         rdsJDCloudClient = self
-        try ClearBinlogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ClearBinlogsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ClearBinlogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInterceptResultAsync(request:DescribeInterceptResultRequest,requestComplation:@escaping (NSNumber?,DescribeInterceptResultResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInterceptResultAsync(request:DescribeInterceptResultRequest,requestComplation:@escaping ExecuteResult<DescribeInterceptResultResult>) throws {
         rdsJDCloudClient = self
-        try DescribeInterceptResultExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInterceptResultResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInterceptResultExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeBackupPolicyAsync(request:DescribeBackupPolicyRequest,requestComplation:@escaping (NSNumber?,DescribeBackupPolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeBackupPolicyAsync(request:DescribeBackupPolicyRequest,requestComplation:@escaping ExecuteResult<DescribeBackupPolicyResult>) throws {
         rdsJDCloudClient = self
-        try DescribeBackupPolicyExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBackupPolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeBackupPolicyExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeBackupDownloadURLAsync(request:DescribeBackupDownloadURLRequest,requestComplation:@escaping (NSNumber?,DescribeBackupDownloadURLResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeBackupDownloadURLAsync(request:DescribeBackupDownloadURLRequest,requestComplation:@escaping ExecuteResult<DescribeBackupDownloadURLResult>) throws {
         rdsJDCloudClient = self
-        try DescribeBackupDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBackupDownloadURLResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeBackupDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func copyParameterGroupAsync(request:CopyParameterGroupRequest,requestComplation:@escaping (NSNumber?,CopyParameterGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func copyParameterGroupAsync(request:CopyParameterGroupRequest,requestComplation:@escaping ExecuteResult<CopyParameterGroupResult>) throws {
         rdsJDCloudClient = self
-        try CopyParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CopyParameterGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CopyParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeBinlogsAsync(request:DescribeBinlogsRequest,requestComplation:@escaping (NSNumber?,DescribeBinlogsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeBinlogsAsync(request:DescribeBinlogsRequest,requestComplation:@escaping ExecuteResult<DescribeBinlogsResult>) throws {
         rdsJDCloudClient = self
-        try DescribeBinlogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBinlogsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeBinlogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteInstanceAsync(request:DeleteInstanceRequest,requestComplation:@escaping (NSNumber?,DeleteInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteInstanceAsync(request:DeleteInstanceRequest,requestComplation:@escaping ExecuteResult<DeleteInstanceResult>) throws {
         rdsJDCloudClient = self
-        try DeleteInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createParameterGroupAsync(request:CreateParameterGroupRequest,requestComplation:@escaping (NSNumber?,CreateParameterGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func alterTableWithOnlineDDLAsync(request:AlterTableWithOnlineDDLRequest,requestComplation:@escaping ExecuteResult<AlterTableWithOnlineDDLResult>) throws {
         rdsJDCloudClient = self
-        try CreateParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateParameterGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AlterTableWithOnlineDDLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeBackupsAsync(request:DescribeBackupsRequest,requestComplation:@escaping (NSNumber?,DescribeBackupsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createParameterGroupAsync(request:CreateParameterGroupRequest,requestComplation:@escaping ExecuteResult<CreateParameterGroupResult>) throws {
         rdsJDCloudClient = self
-        try DescribeBackupsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBackupsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyConnectionModeAsync(request:ModifyConnectionModeRequest,requestComplation:@escaping (NSNumber?,ModifyConnectionModeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeBackupsAsync(request:DescribeBackupsRequest,requestComplation:@escaping ExecuteResult<DescribeBackupsResult>) throws {
         rdsJDCloudClient = self
-        try ModifyConnectionModeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyConnectionModeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeBackupsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteAuditAsync(request:DeleteAuditRequest,requestComplation:@escaping (NSNumber?,DeleteAuditResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyConnectionModeAsync(request:ModifyConnectionModeRequest,requestComplation:@escaping ExecuteResult<ModifyConnectionModeResult>) throws {
         rdsJDCloudClient = self
-        try DeleteAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteAuditResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyConnectionModeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func createInstanceByTimeAsync(request:CreateInstanceByTimeRequest,requestComplation:@escaping (NSNumber?,CreateInstanceByTimeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteAuditAsync(request:DeleteAuditRequest,requestComplation:@escaping ExecuteResult<DeleteAuditResult>) throws {
         rdsJDCloudClient = self
-        try CreateInstanceByTimeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstanceByTimeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableInternetAccessAsync(request:EnableInternetAccessRequest,requestComplation:@escaping (NSNumber?,EnableInternetAccessResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createInstanceByTimeAsync(request:CreateInstanceByTimeRequest,requestComplation:@escaping ExecuteResult<CreateInstanceByTimeResult>) throws {
         rdsJDCloudClient = self
-        try EnableInternetAccessExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableInternetAccessResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateInstanceByTimeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAccountsAsync(request:DescribeAccountsRequest,requestComplation:@escaping (NSNumber?,DescribeAccountsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableInternetAccessAsync(request:EnableInternetAccessRequest,requestComplation:@escaping ExecuteResult<EnableInternetAccessResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAccountsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAccountsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableInternetAccessExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func modifyParameterGroupAsync(request:ModifyParameterGroupRequest,requestComplation:@escaping (NSNumber?,ModifyParameterGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAccountsAsync(request:DescribeAccountsRequest,requestComplation:@escaping ExecuteResult<DescribeAccountsResult>) throws {
         rdsJDCloudClient = self
-        try ModifyParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyParameterGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAccountsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeParameterModifyRecordsAsync(request:DescribeParameterModifyRecordsRequest,requestComplation:@escaping (NSNumber?,DescribeParameterModifyRecordsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyParameterGroupAsync(request:ModifyParameterGroupRequest,requestComplation:@escaping ExecuteResult<ModifyParameterGroupResult>) throws {
         rdsJDCloudClient = self
-        try DescribeParameterModifyRecordsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeParameterModifyRecordsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeBinlogDownloadURLAsync(request:DescribeBinlogDownloadURLRequest,requestComplation:@escaping (NSNumber?,DescribeBinlogDownloadURLResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeParameterModifyRecordsAsync(request:DescribeParameterModifyRecordsRequest,requestComplation:@escaping ExecuteResult<DescribeParameterModifyRecordsResult>) throws {
         rdsJDCloudClient = self
-        try DescribeBinlogDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBinlogDownloadURLResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeParameterModifyRecordsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeAuditFilesAsync(request:DescribeAuditFilesRequest,requestComplation:@escaping (NSNumber?,DescribeAuditFilesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeBinlogDownloadURLAsync(request:DescribeBinlogDownloadURLRequest,requestComplation:@escaping ExecuteResult<DescribeBinlogDownloadURLResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAuditFilesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuditFilesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeBinlogDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createAccountAsync(request:CreateAccountRequest,requestComplation:@escaping (NSNumber?,CreateAccountResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAuditFilesAsync(request:DescribeAuditFilesRequest,requestComplation:@escaping ExecuteResult<DescribeAuditFilesResult>) throws {
         rdsJDCloudClient = self
-        try CreateAccountExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateAccountResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAuditFilesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func grantPrivilegeAsync(request:GrantPrivilegeRequest,requestComplation:@escaping (NSNumber?,GrantPrivilegeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createAccountAsync(request:CreateAccountRequest,requestComplation:@escaping ExecuteResult<CreateAccountResult>) throws {
         rdsJDCloudClient = self
-        try GrantPrivilegeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GrantPrivilegeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateAccountExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func revokePrivilegeAsync(request:RevokePrivilegeRequest,requestComplation:@escaping (NSNumber?,RevokePrivilegeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func grantPrivilegeAsync(request:GrantPrivilegeRequest,requestComplation:@escaping ExecuteResult<GrantPrivilegeResult>) throws {
         rdsJDCloudClient = self
-        try RevokePrivilegeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RevokePrivilegeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GrantPrivilegeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAzsAsync(request:DescribeAzsRequest,requestComplation:@escaping (NSNumber?,DescribeAzsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func revokePrivilegeAsync(request:RevokePrivilegeRequest,requestComplation:@escaping ExecuteResult<RevokePrivilegeResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAzsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAzsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RevokePrivilegeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func getUploadKeyAsync(request:GetUploadKeyRequest,requestComplation:@escaping (NSNumber?,GetUploadKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAzsAsync(request:DescribeAzsRequest,requestComplation:@escaping ExecuteResult<DescribeAzsResult>) throws {
         rdsJDCloudClient = self
-        try GetUploadKeyExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetUploadKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAzsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func restoreDatabaseFromFileAsync(request:RestoreDatabaseFromFileRequest,requestComplation:@escaping (NSNumber?,RestoreDatabaseFromFileResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getUploadKeyAsync(request:GetUploadKeyRequest,requestComplation:@escaping ExecuteResult<GetUploadKeyResult>) throws {
         rdsJDCloudClient = self
-        try RestoreDatabaseFromFileExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RestoreDatabaseFromFileResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetUploadKeyExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeInstanceAttributesAsync(request:DescribeInstanceAttributesRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceAttributesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func restoreDatabaseFromFileAsync(request:RestoreDatabaseFromFileRequest,requestComplation:@escaping ExecuteResult<RestoreDatabaseFromFileResult>) throws {
         rdsJDCloudClient = self
-        try DescribeInstanceAttributesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceAttributesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RestoreDatabaseFromFileExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyInstanceSpecAsync(request:ModifyInstanceSpecRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceSpecResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeInstanceAttributesAsync(request:DescribeInstanceAttributesRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceAttributesResult>) throws {
         rdsJDCloudClient = self
-        try ModifyInstanceSpecExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceSpecResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeInstanceAttributesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAuditAsync(request:DescribeAuditRequest,requestComplation:@escaping (NSNumber?,DescribeAuditResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyInstanceSpecAsync(request:ModifyInstanceSpecRequest,requestComplation:@escaping ExecuteResult<ModifyInstanceSpecResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuditResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyInstanceSpecExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeQueryPerformanceAsync(request:DescribeQueryPerformanceRequest,requestComplation:@escaping (NSNumber?,DescribeQueryPerformanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAuditAsync(request:DescribeAuditRequest,requestComplation:@escaping ExecuteResult<DescribeAuditResult>) throws {
         rdsJDCloudClient = self
-        try DescribeQueryPerformanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeQueryPerformanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeParameterGroupAttachedInstancesAsync(request:DescribeParameterGroupAttachedInstancesRequest,requestComplation:@escaping (NSNumber?,DescribeParameterGroupAttachedInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeQueryPerformanceAsync(request:DescribeQueryPerformanceRequest,requestComplation:@escaping ExecuteResult<DescribeQueryPerformanceResult>) throws {
         rdsJDCloudClient = self
-        try DescribeParameterGroupAttachedInstancesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeParameterGroupAttachedInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeQueryPerformanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createBackupSynchronicityAsync(request:CreateBackupSynchronicityRequest,requestComplation:@escaping (NSNumber?,CreateBackupSynchronicityResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeParameterGroupAttachedInstancesAsync(request:DescribeParameterGroupAttachedInstancesRequest,requestComplation:@escaping ExecuteResult<DescribeParameterGroupAttachedInstancesResult>) throws {
         rdsJDCloudClient = self
-        try CreateBackupSynchronicityExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateBackupSynchronicityResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeParameterGroupAttachedInstancesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteImportFileAsync(request:DeleteImportFileRequest,requestComplation:@escaping (NSNumber?,DeleteImportFileResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeTdeAsync(request:DescribeTdeRequest,requestComplation:@escaping ExecuteResult<DescribeTdeResult>) throws {
         rdsJDCloudClient = self
-        try DeleteImportFileExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteImportFileResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeTdeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteBackupSynchronicityAsync(request:DeleteBackupSynchronicityRequest,requestComplation:@escaping (NSNumber?,DeleteBackupSynchronicityResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createBackupSynchronicityAsync(request:CreateBackupSynchronicityRequest,requestComplation:@escaping ExecuteResult<CreateBackupSynchronicityResult>) throws {
         rdsJDCloudClient = self
-        try DeleteBackupSynchronicityExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteBackupSynchronicityResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateBackupSynchronicityExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSlowLogAttributesAsync(request:DescribeSlowLogAttributesRequest,requestComplation:@escaping (NSNumber?,DescribeSlowLogAttributesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteImportFileAsync(request:DeleteImportFileRequest,requestComplation:@escaping ExecuteResult<DeleteImportFileResult>) throws {
         rdsJDCloudClient = self
-        try DescribeSlowLogAttributesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSlowLogAttributesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteImportFileExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func modifyParameterGroupAttributeAsync(request:ModifyParameterGroupAttributeRequest,requestComplation:@escaping (NSNumber?,ModifyParameterGroupAttributeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteBackupSynchronicityAsync(request:DeleteBackupSynchronicityRequest,requestComplation:@escaping ExecuteResult<DeleteBackupSynchronicityResult>) throws {
         rdsJDCloudClient = self
-        try ModifyParameterGroupAttributeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyParameterGroupAttributeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteBackupSynchronicityExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyAuditAsync(request:ModifyAuditRequest,requestComplation:@escaping (NSNumber?,ModifyAuditResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSlowLogAttributesAsync(request:DescribeSlowLogAttributesRequest,requestComplation:@escaping ExecuteResult<DescribeSlowLogAttributesResult>) throws {
         rdsJDCloudClient = self
-        try ModifyAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyAuditResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSlowLogAttributesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeAuditResultAsync(request:DescribeAuditResultRequest,requestComplation:@escaping (NSNumber?,DescribeAuditResultResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyParameterGroupAttributeAsync(request:ModifyParameterGroupAttributeRequest,requestComplation:@escaping ExecuteResult<ModifyParameterGroupAttributeResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAuditResultExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuditResultResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyParameterGroupAttributeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLatestRestoreTimeAsync(request:DescribeLatestRestoreTimeRequest,requestComplation:@escaping (NSNumber?,DescribeLatestRestoreTimeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyAuditAsync(request:ModifyAuditRequest,requestComplation:@escaping ExecuteResult<ModifyAuditResult>) throws {
         rdsJDCloudClient = self
-        try DescribeLatestRestoreTimeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLatestRestoreTimeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeErrorLogsAsync(request:DescribeErrorLogsRequest,requestComplation:@escaping (NSNumber?,DescribeErrorLogsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAuditResultAsync(request:DescribeAuditResultRequest,requestComplation:@escaping ExecuteResult<DescribeAuditResultResult>) throws {
         rdsJDCloudClient = self
-        try DescribeErrorLogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeErrorLogsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAuditResultExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSlowLogsAsync(request:DescribeSlowLogsRequest,requestComplation:@escaping (NSNumber?,DescribeSlowLogsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLatestRestoreTimeAsync(request:DescribeLatestRestoreTimeRequest,requestComplation:@escaping ExecuteResult<DescribeLatestRestoreTimeResult>) throws {
         rdsJDCloudClient = self
-        try DescribeSlowLogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSlowLogsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLatestRestoreTimeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteDatabaseAsync(request:DeleteDatabaseRequest,requestComplation:@escaping (NSNumber?,DeleteDatabaseResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeErrorLogsAsync(request:DescribeErrorLogsRequest,requestComplation:@escaping ExecuteResult<DescribeErrorLogsResult>) throws {
         rdsJDCloudClient = self
-        try DeleteDatabaseExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteDatabaseResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeErrorLogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeActiveQueryPerformanceAsync(request:DescribeActiveQueryPerformanceRequest,requestComplation:@escaping (NSNumber?,DescribeActiveQueryPerformanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableTdeAsync(request:EnableTdeRequest,requestComplation:@escaping ExecuteResult<EnableTdeResult>) throws {
         rdsJDCloudClient = self
-        try DescribeActiveQueryPerformanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeActiveQueryPerformanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableTdeExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createInstanceFromBackupAsync(request:CreateInstanceFromBackupRequest,requestComplation:@escaping (NSNumber?,CreateInstanceFromBackupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSlowLogsAsync(request:DescribeSlowLogsRequest,requestComplation:@escaping ExecuteResult<DescribeSlowLogsResult>) throws {
         rdsJDCloudClient = self
-        try CreateInstanceFromBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstanceFromBackupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSlowLogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeParametersAsync(request:DescribeParametersRequest,requestComplation:@escaping (NSNumber?,DescribeParametersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteDatabaseAsync(request:DeleteDatabaseRequest,requestComplation:@escaping ExecuteResult<DeleteDatabaseResult>) throws {
         rdsJDCloudClient = self
-        try DescribeParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeParametersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteDatabaseExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func modifyParametersAsync(request:ModifyParametersRequest,requestComplation:@escaping (NSNumber?,ModifyParametersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeActiveQueryPerformanceAsync(request:DescribeActiveQueryPerformanceRequest,requestComplation:@escaping ExecuteResult<DescribeActiveQueryPerformanceResult>) throws {
         rdsJDCloudClient = self
-        try ModifyParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyParametersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeActiveQueryPerformanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyWhiteListAsync(request:ModifyWhiteListRequest,requestComplation:@escaping (NSNumber?,ModifyWhiteListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createInstanceFromBackupAsync(request:CreateInstanceFromBackupRequest,requestComplation:@escaping ExecuteResult<CreateInstanceFromBackupResult>) throws {
         rdsJDCloudClient = self
-        try ModifyWhiteListExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyWhiteListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateInstanceFromBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func resetPasswordAsync(request:ResetPasswordRequest,requestComplation:@escaping (NSNumber?,ResetPasswordResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSuperAccountAsync(request:CreateSuperAccountRequest,requestComplation:@escaping ExecuteResult<CreateSuperAccountResult>) throws {
         rdsJDCloudClient = self
-        try ResetPasswordExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ResetPasswordResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSuperAccountExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func disableInterceptAsync(request:DisableInterceptRequest,requestComplation:@escaping (NSNumber?,DisableInterceptResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeParametersAsync(request:DescribeParametersRequest,requestComplation:@escaping ExecuteResult<DescribeParametersResult>) throws {
         rdsJDCloudClient = self
-        try DisableInterceptExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableInterceptResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func exchangeInstanceDnsAsync(request:ExchangeInstanceDnsRequest,requestComplation:@escaping (NSNumber?,ExchangeInstanceDnsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyParametersAsync(request:ModifyParametersRequest,requestComplation:@escaping ExecuteResult<ModifyParametersResult>) throws {
         rdsJDCloudClient = self
-        try ExchangeInstanceDnsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExchangeInstanceDnsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func disableAuditAsync(request:DisableAuditRequest,requestComplation:@escaping (NSNumber?,DisableAuditResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyWhiteListAsync(request:ModifyWhiteListRequest,requestComplation:@escaping ExecuteResult<ModifyWhiteListResult>) throws {
         rdsJDCloudClient = self
-        try DisableAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableAuditResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyWhiteListExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createDatabaseAsync(request:CreateDatabaseRequest,requestComplation:@escaping (NSNumber?,CreateDatabaseResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateLogDownloadURLInternalAsync(request:UpdateLogDownloadURLInternalRequest,requestComplation:@escaping ExecuteResult<UpdateLogDownloadURLInternalResult>) throws {
         rdsJDCloudClient = self
-        try CreateDatabaseExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateDatabaseResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateLogDownloadURLInternalExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func enableInterceptAsync(request:EnableInterceptRequest,requestComplation:@escaping (NSNumber?,EnableInterceptResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLogDownloadURLAsync(request:DescribeLogDownloadURLRequest,requestComplation:@escaping ExecuteResult<DescribeLogDownloadURLResult>) throws {
         rdsJDCloudClient = self
-        try EnableInterceptExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableInterceptResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLogDownloadURLExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setImportFileSharedAsync(request:SetImportFileSharedRequest,requestComplation:@escaping (NSNumber?,SetImportFileSharedResponse?,NSError?,NSString?)->()) throws {
+    
+    public func resetPasswordAsync(request:ResetPasswordRequest,requestComplation:@escaping ExecuteResult<ResetPasswordResult>) throws {
         rdsJDCloudClient = self
-        try SetImportFileSharedExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetImportFileSharedResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ResetPasswordExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func rebootInstanceAsync(request:RebootInstanceRequest,requestComplation:@escaping (NSNumber?,RebootInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableInterceptAsync(request:DisableInterceptRequest,requestComplation:@escaping ExecuteResult<DisableInterceptResult>) throws {
         rdsJDCloudClient = self
-        try RebootInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RebootInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableInterceptExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeDatabasesAsync(request:DescribeDatabasesRequest,requestComplation:@escaping (NSNumber?,DescribeDatabasesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func exchangeInstanceDnsAsync(request:ExchangeInstanceDnsRequest,requestComplation:@escaping ExecuteResult<ExchangeInstanceDnsResult>) throws {
         rdsJDCloudClient = self
-        try DescribeDatabasesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDatabasesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExchangeInstanceDnsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeIndexPerformanceAsync(request:DescribeIndexPerformanceRequest,requestComplation:@escaping (NSNumber?,DescribeIndexPerformanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableAuditAsync(request:DisableAuditRequest,requestComplation:@escaping ExecuteResult<DisableAuditResult>) throws {
         rdsJDCloudClient = self
-        try DescribeIndexPerformanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeIndexPerformanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createAuditAsync(request:CreateAuditRequest,requestComplation:@escaping (NSNumber?,CreateAuditResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createDatabaseAsync(request:CreateDatabaseRequest,requestComplation:@escaping ExecuteResult<CreateDatabaseResult>) throws {
         rdsJDCloudClient = self
-        try CreateAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateAuditResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateDatabaseExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func modifyInstanceNameAsync(request:ModifyInstanceNameRequest,requestComplation:@escaping (NSNumber?,ModifyInstanceNameResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableInterceptAsync(request:EnableInterceptRequest,requestComplation:@escaping ExecuteResult<EnableInterceptResult>) throws {
         rdsJDCloudClient = self
-        try ModifyInstanceNameExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyInstanceNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableInterceptExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableAuditAsync(request:EnableAuditRequest,requestComplation:@escaping (NSNumber?,EnableAuditResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setImportFileSharedAsync(request:SetImportFileSharedRequest,requestComplation:@escaping ExecuteResult<SetImportFileSharedResult>) throws {
         rdsJDCloudClient = self
-        try EnableAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableAuditResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetImportFileSharedExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteParameterGroupAsync(request:DeleteParameterGroupRequest,requestComplation:@escaping (NSNumber?,DeleteParameterGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func rebootInstanceAsync(request:RebootInstanceRequest,requestComplation:@escaping ExecuteResult<RebootInstanceResult>) throws {
         rdsJDCloudClient = self
-        try DeleteParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteParameterGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RebootInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func createBackupAsync(request:CreateBackupRequest,requestComplation:@escaping (NSNumber?,CreateBackupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDatabasesAsync(request:DescribeDatabasesRequest,requestComplation:@escaping ExecuteResult<DescribeDatabasesResult>) throws {
         rdsJDCloudClient = self
-        try CreateBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateBackupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDatabasesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createInstanceAsync(request:CreateInstanceRequest,requestComplation:@escaping (NSNumber?,CreateInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeIndexPerformanceAsync(request:DescribeIndexPerformanceRequest,requestComplation:@escaping ExecuteResult<DescribeIndexPerformanceResult>) throws {
         rdsJDCloudClient = self
-        try CreateInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeIndexPerformanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyBackupPolicyAsync(request:ModifyBackupPolicyRequest,requestComplation:@escaping (NSNumber?,ModifyBackupPolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createAuditAsync(request:CreateAuditRequest,requestComplation:@escaping ExecuteResult<CreateAuditResult>) throws {
         rdsJDCloudClient = self
-        try ModifyBackupPolicyExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyBackupPolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func restoreInstanceAsync(request:RestoreInstanceRequest,requestComplation:@escaping (NSNumber?,RestoreInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyInstanceNameAsync(request:ModifyInstanceNameRequest,requestComplation:@escaping ExecuteResult<ModifyInstanceNameResult>) throws {
         rdsJDCloudClient = self
-        try RestoreInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RestoreInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyInstanceNameExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeImportFilesAsync(request:DescribeImportFilesRequest,requestComplation:@escaping (NSNumber?,DescribeImportFilesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableAuditAsync(request:EnableAuditRequest,requestComplation:@escaping ExecuteResult<EnableAuditResult>) throws {
         rdsJDCloudClient = self
-        try DescribeImportFilesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeImportFilesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableAuditExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func restoreDatabaseFromOSSAsync(request:RestoreDatabaseFromOSSRequest,requestComplation:@escaping (NSNumber?,RestoreDatabaseFromOSSResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteParameterGroupAsync(request:DeleteParameterGroupRequest,requestComplation:@escaping ExecuteResult<DeleteParameterGroupResult>) throws {
         rdsJDCloudClient = self
-        try RestoreDatabaseFromOSSExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RestoreDatabaseFromOSSResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteParameterGroupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeParameterGroupsAsync(request:DescribeParameterGroupsRequest,requestComplation:@escaping (NSNumber?,DescribeParameterGroupsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createBackupAsync(request:CreateBackupRequest,requestComplation:@escaping ExecuteResult<CreateBackupResult>) throws {
         rdsJDCloudClient = self
-        try DescribeParameterGroupsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeParameterGroupsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteBackupAsync(request:DeleteBackupRequest,requestComplation:@escaping (NSNumber?,DeleteBackupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createInstanceAsync(request:CreateInstanceRequest,requestComplation:@escaping ExecuteResult<CreateInstanceResult>) throws {
         rdsJDCloudClient = self
-        try DeleteBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteBackupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeBackupSynchronicitiesAsync(request:DescribeBackupSynchronicitiesRequest,requestComplation:@escaping (NSNumber?,DescribeBackupSynchronicitiesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyBackupPolicyAsync(request:ModifyBackupPolicyRequest,requestComplation:@escaping ExecuteResult<ModifyBackupPolicyResult>) throws {
         rdsJDCloudClient = self
-        try DescribeBackupSynchronicitiesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeBackupSynchronicitiesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyBackupPolicyExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeWhiteListAsync(request:DescribeWhiteListRequest,requestComplation:@escaping (NSNumber?,DescribeWhiteListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func restoreInstanceAsync(request:RestoreInstanceRequest,requestComplation:@escaping ExecuteResult<RestoreInstanceResult>) throws {
         rdsJDCloudClient = self
-        try DescribeWhiteListExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeWhiteListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RestoreInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func restoreDatabaseFromBackupAsync(request:RestoreDatabaseFromBackupRequest,requestComplation:@escaping (NSNumber?,RestoreDatabaseFromBackupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLogsAsync(request:DescribeLogsRequest,requestComplation:@escaping ExecuteResult<DescribeLogsResult>) throws {
         rdsJDCloudClient = self
-        try RestoreDatabaseFromBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RestoreDatabaseFromBackupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLogsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeParameterGroupParametersAsync(request:DescribeParameterGroupParametersRequest,requestComplation:@escaping (NSNumber?,DescribeParameterGroupParametersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeImportFilesAsync(request:DescribeImportFilesRequest,requestComplation:@escaping ExecuteResult<DescribeImportFilesResult>) throws {
         rdsJDCloudClient = self
-        try DescribeParameterGroupParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeParameterGroupParametersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeImportFilesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func failoverInstanceAsync(request:FailoverInstanceRequest,requestComplation:@escaping (NSNumber?,FailoverInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func restoreDatabaseFromOSSAsync(request:RestoreDatabaseFromOSSRequest,requestComplation:@escaping ExecuteResult<RestoreDatabaseFromOSSResult>) throws {
         rdsJDCloudClient = self
-        try FailoverInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(FailoverInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RestoreDatabaseFromOSSExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disableInternetAccessAsync(request:DisableInternetAccessRequest,requestComplation:@escaping (NSNumber?,DisableInternetAccessResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeParameterGroupsAsync(request:DescribeParameterGroupsRequest,requestComplation:@escaping ExecuteResult<DescribeParameterGroupsResult>) throws {
         rdsJDCloudClient = self
-        try DisableInternetAccessExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableInternetAccessResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeParameterGroupsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeInstancesAsync(request:DescribeInstancesRequest,requestComplation:@escaping (NSNumber?,DescribeInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteBackupAsync(request:DeleteBackupRequest,requestComplation:@escaping ExecuteResult<DeleteBackupResult>) throws {
         rdsJDCloudClient = self
-        try DescribeInstancesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeBackupSynchronicitiesAsync(request:DescribeBackupSynchronicitiesRequest,requestComplation:@escaping ExecuteResult<DescribeBackupSynchronicitiesResult>) throws {
+        rdsJDCloudClient = self
+        try DescribeBackupSynchronicitiesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func createROInstanceAsync(request:CreateROInstanceRequest,requestComplation:@escaping (NSNumber?,CreateROInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeWhiteListAsync(request:DescribeWhiteListRequest,requestComplation:@escaping ExecuteResult<DescribeWhiteListResult>) throws {
         rdsJDCloudClient = self
-        try CreateROInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateROInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeWhiteListExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func restoreDatabaseFromBackupAsync(request:RestoreDatabaseFromBackupRequest,requestComplation:@escaping ExecuteResult<RestoreDatabaseFromBackupResult>) throws {
+        rdsJDCloudClient = self
+        try RestoreDatabaseFromBackupExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func describeAuditOptionsAsync(request:DescribeAuditOptionsRequest,requestComplation:@escaping (NSNumber?,DescribeAuditOptionsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeParameterGroupParametersAsync(request:DescribeParameterGroupParametersRequest,requestComplation:@escaping ExecuteResult<DescribeParameterGroupParametersResult>) throws {
         rdsJDCloudClient = self
-        try DescribeAuditOptionsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuditOptionsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeParameterGroupParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func failoverInstanceAsync(request:FailoverInstanceRequest,requestComplation:@escaping ExecuteResult<FailoverInstanceResult>) throws {
+        rdsJDCloudClient = self
+        try FailoverInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
 
-    @objc
-    public func deleteAccountAsync(request:DeleteAccountRequest,requestComplation:@escaping (NSNumber?,DeleteAccountResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableInternetAccessAsync(request:DisableInternetAccessRequest,requestComplation:@escaping ExecuteResult<DisableInternetAccessResult>) throws {
         rdsJDCloudClient = self
-        try DeleteAccountExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteAccountResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableInternetAccessExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeInstancesAsync(request:DescribeInstancesRequest,requestComplation:@escaping ExecuteResult<DescribeInstancesResult>) throws {
+        rdsJDCloudClient = self
+        try DescribeInstancesExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func modifyParameterGroupParametersAsync(request:ModifyParameterGroupParametersRequest,requestComplation:@escaping (NSNumber?,ModifyParameterGroupParametersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createROInstanceAsync(request:CreateROInstanceRequest,requestComplation:@escaping ExecuteResult<CreateROInstanceResult>) throws {
         rdsJDCloudClient = self
-        try ModifyParameterGroupParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyParameterGroupParametersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateROInstanceExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeAuditOptionsAsync(request:DescribeAuditOptionsRequest,requestComplation:@escaping ExecuteResult<DescribeAuditOptionsResult>) throws {
+        rdsJDCloudClient = self
+        try DescribeAuditOptionsExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func createInstanceByTimeInCrossRegionAsync(request:CreateInstanceByTimeInCrossRegionRequest,requestComplation:@escaping (NSNumber?,CreateInstanceByTimeInCrossRegionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteAccountAsync(request:DeleteAccountRequest,requestComplation:@escaping ExecuteResult<DeleteAccountResult>) throws {
         rdsJDCloudClient = self
-        try CreateInstanceByTimeInCrossRegionExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateInstanceByTimeInCrossRegionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteAccountExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func modifyParameterGroupParametersAsync(request:ModifyParameterGroupParametersRequest,requestComplation:@escaping ExecuteResult<ModifyParameterGroupParametersResult>) throws {
+        rdsJDCloudClient = self
+        try ModifyParameterGroupParametersExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func describeInterceptAsync(request:DescribeInterceptRequest,requestComplation:@escaping (NSNumber?,DescribeInterceptResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createInstanceByTimeInCrossRegionAsync(request:CreateInstanceByTimeInCrossRegionRequest,requestComplation:@escaping ExecuteResult<CreateInstanceByTimeInCrossRegionResult>) throws {
         rdsJDCloudClient = self
-        try DescribeInterceptExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInterceptResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateInstanceByTimeInCrossRegionExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeInterceptAsync(request:DescribeInterceptRequest,requestComplation:@escaping ExecuteResult<DescribeInterceptResult>) throws {
+        rdsJDCloudClient = self
+        try DescribeInterceptExecutor(jdCloudClient: rdsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension RdsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(SslJDCloudClient)
+
 public class SslJDCloudClient:NSObject,JDCloudClient{
     
     private final var sslJDCloudClient:SslJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class SslJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class SslJDCloudClient:NSObject,JDCloudClient{
         sslJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "ssl" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "ssl/" + "v1"
     
     public let serviceName: String = "ssl"
     
@@ -72,125 +72,83 @@ public class SslJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func downloadCertAsync(request:DownloadCertRequest,requestComplation:@escaping (NSNumber?,DownloadCertResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateCertAsync(request:UpdateCertRequest,requestComplation:@escaping ExecuteResult<UpdateCertResult>) throws {
         sslJDCloudClient = self
-        try DownloadCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DownloadCertResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCertsAsync(request:DescribeCertsRequest,requestComplation:@escaping (NSNumber?,DescribeCertsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCertAsync(request:DescribeCertRequest,requestComplation:@escaping ExecuteResult<DescribeCertResult>) throws {
         sslJDCloudClient = self
-        try DescribeCertsExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCertsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCertAsync(request:DescribeCertRequest,requestComplation:@escaping (NSNumber?,DescribeCertResponse?,NSError?,NSString?)->()) throws {
+    
+    public func uploadCertAsync(request:UploadCertRequest,requestComplation:@escaping ExecuteResult<UploadCertResult>) throws {
         sslJDCloudClient = self
-        try DescribeCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCertResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UploadCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func uploadCertAsync(request:UploadCertRequest,requestComplation:@escaping (NSNumber?,UploadCertResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCertsAsync(request:DeleteCertsRequest,requestComplation:@escaping ExecuteResult<DeleteCertsResult>) throws {
         sslJDCloudClient = self
-        try UploadCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UploadCertResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCertsExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteCertsAsync(request:DeleteCertsRequest,requestComplation:@escaping (NSNumber?,DeleteCertsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func downloadCertAsync(request:DownloadCertRequest,requestComplation:@escaping ExecuteResult<DownloadCertResult>) throws {
         sslJDCloudClient = self
-        try DeleteCertsExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCertsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DownloadCertExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeCertsAsync(request:DescribeCertsRequest,requestComplation:@escaping ExecuteResult<DescribeCertsResult>) throws {
+        sslJDCloudClient = self
+        try DescribeCertsExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func updateCertNameAsync(request:UpdateCertNameRequest,requestComplation:@escaping ExecuteResult<UpdateCertNameResult>) throws {
+        sslJDCloudClient = self
+        try UpdateCertNameExecutor(jdCloudClient: sslJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension SslJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

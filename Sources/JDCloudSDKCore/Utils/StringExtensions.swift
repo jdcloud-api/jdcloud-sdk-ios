@@ -32,7 +32,7 @@ extension String: URLConvertible {
         return url
     }
     
-    public func fromBase64() -> String? {
+   public func fromBase64() -> String? {
         guard let data = Data(base64Encoded: self) else {
             return nil
         }
@@ -40,41 +40,37 @@ extension String: URLConvertible {
         return String(data: data, encoding: .utf8)
     }
     
-    public func toBase64() -> String {
+   public func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
     }
     
-    public func hmac(algorithm: HMAC.Algorithm, key: String) -> String {
-        let hmac = HMAC(using: algorithm, key: key)
-        let stringHmacUpdate = hmac.update(string: self)
-        if(stringHmacUpdate != nil)
-        {
-            let bytes = stringHmacUpdate!.final()
-            if(bytes.count>0)
-            {
-                let data = Data(bytes: bytes)
-                return data.map { String(format: "%02hhx", $0) }.joined()
-            }
-        }
-        return "";
+    public var bytes: Array<UInt8> {
+        return data(using: String.Encoding.utf8, allowLossyConversion: true)?.bytes ?? Array(utf8)
     }
     
-    public func hmacData(algorithm: HMAC.Algorithm, hexStringKey:String ) ->String{
-        let hexStringData = Data(hex: hexStringKey)
-        let hmac = HMAC(using: algorithm, key: hexStringData)
-        let stringHmacUpdate = hmac.update(string: self)
-        if(stringHmacUpdate != nil)
+   public func hmac(algorithm: HMAC.Variant, key: String) -> String {
+        let hmac = try! HMAC( key: key,variant: algorithm)
+        let bytes = try! hmac.authenticate(self.bytes)
+        if(bytes.count>0)
         {
-            let bytes = stringHmacUpdate!.final()
-            if(bytes.count>0)
-            {
-                let data = Data(bytes: bytes)
-                return data.map { String(format: "%02hhx", $0) }.joined()
-            }
+            let data = Data(bytes: bytes)
+            return data.map { String(format: "%02hhx", $0) }.joined()
         }
         return  "";
     }
     
+    public func hmacData(algorithm: HMAC.Variant, hexStringKey:String ) ->String{
+        let hexStringData = Data(hex: hexStringKey)
+        let hmac =   HMAC(key:hexStringData.bytes,variant: algorithm)
+        let bytes = try! hmac.authenticate(self.bytes)
+        if(bytes.count>0)
+        {
+            let data = Data(bytes: bytes)
+            return data.map { String(format: "%02hhx", $0) }.joined()
+        }
+        return  "";
+    }
+ 
     public func appendCompactedString() -> String{
         var result = "";
         var previousIsWhiteSpace = false
@@ -94,6 +90,32 @@ extension String: URLConvertible {
             }
         }
         return result
+    }
+    
+    public func unescapeStringWithRFC3986()->String{
+        if(self == ""){
+            return self;
+          }
+        
+        let result = self.replacingOccurrences(of: "+", with: " ");
+        let  encodingResult = result.removingPercentEncoding ;
+        if(encodingResult == nil){
+            return self;
+        }
+        return encodingResult!;
+    }
+    
+    public func escapeStringWithRFC3986()->String{
+        if(self == ""){
+            return self;
+        }
+        let unreserved = "-._";
+        let characterSet = CharacterSet.init(charactersIn: unreserved);
+        let result = self.addingPercentEncoding(withAllowedCharacters: characterSet);
+        if(result == nil){
+            return self;
+        }
+        return result!;
     }
     
     

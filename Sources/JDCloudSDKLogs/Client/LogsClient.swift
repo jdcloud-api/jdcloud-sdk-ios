@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(LogsJDCloudClient)
+
 public class LogsJDCloudClient:NSObject,JDCloudClient{
     
     private final var logsJDCloudClient:LogsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class LogsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class LogsJDCloudClient:NSObject,JDCloudClient{
         logsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "logs" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "logs/" + "v1"
     
     public let serviceName: String = "logs"
     
@@ -72,83 +72,254 @@ public class LogsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func putAsync(request:PutRequest,requestComplation:@escaping (NSNumber?,PutResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLogtopicAsync(request:DescribeLogtopicRequest,requestComplation:@escaping ExecuteResult<DescribeLogtopicResult>) throws {
         logsJDCloudClient = self
-        try PutExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(PutResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLogtopicExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLogdCAAsync(request:DescribeLogdCARequest,requestComplation:@escaping (NSNumber?,DescribeLogdCAResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLogdCAAsync(request:DescribeLogdCARequest,requestComplation:@escaping ExecuteResult<DescribeLogdCAResult>) throws {
         logsJDCloudClient = self
-        try DescribeLogdCAExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLogdCAResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLogdCAExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeInstanceCollectConfsAsync(request:DescribeInstanceCollectConfsRequest,requestComplation:@escaping (NSNumber?,DescribeInstanceCollectConfsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCollectResourcesAsync(request:DescribeCollectResourcesRequest,requestComplation:@escaping ExecuteResult<DescribeCollectResourcesResult>) throws {
         logsJDCloudClient = self
-        try DescribeInstanceCollectConfsExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeInstanceCollectConfsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCollectResourcesExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func updateLogtopicAsync(request:UpdateLogtopicRequest,requestComplation:@escaping ExecuteResult<UpdateLogtopicResult>) throws {
+        logsJDCloudClient = self
+        try UpdateLogtopicExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeLogsetsAsync(request:DescribeLogsetsRequest,requestComplation:@escaping ExecuteResult<DescribeLogsetsResult>) throws {
+        logsJDCloudClient = self
+        try DescribeLogsetsExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeMetricTasksAsync(request:DescribeMetricTasksRequest,requestComplation:@escaping ExecuteResult<DescribeMetricTasksResult>) throws {
+        logsJDCloudClient = self
+        try DescribeMetricTasksExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeMetricTaskAsync(request:DescribeMetricTaskRequest,requestComplation:@escaping ExecuteResult<DescribeMetricTaskResult>) throws {
+        logsJDCloudClient = self
+        try DescribeMetricTaskExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func putAsync(request:PutRequest,requestComplation:@escaping ExecuteResult<PutResult>) throws {
+        logsJDCloudClient = self
+        try PutExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func searchLogContextAsync(request:SearchLogContextRequest,requestComplation:@escaping ExecuteResult<SearchLogContextResult>) throws {
+        logsJDCloudClient = self
+        try SearchLogContextExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteLogsetAsync(request:DeleteLogsetRequest,requestComplation:@escaping ExecuteResult<DeleteLogsetResult>) throws {
+        logsJDCloudClient = self
+        try DeleteLogsetExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func searchAsync(request:SearchRequest,requestComplation:@escaping ExecuteResult<SearchResult>) throws {
+        logsJDCloudClient = self
+        try SearchExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func testMetricTaskAsync(request:TestMetricTaskRequest,requestComplation:@escaping ExecuteResult<TestMetricTaskResult>) throws {
+        logsJDCloudClient = self
+        try TestMetricTaskExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeLogsetAsync(request:DescribeLogsetRequest,requestComplation:@escaping ExecuteResult<DescribeLogsetResult>) throws {
+        logsJDCloudClient = self
+        try DescribeLogsetExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeInstanceCollectConfsAsync(request:DescribeInstanceCollectConfsRequest,requestComplation:@escaping ExecuteResult<DescribeInstanceCollectConfsResult>) throws {
+        logsJDCloudClient = self
+        try DescribeInstanceCollectConfsExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteLogtopicAsync(request:DeleteLogtopicRequest,requestComplation:@escaping ExecuteResult<DeleteLogtopicResult>) throws {
+        logsJDCloudClient = self
+        try DeleteLogtopicExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createMetricTaskAsync(request:CreateMetricTaskRequest,requestComplation:@escaping ExecuteResult<CreateMetricTaskResult>) throws {
+        logsJDCloudClient = self
+        try CreateMetricTaskExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func updateCollectInfoAsync(request:UpdateCollectInfoRequest,requestComplation:@escaping ExecuteResult<UpdateCollectInfoResult>) throws {
+        logsJDCloudClient = self
+        try UpdateCollectInfoExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createLogsetAsync(request:CreateLogsetRequest,requestComplation:@escaping ExecuteResult<CreateLogsetResult>) throws {
+        logsJDCloudClient = self
+        try CreateLogsetExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func updateLogsetAsync(request:UpdateLogsetRequest,requestComplation:@escaping ExecuteResult<UpdateLogsetResult>) throws {
+        logsJDCloudClient = self
+        try UpdateLogsetExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeCollectInfoAsync(request:DescribeCollectInfoRequest,requestComplation:@escaping ExecuteResult<DescribeCollectInfoResult>) throws {
+        logsJDCloudClient = self
+        try DescribeCollectInfoExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeLogtopicsAsync(request:DescribeLogtopicsRequest,requestComplation:@escaping ExecuteResult<DescribeLogtopicsResult>) throws {
+        logsJDCloudClient = self
+        try DescribeLogtopicsExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createCollectInfoAsync(request:CreateCollectInfoRequest,requestComplation:@escaping ExecuteResult<CreateCollectInfoResult>) throws {
+        logsJDCloudClient = self
+        try CreateCollectInfoExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func updateMetricTaskAsync(request:UpdateMetricTaskRequest,requestComplation:@escaping ExecuteResult<UpdateMetricTaskResult>) throws {
+        logsJDCloudClient = self
+        try UpdateMetricTaskExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteMetricTaskAsync(request:DeleteMetricTaskRequest,requestComplation:@escaping ExecuteResult<DeleteMetricTaskResult>) throws {
+        logsJDCloudClient = self
+        try DeleteMetricTaskExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func updateCollectResourcesAsync(request:UpdateCollectResourcesRequest,requestComplation:@escaping ExecuteResult<UpdateCollectResourcesResult>) throws {
+        logsJDCloudClient = self
+        try UpdateCollectResourcesExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createLogtopicAsync(request:CreateLogtopicRequest,requestComplation:@escaping ExecuteResult<CreateLogtopicResult>) throws {
+        logsJDCloudClient = self
+        try CreateLogtopicExecutor(jdCloudClient: logsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension LogsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

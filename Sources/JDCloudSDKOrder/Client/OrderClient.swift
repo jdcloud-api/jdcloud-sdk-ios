@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(OrderJDCloudClient)
+
 public class OrderJDCloudClient:NSObject,JDCloudClient{
     
     private final var orderJDCloudClient:OrderJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class OrderJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class OrderJDCloudClient:NSObject,JDCloudClient{
         orderJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "order" + "v2"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "order/" + "v2"
     
     public let serviceName: String = "order"
     
@@ -72,83 +72,47 @@ public class OrderJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func queryOrderAsync(request:QueryOrderRequest,requestComplation:@escaping (NSNumber?,QueryOrderResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryOrderAsync(request:QueryOrderRequest,requestComplation:@escaping ExecuteResult<QueryOrderResult>) throws {
         orderJDCloudClient = self
-        try QueryOrderExecutor(jdCloudClient: orderJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryOrderResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryOrderExecutor(jdCloudClient: orderJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func queryOrdersAsync(request:QueryOrdersRequest,requestComplation:@escaping (NSNumber?,QueryOrdersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func queryOrdersAsync(request:QueryOrdersRequest,requestComplation:@escaping ExecuteResult<QueryOrdersResult>) throws {
         orderJDCloudClient = self
-        try QueryOrdersExecutor(jdCloudClient: orderJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(QueryOrdersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try QueryOrdersExecutor(jdCloudClient: orderJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func payOrderAsync(request:PayOrderRequest,requestComplation:@escaping (NSNumber?,PayOrderResponse?,NSError?,NSString?)->()) throws {
+    
+    public func payOrderAsync(request:PayOrderRequest,requestComplation:@escaping ExecuteResult<PayOrderResult>) throws {
         orderJDCloudClient = self
-        try PayOrderExecutor(jdCloudClient: orderJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(PayOrderResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try PayOrderExecutor(jdCloudClient: orderJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension OrderJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

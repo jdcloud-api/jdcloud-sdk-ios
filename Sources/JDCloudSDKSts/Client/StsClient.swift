@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(StsJDCloudClient)
+
 public class StsJDCloudClient:NSObject,JDCloudClient{
     
     private final var stsJDCloudClient:StsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class StsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class StsJDCloudClient:NSObject,JDCloudClient{
         stsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "sts" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "sts/" + "v1"
     
     public let serviceName: String = "sts"
     
@@ -72,41 +72,29 @@ public class StsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func assumeRoleAsync(request:AssumeRoleRequest,requestComplation:@escaping (NSNumber?,AssumeRoleResponse?,NSError?,NSString?)->()) throws {
+    
+    public func assumeRoleAsync(request:AssumeRoleRequest,requestComplation:@escaping ExecuteResult<AssumeRoleResult>) throws {
         stsJDCloudClient = self
-        try AssumeRoleExecutor(jdCloudClient: stsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AssumeRoleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AssumeRoleExecutor(jdCloudClient: stsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension StsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

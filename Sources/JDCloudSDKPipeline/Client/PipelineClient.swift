@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(PipelineJDCloudClient)
+
 public class PipelineJDCloudClient:NSObject,JDCloudClient{
     
     private final var pipelineJDCloudClient:PipelineJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class PipelineJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class PipelineJDCloudClient:NSObject,JDCloudClient{
         pipelineJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "pipeline" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "pipeline/" + "v1"
     
     public let serviceName: String = "pipeline"
     
@@ -72,356 +72,164 @@ public class PipelineJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getPipelinesAsync(request:GetPipelinesRequest,requestComplation:@escaping (NSNumber?,GetPipelinesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPipelinesAsync(request:GetPipelinesRequest,requestComplation:@escaping ExecuteResult<GetPipelinesResult>) throws {
         pipelineJDCloudClient = self
-        try GetPipelinesExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPipelinesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPipelinesExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func startPipelineAsync(request:StartPipelineRequest,requestComplation:@escaping (NSNumber?,StartPipelineResponse?,NSError?,NSString?)->()) throws {
+    
+    public func startPipelineAsync(request:StartPipelineRequest,requestComplation:@escaping ExecuteResult<StartPipelineResult>) throws {
         pipelineJDCloudClient = self
-        try StartPipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StartPipelineResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StartPipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createPipelineAsync(request:CreatePipelineRequest,requestComplation:@escaping (NSNumber?,CreatePipelineResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createPipelineAsync(request:CreatePipelineRequest,requestComplation:@escaping ExecuteResult<CreatePipelineResult>) throws {
         pipelineJDCloudClient = self
-        try CreatePipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreatePipelineResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreatePipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updatePipelineAsync(request:UpdatePipelineRequest,requestComplation:@escaping (NSNumber?,UpdatePipelineResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updatePipelineAsync(request:UpdatePipelineRequest,requestComplation:@escaping ExecuteResult<UpdatePipelineResult>) throws {
         pipelineJDCloudClient = self
-        try UpdatePipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdatePipelineResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdatePipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func readFileAsync(request:ReadFileRequest,requestComplation:@escaping (NSNumber?,ReadFileResponse?,NSError?,NSString?)->()) throws {
+    
+    public func readFileAsync(request:ReadFileRequest,requestComplation:@escaping ExecuteResult<ReadFileResult>) throws {
         pipelineJDCloudClient = self
-        try ReadFileExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ReadFileResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ReadFileExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getPipelineAsync(request:GetPipelineRequest,requestComplation:@escaping (NSNumber?,GetPipelineResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPipelineAsync(request:GetPipelineRequest,requestComplation:@escaping ExecuteResult<GetPipelineResult>) throws {
         pipelineJDCloudClient = self
-        try GetPipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPipelineResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getLimitsAsync(request:GetLimitsRequest,requestComplation:@escaping (NSNumber?,GetLimitsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getLimitsAsync(request:GetLimitsRequest,requestComplation:@escaping ExecuteResult<GetLimitsResult>) throws {
         pipelineJDCloudClient = self
-        try GetLimitsExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetLimitsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetLimitsExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deletePipelineAsync(request:DeletePipelineRequest,requestComplation:@escaping (NSNumber?,DeletePipelineResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deletePipelineAsync(request:DeletePipelineRequest,requestComplation:@escaping ExecuteResult<DeletePipelineResult>) throws {
         pipelineJDCloudClient = self
-        try DeletePipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeletePipelineResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeletePipelineExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getPipelineInstancesAsync(request:GetPipelineInstancesRequest,requestComplation:@escaping (NSNumber?,GetPipelineInstancesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPipelineInstancesAsync(request:GetPipelineInstancesRequest,requestComplation:@escaping ExecuteResult<GetPipelineInstancesResult>) throws {
         pipelineJDCloudClient = self
-        try GetPipelineInstancesExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPipelineInstancesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPipelineInstancesExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func manualActionAsync(request:ManualActionRequest,requestComplation:@escaping (NSNumber?,ManualActionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func manualActionAsync(request:ManualActionRequest,requestComplation:@escaping ExecuteResult<ManualActionResult>) throws {
         pipelineJDCloudClient = self
-        try ManualActionExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ManualActionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ManualActionExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getPipelineInstanceAsync(request:GetPipelineInstanceRequest,requestComplation:@escaping (NSNumber?,GetPipelineInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPipelineInstanceAsync(request:GetPipelineInstanceRequest,requestComplation:@escaping ExecuteResult<GetPipelineInstanceResult>) throws {
         pipelineJDCloudClient = self
-        try GetPipelineInstanceExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPipelineInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPipelineInstanceExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stopPipelineInstanceAsync(request:StopPipelineInstanceRequest,requestComplation:@escaping (NSNumber?,StopPipelineInstanceResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopPipelineInstanceAsync(request:StopPipelineInstanceRequest,requestComplation:@escaping ExecuteResult<StopPipelineInstanceResult>) throws {
         pipelineJDCloudClient = self
-        try StopPipelineInstanceExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopPipelineInstanceResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopPipelineInstanceExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getSourceProvidersAsync(request:GetSourceProvidersRequest,requestComplation:@escaping (NSNumber?,GetSourceProvidersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getSourceProvidersAsync(request:GetSourceProvidersRequest,requestComplation:@escaping ExecuteResult<GetSourceProvidersResult>) throws {
         pipelineJDCloudClient = self
-        try GetSourceProvidersExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetSourceProvidersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetSourceProvidersExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getOperationProvidersAsync(request:GetOperationProvidersRequest,requestComplation:@escaping (NSNumber?,GetOperationProvidersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getOperationProvidersAsync(request:GetOperationProvidersRequest,requestComplation:@escaping ExecuteResult<GetOperationProvidersResult>) throws {
         pipelineJDCloudClient = self
-        try GetOperationProvidersExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetOperationProvidersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetOperationProvidersExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getPipelineInstancesByUuidsAsync(request:GetPipelineInstancesByUuidsRequest,requestComplation:@escaping (NSNumber?,GetPipelineInstancesByUuidsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPipelineInstancesByUuidsAsync(request:GetPipelineInstancesByUuidsRequest,requestComplation:@escaping ExecuteResult<GetPipelineInstancesByUuidsResult>) throws {
         pipelineJDCloudClient = self
-        try GetPipelineInstancesByUuidsExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetPipelineInstancesByUuidsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPipelineInstancesByUuidsExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getRegionsAsync(request:GetRegionsRequest,requestComplation:@escaping (NSNumber?,GetRegionsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getRegionsAsync(request:GetRegionsRequest,requestComplation:@escaping ExecuteResult<GetRegionsResult>) throws {
         pipelineJDCloudClient = self
-        try GetRegionsExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetRegionsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetRegionsExecutor(jdCloudClient: pipelineJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension PipelineJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class SDKEnvironment:NSObject{
+open class SDKEnvironment{
     
     var endPoint:String
     open

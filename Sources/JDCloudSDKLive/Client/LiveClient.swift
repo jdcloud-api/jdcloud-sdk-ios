@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(LiveJDCloudClient)
+
 public class LiveJDCloudClient:NSObject,JDCloudClient{
     
     private final var liveJDCloudClient:LiveJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class LiveJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class LiveJDCloudClient:NSObject,JDCloudClient{
         liveJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "live" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "live/" + "v1"
     
     public let serviceName: String = "live"
     
@@ -72,2099 +72,1046 @@ public class LiveJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func exportPublishStreamInfoDataAsync(request:ExportPublishStreamInfoDataRequest,requestComplation:@escaping (NSNumber?,ExportPublishStreamInfoDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDomainOnlineStreamAsync(request:DescribeDomainOnlineStreamRequest,requestComplation:@escaping ExecuteResult<DescribeDomainOnlineStreamResult>) throws {
         liveJDCloudClient = self
-        try ExportPublishStreamInfoDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExportPublishStreamInfoDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDomainOnlineStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDomainOnlineStreamAsync(request:DescribeDomainOnlineStreamRequest,requestComplation:@escaping (NSNumber?,DescribeDomainOnlineStreamResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeUrlRankingAsync(request:DescribeUrlRankingRequest,requestComplation:@escaping ExecuteResult<DescribeUrlRankingResult>) throws {
         liveJDCloudClient = self
-        try DescribeDomainOnlineStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDomainOnlineStreamResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeUrlRankingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeUrlRankingAsync(request:DescribeUrlRankingRequest,requestComplation:@escaping (NSNumber?,DescribeUrlRankingResponse?,NSError?,NSString?)->()) throws {
+    
+    public func openLiveRestartAsync(request:OpenLiveRestartRequest,requestComplation:@escaping ExecuteResult<OpenLiveRestartResult>) throws {
         liveJDCloudClient = self
-        try DescribeUrlRankingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeUrlRankingResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try OpenLiveRestartExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func openLiveRestartAsync(request:OpenLiveRestartRequest,requestComplation:@escaping (NSNumber?,OpenLiveRestartResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamAppQualityDetectionAsync(request:AddLiveStreamAppQualityDetectionRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamAppQualityDetectionResult>) throws {
         liveJDCloudClient = self
-        try OpenLiveRestartExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(OpenLiveRestartResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamAppQualityDetectionExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteLiveStreamNotifyConfigAsync(request:DeleteLiveStreamNotifyConfigRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamNotifyConfigAsync(request:DeleteLiveStreamNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCustomLiveStreamRecordTemplatesAsync(request:DescribeCustomLiveStreamRecordTemplatesRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamRecordTemplatesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addCustomLiveStreamQualityDetectionTemplateAsync(request:AddCustomLiveStreamQualityDetectionTemplateRequest,requestComplation:@escaping ExecuteResult<AddCustomLiveStreamQualityDetectionTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamRecordTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamRecordTemplatesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddCustomLiveStreamQualityDetectionTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func exportLiveSnapshotDataAsync(request:ExportLiveSnapshotDataRequest,requestComplation:@escaping (NSNumber?,ExportLiveSnapshotDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func openLiveP2pAsync(request:OpenLiveP2pRequest,requestComplation:@escaping ExecuteResult<OpenLiveP2pResult>) throws {
         liveJDCloudClient = self
-        try ExportLiveSnapshotDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExportLiveSnapshotDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try OpenLiveP2pExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeTranscodeBindingAsync(request:DescribeTranscodeBindingRequest,requestComplation:@escaping (NSNumber?,DescribeTranscodeBindingResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamRecordTemplatesAsync(request:DescribeCustomLiveStreamRecordTemplatesRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamRecordTemplatesResult>) throws {
         liveJDCloudClient = self
-        try DescribeTranscodeBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeTranscodeBindingResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamRecordTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCustomLiveStreamRecordConfigAsync(request:DescribeCustomLiveStreamRecordConfigRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamRecordConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeTranscodeBindingAsync(request:DescribeTranscodeBindingRequest,requestComplation:@escaping ExecuteResult<DescribeTranscodeBindingResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamRecordConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamRecordConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeTranscodeBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func exportLiveTranscodingDurationDataAsync(request:ExportLiveTranscodingDurationDataRequest,requestComplation:@escaping (NSNumber?,ExportLiveTranscodingDurationDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamRecordConfigAsync(request:DescribeCustomLiveStreamRecordConfigRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamRecordConfigResult>) throws {
         liveJDCloudClient = self
-        try ExportLiveTranscodingDurationDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExportLiveTranscodingDurationDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamRecordConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveDomainsAsync(request:DescribeLiveDomainsRequest,requestComplation:@escaping (NSNumber?,DescribeLiveDomainsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveDomainsAsync(request:DescribeLiveDomainsRequest,requestComplation:@escaping ExecuteResult<DescribeLiveDomainsResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveDomainsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveDomainsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveDomainsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveAppAsync(request:AddLiveAppRequest,requestComplation:@escaping (NSNumber?,AddLiveAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveAppAsync(request:AddLiveAppRequest,requestComplation:@escaping ExecuteResult<AddLiveAppResult>) throws {
         liveJDCloudClient = self
-        try AddLiveAppExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveAppExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteLiveStreamAppWatermarkAsync(request:DeleteLiveStreamAppWatermarkRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamAppWatermarkResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamAppWatermarkAsync(request:DeleteLiveStreamAppWatermarkRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamAppWatermarkResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamAppWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamAppWatermarkResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamAppWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStreamPlayerRankingDataAsync(request:DescribeLiveStreamPlayerRankingDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamPlayerRankingDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveRestartAuthKeyAsync(request:DescribeLiveRestartAuthKeyRequest,requestComplation:@escaping ExecuteResult<DescribeLiveRestartAuthKeyResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamPlayerRankingDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamPlayerRankingDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveRestartAuthKeyExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeWatermarkBindingAsync(request:DescribeWatermarkBindingRequest,requestComplation:@escaping (NSNumber?,DescribeWatermarkBindingResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamPlayerRankingDataAsync(request:DescribeLiveStreamPlayerRankingDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamPlayerRankingDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeWatermarkBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeWatermarkBindingResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamPlayerRankingDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStatisticGroupByStreamAsync(request:DescribeLiveStatisticGroupByStreamRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStatisticGroupByStreamResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeWatermarkBindingAsync(request:DescribeWatermarkBindingRequest,requestComplation:@escaping ExecuteResult<DescribeWatermarkBindingResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStatisticGroupByStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStatisticGroupByStreamResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeWatermarkBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setLiveStreamRecordNotifyConfigAsync(request:SetLiveStreamRecordNotifyConfigRequest,requestComplation:@escaping (NSNumber?,SetLiveStreamRecordNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStatisticGroupByStreamAsync(request:DescribeLiveStatisticGroupByStreamRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStatisticGroupByStreamResult>) throws {
         liveJDCloudClient = self
-        try SetLiveStreamRecordNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetLiveStreamRecordNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStatisticGroupByStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addCustomLiveStreamSnapshotTemplateAsync(request:AddCustomLiveStreamSnapshotTemplateRequest,requestComplation:@escaping (NSNumber?,AddCustomLiveStreamSnapshotTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveStreamRecordNotifyConfigAsync(request:SetLiveStreamRecordNotifyConfigRequest,requestComplation:@escaping ExecuteResult<SetLiveStreamRecordNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try AddCustomLiveStreamSnapshotTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddCustomLiveStreamSnapshotTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveStreamRecordNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func startLiveDomainAsync(request:StartLiveDomainRequest,requestComplation:@escaping (NSNumber?,StartLiveDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addCustomLiveStreamSnapshotTemplateAsync(request:AddCustomLiveStreamSnapshotTemplateRequest,requestComplation:@escaping ExecuteResult<AddCustomLiveStreamSnapshotTemplateResult>) throws {
         liveJDCloudClient = self
-        try StartLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StartLiveDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddCustomLiveStreamSnapshotTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCustomLiveStreamWatermarkTemplatesAsync(request:DescribeCustomLiveStreamWatermarkTemplatesRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamWatermarkTemplatesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func startLiveDomainAsync(request:StartLiveDomainRequest,requestComplation:@escaping ExecuteResult<StartLiveDomainResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamWatermarkTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamWatermarkTemplatesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StartLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveStreamAppTranscodeAsync(request:AddLiveStreamAppTranscodeRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamAppTranscodeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamWatermarkTemplatesAsync(request:DescribeCustomLiveStreamWatermarkTemplatesRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamWatermarkTemplatesResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamAppTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamAppTranscodeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamWatermarkTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteLiveStreamSnapshotNotifyConfigAsync(request:DeleteLiveStreamSnapshotNotifyConfigRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamSnapshotNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamAppTranscodeAsync(request:AddLiveStreamAppTranscodeRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamAppTranscodeResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamSnapshotNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamSnapshotNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamAppTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveTimeshiftConfigsAsync(request:DescribeLiveTimeshiftConfigsRequest,requestComplation:@escaping (NSNumber?,DescribeLiveTimeshiftConfigsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamSnapshotNotifyConfigAsync(request:DeleteLiveStreamSnapshotNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamSnapshotNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveTimeshiftConfigsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveTimeshiftConfigsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamSnapshotNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addLiveStreamAppWatermarkAsync(request:AddLiveStreamAppWatermarkRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamAppWatermarkResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveTimeshiftConfigsAsync(request:DescribeLiveTimeshiftConfigsRequest,requestComplation:@escaping ExecuteResult<DescribeLiveTimeshiftConfigsResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamAppWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamAppWatermarkResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveTimeshiftConfigsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteLiveStreamAppSnapshotAsync(request:DeleteLiveStreamAppSnapshotRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamAppSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamAppWatermarkAsync(request:AddLiveStreamAppWatermarkRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamAppWatermarkResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamAppSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamAppSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamAppWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteLiveStreamRecordNotifyConfigAsync(request:DeleteLiveStreamRecordNotifyConfigRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamRecordNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamAppSnapshotAsync(request:DeleteLiveStreamAppSnapshotRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamAppSnapshotResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamRecordNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamRecordNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamAppSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCustomLiveStreamWatermarkConfigAsync(request:DescribeCustomLiveStreamWatermarkConfigRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamWatermarkConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamRecordNotifyConfigAsync(request:DeleteLiveStreamRecordNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamRecordNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamWatermarkConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamWatermarkConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamRecordNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addCustomLiveStreamRecordTemplateAsync(request:AddCustomLiveStreamRecordTemplateRequest,requestComplation:@escaping (NSNumber?,AddCustomLiveStreamRecordTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamWatermarkConfigAsync(request:DescribeCustomLiveStreamWatermarkConfigRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamWatermarkConfigResult>) throws {
         liveJDCloudClient = self
-        try AddCustomLiveStreamRecordTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddCustomLiveStreamRecordTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamWatermarkConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveTranscodingDurationDataAsync(request:DescribeLiveTranscodingDurationDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveTranscodingDurationDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addCustomLiveStreamRecordTemplateAsync(request:AddCustomLiveStreamRecordTemplateRequest,requestComplation:@escaping ExecuteResult<AddCustomLiveStreamRecordTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveTranscodingDurationDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveTranscodingDurationDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddCustomLiveStreamRecordTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLivePlayAuthKeyAsync(request:DescribeLivePlayAuthKeyRequest,requestComplation:@escaping (NSNumber?,DescribeLivePlayAuthKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveTranscodingDurationDataAsync(request:DescribeLiveTranscodingDurationDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveTranscodingDurationDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeLivePlayAuthKeyExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLivePlayAuthKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveTranscodingDurationDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSnapshotBindingAsync(request:DescribeSnapshotBindingRequest,requestComplation:@escaping (NSNumber?,DescribeSnapshotBindingResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveP2pConfigsAsync(request:DescribeLiveP2pConfigsRequest,requestComplation:@escaping ExecuteResult<DescribeLiveP2pConfigsResult>) throws {
         liveJDCloudClient = self
-        try DescribeSnapshotBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSnapshotBindingResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveP2pConfigsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteCustomLiveStreamTranscodeTemplateAsync(request:DeleteCustomLiveStreamTranscodeTemplateRequest,requestComplation:@escaping (NSNumber?,DeleteCustomLiveStreamTranscodeTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLivePlayAuthKeyAsync(request:DescribeLivePlayAuthKeyRequest,requestComplation:@escaping ExecuteResult<DescribeLivePlayAuthKeyResult>) throws {
         liveJDCloudClient = self
-        try DeleteCustomLiveStreamTranscodeTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCustomLiveStreamTranscodeTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLivePlayAuthKeyExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCustomLiveStreamTranscodeTemplatesAsync(request:DescribeCustomLiveStreamTranscodeTemplatesRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamTranscodeTemplatesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSnapshotBindingAsync(request:DescribeSnapshotBindingRequest,requestComplation:@escaping ExecuteResult<DescribeSnapshotBindingResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamTranscodeTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamTranscodeTemplatesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSnapshotBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLivePornDataAsync(request:DescribeLivePornDataRequest,requestComplation:@escaping (NSNumber?,DescribeLivePornDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCustomLiveStreamTranscodeTemplateAsync(request:DeleteCustomLiveStreamTranscodeTemplateRequest,requestComplation:@escaping ExecuteResult<DeleteCustomLiveStreamTranscodeTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeLivePornDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLivePornDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCustomLiveStreamTranscodeTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func stopLiveDomainAsync(request:StopLiveDomainRequest,requestComplation:@escaping (NSNumber?,StopLiveDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamTranscodeTemplatesAsync(request:DescribeCustomLiveStreamTranscodeTemplatesRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamTranscodeTemplatesResult>) throws {
         liveJDCloudClient = self
-        try StopLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopLiveDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamTranscodeTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveFileStorageDataAsync(request:DescribeLiveFileStorageDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveFileStorageDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLivePornDataAsync(request:DescribeLivePornDataRequest,requestComplation:@escaping ExecuteResult<DescribeLivePornDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveFileStorageDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveFileStorageDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLivePornDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStreamOnlineListAsync(request:DescribeLiveStreamOnlineListRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamOnlineListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopLiveDomainAsync(request:StopLiveDomainRequest,requestComplation:@escaping ExecuteResult<StopLiveDomainResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamOnlineListExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamOnlineListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveStreamRecordNotifyConfigAsync(request:DescribeLiveStreamRecordNotifyConfigRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamRecordNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveFileStorageDataAsync(request:DescribeLiveFileStorageDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveFileStorageDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamRecordNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamRecordNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveFileStorageDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveStreamDomainSnapshotAsync(request:AddLiveStreamDomainSnapshotRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamDomainSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamOnlineListAsync(request:DescribeLiveStreamOnlineListRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamOnlineListResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamDomainSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamDomainSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamOnlineListExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setLiveStreamNotifyConfigAsync(request:SetLiveStreamNotifyConfigRequest,requestComplation:@escaping (NSNumber?,SetLiveStreamNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamRecordNotifyConfigAsync(request:DescribeLiveStreamRecordNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamRecordNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try SetLiveStreamNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetLiveStreamNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamRecordNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStreamHistoryUserNumAsync(request:DescribeLiveStreamHistoryUserNumRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamHistoryUserNumResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamDomainSnapshotAsync(request:AddLiveStreamDomainSnapshotRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamDomainSnapshotResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamHistoryUserNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamHistoryUserNumResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamDomainSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func setLiveStreamSnapshotNotifyConfigAsync(request:SetLiveStreamSnapshotNotifyConfigRequest,requestComplation:@escaping (NSNumber?,SetLiveStreamSnapshotNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveStreamNotifyConfigAsync(request:SetLiveStreamNotifyConfigRequest,requestComplation:@escaping ExecuteResult<SetLiveStreamNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try SetLiveStreamSnapshotNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetLiveStreamSnapshotNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveStreamNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteLiveDomainAsync(request:DeleteLiveDomainRequest,requestComplation:@escaping (NSNumber?,DeleteLiveDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamHistoryUserNumAsync(request:DescribeLiveStreamHistoryUserNumRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamHistoryUserNumResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamHistoryUserNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveStreamPublishBandwidthDataAsync(request:DescribeLiveStreamPublishBandwidthDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamPublishBandwidthDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveStreamSnapshotNotifyConfigAsync(request:SetLiveStreamSnapshotNotifyConfigRequest,requestComplation:@escaping ExecuteResult<SetLiveStreamSnapshotNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamPublishBandwidthDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamPublishBandwidthDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveStreamSnapshotNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func resumeLiveStreamAsync(request:ResumeLiveStreamRequest,requestComplation:@escaping (NSNumber?,ResumeLiveStreamResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamDomainQualityDetectionAsync(request:AddLiveStreamDomainQualityDetectionRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamDomainQualityDetectionResult>) throws {
         liveJDCloudClient = self
-        try ResumeLiveStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ResumeLiveStreamResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamDomainQualityDetectionExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func exportLiveStreamTrafficDataAsync(request:ExportLiveStreamTrafficDataRequest,requestComplation:@escaping (NSNumber?,ExportLiveStreamTrafficDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func closeLiveP2pAsync(request:CloseLiveP2pRequest,requestComplation:@escaping ExecuteResult<CloseLiveP2pResult>) throws {
         liveJDCloudClient = self
-        try ExportLiveStreamTrafficDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExportLiveStreamTrafficDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CloseLiveP2pExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeCustomLiveStreamSnapshotConfigAsync(request:DescribeCustomLiveStreamSnapshotConfigRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamSnapshotConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveDomainAsync(request:DeleteLiveDomainRequest,requestComplation:@escaping ExecuteResult<DeleteLiveDomainResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamSnapshotConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamSnapshotConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveRestartConfigsAsync(request:DescribeLiveRestartConfigsRequest,requestComplation:@escaping (NSNumber?,DescribeLiveRestartConfigsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamPublishBandwidthDataAsync(request:DescribeLiveStreamPublishBandwidthDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamPublishBandwidthDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveRestartConfigsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveRestartConfigsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamPublishBandwidthDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRecordBindingAsync(request:DescribeRecordBindingRequest,requestComplation:@escaping (NSNumber?,DescribeRecordBindingResponse?,NSError?,NSString?)->()) throws {
+    
+    public func resumeLiveStreamAsync(request:ResumeLiveStreamRequest,requestComplation:@escaping ExecuteResult<ResumeLiveStreamResult>) throws {
         liveJDCloudClient = self
-        try DescribeRecordBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRecordBindingResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ResumeLiveStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeCustomLiveStreamTranscodeTemplateAsync(request:DescribeCustomLiveStreamTranscodeTemplateRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamTranscodeTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveDomainCertificateAsync(request:SetLiveDomainCertificateRequest,requestComplation:@escaping ExecuteResult<SetLiveDomainCertificateResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamTranscodeTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamTranscodeTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveDomainCertificateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func closeLiveRestartAsync(request:CloseLiveRestartRequest,requestComplation:@escaping (NSNumber?,CloseLiveRestartResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamSnapshotConfigAsync(request:DescribeCustomLiveStreamSnapshotConfigRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamSnapshotConfigResult>) throws {
         liveJDCloudClient = self
-        try CloseLiveRestartExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CloseLiveRestartResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamSnapshotConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveStreamAppSnapshotAsync(request:AddLiveStreamAppSnapshotRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamAppSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeQualityDetectionBindingAsync(request:DescribeQualityDetectionBindingRequest,requestComplation:@escaping ExecuteResult<DescribeQualityDetectionBindingResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamAppSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamAppSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeQualityDetectionBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveTranscodeStreamListAsync(request:DescribeLiveTranscodeStreamListRequest,requestComplation:@escaping (NSNumber?,DescribeLiveTranscodeStreamListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveRestartConfigsAsync(request:DescribeLiveRestartConfigsRequest,requestComplation:@escaping ExecuteResult<DescribeLiveRestartConfigsResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveTranscodeStreamListExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveTranscodeStreamListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveRestartConfigsExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func closeLiveTimeshiftAsync(request:CloseLiveTimeshiftRequest,requestComplation:@escaping (NSNumber?,CloseLiveTimeshiftResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRecordBindingAsync(request:DescribeRecordBindingRequest,requestComplation:@escaping ExecuteResult<DescribeRecordBindingResult>) throws {
         liveJDCloudClient = self
-        try CloseLiveTimeshiftExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CloseLiveTimeshiftResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRecordBindingExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveTranscodeStreamPlayerUserNumAsync(request:DescribeLiveTranscodeStreamPlayerUserNumRequest,requestComplation:@escaping (NSNumber?,DescribeLiveTranscodeStreamPlayerUserNumResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeCustomLiveStreamTranscodeTemplateAsync(request:DescribeCustomLiveStreamTranscodeTemplateRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamTranscodeTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveTranscodeStreamPlayerUserNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveTranscodeStreamPlayerUserNumResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeCustomLiveStreamTranscodeTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addLiveRecordTaskAsync(request:AddLiveRecordTaskRequest,requestComplation:@escaping (NSNumber?,AddLiveRecordTaskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func closeLiveRestartAsync(request:CloseLiveRestartRequest,requestComplation:@escaping ExecuteResult<CloseLiveRestartResult>) throws {
         liveJDCloudClient = self
-        try AddLiveRecordTaskExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveRecordTaskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CloseLiveRestartExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveStreamDomainWatermarkAsync(request:AddLiveStreamDomainWatermarkRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamDomainWatermarkResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamAppSnapshotAsync(request:AddLiveStreamAppSnapshotRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamAppSnapshotResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamDomainWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamDomainWatermarkResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamAppSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteLiveStreamDomainSnapshotAsync(request:DeleteLiveStreamDomainSnapshotRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamDomainSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveTranscodeStreamListAsync(request:DescribeLiveTranscodeStreamListRequest,requestComplation:@escaping ExecuteResult<DescribeLiveTranscodeStreamListResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamDomainSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamDomainSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveTranscodeStreamListExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStreamBandwidthDataAsync(request:DescribeLiveStreamBandwidthDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamBandwidthDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func closeLiveTimeshiftAsync(request:CloseLiveTimeshiftRequest,requestComplation:@escaping ExecuteResult<CloseLiveTimeshiftResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamBandwidthDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamBandwidthDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CloseLiveTimeshiftExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDomainsLogAsync(request:DescribeDomainsLogRequest,requestComplation:@escaping (NSNumber?,DescribeDomainsLogResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCustomLiveStreamQualityDetectionTemplateAsync(request:DeleteCustomLiveStreamQualityDetectionTemplateRequest,requestComplation:@escaping ExecuteResult<DeleteCustomLiveStreamQualityDetectionTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeDomainsLogExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDomainsLogResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCustomLiveStreamQualityDetectionTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveRestartDomainAsync(request:AddLiveRestartDomainRequest,requestComplation:@escaping (NSNumber?,AddLiveRestartDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveDomainCertificateAsync(request:DescribeLiveDomainCertificateRequest,requestComplation:@escaping ExecuteResult<DescribeLiveDomainCertificateResult>) throws {
         liveJDCloudClient = self
-        try AddLiveRestartDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveRestartDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveDomainCertificateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func forbidLiveStreamAsync(request:ForbidLiveStreamRequest,requestComplation:@escaping (NSNumber?,ForbidLiveStreamResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveTranscodeStreamPlayerUserNumAsync(request:DescribeLiveTranscodeStreamPlayerUserNumRequest,requestComplation:@escaping ExecuteResult<DescribeLiveTranscodeStreamPlayerUserNumResult>) throws {
         liveJDCloudClient = self
-        try ForbidLiveStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ForbidLiveStreamResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveTranscodeStreamPlayerUserNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func exportLiveStreamBandwidthDataAsync(request:ExportLiveStreamBandwidthDataRequest,requestComplation:@escaping (NSNumber?,ExportLiveStreamBandwidthDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveRecordTaskAsync(request:AddLiveRecordTaskRequest,requestComplation:@escaping ExecuteResult<AddLiveRecordTaskResult>) throws {
         liveJDCloudClient = self
-        try ExportLiveStreamBandwidthDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExportLiveStreamBandwidthDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveRecordTaskExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describePublishStreamInfoDataAsync(request:DescribePublishStreamInfoDataRequest,requestComplation:@escaping (NSNumber?,DescribePublishStreamInfoDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamDomainWatermarkAsync(request:AddLiveStreamDomainWatermarkRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamDomainWatermarkResult>) throws {
         liveJDCloudClient = self
-        try DescribePublishStreamInfoDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribePublishStreamInfoDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamDomainWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveTranscodeStreamNumAsync(request:DescribeLiveTranscodeStreamNumRequest,requestComplation:@escaping (NSNumber?,DescribeLiveTranscodeStreamNumResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamDomainSnapshotAsync(request:DeleteLiveStreamDomainSnapshotRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamDomainSnapshotResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveTranscodeStreamNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveTranscodeStreamNumResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamDomainSnapshotExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveDomainDetailAsync(request:DescribeLiveDomainDetailRequest,requestComplation:@escaping (NSNumber?,DescribeLiveDomainDetailResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveStreamQualityDetectionNotifyConfigAsync(request:SetLiveStreamQualityDetectionNotifyConfigRequest,requestComplation:@escaping ExecuteResult<SetLiveStreamQualityDetectionNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveDomainDetailExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveDomainDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveStreamQualityDetectionNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteCustomLiveStreamSnapshotTemplateAsync(request:DeleteCustomLiveStreamSnapshotTemplateRequest,requestComplation:@escaping (NSNumber?,DeleteCustomLiveStreamSnapshotTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamBandwidthDataAsync(request:DescribeLiveStreamBandwidthDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamBandwidthDataResult>) throws {
         liveJDCloudClient = self
-        try DeleteCustomLiveStreamSnapshotTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCustomLiveStreamSnapshotTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamBandwidthDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addCustomLiveStreamWatermarkTemplateAsync(request:AddCustomLiveStreamWatermarkTemplateRequest,requestComplation:@escaping (NSNumber?,AddCustomLiveStreamWatermarkTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDomainsLogAsync(request:DescribeDomainsLogRequest,requestComplation:@escaping ExecuteResult<DescribeDomainsLogResult>) throws {
         liveJDCloudClient = self
-        try AddCustomLiveStreamWatermarkTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddCustomLiveStreamWatermarkTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDomainsLogExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteCustomLiveStreamWatermarkTemplateAsync(request:DeleteCustomLiveStreamWatermarkTemplateRequest,requestComplation:@escaping (NSNumber?,DeleteCustomLiveStreamWatermarkTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveRestartDomainAsync(request:AddLiveRestartDomainRequest,requestComplation:@escaping ExecuteResult<AddLiveRestartDomainResult>) throws {
         liveJDCloudClient = self
-        try DeleteCustomLiveStreamWatermarkTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCustomLiveStreamWatermarkTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveRestartDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteLiveStreamDomainWatermarkAsync(request:DeleteLiveStreamDomainWatermarkRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamDomainWatermarkResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamDomainQualityDetectionAsync(request:DeleteLiveStreamDomainQualityDetectionRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamDomainQualityDetectionResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamDomainWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamDomainWatermarkResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamDomainQualityDetectionExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteLiveStreamAppRecordAsync(request:DeleteLiveStreamAppRecordRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamAppRecordResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveRestartDomainCertificateAsync(request:DescribeLiveRestartDomainCertificateRequest,requestComplation:@escaping ExecuteResult<DescribeLiveRestartDomainCertificateResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamAppRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamAppRecordResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveRestartDomainCertificateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteCustomLiveStreamRecordTemplateAsync(request:DeleteCustomLiveStreamRecordTemplateRequest,requestComplation:@escaping (NSNumber?,DeleteCustomLiveStreamRecordTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func forbidLiveStreamAsync(request:ForbidLiveStreamRequest,requestComplation:@escaping ExecuteResult<ForbidLiveStreamResult>) throws {
         liveJDCloudClient = self
-        try DeleteCustomLiveStreamRecordTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteCustomLiveStreamRecordTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ForbidLiveStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveSnapshotDataAsync(request:DescribeLiveSnapshotDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveSnapshotDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describePublishStreamInfoDataAsync(request:DescribePublishStreamInfoDataRequest,requestComplation:@escaping ExecuteResult<DescribePublishStreamInfoDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveSnapshotDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveSnapshotDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribePublishStreamInfoDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteLiveStreamDomainTranscodeAsync(request:DeleteLiveStreamDomainTranscodeRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamDomainTranscodeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveTranscodeStreamNumAsync(request:DescribeLiveTranscodeStreamNumRequest,requestComplation:@escaping ExecuteResult<DescribeLiveTranscodeStreamNumResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamDomainTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamDomainTranscodeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveTranscodeStreamNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func deleteLiveStreamDomainRecordAsync(request:DeleteLiveStreamDomainRecordRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamDomainRecordResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveRestartAuthKeyAsync(request:SetLiveRestartAuthKeyRequest,requestComplation:@escaping ExecuteResult<SetLiveRestartAuthKeyResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamDomainRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamDomainRecordResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveRestartAuthKeyExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLivePublishStreamNumAsync(request:DescribeLivePublishStreamNumRequest,requestComplation:@escaping (NSNumber?,DescribeLivePublishStreamNumResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveDomainDetailAsync(request:DescribeLiveDomainDetailRequest,requestComplation:@escaping ExecuteResult<DescribeLiveDomainDetailResult>) throws {
         liveJDCloudClient = self
-        try DescribeLivePublishStreamNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLivePublishStreamNumResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveDomainDetailExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeSystemLiveStreamTranscodeTemplatesAsync(request:DescribeSystemLiveStreamTranscodeTemplatesRequest,requestComplation:@escaping (NSNumber?,DescribeSystemLiveStreamTranscodeTemplatesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCustomLiveStreamSnapshotTemplateAsync(request:DeleteCustomLiveStreamSnapshotTemplateRequest,requestComplation:@escaping ExecuteResult<DeleteCustomLiveStreamSnapshotTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeSystemLiveStreamTranscodeTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSystemLiveStreamTranscodeTemplatesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCustomLiveStreamSnapshotTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveStatisticGroupByAreaAsync(request:DescribeLiveStatisticGroupByAreaRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStatisticGroupByAreaResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addCustomLiveStreamWatermarkTemplateAsync(request:AddCustomLiveStreamWatermarkTemplateRequest,requestComplation:@escaping ExecuteResult<AddCustomLiveStreamWatermarkTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStatisticGroupByAreaExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStatisticGroupByAreaResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddCustomLiveStreamWatermarkTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStreamPublishListAsync(request:DescribeLiveStreamPublishListRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamPublishListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCustomLiveStreamWatermarkTemplateAsync(request:DeleteCustomLiveStreamWatermarkTemplateRequest,requestComplation:@escaping ExecuteResult<DeleteCustomLiveStreamWatermarkTemplateResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamPublishListExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamPublishListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCustomLiveStreamWatermarkTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveStreamPublishTrafficDataAsync(request:DescribeLiveStreamPublishTrafficDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamPublishTrafficDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamDomainWatermarkAsync(request:DeleteLiveStreamDomainWatermarkRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamDomainWatermarkResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamPublishTrafficDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamPublishTrafficDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamDomainWatermarkExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addLiveStreamAppRecordAsync(request:AddLiveStreamAppRecordRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamAppRecordResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamAppRecordAsync(request:DeleteLiveStreamAppRecordRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamAppRecordResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamAppRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamAppRecordResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamAppRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func addLiveStreamDomainRecordAsync(request:AddLiveStreamDomainRecordRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamDomainRecordResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteCustomLiveStreamRecordTemplateAsync(request:DeleteCustomLiveStreamRecordTemplateRequest,requestComplation:@escaping ExecuteResult<DeleteCustomLiveStreamRecordTemplateResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamDomainRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamDomainRecordResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteCustomLiveStreamRecordTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveStatisticGroupByAreaIspAsync(request:DescribeLiveStatisticGroupByAreaIspRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStatisticGroupByAreaIspResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamQualityDetectionNotifyConfigAsync(request:DeleteLiveStreamQualityDetectionNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamQualityDetectionNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStatisticGroupByAreaIspExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStatisticGroupByAreaIspResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamQualityDetectionNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
 
-    @objc
-    public func describeLiveStreamSnapshotNotifyConfigAsync(request:DescribeLiveStreamSnapshotNotifyConfigRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamSnapshotNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLiveRestartDomainCertificateAsync(request:SetLiveRestartDomainCertificateRequest,requestComplation:@escaping ExecuteResult<SetLiveRestartDomainCertificateResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamSnapshotNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamSnapshotNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLiveRestartDomainCertificateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeLiveStreamTranscodeConfigAsync(request:DescribeLiveStreamTranscodeConfigRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamTranscodeConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveSnapshotDataAsync(request:DescribeLiveSnapshotDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveSnapshotDataResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamTranscodeConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamTranscodeConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveSnapshotDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func deleteLiveStreamDomainTranscodeAsync(request:DeleteLiveStreamDomainTranscodeRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamDomainTranscodeResult>) throws {
+        liveJDCloudClient = self
+        try DeleteLiveStreamDomainTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func setLivePlayAuthKeyAsync(request:SetLivePlayAuthKeyRequest,requestComplation:@escaping (NSNumber?,SetLivePlayAuthKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamAppQualityDetectionAsync(request:DeleteLiveStreamAppQualityDetectionRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamAppQualityDetectionResult>) throws {
         liveJDCloudClient = self
-        try SetLivePlayAuthKeyExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(SetLivePlayAuthKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamAppQualityDetectionExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func deleteLiveStreamDomainRecordAsync(request:DeleteLiveStreamDomainRecordRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamDomainRecordResult>) throws {
+        liveJDCloudClient = self
+        try DeleteLiveStreamDomainRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func describeLiveAppAsync(request:DescribeLiveAppRequest,requestComplation:@escaping (NSNumber?,DescribeLiveAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLivePublishStreamNumAsync(request:DescribeLivePublishStreamNumRequest,requestComplation:@escaping ExecuteResult<DescribeLivePublishStreamNumResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveAppExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLivePublishStreamNumExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeSystemLiveStreamTranscodeTemplatesAsync(request:DescribeSystemLiveStreamTranscodeTemplatesRequest,requestComplation:@escaping ExecuteResult<DescribeSystemLiveStreamTranscodeTemplatesResult>) throws {
+        liveJDCloudClient = self
+        try DescribeSystemLiveStreamTranscodeTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func interruptLiveStreamAsync(request:InterruptLiveStreamRequest,requestComplation:@escaping (NSNumber?,InterruptLiveStreamResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStatisticGroupByAreaAsync(request:DescribeLiveStatisticGroupByAreaRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStatisticGroupByAreaResult>) throws {
         liveJDCloudClient = self
-        try InterruptLiveStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(InterruptLiveStreamResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStatisticGroupByAreaExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeLiveStreamPublishListAsync(request:DescribeLiveStreamPublishListRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamPublishListResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveStreamPublishListExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
 
-    @objc
-    public func addLiveDomainAsync(request:AddLiveDomainRequest,requestComplation:@escaping (NSNumber?,AddLiveDomainResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamPublishTrafficDataAsync(request:DescribeLiveStreamPublishTrafficDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamPublishTrafficDataResult>) throws {
         liveJDCloudClient = self
-        try AddLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveDomainResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamPublishTrafficDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func addLiveStreamAppRecordAsync(request:AddLiveStreamAppRecordRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamAppRecordResult>) throws {
+        liveJDCloudClient = self
+        try AddLiveStreamAppRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func describeLiveTranscodeStreamBandwidthAsync(request:DescribeLiveTranscodeStreamBandwidthRequest,requestComplation:@escaping (NSNumber?,DescribeLiveTranscodeStreamBandwidthResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveStreamDomainRecordAsync(request:AddLiveStreamDomainRecordRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamDomainRecordResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveTranscodeStreamBandwidthExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveTranscodeStreamBandwidthResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveStreamDomainRecordExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeLiveStatisticGroupByAreaIspAsync(request:DescribeLiveStatisticGroupByAreaIspRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStatisticGroupByAreaIspResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveStatisticGroupByAreaIspExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func describeLiveStreamInfoAsync(request:DescribeLiveStreamInfoRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamSnapshotNotifyConfigAsync(request:DescribeLiveStreamSnapshotNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamSnapshotNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamInfoExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamSnapshotNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeLiveStreamTranscodeConfigAsync(request:DescribeLiveStreamTranscodeConfigRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamTranscodeConfigResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveStreamTranscodeConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
 
-    @objc
-    public func describeLiveStreamNotifyConfigAsync(request:DescribeLiveStreamNotifyConfigRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamNotifyConfigResponse?,NSError?,NSString?)->()) throws {
+    
+    public func setLivePlayAuthKeyAsync(request:SetLivePlayAuthKeyRequest,requestComplation:@escaping ExecuteResult<SetLivePlayAuthKeyResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamNotifyConfigResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SetLivePlayAuthKeyExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeLiveAppAsync(request:DescribeLiveAppRequest,requestComplation:@escaping ExecuteResult<DescribeLiveAppResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveAppExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
 
-    @objc
-    public func describeCustomLiveStreamSnapshotTemplatesAsync(request:DescribeCustomLiveStreamSnapshotTemplatesRequest,requestComplation:@escaping (NSNumber?,DescribeCustomLiveStreamSnapshotTemplatesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func interruptLiveStreamAsync(request:InterruptLiveStreamRequest,requestComplation:@escaping ExecuteResult<InterruptLiveStreamResult>) throws {
         liveJDCloudClient = self
-        try DescribeCustomLiveStreamSnapshotTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeCustomLiveStreamSnapshotTemplatesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try InterruptLiveStreamExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeLiveStreamQualityDetectionNotifyConfigAsync(request:DescribeLiveStreamQualityDetectionNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamQualityDetectionNotifyConfigResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveStreamQualityDetectionNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func stopLiveAppAsync(request:StopLiveAppRequest,requestComplation:@escaping (NSNumber?,StopLiveAppResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addLiveDomainAsync(request:AddLiveDomainRequest,requestComplation:@escaping ExecuteResult<AddLiveDomainResult>) throws {
         liveJDCloudClient = self
-        try StopLiveAppExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(StopLiveAppResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddLiveDomainExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeLiveTranscodeStreamBandwidthAsync(request:DescribeLiveTranscodeStreamBandwidthRequest,requestComplation:@escaping ExecuteResult<DescribeLiveTranscodeStreamBandwidthResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveTranscodeStreamBandwidthExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func describeLiveStreamTrafficDataAsync(request:DescribeLiveStreamTrafficDataRequest,requestComplation:@escaping (NSNumber?,DescribeLiveStreamTrafficDataResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamInfoAsync(request:DescribeLiveStreamInfoRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamInfoResult>) throws {
         liveJDCloudClient = self
-        try DescribeLiveStreamTrafficDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeLiveStreamTrafficDataResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamInfoExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeCustomLiveStreamQualityDetectionTemplatesAsync(request:DescribeCustomLiveStreamQualityDetectionTemplatesRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamQualityDetectionTemplatesResult>) throws {
+        liveJDCloudClient = self
+        try DescribeCustomLiveStreamQualityDetectionTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func addCustomLiveStreamTranscodeTemplateAsync(request:AddCustomLiveStreamTranscodeTemplateRequest,requestComplation:@escaping (NSNumber?,AddCustomLiveStreamTranscodeTemplateResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeLiveStreamNotifyConfigAsync(request:DescribeLiveStreamNotifyConfigRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamNotifyConfigResult>) throws {
         liveJDCloudClient = self
-        try AddCustomLiveStreamTranscodeTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddCustomLiveStreamTranscodeTemplateResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeLiveStreamNotifyConfigExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func describeCustomLiveStreamSnapshotTemplatesAsync(request:DescribeCustomLiveStreamSnapshotTemplatesRequest,requestComplation:@escaping ExecuteResult<DescribeCustomLiveStreamSnapshotTemplatesResult>) throws {
+        liveJDCloudClient = self
+        try DescribeCustomLiveStreamSnapshotTemplatesExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func addLiveStreamDomainTranscodeAsync(request:AddLiveStreamDomainTranscodeRequest,requestComplation:@escaping (NSNumber?,AddLiveStreamDomainTranscodeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func stopLiveAppAsync(request:StopLiveAppRequest,requestComplation:@escaping ExecuteResult<StopLiveAppResult>) throws {
         liveJDCloudClient = self
-        try AddLiveStreamDomainTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddLiveStreamDomainTranscodeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try StopLiveAppExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeLiveStreamTrafficDataAsync(request:DescribeLiveStreamTrafficDataRequest,requestComplation:@escaping ExecuteResult<DescribeLiveStreamTrafficDataResult>) throws {
+        liveJDCloudClient = self
+        try DescribeLiveStreamTrafficDataExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
 
-    @objc
-    public func deleteLiveStreamAppTranscodeAsync(request:DeleteLiveStreamAppTranscodeRequest,requestComplation:@escaping (NSNumber?,DeleteLiveStreamAppTranscodeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addCustomLiveStreamTranscodeTemplateAsync(request:AddCustomLiveStreamTranscodeTemplateRequest,requestComplation:@escaping ExecuteResult<AddCustomLiveStreamTranscodeTemplateResult>) throws {
         liveJDCloudClient = self
-        try DeleteLiveStreamAppTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteLiveStreamAppTranscodeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddCustomLiveStreamTranscodeTemplateExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func addLiveStreamDomainTranscodeAsync(request:AddLiveStreamDomainTranscodeRequest,requestComplation:@escaping ExecuteResult<AddLiveStreamDomainTranscodeResult>) throws {
+        liveJDCloudClient = self
+        try AddLiveStreamDomainTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
 
-    @objc
-    public func openLiveTimeshiftAsync(request:OpenLiveTimeshiftRequest,requestComplation:@escaping (NSNumber?,OpenLiveTimeshiftResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteLiveStreamAppTranscodeAsync(request:DeleteLiveStreamAppTranscodeRequest,requestComplation:@escaping ExecuteResult<DeleteLiveStreamAppTranscodeResult>) throws {
         liveJDCloudClient = self
-        try OpenLiveTimeshiftExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(OpenLiveTimeshiftResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteLiveStreamAppTranscodeExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
+
+    
+    public func openLiveTimeshiftAsync(request:OpenLiveTimeshiftRequest,requestComplation:@escaping ExecuteResult<OpenLiveTimeshiftResult>) throws {
+        liveJDCloudClient = self
+        try OpenLiveTimeshiftExecutor(jdCloudClient: liveJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
+        }
+    }
     
 }
 
 
 public extension LiveJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

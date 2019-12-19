@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(SopJDCloudClient)
+
 public class SopJDCloudClient:NSObject,JDCloudClient{
     
     private final var sopJDCloudClient:SopJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class SopJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class SopJDCloudClient:NSObject,JDCloudClient{
         sopJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "sop" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "sop/" + "v1"
     
     public let serviceName: String = "sop"
     
@@ -72,62 +72,38 @@ public class SopJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func getSecurityTokenAsync(request:GetSecurityTokenRequest,requestComplation:@escaping (NSNumber?,GetSecurityTokenResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getSecurityTokenAsync(request:GetSecurityTokenRequest,requestComplation:@escaping ExecuteResult<GetSecurityTokenResult>) throws {
         sopJDCloudClient = self
-        try GetSecurityTokenExecutor(jdCloudClient: sopJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetSecurityTokenResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetSecurityTokenExecutor(jdCloudClient: sopJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getSensitiveOpSettingAsync(request:GetSensitiveOpSettingRequest,requestComplation:@escaping (NSNumber?,GetSensitiveOpSettingResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getSensitiveOpSettingAsync(request:GetSensitiveOpSettingRequest,requestComplation:@escaping ExecuteResult<GetSensitiveOpSettingResult>) throws {
         sopJDCloudClient = self
-        try GetSensitiveOpSettingExecutor(jdCloudClient: sopJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetSensitiveOpSettingResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetSensitiveOpSettingExecutor(jdCloudClient: sopJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension SopJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

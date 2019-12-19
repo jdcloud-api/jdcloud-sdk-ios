@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(JcqJDCloudClient)
+
 public class JcqJDCloudClient:NSObject,JDCloudClient{
     
     private final var jcqJDCloudClient:JcqJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class JcqJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class JcqJDCloudClient:NSObject,JDCloudClient{
         jcqJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "jcq" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "jcq/" + "v1"
     
     public let serviceName: String = "jcq"
     
@@ -72,482 +72,245 @@ public class JcqJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func removePermissionAsync(request:RemovePermissionRequest,requestComplation:@escaping (NSNumber?,RemovePermissionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func listDeadLettersAsync(request:ListDeadLettersRequest,requestComplation:@escaping ExecuteResult<ListDeadLettersResult>) throws {
         jcqJDCloudClient = self
-        try RemovePermissionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RemovePermissionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ListDeadLettersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func resetConsumeOffsetAsync(request:ResetConsumeOffsetRequest,requestComplation:@escaping (NSNumber?,ResetConsumeOffsetResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDeadLetterNumbersAsync(request:DescribeDeadLetterNumbersRequest,requestComplation:@escaping ExecuteResult<DescribeDeadLetterNumbersResult>) throws {
         jcqJDCloudClient = self
-        try ResetConsumeOffsetExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ResetConsumeOffsetResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDeadLetterNumbersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteDeadLettersAsync(request:DeleteDeadLettersRequest,requestComplation:@escaping (NSNumber?,DeleteDeadLettersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func cleanMessagesAsync(request:CleanMessagesRequest,requestComplation:@escaping ExecuteResult<CleanMessagesResult>) throws {
         jcqJDCloudClient = self
-        try DeleteDeadLettersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteDeadLettersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CleanMessagesExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createTopicAsync(request:CreateTopicRequest,requestComplation:@escaping (NSNumber?,CreateTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteTopicAsync(request:DeleteTopicRequest,requestComplation:@escaping ExecuteResult<DeleteTopicResult>) throws {
         jcqJDCloudClient = self
-        try CreateTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func listDeadLettersAsync(request:ListDeadLettersRequest,requestComplation:@escaping (NSNumber?,ListDeadLettersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func resendDeadLettersAsync(request:ResendDeadLettersRequest,requestComplation:@escaping ExecuteResult<ResendDeadLettersResult>) throws {
         jcqJDCloudClient = self
-        try ListDeadLettersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ListDeadLettersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ResendDeadLettersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDeadLetterNumbersAsync(request:DescribeDeadLetterNumbersRequest,requestComplation:@escaping (NSNumber?,DescribeDeadLetterNumbersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAccessPointAsync(request:DescribeAccessPointRequest,requestComplation:@escaping ExecuteResult<DescribeAccessPointResult>) throws {
         jcqJDCloudClient = self
-        try DescribeDeadLetterNumbersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDeadLetterNumbersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAccessPointExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSubscriptionAsync(request:CreateSubscriptionRequest,requestComplation:@escaping (NSNumber?,CreateSubscriptionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeTopicsAsync(request:DescribeTopicsRequest,requestComplation:@escaping ExecuteResult<DescribeTopicsResult>) throws {
         jcqJDCloudClient = self
-        try CreateSubscriptionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSubscriptionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeTopicsExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func cleanMessagesAsync(request:CleanMessagesRequest,requestComplation:@escaping (NSNumber?,CleanMessagesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func removePermissionAsync(request:RemovePermissionRequest,requestComplation:@escaping ExecuteResult<RemovePermissionResult>) throws {
         jcqJDCloudClient = self
-        try CleanMessagesExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CleanMessagesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RemovePermissionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteTopicAsync(request:DeleteTopicRequest,requestComplation:@escaping (NSNumber?,DeleteTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func resetConsumeOffsetAsync(request:ResetConsumeOffsetRequest,requestComplation:@escaping ExecuteResult<ResetConsumeOffsetResult>) throws {
         jcqJDCloudClient = self
-        try DeleteTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ResetConsumeOffsetExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func resendDeadLettersAsync(request:ResendDeadLettersRequest,requestComplation:@escaping (NSNumber?,ResendDeadLettersResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteDeadLettersAsync(request:DeleteDeadLettersRequest,requestComplation:@escaping ExecuteResult<DeleteDeadLettersResult>) throws {
         jcqJDCloudClient = self
-        try ResendDeadLettersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ResendDeadLettersResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteDeadLettersExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeConsumerGroupIdsAsync(request:DescribeConsumerGroupIdsRequest,requestComplation:@escaping (NSNumber?,DescribeConsumerGroupIdsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createTopicAsync(request:CreateTopicRequest,requestComplation:@escaping ExecuteResult<CreateTopicResult>) throws {
         jcqJDCloudClient = self
-        try DescribeConsumerGroupIdsExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeConsumerGroupIdsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAccessPointAsync(request:DescribeAccessPointRequest,requestComplation:@escaping (NSNumber?,DescribeAccessPointResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSubscriptionAsync(request:CreateSubscriptionRequest,requestComplation:@escaping ExecuteResult<CreateSubscriptionResult>) throws {
         jcqJDCloudClient = self
-        try DescribeAccessPointExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAccessPointResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSubscriptionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSubscriptionAsync(request:DescribeSubscriptionRequest,requestComplation:@escaping (NSNumber?,DescribeSubscriptionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeMessageTraceAsync(request:DescribeMessageTraceRequest,requestComplation:@escaping ExecuteResult<DescribeMessageTraceResult>) throws {
         jcqJDCloudClient = self
-        try DescribeSubscriptionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubscriptionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeMessageTraceExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addPermissionAsync(request:AddPermissionRequest,requestComplation:@escaping (NSNumber?,AddPermissionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeConsumerGroupIdsAsync(request:DescribeConsumerGroupIdsRequest,requestComplation:@escaping ExecuteResult<DescribeConsumerGroupIdsResult>) throws {
         jcqJDCloudClient = self
-        try AddPermissionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddPermissionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeConsumerGroupIdsExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeTopicAsync(request:DescribeTopicRequest,requestComplation:@escaping (NSNumber?,DescribeTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifySubscriptionAttributeAsync(request:ModifySubscriptionAttributeRequest,requestComplation:@escaping ExecuteResult<ModifySubscriptionAttributeResult>) throws {
         jcqJDCloudClient = self
-        try DescribeTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifySubscriptionAttributeExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeMessagesAsync(request:DescribeMessagesRequest,requestComplation:@escaping (NSNumber?,DescribeMessagesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubscriptionAsync(request:DescribeSubscriptionRequest,requestComplation:@escaping ExecuteResult<DescribeSubscriptionResult>) throws {
         jcqJDCloudClient = self
-        try DescribeMessagesExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeMessagesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubscriptionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeTopicsAsync(request:DescribeTopicsRequest,requestComplation:@escaping (NSNumber?,DescribeTopicsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addPermissionAsync(request:AddPermissionRequest,requestComplation:@escaping ExecuteResult<AddPermissionResult>) throws {
         jcqJDCloudClient = self
-        try DescribeTopicsExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeTopicsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddPermissionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSubscriptionsAsync(request:DescribeSubscriptionsRequest,requestComplation:@escaping (NSNumber?,DescribeSubscriptionsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeTopicAsync(request:DescribeTopicRequest,requestComplation:@escaping ExecuteResult<DescribeTopicResult>) throws {
         jcqJDCloudClient = self
-        try DescribeSubscriptionsExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubscriptionsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeMessageAsync(request:DescribeMessageRequest,requestComplation:@escaping (NSNumber?,DescribeMessageResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeMessagesAsync(request:DescribeMessagesRequest,requestComplation:@escaping ExecuteResult<DescribeMessagesResult>) throws {
         jcqJDCloudClient = self
-        try DescribeMessageExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeMessageResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeMessagesExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describePermissionAsync(request:DescribePermissionRequest,requestComplation:@escaping (NSNumber?,DescribePermissionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubscriptionsAsync(request:DescribeSubscriptionsRequest,requestComplation:@escaping ExecuteResult<DescribeSubscriptionsResult>) throws {
         jcqJDCloudClient = self
-        try DescribePermissionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribePermissionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubscriptionsExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDeadLetterNumbersWithTopicAsync(request:DescribeDeadLetterNumbersWithTopicRequest,requestComplation:@escaping (NSNumber?,DescribeDeadLetterNumbersWithTopicResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeMessageAsync(request:DescribeMessageRequest,requestComplation:@escaping ExecuteResult<DescribeMessageResult>) throws {
         jcqJDCloudClient = self
-        try DescribeDeadLetterNumbersWithTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDeadLetterNumbersWithTopicResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeMessageExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSubscriptionAsync(request:DeleteSubscriptionRequest,requestComplation:@escaping (NSNumber?,DeleteSubscriptionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeMessagesByBusinessIdAsync(request:DescribeMessagesByBusinessIdRequest,requestComplation:@escaping ExecuteResult<DescribeMessagesByBusinessIdResult>) throws {
         jcqJDCloudClient = self
-        try DeleteSubscriptionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSubscriptionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeMessagesByBusinessIdExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describePermissionAsync(request:DescribePermissionRequest,requestComplation:@escaping ExecuteResult<DescribePermissionResult>) throws {
+        jcqJDCloudClient = self
+        try DescribePermissionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeDeadLetterNumbersWithTopicAsync(request:DescribeDeadLetterNumbersWithTopicRequest,requestComplation:@escaping ExecuteResult<DescribeDeadLetterNumbersWithTopicResult>) throws {
+        jcqJDCloudClient = self
+        try DescribeDeadLetterNumbersWithTopicExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteSubscriptionAsync(request:DeleteSubscriptionRequest,requestComplation:@escaping ExecuteResult<DeleteSubscriptionResult>) throws {
+        jcqJDCloudClient = self
+        try DeleteSubscriptionExecutor(jdCloudClient: jcqJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension JcqJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(IamJDCloudClient)
+
 public class IamJDCloudClient:NSObject,JDCloudClient{
     
     private final var iamJDCloudClient:IamJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
         iamJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "iam" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "iam/" + "v1"
     
     public let serviceName: String = "iam"
     
@@ -72,839 +72,461 @@ public class IamJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeSubUserPermissionsAsync(request:DescribeSubUserPermissionsRequest,requestComplation:@escaping (NSNumber?,DescribeSubUserPermissionsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSubUserAsync(request:DeleteSubUserRequest,requestComplation:@escaping ExecuteResult<DeleteSubUserResult>) throws {
         iamJDCloudClient = self
-        try DescribeSubUserPermissionsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubUserPermissionsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSubUserAsync(request:DeleteSubUserRequest,requestComplation:@escaping (NSNumber?,DeleteSubUserResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeGroupsAsync(request:DescribeGroupsRequest,requestComplation:@escaping ExecuteResult<DescribeGroupsResult>) throws {
         iamJDCloudClient = self
-        try DeleteSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeGroupsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updatePermissionAsync(request:UpdatePermissionRequest,requestComplation:@escaping (NSNumber?,UpdatePermissionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAttachedGroupPoliciesAsync(request:DescribeAttachedGroupPoliciesRequest,requestComplation:@escaping ExecuteResult<DescribeAttachedGroupPoliciesResult>) throws {
         iamJDCloudClient = self
-        try UpdatePermissionExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdatePermissionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAttachedGroupPoliciesExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func attachSubUserPolicyAsync(request:AttachSubUserPolicyRequest,requestComplation:@escaping (NSNumber?,AttachSubUserPolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSubUserAsync(request:CreateSubUserRequest,requestComplation:@escaping ExecuteResult<CreateSubUserResult>) throws {
         iamJDCloudClient = self
-        try AttachSubUserPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AttachSubUserPolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSubUserAsync(request:CreateSubUserRequest,requestComplation:@escaping (NSNumber?,CreateSubUserResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deletePolicyAsync(request:DeletePolicyRequest,requestComplation:@escaping ExecuteResult<DeletePolicyResult>) throws {
         iamJDCloudClient = self
-        try CreateSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeletePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deletePolicyAsync(request:DeletePolicyRequest,requestComplation:@escaping (NSNumber?,DeletePolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func detachRolePolicyAsync(request:DetachRolePolicyRequest,requestComplation:@escaping ExecuteResult<DetachRolePolicyResult>) throws {
         iamJDCloudClient = self
-        try DeletePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeletePolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DetachRolePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disableSubUserAccessKeyAsync(request:DisableSubUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,DisableSubUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubUserGroupsAsync(request:DescribeSubUserGroupsRequest,requestComplation:@escaping ExecuteResult<DescribeSubUserGroupsResult>) throws {
         iamJDCloudClient = self
-        try DisableSubUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableSubUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubUserGroupsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func detachRolePolicyAsync(request:DetachRolePolicyRequest,requestComplation:@escaping (NSNumber?,DetachRolePolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeGroupAsync(request:DescribeGroupRequest,requestComplation:@escaping ExecuteResult<DescribeGroupResult>) throws {
         iamJDCloudClient = self
-        try DetachRolePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DetachRolePolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createPolicyAsync(request:CreatePolicyRequest,requestComplation:@escaping (NSNumber?,CreatePolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubUserAsync(request:DescribeSubUserRequest,requestComplation:@escaping ExecuteResult<DescribeSubUserResult>) throws {
         iamJDCloudClient = self
-        try CreatePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreatePolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describePermissionsAsync(request:DescribePermissionsRequest,requestComplation:@escaping (NSNumber?,DescribePermissionsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updatePolicyDescriptionAsync(request:UpdatePolicyDescriptionRequest,requestComplation:@escaping ExecuteResult<UpdatePolicyDescriptionResult>) throws {
         iamJDCloudClient = self
-        try DescribePermissionsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribePermissionsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdatePolicyDescriptionExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeGroupAsync(request:DescribeGroupRequest,requestComplation:@escaping (NSNumber?,DescribeGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enabledUserAccessKeyAsync(request:EnabledUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<EnabledUserAccessKeyResult>) throws {
         iamJDCloudClient = self
-        try DescribeGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnabledUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSubUserAsync(request:DescribeSubUserRequest,requestComplation:@escaping (NSNumber?,DescribeSubUserResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateGroupAsync(request:UpdateGroupRequest,requestComplation:@escaping ExecuteResult<UpdateGroupResult>) throws {
         iamJDCloudClient = self
-        try DescribeSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updatePolicyDescriptionAsync(request:UpdatePolicyDescriptionRequest,requestComplation:@escaping (NSNumber?,UpdatePolicyDescriptionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func removePermissionOfSubUserAsync(request:RemovePermissionOfSubUserRequest,requestComplation:@escaping ExecuteResult<RemovePermissionOfSubUserResult>) throws {
         iamJDCloudClient = self
-        try UpdatePolicyDescriptionExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdatePolicyDescriptionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RemovePermissionOfSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteUserAccessKeyAsync(request:DeleteUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,DeleteUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAttachedSubUserPoliciesAsync(request:DescribeAttachedSubUserPoliciesRequest,requestComplation:@escaping ExecuteResult<DescribeAttachedSubUserPoliciesResult>) throws {
         iamJDCloudClient = self
-        try DeleteUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAttachedSubUserPoliciesExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enabledUserAccessKeyAsync(request:EnabledUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,EnabledUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updatePolicyAsync(request:UpdatePolicyRequest,requestComplation:@escaping ExecuteResult<UpdatePolicyResult>) throws {
         iamJDCloudClient = self
-        try EnabledUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnabledUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdatePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func detachSubUserPolicyAsync(request:DetachSubUserPolicyRequest,requestComplation:@escaping (NSNumber?,DetachSubUserPolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func addSubUserToGroupAsync(request:AddSubUserToGroupRequest,requestComplation:@escaping ExecuteResult<AddSubUserToGroupResult>) throws {
         iamJDCloudClient = self
-        try DetachSubUserPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DetachSubUserPolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AddSubUserToGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateGroupAsync(request:UpdateGroupRequest,requestComplation:@escaping (NSNumber?,UpdateGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createGroupAsync(request:CreateGroupRequest,requestComplation:@escaping ExecuteResult<CreateGroupResult>) throws {
         iamJDCloudClient = self
-        try UpdateGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func removePermissionOfSubUserAsync(request:RemovePermissionOfSubUserRequest,requestComplation:@escaping (NSNumber?,RemovePermissionOfSubUserResponse?,NSError?,NSString?)->()) throws {
+    
+    public func attachRolePolicyAsync(request:AttachRolePolicyRequest,requestComplation:@escaping ExecuteResult<AttachRolePolicyResult>) throws {
         iamJDCloudClient = self
-        try RemovePermissionOfSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RemovePermissionOfSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AttachRolePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeUserAccessKeysAsync(request:DescribeUserAccessKeysRequest,requestComplation:@escaping (NSNumber?,DescribeUserAccessKeysResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSubUserAccessKeyAsync(request:DeleteSubUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<DeleteSubUserAccessKeyResult>) throws {
         iamJDCloudClient = self
-        try DescribeUserAccessKeysExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeUserAccessKeysResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSubUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func attachGroupPolicyAsync(request:AttachGroupPolicyRequest,requestComplation:@escaping (NSNumber?,AttachGroupPolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disabledUserAccessKeyAsync(request:DisabledUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<DisabledUserAccessKeyResult>) throws {
         iamJDCloudClient = self
-        try AttachGroupPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AttachGroupPolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisabledUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateSubUserAsync(request:UpdateSubUserRequest,requestComplation:@escaping (NSNumber?,UpdateSubUserResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createRoleAsync(request:CreateRoleRequest,requestComplation:@escaping ExecuteResult<CreateRoleResult>) throws {
         iamJDCloudClient = self
-        try UpdateSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateRoleExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createPermissionAsync(request:CreatePermissionRequest,requestComplation:@escaping (NSNumber?,CreatePermissionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubUserPermissionsAsync(request:DescribeSubUserPermissionsRequest,requestComplation:@escaping ExecuteResult<DescribeSubUserPermissionsResult>) throws {
         iamJDCloudClient = self
-        try CreatePermissionExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreatePermissionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubUserPermissionsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func detachGroupPolicyAsync(request:DetachGroupPolicyRequest,requestComplation:@escaping (NSNumber?,DetachGroupPolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updatePermissionAsync(request:UpdatePermissionRequest,requestComplation:@escaping ExecuteResult<UpdatePermissionResult>) throws {
         iamJDCloudClient = self
-        try DetachGroupPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DetachGroupPolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdatePermissionExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRoleAsync(request:DescribeRoleRequest,requestComplation:@escaping (NSNumber?,DescribeRoleResponse?,NSError?,NSString?)->()) throws {
+    
+    public func attachSubUserPolicyAsync(request:AttachSubUserPolicyRequest,requestComplation:@escaping ExecuteResult<AttachSubUserPolicyResult>) throws {
         iamJDCloudClient = self
-        try DescribeRoleExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRoleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AttachSubUserPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateAssumeRolePolicyAsync(request:UpdateAssumeRolePolicyRequest,requestComplation:@escaping (NSNumber?,UpdateAssumeRolePolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSubUsersAsync(request:DescribeSubUsersRequest,requestComplation:@escaping ExecuteResult<DescribeSubUsersResult>) throws {
         iamJDCloudClient = self
-        try UpdateAssumeRolePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateAssumeRolePolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSubUsersExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addSubUserToGroupAsync(request:AddSubUserToGroupRequest,requestComplation:@escaping (NSNumber?,AddSubUserToGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableSubUserAccessKeyAsync(request:DisableSubUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<DisableSubUserAccessKeyResult>) throws {
         iamJDCloudClient = self
-        try AddSubUserToGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddSubUserToGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableSubUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createGroupAsync(request:CreateGroupRequest,requestComplation:@escaping (NSNumber?,CreateGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describePoliciesAsync(request:DescribePoliciesRequest,requestComplation:@escaping ExecuteResult<DescribePoliciesResult>) throws {
         iamJDCloudClient = self
-        try CreateGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribePoliciesExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteGroupAsync(request:DeleteGroupRequest,requestComplation:@escaping (NSNumber?,DeleteGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createPolicyAsync(request:CreatePolicyRequest,requestComplation:@escaping ExecuteResult<CreatePolicyResult>) throws {
         iamJDCloudClient = self
-        try DeleteGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreatePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describePermissionDetailAsync(request:DescribePermissionDetailRequest,requestComplation:@escaping (NSNumber?,DescribePermissionDetailResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describePermissionsAsync(request:DescribePermissionsRequest,requestComplation:@escaping ExecuteResult<DescribePermissionsResult>) throws {
         iamJDCloudClient = self
-        try DescribePermissionDetailExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribePermissionDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribePermissionsExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func addPermissionsToSubUserAsync(request:AddPermissionsToSubUserRequest,requestComplation:@escaping (NSNumber?,AddPermissionsToSubUserResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRolePoliciesAsync(request:DescribeRolePoliciesRequest,requestComplation:@escaping ExecuteResult<DescribeRolePoliciesResult>) throws {
         iamJDCloudClient = self
-        try AddPermissionsToSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AddPermissionsToSubUserResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRolePoliciesExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describePolicyAsync(request:DescribePolicyRequest,requestComplation:@escaping (NSNumber?,DescribePolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteUserAccessKeyAsync(request:DeleteUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<DeleteUserAccessKeyResult>) throws {
         iamJDCloudClient = self
-        try DescribePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribePolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func attachRolePolicyAsync(request:AttachRolePolicyRequest,requestComplation:@escaping (NSNumber?,AttachRolePolicyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func detachSubUserPolicyAsync(request:DetachSubUserPolicyRequest,requestComplation:@escaping ExecuteResult<DetachSubUserPolicyResult>) throws {
         iamJDCloudClient = self
-        try AttachRolePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(AttachRolePolicyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DetachSubUserPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSubUserAccessKeyAsync(request:DeleteSubUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,DeleteSubUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeUserAccessKeysAsync(request:DescribeUserAccessKeysRequest,requestComplation:@escaping ExecuteResult<DescribeUserAccessKeysResult>) throws {
         iamJDCloudClient = self
-        try DeleteSubUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSubUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeUserAccessKeysExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disabledUserAccessKeyAsync(request:DisabledUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,DisabledUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func attachGroupPolicyAsync(request:AttachGroupPolicyRequest,requestComplation:@escaping ExecuteResult<AttachGroupPolicyResult>) throws {
         iamJDCloudClient = self
-        try DisabledUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisabledUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try AttachGroupPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createUserAccessKeyAsync(request:CreateUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,CreateUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateSubUserAsync(request:UpdateSubUserRequest,requestComplation:@escaping ExecuteResult<UpdateSubUserResult>) throws {
         iamJDCloudClient = self
-        try CreateUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func removeSubUserFromGroupAsync(request:RemoveSubUserFromGroupRequest,requestComplation:@escaping (NSNumber?,RemoveSubUserFromGroupResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeGroupSubUsersAsync(request:DescribeGroupSubUsersRequest,requestComplation:@escaping ExecuteResult<DescribeGroupSubUsersResult>) throws {
         iamJDCloudClient = self
-        try RemoveSubUserFromGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RemoveSubUserFromGroupResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeGroupSubUsersExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createRoleAsync(request:CreateRoleRequest,requestComplation:@escaping (NSNumber?,CreateRoleResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createPermissionAsync(request:CreatePermissionRequest,requestComplation:@escaping ExecuteResult<CreatePermissionResult>) throws {
         iamJDCloudClient = self
-        try CreateRoleExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateRoleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreatePermissionExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteRoleAsync(request:DeleteRoleRequest,requestComplation:@escaping (NSNumber?,DeleteRoleResponse?,NSError?,NSString?)->()) throws {
+    
+    public func detachGroupPolicyAsync(request:DetachGroupPolicyRequest,requestComplation:@escaping ExecuteResult<DetachGroupPolicyResult>) throws {
         iamJDCloudClient = self
-        try DeleteRoleExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteRoleResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DetachGroupPolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableSubUserAccessKeyAsync(request:EnableSubUserAccessKeyRequest,requestComplation:@escaping (NSNumber?,EnableSubUserAccessKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRoleAsync(request:DescribeRoleRequest,requestComplation:@escaping ExecuteResult<DescribeRoleResult>) throws {
         iamJDCloudClient = self
-        try EnableSubUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableSubUserAccessKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRoleExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func updateAssumeRolePolicyAsync(request:UpdateAssumeRolePolicyRequest,requestComplation:@escaping ExecuteResult<UpdateAssumeRolePolicyResult>) throws {
+        iamJDCloudClient = self
+        try UpdateAssumeRolePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describeRolesAsync(request:DescribeRolesRequest,requestComplation:@escaping ExecuteResult<DescribeRolesResult>) throws {
+        iamJDCloudClient = self
+        try DescribeRolesExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteGroupAsync(request:DeleteGroupRequest,requestComplation:@escaping ExecuteResult<DeleteGroupResult>) throws {
+        iamJDCloudClient = self
+        try DeleteGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describePermissionDetailAsync(request:DescribePermissionDetailRequest,requestComplation:@escaping ExecuteResult<DescribePermissionDetailResult>) throws {
+        iamJDCloudClient = self
+        try DescribePermissionDetailExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func addPermissionsToSubUserAsync(request:AddPermissionsToSubUserRequest,requestComplation:@escaping ExecuteResult<AddPermissionsToSubUserResult>) throws {
+        iamJDCloudClient = self
+        try AddPermissionsToSubUserExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func describePolicyAsync(request:DescribePolicyRequest,requestComplation:@escaping ExecuteResult<DescribePolicyResult>) throws {
+        iamJDCloudClient = self
+        try DescribePolicyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func createUserAccessKeyAsync(request:CreateUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<CreateUserAccessKeyResult>) throws {
+        iamJDCloudClient = self
+        try CreateUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func removeSubUserFromGroupAsync(request:RemoveSubUserFromGroupRequest,requestComplation:@escaping ExecuteResult<RemoveSubUserFromGroupResult>) throws {
+        iamJDCloudClient = self
+        try RemoveSubUserFromGroupExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func deleteRoleAsync(request:DeleteRoleRequest,requestComplation:@escaping ExecuteResult<DeleteRoleResult>) throws {
+        iamJDCloudClient = self
+        try DeleteRoleExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func enableSubUserAccessKeyAsync(request:EnableSubUserAccessKeyRequest,requestComplation:@escaping ExecuteResult<EnableSubUserAccessKeyResult>) throws {
+        iamJDCloudClient = self
+        try EnableSubUserAccessKeyExecutor(jdCloudClient: iamJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension IamJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

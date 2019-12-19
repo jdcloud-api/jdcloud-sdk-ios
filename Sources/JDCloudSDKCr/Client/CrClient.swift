@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(CrJDCloudClient)
+
 public class CrJDCloudClient:NSObject,JDCloudClient{
     
     private final var crJDCloudClient:CrJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class CrJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class CrJDCloudClient:NSObject,JDCloudClient{
         crJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "cr" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "cr/" + "v1"
     
     public let serviceName: String = "cr"
     
@@ -72,335 +72,155 @@ public class CrJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func deleteImageAsync(request:DeleteImageRequest,requestComplation:@escaping (NSNumber?,DeleteImageResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteImageAsync(request:DeleteImageRequest,requestComplation:@escaping ExecuteResult<DeleteImageResult>) throws {
         crJDCloudClient = self
-        try DeleteImageExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteImageResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteImageExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRepositoriesAsync(request:DescribeRepositoriesRequest,requestComplation:@escaping (NSNumber?,DescribeRepositoriesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRepositoriesAsync(request:DescribeRepositoriesRequest,requestComplation:@escaping ExecuteResult<DescribeRepositoriesResult>) throws {
         crJDCloudClient = self
-        try DescribeRepositoriesExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRepositoriesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRepositoriesExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func releaseAuthorizationTokenAsync(request:ReleaseAuthorizationTokenRequest,requestComplation:@escaping (NSNumber?,ReleaseAuthorizationTokenResponse?,NSError?,NSString?)->()) throws {
+    
+    public func releaseAuthorizationTokenAsync(request:ReleaseAuthorizationTokenRequest,requestComplation:@escaping ExecuteResult<ReleaseAuthorizationTokenResult>) throws {
         crJDCloudClient = self
-        try ReleaseAuthorizationTokenExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ReleaseAuthorizationTokenResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ReleaseAuthorizationTokenExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeAuthorizationTokensAsync(request:DescribeAuthorizationTokensRequest,requestComplation:@escaping (NSNumber?,DescribeAuthorizationTokensResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeAuthorizationTokensAsync(request:DescribeAuthorizationTokensRequest,requestComplation:@escaping ExecuteResult<DescribeAuthorizationTokensResult>) throws {
         crJDCloudClient = self
-        try DescribeAuthorizationTokensExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeAuthorizationTokensResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeAuthorizationTokensExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func checkRepositoryNameAsync(request:CheckRepositoryNameRequest,requestComplation:@escaping (NSNumber?,CheckRepositoryNameResponse?,NSError?,NSString?)->()) throws {
+    
+    public func checkRepositoryNameAsync(request:CheckRepositoryNameRequest,requestComplation:@escaping ExecuteResult<CheckRepositoryNameResult>) throws {
         crJDCloudClient = self
-        try CheckRepositoryNameExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CheckRepositoryNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CheckRepositoryNameExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeImagesAsync(request:DescribeImagesRequest,requestComplation:@escaping (NSNumber?,DescribeImagesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeImagesAsync(request:DescribeImagesRequest,requestComplation:@escaping ExecuteResult<DescribeImagesResult>) throws {
         crJDCloudClient = self
-        try DescribeImagesExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeImagesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeImagesExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRegistriesAsync(request:DescribeRegistriesRequest,requestComplation:@escaping (NSNumber?,DescribeRegistriesResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRegistriesAsync(request:DescribeRegistriesRequest,requestComplation:@escaping ExecuteResult<DescribeRegistriesResult>) throws {
         crJDCloudClient = self
-        try DescribeRegistriesExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRegistriesResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRegistriesExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeRegistryAsync(request:DescribeRegistryRequest,requestComplation:@escaping (NSNumber?,DescribeRegistryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeRegistryAsync(request:DescribeRegistryRequest,requestComplation:@escaping ExecuteResult<DescribeRegistryResult>) throws {
         crJDCloudClient = self
-        try DescribeRegistryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeRegistryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeRegistryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func getAuthorizationTokenAsync(request:GetAuthorizationTokenRequest,requestComplation:@escaping (NSNumber?,GetAuthorizationTokenResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getAuthorizationTokenAsync(request:GetAuthorizationTokenRequest,requestComplation:@escaping ExecuteResult<GetAuthorizationTokenResult>) throws {
         crJDCloudClient = self
-        try GetAuthorizationTokenExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GetAuthorizationTokenResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetAuthorizationTokenExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createRepositoryAsync(request:CreateRepositoryRequest,requestComplation:@escaping (NSNumber?,CreateRepositoryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createRepositoryAsync(request:CreateRepositoryRequest,requestComplation:@escaping ExecuteResult<CreateRepositoryResult>) throws {
         crJDCloudClient = self
-        try CreateRepositoryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateRepositoryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateRepositoryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeQuotasAsync(request:DescribeQuotasRequest,requestComplation:@escaping (NSNumber?,DescribeQuotasResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeQuotasAsync(request:DescribeQuotasRequest,requestComplation:@escaping ExecuteResult<DescribeQuotasResult>) throws {
         crJDCloudClient = self
-        try DescribeQuotasExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeQuotasResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeQuotasExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createRegistryAsync(request:CreateRegistryRequest,requestComplation:@escaping (NSNumber?,CreateRegistryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createRegistryAsync(request:CreateRegistryRequest,requestComplation:@escaping ExecuteResult<CreateRegistryResult>) throws {
         crJDCloudClient = self
-        try CreateRegistryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateRegistryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateRegistryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteRepositoryAsync(request:DeleteRepositoryRequest,requestComplation:@escaping (NSNumber?,DeleteRepositoryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteRepositoryAsync(request:DeleteRepositoryRequest,requestComplation:@escaping ExecuteResult<DeleteRepositoryResult>) throws {
         crJDCloudClient = self
-        try DeleteRepositoryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteRepositoryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteRepositoryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteRegistryAsync(request:DeleteRegistryRequest,requestComplation:@escaping (NSNumber?,DeleteRegistryResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteRegistryAsync(request:DeleteRegistryRequest,requestComplation:@escaping ExecuteResult<DeleteRegistryResult>) throws {
         crJDCloudClient = self
-        try DeleteRegistryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteRegistryResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteRegistryExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func checkRegistryNameAsync(request:CheckRegistryNameRequest,requestComplation:@escaping (NSNumber?,CheckRegistryNameResponse?,NSError?,NSString?)->()) throws {
+    
+    public func checkRegistryNameAsync(request:CheckRegistryNameRequest,requestComplation:@escaping ExecuteResult<CheckRegistryNameResult>) throws {
         crJDCloudClient = self
-        try CheckRegistryNameExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CheckRegistryNameResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CheckRegistryNameExecutor(jdCloudClient: crJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension CrJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

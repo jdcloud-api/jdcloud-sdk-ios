@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(DiskJDCloudClient)
+
 public class DiskJDCloudClient:NSObject,JDCloudClient{
     
     private final var diskJDCloudClient:DiskJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class DiskJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class DiskJDCloudClient:NSObject,JDCloudClient{
         diskJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "disk" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "disk/" + "v1"
     
     public let serviceName: String = "disk"
     
@@ -72,272 +72,128 @@ public class DiskJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func modifySnapshotAttributeAsync(request:ModifySnapshotAttributeRequest,requestComplation:@escaping (NSNumber?,ModifySnapshotAttributeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifySnapshotAttributeAsync(request:ModifySnapshotAttributeRequest,requestComplation:@escaping ExecuteResult<ModifySnapshotAttributeResult>) throws {
         diskJDCloudClient = self
-        try ModifySnapshotAttributeExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifySnapshotAttributeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifySnapshotAttributeExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSnapshotAsync(request:DeleteSnapshotRequest,requestComplation:@escaping (NSNumber?,DeleteSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSnapshotAsync(request:DeleteSnapshotRequest,requestComplation:@escaping ExecuteResult<DeleteSnapshotResult>) throws {
         diskJDCloudClient = self
-        try DeleteSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createDisksAsync(request:CreateDisksRequest,requestComplation:@escaping (NSNumber?,CreateDisksResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createDisksAsync(request:CreateDisksRequest,requestComplation:@escaping ExecuteResult<CreateDisksResult>) throws {
         diskJDCloudClient = self
-        try CreateDisksExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateDisksResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateDisksExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSnapshotsAsync(request:DescribeSnapshotsRequest,requestComplation:@escaping (NSNumber?,DescribeSnapshotsResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSnapshotsAsync(request:DescribeSnapshotsRequest,requestComplation:@escaping ExecuteResult<DescribeSnapshotsResult>) throws {
         diskJDCloudClient = self
-        try DescribeSnapshotsExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSnapshotsResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSnapshotsExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func restoreDiskAsync(request:RestoreDiskRequest,requestComplation:@escaping (NSNumber?,RestoreDiskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func restoreDiskAsync(request:RestoreDiskRequest,requestComplation:@escaping ExecuteResult<RestoreDiskResult>) throws {
         diskJDCloudClient = self
-        try RestoreDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(RestoreDiskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try RestoreDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDiskAsync(request:DescribeDiskRequest,requestComplation:@escaping (NSNumber?,DescribeDiskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDiskAsync(request:DescribeDiskRequest,requestComplation:@escaping ExecuteResult<DescribeDiskResult>) throws {
         diskJDCloudClient = self
-        try DescribeDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDiskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func extendDiskAsync(request:ExtendDiskRequest,requestComplation:@escaping (NSNumber?,ExtendDiskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func extendDiskAsync(request:ExtendDiskRequest,requestComplation:@escaping ExecuteResult<ExtendDiskResult>) throws {
         diskJDCloudClient = self
-        try ExtendDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExtendDiskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExtendDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func modifyDiskAttributeAsync(request:ModifyDiskAttributeRequest,requestComplation:@escaping (NSNumber?,ModifyDiskAttributeResponse?,NSError?,NSString?)->()) throws {
+    
+    public func modifyDiskAttributeAsync(request:ModifyDiskAttributeRequest,requestComplation:@escaping ExecuteResult<ModifyDiskAttributeResult>) throws {
         diskJDCloudClient = self
-        try ModifyDiskAttributeExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ModifyDiskAttributeResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ModifyDiskAttributeExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeDisksAsync(request:DescribeDisksRequest,requestComplation:@escaping (NSNumber?,DescribeDisksResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeDisksAsync(request:DescribeDisksRequest,requestComplation:@escaping ExecuteResult<DescribeDisksResult>) throws {
         diskJDCloudClient = self
-        try DescribeDisksExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeDisksResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeDisksExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSnapshotAsync(request:CreateSnapshotRequest,requestComplation:@escaping (NSNumber?,CreateSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSnapshotAsync(request:CreateSnapshotRequest,requestComplation:@escaping ExecuteResult<CreateSnapshotResult>) throws {
         diskJDCloudClient = self
-        try CreateSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSnapshotAsync(request:DescribeSnapshotRequest,requestComplation:@escaping (NSNumber?,DescribeSnapshotResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSnapshotAsync(request:DescribeSnapshotRequest,requestComplation:@escaping ExecuteResult<DescribeSnapshotResult>) throws {
         diskJDCloudClient = self
-        try DescribeSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSnapshotResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSnapshotExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteDiskAsync(request:DeleteDiskRequest,requestComplation:@escaping (NSNumber?,DeleteDiskResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteDiskAsync(request:DeleteDiskRequest,requestComplation:@escaping ExecuteResult<DeleteDiskResult>) throws {
         diskJDCloudClient = self
-        try DeleteDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteDiskResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteDiskExecutor(jdCloudClient: diskJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
-
     
 }
 
 
 public extension DiskJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)

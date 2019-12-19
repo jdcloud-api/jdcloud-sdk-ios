@@ -12,7 +12,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   JDCLOUD 密钥管理服务(Key Management Service) API
+   密钥管理服务
    基于硬件保护密钥的安全数据托管服务
 
    OpenAPI spec version: v1
@@ -25,13 +25,13 @@
 
 import Foundation
 import JDCloudSDKCore
-@objc(KmsJDCloudClient)
+
 public class KmsJDCloudClient:NSObject,JDCloudClient{
     
     private final var kmsJDCloudClient:KmsJDCloudClient!
 
 
-    @objc public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
+    public convenience init(credential:Credential,sdkEnvironment:SDKEnvironment) {
         self.init()
         self.credential = credential
         self.sdkEnvironment = sdkEnvironment
@@ -39,7 +39,7 @@ public class KmsJDCloudClient:NSObject,JDCloudClient{
     }
 
 
-    @objc public override init() {
+    public override init() {
 
         if(GlobalConfig.credential == nil)
         {
@@ -58,7 +58,7 @@ public class KmsJDCloudClient:NSObject,JDCloudClient{
         kmsJDCloudClient = self
     }
     
-    public let userAgent: String = "JdcloudSdkSwift" + "0.0.1" + "kms" + "v1"
+    public let userAgent: String = "JdcloudSdkSwift/" + "0.0.1/" + "kms/" + "v1"
     
     public let serviceName: String = "kms"
     
@@ -72,692 +72,335 @@ public class KmsJDCloudClient:NSObject,JDCloudClient{
     
     public var customHeader: [String : String] = [String:String]()
 
-    @objc public var httpRequestProtocol: String = "https"
+    public var httpRequestProtocol: String = "https"
 
-    @objc public func addCustomer(key: String, value: String) {
+    public func addCustomer(key: String, value: String) {
         customHeader[key] = value
     }
 
 
 
-    @objc
-    public func describeKeyListAsync(request:DescribeKeyListRequest,requestComplation:@escaping (NSNumber?,DescribeKeyListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func getPublicKeyAsync(request:GetPublicKeyRequest,requestComplation:@escaping ExecuteResult<GetPublicKeyResult>) throws {
         kmsJDCloudClient = self
-        try DescribeKeyListExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeKeyListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GetPublicKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateSecretVersionAsync(request:UpdateSecretVersionRequest,requestComplation:@escaping (NSNumber?,UpdateSecretVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeKeyListAsync(request:DescribeKeyListRequest,requestComplation:@escaping ExecuteResult<DescribeKeyListResult>) throws {
         kmsJDCloudClient = self
-        try UpdateSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateSecretVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeKeyListExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func generateDataKeyAsync(request:GenerateDataKeyRequest,requestComplation:@escaping (NSNumber?,GenerateDataKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateSecretVersionAsync(request:UpdateSecretVersionRequest,requestComplation:@escaping ExecuteResult<UpdateSecretVersionResult>) throws {
         kmsJDCloudClient = self
-        try GenerateDataKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(GenerateDataKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSecretAsync(request:CreateSecretRequest,requestComplation:@escaping (NSNumber?,CreateSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func generateDataKeyAsync(request:GenerateDataKeyRequest,requestComplation:@escaping ExecuteResult<GenerateDataKeyResult>) throws {
         kmsJDCloudClient = self
-        try CreateSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try GenerateDataKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableKeyVersionAsync(request:EnableKeyVersionRequest,requestComplation:@escaping (NSNumber?,EnableKeyVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSecretAsync(request:CreateSecretRequest,requestComplation:@escaping ExecuteResult<CreateSecretResult>) throws {
         kmsJDCloudClient = self
-        try EnableKeyVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableKeyVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func encryptAsync(request:EncryptRequest,requestComplation:@escaping (NSNumber?,EncryptResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableKeyVersionAsync(request:EnableKeyVersionRequest,requestComplation:@escaping ExecuteResult<EnableKeyVersionResult>) throws {
         kmsJDCloudClient = self
-        try EncryptExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EncryptResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableKeyVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableKeyAsync(request:EnableKeyRequest,requestComplation:@escaping (NSNumber?,EnableKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func encryptAsync(request:EncryptRequest,requestComplation:@escaping ExecuteResult<EncryptResult>) throws {
         kmsJDCloudClient = self
-        try EnableKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EncryptExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func cancelKeyDeletionAsync(request:CancelKeyDeletionRequest,requestComplation:@escaping (NSNumber?,CancelKeyDeletionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableKeyAsync(request:EnableKeyRequest,requestComplation:@escaping ExecuteResult<EnableKeyResult>) throws {
         kmsJDCloudClient = self
-        try CancelKeyDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CancelKeyDeletionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSecretAsync(request:DeleteSecretRequest,requestComplation:@escaping (NSNumber?,DeleteSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func cancelKeyDeletionAsync(request:CancelKeyDeletionRequest,requestComplation:@escaping ExecuteResult<CancelKeyDeletionResult>) throws {
         kmsJDCloudClient = self
-        try DeleteSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CancelKeyDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disableSecretAsync(request:DisableSecretRequest,requestComplation:@escaping (NSNumber?,DisableSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSecretAsync(request:DeleteSecretRequest,requestComplation:@escaping ExecuteResult<DeleteSecretResult>) throws {
         kmsJDCloudClient = self
-        try DisableSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disableSecretVersionAsync(request:DisableSecretVersionRequest,requestComplation:@escaping (NSNumber?,DisableSecretVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableSecretAsync(request:DisableSecretRequest,requestComplation:@escaping ExecuteResult<DisableSecretResult>) throws {
         kmsJDCloudClient = self
-        try DisableSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableSecretVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createKeyAsync(request:CreateKeyRequest,requestComplation:@escaping (NSNumber?,CreateKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableSecretVersionAsync(request:DisableSecretVersionRequest,requestComplation:@escaping ExecuteResult<DisableSecretVersionResult>) throws {
         kmsJDCloudClient = self
-        try CreateKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateKeyDescriptionAsync(request:UpdateKeyDescriptionRequest,requestComplation:@escaping (NSNumber?,UpdateKeyDescriptionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createKeyAsync(request:CreateKeyRequest,requestComplation:@escaping ExecuteResult<CreateKeyResult>) throws {
         kmsJDCloudClient = self
-        try UpdateKeyDescriptionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateKeyDescriptionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSecretVersionListAsync(request:DescribeSecretVersionListRequest,requestComplation:@escaping (NSNumber?,DescribeSecretVersionListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func updateKeyDescriptionAsync(request:UpdateKeyDescriptionRequest,requestComplation:@escaping ExecuteResult<UpdateKeyDescriptionResult>) throws {
         kmsJDCloudClient = self
-        try DescribeSecretVersionListExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSecretVersionListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try UpdateKeyDescriptionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func exportSecretAsync(request:ExportSecretRequest,requestComplation:@escaping (NSNumber?,ExportSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func signAsync(request:SignRequest,requestComplation:@escaping ExecuteResult<SignResult>) throws {
         kmsJDCloudClient = self
-        try ExportSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ExportSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try SignExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func deleteSecretVersionAsync(request:DeleteSecretVersionRequest,requestComplation:@escaping (NSNumber?,DeleteSecretVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSecretVersionListAsync(request:DescribeSecretVersionListRequest,requestComplation:@escaping ExecuteResult<DescribeSecretVersionListResult>) throws {
         kmsJDCloudClient = self
-        try DeleteSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DeleteSecretVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSecretVersionListExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeKeyAsync(request:DescribeKeyRequest,requestComplation:@escaping (NSNumber?,DescribeKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func exportSecretAsync(request:ExportSecretRequest,requestComplation:@escaping ExecuteResult<ExportSecretResult>) throws {
         kmsJDCloudClient = self
-        try DescribeKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ExportSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func importSecretAsync(request:ImportSecretRequest,requestComplation:@escaping (NSNumber?,ImportSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func validateAsync(request:ValidateRequest,requestComplation:@escaping ExecuteResult<ValidateResult>) throws {
         kmsJDCloudClient = self
-        try ImportSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ImportSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ValidateExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func scheduleKeyDeletionAsync(request:ScheduleKeyDeletionRequest,requestComplation:@escaping (NSNumber?,ScheduleKeyDeletionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func deleteSecretVersionAsync(request:DeleteSecretVersionRequest,requestComplation:@escaping ExecuteResult<DeleteSecretVersionResult>) throws {
         kmsJDCloudClient = self
-        try ScheduleKeyDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ScheduleKeyDeletionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DeleteSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func keyRotationAsync(request:KeyRotationRequest,requestComplation:@escaping (NSNumber?,KeyRotationResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeKeyAsync(request:DescribeKeyRequest,requestComplation:@escaping ExecuteResult<DescribeKeyResult>) throws {
         kmsJDCloudClient = self
-        try KeyRotationExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(KeyRotationResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSecretListAsync(request:DescribeSecretListRequest,requestComplation:@escaping (NSNumber?,DescribeSecretListResponse?,NSError?,NSString?)->()) throws {
+    
+    public func importSecretAsync(request:ImportSecretRequest,requestComplation:@escaping ExecuteResult<ImportSecretResult>) throws {
         kmsJDCloudClient = self
-        try DescribeSecretListExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSecretListResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ImportSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeSecretVersionInfoAsync(request:DescribeSecretVersionInfoRequest,requestComplation:@escaping (NSNumber?,DescribeSecretVersionInfoResponse?,NSError?,NSString?)->()) throws {
+    
+    public func scheduleKeyDeletionAsync(request:ScheduleKeyDeletionRequest,requestComplation:@escaping ExecuteResult<ScheduleKeyDeletionResult>) throws {
         kmsJDCloudClient = self
-        try DescribeSecretVersionInfoExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeSecretVersionInfoResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ScheduleKeyDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disableKeyVersionAsync(request:DisableKeyVersionRequest,requestComplation:@escaping (NSNumber?,DisableKeyVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func keyRotationAsync(request:KeyRotationRequest,requestComplation:@escaping ExecuteResult<KeyRotationResult>) throws {
         kmsJDCloudClient = self
-        try DisableKeyVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableKeyVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try KeyRotationExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func decryptAsync(request:DecryptRequest,requestComplation:@escaping (NSNumber?,DecryptResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSecretListAsync(request:DescribeSecretListRequest,requestComplation:@escaping ExecuteResult<DescribeSecretListResult>) throws {
         kmsJDCloudClient = self
-        try DecryptExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DecryptResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSecretListExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableSecretAsync(request:EnableSecretRequest,requestComplation:@escaping (NSNumber?,EnableSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func describeSecretVersionInfoAsync(request:DescribeSecretVersionInfoRequest,requestComplation:@escaping ExecuteResult<DescribeSecretVersionInfoResult>) throws {
         kmsJDCloudClient = self
-        try EnableSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DescribeSecretVersionInfoExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func disableKeyAsync(request:DisableKeyRequest,requestComplation:@escaping (NSNumber?,DisableKeyResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableKeyVersionAsync(request:DisableKeyVersionRequest,requestComplation:@escaping ExecuteResult<DisableKeyVersionResult>) throws {
         kmsJDCloudClient = self
-        try DisableKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DisableKeyResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableKeyVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func enableSecretVersionAsync(request:EnableSecretVersionRequest,requestComplation:@escaping (NSNumber?,EnableSecretVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func decryptAsync(request:DecryptRequest,requestComplation:@escaping ExecuteResult<DecryptResult>) throws {
         kmsJDCloudClient = self
-        try EnableSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(EnableSecretVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DecryptExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func scheduleKeyVersionDeletionAsync(request:ScheduleKeyVersionDeletionRequest,requestComplation:@escaping (NSNumber?,ScheduleKeyVersionDeletionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableSecretAsync(request:EnableSecretRequest,requestComplation:@escaping ExecuteResult<EnableSecretResult>) throws {
         kmsJDCloudClient = self
-        try ScheduleKeyVersionDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(ScheduleKeyVersionDeletionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func createSecretVersionAsync(request:CreateSecretVersionRequest,requestComplation:@escaping (NSNumber?,CreateSecretVersionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func disableKeyAsync(request:DisableKeyRequest,requestComplation:@escaping ExecuteResult<DisableKeyResult>) throws {
         kmsJDCloudClient = self
-        try CreateSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CreateSecretVersionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try DisableKeyExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func describeKeyDetailAsync(request:DescribeKeyDetailRequest,requestComplation:@escaping (NSNumber?,DescribeKeyDetailResponse?,NSError?,NSString?)->()) throws {
+    
+    public func enableSecretVersionAsync(request:EnableSecretVersionRequest,requestComplation:@escaping ExecuteResult<EnableSecretVersionResult>) throws {
         kmsJDCloudClient = self
-        try DescribeKeyDetailExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(DescribeKeyDetailResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try EnableSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func updateSecretAsync(request:UpdateSecretRequest,requestComplation:@escaping (NSNumber?,UpdateSecretResponse?,NSError?,NSString?)->()) throws {
+    
+    public func scheduleKeyVersionDeletionAsync(request:ScheduleKeyVersionDeletionRequest,requestComplation:@escaping ExecuteResult<ScheduleKeyVersionDeletionResult>) throws {
         kmsJDCloudClient = self
-        try UpdateSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(UpdateSecretResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try ScheduleKeyVersionDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
-
-    @objc
-    public func cancelKeyVersionDeletionAsync(request:CancelKeyVersionDeletionRequest,requestComplation:@escaping (NSNumber?,CancelKeyVersionDeletionResponse?,NSError?,NSString?)->()) throws {
+    
+    public func createSecretVersionAsync(request:CreateSecretVersionRequest,requestComplation:@escaping ExecuteResult<CreateSecretVersionResult>) throws {
         kmsJDCloudClient = self
-        try CancelKeyVersionDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,sdkRequestError,resultString) in
-            if( resultString != nil )
-            {
-                do{
-                    let responseData = resultString!.data(using: .utf8)
-                    let result = try JSONDecoder().decode(CancelKeyVersionDeletionResponse.self, from: responseData!)
-                    requestComplation(statusCode as NSNumber?,result,sdkRequestError as NSError? ,resultString as NSString?)
-                }catch{
-                    requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-                }
-            }else{
-                requestComplation(statusCode as NSNumber?, nil,sdkRequestError as NSError?,resultString as NSString?)
-            }
+        try CreateSecretVersionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
 
         }
     }
 
+    
+    public func describeKeyDetailAsync(request:DescribeKeyDetailRequest,requestComplation:@escaping ExecuteResult<DescribeKeyDetailResult>) throws {
+        kmsJDCloudClient = self
+        try DescribeKeyDetailExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func updateSecretAsync(request:UpdateSecretRequest,requestComplation:@escaping ExecuteResult<UpdateSecretResult>) throws {
+        kmsJDCloudClient = self
+        try UpdateSecretExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
+
+    
+    public func cancelKeyVersionDeletionAsync(request:CancelKeyVersionDeletionRequest,requestComplation:@escaping ExecuteResult<CancelKeyVersionDeletionResult>) throws {
+        kmsJDCloudClient = self
+        try CancelKeyVersionDeletionExecutor(jdCloudClient: kmsJDCloudClient).executeAsync(request: request) { (statusCode,result,error,data) in
+            requestComplation(statusCode,result,error,data)
+
+        }
+    }
     
 }
 
 
 public extension KmsJDCloudClient{
 
-    @objc convenience init(credential: Credential) {
+    convenience init(credential: Credential) {
 
         var sdkEnvironment:SDKEnvironment
         if(GlobalConfig.sdkEnvironment != nil)
