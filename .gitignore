@@ -1,4 +1,6 @@
+.DS_Store
 /.build/
 *.podspec
 *.sh
 /build/
+/Podspec/
